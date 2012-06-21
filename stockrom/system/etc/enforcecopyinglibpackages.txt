@@ -1,0 +1,2 @@
+1
+com.inventec.dreye.samsung
