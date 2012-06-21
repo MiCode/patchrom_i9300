@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.DeviceDefault.EditText.NumberPickerInputText" parent="@style/Widget.Holo.EditText.NumberPickerInputText">
+        <item name="textSize">40.0dip</item>
+        <item name="textColor">@color/tw_number_picker_text_holo_dark</item>
+        <item name="gravity">center</item>
+        <item name="background">@null</item>
+        <item name="paddingTop">0.0dip</item>
+        <item name="paddingBottom">0.0dip</item>
+        <item name="singleLine">true</item>
+        <item name="selectAllOnFocus">true</item>
+    </style>
+    <style name="Widget.DeviceDefault.Light.EditText.NumberPickerInputText" parent="@style/Widget.Holo.Light.EditText.NumberPickerInputText">
+        <item name="textSize">40.0dip</item>
+        <item name="gravity">center</item>
+        <item name="background">@null</item>
+        <item name="paddingTop">0.0dip</item>
+        <item name="paddingBottom">0.0dip</item>
+        <item name="singleLine">true</item>
+        <item name="selectAllOnFocus">true</item>
+    </style>
+</resources>

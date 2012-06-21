@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/windowTitleBar" android:background="@drawable/mw_window_title_bg" android:paddingTop="5.0dip" android:paddingRight="5.0px" android:paddingBottom="5.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="20.0sp" android:textStyle="bold" android:id="@id/titleText" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true">
+        <ImageButton android:id="@id/hiddenButton" android:background="@null" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:src="@drawable/mw_minimize" />
+        <ImageButton android:id="@id/maximizeButton" android:background="@null" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:src="@drawable/mw_maximize" />
+        <ImageButton android:id="@id/minimizeButton" android:background="@null" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:src="@drawable/mw_minimize" />
+        <ImageButton android:id="@id/exitButton" android:background="@null" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/mw_window_exit_button" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/musicwidget_root" android:layout_width="fill_parent" android:layout_height="85.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/MaxMusicController" android:background="@drawable/keyguard_controller_bg" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:id="@id/MinMusicControllerHandle" android:layout_width="fill_parent" android:layout_height="30.0dip" />
+        <LinearLayout android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/BoxInMaxMusicController" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <FrameLayout android:paddingLeft="8.0dip" android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <ImageView android:id="@id/AlbumArtWithImage" android:layout_width="70.0dip" android:layout_height="70.0dip" android:scaleType="fitXY" />
+            </FrameLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout android:paddingTop="8.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <RelativeLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+                        <ImageButton android:id="@id/zzz_MusicBoxReword" android:background="@drawable/keyguard_selector_rew" android:longClickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    </RelativeLayout>
+                    <RelativeLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+                        <ImageButton android:id="@id/zzz_MusicBoxPause" android:background="@drawable/keyguard_selector_pause" android:longClickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    </RelativeLayout>
+                    <RelativeLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+                        <ImageButton android:id="@id/zzz_MusicBoxForward" android:background="@drawable/keyguard_selector_ff" android:longClickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    </RelativeLayout>
+                </LinearLayout>
+                <LinearLayout android:gravity="top|center" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <TextView android:textSize="15.0sp" android:textColor="#ffffffff" android:ellipsize="marquee" android:gravity="top|center" android:id="@id/MusicInfoTextInMax" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textSize="15.0sp" android:textColor="#ffffffff" android:ellipsize="marquee" android:gravity="left|center" android:id="@id/MusicInfoTextInMin" android:paddingRight="5.0dip" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:drawableLeft="@drawable/keyguard_controller_mini_music_ic_music" />
+    </FrameLayout>
+</RelativeLayout>
