@@ -1059,6 +1059,8 @@
 
     if-nez v4, :cond_2
 
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneFallbackEventHandler;->handleCameraKeyEvent()V
+
     goto :goto_0
 
     .line 287
@@ -1086,13 +1088,10 @@
 
     if-nez v4, :cond_2
 
-    .line 291
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneFallbackEventHandler;->startCallActivity()V
 
     goto :goto_0
 
-    .line 236
-    nop
 
     :sswitch_data_0
     .sparse-switch

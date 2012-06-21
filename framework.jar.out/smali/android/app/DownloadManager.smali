@@ -135,7 +135,7 @@
 
 
 # instance fields
-.field private mBaseUri:Landroid/net/Uri;
+.field mBaseUri:Landroid/net/Uri;
 
 .field private mPackageName:Ljava/lang/String;
 

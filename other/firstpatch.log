@@ -1,0 +1,172 @@
+# On branch for-upload
+# Your branch is ahead of 'libra/ics' by 1 commit.
+#
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   android.policy.jar.out/smali/com/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs.smali
+#	modified:   android.policy.jar.out/smali/com/android/internal/policy/impl/KeyguardViewBase.smali
+#	modified:   android.policy.jar.out/smali/com/android/internal/policy/impl/KeyguardViewManager.smali
+#	modified:   android.policy.jar.out/smali/com/android/internal/policy/impl/KeyguardViewMediator.smali
+#	modified:   android.policy.jar.out/smali/com/android/internal/policy/impl/LockPatternKeyguardView$3.smali
+#	modified:   android.policy.jar.out/smali/com/android/internal/policy/impl/LockPatternKeyguardView.smali
+#	modified:   android.policy.jar.out/smali/com/android/internal/policy/impl/PhoneFallbackEventHandler.smali
+#	modified:   android.policy.jar.out/smali/com/android/internal/policy/impl/PhoneWindow$DecorView.smali
+#	modified:   android.policy.jar.out/smali/com/android/internal/policy/impl/PhoneWindow.smali
+#	modified:   android.policy.jar.out/smali/com/android/internal/policy/impl/PhoneWindowManager.smali
+#	modified:   android.policy.jar.out/smali/com/android/internal/policy/impl/Policy.smali
+#	modified:   framework.jar.out/smali/android/app/Activity.smali
+#	modified:   framework.jar.out/smali/android/app/ActivityThread.smali
+#	modified:   framework.jar.out/smali/android/app/ApplicationPackageManager$ResourceName.smali
+#	modified:   framework.jar.out/smali/android/app/ApplicationPackageManager.smali
+#	modified:   framework.jar.out/smali/android/app/ContextImpl.smali
+#	modified:   framework.jar.out/smali/android/app/DownloadManager$CursorTranslator.smali
+#	modified:   framework.jar.out/smali/android/app/DownloadManager$Query.smali
+#	modified:   framework.jar.out/smali/android/app/DownloadManager.smali
+#	modified:   framework.jar.out/smali/android/app/LoadedApk.smali
+#	modified:   framework.jar.out/smali/android/content/pm/ApplicationInfo.smali
+#	modified:   framework.jar.out/smali/android/content/pm/PackageItemInfo.smali
+#	modified:   framework.jar.out/smali/android/content/pm/PackageManager.smali
+#	modified:   framework.jar.out/smali/android/content/pm/PackageParser.smali
+#	modified:   framework.jar.out/smali/android/content/pm/ParceledListSlice$1.smali
+#	modified:   framework.jar.out/smali/android/content/pm/ResolveInfo.smali
+#	modified:   framework.jar.out/smali/android/content/res/AssetManager.smali
+#	modified:   framework.jar.out/smali/android/content/res/Configuration.smali
+#	modified:   framework.jar.out/smali/android/content/res/Resources$Theme.smali
+#	modified:   framework.jar.out/smali/android/content/res/Resources.smali
+#	modified:   framework.jar.out/smali/android/graphics/drawable/DrawableContainer$DrawableContainerState.smali
+#	modified:   framework.jar.out/smali/android/graphics/drawable/NinePatchDrawable.smali
+#	modified:   framework.jar.out/smali/android/media/AudioService.smali
+#	modified:   framework.jar.out/smali/android/media/MediaFile.smali
+#	modified:   framework.jar.out/smali/android/net/Proxy.smali
+#	modified:   framework.jar.out/smali/android/os/RecoverySystem.smali
+#	modified:   framework.jar.out/smali/android/os/Vibrator.smali
+#	modified:   framework.jar.out/smali/android/telephony/PhoneNumberUtils.smali
+#	modified:   framework.jar.out/smali/android/telephony/TelephonyManager.smali
+#	modified:   framework.jar.out/smali/android/text/format/DateFormat.smali
+#	modified:   framework.jar.out/smali/android/view/HapticFeedbackConstants.smali
+#	modified:   framework.jar.out/smali/android/view/View.smali
+#	modified:   framework.jar.out/smali/android/view/ViewRootImpl.smali
+#	modified:   framework.jar.out/smali/android/widget/AbsListView.smali
+#	modified:   framework.jar.out/smali/android/widget/QuickContactBadge$QueryHandler.smali
+#	modified:   framework.jar.out/smali/android/widget/QuickContactBadge.smali
+#	modified:   framework.jar.out/smali/android/widget/RemoteViews.smali
+#	modified:   framework.jar.out/smali/android/widget/SuggestionsAdapter.smali
+#	modified:   framework.jar.out/smali/android/widget/TextView.smali
+#	modified:   framework.jar.out/smali/android/widget/TimePicker$4.smali
+#	modified:   framework.jar.out/smali/android/widget/TimePicker.smali
+#	modified:   framework.jar.out/smali/android/widget/Toast$TN.smali
+#	modified:   framework.jar.out/smali/android/widget/Toast.smali
+#	modified:   framework.jar.out/smali/com/android/internal/app/ShutdownThread$2.smali
+#	modified:   framework.jar.out/smali/com/android/internal/app/ShutdownThread.smali
+#	modified:   framework.jar.out/smali/com/android/internal/telephony/AdnRecord.smali
+#	modified:   framework.jar.out/smali/com/android/internal/telephony/AdnRecordCache.smali
+#	modified:   framework.jar.out/smali/com/android/internal/telephony/CallerInfo.smali
+#	modified:   framework.jar.out/smali/com/android/internal/telephony/CallerInfoAsyncQuery.smali
+#	modified:   framework.jar.out/smali/com/android/internal/telephony/IIccPhoneBook.smali
+#	modified:   framework.jar.out/smali/com/android/internal/telephony/IccPhoneBookInterfaceManager.smali
+#	modified:   framework.jar.out/smali/com/android/internal/telephony/IccPhoneBookInterfaceManagerProxy.smali
+#	modified:   framework.jar.out/smali/com/android/internal/telephony/SMSDispatcher.smali
+#	modified:   framework.jar.out/smali/com/android/internal/telephony/gsm/GsmDataConnectionTracker.smali
+#	modified:   framework.jar.out/smali/com/android/internal/view/menu/ActionMenuItemView.smali
+#	modified:   framework.jar.out/smali/com/android/internal/view/menu/ActionMenuView.smali
+#	modified:   framework.jar.out/smali/com/android/internal/view/menu/MenuItemImpl.smali
+#	modified:   framework.jar.out/smali/com/android/internal/widget/ActionBarContainer.smali
+#	modified:   framework.jar.out/smali/com/android/internal/widget/ActionBarView$HomeView.smali
+#	modified:   framework.jar.out/smali/com/android/internal/widget/LockPatternUtils$PasswordFileObserver.smali
+#	modified:   framework.jar.out/smali/com/android/internal/widget/LockPatternUtils.smali
+#	modified:   framework.jar.out/smali/com/android/internal/widget/ScrollingTabContainerView.smali
+#	modified:   framework2.jar.out/smali/com/android/internal/telephony/IccProvider.smali
+#	modified:   framework2.jar.out/smali/com/android/internal/widget/multiwaveview/Ease$Quad.smali
+#	modified:   framework2.jar.out/smali/com/android/internal/widget/multiwaveview/Ease.smali
+#	modified:   framework2.jar.out/smali/com/android/internal/widget/multiwaveview/MultiWaveView.smali
+#	modified:   framework2.jar.out/smali/com/android/internal/widget/multiwaveview/Tweener.smali
+#	modified:   services.jar.out/smali/com/android/server/AppWidgetService$3.smali
+#	modified:   services.jar.out/smali/com/android/server/AppWidgetService.smali
+#	modified:   services.jar.out/smali/com/android/server/BackupManagerService.smali
+#	modified:   services.jar.out/smali/com/android/server/LightsService$Light.smali
+#	modified:   services.jar.out/smali/com/android/server/LightsService.smali
+#	modified:   services.jar.out/smali/com/android/server/NotificationManagerService.smali
+#	modified:   services.jar.out/smali/com/android/server/ServerThread.smali
+#	modified:   services.jar.out/smali/com/android/server/StatusBarManagerService.smali
+#	modified:   services.jar.out/smali/com/android/server/am/ActivityManagerService.smali
+#	modified:   services.jar.out/smali/com/android/server/am/ActivityStack.smali
+#	modified:   services.jar.out/smali/com/android/server/am/AppErrorDialog$1.smali
+#	modified:   services.jar.out/smali/com/android/server/am/AppNotRespondingDialog$1.smali
+#	modified:   services.jar.out/smali/com/android/server/net/NetworkPolicyManagerService.smali
+#	modified:   services.jar.out/smali/com/android/server/pm/GrantedPermissions.smali
+#	modified:   services.jar.out/smali/com/android/server/pm/PackageManagerService$InstallParams.smali
+#	modified:   services.jar.out/smali/com/android/server/pm/PackageManagerService$PackageHandler.smali
+#	modified:   services.jar.out/smali/com/android/server/pm/PackageManagerService.smali
+#	modified:   services.jar.out/smali/com/android/server/pm/Settings.smali
+#	modified:   services.jar.out/smali/com/android/server/wm/WindowManagerService.smali
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	android.policy.jar.out/smali/com/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs.smali.rej
+#	android.policy.jar.out/smali/com/android/internal/policy/impl/KeyguardViewManager.smali.orig
+#	android.policy.jar.out/smali/com/android/internal/policy/impl/KeyguardViewManager.smali.rej
+#	android.policy.jar.out/smali/com/android/internal/policy/impl/KeyguardViewMediator.smali.orig
+#	android.policy.jar.out/smali/com/android/internal/policy/impl/KeyguardViewMediator.smali.rej
+#	android.policy.jar.out/smali/com/android/internal/policy/impl/LockPatternKeyguardView.smali.orig
+#	android.policy.jar.out/smali/com/android/internal/policy/impl/LockPatternKeyguardView.smali.rej
+#	android.policy.jar.out/smali/com/android/internal/policy/impl/PhoneFallbackEventHandler.smali.orig
+#	android.policy.jar.out/smali/com/android/internal/policy/impl/PhoneFallbackEventHandler.smali.rej
+#	android.policy.jar.out/smali/com/android/internal/policy/impl/PhoneWindowManager$22.smali.rej
+#	android.policy.jar.out/smali/com/android/internal/policy/impl/PhoneWindowManager.smali.orig
+#	android.policy.jar.out/smali/com/android/internal/policy/impl/PhoneWindowManager.smali.rej
+#	framework-res/res/values-zh-rCN/strings.xml.rej
+#	framework-res/res/values/bools.xml.rej
+#	framework-res/res/values/dimens.xml.rej
+#	framework-res/res/xml/storage_list.xml.rej
+#	framework.jar.out/preloaded-classes
+#	framework.jar.out/smali/android/app/ActivityManager.smali.rej
+#	framework.jar.out/smali/android/app/ApplicationPackageManager.smali.orig
+#	framework.jar.out/smali/android/app/ApplicationPackageManager.smali.rej
+#	framework.jar.out/smali/android/app/ContextImpl$13.smali.rej
+#	framework.jar.out/smali/android/content/pm/PackageParser.smali.orig
+#	framework.jar.out/smali/android/content/pm/PackageParser.smali.rej
+#	framework.jar.out/smali/android/content/res/Configuration.smali.orig
+#	framework.jar.out/smali/android/content/res/Configuration.smali.rej
+#	framework.jar.out/smali/android/content/res/Resources.smali.orig
+#	framework.jar.out/smali/android/content/res/Resources.smali.rej
+#	framework.jar.out/smali/android/media/AudioService.smali.orig
+#	framework.jar.out/smali/android/media/AudioService.smali.rej
+#	framework.jar.out/smali/android/media/MediaFile.smali.orig
+#	framework.jar.out/smali/android/media/MediaFile.smali.rej
+#	framework.jar.out/smali/android/sec/clipboard/ClipboardExManager.smali.rej
+#	framework.jar.out/smali/android/view/ViewRootImpl.smali.orig
+#	framework.jar.out/smali/android/view/ViewRootImpl.smali.rej
+#	framework.jar.out/smali/android/webkit/HTML5VideoViewProxy$VideoPlayer.smali.rej
+#	framework.jar.out/smali/android/widget/AbsListView.smali.orig
+#	framework.jar.out/smali/android/widget/AbsListView.smali.rej
+#	framework.jar.out/smali/android/widget/LinearLayout.smali.rej
+#	framework.jar.out/smali/android/widget/TimePicker$5.smali.rej
+#	framework.jar.out/smali/com/android/internal/app/ShutdownThread.smali.orig
+#	framework.jar.out/smali/com/android/internal/app/ShutdownThread.smali.rej
+#	framework.jar.out/smali/com/android/internal/telephony/CallerInfo.smali.orig
+#	framework.jar.out/smali/com/android/internal/telephony/CallerInfo.smali.rej
+#	framework.jar.out/smali/com/android/internal/telephony/CallerInfoAsyncQuery.smali.orig
+#	framework.jar.out/smali/com/android/internal/telephony/CallerInfoAsyncQuery.smali.rej
+#	framework.jar.out/smali/com/android/internal/telephony/SMSDispatcher.smali.orig
+#	framework.jar.out/smali/com/android/internal/telephony/SMSDispatcher.smali.rej
+#	framework.jar.out/smali/com/android/internal/widget/ActionBarView$HomeView.smali.orig
+#	framework.jar.out/smali/com/android/internal/widget/ActionBarView$HomeView.smali.rej
+#	framework.jar.out/smali/com/android/internal/widget/LockPatternUtils$PasswordFileObserver.smali.orig
+#	framework.jar.out/smali/com/android/internal/widget/LockPatternUtils$PasswordFileObserver.smali.rej
+#	framework2.jar.out/smali/com/android/internal/telephony/IccProvider.smali.orig
+#	framework2.jar.out/smali/com/android/internal/telephony/IccProvider.smali.rej
+#	other/
+#	services.jar.out/smali/com/android/server/ConnectivityService.smali.rej
+#	services.jar.out/smali/com/android/server/ServerThread.smali.orig
+#	services.jar.out/smali/com/android/server/ServerThread.smali.rej
+#	services.jar.out/smali/com/android/server/am/ActivityManagerService$2.smali.rej
+#	services.jar.out/smali/com/android/server/am/ActivityManagerService.smali.orig
+#	services.jar.out/smali/com/android/server/am/ActivityManagerService.smali.rej
+#	services.jar.out/smali/com/android/server/am/AppErrorDialog.smali.rej
+#	services.jar.out/smali/com/android/server/am/BaseErrorDialog.smali.rej
+#	services.jar.out/smali/com/android/server/pm/PackageManagerService.smali.orig
+#	services.jar.out/smali/com/android/server/pm/PackageManagerService.smali.rej
+no changes added to commit (use "git add" and/or "git commit -a")

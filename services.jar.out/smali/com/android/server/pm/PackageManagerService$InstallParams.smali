@@ -346,7 +346,7 @@
 
     if-eqz v3, :cond_5
 
-    const/16 v21, 0x1
+    const/16 v21, 0x0
 
     .line 6476
     .local v21, onSd:Z
@@ -1034,9 +1034,11 @@
 
     move-object/from16 v1, v22
 
-    invoke-direct {v0, v1, v3}, Lcom/android/server/pm/PackageManagerService$InstallParams;->installLocationPolicy(Landroid/content/pm/PackageInfoLite;I)I
+    #invoke-direct {v0, v1, v3}, Lcom/android/server/pm/PackageManagerService$InstallParams;->installLocationPolicy(Landroid/content/pm/PackageInfoLite;I)I
 
-    move-result v17
+    #move-result v17
+    const/4 v3, 0x1
+    move/from16 v17, v3
 
     .line 6538
     if-nez v21, :cond_0

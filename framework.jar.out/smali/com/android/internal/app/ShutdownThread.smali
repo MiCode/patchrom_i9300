@@ -42,9 +42,9 @@
 
 .field private static mContext:Landroid/content/Context;
 
-.field private static mReboot:Z
+.field static mReboot:Z
 
-.field private static mRebootReason:Ljava/lang/String;
+.field static mRebootReason:Ljava/lang/String;
 
 .field private static mRebootResult:Z
 
@@ -60,9 +60,9 @@
 
 .field private static sIsSamsungAnimation:Z
 
-.field private static sIsStarted:Z
+.field static sIsStarted:Z
 
-.field private static sIsStartedGuard:Ljava/lang/Object;
+.field static sIsStartedGuard:Ljava/lang/Object;
 
 
 # instance fields
@@ -867,18 +867,15 @@
 
     invoke-virtual {v3, v4}, Landroid/view/Window;->setType(I)V
 
-    .line 510
-    invoke-virtual {v2}, Landroid/app/ProgressDialog;->show()V
+    invoke-static {p0}, Lcom/android/internal/app/ShutdownThread;->createShutDownDialog(Landroid/content/Context;)V
 
-    .line 513
     sget-object v3, Lcom/android/internal/app/ShutdownThread;->sInstance:Lcom/android/internal/app/ShutdownThread;
 
     sput-object p0, Lcom/android/internal/app/ShutdownThread;->mContext:Landroid/content/Context;
 
-    .line 514
     sget-object v4, Lcom/android/internal/app/ShutdownThread;->sInstance:Lcom/android/internal/app/ShutdownThread;
 
-    const-string/jumbo v3, "power"
+    const-string v3, "power"
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

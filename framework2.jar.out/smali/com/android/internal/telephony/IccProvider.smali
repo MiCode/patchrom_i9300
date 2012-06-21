@@ -20,7 +20,7 @@
 
 .field private static final ADN_LIKE_CAPA_COLUMN_NAMES:[Ljava/lang/String; = null
 
-.field private static final DBG:Z = true
+.field static final DBG:Z = false
 
 .field private static final EMAIL_COLUMN_NAMES:[Ljava/lang/String; = null
 
@@ -56,7 +56,7 @@
 
 .field private static final TAG:Ljava/lang/String; = "IccProvider"
 
-.field private static final URL_MATCHER:Landroid/content/UriMatcher;
+.field static final URL_MATCHER:Landroid/content/UriMatcher;
 
 
 # instance fields
@@ -679,7 +679,7 @@
 
     move-result-object v1
 
-    invoke-direct {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
     .line 1045
     return v8
@@ -694,7 +694,7 @@
 
     move-result-object v1
 
-    invoke-direct {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -826,7 +826,7 @@
 
     move-result-object v1
 
-    invoke-direct {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
     .line 1067
     return v5
@@ -841,7 +841,7 @@
 
     move-result-object v1
 
-    invoke-direct {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -985,7 +985,7 @@
 
     move-result-object v1
 
-    invoke-direct {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
     .line 1207
     return v8
@@ -1000,7 +1000,7 @@
 
     move-result-object v1
 
-    invoke-direct {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -1118,7 +1118,7 @@
 
     move-result-object v1
 
-    invoke-direct {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
     .line 1230
     return p2
@@ -1133,7 +1133,7 @@
 
     move-result-object v1
 
-    invoke-direct {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -1317,25 +1317,21 @@
     .end annotation
 
     .prologue
-    .line 935
     const-string v15, "getUSIMPBCapa"
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v15}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {v0, v15}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
-    .line 936
     new-instance v13, Ljava/util/ArrayList;
 
     invoke-direct {v13}, Ljava/util/ArrayList;-><init>()V
 
-    .line 937
     .local v13, results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     new-instance v14, Lcom/android/internal/telephony/UsimPhonebookCapaInfo;
 
     invoke-direct {v14}, Lcom/android/internal/telephony/UsimPhonebookCapaInfo;-><init>()V
 
-    .line 939
     .local v14, usimPhonebookCapaInfo:Lcom/android/internal/telephony/UsimPhonebookCapaInfo;
     :try_start_0
     const-string v15, "simphonebook"
@@ -1554,7 +1550,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v15}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {v0, v15}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
     goto/16 :goto_0
 
@@ -1732,7 +1728,7 @@
 
     move-result-object v8
 
-    invoke-direct {p0, v8}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v8}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
     .line 861
     :try_start_0
@@ -1799,7 +1795,7 @@
 
     move-result-object v8
 
-    invoke-direct {p0, v8}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v8}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
     .line 879
     if-nez p2, :cond_1
@@ -1837,7 +1833,7 @@
 
     move-result-object v8
 
-    invoke-direct {p0, v8}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v8}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -1875,19 +1871,15 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 892
     invoke-virtual {v5}, Ljava/util/ArrayList;->clear()V
 
-    .line 894
     :cond_3
     const-string v8, "loadFromEf: return results"
 
-    invoke-direct {p0, v8}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v8}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
-    .line 895
     return-object v5
 
-    .line 869
     :catch_1
     move-exception v8
 
@@ -2803,7 +2795,7 @@
 
     move-result-object v1
 
-    invoke-direct {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
     .line 1124
     return v8
@@ -2818,7 +2810,7 @@
 
     move-result-object v1
 
-    invoke-direct {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -2949,7 +2941,7 @@
 
     move-result-object v1
 
-    invoke-direct {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
     .line 1147
     return p5
@@ -2964,7 +2956,7 @@
 
     move-result-object v1
 
-    invoke-direct {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -2998,9 +2990,8 @@
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v2}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
-    .line 606
     sget-object v2, Lcom/android/internal/telephony/IccProvider;->URL_MATCHER:Landroid/content/UriMatcher;
 
     move-object/from16 v0, p1
@@ -3009,11 +3000,9 @@
 
     move-result v11
 
-    .line 607
     .local v11, match:I
     packed-switch v11, :pswitch_data_0
 
-    .line 636
     :pswitch_0
     new-instance v2, Ljava/lang/UnsupportedOperationException;
 
@@ -3045,28 +3034,22 @@
 
     throw v2
 
-    .line 609
     :pswitch_1
     const/16 v3, 0x6f3a
 
-    .line 641
     .local v3, efType:I
     :goto_0
     const/4 v4, 0x0
 
-    .line 642
     .local v4, tag:Ljava/lang/String;
     const/4 v5, 0x0
 
-    .line 643
     .local v5, number:Ljava/lang/String;
     const/4 v6, 0x0
 
-    .line 644
     .local v6, emails:[Ljava/lang/String;
     const/4 v7, 0x0
 
-    .line 646
     .local v7, pin2:Ljava/lang/String;
     const-string v2, "AND"
 
@@ -3076,13 +3059,11 @@
 
     move-result-object v17
 
-    .line 647
     .local v17, tokens:[Ljava/lang/String;
     move-object/from16 v0, v17
 
     array-length v12, v0
 
-    .line 649
     .local v12, n:I
     :cond_0
     :goto_1
@@ -3090,10 +3071,8 @@
 
     if-ltz v12, :cond_7
 
-    .line 650
     aget-object v14, v17, v12
 
-    .line 651
     .local v14, param:Ljava/lang/String;
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -3125,16 +3104,14 @@
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v2}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
-    .line 653
     const-string v2, "="
 
     invoke-virtual {v14, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v13
 
-    .line 654
     .local v13, pair:[Ljava/lang/String;
     const/4 v2, 0x0
 
@@ -3144,7 +3121,6 @@
 
     move-result-object v10
 
-    .line 655
     .local v10, key:Ljava/lang/String;
     const/4 v2, 0x1
 
@@ -3154,7 +3130,6 @@
 
     move-result-object v18
 
-    .line 657
     .local v18, val:Ljava/lang/String;
     array-length v2, v13
 
@@ -3164,7 +3139,6 @@
 
     if-eq v2, v0, :cond_1
 
-    .line 658
     const-string v2, "tag"
 
     invoke-virtual {v2, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -3173,7 +3147,6 @@
 
     if-eqz v2, :cond_2
 
-    .line 660
     const-string v2, "="
 
     invoke-virtual {v14, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
@@ -3186,12 +3159,10 @@
 
     move-result-object v18
 
-    .line 661
     invoke-virtual/range {v18 .. v18}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v18
 
-    .line 668
     :cond_1
     const-string v2, "tag"
 
@@ -3201,7 +3172,6 @@
 
     if-eqz v2, :cond_3
 
-    .line 669
     move-object/from16 v0, p0
 
     move-object/from16 v1, v18
@@ -3210,7 +3180,6 @@
 
     move-result-object v4
 
-    .line 670
     const-string v2, "null"
 
     invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -3219,19 +3188,16 @@
 
     if-eqz v2, :cond_0
 
-    .line 671
     const-string v2, "Change null"
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v2}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
-    .line 672
     const-string v4, ""
 
     goto :goto_1
 
-    .line 613
     .end local v3           #efType:I
     .end local v4           #tag:Ljava/lang/String;
     .end local v5           #number:Ljava/lang/String;
@@ -3246,56 +3212,43 @@
     :pswitch_2
     const/16 v3, 0x6f3b
 
-    .line 614
     .restart local v3       #efType:I
     goto/16 :goto_0
 
-    .line 617
     .end local v3           #efType:I
     :pswitch_3
     const/16 v3, 0x6f40
 
-    .line 618
     .restart local v3       #efType:I
     goto/16 :goto_0
 
-    .line 621
     .end local v3           #efType:I
     :pswitch_4
     const/16 v3, 0x6f3a
 
-    .line 622
     .restart local v3       #efType:I
     const/4 v9, 0x1
 
-    .line 623
     goto/16 :goto_0
 
-    .line 626
     .end local v3           #efType:I
     :pswitch_5
     const/16 v3, 0x6f3b
 
-    .line 627
     .restart local v3       #efType:I
     const/4 v9, 0x1
 
-    .line 628
     goto/16 :goto_0
 
-    .line 631
     .end local v3           #efType:I
     :pswitch_6
     const/16 v3, 0x6f40
 
-    .line 632
     .restart local v3       #efType:I
     const/4 v9, 0x1
 
-    .line 633
     goto/16 :goto_0
 
-    .line 663
     .restart local v4       #tag:Ljava/lang/String;
     .restart local v5       #number:Ljava/lang/String;
     .restart local v6       #emails:[Ljava/lang/String;
@@ -3335,7 +3288,6 @@
 
     goto/16 :goto_1
 
-    .line 674
     :cond_3
     const-string v2, "number"
 
@@ -3345,7 +3297,6 @@
 
     if-eqz v2, :cond_4
 
-    .line 675
     move-object/from16 v0, p0
 
     move-object/from16 v1, v18
@@ -3354,7 +3305,6 @@
 
     move-result-object v5
 
-    .line 676
     const-string v2, "null"
 
     invoke-virtual {v5, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -3363,19 +3313,16 @@
 
     if-eqz v2, :cond_0
 
-    .line 677
     const-string v2, "Change null"
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v2}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
-    .line 678
     const-string v5, ""
 
     goto/16 :goto_1
 
-    .line 681
     :cond_4
     const-string v2, "emails"
 
@@ -3385,12 +3332,10 @@
 
     if-eqz v2, :cond_5
 
-    .line 683
     const/4 v6, 0x0
 
     goto/16 :goto_1
 
-    .line 684
     :cond_5
     const-string v2, "pin2"
 
@@ -3400,7 +3345,6 @@
 
     if-eqz v2, :cond_6
 
-    .line 685
     move-object/from16 v0, p0
 
     move-object/from16 v1, v18
@@ -3411,7 +3355,6 @@
 
     goto/16 :goto_1
 
-    .line 686
     :cond_6
     const-string v2, "adn_index"
 
@@ -3421,7 +3364,6 @@
 
     if-eqz v2, :cond_0
 
-    .line 687
     invoke-static/range {v18 .. v18}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v19
@@ -3432,7 +3374,6 @@
 
     goto/16 :goto_1
 
-    .line 697
     .end local v10           #key:Ljava/lang/String;
     .end local v13           #pair:[Ljava/lang/String;
     .end local v14           #param:Ljava/lang/String;
@@ -3448,54 +3389,42 @@
 
     if-eqz v2, :cond_8
 
-    .line 698
     const/4 v15, 0x0
 
-    .line 717
     :goto_2
     return v15
 
-    .line 702
     :cond_8
     if-gez v8, :cond_c
 
-    .line 704
     if-nez v4, :cond_9
 
-    .line 705
     const-string v4, ""
 
-    .line 706
     :cond_9
     if-nez v5, :cond_a
 
-    .line 707
     const-string v5, ""
 
     :cond_a
     move-object/from16 v2, p0
 
-    .line 708
     invoke-direct/range {v2 .. v7}, Lcom/android/internal/telephony/IccProvider;->deleteIccRecordFromEf(ILjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v16
 
-    .line 709
     .local v16, success:Z
     if-nez v16, :cond_b
 
-    .line 710
     const/4 v15, 0x0
 
     goto :goto_2
 
-    .line 712
     :cond_b
     const/4 v15, 0x1
 
     goto :goto_2
 
-    .line 716
     .end local v16           #success:Z
     :cond_c
     move-object/from16 v0, p0
@@ -3504,11 +3433,9 @@
 
     move-result v15
 
-    .line 717
     .local v15, ret_index:I
     goto :goto_2
 
-    .line 607
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1
@@ -3526,7 +3453,6 @@
     .parameter "url"
 
     .prologue
-    .line 412
     sget-object v0, Lcom/android/internal/telephony/IccProvider;->URL_MATCHER:Landroid/content/UriMatcher;
 
     invoke-virtual {v0, p1}, Landroid/content/UriMatcher;->match(Landroid/net/Uri;)I
@@ -3535,7 +3461,6 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 419
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3560,13 +3485,11 @@
 
     throw v0
 
-    .line 416
     :pswitch_0
     const-string v0, "vnd.android.cursor.dir/sim-contact"
 
     return-object v0
 
-    .line 412
     nop
 
     :pswitch_data_0
@@ -3583,22 +3506,17 @@
     .parameter "initialValues"
 
     .prologue
-    .line 427
     const/4 v11, 0x0
 
-    .line 428
     .local v11, pin2:Ljava/lang/String;
     const/16 v22, 0x0
 
-    .line 429
     .local v22, isFromContacts:Z
     const/16 v18, 0x0
 
-    .line 430
     .local v18, AdnExpansion:Z
     const/16 v25, 0x0
 
-    .line 433
     .local v25, success:Z
     const-string v2, "insert"
 
@@ -3606,7 +3524,7 @@
 
     invoke-direct {v0, v2}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
-    .line 435
+    .line 606
     sget-object v2, Lcom/android/internal/telephony/IccProvider;->URL_MATCHER:Landroid/content/UriMatcher;
 
     move-object/from16 v0, p1
@@ -3615,11 +3533,9 @@
 
     move-result v23
 
-    .line 436
     .local v23, match:I
     packed-switch v23, :pswitch_data_0
 
-    .line 473
     :pswitch_0
     new-instance v2, Ljava/lang/UnsupportedOperationException;
 
@@ -3647,11 +3563,9 @@
 
     throw v2
 
-    .line 438
     :pswitch_1
     const/16 v3, 0x6f3a
 
-    .line 477
     .local v3, efType:I
     :goto_0
     const-string v2, "tag"
@@ -3662,7 +3576,6 @@
 
     move-result-object v4
 
-    .line 478
     .local v4, tag:Ljava/lang/String;
     const-string v2, "number"
 
@@ -3672,27 +3585,21 @@
 
     move-result-object v5
 
-    .line 479
     .local v5, number:Ljava/lang/String;
     const/4 v6, 0x0
 
-    .line 480
     .local v6, AnrNumber:Ljava/lang/String;
     const/4 v7, 0x0
 
-    .line 481
     .local v7, AnrANumber:Ljava/lang/String;
     const/4 v8, 0x0
 
-    .line 482
     .local v8, AnrBNumber:Ljava/lang/String;
     const/4 v9, 0x0
 
-    .line 483
     .local v9, AnrCNumber:Ljava/lang/String;
     const/4 v10, 0x0
 
-    .line 484
     .local v10, email:Ljava/lang/String;
     const/4 v2, 0x1
 
@@ -3700,7 +3607,6 @@
 
     move-object/from16 v20, v0
 
-    .line 485
     .local v20, emails:[Ljava/lang/String;
     const-string v2, "AnrNumber"
 
@@ -3712,7 +3618,6 @@
 
     if-eqz v2, :cond_0
 
-    .line 486
     const-string v2, "AnrNumber"
 
     move-object/from16 v0, p2
@@ -3721,7 +3626,6 @@
 
     move-result-object v6
 
-    .line 488
     :cond_0
     const-string v2, "AnrANumber"
 
@@ -3733,7 +3637,6 @@
 
     if-eqz v2, :cond_1
 
-    .line 489
     const-string v2, "AnrANumber"
 
     move-object/from16 v0, p2
@@ -3742,7 +3645,6 @@
 
     move-result-object v7
 
-    .line 491
     :cond_1
     const-string v2, "AnrBNumber"
 
@@ -3754,7 +3656,6 @@
 
     if-eqz v2, :cond_2
 
-    .line 492
     const-string v2, "AnrBNumber"
 
     move-object/from16 v0, p2
@@ -3763,7 +3664,6 @@
 
     move-result-object v8
 
-    .line 494
     :cond_2
     const-string v2, "AnrCNumber"
 
@@ -3775,7 +3675,6 @@
 
     if-eqz v2, :cond_3
 
-    .line 495
     const-string v2, "AnrCNumber"
 
     move-object/from16 v0, p2
@@ -3784,7 +3683,6 @@
 
     move-result-object v9
 
-    .line 497
     :cond_3
     const-string v2, "emails"
 
@@ -3796,7 +3694,6 @@
 
     if-eqz v2, :cond_4
 
-    .line 498
     const-string v2, "emails"
 
     move-object/from16 v0, p2
@@ -3805,7 +3702,6 @@
 
     move-result-object v10
 
-    .line 499
     const/4 v2, 0x0
 
     const-string v12, "emails"
@@ -3818,70 +3714,53 @@
 
     aput-object v12, v20, v2
 
-    .line 500
     const/4 v2, 0x0
 
     aget-object v2, v20, v2
 
     if-nez v2, :cond_4
 
-    .line 501
     const/4 v2, 0x0
 
     const-string v12, ""
 
     aput-object v12, v20, v2
 
-    .line 504
     :cond_4
     if-nez v4, :cond_5
 
-    .line 505
     const-string v4, ""
 
-    .line 506
     :cond_5
     if-nez v5, :cond_6
 
-    .line 507
     const-string v5, ""
 
-    .line 508
     :cond_6
     if-nez v10, :cond_7
 
-    .line 509
     const-string v10, ""
 
-    .line 510
     :cond_7
     if-nez v6, :cond_8
 
-    .line 511
     const-string v6, ""
 
-    .line 512
     :cond_8
     if-nez v7, :cond_9
 
-    .line 513
     const-string v7, ""
 
-    .line 514
     :cond_9
     if-nez v8, :cond_a
 
-    .line 515
     const-string v8, ""
 
-    .line 516
     :cond_a
     if-nez v9, :cond_b
 
-    .line 517
     const-string v9, ""
 
-    .line 518
     :cond_b
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -3901,11 +3780,11 @@
 
     move-result-object v2
 
+    .line 669
     move-object/from16 v0, p0
 
     invoke-direct {v0, v2}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
-    .line 521
     new-instance v19, Ljava/lang/StringBuilder;
 
     const-string v2, "content://icc/"
@@ -3914,21 +3793,17 @@
 
     invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 522
     .local v19, buf:Ljava/lang/StringBuilder;
     if-eqz v22, :cond_d
 
-    .line 523
     const-string v2, "isFromContacts"
 
     move-object/from16 v0, p0
 
     invoke-direct {v0, v2}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
-    .line 524
     if-eqz v18, :cond_c
 
-    .line 526
     const-string v2, "Insert AdnExpansion"
 
     move-object/from16 v0, p0
@@ -3937,12 +3812,10 @@
 
     move-object/from16 v2, p0
 
-    .line 527
     invoke-direct/range {v2 .. v11}, Lcom/android/internal/telephony/IccProvider;->addExpansionIccRecordToEfByIndex(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v21
 
-    .line 528
     .local v21, index:I
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -3968,11 +3841,9 @@
 
     invoke-direct {v0, v2}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
-    .line 535
     :goto_1
     packed-switch v23, :pswitch_data_1
 
-    .line 543
     :goto_2
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -4004,14 +3875,12 @@
 
     invoke-direct {v0, v2}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
-    .line 544
     move-object/from16 v0, v19
 
     move/from16 v1, v21
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 577
     .end local v21           #index:I
     :goto_3
     invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -4022,11 +3891,9 @@
 
     move-result-object v24
 
-    .line 585
     :goto_4
     return-object v24
 
-    .line 442
     .end local v3           #efType:I
     .end local v4           #tag:Ljava/lang/String;
     .end local v5           #number:Ljava/lang/String;
@@ -4040,7 +3907,6 @@
     :pswitch_2
     const/16 v3, 0x6f3b
 
-    .line 443
     .restart local v3       #efType:I
     const-string v2, "pin2"
 
@@ -4050,51 +3916,39 @@
 
     move-result-object v11
 
-    .line 444
     goto/16 :goto_0
 
-    .line 447
     .end local v3           #efType:I
     :pswitch_3
     const/16 v3, 0x6f3a
 
-    .line 448
     .restart local v3       #efType:I
     const/16 v18, 0x1
 
-    .line 449
     const/16 v22, 0x1
 
-    .line 450
     goto/16 :goto_0
 
-    .line 453
     .end local v3           #efType:I
     :pswitch_4
     const/16 v3, 0x6f40
 
-    .line 454
     .restart local v3       #efType:I
     goto/16 :goto_0
 
-    .line 457
     .end local v3           #efType:I
     :pswitch_5
     const/16 v3, 0x6f3a
 
-    .line 458
     .restart local v3       #efType:I
     const/16 v22, 0x1
 
-    .line 459
     goto/16 :goto_0
 
-    .line 462
     .end local v3           #efType:I
     :pswitch_6
     const/16 v3, 0x6f3b
 
-    .line 463
     .restart local v3       #efType:I
     const-string v2, "pin2"
 
@@ -4104,25 +3958,19 @@
 
     move-result-object v11
 
-    .line 464
     const/16 v22, 0x1
 
-    .line 465
     goto/16 :goto_0
 
-    .line 468
     .end local v3           #efType:I
     :pswitch_7
     const/16 v3, 0x6f40
 
-    .line 469
     .restart local v3       #efType:I
     const/16 v22, 0x1
 
-    .line 470
     goto/16 :goto_0
 
-    .line 530
     .restart local v4       #tag:Ljava/lang/String;
     .restart local v5       #number:Ljava/lang/String;
     .restart local v6       #AnrNumber:Ljava/lang/String;
@@ -4151,12 +3999,10 @@
 
     move-object/from16 v17, v11
 
-    .line 531
     invoke-direct/range {v12 .. v17}, Lcom/android/internal/telephony/IccProvider;->addIccRecordToEfByIndex(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v21
 
-    .line 532
     .restart local v21       #index:I
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -4184,7 +4030,6 @@
 
     goto/16 :goto_1
 
-    .line 537
     :pswitch_8
     const-string v2, "[hypathia] insert :ADN_FROM_CONTACTS"
 
@@ -4192,7 +4037,6 @@
 
     invoke-direct {v0, v2}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
-    .line 538
     const-string v2, "adn/"
 
     move-object/from16 v0, v19
@@ -4201,7 +4045,6 @@
 
     goto/16 :goto_2
 
-    .line 546
     .end local v21           #index:I
     :cond_d
     const-string v2, "Insert Adn"
@@ -4210,7 +4053,6 @@
 
     invoke-direct {v0, v2}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
-    .line 547
     const/16 v16, 0x0
 
     move-object/from16 v12, p0
@@ -4227,7 +4069,6 @@
 
     move-result v25
 
-    .line 548
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -4252,22 +4093,18 @@
 
     invoke-direct {v0, v2}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
-    .line 550
     if-nez v25, :cond_e
 
-    .line 551
     const-string v2, "success false"
 
     move-object/from16 v0, p0
 
     invoke-direct {v0, v2}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
-    .line 552
     const/16 v24, 0x0
 
     goto/16 :goto_4
 
-    .line 555
     :cond_e
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -4293,10 +4130,8 @@
 
     invoke-direct {v0, v2}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
-    .line 556
     packed-switch v23, :pswitch_data_2
 
-    .line 571
     :goto_5
     :pswitch_9
     const/4 v2, 0x0
@@ -4307,7 +4142,6 @@
 
     goto/16 :goto_3
 
-    .line 558
     :pswitch_a
     const-string v2, "adn/"
 
@@ -4317,7 +4151,6 @@
 
     goto :goto_5
 
-    .line 562
     :pswitch_b
     const-string v2, "fdn/"
 
@@ -4327,7 +4160,6 @@
 
     goto :goto_5
 
-    .line 566
     :pswitch_c
     const-string v2, "msisdn/"
 
@@ -4337,7 +4169,6 @@
 
     goto :goto_5
 
-    .line 436
     nop
 
     :pswitch_data_0
@@ -4354,13 +4185,11 @@
         :pswitch_3
     .end packed-switch
 
-    .line 535
     :pswitch_data_1
     .packed-switch 0x5
         :pswitch_8
     .end packed-switch
 
-    .line 556
     :pswitch_data_2
     .packed-switch 0x1
         :pswitch_a
@@ -4376,14 +4205,12 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 283
     const-string v1, "ro.product.device"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 284
     .local v0, device:Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -4391,16 +4218,13 @@
 
     if-nez v1, :cond_0
 
-    .line 285
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/android/internal/telephony/IccProvider;->mSimulator:Z
 
-    .line 291
     :goto_0
     return v2
 
-    .line 288
     :cond_0
     iput-boolean v2, p0, Lcom/android/internal/telephony/IccProvider;->mSimulator:Z
 
@@ -4416,12 +4240,10 @@
     .parameter "sort"
 
     .prologue
-    .line 299
     iget-boolean v11, p0, Lcom/android/internal/telephony/IccProvider;->mSimulator:Z
 
     if-nez v11, :cond_4
 
-    .line 300
     sget-object v11, Lcom/android/internal/telephony/IccProvider;->URL_MATCHER:Landroid/content/UriMatcher;
 
     invoke-virtual {v11, p1}, Landroid/content/UriMatcher;->match(Landroid/net/Uri;)I
@@ -4430,7 +4252,6 @@
 
     packed-switch v11, :pswitch_data_0
 
-    .line 379
     :pswitch_0
     new-instance v11, Ljava/lang/IllegalArgumentException;
 
@@ -4456,7 +4277,6 @@
 
     throw v11
 
-    .line 302
     :pswitch_1
     const/16 v11, 0x6f3a
 
@@ -4466,7 +4286,6 @@
 
     move-result-object v9
 
-    .line 407
     .local v9, results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     :goto_0
     new-instance v11, Lcom/android/internal/telephony/ArrayListCursor;
@@ -4478,7 +4297,6 @@
     :goto_1
     return-object v11
 
-    .line 306
     .end local v9           #results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     :pswitch_2
     const/16 v11, 0x6f3b
@@ -4489,11 +4307,9 @@
 
     move-result-object v9
 
-    .line 307
     .restart local v9       #results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     goto :goto_0
 
-    .line 310
     .end local v9           #results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     :pswitch_3
     const/16 v11, 0x6f49
@@ -4504,11 +4320,9 @@
 
     move-result-object v9
 
-    .line 311
     .restart local v9       #results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     goto :goto_0
 
-    .line 314
     .end local v9           #results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     :pswitch_4
     const/16 v11, 0x6f3a
@@ -4517,11 +4331,9 @@
 
     move-result-object v9
 
-    .line 315
     .restart local v9       #results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     goto :goto_0
 
-    .line 318
     .end local v9           #results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     :pswitch_5
     const/16 v11, 0x6f40
@@ -4532,11 +4344,9 @@
 
     move-result-object v9
 
-    .line 319
     .restart local v9       #results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     goto :goto_0
 
-    .line 322
     .end local v9           #results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     :pswitch_6
     const/16 v11, 0x6f3a
@@ -4547,7 +4357,6 @@
 
     move-result-object v9
 
-    .line 323
     .restart local v9       #results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     new-instance v11, Lcom/android/internal/telephony/ArrayListCursor;
 
@@ -4557,7 +4366,6 @@
 
     goto :goto_1
 
-    .line 330
     .end local v9           #results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     :pswitch_7
     invoke-static/range {p3 .. p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -4566,7 +4374,6 @@
 
     if-eqz v11, :cond_0
 
-    .line 331
     new-instance v11, Ljava/lang/IllegalArgumentException;
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -4591,7 +4398,6 @@
 
     throw v11
 
-    .line 333
     :cond_0
     const-string v11, "="
 
@@ -4601,7 +4407,6 @@
 
     move-result-object v8
 
-    .line 334
     .local v8, pair:[Ljava/lang/String;
     const/4 v11, 0x0
 
@@ -4611,7 +4416,6 @@
 
     move-result-object v7
 
-    .line 335
     .local v7, key:Ljava/lang/String;
     const/4 v11, 0x1
 
@@ -4621,7 +4425,6 @@
 
     move-result-object v10
 
-    .line 337
     .local v10, value:Ljava/lang/String;
     const-string v11, "EF_TYPE"
 
@@ -4631,16 +4434,13 @@
 
     if-eqz v11, :cond_3
 
-    .line 338
     invoke-static {v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v6
 
-    .line 339
     .local v6, efType:I
     sparse-switch v6, :sswitch_data_0
 
-    .line 368
     new-instance v11, Ljava/lang/IllegalArgumentException;
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -4665,19 +4465,15 @@
 
     throw v11
 
-    .line 342
     :sswitch_0
     const-string v2, "ril.ICC_TYPE"
 
-    .line 343
     .local v2, ICCTYPE:Ljava/lang/String;
     const-string v4, "1"
 
-    .line 344
     .local v4, TWOG:Ljava/lang/String;
     const-string v3, "2"
 
-    .line 345
     .local v3, THREEG:Ljava/lang/String;
     const-string v11, "ril.ICC_TYPE"
 
@@ -4685,7 +4481,6 @@
 
     move-result-object v1
 
-    .line 346
     .local v1, ADNTYPE:Ljava/lang/String;
     const-string v11, "1"
 
@@ -4695,14 +4490,12 @@
 
     if-eqz v11, :cond_1
 
-    .line 347
     const/16 v11, 0x6f3a
 
     invoke-direct {p0, v11}, Lcom/android/internal/telephony/IccProvider;->getAdnLikesInfo(I)Ljava/util/ArrayList;
 
     move-result-object v9
 
-    .line 348
     .restart local v9       #results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     new-instance v11, Lcom/android/internal/telephony/ArrayListCursor;
 
@@ -4712,7 +4505,6 @@
 
     goto/16 :goto_1
 
-    .line 349
     .end local v9           #results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     :cond_1
     const-string v11, "2"
@@ -4723,12 +4515,10 @@
 
     if-eqz v11, :cond_2
 
-    .line 350
     invoke-direct {p0}, Lcom/android/internal/telephony/IccProvider;->getUSIMPBCapa()Ljava/util/ArrayList;
 
     move-result-object v9
 
-    .line 351
     .restart local v9       #results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     new-instance v11, Lcom/android/internal/telephony/ArrayListCursor;
 
@@ -4738,7 +4528,6 @@
 
     goto/16 :goto_1
 
-    .line 356
     .end local v1           #ADNTYPE:Ljava/lang/String;
     .end local v2           #ICCTYPE:Ljava/lang/String;
     .end local v3           #THREEG:Ljava/lang/String;
@@ -4752,7 +4541,6 @@
 
     move-result-object v9
 
-    .line 357
     .restart local v9       #results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     new-instance v11, Lcom/android/internal/telephony/ArrayListCursor;
 
@@ -4762,7 +4550,6 @@
 
     goto/16 :goto_1
 
-    .line 360
     .end local v9           #results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     :sswitch_2
     const/16 v11, 0x6f49
@@ -4771,7 +4558,6 @@
 
     move-result-object v9
 
-    .line 361
     .restart local v9       #results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     new-instance v11, Lcom/android/internal/telephony/ArrayListCursor;
 
@@ -4781,7 +4567,6 @@
 
     goto/16 :goto_1
 
-    .line 364
     .end local v9           #results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     :sswitch_3
     const/16 v11, 0x6f40
@@ -4790,7 +4575,6 @@
 
     move-result-object v9
 
-    .line 365
     .restart local v9       #results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     new-instance v11, Lcom/android/internal/telephony/ArrayListCursor;
 
@@ -4800,7 +4584,6 @@
 
     goto/16 :goto_1
 
-    .line 373
     .end local v6           #efType:I
     .end local v9           #results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     :cond_3
@@ -4828,7 +4611,6 @@
 
     throw v11
 
-    .line 383
     .end local v7           #key:Ljava/lang/String;
     .end local v8           #pair:[Ljava/lang/String;
     .end local v10           #value:Ljava/lang/String;
@@ -4839,89 +4621,72 @@
 
     invoke-direct {v9, v11}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 386
     .restart local v9       #results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList;>;"
     new-instance v5, Ljava/util/ArrayList;
 
     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
-    .line 387
     .local v5, contact:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     const-string v11, "Ron Stevens/H"
 
     invoke-virtual {v5, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 388
     const-string v11, "512-555-5038"
 
     invoke-virtual {v5, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 389
     invoke-virtual {v9, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 391
     new-instance v5, Ljava/util/ArrayList;
 
     .end local v5           #contact:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
-    .line 392
     .restart local v5       #contact:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     const-string v11, "Ron Stevens/M"
 
     invoke-virtual {v5, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 393
     const-string v11, "512-555-8305"
 
     invoke-virtual {v5, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 394
     invoke-virtual {v9, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 396
     new-instance v5, Ljava/util/ArrayList;
 
     .end local v5           #contact:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
-    .line 397
     .restart local v5       #contact:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     const-string v11, "Melissa Owens"
 
     invoke-virtual {v5, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 398
     const-string v11, "512-555-8305"
 
     invoke-virtual {v5, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 399
     invoke-virtual {v9, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 401
     new-instance v5, Ljava/util/ArrayList;
 
     .end local v5           #contact:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
-    .line 402
     .restart local v5       #contact:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     const-string v11, "Directory Assistence"
 
     invoke-virtual {v5, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 403
     const-string v11, "411"
 
     invoke-virtual {v5, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 404
     invoke-virtual {v9, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_0
 
-    .line 300
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1
@@ -4937,7 +4702,6 @@
         :pswitch_4
     .end packed-switch
 
-    .line 339
     :sswitch_data_0
     .sparse-switch
         0x6f3a -> :sswitch_0
@@ -4955,34 +4719,27 @@
     .parameter "whereArgs"
 
     .prologue
-    .line 726
     const/4 v11, 0x0
 
-    .line 727
     .local v11, pin2:Ljava/lang/String;
     const/4 v10, -0x1
 
-    .line 728
     .local v10, index:I
     const/16 v21, 0x0
 
-    .line 729
     .local v21, isFromContacts:Z
     const/16 v19, 0x0
 
-    .line 730
     .local v19, AdnExpansion:Z
     const/16 v24, 0x0
 
-    .line 731
     .local v24, success:Z
     const-string v1, "update"
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
-    .line 733
     sget-object v1, Lcom/android/internal/telephony/IccProvider;->URL_MATCHER:Landroid/content/UriMatcher;
 
     move-object/from16 v0, p1
@@ -4991,11 +4748,9 @@
 
     move-result v22
 
-    .line 734
     .local v22, match:I
     packed-switch v22, :pswitch_data_0
 
-    .line 771
     :pswitch_0
     new-instance v1, Ljava/lang/UnsupportedOperationException;
 
@@ -5023,11 +4778,9 @@
 
     throw v1
 
-    .line 736
     :pswitch_1
     const/16 v2, 0x6f3a
 
-    .line 775
     .local v2, efType:I
     :goto_0
     const-string v1, "tag"
@@ -5038,7 +4791,6 @@
 
     move-result-object v14
 
-    .line 776
     .local v14, tag:Ljava/lang/String;
     const-string v1, "number"
 
@@ -5048,11 +4800,9 @@
 
     move-result-object v15
 
-    .line 777
     .local v15, number:Ljava/lang/String;
     const/16 v20, 0x0
 
-    .line 778
     .local v20, emails:[Ljava/lang/String;
     const-string v1, "newTag"
 
@@ -5062,7 +4812,6 @@
 
     move-result-object v3
 
-    .line 779
     .local v3, newTag:Ljava/lang/String;
     const-string v1, "newNumber"
 
@@ -5072,31 +4821,24 @@
 
     move-result-object v4
 
-    .line 780
     .local v4, newNumber:Ljava/lang/String;
     const/4 v5, 0x0
 
-    .line 781
     .local v5, newAnrNumber:Ljava/lang/String;
     const/4 v6, 0x0
 
-    .line 782
     .local v6, newAnrANumber:Ljava/lang/String;
     const/4 v7, 0x0
 
-    .line 783
     .local v7, newAnrBNumber:Ljava/lang/String;
     const/4 v8, 0x0
 
-    .line 785
     .local v8, newAnrCNumber:Ljava/lang/String;
     const/16 v23, 0x0
 
-    .line 787
     .local v23, newEmails:[Ljava/lang/String;
     const/4 v9, 0x0
 
-    .line 789
     .local v9, email:Ljava/lang/String;
     const-string v1, "newAnrNumber"
 
@@ -5108,7 +4850,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 790
     const-string v1, "newAnrNumber"
 
     move-object/from16 v0, p2
@@ -5117,7 +4858,6 @@
 
     move-result-object v5
 
-    .line 792
     :cond_0
     const-string v1, "newAnrANumber"
 
@@ -5129,7 +4869,6 @@
 
     if-eqz v1, :cond_1
 
-    .line 793
     const-string v1, "newAnrANumber"
 
     move-object/from16 v0, p2
@@ -5138,7 +4877,6 @@
 
     move-result-object v6
 
-    .line 795
     :cond_1
     const-string v1, "newAnrBNumber"
 
@@ -5150,7 +4888,6 @@
 
     if-eqz v1, :cond_2
 
-    .line 796
     const-string v1, "newAnrBNumber"
 
     move-object/from16 v0, p2
@@ -5159,7 +4896,6 @@
 
     move-result-object v7
 
-    .line 798
     :cond_2
     const-string v1, "newAnrCNumber"
 
@@ -5171,7 +4907,6 @@
 
     if-eqz v1, :cond_3
 
-    .line 799
     const-string v1, "newAnrCNumber"
 
     move-object/from16 v0, p2
@@ -5180,7 +4915,7 @@
 
     move-result-object v8
 
-    .line 801
+    .line 674
     :cond_3
     const-string v1, "newEmails"
 
@@ -5192,7 +4927,6 @@
 
     if-eqz v1, :cond_4
 
-    .line 802
     const-string v1, "newEmails"
 
     move-object/from16 v0, p2
@@ -5201,70 +4935,51 @@
 
     move-result-object v9
 
-    .line 805
     :cond_4
     if-nez v9, :cond_5
 
-    .line 806
     const-string v9, ""
 
-    .line 807
     :cond_5
     if-nez v14, :cond_6
 
-    .line 808
     const-string v14, ""
 
-    .line 809
     :cond_6
     if-nez v15, :cond_7
 
-    .line 810
     const-string v15, ""
 
-    .line 811
     :cond_7
     if-nez v3, :cond_8
 
-    .line 812
     const-string v3, ""
 
-    .line 813
     :cond_8
     if-nez v4, :cond_9
 
-    .line 814
     const-string v4, ""
 
-    .line 815
     :cond_9
     if-nez v5, :cond_a
 
-    .line 816
     const-string v5, ""
 
-    .line 817
     :cond_a
     if-nez v6, :cond_b
 
-    .line 818
     const-string v6, ""
 
-    .line 819
     :cond_b
     if-nez v7, :cond_c
 
-    .line 820
     const-string v7, ""
 
-    .line 821
     :cond_c
     if-nez v8, :cond_d
 
-    .line 822
     const-string v8, ""
 
-    .line 824
     :cond_d
     const-string v1, "adn_index"
 
@@ -5276,7 +4991,6 @@
 
     if-eqz v1, :cond_e
 
-    .line 825
     const-string v1, "adn_index"
 
     move-object/from16 v0, p2
@@ -5289,23 +5003,20 @@
 
     move-result v10
 
-    .line 828
     :cond_e
     if-eqz v21, :cond_10
 
-    .line 830
     const-string v1, "isFromContacts"
 
+    .line 675
     move-object/from16 v0, p0
 
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V
 
-    .line 831
     if-eqz v19, :cond_f
 
     move-object/from16 v1, p0
 
-    .line 832
     invoke-direct/range {v1 .. v11}, Lcom/android/internal/telephony/IccProvider;->updateExpansionIccRecordInEfByIndex(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)I
 
     move-result v10
@@ -5315,11 +5026,9 @@
     :goto_1
     move v1, v10
 
-    .line 848
     :goto_2
     return v1
 
-    .line 740
     .end local v2           #efType:I
     .end local v3           #newTag:Ljava/lang/String;
     .end local v4           #newNumber:Ljava/lang/String;
@@ -5333,7 +5042,6 @@
     :pswitch_2
     const/16 v2, 0x6f3b
 
-    .line 741
     .restart local v2       #efType:I
     const-string v1, "pin2"
 
@@ -5343,46 +5051,35 @@
 
     move-result-object v11
 
-    .line 742
     goto/16 :goto_0
 
-    .line 745
     .end local v2           #efType:I
     :pswitch_3
     const/16 v2, 0x6f3a
 
-    .line 746
     .restart local v2       #efType:I
     const/16 v19, 0x1
 
-    .line 747
     const/16 v21, 0x1
 
-    .line 748
     goto/16 :goto_0
 
-    .line 751
     .end local v2           #efType:I
     :pswitch_4
     const/16 v2, 0x6f40
 
-    .line 752
     .restart local v2       #efType:I
     goto/16 :goto_0
 
-    .line 755
     .end local v2           #efType:I
     :pswitch_5
     const/16 v2, 0x6f3a
 
-    .line 756
     .restart local v2       #efType:I
     const/16 v21, 0x1
 
-    .line 757
     goto/16 :goto_0
 
-    .line 760
     .end local v2           #efType:I
     :pswitch_6
     const-string v1, "pin2"
@@ -5393,26 +5090,20 @@
 
     move-result-object v11
 
-    .line 761
     const/16 v2, 0x6f3b
 
-    .line 762
     .restart local v2       #efType:I
     const/16 v21, 0x1
 
-    .line 763
     goto/16 :goto_0
 
-    .line 766
     .end local v2           #efType:I
     :pswitch_7
     const/16 v2, 0x6f40
 
-    .line 767
     .restart local v2       #efType:I
     const/16 v21, 0x1
 
-    .line 768
     goto/16 :goto_0
 
     .restart local v3       #newTag:Ljava/lang/String;
@@ -5441,7 +5132,6 @@
 
     move-object/from16 v18, v11
 
-    .line 834
     invoke-direct/range {v12 .. v18}, Lcom/android/internal/telephony/IccProvider;->updateIccRecordInEfByIndex(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)I
 
     .end local v14           #tag:Ljava/lang/String;
@@ -5450,12 +5140,12 @@
 
     goto :goto_1
 
-    .line 839
     .restart local v14       #tag:Ljava/lang/String;
     .restart local v15       #number:Ljava/lang/String;
     :cond_10
     const-string v1, "Update Adn"
 
+    .line 685
     move-object/from16 v0, p0
 
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/IccProvider;->log(Ljava/lang/String;)V

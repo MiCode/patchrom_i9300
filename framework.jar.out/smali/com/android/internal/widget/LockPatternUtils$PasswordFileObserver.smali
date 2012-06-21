@@ -101,7 +101,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_8
 
     .line 208
     const-string v2, "LockPatternUtils"
@@ -245,7 +245,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_4
 
     .line 217
     const-string v2, "LockPatternUtils"
