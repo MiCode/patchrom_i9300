@@ -679,6 +679,8 @@
     iget v7, p0, Landroid/widget/LinearLayout;->mDividerWidth:I
 
     sub-int/2addr v3, v7
+    # leftMargin was used but here is mDividerWidth
+    # add-int/lit8 v3, v3, -0x1
 
     .line 348
     :cond_0

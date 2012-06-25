@@ -28,6 +28,8 @@
 
 .field public contactRingtoneUri:Landroid/net/Uri;
 
+.field public extra:Lmiui/telephony/ExtraCallerInfo;
+
 .field public geoDescription:Ljava/lang/String;
 
 .field public isBirthday:Z

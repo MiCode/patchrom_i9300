@@ -4213,6 +4213,13 @@
     .end local v8           #e:Ljava/lang/Exception;
     .end local v15           #rnf:Landroid/content/res/Resources$NotFoundException;
     :cond_9
+
+    invoke-virtual/range {p0 .. p2}, Landroid/content/res/Resources;->loadOverlayDrawable(Landroid/util/TypedValue;I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v6
+
+    if-nez v6, :cond_3
+
     :try_start_2
     move-object/from16 v0, p0
 
@@ -4398,6 +4405,20 @@
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     goto :goto_4
+.end method
+
+.method loadOverlayDrawable(Landroid/util/TypedValue;I)Landroid/graphics/drawable/Drawable;
+    .locals 1
+    .parameter "value"
+    .parameter "id"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    const/4 v0, 0x0
+
+    return-object v0
 .end method
 
 .method loadXmlResourceParser(ILjava/lang/String;)Landroid/content/res/XmlResourceParser;

@@ -9415,6 +9415,13 @@
     .parameter "ev"
 
     .prologue
+
+    invoke-direct/range {p0 .. p1}, Landroid/widget/AbsListView;->isOutOfTouchRange(Landroid/view/MotionEvent;)Z
+
+    move-result v28
+
+    if-nez v28, :cond_1
+
     .line 3510
     move-object/from16 v0, p0
 

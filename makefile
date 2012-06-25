@@ -40,7 +40,7 @@ local-pre-zip-misc:
 	#cp other/AxT9IME.apk $(ZIP_DIR)/system/app
 	rm -rf $(ZIP_DIR)/system/csc
 
-local-rom-zip := MIUI_gnote.zip
+local-rom-zip := MIUI_i9300.zip
 local-put-to-phone:
 	adb shell rm /sdcard/$(local-rom-zip)
 	adb push out/$(local-rom-zip) /sdcard/

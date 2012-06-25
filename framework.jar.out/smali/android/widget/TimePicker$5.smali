@@ -74,6 +74,8 @@
     .line 262
     iget-object v0, p0, Landroid/widget/TimePicker$5;->this$0:Landroid/widget/TimePicker;
 
+    invoke-virtual {v0}, Landroid/widget/TimePicker;->onTimeChanged()V
+
     #calls: Landroid/widget/TimePicker;->onTimeChanged()V
     invoke-static {v0}, Landroid/widget/TimePicker;->access$200(Landroid/widget/TimePicker;)V
 

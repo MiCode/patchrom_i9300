@@ -188,6 +188,12 @@
 
 .field private static final LAST_VIDEO_FILE_TYPE2:I = 0xc8
 
+.field public static final FILE_TYPE_APE:I = 0x3e9
+
+.field private static final FIRST_FFMPEG_AUDIO_FILE_TYPE:I = 0x3e9
+
+.field private static final LAST_FFMPEG_AUDIO_FILE_TYPE:I = 0x3e9
+
 .field public static sCscFeature:Lcom/sec/android/app/CscFeature;
 
 .field private static sFileTypeMap:Ljava/util/HashMap;
@@ -409,7 +415,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_4
 
     .line 255
     const-string v0, "WMA"
@@ -422,7 +428,7 @@
 
     invoke-static {v0, v1, v2, v3}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
-    :cond_0
+    :cond_4
     const-string v0, "OGG"
 
     const/4 v1, 0x7
@@ -571,6 +577,15 @@
     const-string v1, "audio/midi"
 
     invoke-static {v0, v4, v1}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
+
+
+    const-string v0, "APE"
+
+    const/16 v1, 0x3e9
+
+    const-string v2, "audio/x-monkeys-audio"
+
+    invoke-static {v0, v1, v2}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
     .line 278
     const-string v0, "MPEG"

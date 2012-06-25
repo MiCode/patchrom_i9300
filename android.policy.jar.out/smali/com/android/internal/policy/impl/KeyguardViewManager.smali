@@ -571,7 +571,7 @@
 
     .line 119
     .local v9, stretch:I
-    const v4, 0x10100800
+    const v4, 0x10100900
 
     .line 124
     .local v4, flags:I
@@ -671,6 +671,10 @@
 
     .line 142
     :cond_3
+
+    const/4 v1, 0x1
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
+
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
     or-int/lit8 v1, v1, 0x8
@@ -836,6 +840,8 @@
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;
 
     invoke-virtual {v1, v10}, Landroid/widget/FrameLayout;->setSystemUiVisibility(I)V
+
+    invoke-direct {p0}, Lcom/android/internal/policy/impl/KeyguardViewManager;->updateDisplayDesktopFlag()V
 
     .line 192
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mViewManager:Landroid/view/ViewManager;

@@ -10302,7 +10302,7 @@
     .line 3941
     .restart local v14       #keyguardActive:Z
     :cond_9
-    if-eqz v5, :cond_a
+    #if-eqz v5, :cond_a
 
     move/from16 v0, p2
 
@@ -10321,7 +10321,15 @@
     .line 3944
     const/16 v20, 0x0
 
+    if-eqz v5, :cond_31
+
     const/16 v21, 0xe
+
+    goto :goto_g
+    :cond_31
+    const/16 v21, 0x2
+
+    :goto_g
 
     const/16 v22, 0x0
 
@@ -11043,7 +11051,7 @@
     :cond_1e
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v4}, Lcom/android/internal/policy/impl/PhoneWindowManager;->interceptPowerKeyUp(Z)Z
+    invoke-virtual {v0, v4}, Lcom/android/internal/policy/impl/PhoneWindowManager;->interceptPowerKeyUp(Z)Z
 
     move-result v20
 
@@ -11449,7 +11457,7 @@
 
     move/from16 v1, v20
 
-    invoke-direct {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->interceptPowerKeyUp(Z)Z
+    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->interceptPowerKeyUp(Z)Z
 
     move-result v20
 
@@ -11498,6 +11506,27 @@
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mPendingPowerKeyUpCanceled:Z
+
+
+    # should add me at beginning?
+    move-object/from16 v1, p0
+
+    iget-object v0, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
+
+    if-eqz v0, :cond_33
+
+    new-instance v21, Landroid/content/Intent;
+
+    const-string v22, "android.intent.action.KEYCODE_POWER_UP"
+
+    invoke-direct/range {v21 .. v22}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v20 .. v21}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    :cond_33
+    # end
 
     goto/16 :goto_4
 
@@ -16201,7 +16230,7 @@
 
     .prologue
     .line 1109
-    iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mGlobalActions:Lcom/android/internal/policy/impl/GlobalActions;
+    iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mGlobalActions:Lcom/android/internal/policy/impl/MiuiGlobalActions;
 
     if-nez v1, :cond_0
 
@@ -16223,7 +16252,7 @@
     if-lt v1, v2, :cond_2
 
     .line 1111
-    new-instance v1, Lcom/android/internal/policy/impl/GlobalActions;
+    new-instance v1, Lcom/android/internal/policy/impl/MiuiGlobalActions;
 
     new-instance v2, Landroid/view/ContextThemeWrapper;
 
@@ -16233,9 +16262,9 @@
 
     invoke-direct {v2, v3, v4}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    invoke-direct {v1, v2}, Lcom/android/internal/policy/impl/GlobalActions;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v2}, Lcom/android/internal/policy/impl/MiuiGlobalActions;-><init>(Landroid/content/Context;)V
 
-    iput-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mGlobalActions:Lcom/android/internal/policy/impl/GlobalActions;
+    iput-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mGlobalActions:Lcom/android/internal/policy/impl/MiuiGlobalActions;
 
     .line 1116
     :cond_0
@@ -16271,7 +16300,7 @@
     .line 1113
     .end local v0           #keyguardShowing:Z
     :cond_2
-    new-instance v1, Lcom/android/internal/policy/impl/GlobalActions;
+    new-instance v1, Lcom/android/internal/policy/impl/MiuiGlobalActions;
 
     new-instance v2, Landroid/view/ContextThemeWrapper;
 
@@ -16281,9 +16310,9 @@
 
     invoke-direct {v2, v3, v4}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    invoke-direct {v1, v2}, Lcom/android/internal/policy/impl/GlobalActions;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v2}, Lcom/android/internal/policy/impl/MiuiGlobalActions;-><init>(Landroid/content/Context;)V
 
-    iput-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mGlobalActions:Lcom/android/internal/policy/impl/GlobalActions;
+    iput-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mGlobalActions:Lcom/android/internal/policy/impl/MiuiGlobalActions;
 
     goto :goto_0
 .end method

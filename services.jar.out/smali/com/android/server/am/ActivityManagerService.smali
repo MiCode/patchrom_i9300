@@ -12184,6 +12184,14 @@
 
     invoke-virtual {v13, v3, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+
+    const-string v3, "crash"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v13, v3, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+
     .line 8306
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 

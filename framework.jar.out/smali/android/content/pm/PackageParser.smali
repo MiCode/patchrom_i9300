@@ -6299,9 +6299,18 @@
 
     .line 2816
     .local v7, priority:I
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, p4
+
+    invoke-direct {v0, v1, v7}, Landroid/content/pm/PackageParser;->checkPriority(II)I
+
+    move-result v13
+
     move-object/from16 v0, p5
 
-    invoke-virtual {v0, v7}, Landroid/content/pm/PackageParser$IntentInfo;->setPriority(I)V
+    invoke-virtual {v0, v13}, Landroid/content/pm/PackageParser$IntentInfo;->setPriority(I)V
 
     .line 2818
     const/4 v13, 0x0

@@ -664,6 +664,8 @@
     .line 307
     iput-wide v7, p0, Landroid/view/ViewRootImpl;->mFpsPrevTime:J
 
+    iput-boolean v3, p0, Landroid/view/ViewRootImpl;->mSkipResizedMsg:Z
+
     .line 327
     iput-boolean v3, p0, Landroid/view/ViewRootImpl;->bHavePen:Z
 

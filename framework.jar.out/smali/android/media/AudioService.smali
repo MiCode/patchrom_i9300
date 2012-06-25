@@ -5825,9 +5825,9 @@
 
     .line 894
     :cond_3
-    iget-object v2, p0, Landroid/media/AudioService;->mVolumePanel:Landroid/view/VolumePanel;
+    iget-object v2, p0, Landroid/media/AudioService;->mVolumePanel:Lmiui/view/VolumePanel;
 
-    invoke-virtual {v2, p1, p4}, Landroid/view/VolumePanel;->postVolumeChanged(II)V
+    invoke-virtual {v2, p1, p4}, Lmiui/view/VolumePanel;->postVolumeChanged(II)V
 
     .line 895
     add-int/lit8 v2, p2, 0x5
@@ -7303,9 +7303,9 @@
 
     .prologue
     .line 4748
-    iget-object v0, p0, Landroid/media/AudioService;->mVolumePanel:Landroid/view/VolumePanel;
+    iget-object v0, p0, Landroid/media/AudioService;->mVolumePanel:Lmiui/view/VolumePanel;
 
-    invoke-virtual {v0}, Landroid/view/VolumePanel;->forceDismiss()V
+    #invoke-virtual {v0}, Landroid/view/VolumePanel;->forceDismiss()V
 
     .line 4749
     return-void
