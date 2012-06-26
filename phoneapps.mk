@@ -1,14 +1,10 @@
-local-phone-apps = AxT9IME \
-                   BackupRestoreConfirmation \
+local-phone-apps = BackupRestoreConfirmation \
                    BadgeProvider \
-                   Bluetooth \
                    BluetoothAvrcp \
                    BluetoothMap \
                    BluetoothTest \
                    CSC \
-                   Camera \
                    ClipboardSaveService \
-                   DataCreate \
                    DefaultContainerService \
                    Divx \
                    EdmVpnServices \
@@ -17,13 +13,8 @@ local-phone-apps = AxT9IME \
                    FmRadio \
                    GoogleFeedback \
                    GoogleTTS \
-                   HTMLViewer \
-                   InputEventApp \
                    KeyChain \
-                   LiveWallpapers \
-                   LiveWallpapersPicker \
                    LogsProvider \
-                   MediaProvider \
                    MediaUploader \
                    MusicFX \
                    OmaCP \
@@ -32,34 +23,35 @@ local-phone-apps = AxT9IME \
                    PanningTryActually \
                    Personalization \
                    PhoneErrService \
-                   Phone_Util \
                    PopupuiReceiver \
                    Preconfig \
                    PreloadInstaller \
-                   QuickView \
                    SamsungTTS \
+				   SamsungCamera \
+				   SecBluetooth \
+				   BluetoothAvrcp \
+				   BluetoothMap \
+				   BluetoothTest \
                    SecBrowser \
+				   SecHTMLViewer \
                    SecOmaDownloadProvider \
+				   SecLiveWallpapersPicker \
+				   SecWallpaperChooser \
+				   SecMediaProvider \
                    SecPhone \
                    SecurityProvider \
                    SelfTestMode \
-                   SerialNumberLabelIndicator \
                    ShareApp \
                    SharedStorageBackup \
                    Stk \
                    Street \
-                   SurfSetProp \
                    UserDictionaryProvider \
                    VpnDialogs \
                    WAPPushManager \
                    WlanTest \
-                   lcdtest \
                    minimode-res \
                    serviceModeApp \
-                   shutdown \
                    wssyncmlnps \
                    ApplicationsProvider \
-				   ScreenCapture \
-				   SMemo_HKTW \
-				   SMemoLite
-#SecCalendar \ #SecCalendarProvider \ #SPlannerAppWidget \
+				   SMemo \
+				   SMemoProvider

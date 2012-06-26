@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="workspace_padding_top">10.0dip</dimen>
+    <dimen name="workspace_padding_side">8.5dip</dimen>
+    <dimen name="workspace_margin_bottom">70.0dip</dimen>
+</resources>
