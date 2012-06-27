@@ -38,6 +38,8 @@ local-pre-zip-misc:
 	cp other/spn-conf.xml $(ZIP_DIR)/system/etc/spn-conf.xml
 	cp other/build.prop $(ZIP_DIR)/system/build.prop
 	#cp other/AxT9IME.apk $(ZIP_DIR)/system/app
+	cp stockrom/system/app/FFFFFFFF000000000000000000000001.drbin $(ZIP_DIR)/system/app
+	cp -r stockrom/system/app/mcRegistry $(ZIP_DIR)/system/app
 	rm -rf $(ZIP_DIR)/system/csc
 
 local-rom-zip := MIUI_i9300.zip
