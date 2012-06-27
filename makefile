@@ -47,3 +47,7 @@ local-put-to-phone:
 	adb shell rm /sdcard/$(local-rom-zip)
 	adb push out/$(local-rom-zip) /sdcard/
 	adb reboot recovery
+
+local-root-phone:
+	adb shell su -c insecure &
+	adb kill-server
