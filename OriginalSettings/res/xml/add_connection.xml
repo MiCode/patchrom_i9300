@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/add_connection_titlebar"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceScreen android:title="@string/matched_ap_title" android:key="matched_ap" android:fragment="com.android.settings.wifi.ApList" />
+</PreferenceScreen>

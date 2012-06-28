@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/wifi_enable_location_title"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:title="@string/wifi_enable_location_title" android:key="wifi_enable_location" />
+    <com.android.OriginalSettings.ProgressCategory android:persistent="false" android:title="@string/wifi_power_save_database_title" android:key="wifi_power_save_database" />
+</PreferenceScreen>

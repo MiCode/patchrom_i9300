@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/sleeping_mode_title" android:key="sleeping_mode"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:OriginalSettings="http://schemas.android.com/apk/res/com.android.OriginalSettings">
+    <CheckBoxPreference android:persistent="false" android:title="@string/sleeping_mode_title" android:key="toggle_sleeping_mode" />
+    <com.android.OriginalSettings.sleepmode.SleepingModePreference android:key="sleeping_mode_pref" android:dependency="toggle_sleeping_mode" />
+</PreferenceScreen>

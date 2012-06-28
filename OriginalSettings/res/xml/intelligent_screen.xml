@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/intelligent_screen_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:OriginalSettings="http://schemas.android.com/apk/res/com.android.OriginalSettings">
+    <CheckBoxPreference android:title="@string/intelligent_sleep_title" android:key="intelligent_sleep" android:summary="@string/intelligent_sleep_summary" />
+    <CheckBoxPreference android:title="@string/intelligent_rotation_title" android:key="intelligent_rotation" android:summary="@string/intelligent_rotation_summary" />
+    <PreferenceScreen android:title="@string/wifi_p2p_help" android:key="intelligent_help">
+        <intent android:targetPackage="com.android.OriginalSettings" android:action="android.intent.action.MAIN" android:targetClass="com.android.OriginalSettings.IntelligentHelp" />
+    </PreferenceScreen>
+</PreferenceScreen>
