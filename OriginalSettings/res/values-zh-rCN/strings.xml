@@ -178,8 +178,8 @@
     <string name="sysscope_tampered">已修改</string>
     <string name="sysscope_scanning">扫描中...</string>
     <string name="cancel">取消</string>
-    <string name="settings_label">设定</string>
-    <string name="settings_label_launcher">设定</string>
+    <string name="settings_label">原厂设置</string>
+    <string name="settings_label_launcher">原厂设置</string>
     <string name="settings_shortcut">设置快捷方式</string>
     <string name="airplane_mode">飞行模式</string>
     <string name="radio_controls_title">更多...</string>

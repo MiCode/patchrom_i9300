@@ -1776,6 +1776,11 @@
     invoke-virtual {p0, v7}, Lcom/android/OriginalSettings/DisplaySettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v7
+    #start 
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/DisplaySettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    move-result-object v10
+    invoke-virtual {v10, v7}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    #end
 
     check-cast v7, Landroid/preference/CheckBoxPreference;
 
@@ -1793,6 +1798,13 @@
 
     move-result-object v7
 
+    .line 272
+    #start 
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/DisplaySettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    move-result-object v10
+    invoke-virtual {v10, v7}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    #end
+
     check-cast v7, Lcom/android/OriginalSettings/BrightnessPreference;
 
     iput-object v7, p0, Lcom/android/OriginalSettings/DisplaySettings;->mBrightnessPreference:Lcom/android/OriginalSettings/BrightnessPreference;
@@ -1803,6 +1815,11 @@
     invoke-virtual {p0, v7}, Lcom/android/OriginalSettings/DisplaySettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v7
+    #start 
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/DisplaySettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    move-result-object v10
+    invoke-virtual {v10, v7}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    #end
 
     check-cast v7, Landroid/preference/ListPreference;
 
@@ -1846,6 +1863,11 @@
     invoke-virtual {p0, v7}, Lcom/android/OriginalSettings/DisplaySettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v7
+    #start 
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/DisplaySettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    move-result-object v10
+    invoke-virtual {v10, v7}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    #end
 
     check-cast v7, Landroid/preference/ListPreference;
 
@@ -1862,6 +1884,11 @@
     invoke-virtual {p0, v7}, Lcom/android/OriginalSettings/DisplaySettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v7
+    #start 
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/DisplaySettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    move-result-object v10
+    invoke-virtual {v10, v7}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    #end
 
     check-cast v7, Landroid/preference/CheckBoxPreference;
 
@@ -1894,6 +1921,11 @@
     invoke-virtual {p0, v7}, Lcom/android/OriginalSettings/DisplaySettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v7
+    #start 
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/DisplaySettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    move-result-object v10
+    invoke-virtual {v10, v7}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    #end
 
     check-cast v7, Landroid/preference/CheckBoxPreference;
 

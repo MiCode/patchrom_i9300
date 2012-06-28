@@ -508,7 +508,7 @@
 
     iget-object v8, v8, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
-    const-string v9, "com.android.settings"
+    const-string v9, "com.android.OriginalSettings"
 
     invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest android:sharedUserId="android.uid.system" android:versionCode="15" android:versionName="4.0.4-I9300ZSALED" package="com.android.settings" coreApp="true"
+<manifest android:sharedUserId="android.uid.system" android:versionCode="15" android:versionName="4.0.4-I9300ZSALED" package="com.android.OriginalSettings" coreApp="true"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="15" />
     <original-package android:name="com.android.settings" />
@@ -56,19 +56,18 @@
     <uses-permission android:name="conv.svc.sec.nearby.MEDIASHARE" />
     <permission android:name="com.android.setting.permission.ALLSHARE_CAST_SERVICE" android:protectionLevel="signatureOrSystem" />
     <uses-permission android:name=" com.android.setting.permission.ALLSHARE_CAST_SERVICE " />
-    <application android:theme="@android:style/Theme.DeviceDefault" android:label="@string/settings_label" android:icon="@mipmap/ic_launcher_settings" android:taskAffinity="" android:hardwareAccelerated="false" android:uiOptions="splitActionBarWhenNarrow">
+    <application android:theme="@miui:style/Theme.Light" android:label="@string/settings_label" android:icon="@mipmap/ic_launcher_settings" android:taskAffinity="" android:hardwareAccelerated="false" android:uiOptions="splitActionBarWhenNarrow">
         <uses-library android:name="sechardware" />
         <uses-library android:name="sec_feature" />
         <uses-library android:name="sec_platform_library" />
-        <activity android:label="@string/settings_label_launcher" android:name="Settings" android:taskAffinity="com.android.settings" android:launchMode="singleTask" android:configChanges="keyboardHidden|orientation|screenSize">
+        <activity android:label="@string/settings_label_launcher" android:name="Settings" android:taskAffinity="com.android.OriginalSettings" android:launchMode="singleTask" android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.settings.SETTINGS" />
+                <action android:name="com.android.settings.MANUFACTURER_APPLICATION_SETTING" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SubSettings" android:taskAffinity="com.android.settings" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:name=".SubSettings" android:taskAffinity="com.android.OriginalSettings" android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity android:theme="@style/Theme.CreateShortCut" android:label="@string/settings_shortcut" android:name="CreateShortcut">
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />
@@ -368,14 +367,14 @@
         <activity android:name="Settings$NearbySettingsActivity" android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="com.android.settings.nearby.NearbySettings" />
+                <action android:name="com.android.OriginalSettings.nearby.NearbySettings" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.VOICE_LAUNCH" />
             </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.nearby.NearbySettings" />
-            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID" android:resource="@id/wireless_settings" />
-            <meta-data android:name="com.android.settings.PARENT_FRAGMENT_TITLE" android:resource="@string/wireless_networks_settings_title" />
-            <meta-data android:name="com.android.settings.PARENT_FRAGMENT_CLASS" android:value="com.android.settings.Settings$WirelessSettingsActivity" />
+            <meta-data android:name="com.android.OriginalSettings.FRAGMENT_CLASS" android:value="com.android.OriginalSettings.nearby.NearbySettings" />
+            <meta-data android:name="com.android.OriginalSettings.TOP_LEVEL_HEADER_ID" android:resource="@id/wireless_settings" />
+            <meta-data android:name="com.android.OriginalSettings.PARENT_FRAGMENT_TITLE" android:resource="@string/wireless_networks_settings_title" />
+            <meta-data android:name="com.android.OriginalSettings.PARENT_FRAGMENT_CLASS" android:value="com.android.OriginalSettings.Settings$WirelessSettingsActivity" />
         </activity>
         <activity-alias android:label="@string/allshare_nearby" android:name=".nearby.NearbySettings" android:exported="true" android:clearTaskOnLaunch="true" android:targetActivity="Settings$NearbySettingsActivity">
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.nearby.NearbySettings" />

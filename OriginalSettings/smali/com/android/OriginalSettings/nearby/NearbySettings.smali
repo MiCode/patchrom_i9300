@@ -1643,7 +1643,7 @@
 
     new-instance v2, Landroid/content/IntentFilter;
 
-    const-string v3, "com.android.settings.allshare.REFRESH"
+    const-string v3, "com.android.OriginalSettings.allshare.REFRESH"
 
     invoke-direct {v2, v3}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
@@ -1669,7 +1669,7 @@
 
     new-instance v2, Landroid/content/IntentFilter;
 
-    const-string v3, "com.android.settings.allshare.UPDATE_LIST"
+    const-string v3, "com.android.OriginalSettings.allshare.UPDATE_LIST"
 
     invoke-direct {v2, v3}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
@@ -1682,7 +1682,7 @@
 
     new-instance v2, Landroid/content/IntentFilter;
 
-    const-string v3, "com.android.settings.allshare.SERVER_STATE_CHANGE"
+    const-string v3, "com.android.OriginalSettings.allshare.SERVER_STATE_CHANGE"
 
     invoke-direct {v2, v3}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
@@ -3530,7 +3530,7 @@
     .line 1262
     new-instance v1, Landroid/content/Intent;
 
-    const-string v2, "com.android.settings.allshare.REFRESH"
+    const-string v2, "com.android.OriginalSettings.allshare.REFRESH"
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
