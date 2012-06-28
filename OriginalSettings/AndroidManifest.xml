@@ -68,7 +68,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SubSettings" android:taskAffinity="com.android.OriginalSettings" android:configChanges="keyboardHidden|orientation|screenSize" />
-        <activity android:theme="@style/Theme.CreateShortCut" android:label="@string/settings_shortcut" android:name="CreateShortcut">
+        <!--activity android:theme="@style/Theme.CreateShortCut" android:label="@string/settings_shortcut" android:name="CreateShortcut">
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -363,7 +363,7 @@
                 <action android:name="com.samsung.ScreenCapture.ScreenCaptureRemoteService" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </service>
+        </service-->
         <activity android:name="Settings$NearbySettingsActivity" android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -382,7 +382,7 @@
             <meta-data android:name="com.android.settings.PARENT_FRAGMENT_TITLE" android:resource="@string/wireless_networks_settings_title" />
             <meta-data android:name="com.android.settings.PARENT_FRAGMENT_CLASS" android:value="com.android.settings.Settings$WirelessSettingsActivity" />
         </activity-alias>
-        <activity android:label="@string/vpn_settings_title" android:icon="@drawable/shortcut_vpn" android:name="Settings$VpnSettingsActivity" android:clearTaskOnLaunch="true">
+        <!--activity android:label="@string/vpn_settings_title" android:icon="@drawable/shortcut_vpn" android:name="Settings$VpnSettingsActivity" android:clearTaskOnLaunch="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.net.vpn.SETTINGS" />
@@ -549,7 +549,7 @@
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.LedIndicatorSettings" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID" android:resource="@id/display_settings" />
-        </activity>
+        </activity-->
         <receiver android:name="SettingsIntentReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -562,10 +562,11 @@
                 <action android:name="osp.signin.SAMSUNG_ACCOUNT_SIGNOUT" />
                 <action android:name="android.intent.action.GOOGLEACCOUNT_REGISTED" />
                 <action android:name="android.intent.action.GOOGLEACCOUNT_REMOVED" />
-                <action android:name="android.intent.action.ACTION_ASSISTIVE_OFF" />
+                <action android:name="android.intent.action.NETWORK_PROVIDER_ENABLE" />
                 <action android:name="shopdemo_on" />
                 <action android:name="shopdemo_off" />
-                <action android:name="android.intent.action.MAX_BRIGHTNESS_CHANGED" />
+                <action android:name="android.intent.action.POWER_SIOP_ENABLE" />
+                <action android:name="android.intent.action.POWER_SIOP_DISABLE" />
                 <action android:name="android.settings.EAS_POLICY_STATE_CHANGED" />
                 <action android:name="com.sec.samsung.torchwidget.torch_on_1" />
                 <action android:name="com.sec.samsung.torchwidget.torch_on_2" />
@@ -587,7 +588,7 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.DockSettings" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID" android:resource="@id/dock_settings" />
         </activity-alias>
-        <activity android:theme="@android:style/Theme.DeviceDefault.DialogWhenLarge" android:label="@string/device_info_settings" android:name="Settings$DeviceInfoSettingsActivity">
+        <!--activity android:theme="@android:style/Theme.DeviceDefault.DialogWhenLarge" android:label="@string/device_info_settings" android:name="Settings$DeviceInfoSettingsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.settings.DEVICE_INFO_SETTINGS" />
@@ -974,7 +975,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.nfc.AndroidBeam" />
-        </activity>
+        </activity-->
         <activity android:label="@string/s_beam_settings_title" android:icon="@drawable/shortcut_sbeam" android:name="Settings$SBeamSettingsActivity" android:exported="true" android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -984,7 +985,7 @@
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.nfc.SBeam" />
         </activity>
-        <activity android:theme="@style/Theme.AccessibilityTutorialActivity" android:label="@string/accessibility_tutorial_title" android:name="AccessibilityTutorialActivity" android:configChanges="orientation" android:immersive="true">
+        <!--activity android:theme="@style/Theme.AccessibilityTutorialActivity" android:label="@string/accessibility_tutorial_title" android:name="AccessibilityTutorialActivity" android:configChanges="orientation" android:immersive="true">
             <intent-filter>
                 <action android:name="android.settings.ACCESSIBILITY_TUTORIAL" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -1007,14 +1008,14 @@
                 <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" />
                 <category android:name="android.intent.category.VOICE_LAUNCH" />
             </intent-filter>
-        </activity>
+        </activity-->
         <activity android:label="@string/display_label" android:name="Display" android:configChanges="fontScale">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" />
             </intent-filter>
         </activity>
-        <activity android:label="@string/phone_info_label" android:name="RadioInfo" android:process="com.android.phone">
+        <!--activity android:label="@string/phone_info_label" android:name="RadioInfo" android:process="com.android.phone">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" />
@@ -1167,7 +1168,7 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.InformationTicker" />
-        </activity>
+        </activity-->
         <activity android:label="@string/g_sensor_title" android:name="GSensorSettings" android:screenOrientation="portrait" android:hardwareAccelerated="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -1207,7 +1208,7 @@
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/connectivitylocationwidget_info" />
         </receiver>
-        <activity android:theme="@android:style/Theme.DeviceDefault.DialogWhenLarge" android:label="@string/screen_mode_setting" android:name="ModePreview" android:uiOptions="none" />
+        <activity android:label="@string/screen_mode_setting" android:name="ModePreview" android:uiOptions="none" />
         <activity android:label="@string/motion_settings_title" android:name="com.android.settings.motion.MotionSettings" android:clearTaskOnLaunch="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -1216,7 +1217,7 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.motion.MotionSettings" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID" android:resource="@id/motion_settings" />
         </activity>
-        <activity android:label="@string/motion_settings_title" android:name="Settings$MotionSettingsActivity" android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize">
+        <!--activity android:label="@string/motion_settings_title" android:name="Settings$MotionSettingsActivity" android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.settings.MOTION_SETTINGS" />
@@ -1444,6 +1445,6 @@
             <meta-data android:name="com.android.settings.PARENT_FRAGMENT_TITLE" android:resource="@string/lock_screen_options" />
             <meta-data android:name="com.android.settings.PARENT_FRAGMENT_CLASS" android:value="com.android.settings.Settings$LockScreenSettingsActivity" />
         </activity>
-        <service android:name=".MasterClearModemReset" android:permission="android.permission.MASTER_CLEAR" />
+        <service android:name=".MasterClearModemReset" android:permission="android.permission.MASTER_CLEAR" /-->
     </application>
 </manifest>
