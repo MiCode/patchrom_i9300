@@ -14,8 +14,6 @@ private-phone-apps := ApplicationsProvider \
 					  FaceLock \
 					  FactoryTest \
 					  FmRadio \
-					  GoogleFeedback \
-					  GoogleTTS \
 					  KeyChain \
 					  LogsProvider \
 					  MediaUploader \
@@ -34,23 +32,10 @@ private-phone-apps := ApplicationsProvider \
 					  PreloadInstaller \
 					  SamsungTTS \
 					  SamsungCamera \
-					  SecBluetooth \
-					  BluetoothAvrcp \
-					  BluetoothMap \
-					  BluetoothTest \
-					  SecBrowser \
-					  SecHTMLViewer \
-					  SecOmaDownloadProvider \
-					  SecLiveWallpapersPicker \
-					  SecWallpaperChooser \
 					  SecMediaProvider \
-					  SecPhone \
+					  SecHTMLViewer \
 					  SecurityProvider \
 					  SelfTestMode \
-					  ShareApp \
-					  SharedStorageBackup \
-					  Stk \
-					  Street \
 					  UserDictionaryProvider \
 					  VpnDialogs \
 					  WAPPushManager \
@@ -95,5 +80,8 @@ private-phone-apps2 :=  AllshareDMC \
 						ShaoNv \
 						TwDVFSApp \
 						VpnDialogs \
-						WfdBroker
+						WfdBroker \
+						BluetoothAvrcp \
+						BluetoothMap \
+						BluetoothTest
 #DreyeforSamsung
