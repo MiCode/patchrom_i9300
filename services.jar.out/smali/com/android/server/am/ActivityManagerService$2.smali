@@ -169,9 +169,9 @@
     if-nez v4, :cond_4
 
     .line 966
-    invoke-static {}, Lcom/samsung/CustomerCrashReport;->isCCRInstalled()Z
+    #invoke-static {}, Lcom/samsung/CustomerCrashReport;->isCCRInstalled()Z
 
-    move-result v4
+    #move-result v4
     const/4 v4, 0x0
 
     if-eqz v4, :cond_3
@@ -260,35 +260,38 @@
     .line 972
     :cond_3
     :try_start_2
-    new-instance v25, Lcom/android/server/am/AppErrorDialog;
-
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/am/ActivityManagerService$2;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v6, v4, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
-
-    const-string v4, "crash"
-
     move-object/from16 v0, v26
 
-    invoke-virtual {v0, v4}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v0}, Lcom/android/server/am/ActivityManagerService;->showAppCrashDialogWrap(Ljava/util/HashMap;)V
 
-    move-result-object v4
+    #iget-object v6, v4, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    check-cast v4, Landroid/app/ApplicationErrorReport$CrashInfo;
+    #const-string v4, "crash"
 
-    move-object/from16 v0, v25
+    #move-object/from16 v0, v26
 
-    move-object/from16 v1, v49
+    #invoke-virtual {v0, v4}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object/from16 v2, v45
+    #move-result-object v4
 
-    invoke-direct {v0, v6, v1, v2, v4}, Lcom/android/server/am/AppErrorDialog;-><init>(Landroid/content/Context;Lcom/android/server/am/AppErrorResult;Lcom/android/server/am/ProcessRecord;Landroid/app/ApplicationErrorReport$CrashInfo;)V
+    #check-cast v4, Landroid/app/ApplicationErrorReport$CrashInfo;
+
+    #move-object/from16 v0, v25
+
+    #move-object/from16 v1, v49
+
+    #move-object/from16 v2, v45
+
+    #invoke-direct {v0, v6, v1, v2, v4}, Lcom/android/server/am/AppErrorDialog;-><init>(Landroid/content/Context;Lcom/android/server/am/AppErrorResult;Lcom/android/server/am/ProcessRecord;Landroid/app/ApplicationErrorReport$CrashInfo;)V
+
 
     .end local v24           #d:Landroid/app/Dialog;
     .restart local v25       #d:Landroid/app/Dialog;
-    move-object/from16 v24, v25
+    #move-object/from16 v24, v25
 
     .end local v25           #d:Landroid/app/Dialog;
     .restart local v24       #d:Landroid/app/Dialog;
