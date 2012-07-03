@@ -1061,6 +1061,7 @@
     move-result v0
 
     if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardViewProperties:Lcom/android/internal/policy/impl/KeyguardViewProperties;
 
@@ -1069,6 +1070,7 @@
     move-result v0
 
     if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mWindowLayoutParams:Landroid/view/WindowManager$LayoutParams;
 

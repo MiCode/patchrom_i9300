@@ -4751,6 +4751,7 @@
     .local v1, isLiveWallpaper:Z
     :cond_c
     if-nez v1, :cond_d
+    if-eqz v1, :cond_d
 
     .line 1254
     new-instance v6, Lcom/android/internal/policy/impl/WallpaperWidget;
