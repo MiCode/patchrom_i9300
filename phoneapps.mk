@@ -34,6 +34,7 @@ private-phone-apps := ApplicationsProvider \
 					  SamsungCamera \
 					  SecMediaProvider \
 					  SecHTMLViewer \
+					  SecLiveWallpapersPicker \
 					  SecurityProvider \
 					  SelfTestMode \
 					  UserDictionaryProvider \
@@ -42,8 +43,6 @@ private-phone-apps := ApplicationsProvider \
 					  WlanTest \
 					  minimode-res \
 					  serviceModeApp \
-					  SMemo \
-					  SMemoProvider \
 					  wssyncmlnps
 
 private-phone-apps2 :=  AllshareDMC \

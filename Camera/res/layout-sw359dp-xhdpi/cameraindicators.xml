@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/CameraIndicatorLayout" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:custom="http://schemas.android.com/apk/res/com.sec.android.app.camera">
+    <com.sec.android.app.camera.widget.TwIndicatorGPS android:id="@id/gps_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="400.0px" android:layout_marginTop="12.0px" />
+</RelativeLayout>

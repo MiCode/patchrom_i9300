@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/OnDeviceHelp_EditableShortCut" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <RelativeLayout android:background="@drawable/APKTOOL_DUMMY_019c" android:layout_width="394.0dip" android:layout_height="wrap_content" android:layout_marginLeft="70.0dip" android:layout_marginTop="20.0dip">
+            <TextView android:textSize="18.0dip" android:textColor="@android:color/white" android:id="@id/finger_text2" android:paddingLeft="5.0dip" android:paddingRight="5.0dip" android:paddingBottom="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/on_device_help_editable" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <ImageView android:id="@id/finger" android:background="@drawable/APKTOOL_DUMMY_01b5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="74.0dip" />
+    </RelativeLayout>
+    <RelativeLayout android:background="#ff465c6d" android:layout_width="fill_parent" android:layout_height="48.0dip" android:layout_alignParentBottom="true">
+        <CheckBox android:textAppearance="?android:textAppearanceMedium" android:textColor="@android:color/white" android:id="@id/checkbox" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="@string/do_not_ask_again" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        <Button android:textColor="#ffffffff" android:id="@id/button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dip" android:text="@string/OK_STRING" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</RelativeLayout>
