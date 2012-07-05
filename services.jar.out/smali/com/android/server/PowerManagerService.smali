@@ -1055,7 +1055,7 @@
 .end method
 
 .method static synthetic access$1802(Lcom/android/server/PowerManagerService;Z)Z
-    .locals 0
+    .locals 3
     .parameter "x0"
     .parameter "x1"
 
@@ -1063,7 +1063,33 @@
     .line 110
     iput-boolean p1, p0, Lcom/android/server/PowerManagerService;->mSmartSleepEnabled:Z
 
+    const-string v0, "PowerManagerService"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    if-eqz p1, :cond_0
+
+    const-string v2, "mSmartSleepEnabled true"
+
+    :goto_0
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     return p1
+
+    :cond_0
+    const-string v2, "mSmartSleepEnabled false"
+    goto :goto_0
+
 .end method
 
 .method static synthetic access$1900(Lcom/android/server/PowerManagerService;)Landroid/content/Context;

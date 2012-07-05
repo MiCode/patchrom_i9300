@@ -286,7 +286,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    #if-eqz v0, :cond_5
 
     const/4 v0, 0x1
 
