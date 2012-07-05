@@ -2,5 +2,5 @@
 <resources>
     <bool name="has_button">false</bool>
     <bool name="has_led">true</bool>
-    <bool name="mass_storage_enable">true</bool>
+    <bool name="mass_storage_enable">false</bool>
 </resources>
