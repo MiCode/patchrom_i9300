@@ -373,11 +373,8 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-
-    invoke-static {v0, v1}, Lcom/android/internal/policy/impl/MiuiClassFactory;->createKeyguardViewProperties(Lcom/android/internal/widget/LockPatternUtils;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)Lcom/android/internal/policy/impl/KeyguardViewProperties;
+    .line 303
+    invoke-direct {p0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->createKeyguardViewProperties()Lcom/android/internal/policy/impl/KeyguardViewProperties;
 
     move-result-object v0
 
@@ -1036,7 +1033,7 @@
     if-eqz v2, :cond_3
 
     .line 1460
-    const/high16 v2, 0x120
+    const/high16 v2, 0x8120
 
     or-int/2addr v1, v2
 
@@ -1240,6 +1237,54 @@
     .end local v0           #enabled:Z
     :cond_2
     const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private createKeyguardViewProperties()Lcom/android/internal/policy/impl/KeyguardViewProperties;
+    .locals 4
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 334
+    iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    .line 335
+    .local v0, cr:Landroid/content/ContentResolver;
+    const-string v1, "not_use_miui_lockscreen"
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    if-ne v1, v2, :cond_0
+
+    .line 336
+    iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+
+    invoke-static {v1, v2}, Lcom/android/internal/policy/impl/MiuiClassFactory;->createKeyguardViewProperties(Lcom/android/internal/widget/LockPatternUtils;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)Lcom/android/internal/policy/impl/KeyguardViewProperties;
+
+    move-result-object v1
+
+    .line 339
+    :goto_0
+    return-object v1
+
+    :cond_0
+    new-instance v1, Lcom/android/internal/policy/impl/LockPatternKeyguardViewProperties;
+
+    iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    iget-object v3, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+
+    invoke-direct {v1, v2, v3}, Lcom/android/internal/policy/impl/LockPatternKeyguardViewProperties;-><init>(Lcom/android/internal/widget/LockPatternUtils;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
 
     goto :goto_0
 .end method

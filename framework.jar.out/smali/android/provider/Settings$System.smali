@@ -151,7 +151,7 @@
 
 .field public static final DIM_SCREEN:Ljava/lang/String; = "dim_screen"
 
-.field public static final DISPLAY_BATTERY_LEVEL:Ljava/lang/String; = "display_battery_level"
+.field public static final DISPLAY_BATTERY_LEVEL:Ljava/lang/String; = "not_use_miui_lockscreen"
 
 .field public static final DISPLAY_BATTERY_PERCENTAGE:Ljava/lang/String; = "display_battery_percentage"
 

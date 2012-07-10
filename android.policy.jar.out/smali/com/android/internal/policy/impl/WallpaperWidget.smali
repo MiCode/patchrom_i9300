@@ -51,7 +51,7 @@
     iput-object v1, p0, Lcom/android/internal/policy/impl/WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
 
     .line 29
-    const-string v1, "/data/data/com.sec.android.gallery3d/lockscreen_wallpaper.jpg"
+    const-string v1, "/data/system/theme/lock_wallpaper"
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/WallpaperWidget;->PORTRAIT_WALLPAPER_IMAGE_PATH:Ljava/lang/String;
 
@@ -238,7 +238,7 @@
     if-eq v3, v4, :cond_0
 
     .line 67
-    const-string v3, "/data/data/com.sec.android.gallery3d/lockscreen_wallpaper.jpg"
+    const-string v3, "/data/system/theme/lock_wallpaper"
 
     iput-object v3, p0, Lcom/android/internal/policy/impl/WallpaperWidget;->mWallpapaerPath:Ljava/lang/String;
 
@@ -311,7 +311,7 @@
     :cond_1
     iget-object v3, p0, Lcom/android/internal/policy/impl/WallpaperWidget;->mWallpapaerPath:Ljava/lang/String;
 
-    const-string v4, "/data/data/com.sec.android.gallery3d/lockscreen_wallpaper.jpg"
+    const-string v4, "/data/system/theme/lock_wallpaper"
 
     if-ne v3, v4, :cond_2
 
@@ -375,7 +375,7 @@
     .end local v0           #alternateFile:Ljava/io/File;
     .end local v1           #ex:Ljava/lang/Exception;
     :cond_2
-    const-string v3, "/data/data/com.sec.android.gallery3d/lockscreen_wallpaper.jpg"
+    const-string v3, "/data/system/theme/lock_wallpaper"
 
     goto :goto_2
 

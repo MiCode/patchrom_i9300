@@ -2109,8 +2109,8 @@
     <string name="usb_otg_media_format_final_desc">格式化 USB OTG 存储将删除所有数据。数据无法恢复。是否继续？</string>
     <string name="usb_otg_media_format_gesture_explanation">绘出您的解锁图案以确认 USB OTG 存储格式化</string>
     <string name="home_screen_wallpaper">主屏墙纸</string>
-    <string name="display_battery_percentage">显示电池电量百分比</string>
-    <string name="display_battery_percentage_summary">在指示灯上显示电池电量百分比</string>
+    <string name="display_battery_percentage">使用三星锁屏</string>
+    <string name="display_battery_percentage_summary">使用三星锁屏样式，需要重启生效</string>
     <string name="phone_vibration_title">设备振动</string>
     <string name="phone_vibration_summary_sound">指定或创建您自己的振动模式</string>
     <string name="phone_vibration_summary">创建或删除自定义振动型式</string>

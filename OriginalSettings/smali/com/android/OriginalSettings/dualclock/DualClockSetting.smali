@@ -730,7 +730,7 @@
     invoke-virtual {v4, v0, v7}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     .line 174
-    const-string v2, "com.android.settings.ZonePicker"
+    const-string v2, "com.android.OriginalSettings.ZonePicker"
 
     const/4 v3, 0x0
 

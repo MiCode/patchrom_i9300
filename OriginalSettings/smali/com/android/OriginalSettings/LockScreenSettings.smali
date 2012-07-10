@@ -748,6 +748,12 @@
 
     move-result-object v5
 
+    #start 
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/DisplaySettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    move-result-object v8
+    invoke-virtual {v8, v5}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    #end
+
     check-cast v5, Landroid/preference/SwitchPreferenceScreen;
 
     iput-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInformationTicker:Landroid/preference/SwitchPreferenceScreen;

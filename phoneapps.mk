@@ -1,4 +1,4 @@
-local-phone-apps = $(private-phone-apps)
+local-phone-apps = $(private-phone-apps) $(private-lockscreen-apps)
 
 private-phone-apps := ApplicationsProvider \
 					  BackupRestoreConfirmation \
@@ -43,6 +43,11 @@ private-phone-apps := ApplicationsProvider \
 					  minimode-res \
 					  serviceModeApp \
 					  wssyncmlnps
+
+private-lockscreen-apps := PickUpTutorial \
+						   AccuweatherDaemon \
+						   AccuweatherWidget \
+						   AccuweatherWidget_Main
 
 private-phone-apps2 :=  AllshareDMC \
 						AllshareMediaServer \

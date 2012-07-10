@@ -2360,8 +2360,8 @@ Data such as calendar events or emails will not be synchronized automatically."<
     <string name="usb_otg_media_format_final_desc">Formatting USB OTG storage will delete all data. Data cannot be recovered. Continue?</string>
     <string name="usb_otg_media_format_gesture_explanation">Draw your unlock pattern to confirm USB OTG storage format</string>
     <string name="home_screen_wallpaper">Home screen wallpaper</string>
-    <string name="display_battery_percentage">Display battery percentage</string>
-    <string name="display_battery_percentage_summary">Show battery percentage on indicator</string>
+    <string name="display_battery_percentage">Use Samsung lockscreen</string>
+    <string name="display_battery_percentage_summary">To use Samsung lockscreen</string>
     <string name="phone_vibration_title">Device vibration</string>
     <string name="phone_vibration_summary_sound">Assign or create your own vibration pattern</string>
     <string name="phone_vibration_summary">Create or delete custom vibration pattern</string>

@@ -25,7 +25,7 @@
 
 .field public static final NORMAL_EVENT:I = -0x1
 
-.field private static final PORTRAIT_WALLPAPER_IMAGE_PATH:Ljava/lang/String; = "/data/data/com.sec.android.gallery3d/lockscreen_wallpaper_ripple.jpg"
+.field private static final PORTRAIT_WALLPAPER_IMAGE_PATH:Ljava/lang/String; = "/data/system/theme/lock_wallpaper"
 
 
 # instance fields
@@ -2802,7 +2802,7 @@
     :try_start_0
     new-instance v4, Ljava/io/File;
 
-    const-string v5, "/data/data/com.sec.android.gallery3d/lockscreen_wallpaper_ripple.jpg"
+    const-string v5, "/data/system/theme/lock_wallpaper"
 
     invoke-direct {v4, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 

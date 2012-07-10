@@ -1132,7 +1132,7 @@
 
     move-result-object v4
 
-    const-string v5, "display_battery_percentage"
+    const-string v5, "not_use_miui_lockscreen"
 
     invoke-static {v4, v5, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -1885,9 +1885,9 @@
 
     move-result-object v7
     #start 
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/DisplaySettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-    move-result-object v10
-    invoke-virtual {v10, v7}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    #invoke-virtual {p0}, Lcom/android/OriginalSettings/DisplaySettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    #move-result-object v10
+    #invoke-virtual {v10, v7}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
     #end
 
     check-cast v7, Landroid/preference/CheckBoxPreference;
@@ -2896,7 +2896,7 @@
 
     move-result-object v9
 
-    const-string v10, "display_battery_percentage"
+    const-string v10, "not_use_miui_lockscreen"
 
     if-eqz v4, :cond_5
 

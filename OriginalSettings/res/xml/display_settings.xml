@@ -20,6 +20,7 @@
     <!--PreferenceCategory android:title="@string/more_settings" /-->
     <ListPreference android:persistent="false" android:entries="@array/quick_launch_entries" android:title="@string/quick_launch_title" android:key="quick_launch" android:summary="@string/screen_quick_launch_summary" android:widgetLayout="@layout/round_more_icon" android:entryValues="@array/quick_launch_values" />
     <CheckBoxPreference android:persistent="false" android:title="@string/display_battery_percentage" android:key="display_battery_level" android:summary="@string/display_battery_percentage_summary" />
+    <PreferenceScreen android:title="@string/lock_screen_options" android:key="lock_screen_options" android:fragment="com.android.OriginalSettings.LockScreenSettings" />
     <CheckBoxPreference android:persistent="false" android:title="@string/notification_pulse_title" android:key="notification_pulse" />
     <PreferenceScreen android:title="@string/g_sensor_title" android:key="g_sensor" android:summary="@string/g_sensor_summary">
         <intent android:targetPackage="com.android.OriginalSettings" android:action="android.intent.action.MAIN" android:targetClass="com.android.OriginalSettings.GSensorSettings" />

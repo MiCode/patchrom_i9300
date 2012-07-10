@@ -72,9 +72,9 @@
 
     .line 509
     .local v2, intent:Landroid/content/Intent;
-    const-string v5, "com.android.settings"
+    const-string v5, "com.android.OriginalSettings"
 
-    const-string v6, "com.android.settings.lockscreenshortcut.AppList"
+    const-string v6, "com.android.OriginalSettings.lockscreenshortcut.AppList"
 
     invoke-virtual {v2, v5, v6}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 

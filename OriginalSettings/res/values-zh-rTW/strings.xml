@@ -2099,8 +2099,6 @@ You can create an allowed device list and set the connection mode for allowed de
     <string name="usb_otg_media_format_final_desc">格式化 USB OTG 儲存裝置將會刪除所有資料。資料無法復原。繼續嗎？</string>
     <string name="usb_otg_media_format_gesture_explanation">畫出您的解鎖圖形以確認 USB OTG 儲存裝置的格式化</string>
     <string name="home_screen_wallpaper">主螢幕桌布</string>
-    <string name="display_battery_percentage">顯示電池用量百分比</string>
-    <string name="display_battery_percentage_summary">於指示器上顯示電池用量百分比</string>
     <string name="phone_vibration_title">設定震動</string>
     <string name="phone_vibration_summary_sound">指定或建立自己的震動模式</string>
     <string name="phone_vibration_summary">建立或刪除自訂震動模式</string>

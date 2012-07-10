@@ -1423,14 +1423,14 @@
             </intent-filter>
         </receiver>
         <activity android:theme="@android:style/Theme.DeviceDefault.Dialog.Alert" android:name="com.android.settings.autopoweronoff.AutoPowerOnOffConfirm" android:taskAffinity="" android:excludeFromRecents="true" android:launchMode="singleInstance" android:configChanges="keyboard|keyboardHidden|navigation|orientation" />
-        <activity android:theme="@android:style/Theme.Wallpaper.NoTitleBar" android:name="com.android.settings.autopoweronoff.AutoPowerOnOffConfirmOnLock" android:taskAffinity="" android:excludeFromRecents="true" android:launchMode="singleInstance" android:configChanges="keyboard|keyboardHidden|navigation|orientation" />
-        <activity android:label="@string/set_shortcut_title" android:name="com.android.settings.lockscreenshortcut.LockScreenShortcutSettings" android:clearTaskOnLaunch="true">
+        <activity android:theme="@android:style/Theme.Wallpaper.NoTitleBar" android:name="com.android.settings.autopoweronoff.AutoPowerOnOffConfirmOnLock" android:taskAffinity="" android:excludeFromRecents="true" android:launchMode="singleInstance" android:configChanges="keyboard|keyboardHidden|navigation|orientation" /-->
+        <activity android:label="@string/set_shortcut_title" android:name="com.android.OriginalSettings.lockscreenshortcut.LockScreenShortcutSettings" android:clearTaskOnLaunch="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:label="@string/select_application_title" android:name="com.android.settings.lockscreenshortcut.AppList" android:clearTaskOnLaunch="true">
+        <activity android:label="@string/select_application_title" android:name="com.android.OriginalSettings.lockscreenshortcut.AppList" android:clearTaskOnLaunch="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -1441,10 +1441,10 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.dualclock.DualClockSetting" />
-            <meta-data android:name="com.android.settings.PARENT_FRAGMENT_TITLE" android:resource="@string/lock_screen_options" />
-            <meta-data android:name="com.android.settings.PARENT_FRAGMENT_CLASS" android:value="com.android.settings.Settings$LockScreenSettingsActivity" />
+            <meta-data android:name="com.android.OriginalSettings.FRAGMENT_CLASS" android:value="com.android.OriginalSettings.dualclock.DualClockSetting" />
+            <meta-data android:name="com.android.OriginalSettings.PARENT_FRAGMENT_TITLE" android:resource="@string/lock_screen_options" />
+            <meta-data android:name="com.android.OriginalSettings.PARENT_FRAGMENT_CLASS" android:value="com.android.OriginalSettings.Settings$LockScreenSettingsActivity" />
         </activity>
-        <service android:name=".MasterClearModemReset" android:permission="android.permission.MASTER_CLEAR" /-->
+        <service android:name=".MasterClearModemReset" android:permission="android.permission.MASTER_CLEAR" />
     </application>
 </manifest>
