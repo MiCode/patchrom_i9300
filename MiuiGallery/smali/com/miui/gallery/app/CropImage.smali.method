@@ -1,0 +1,44 @@
+#private DisplayMetrics getLockScreenDisplayMetrics(Context context) {
+#    DisplayMetrics ret = GalleryUtils.getScreenDisplayMetrics(context);
+#    if (Settings.System.getInt(context.getContentResolver(), "not_use_miui_lockscreen", 0) == 1) {
+#        ret.widthPixels = ret.heightPixels;
+#    }
+#    return ret;
+#}
+.method private getLockScreenDisplayMetrics(Landroid/content/Context;)Landroid/util/DisplayMetrics;
+    .locals 4
+    .parameter "context"
+
+    .prologue
+    .line 251
+    invoke-static {p1}, Lcom/miui/gallery/util/GalleryUtils;->getScreenDisplayMetrics(Landroid/content/Context;)Landroid/util/DisplayMetrics;
+
+    move-result-object v0
+
+    .line 252
+    .local v0, ret:Landroid/util/DisplayMetrics;
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v2, "not_use_miui_lockscreen"
+
+    const/4 v3, 0x0
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    const/4 v2, 0x1
+
+    if-ne v1, v2, :cond_0
+
+    .line 253
+    iget v1, v0, Landroid/util/DisplayMetrics;->heightPixels:I
+
+    iput v1, v0, Landroid/util/DisplayMetrics;->widthPixels:I
+
+    .line 255
+    :cond_0
+    return-object v0
+.end method
