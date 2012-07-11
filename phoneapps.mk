@@ -46,8 +46,7 @@ private-phone-apps := ApplicationsProvider \
 
 private-lockscreen-apps := PickUpTutorial \
 						   AccuweatherDaemon \
-						   AccuweatherWidget \
-						   AccuweatherWidget_Main
+						   AccuweatherWidget
 
 private-phone-apps2 :=  AllshareDMC \
 						AllshareMediaServer \
