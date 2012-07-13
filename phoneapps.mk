@@ -36,6 +36,7 @@ private-phone-apps := ApplicationsProvider \
 					  SecLiveWallpapersPicker \
 					  SecurityProvider \
 					  SelfTestMode \
+					  Stk \
 					  UserDictionaryProvider \
 					  VpnDialogs \
 					  WAPPushManager \
