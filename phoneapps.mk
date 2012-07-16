@@ -39,6 +39,7 @@ private-phone-apps := ApplicationsProvider \
 					  Stk \
 					  UserDictionaryProvider \
 					  VpnDialogs \
+					  VideoPlayer \
 					  WAPPushManager \
 					  WlanTest \
 					  minimode-res \
