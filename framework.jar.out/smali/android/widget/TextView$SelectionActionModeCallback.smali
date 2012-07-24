@@ -465,11 +465,11 @@
     :cond_8
     iget-object v4, p0, Landroid/widget/TextView$SelectionActionModeCallback;->this$0:Landroid/widget/TextView;
 
-    invoke-virtual {v4}, Landroid/widget/TextView;->getSelectionController()Landroid/widget/TextView$SelectionModifierCursorController;
+    invoke-virtual {v4}, Landroid/widget/TextView;->getSelectionController()Landroid/widget/MiuiCursorController;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Landroid/widget/TextView$SelectionModifierCursorController;->show()V
+    invoke-virtual {v4}, Landroid/widget/MiuiCursorController;->show()V
 
     .line 11118
     iget-object v4, p0, Landroid/widget/TextView$SelectionActionModeCallback;->this$0:Landroid/widget/TextView;
@@ -535,8 +535,8 @@
     .line 11155
     iget-object v0, p0, Landroid/widget/TextView$SelectionActionModeCallback;->this$0:Landroid/widget/TextView;
 
-    #getter for: Landroid/widget/TextView;->mSelectionModifierCursorController:Landroid/widget/TextView$SelectionModifierCursorController;
-    invoke-static {v0}, Landroid/widget/TextView;->access$5700(Landroid/widget/TextView;)Landroid/widget/TextView$SelectionModifierCursorController;
+    #getter for: Landroid/widget/TextView;->mSelectionModifierCursorController:Landroid/widget/MiuiCursorController;
+    invoke-static {v0}, Landroid/widget/TextView;->access$5700(Landroid/widget/TextView;)Landroid/widget/MiuiCursorController;
 
     move-result-object v0
 
@@ -545,12 +545,12 @@
     .line 11156
     iget-object v0, p0, Landroid/widget/TextView$SelectionActionModeCallback;->this$0:Landroid/widget/TextView;
 
-    #getter for: Landroid/widget/TextView;->mSelectionModifierCursorController:Landroid/widget/TextView$SelectionModifierCursorController;
-    invoke-static {v0}, Landroid/widget/TextView;->access$5700(Landroid/widget/TextView;)Landroid/widget/TextView$SelectionModifierCursorController;
+    #getter for: Landroid/widget/TextView;->mSelectionModifierCursorController:Landroid/widget/MiuiCursorController;
+    invoke-static {v0}, Landroid/widget/TextView;->access$5700(Landroid/widget/TextView;)Landroid/widget/MiuiCursorController;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/TextView$SelectionModifierCursorController;->hide()V
+    invoke-virtual {v0}, Landroid/widget/MiuiCursorController;->hide()V
 
     .line 11159
     :cond_1
