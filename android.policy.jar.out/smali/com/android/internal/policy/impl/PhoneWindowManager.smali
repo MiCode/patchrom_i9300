@@ -554,7 +554,7 @@
 
 .field mVoiceTalkIntent:Landroid/content/Intent;
 
-.field private mVolumeDownKeyConsumedByScreenshotChord:Z
+.field mVolumeDownKeyConsumedByScreenshotChord:Z
 
 .field private mVolumeDownKeyTime:J
 
