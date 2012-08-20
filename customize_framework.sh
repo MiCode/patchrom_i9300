@@ -22,6 +22,7 @@ then
 	# touch "$BUILD_OUT/$SEP_FRAME/apktool.yml"
 	# echo "version: 1.4.3" >> "$BUILD_OUT/$SEP_FRAME/apktool.yml"
 	# echo "apkFileName: $SEP_FRAME.jar" >> "$BUILD_OUT/$SEP_FRAME/apktool.yml"
+    rm -rf $BUILD_OUT/$SEP_FRAME/smali/miui $BUILD_OUT/$SEP_FRAME/smali/com/samsung $BUILD_OUT/$SEP_FRAME/smali/android/widget
 	mv "$BUILD_OUT/framework/smali/miui" "$BUILD_OUT/$SEP_FRAME/smali"
 	mkdir -p "$BUILD_OUT/$SEP_FRAME/smali/com/"
 	mv "$BUILD_OUT/framework/smali/com/samsung" "$BUILD_OUT/$SEP_FRAME/smali/com/"

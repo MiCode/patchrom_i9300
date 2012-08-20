@@ -8,6 +8,7 @@ private-phone-apps := ApplicationsProvider \
 					  BluetoothTest \
 					  CSC \
 					  ClipboardSaveService \
+					  CertInstaller \
 					  DefaultContainerService \
 					  Divx \
 					  EdmVpnServices \
