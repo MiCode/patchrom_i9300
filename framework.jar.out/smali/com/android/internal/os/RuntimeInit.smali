@@ -290,7 +290,7 @@
     return-object v0
 .end method
 
-.method private static getDefaultUserAgent()Ljava/lang/String;
+.method public static getDefaultUserAgent()Ljava/lang/String;
     .locals 6
 
     .prologue
