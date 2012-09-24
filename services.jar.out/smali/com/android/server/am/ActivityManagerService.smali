@@ -21100,6 +21100,8 @@
 
     .line 7705
     .restart local v3       #r:Lcom/android/server/am/ActivityRecord;
+    if-eqz v3, :cond_5
+
     iget-object v2, v3, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
     move-object/from16 v0, p1
