@@ -19136,52 +19136,46 @@
 
     if-eqz v3, :cond_1
 
-    .line 3008
     :cond_0
     :goto_0
     return-void
 
-    .line 2981
     :cond_1
     new-instance v0, Landroid/webkit/WebViewCore$GetUrlData;
 
     invoke-direct {v0}, Landroid/webkit/WebViewCore$GetUrlData;-><init>()V
 
-    .line 2982
     .local v0, arg:Landroid/webkit/WebViewCore$GetUrlData;
-    iput-object p1, v0, Landroid/webkit/WebViewCore$GetUrlData;->mUrl:Ljava/lang/String;
+    invoke-static {p1}, Landroid/webkit/WebViewUtils;->processUrl(Ljava/lang/String;)Ljava/lang/String;
 
-    .line 2983
+    move-result-object v1
+
+    iput-object v1, v0, Landroid/webkit/WebViewCore$GetUrlData;->mUrl:Ljava/lang/String;
+
     iput-object p2, v0, Landroid/webkit/WebViewCore$GetUrlData;->mExtraHeaders:Ljava/util/Map;
 
-    .line 2984
     iget-object v3, p0, Landroid/webkit/WebView;->mWebViewCore:Landroid/webkit/WebViewCore;
 
     const/16 v4, 0x64
 
     invoke-virtual {v3, v4, v0}, Landroid/webkit/WebViewCore;->sendMessage(ILjava/lang/Object;)V
 
-    .line 2985
     invoke-direct {p0}, Landroid/webkit/WebView;->clearHelpers()V
 
-    .line 2988
     sget-object v3, Landroid/webkit/WebView;->mBrowserMgmtClassType:Ljava/lang/Class;
 
     if-eqz v3, :cond_0
 
-    .line 2990
     const/4 v3, 0x1
 
     :try_start_0
     new-array v1, v3, [Ljava/lang/Class;
 
-    .line 2991
     .local v1, args_types:[Ljava/lang/Class;
     const/4 v3, 0x1
 
     new-array v2, v3, [Landroid/content/Context;
 
-    .line 2992
     .local v2, args_val:[Landroid/content/Context;
     const/4 v3, 0x0
 
