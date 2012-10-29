@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:id="@id/repeat_linearlayout" android:layout_width="fill_parent" android:layout_height="66.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ToggleButton android:id="@id/repeat_at_sun" style="@style/ToggleButton.RepeatSunday" />
+    <ToggleButton android:id="@id/repeat_at_mon" style="@style/ToggleButton.RepeatDay" />
+    <ToggleButton android:id="@id/repeat_at_tue" style="@style/ToggleButton.RepeatDay" />
+    <ToggleButton android:id="@id/repeat_at_wed" style="@style/ToggleButton.RepeatDay" />
+    <ToggleButton android:id="@id/repeat_at_thu" style="@style/ToggleButton.RepeatDay" />
+    <ToggleButton android:id="@id/repeat_at_fri" style="@style/ToggleButton.RepeatDay" />
+    <ToggleButton android:id="@id/repeat_at_sat" style="@style/ToggleButton.RepeatDay" />
+</LinearLayout>

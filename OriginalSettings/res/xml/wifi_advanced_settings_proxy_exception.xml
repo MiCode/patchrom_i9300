@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/apn_exception_proxy"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference android:singleLine="true" android:maxLength="1024" android:title="@string/apn_exception_proxy1" android:key="wifi_exception_proxy1" android:dialogTitle="@string/apn_exception_proxy1" android:inputType="textUri" />
+    <EditTextPreference android:singleLine="true" android:maxLength="1024" android:title="@string/apn_exception_proxy2" android:key="wifi_exception_proxy2" android:dialogTitle="@string/apn_exception_proxy2" android:inputType="textUri" />
+    <EditTextPreference android:singleLine="true" android:maxLength="1024" android:title="@string/apn_exception_proxy3" android:key="wifi_exception_proxy3" android:dialogTitle="@string/apn_exception_proxy3" android:inputType="textUri" />
+</PreferenceScreen>

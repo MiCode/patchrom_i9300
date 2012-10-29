@@ -1,0 +1,35 @@
+<?xml  version="1.0" encoding="UTF-8" ?>
+<SW-Configuration>
+	<MobileData>
+	<PublicName>GT-I9300</PublicName>
+	</MobileData>
+	<CustomerDataSet>
+	<CSCName>I9300OXF</CSCName>
+	<CSCVersion>DLI1</CSCVersion>
+	<NbCustomer>24</NbCustomer>
+	<CustomerData src="/Customer/ALB/customer.xml" />
+	<CustomerData src="/Customer/BGL/customer.xml" />
+	<CustomerData src="/Customer/CMF/customer.xml" />
+	<CustomerData src="/Customer/COA/customer.xml" />
+	<CustomerData src="/Customer/CYO/customer.xml" />
+	<CustomerData src="/Customer/CYV/customer.xml" />
+	<CustomerData src="/Customer/EUR/customer.xml" />
+	<CustomerData src="/Customer/ERO/customer.xml" />
+	<CustomerData src="/Customer/MSR/customer.xml" />
+	<CustomerData src="/Customer/ORL/customer.xml" />
+	<CustomerData src="/Customer/ORS/customer.xml" />
+	<CustomerData src="/Customer/SEB/customer.xml" />
+	<CustomerData src="/Customer/SEE/customer.xml" />
+	<CustomerData src="/Customer/TMT/customer.xml" />
+	<CustomerData src="/Customer/TOP/customer.xml" />
+	<CustomerData src="/Customer/TRA/customer.xml" />
+	<CustomerData src="/Customer/TSR/customer.xml" />
+	<CustomerData src="/Customer/TWO/customer.xml" />
+	<CustomerData src="/Customer/VIM/customer.xml" />
+	<CustomerData src="/Customer/VVT/customer.xml" />
+	<CustomerData src="/Customer/XEH/customer.xml" />
+	<CustomerData src="/Customer/XEO/customer.xml" />
+	<CustomerData src="/Customer/XEZ/customer.xml" />
+	<CustomerData src="/Customer/XSK/customer.xml" />
+	</CustomerDataSet>
+</SW-Configuration>
