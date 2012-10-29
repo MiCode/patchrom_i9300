@@ -6,7 +6,7 @@
 # static fields
 .field public static final ACTION_SHOT_RESOLUTION:Ljava/lang/String; = "640x480"
 
-.field public static final ACTIVITY_CLASS_NAME_GALLERY3D:Ljava/lang/String; = "com.sec.android.gallery3d.app.Gallery"
+.field public static final ACTIVITY_CLASS_NAME_GALLERY3D:Ljava/lang/String; = "com.miui.gallery"
 
 .field public static final ACTIVITY_CLASS_NAME_VIDEOPLAYER:Ljava/lang/String; = "com.sec.android.app.videoplayer.activity.MoviePlayer"
 
@@ -584,7 +584,7 @@
 
 .field public static final MID_SIDEMENU:Z = false
 
-.field public static final PACKAGE_NAME_GALLERY3D:Ljava/lang/String; = "com.sec.android.gallery3d"
+.field public static final PACKAGE_NAME_GALLERY3D:Ljava/lang/String; = "com.miui.gallery"
 
 .field public static final PACKAGE_NAME_VIDEOPLAYER:Ljava/lang/String; = "com.sec.android.app.videoplayer"
 

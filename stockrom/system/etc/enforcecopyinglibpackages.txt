@@ -1,3 +1,7 @@
-2
+6
 com.samsung.music
 com.samsung.videohub
+com.xiaomi.gamecenter
+com.sogou.inputmethod.mi
+com.miui.voiceassist
+com.miui.video
