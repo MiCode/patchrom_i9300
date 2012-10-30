@@ -487,6 +487,7 @@
     const/high16 v1, 0x4c00
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/PasswordUnlockScreen;->setBackgroundColor(I)V
+    invoke-static {p0}, Lcom/android/internal/policy/impl/PasswordUnlockScreen$Injector;->initialize(Lcom/android/internal/policy/impl/PasswordUnlockScreen;)V
 
     .line 282
     return-void
@@ -1293,11 +1294,7 @@
     invoke-virtual {v11, v12}, Lcom/android/internal/policy/impl/KeyguardStatusViewManager;->setInstructionText(Ljava/lang/String;)V
 
     .line 414
-    invoke-static {}, Landroid/security/KeyStore;->getInstance()Landroid/security/KeyStore;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v4}, Landroid/security/KeyStore;->password(Ljava/lang/String;)Z
+    invoke-static {p0, v4}, Lcom/android/internal/policy/impl/PasswordUnlockScreen$Injector;->clearPinLockForFindDevice(Lcom/android/internal/policy/impl/PasswordUnlockScreen;Ljava/lang/String;)V
 
     .line 417
     new-instance v2, Landroid/dirEncryption/DirEncryptionManager;

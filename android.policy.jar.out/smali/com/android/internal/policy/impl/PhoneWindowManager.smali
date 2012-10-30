@@ -22,7 +22,8 @@
         Lcom/android/internal/policy/impl/PhoneWindowManager$PolicyHandler;,
         Lcom/android/internal/policy/impl/PhoneWindowManager$SPenGestureInputEventReceiver;,
         Lcom/android/internal/policy/impl/PhoneWindowManager$PointerInterceptInputEventReceiver;,
-        Lcom/android/internal/policy/impl/PhoneWindowManager$PointerLocationInputEventReceiver;
+        Lcom/android/internal/policy/impl/PhoneWindowManager$PointerLocationInputEventReceiver;,
+        Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;
     }
 .end annotation
 
@@ -496,7 +497,7 @@
 
 .field private mPowerKeyTriggered:Z
 
-.field private final mPowerLongPress:Ljava/lang/Runnable;
+.field private mPowerLongPress:Ljava/lang/Runnable;
 
 .field private final mPowerLongPressWhenFake:Ljava/lang/Runnable;
 
@@ -5552,22 +5553,6 @@
 
     if-nez v3, :cond_c
 
-    .line 3869
-    move-object/from16 v0, p0
-
-    iget v3, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mUnrestrictedScreenTop:I
-
-    move-object/from16 v0, p0
-
-    iget v4, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBarHeight:I
-
-    add-int/2addr v3, v4
-
-    move-object/from16 v0, p0
-
-    iput v3, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mSystemTop:I
-
-    .line 3872
     :cond_c
     return-void
 
@@ -8954,9 +8939,9 @@
     if-nez v7, :cond_0
 
     .line 1606
-    new-instance v7, Lcom/android/internal/policy/impl/KeyguardViewMediator;
-
-    invoke-direct {v7, p1, p0, p4}, Lcom/android/internal/policy/impl/KeyguardViewMediator;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/os/LocalPowerManager;)V
+    new-instance v7, Lcom/android/internal/policy/impl/MiuiKeyguardViewMediator;
+ 
+    invoke-direct {v7, p1, p0, p4}, Lcom/android/internal/policy/impl/MiuiKeyguardViewMediator;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/os/LocalPowerManager;)V
 
     iput-object v7, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguardMediator:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
@@ -13243,6 +13228,7 @@
     .line 4916
     .restart local v15       #keyguardActive:Z
     :cond_9
+    invoke-static/range {p0 .. p2}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->performReleaseHapticFeedback(Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/view/KeyEvent;I)V
     if-eqz v5, :cond_a
 
     move/from16 v0, p2
@@ -14612,6 +14598,8 @@
     iget-boolean v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mPendingPowerKeyUpCanceled:Z
 
     move/from16 v22, v0
+
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->sendPowerUpBroadcast(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
 
     if-eqz v22, :cond_35
 
@@ -22563,3 +22551,17 @@
         0x836 -> :sswitch_1c
     .end sparse-switch
 .end method
+
+.method callInterceptPowerKeyUp(Z)V
+    .locals 0
+    .parameter "canceled"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->interceptPowerKeyUp(Z)Z
+
+    return-void
+.end method
+
