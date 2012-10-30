@@ -1,0 +1,72 @@
+diff a/android.policy.jar.out/smali/com/android/internal/policy/impl/KeyguardViewMediator.smali b/android.policy.jar.out/smali/com/android/internal/policy/impl/KeyguardViewMediator.smali	(rejected hunks)
+@@ -1311,6 +1319,10 @@
+     return-void
+ 
+     :cond_0
++    const/4 v0, 0x1
++
++    invoke-direct {p0, v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->playSounds(Z)V
++
+     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mKeyguardViewManager:Lcom/android/internal/policy/impl/KeyguardViewManager;
+ 
+     invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardViewManager;->show()V
+@@ -1340,11 +1352,7 @@
+     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+ 
+     :goto_1
+-    const/4 v0, 0x1
+-
+     :try_start_2
+-    invoke-direct {p0, v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->playSounds(Z)V
+-
+     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mShowKeyguardWakeLock:Landroid/os/PowerManager$WakeLock;
+ 
+     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
+@@ -1882,6 +1902,30 @@
+     return-void
+ .end method
+ 
++.method getContext()Landroid/content/Context;
++    .locals 1
++    .annotation build Landroid/annotation/MiuiHook;
++        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
++    .end annotation
++
++    .prologue
++    iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mContext:Landroid/content/Context;
++
++    return-object v0
++.end method
++
++.method getStatusBarManager()Landroid/app/StatusBarManager;
++    .locals 1
++    .annotation build Landroid/annotation/MiuiHook;
++        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
++    .end annotation
++
++    .prologue
++    iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mStatusBarManager:Landroid/app/StatusBarManager;
++
++    return-object v0
++.end method
++
+ .method public isInputRestricted()Z
+     .locals 1
+ 
+@@ -2753,6 +2797,16 @@
+     throw v1
+ .end method
+ 
++.method postAdjustStatusBarLocked()V
++    .locals 0
++    .annotation build Landroid/annotation/MiuiHook;
++        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
++    .end annotation
++
++    .prologue
++    return-void
++.end method
++
+ .method public setHidden(Z)V
+     .locals 5
+     .parameter "isHidden"
