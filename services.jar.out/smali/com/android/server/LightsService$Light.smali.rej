@@ -1,0 +1,28 @@
+diff a/services.jar.out/smali/com/android/server/LightsService$Light.smali b/services.jar.out/smali/com/android/server/LightsService$Light.smali	(rejected hunks)
+@@ -147,7 +166,7 @@
+ 
+     move-object v0, p0
+ 
+-    invoke-direct/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
++    invoke-virtual/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
+ 
+     monitor-exit p0
+ 
+@@ -369,7 +388,7 @@
+     move v4, p4
+ 
+     :try_start_0
+-    invoke-direct/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
++    invoke-virtual/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
+ 
+     monitor-exit p0
+ 
+@@ -404,7 +423,7 @@
+     move-object v0, p0
+ 
+     :try_start_0
+-    invoke-direct/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
++    invoke-virtual/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
+ 
+     monitor-exit p0
+ 

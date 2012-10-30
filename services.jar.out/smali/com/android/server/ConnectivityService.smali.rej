@@ -1,0 +1,33 @@
+diff a/services.jar.out/smali/com/android/server/ConnectivityService.smali b/services.jar.out/smali/com/android/server/ConnectivityService.smali	(rejected hunks)
+@@ -6865,6 +6871,8 @@
+     move-result v8
+ 
+     .local v8, usedNetworkType:I
++    invoke-static {p1, v8}, Lcom/android/server/ConnectivityService$Injector;->stopUsingNetworkFeature(Lcom/android/server/ConnectivityService$FeatureUser;I)V
++
+     iget-object v10, p0, Lcom/android/server/ConnectivityService;->mNetTrackers:[Landroid/net/NetworkStateTracker;
+ 
+     aget-object v6, v10, v8
+@@ -10270,6 +10278,9 @@
+     .parameter "networkType"
+     .parameter "feature"
+     .parameter "binder"
++    .annotation build Landroid/annotation/MiuiHook;
++        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
++    .end annotation
+ 
+     .prologue
+     const-wide/16 v14, 0x0
+@@ -10823,9 +10834,11 @@
+     :try_end_7
+     .catchall {:try_start_7 .. :try_end_7} :catchall_2
+ 
++    :try_start_8
++    invoke-static/range {v20 .. v20}, Lcom/android/server/ConnectivityService$Injector;->startUsingNetworkFeature(I)V
++
+     if-ltz v13, :cond_c
+ 
+-    :try_start_8
+     move-object/from16 v0, p0
+ 
+     iget-object v0, v0, Lcom/android/server/ConnectivityService;->mHandler:Landroid/os/Handler;
