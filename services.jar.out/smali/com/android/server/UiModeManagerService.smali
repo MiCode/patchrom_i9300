@@ -145,6 +145,8 @@
     .line 330
     invoke-direct {p0}, Landroid/app/IUiModeManager$Stub;-><init>()V
 
+    iput v3, p0, Lcom/android/server/UiModeManagerService;->mNormalType:I
+
     .line 86
     new-instance v2, Ljava/lang/Object;
 

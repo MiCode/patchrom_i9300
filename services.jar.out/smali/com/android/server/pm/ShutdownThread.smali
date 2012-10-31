@@ -8,7 +8,8 @@
     value = {
         Lcom/android/server/pm/ShutdownThread$Led;,
         Lcom/android/server/pm/ShutdownThread$Log;,
-        Lcom/android/server/pm/ShutdownThread$CloseDialogReceiver;
+        Lcom/android/server/pm/ShutdownThread$CloseDialogReceiver;,
+        Lcom/android/server/pm/ShutdownThread$Injector;
     }
 .end annotation
 
@@ -600,7 +601,7 @@
 
     .line 385
     .local v3, pd:Landroid/app/ProgressDialog;
-    const v4, 0x1040187
+    const v2, 0x60c0191
 
     invoke-virtual {p0, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -609,7 +610,7 @@
     invoke-virtual {v3, v4}, Landroid/app/ProgressDialog;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 386
-    const v4, 0x104018b
+    const v2, 0x60c01aa
 
     invoke-virtual {p0, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -678,7 +679,8 @@
     invoke-virtual {v4, v5}, Landroid/view/Window;->addFlags(I)V
 
     .line 398
-    invoke-virtual {v3}, Landroid/app/ProgressDialog;->show()V
+    #invoke-virtual {v3}, Landroid/app/ProgressDialog;->show()V
+    invoke-static {p0}, Lcom/android/server/pm/ShutdownThread$Injector;->createShutDownDialog(Landroid/content/Context;)V
 
     goto/16 :goto_2
 
@@ -1285,6 +1287,7 @@
     sput-boolean v3, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
 
     .line 316
+    const/4 v3, 0x0
     sput-boolean v3, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
 
     .line 317
@@ -1772,6 +1775,11 @@
     .line 220
     .local v6, resourceId:I
     :goto_2
+
+    invoke-static {v6}, Lcom/android/server/pm/ShutdownThread$Injector;->getResourceId(I)I
+
+    move-result v6
+
     const-string v8, "ShutdownThread"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -1849,6 +1857,9 @@
 
     .line 235
     .local v2, dialog:Landroid/app/AlertDialog;
+
+    invoke-static {v2}, Lcom/android/server/pm/ShutdownThread$Injector;->setDialogTitle(Landroid/app/Dialog;)V
+
     sget-boolean v8, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
 
     if-eqz v8, :cond_8
@@ -2640,4 +2651,66 @@
     move-exception v2
 
     goto/16 :goto_3
+.end method
+
+.method static getIsStarted()Z
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    sget-boolean v0, Lcom/android/server/pm/ShutdownThread;->sIsStarted:Z
+
+    return v0
+.end method
+
+.method static getIsStartedGuard()Ljava/lang/Object;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    sget-object v0, Lcom/android/server/pm/ShutdownThread;->sIsStartedGuard:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method static getReboot()Z
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    sget-boolean v0, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
+
+    return v0
+.end method
+
+.method static setReboot(Z)V
+    .locals 0
+    .parameter "value"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    sput-boolean p0, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
+
+    return-void
+.end method
+
+.method static setRebootReason(Ljava/lang/String;)V
+    .locals 0
+    .parameter "value"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    sput-object p0, Lcom/android/server/pm/ShutdownThread;->mRebootReason:Ljava/lang/String;
+
+    return-void
 .end method

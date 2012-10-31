@@ -8017,6 +8017,11 @@
 
     .line 1271
     .local v11, usedNetworkType:I
+
+    move-object/from16 v0, p1
+
+    invoke-static {v0, v11}, Lcom/android/server/ConnectivityService$Injector;->stopUsingNetworkFeature(Lcom/android/server/ConnectivityService$FeatureUser;I)V
+
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/server/ConnectivityService;->mNetTrackers:[Landroid/net/NetworkStateTracker;
@@ -13524,11 +13529,13 @@
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_2
 
+    :try_start_9
+    invoke-static/range {v23 .. v23}, Lcom/android/server/ConnectivityService$Injector;->startUsingNetworkFeature(I)V
+
     .line 1133
     if-ltz v15, :cond_f
 
     .line 1134
-    :try_start_9
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/ConnectivityService;->mHandler:Landroid/os/Handler;
