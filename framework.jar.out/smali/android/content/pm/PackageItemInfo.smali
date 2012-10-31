@@ -374,7 +374,7 @@
 .end method
 
 .method public loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
-    .locals 4
+    .locals 5
     .parameter "pm"
 
     .prologue

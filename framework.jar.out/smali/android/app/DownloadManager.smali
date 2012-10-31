@@ -10,7 +10,8 @@
         Landroid/app/DownloadManager$CursorTranslator;,
         Landroid/app/DownloadManager$Query;,
         Landroid/app/DownloadManager$SecQuery;,
-        Landroid/app/DownloadManager$Request;
+        Landroid/app/DownloadManager$Request;,
+        Landroid/app/DownloadManager$Injector;
     }
 .end annotation
 

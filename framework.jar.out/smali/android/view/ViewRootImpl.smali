@@ -28,7 +28,8 @@
         Landroid/view/ViewRootImpl$ViewRootHandler;,
         Landroid/view/ViewRootImpl$GestureSurfaceTouch;,
         Landroid/view/ViewRootImpl$SystemUiVisibilityInfo;,
-        Landroid/view/ViewRootImpl$ResizedInfo;
+        Landroid/view/ViewRootImpl$ResizedInfo;,
+        Landroid/view/ViewRootImpl$Injector;
     }
 .end annotation
 

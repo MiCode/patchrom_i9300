@@ -147,6 +147,8 @@
 
 .field private static final FIRST_DRM_FILE_TYPE:I = 0x33
 
+.field private static final FIRST_FFMPEG_AUDIO_FILE_TYPE:I = 0x3e9
+
 .field private static final FIRST_IMAGE_FILE_TYPE:I = 0x20
 
 .field private static final FIRST_KOR_AUDIO_FILE_TYPE:I = 0x12c
@@ -168,6 +170,8 @@
 .field private static final LAST_AUDIO_FILE_TYPE:I = 0xd
 
 .field private static final LAST_DRM_FILE_TYPE:I = 0x35
+
+.field private static final LAST_FFMPEG_AUDIO_FILE_TYPE:I = 0x3e9
 
 .field private static final LAST_IMAGE_FILE_TYPE:I = 0x25
 
@@ -373,6 +377,10 @@
     invoke-static {v0, v1, v2}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
     .line 281
+    invoke-static {}, Landroid/media/MediaFile$Injector;->isWMAEnabled()Z
+    move-result v0
+    if-eqz v0, :cond_miui_1
+
     const-string v0, "WMA"
 
     const/4 v1, 0x6
@@ -382,6 +390,7 @@
     const v3, 0xb901
 
     invoke-static {v0, v1, v2, v3}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
+    :cond_miui_1
 
     .line 287
     const-string v0, "QCP"
@@ -1262,6 +1271,11 @@
     if-gt p0, v1, :cond_3
 
     :cond_2
+    invoke-static {p0}, Landroid/media/MediaFile$Injector;->isFFMpegAudoFileType(I)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
     :goto_0
     return v0
 

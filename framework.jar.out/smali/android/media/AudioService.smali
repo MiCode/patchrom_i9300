@@ -400,7 +400,7 @@
 
 .field private mVolumeControlStream:I
 
-.field private mVolumePanel:Landroid/view/VolumePanel;
+.field private mVolumePanel:Lmiui/view/VolumePanel;
 
 .field private mbNoVibrate:Z
 
@@ -9997,9 +9997,10 @@
 
     .line 1188
     :cond_3
-    iget-object v5, p0, Landroid/media/AudioService;->mVolumePanel:Landroid/view/VolumePanel;
 
-    invoke-virtual {v5, p1, p4}, Landroid/view/VolumePanel;->postVolumeChanged(II)V
+    iget-object v5, p0, Landroid/media/AudioService;->mVolumePanel:Lmiui/view/VolumePanel;
+
+    invoke-virtual {v5, p1, p4}, Lmiui/view/VolumePanel;->postVolumeChanged(II)V
 
     .line 1190
     add-int/lit8 v5, p2, 0x5
@@ -12142,9 +12143,9 @@
 
     .prologue
     .line 6376
-    iget-object v0, p0, Landroid/media/AudioService;->mVolumePanel:Landroid/view/VolumePanel;
+    iget-object v0, p0, Landroid/media/AudioService;->mVolumePanel:Lmiui/view/VolumePanel;
 
-    invoke-virtual {v0}, Landroid/view/VolumePanel;->forceDismiss()V
+    #invoke-virtual {v0}, Landroid/view/VolumePanel;->forceDismiss()V
 
     .line 6377
     return-void

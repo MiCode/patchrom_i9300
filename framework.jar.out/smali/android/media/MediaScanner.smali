@@ -12,7 +12,8 @@
         Landroid/media/MediaScanner$MyMediaScannerClient;,
         Landroid/media/MediaScanner$FileParsingTime;,
         Landroid/media/MediaScanner$PlaylistEntry;,
-        Landroid/media/MediaScanner$FileEntry;
+        Landroid/media/MediaScanner$FileEntry;,
+        Landroid/media/MediaScanner$Injector;
     }
 .end annotation
 
