@@ -1,0 +1,11 @@
+diff a/framework.jar.out/smali/android/app/DownloadManager.smali b/framework.jar.out/smali/android/app/DownloadManager.smali	(rejected hunks)
+@@ -8,7 +8,8 @@
+     value = {
+         Landroid/app/DownloadManager$CursorTranslator;,
+         Landroid/app/DownloadManager$Query;,
+-        Landroid/app/DownloadManager$Request;
++        Landroid/app/DownloadManager$Request;,
++        Landroid/app/DownloadManager$Injector;
+     }
+ .end annotation
+ 

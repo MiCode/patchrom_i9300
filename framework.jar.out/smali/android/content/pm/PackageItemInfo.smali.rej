@@ -1,0 +1,14 @@
+diff a/framework.jar.out/smali/android/content/pm/PackageItemInfo.smali b/framework.jar.out/smali/android/content/pm/PackageItemInfo.smali	(rejected hunks)
+@@ -342,8 +342,11 @@
+ .end method
+ 
+ .method public loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+-    .locals 4
++    .locals 5
+     .parameter "pm"
++    .annotation build Landroid/annotation/MiuiHook;
++        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
++    .end annotation
+ 
+     .prologue
+     iget v1, p0, Landroid/content/pm/PackageItemInfo;->icon:I

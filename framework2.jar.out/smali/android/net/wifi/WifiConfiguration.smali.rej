@@ -1,0 +1,42 @@
+diff a/framework2.jar.out/smali/android/net/wifi/WifiConfiguration.smali b/framework2.jar.out/smali/android/net/wifi/WifiConfiguration.smali	(rejected hunks)
+@@ -120,10 +120,40 @@
+ 
+ .field public priority:I
+ 
++.field public private_key:Landroid/net/wifi/WifiConfiguration$EnterpriseField;
++    .annotation build Landroid/annotation/MiuiHook;
++        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
++    .end annotation
++.end field
++
+ .field public proxySettings:Landroid/net/wifi/WifiConfiguration$ProxySettings;
+ 
+ .field public status:I
+ 
++.field public wapiASCert:Ljava/lang/String;
++    .annotation build Landroid/annotation/MiuiHook;
++        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
++    .end annotation
++.end field
++
++.field public wapiPsk:Ljava/lang/String;
++    .annotation build Landroid/annotation/MiuiHook;
++        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
++    .end annotation
++.end field
++
++.field public wapiPskType:I
++    .annotation build Landroid/annotation/MiuiHook;
++        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
++    .end annotation
++.end field
++
++.field public wapiUserCert:Ljava/lang/String;
++    .annotation build Landroid/annotation/MiuiHook;
++        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
++    .end annotation
++.end field
++
+ .field public wepKeys:[Ljava/lang/String;
+ 
+ .field public wepTxKeyIndex:I

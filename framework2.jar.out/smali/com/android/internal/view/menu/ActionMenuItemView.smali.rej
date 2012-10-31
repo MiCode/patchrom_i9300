@@ -1,0 +1,14 @@
+diff a/framework2.jar.out/smali/com/android/internal/view/menu/ActionMenuItemView.smali b/framework2.jar.out/smali/com/android/internal/view/menu/ActionMenuItemView.smali	(rejected hunks)
+@@ -28,6 +28,12 @@
+ 
+ .field private mSavedPaddingLeft:I
+ 
++.field mSavedPaddingRight:I
++    .annotation build Landroid/annotation/MiuiHook;
++        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
++    .end annotation
++.end field
++
+ .field private mTitle:Ljava/lang/CharSequence;
+ 
+ 

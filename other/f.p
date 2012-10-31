@@ -6,7 +6,7 @@ Subject: [PATCH] add miui hook into framework
 Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
 ---
  .../android/accounts/AccountManagerService.smali   |    8 +-
- framework.jar.out/smali/android/app/Activity.smali |   20 ++-
+ framework2.jar.out/smali/android/app/Activity.smali |   20 ++-
  .../smali/android/app/ActivityManager.smali        |    7 +-
  .../smali/android/app/ActivityThread.smali         |   59 ++++-
  .../ApplicationPackageManager$ResourceName.smali   |    6 +-
@@ -35,11 +35,11 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  .../smali/android/media/MediaFile.smali            |   19 +-
  .../media/MediaScanner$MyMediaScannerClient.smali  |   22 ++
  .../smali/android/media/MediaScanner.smali         |   15 +-
- framework.jar.out/smali/android/net/Proxy.smali    |    8 +-
+ framework2.jar.out/smali/android/net/Proxy.smali    |    8 +-
  .../smali/android/net/http/AndroidHttpClient.smali |   12 +-
  .../smali/android/net/wifi/WifiConfiguration.smali |   46 +++
  .../smali/android/os/StrictMode.smali              |   31 ++
- framework.jar.out/smali/android/os/Vibrator.smali  |   11 +
+ framework2.jar.out/smali/android/os/Vibrator.smali  |   11 +
  .../android/preference/CheckBoxPreference.smali    |   35 ++
  .../android/preference/PreferenceScreen.smali      |    7 +-
  .../android/preference/RingtonePreference.smali    |    9 +
@@ -48,7 +48,7 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  .../smali/android/text/StaticLayout.smali          |   18 +-
  .../smali/android/text/format/DateFormat.smali     |   15 +
  .../android/view/HapticFeedbackConstants.smali     |   12 +
- framework.jar.out/smali/android/view/View.smali    |   47 +++-
+ framework2.jar.out/smali/android/view/View.smali    |   47 +++-
  .../view/ViewRootImpl$ViewRootHandler.smali        |   11 +
  .../smali/android/view/ViewRootImpl.smali          |   25 ++-
  .../android/view/WindowOrientationListener.smali   |    5 +-
@@ -60,7 +60,7 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  .../smali/android/widget/SuggestionsAdapter.smali  |   10 +-
  .../smali/android/widget/TimePicker.smali          |   38 +++-
  .../smali/android/widget/Toast$TN.smali            |   12 +
- framework.jar.out/smali/android/widget/Toast.smali |   19 ++
+ framework2.jar.out/smali/android/widget/Toast.smali |   19 ++
  .../com/android/internal/app/LocalePicker.smali    |    6 +
  .../app/ResolverActivity$ResolveListAdapter.smali  |    5 +-
  .../android/internal/app/ResolverActivity.smali    |    3 +-
@@ -81,8 +81,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  .../widget/multiwaveview/GlowPadView.smali         |  339 ++++++++++++++++++--
  74 files changed, 1985 insertions(+), 153 deletions(-)
 
---- a/framework.jar.out/smali/android/accounts/AccountManagerService.smali
-+++ b/framework.jar.out/smali/android/accounts/AccountManagerService.smali
+--- a/framework2.jar.out/smali/android/accounts/AccountManagerService.smali
++++ b/framework2.jar.out/smali/android/accounts/AccountManagerService.smali
 @@ -15,7 +15,8 @@
          Landroid/accounts/AccountManagerService$GetAccountsByTypeAndFeatureSession;,
          Landroid/accounts/AccountManagerService$RemoveAccountSession;,
@@ -112,8 +112,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
      move-result v2
  
---- a/framework.jar.out/smali/android/app/Activity.smali
-+++ b/framework.jar.out/smali/android/app/Activity.smali
+--- a/framework2.jar.out/smali/android/app/Activity.smali
++++ b/framework2.jar.out/smali/android/app/Activity.smali
 @@ -16,7 +16,8 @@
          Landroid/app/Activity$1;,
          Landroid/app/Activity$ManagedCursor;,
@@ -162,8 +162,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      return-void
  .end method
  
---- a/framework.jar.out/smali/android/app/ActivityManager.smali
-+++ b/framework.jar.out/smali/android/app/ActivityManager.smali
+--- a/framework2.jar.out/smali/android/app/ActivityManager.smali
++++ b/framework2.jar.out/smali/android/app/ActivityManager.smali
 @@ -256,6 +256,9 @@
  .method public static isHighEndGfx(Landroid/view/Display;)Z
      .locals 8
@@ -185,8 +185,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
      goto :goto_0
  .end method
---- a/framework.jar.out/smali/android/app/ActivityThread.smali
-+++ b/framework.jar.out/smali/android/app/ActivityThread.smali
+--- a/framework2.jar.out/smali/android/app/ActivityThread.smali
++++ b/framework2.jar.out/smali/android/app/ActivityThread.smali
 @@ -9271,6 +9271,9 @@
      .locals 8
      .parameter "config"
@@ -287,8 +287,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  .method final handleActivityConfigurationChanged(Landroid/os/IBinder;)V
      .locals 3
      .parameter "token"
---- a/framework.jar.out/smali/android/app/ApplicationPackageManager$ResourceName.smali
-+++ b/framework.jar.out/smali/android/app/ApplicationPackageManager$ResourceName.smali
+--- a/framework2.jar.out/smali/android/app/ApplicationPackageManager$ResourceName.smali
++++ b/framework2.jar.out/smali/android/app/ApplicationPackageManager$ResourceName.smali
 @@ -4,12 +4,16 @@
  
  
@@ -307,8 +307,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      name = "ResourceName"
  .end annotation
  
---- a/framework.jar.out/smali/android/app/ApplicationPackageManager.smali
-+++ b/framework.jar.out/smali/android/app/ApplicationPackageManager.smali
+--- a/framework2.jar.out/smali/android/app/ApplicationPackageManager.smali
++++ b/framework2.jar.out/smali/android/app/ApplicationPackageManager.smali
 @@ -133,9 +133,12 @@
      throw v0
  .end method
@@ -419,8 +419,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
      move-result-object v0
  
---- a/framework.jar.out/smali/android/app/ContextImpl$12.smali
-+++ b/framework.jar.out/smali/android/app/ContextImpl$12.smali
+--- a/framework2.jar.out/smali/android/app/ContextImpl$12.smali
++++ b/framework2.jar.out/smali/android/app/ContextImpl$12.smali
 @@ -29,9 +29,12 @@
  .method public createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
      .locals 3
@@ -444,8 +444,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
      return-object v0
  .end method
---- a/framework.jar.out/smali/android/app/ContextImpl.smali
-+++ b/framework.jar.out/smali/android/app/ContextImpl.smali
+--- a/framework2.jar.out/smali/android/app/ContextImpl.smali
++++ b/framework2.jar.out/smali/android/app/ContextImpl.smali
 @@ -8,7 +8,8 @@
      value = {
          Landroid/app/ContextImpl$ApplicationContentResolver;,
@@ -503,8 +503,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
      move-result-object v0
  
---- a/framework.jar.out/smali/android/app/DownloadManager$CursorTranslator.smali
-+++ b/framework.jar.out/smali/android/app/DownloadManager$CursorTranslator.smali
+--- a/framework2.jar.out/smali/android/app/DownloadManager$CursorTranslator.smali
++++ b/framework2.jar.out/smali/android/app/DownloadManager$CursorTranslator.smali
 @@ -4,12 +4,16 @@
  
  
@@ -625,8 +625,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
      move-result-object v0
  
---- a/framework.jar.out/smali/android/app/DownloadManager$Query.smali
-+++ b/framework.jar.out/smali/android/app/DownloadManager$Query.smali
+--- a/framework2.jar.out/smali/android/app/DownloadManager$Query.smali
++++ b/framework2.jar.out/smali/android/app/DownloadManager$Query.smali
 @@ -170,6 +170,28 @@
  
  
@@ -716,8 +716,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
 +
 +    return-void
 +.end method
---- a/framework.jar.out/smali/android/app/DownloadManager.smali
-+++ b/framework.jar.out/smali/android/app/DownloadManager.smali
+--- a/framework2.jar.out/smali/android/app/DownloadManager.smali
++++ b/framework2.jar.out/smali/android/app/DownloadManager.smali
 @@ -8,7 +8,8 @@
      value = {
          Landroid/app/DownloadManager$CursorTranslator;,
@@ -747,8 +747,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  .method getDownloadUri(J)Landroid/net/Uri;
      .locals 1
      .parameter "id"
---- a/framework.jar.out/smali/android/app/LoadedApk.smali
-+++ b/framework.jar.out/smali/android/app/LoadedApk.smali
+--- a/framework2.jar.out/smali/android/app/LoadedApk.smali
++++ b/framework2.jar.out/smali/android/app/LoadedApk.smali
 @@ -1753,17 +1753,22 @@
  .end method
  
@@ -775,8 +775,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
      move-result-object v0
  
---- a/framework.jar.out/smali/android/content/pm/ApplicationInfo.smali
-+++ b/framework.jar.out/smali/android/content/pm/ApplicationInfo.smali
+--- a/framework2.jar.out/smali/android/content/pm/ApplicationInfo.smali
++++ b/framework2.jar.out/smali/android/content/pm/ApplicationInfo.smali
 @@ -26,6 +26,12 @@
      .end annotation
  .end field
@@ -790,8 +790,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  .field public static final FLAG_ALLOW_BACKUP:I = 0x8000
  
  .field public static final FLAG_ALLOW_CLEAR_USER_DATA:I = 0x40
---- a/framework.jar.out/smali/android/content/pm/PackageItemInfo.smali
-+++ b/framework.jar.out/smali/android/content/pm/PackageItemInfo.smali
+--- a/framework2.jar.out/smali/android/content/pm/PackageItemInfo.smali
++++ b/framework2.jar.out/smali/android/content/pm/PackageItemInfo.smali
 @@ -342,8 +342,11 @@
  .end method
  
@@ -816,8 +816,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
      move-result-object v0
  
---- a/framework.jar.out/smali/android/content/pm/PackageManager.smali
-+++ b/framework.jar.out/smali/android/content/pm/PackageManager.smali
+--- a/framework2.jar.out/smali/android/content/pm/PackageManager.smali
++++ b/framework2.jar.out/smali/android/content/pm/PackageManager.smali
 @@ -14,6 +14,12 @@
  # static fields
  .field public static final ACTION_CLEAN_EXTERNAL_STORAGE:Ljava/lang/String; = "android.content.pm.CLEAN_EXTERNAL_STORAGE"
@@ -850,8 +850,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  .field public static final INSTALL_ALLOW_TEST:I = 0x4
  
  .field public static final INSTALL_EXTERNAL:I = 0x8
---- a/framework.jar.out/smali/android/content/pm/PackageParser.smali
-+++ b/framework.jar.out/smali/android/content/pm/PackageParser.smali
+--- a/framework2.jar.out/smali/android/content/pm/PackageParser.smali
++++ b/framework2.jar.out/smali/android/content/pm/PackageParser.smali
 @@ -21,7 +21,8 @@
          Landroid/content/pm/PackageParser$ParseComponentArgs;,
          Landroid/content/pm/PackageParser$ParsePackageItemArgs;,
@@ -1007,8 +1007,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      :try_end_1
      .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
  
---- a/framework.jar.out/smali/android/content/pm/ParceledListSlice$1.smali
-+++ b/framework.jar.out/smali/android/content/pm/ParceledListSlice$1.smali
+--- a/framework2.jar.out/smali/android/content/pm/ParceledListSlice$1.smali
++++ b/framework2.jar.out/smali/android/content/pm/ParceledListSlice$1.smali
 @@ -112,6 +112,9 @@
  
      invoke-direct {v5}, Landroid/content/pm/ParceledListSlice;-><init>()V
@@ -1019,8 +1019,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      goto :goto_1
  .end method
  
---- a/framework.jar.out/smali/android/content/pm/ResolveInfo.smali
-+++ b/framework.jar.out/smali/android/content/pm/ResolveInfo.smali
+--- a/framework2.jar.out/smali/android/content/pm/ResolveInfo.smali
++++ b/framework2.jar.out/smali/android/content/pm/ResolveInfo.smali
 @@ -9,7 +9,8 @@
  # annotations
  .annotation system Ldalvik/annotation/MemberClasses;
@@ -1059,8 +1059,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
      move-result-object v2
  
---- a/framework.jar.out/smali/android/content/res/AssetManager.smali
-+++ b/framework.jar.out/smali/android/content/res/AssetManager.smali
+--- a/framework2.jar.out/smali/android/content/res/AssetManager.smali
++++ b/framework2.jar.out/smali/android/content/res/AssetManager.smali
 @@ -94,6 +94,9 @@
  
  .method public constructor <init>()V
@@ -1099,8 +1099,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      return-void
  .end method
  
---- a/framework.jar.out/smali/android/content/res/Configuration.smali
-+++ b/framework.jar.out/smali/android/content/res/Configuration.smali
+--- a/framework2.jar.out/smali/android/content/res/Configuration.smali
++++ b/framework2.jar.out/smali/android/content/res/Configuration.smali
 @@ -138,6 +138,30 @@
  
  .field public static final UI_MODE_TYPE_NORMAL:I = 0x1
@@ -1450,8 +1450,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      return-void
  
      :cond_0
---- a/framework.jar.out/smali/android/content/res/Resources$Theme.smali
-+++ b/framework.jar.out/smali/android/content/res/Resources$Theme.smali
+--- a/framework2.jar.out/smali/android/content/res/Resources$Theme.smali
++++ b/framework2.jar.out/smali/android/content/res/Resources$Theme.smali
 @@ -1,15 +1,19 @@
 -.class public final Landroid/content/res/Resources$Theme;
 +.class public Landroid/content/res/Resources$Theme;
@@ -1474,8 +1474,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      name = "Theme"
  .end annotation
  
---- a/framework.jar.out/smali/android/content/res/Resources.smali
-+++ b/framework.jar.out/smali/android/content/res/Resources.smali
+--- a/framework2.jar.out/smali/android/content/res/Resources.smali
++++ b/framework2.jar.out/smali/android/content/res/Resources.smali
 @@ -7,7 +7,8 @@
  .annotation system Ldalvik/annotation/MemberClasses;
      value = {
@@ -1666,8 +1666,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
      :cond_5
      move-object/from16 v0, p0
---- a/framework.jar.out/smali/android/graphics/drawable/AnimationDrawable$AnimationState.smali
-+++ b/framework.jar.out/smali/android/graphics/drawable/AnimationDrawable$AnimationState.smali
+--- a/framework2.jar.out/smali/android/graphics/drawable/AnimationDrawable$AnimationState.smali
++++ b/framework2.jar.out/smali/android/graphics/drawable/AnimationDrawable$AnimationState.smali
 @@ -1,15 +1,19 @@
 -.class final Landroid/graphics/drawable/AnimationDrawable$AnimationState;
 +.class public final Landroid/graphics/drawable/AnimationDrawable$AnimationState;
@@ -1710,8 +1710,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
 +
 +    return-void
 +.end method
---- a/framework.jar.out/smali/android/graphics/drawable/AnimationDrawable.smali
-+++ b/framework.jar.out/smali/android/graphics/drawable/AnimationDrawable.smali
+--- a/framework2.jar.out/smali/android/graphics/drawable/AnimationDrawable.smali
++++ b/framework2.jar.out/smali/android/graphics/drawable/AnimationDrawable.smali
 @@ -17,7 +17,7 @@
  
  
@@ -1740,8 +1740,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  .method public getDuration(I)I
      .locals 1
      .parameter "i"
---- a/framework.jar.out/smali/android/graphics/drawable/DrawableContainer$DrawableContainerState.smali
-+++ b/framework.jar.out/smali/android/graphics/drawable/DrawableContainer$DrawableContainerState.smali
+--- a/framework2.jar.out/smali/android/graphics/drawable/DrawableContainer$DrawableContainerState.smali
++++ b/framework2.jar.out/smali/android/graphics/drawable/DrawableContainer$DrawableContainerState.smali
 @@ -68,6 +68,9 @@
      .parameter "orig"
      .parameter "owner"
@@ -1767,8 +1767,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      iget-boolean v3, p1, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mHaveOpacity:Z
  
      iput-boolean v3, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mHaveOpacity:Z
---- a/framework.jar.out/smali/android/graphics/drawable/NinePatchDrawable.smali
-+++ b/framework.jar.out/smali/android/graphics/drawable/NinePatchDrawable.smali
+--- a/framework2.jar.out/smali/android/graphics/drawable/NinePatchDrawable.smali
++++ b/framework2.jar.out/smali/android/graphics/drawable/NinePatchDrawable.smali
 @@ -218,6 +218,9 @@
  
  .method private computeBitmapSize()V
@@ -1792,8 +1792,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      :goto_0
      return-void
  
---- a/framework.jar.out/smali/android/media/AudioService.smali
-+++ b/framework.jar.out/smali/android/media/AudioService.smali
+--- a/framework2.jar.out/smali/android/media/AudioService.smali
++++ b/framework2.jar.out/smali/android/media/AudioService.smali
 @@ -24,7 +24,8 @@
          Landroid/media/AudioService$SoundPoolCallback;,
          Landroid/media/AudioService$SoundPoolListenerThread;,
@@ -1947,8 +1947,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      if-ne v0, v3, :cond_3
  
      and-int/lit8 p3, p3, -0x5
---- a/framework.jar.out/smali/android/media/MediaFile.smali
-+++ b/framework.jar.out/smali/android/media/MediaFile.smali
+--- a/framework2.jar.out/smali/android/media/MediaFile.smali
++++ b/framework2.jar.out/smali/android/media/MediaFile.smali
 @@ -6,7 +6,8 @@
  # annotations
  .annotation system Ldalvik/annotation/MemberClasses;
@@ -2017,8 +2017,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      const/4 v0, 0x0
  
      goto :goto_0
---- a/framework.jar.out/smali/android/media/MediaScanner$MyMediaScannerClient.smali
-+++ b/framework.jar.out/smali/android/media/MediaScanner$MyMediaScannerClient.smali
+--- a/framework2.jar.out/smali/android/media/MediaScanner$MyMediaScannerClient.smali
++++ b/framework2.jar.out/smali/android/media/MediaScanner$MyMediaScannerClient.smali
 @@ -211,6 +211,10 @@
      .parameter "alarms"
      .parameter "music"
@@ -2055,8 +2055,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      if-eqz p3, :cond_24
  
      const-string v27, "notification_sound"
---- a/framework.jar.out/smali/android/media/MediaScanner.smali
-+++ b/framework.jar.out/smali/android/media/MediaScanner.smali
+--- a/framework2.jar.out/smali/android/media/MediaScanner.smali
++++ b/framework2.jar.out/smali/android/media/MediaScanner.smali
 @@ -11,7 +11,8 @@
          Landroid/media/MediaScanner$MediaBulkDeleter;,
          Landroid/media/MediaScanner$MyMediaScannerClient;,
@@ -2086,8 +2086,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  .method makeEntryFor(Ljava/lang/String;)Landroid/media/MediaScanner$FileEntry;
      .locals 14
      .parameter "path"
---- a/framework.jar.out/smali/android/net/Proxy.smali
-+++ b/framework.jar.out/smali/android/net/Proxy.smali
+--- a/framework2.jar.out/smali/android/net/Proxy.smali
++++ b/framework2.jar.out/smali/android/net/Proxy.smali
 @@ -6,7 +6,8 @@
  # annotations
  .annotation system Ldalvik/annotation/MemberClasses;
@@ -2117,8 +2117,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
      move-result-object v3
  
---- a/framework.jar.out/smali/android/net/http/AndroidHttpClient.smali
-+++ b/framework.jar.out/smali/android/net/http/AndroidHttpClient.smali
+--- a/framework2.jar.out/smali/android/net/http/AndroidHttpClient.smali
++++ b/framework2.jar.out/smali/android/net/http/AndroidHttpClient.smali
 @@ -10,7 +10,8 @@
  .annotation system Ldalvik/annotation/MemberClasses;
      value = {
@@ -2152,8 +2152,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
      new-instance v2, Lorg/apache/http/conn/scheme/SchemeRegistry;
  
---- a/framework.jar.out/smali/android/net/wifi/WifiConfiguration.smali
-+++ b/framework.jar.out/smali/android/net/wifi/WifiConfiguration.smali
+--- a/framework2.jar.out/smali/android/net/wifi/WifiConfiguration.smali
++++ b/framework2.jar.out/smali/android/net/wifi/WifiConfiguration.smali
 @@ -120,10 +120,40 @@
  
  .field public priority:I
@@ -2225,8 +2225,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      const-string v2, "eap"
  
      invoke-direct {v1, p0, v2, v3}, Landroid/net/wifi/WifiConfiguration$EnterpriseField;-><init>(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;Landroid/net/wifi/WifiConfiguration$1;)V
---- a/framework.jar.out/smali/android/os/StrictMode.smali
-+++ b/framework.jar.out/smali/android/os/StrictMode.smali
+--- a/framework2.jar.out/smali/android/os/StrictMode.smali
++++ b/framework2.jar.out/smali/android/os/StrictMode.smali
 @@ -67,6 +67,10 @@
  
  #the value of this static final field might be set in the static constructor
@@ -2279,8 +2279,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  .method public static incrementExpectedActivityCount(Ljava/lang/Class;)V
      .locals 4
      .parameter "klass"
---- a/framework.jar.out/smali/android/os/Vibrator.smali
-+++ b/framework.jar.out/smali/android/os/Vibrator.smali
+--- a/framework2.jar.out/smali/android/os/Vibrator.smali
++++ b/framework2.jar.out/smali/android/os/Vibrator.smali
 @@ -26,3 +26,14 @@
  
  .method public abstract vibrate([JI)V
@@ -2296,8 +2296,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
 +    .prologue
 +    return-void
 +.end method
---- a/framework.jar.out/smali/android/preference/CheckBoxPreference.smali
-+++ b/framework.jar.out/smali/android/preference/CheckBoxPreference.smali
+--- a/framework2.jar.out/smali/android/preference/CheckBoxPreference.smali
++++ b/framework2.jar.out/smali/android/preference/CheckBoxPreference.smali
 @@ -74,11 +74,44 @@
      return-void
  .end method
@@ -2352,8 +2352,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      invoke-virtual {p0, p1}, Landroid/preference/CheckBoxPreference;->syncSummaryView(Landroid/view/View;)V
  
      return-void
---- a/framework.jar.out/smali/android/preference/PreferenceScreen.smali
-+++ b/framework.jar.out/smali/android/preference/PreferenceScreen.smali
+--- a/framework2.jar.out/smali/android/preference/PreferenceScreen.smali
++++ b/framework2.jar.out/smali/android/preference/PreferenceScreen.smali
 @@ -40,6 +40,9 @@
  .method private showDialog(Landroid/os/Bundle;)V
      .locals 7
@@ -2380,8 +2380,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
      iput-object v2, p0, Landroid/preference/PreferenceScreen;->mDialog:Landroid/app/Dialog;
  
---- a/framework.jar.out/smali/android/preference/RingtonePreference.smali
-+++ b/framework.jar.out/smali/android/preference/RingtonePreference.smali
+--- a/framework2.jar.out/smali/android/preference/RingtonePreference.smali
++++ b/framework2.jar.out/smali/android/preference/RingtonePreference.smali
 @@ -258,6 +258,9 @@
  .method protected onPrepareRingtonePickerIntent(Landroid/content/Intent;)V
      .locals 2
@@ -2405,8 +2405,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      return-void
  .end method
  
---- a/framework.jar.out/smali/android/provider/CallLog$Calls.smali
-+++ b/framework.jar.out/smali/android/provider/CallLog$Calls.smali
+--- a/framework2.jar.out/smali/android/provider/CallLog$Calls.smali
++++ b/framework2.jar.out/smali/android/provider/CallLog$Calls.smali
 @@ -74,12 +74,22 @@
  
  .field public static final VOICEMAIL_URI:Ljava/lang/String; = "voicemail_uri"
@@ -2485,8 +2485,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
 +
 +    return-void
 +.end method
---- a/framework.jar.out/smali/android/provider/CallLog.smali
-+++ b/framework.jar.out/smali/android/provider/CallLog.smali
+--- a/framework2.jar.out/smali/android/provider/CallLog.smali
++++ b/framework2.jar.out/smali/android/provider/CallLog.smali
 @@ -6,7 +6,8 @@
  # annotations
  .annotation system Ldalvik/annotation/MemberClasses;
@@ -2497,8 +2497,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      }
  .end annotation
  
---- a/framework.jar.out/smali/android/text/StaticLayout.smali
-+++ b/framework.jar.out/smali/android/text/StaticLayout.smali
+--- a/framework2.jar.out/smali/android/text/StaticLayout.smali
++++ b/framework2.jar.out/smali/android/text/StaticLayout.smali
 @@ -1139,7 +1139,9 @@
      if-le p0, v2, :cond_0
  
@@ -2531,8 +2531,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      const/16 v5, 0x20
  
      move/from16 v0, v94
---- a/framework.jar.out/smali/android/text/format/DateFormat.smali
-+++ b/framework.jar.out/smali/android/text/format/DateFormat.smali
+--- a/framework2.jar.out/smali/android/text/format/DateFormat.smali
++++ b/framework2.jar.out/smali/android/text/format/DateFormat.smali
 @@ -3,6 +3,14 @@
  .source "DateFormat.java"
  
@@ -2569,8 +2569,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      if-nez v5, :cond_1
  
      invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
---- a/framework.jar.out/smali/android/view/HapticFeedbackConstants.smali
-+++ b/framework.jar.out/smali/android/view/HapticFeedbackConstants.smali
+--- a/framework2.jar.out/smali/android/view/HapticFeedbackConstants.smali
++++ b/framework2.jar.out/smali/android/view/HapticFeedbackConstants.smali
 @@ -8,6 +8,12 @@
  
  .field public static final FLAG_IGNORE_VIEW_SETTING:I = 0x1
@@ -2597,8 +2597,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
  # direct methods
  .method private constructor <init>()V
---- a/framework.jar.out/smali/android/view/View.smali
-+++ b/framework.jar.out/smali/android/view/View.smali
+--- a/framework2.jar.out/smali/android/view/View.smali
++++ b/framework2.jar.out/smali/android/view/View.smali
 @@ -36,7 +36,8 @@
          Landroid/view/View$DragShadowBuilder;,
          Landroid/view/View$OnLayoutChangeListener;,
@@ -2723,8 +2723,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      return-void
  
      :cond_0
---- a/framework.jar.out/smali/android/view/ViewRootImpl$ViewRootHandler.smali
-+++ b/framework.jar.out/smali/android/view/ViewRootImpl$ViewRootHandler.smali
+--- a/framework2.jar.out/smali/android/view/ViewRootImpl$ViewRootHandler.smali
++++ b/framework2.jar.out/smali/android/view/ViewRootImpl$ViewRootHandler.smali
 @@ -197,6 +197,9 @@
  .method public handleMessage(Landroid/os/Message;)V
      .locals 13
@@ -2750,8 +2750,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      iget-object v1, v1, Landroid/view/ViewRootImpl;->mWinFrame:Landroid/graphics/Rect;
  
      invoke-virtual {v1}, Landroid/graphics/Rect;->width()I
---- a/framework.jar.out/smali/android/view/ViewRootImpl.smali
-+++ b/framework.jar.out/smali/android/view/ViewRootImpl.smali
+--- a/framework2.jar.out/smali/android/view/ViewRootImpl.smali
++++ b/framework2.jar.out/smali/android/view/ViewRootImpl.smali
 @@ -27,7 +27,8 @@
          Landroid/view/ViewRootImpl$QueuedInputEvent;,
          Landroid/view/ViewRootImpl$ViewRootHandler;,
@@ -2805,8 +2805,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  .method public startActionModeForChild(Landroid/view/View;Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
      .locals 1
      .parameter "originalView"
---- a/framework.jar.out/smali/android/view/WindowOrientationListener.smali
-+++ b/framework.jar.out/smali/android/view/WindowOrientationListener.smali
+--- a/framework2.jar.out/smali/android/view/WindowOrientationListener.smali
++++ b/framework2.jar.out/smali/android/view/WindowOrientationListener.smali
 @@ -55,9 +55,12 @@
  .method public constructor <init>(Landroid/content/Context;)V
      .locals 1
@@ -2821,8 +2821,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
      invoke-direct {p0, p1, v0}, Landroid/view/WindowOrientationListener;-><init>(Landroid/content/Context;I)V
  
---- a/framework.jar.out/smali/android/widget/AbsListView.smali
-+++ b/framework.jar.out/smali/android/widget/AbsListView.smali
+--- a/framework2.jar.out/smali/android/widget/AbsListView.smali
++++ b/framework2.jar.out/smali/android/widget/AbsListView.smali
 @@ -29,7 +29,8 @@
          Landroid/widget/AbsListView$ListItemAccessibilityDelegate;,
          Landroid/widget/AbsListView$SavedState;,
@@ -2924,8 +2924,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
  .method public setTranscriptMode(I)V
      .locals 0
---- a/framework.jar.out/smali/android/widget/DatePicker.smali
-+++ b/framework.jar.out/smali/android/widget/DatePicker.smali
+--- a/framework2.jar.out/smali/android/widget/DatePicker.smali
++++ b/framework2.jar.out/smali/android/widget/DatePicker.smali
 @@ -7,7 +7,8 @@
  .annotation system Ldalvik/annotation/MemberClasses;
      value = {
@@ -2961,8 +2961,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      const v13, 0x102026e
  
      move-object/from16 v0, p0
---- a/framework.jar.out/smali/android/widget/QuickContactBadge$QueryHandler.smali
-+++ b/framework.jar.out/smali/android/widget/QuickContactBadge$QueryHandler.smali
+--- a/framework2.jar.out/smali/android/widget/QuickContactBadge$QueryHandler.smali
++++ b/framework2.jar.out/smali/android/widget/QuickContactBadge$QueryHandler.smali
 @@ -39,6 +39,9 @@
      .parameter "token"
      .parameter "cookie"
@@ -2986,8 +2986,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      if-eqz v6, :cond_4
  
      if-eqz v5, :cond_4
---- a/framework.jar.out/smali/android/widget/QuickContactBadge.smali
-+++ b/framework.jar.out/smali/android/widget/QuickContactBadge.smali
+--- a/framework2.jar.out/smali/android/widget/QuickContactBadge.smali
++++ b/framework2.jar.out/smali/android/widget/QuickContactBadge.smali
 @@ -9,7 +9,8 @@
  # annotations
  .annotation system Ldalvik/annotation/MemberClasses;
@@ -3036,8 +3036,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
      iget v1, p0, Landroid/widget/QuickContactBadge;->mPaddingTop:I
  
---- a/framework.jar.out/smali/android/widget/RemoteViews.smali
-+++ b/framework.jar.out/smali/android/widget/RemoteViews.smali
+--- a/framework2.jar.out/smali/android/widget/RemoteViews.smali
++++ b/framework2.jar.out/smali/android/widget/RemoteViews.smali
 @@ -71,6 +71,12 @@
  
  .field private mBitmapCache:Landroid/widget/RemoteViews$BitmapCache;
@@ -3092,8 +3092,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
  .method public setDisplayedChild(II)V
      .locals 1
---- a/framework.jar.out/smali/android/widget/SuggestionsAdapter.smali
-+++ b/framework.jar.out/smali/android/widget/SuggestionsAdapter.smali
+--- a/framework2.jar.out/smali/android/widget/SuggestionsAdapter.smali
++++ b/framework2.jar.out/smali/android/widget/SuggestionsAdapter.smali
 @@ -9,7 +9,8 @@
  # annotations
  .annotation system Ldalvik/annotation/MemberClasses;
@@ -3125,8 +3125,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
      move-result-object v1
  
---- a/framework.jar.out/smali/android/widget/TimePicker.smali
-+++ b/framework.jar.out/smali/android/widget/TimePicker.smali
+--- a/framework2.jar.out/smali/android/widget/TimePicker.smali
++++ b/framework2.jar.out/smali/android/widget/TimePicker.smali
 @@ -7,7 +7,8 @@
  .annotation system Ldalvik/annotation/MemberClasses;
      value = {
@@ -3193,8 +3193,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  .method public dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
      .locals 1
      .parameter "event"
---- a/framework.jar.out/smali/android/widget/Toast$TN.smali
-+++ b/framework.jar.out/smali/android/widget/Toast$TN.smali
+--- a/framework2.jar.out/smali/android/widget/Toast$TN.smali
++++ b/framework2.jar.out/smali/android/widget/Toast$TN.smali
 @@ -172,6 +172,18 @@
  
  
@@ -3214,8 +3214,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  .method public handleHide()V
      .locals 2
  
---- a/framework.jar.out/smali/android/widget/Toast.smali
-+++ b/framework.jar.out/smali/android/widget/Toast.smali
+--- a/framework2.jar.out/smali/android/widget/Toast.smali
++++ b/framework2.jar.out/smali/android/widget/Toast.smali
 @@ -391,6 +391,25 @@
      return-void
  .end method
@@ -3242,8 +3242,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  .method public setView(Landroid/view/View;)V
      .locals 0
      .parameter "view"
---- a/framework.jar.out/smali/com/android/internal/app/LocalePicker.smali
-+++ b/framework.jar.out/smali/com/android/internal/app/LocalePicker.smali
+--- a/framework2.jar.out/smali/com/android/internal/app/LocalePicker.smali
++++ b/framework2.jar.out/smali/com/android/internal/app/LocalePicker.smali
 @@ -64,6 +64,10 @@
      .parameter "context"
      .parameter "layoutId"
@@ -3264,8 +3264,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      new-instance v20, Landroid/widget/ArrayAdapter;
  
      move-object/from16 v0, v20
---- a/framework.jar.out/smali/com/android/internal/app/ResolverActivity$ResolveListAdapter.smali
-+++ b/framework.jar.out/smali/com/android/internal/app/ResolverActivity$ResolveListAdapter.smali
+--- a/framework2.jar.out/smali/com/android/internal/app/ResolverActivity$ResolveListAdapter.smali
++++ b/framework2.jar.out/smali/com/android/internal/app/ResolverActivity$ResolveListAdapter.smali
 @@ -135,6 +135,9 @@
      .locals 5
      .parameter "view"
@@ -3285,8 +3285,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
      move-result-object v3
  
---- a/framework.jar.out/smali/com/android/internal/app/ResolverActivity.smali
-+++ b/framework.jar.out/smali/com/android/internal/app/ResolverActivity.smali
+--- a/framework2.jar.out/smali/com/android/internal/app/ResolverActivity.smali
++++ b/framework2.jar.out/smali/com/android/internal/app/ResolverActivity.smali
 @@ -11,7 +11,8 @@
      value = {
          Lcom/android/internal/app/ResolverActivity$ItemLongClickListener;,
@@ -3297,8 +3297,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      }
  .end annotation
  
---- a/framework.jar.out/smali/com/android/internal/content/PackageMonitor.smali
-+++ b/framework.jar.out/smali/com/android/internal/content/PackageMonitor.smali
+--- a/framework2.jar.out/smali/com/android/internal/content/PackageMonitor.smali
++++ b/framework2.jar.out/smali/com/android/internal/content/PackageMonitor.smali
 @@ -1114,6 +1114,22 @@
      goto :goto_0
  .end method
@@ -3322,8 +3322,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  .method public unregister()V
      .locals 2
  
---- a/framework.jar.out/smali/com/android/internal/os/RuntimeInit.smali
-+++ b/framework.jar.out/smali/com/android/internal/os/RuntimeInit.smali
+--- a/framework2.jar.out/smali/com/android/internal/os/RuntimeInit.smali
++++ b/framework2.jar.out/smali/com/android/internal/os/RuntimeInit.smali
 @@ -7,7 +7,8 @@
  .annotation system Ldalvik/annotation/MemberClasses;
      value = {
@@ -3378,8 +3378,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
      .local v0, id:Ljava/lang/String;
      invoke-virtual {v0}, Ljava/lang/String;->length()I
---- a/framework.jar.out/smali/com/android/internal/view/menu/ActionMenuItemView.smali
-+++ b/framework.jar.out/smali/com/android/internal/view/menu/ActionMenuItemView.smali
+--- a/framework2.jar.out/smali/com/android/internal/view/menu/ActionMenuItemView.smali
++++ b/framework2.jar.out/smali/com/android/internal/view/menu/ActionMenuItemView.smali
 @@ -28,6 +28,12 @@
  
  .field private mSavedPaddingLeft:I
@@ -3589,8 +3589,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/TextView;->setPadding(IIII)V
  
      return-void
---- a/framework.jar.out/smali/com/android/internal/view/menu/ActionMenuPresenter.smali
-+++ b/framework.jar.out/smali/com/android/internal/view/menu/ActionMenuPresenter.smali
+--- a/framework2.jar.out/smali/com/android/internal/view/menu/ActionMenuPresenter.smali
++++ b/framework2.jar.out/smali/com/android/internal/view/menu/ActionMenuPresenter.smali
 @@ -15,7 +15,8 @@
          Lcom/android/internal/view/menu/ActionMenuPresenter$ActionButtonSubmenu;,
          Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;,
@@ -3620,8 +3620,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
      move-result v4
  
---- a/framework.jar.out/smali/com/android/internal/view/menu/ActionMenuView.smali
-+++ b/framework.jar.out/smali/com/android/internal/view/menu/ActionMenuView.smali
+--- a/framework2.jar.out/smali/com/android/internal/view/menu/ActionMenuView.smali
++++ b/framework2.jar.out/smali/com/android/internal/view/menu/ActionMenuView.smali
 @@ -11,7 +11,8 @@
  .annotation system Ldalvik/annotation/MemberClasses;
      value = {
@@ -3661,8 +3661,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      goto/16 :goto_0
  
      .end local v9           #height:I
---- a/framework.jar.out/smali/com/android/internal/view/menu/MenuItemImpl.smali
-+++ b/framework.jar.out/smali/com/android/internal/view/menu/MenuItemImpl.smali
+--- a/framework2.jar.out/smali/com/android/internal/view/menu/MenuItemImpl.smali
++++ b/framework2.jar.out/smali/com/android/internal/view/menu/MenuItemImpl.smali
 @@ -895,6 +895,32 @@
      goto :goto_0
  .end method
@@ -3696,8 +3696,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  .method public isVisible()Z
      .locals 3
  
---- a/framework.jar.out/smali/com/android/internal/widget/ActionBarContainer.smali
-+++ b/framework.jar.out/smali/com/android/internal/widget/ActionBarContainer.smali
+--- a/framework2.jar.out/smali/com/android/internal/widget/ActionBarContainer.smali
++++ b/framework2.jar.out/smali/com/android/internal/widget/ActionBarContainer.smali
 @@ -3,6 +3,14 @@
  .source "ActionBarContainer.java"
  
@@ -3795,8 +3795,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  .method public setPrimaryBackground(Landroid/graphics/drawable/Drawable;)V
      .locals 0
      .parameter "bg"
---- a/framework.jar.out/smali/com/android/internal/widget/ActionBarView$HomeView.smali
-+++ b/framework.jar.out/smali/com/android/internal/widget/ActionBarView$HomeView.smali
+--- a/framework2.jar.out/smali/com/android/internal/widget/ActionBarView$HomeView.smali
++++ b/framework2.jar.out/smali/com/android/internal/widget/ActionBarView$HomeView.smali
 @@ -15,6 +15,18 @@
  
  
@@ -3906,8 +3906,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      return-void
  
      :cond_0
---- a/framework.jar.out/smali/com/android/internal/widget/ActionBarView.smali
-+++ b/framework.jar.out/smali/com/android/internal/widget/ActionBarView.smali
+--- a/framework2.jar.out/smali/com/android/internal/widget/ActionBarView.smali
++++ b/framework2.jar.out/smali/com/android/internal/widget/ActionBarView.smali
 @@ -8,7 +8,8 @@
      value = {
          Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;,
@@ -3918,8 +3918,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      }
  .end annotation
  
---- a/framework.jar.out/smali/com/android/internal/widget/LockPatternUtils.smali
-+++ b/framework.jar.out/smali/com/android/internal/widget/LockPatternUtils.smali
+--- a/framework2.jar.out/smali/com/android/internal/widget/LockPatternUtils.smali
++++ b/framework2.jar.out/smali/com/android/internal/widget/LockPatternUtils.smali
 @@ -84,6 +84,32 @@
      return-void
  .end method
@@ -3953,8 +3953,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  .method public static computePasswordQuality(Ljava/lang/String;)I
      .locals 5
      .parameter "password"
---- a/framework.jar.out/smali/com/android/internal/widget/LockSettingsService.smali
-+++ b/framework.jar.out/smali/com/android/internal/widget/LockSettingsService.smali
+--- a/framework2.jar.out/smali/com/android/internal/widget/LockSettingsService.smali
++++ b/framework2.jar.out/smali/com/android/internal/widget/LockSettingsService.smali
 @@ -6,7 +6,8 @@
  # annotations
  .annotation system Ldalvik/annotation/MemberClasses;
@@ -3989,8 +3989,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      :try_end_0
      .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
      .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
---- a/framework.jar.out/smali/com/android/internal/widget/ScrollingTabContainerView.smali
-+++ b/framework.jar.out/smali/com/android/internal/widget/ScrollingTabContainerView.smali
+--- a/framework2.jar.out/smali/com/android/internal/widget/ScrollingTabContainerView.smali
++++ b/framework2.jar.out/smali/com/android/internal/widget/ScrollingTabContainerView.smali
 @@ -176,9 +176,12 @@
  
  .method private createTabLayout()Landroid/widget/LinearLayout;
@@ -4014,8 +4014,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
      .local v0, tabLayout:Landroid/widget/LinearLayout;
      const/4 v1, 0x1
---- a/framework.jar.out/smali/com/android/internal/widget/SizeAdaptiveLayout.smali
-+++ b/framework.jar.out/smali/com/android/internal/widget/SizeAdaptiveLayout.smali
+--- a/framework2.jar.out/smali/com/android/internal/widget/SizeAdaptiveLayout.smali
++++ b/framework2.jar.out/smali/com/android/internal/widget/SizeAdaptiveLayout.smali
 @@ -429,7 +429,7 @@
      :cond_1
      iget-object v3, p0, Lcom/android/internal/widget/SizeAdaptiveLayout;->mModestyPanel:Landroid/view/View;
@@ -4025,8 +4025,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
  
      invoke-virtual {v3, v4}, Landroid/view/View;->setBackgroundColor(I)V
  
---- a/framework.jar.out/smali/com/android/internal/widget/multiwaveview/GlowPadView$AnimationBundle.smali
-+++ b/framework.jar.out/smali/com/android/internal/widget/multiwaveview/GlowPadView$AnimationBundle.smali
+--- a/framework2.jar.out/smali/com/android/internal/widget/multiwaveview/GlowPadView$AnimationBundle.smali
++++ b/framework2.jar.out/smali/com/android/internal/widget/multiwaveview/GlowPadView$AnimationBundle.smali
 @@ -4,12 +4,16 @@
  
  
@@ -4045,8 +4045,8 @@ Change-Id: Ieaab7b61e2d71ea7dff03d4fee180d4a0d9c9aaf
      name = "AnimationBundle"
  .end annotation
  
---- a/framework.jar.out/smali/com/android/internal/widget/multiwaveview/GlowPadView.smali
-+++ b/framework.jar.out/smali/com/android/internal/widget/multiwaveview/GlowPadView.smali
+--- a/framework2.jar.out/smali/com/android/internal/widget/multiwaveview/GlowPadView.smali
++++ b/framework2.jar.out/smali/com/android/internal/widget/multiwaveview/GlowPadView.smali
 @@ -562,7 +562,7 @@
      .parameter "x3"
  
