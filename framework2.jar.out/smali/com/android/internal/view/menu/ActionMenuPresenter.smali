@@ -1279,7 +1279,7 @@
     if-nez v4, :cond_1
 
     .line 119
-    invoke-virtual {v0}, Lcom/android/internal/view/ActionBarPolicy;->showsOverflowMenuButton()Z
+    invoke-static {v0}, Lcom/android/internal/view/menu/ActionMenuPresenter$Injector;->showsOverflowMenuButton(Lcom/android/internal/view/ActionBarPolicy;)Z
 
     move-result v4
 

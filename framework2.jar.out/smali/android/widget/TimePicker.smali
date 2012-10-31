@@ -9,7 +9,8 @@
         Landroid/widget/TimePicker$TwTextWatcher;,
         Landroid/widget/TimePicker$TwKeyListener;,
         Landroid/widget/TimePicker$SavedState;,
-        Landroid/widget/TimePicker$OnTimeChangedListener;
+        Landroid/widget/TimePicker$OnTimeChangedListener;,
+        Landroid/widget/TimePicker$OnMinuteChangeListener;
     }
 .end annotation
 
@@ -328,6 +329,14 @@
     invoke-direct {v6, p0}, Landroid/widget/TimePicker$3;-><init>(Landroid/widget/TimePicker;)V
 
     invoke-virtual {v5, v6}, Landroid/widget/NumberPicker;->setOnValueChangedListener(Landroid/widget/NumberPicker$OnValueChangeListener;)V
+
+    new-instance v6, Landroid/widget/TimePicker$OnMinuteChangeListener;
+
+    invoke-direct {v6, p0}, Landroid/widget/TimePicker$OnMinuteChangeListener;-><init>(Landroid/widget/TimePicker;)V
+
+    invoke-virtual {v5, v6}, Landroid/widget/NumberPicker;->setOnValueChangedListener(Landroid/widget/NumberPicker$OnValueChangeListener;)V
+
+    iget-object v5, p0, Landroid/widget/TimePicker;->mMinuteSpinner:Landroid/widget/NumberPicker;
 
     .line 227
     iget-object v5, p0, Landroid/widget/TimePicker;->mMinuteSpinner:Landroid/widget/NumberPicker;

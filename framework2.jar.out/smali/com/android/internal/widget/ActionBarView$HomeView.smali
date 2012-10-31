@@ -15,6 +15,18 @@
 
 
 # instance fields
+.field mCompactMode:Z
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
+
+.field mIconDrawable:Landroid/graphics/drawable/Drawable;
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
+
 .field public mIconView:Landroid/widget/ImageView;
 
 .field private mUpMargin:I
@@ -129,7 +141,7 @@
     .line 1482
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarView$HomeView;->mUpView:Landroid/view/View;
 
-    invoke-virtual {v2}, Landroid/view/View;->getVisibility()I
+    invoke-static {p0, v2}, Lcom/android/internal/widget/ActionBarView$Injector;->getUpViewVisibility(Lcom/android/internal/widget/ActionBarView$HomeView;Landroid/view/View;)I
 
     move-result v2
 
@@ -226,6 +238,9 @@
     .line 1475
     .end local v1           #upLp:Landroid/widget/FrameLayout$LayoutParams;
     :cond_0
+
+    invoke-static {p0}, Lcom/android/internal/widget/ActionBarView$Injector;->switchToCompactMode(Lcom/android/internal/widget/ActionBarView$HomeView;)V
+
     return-void
 .end method
 
@@ -895,4 +910,28 @@
     const/16 v0, 0x8
 
     goto :goto_0
+.end method
+
+.method getIconView()Landroid/widget/ImageView;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$HomeView;->mIconView:Landroid/widget/ImageView;
+
+    return-object v0
+.end method
+
+.method getUpView()Landroid/view/View;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$HomeView;->mUpView:Landroid/view/View;
+
+    return-object v0
 .end method

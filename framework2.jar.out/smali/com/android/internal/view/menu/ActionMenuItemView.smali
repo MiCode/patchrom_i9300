@@ -38,6 +38,12 @@
 
 .field private mTitle:Ljava/lang/CharSequence;
 
+.field mSavedPaddingRight:I
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
+
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V

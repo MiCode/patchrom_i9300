@@ -417,6 +417,10 @@
     .line 113
     iput-object v4, p0, Landroid/widget/AbsListView;->mMotionRecognitionManager:Landroid/hardware/motion/MotionRecognitionManager;
 
+    iput v2, p0, Landroid/widget/AbsListView;->mTouchPaddingLeft:I
+
+    iput v2, p0, Landroid/widget/AbsListView;->mTouchPaddingRight:I
+
     .line 240
     iput v2, p0, Landroid/widget/AbsListView;->mChoiceMode:I
 
