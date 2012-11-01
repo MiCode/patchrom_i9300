@@ -50729,9 +50729,7 @@
     return-object v1
 
     :cond_0
-    invoke-static {p0, p1}, Lcom/android/server/am/ActivityManagerService$Injector;->getCallingUidPackage(Lcom/android/server/am/ActivityManagerService;Landroid/os/IBinder;)Ljava/lang/String;
-
-    move-result-object v1
+    const/4 v1, 0x0
 
     goto :goto_0
 
@@ -50782,7 +50780,11 @@
     return-object v1
 
     :cond_0
-    const/4 v1, 0x0
+
+    #TODO auto merged at wrong pos
+    invoke-static {p0, p1}, Lcom/android/server/am/ActivityManagerService$Injector;->getCallingUidPackage(Lcom/android/server/am/ActivityManagerService;Landroid/os/IBinder;)Ljava/lang/String;
+
+    move-result-object v1
 
     goto :goto_0
 

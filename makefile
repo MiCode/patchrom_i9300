@@ -14,7 +14,7 @@ local-previous-target-dir := ~/workspace/ota_base/i9300
 # All apps from original ZIP, but has smali files chanded
 local-modified-apps := OriginalSettings Camera
 
-local-modified-jars := framework2
+local-modified-jars :=
 
 # All apks from MIUI
 local-miui-removed-apps := MediaProvider Stk

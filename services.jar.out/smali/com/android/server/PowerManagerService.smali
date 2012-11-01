@@ -12429,8 +12429,6 @@
 
     if-nez v3, :cond_6
 
-    iput-boolean v3, v0, Lcom/android/server/PowerManagerService;->mProximitySensorActive:Z
-
     .line 3258
     :cond_6
     move-object/from16 v0, p0
