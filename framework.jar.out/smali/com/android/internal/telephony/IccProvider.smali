@@ -5736,3 +5736,16 @@
         :pswitch_3
     .end packed-switch
 .end method
+
+.method static getURL_MATCHER()Landroid/content/UriMatcher;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    .line 43
+    sget-object v0, Lcom/android/internal/telephony/IccProvider;->URL_MATCHER:Landroid/content/UriMatcher;
+
+    return-object v0
+.end method
