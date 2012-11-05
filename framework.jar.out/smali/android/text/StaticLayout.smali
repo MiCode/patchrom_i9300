@@ -1120,7 +1120,7 @@
 .end method
 
 .method private static final isIdeographic(CZ)Z
-    .locals 5
+    .locals 4
     .parameter "c"
     .parameter "includeNonStarters"
 
@@ -1141,7 +1141,7 @@
     move p1, v0
 
     # keep value for p1
-    move v4, p1
+    # move v4, p1
 
     .line 729
     .end local p1
@@ -1501,11 +1501,11 @@
 
     if-eq p0, v0, :cond_0
 
-    #TODO move p1, v1
+    move p1, v1
 
-    invoke-static {p0, v4}, Landroid/text/StaticLayout$Injector;->isIdeographic(CZ)Z
+    #invoke-static {p0, v4}, Landroid/text/StaticLayout$Injector;->isIdeographic(CZ)Z
 
-    move-result p1
+    #move-result p1
 
     .line 729
     goto/16 :goto_0

@@ -114,6 +114,8 @@
 
     const/4 v1, 0x0
 
+    goto :goto_0
+
     .line 1479
     new-instance v0, Landroid/util/TypedValue;
 

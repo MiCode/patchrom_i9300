@@ -9,7 +9,7 @@ local-zip-file     := stockrom.zip
 local-out-zip-file := MIUI_i9300.zip
 
 # the location for local-ota to save target-file
-local-previous-target-dir := ~/workspace/ota_base/i9300
+local-previous-target-dir := ~/workspace/ota_base/i9300_4.1
 
 # All apps from original ZIP, but has smali files chanded
 local-modified-apps := OriginalSettings Camera
@@ -19,7 +19,7 @@ local-modified-jars :=
 # All apks from MIUI
 local-miui-removed-apps := MediaProvider Stk
 
-local-miui-modified-apps := MiuiHome Settings Phone Mms MiuiSystemUI ThemeManager MiuiGallery
+local-miui-modified-apps := MiuiHome Settings Phone Mms ThemeManager MiuiGallery
 
 include phoneapps.mk
 
@@ -43,7 +43,7 @@ local-pre-zip-misc:
 	#cp other/AxT9IME.apk $(ZIP_DIR)/system/app
 	cp stockrom/system/app/FFFFFFFF000000000000000000000001.drbin $(ZIP_DIR)/system/app
 	cp -r stockrom/system/app/mcRegistry $(ZIP_DIR)/system/app
-	rm -rf $(ZIP_DIR)/system/csc
+	#rm -rf $(ZIP_DIR)/system/csc
 
 local-rom-zip := MIUI_i9300.zip
 local-put-to-phone:
