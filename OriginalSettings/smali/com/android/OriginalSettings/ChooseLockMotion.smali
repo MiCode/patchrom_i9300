@@ -69,7 +69,7 @@
     invoke-super {p0, p1}, Lmiui/preference/BasePreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 51
-    const v1, 0x7f0d0888
+    const v1, 0x7f090a6a
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/ChooseLockMotion;->getText(I)Ljava/lang/CharSequence;
 

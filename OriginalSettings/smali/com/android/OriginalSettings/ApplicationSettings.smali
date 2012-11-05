@@ -263,7 +263,7 @@
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 57
-    const v1, 0x7f07000c
+    const v1, 0x7f07000d
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/ApplicationSettings;->addPreferencesFromResource(I)V
 

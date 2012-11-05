@@ -117,7 +117,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 90
+    .line 89
     iget-object v1, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pEnabler;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
 
     if-nez v1, :cond_0
@@ -127,14 +127,14 @@
     :goto_0
     return v3
 
-    .line 92
+    .line 91
     .restart local p2
     :cond_0
     iget-object v1, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pEnabler;->mCheckBox:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v1, v3}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
 
-    .line 93
+    .line 92
     check-cast p2, Ljava/lang/Boolean;
 
     .end local p2

@@ -26,7 +26,7 @@
 
     const/4 v2, 0x0
 
-    .line 101
+    .line 107
     iget-object v3, p0, Lcom/android/OriginalSettings/wifi/WifiApEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -43,17 +43,17 @@
 
     move v0, v1
 
-    .line 103
+    .line 109
     .local v0, isAirplaneMode:Z
     :goto_0
     if-nez v0, :cond_1
 
-    .line 104
+    .line 110
     iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiApEnabler;->mCheckBox:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v2, v1}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
 
-    .line 109
+    .line 125
     :goto_1
     return-void
 
@@ -61,10 +61,10 @@
     :cond_0
     move v0, v2
 
-    .line 101
+    .line 107
     goto :goto_0
 
-    .line 106
+    .line 112
     .restart local v0       #isAirplaneMode:Z
     :cond_1
     iget-object v1, p0, Lcom/android/OriginalSettings/wifi/WifiApEnabler;->mCheckBox:Landroid/preference/CheckBoxPreference;
@@ -73,7 +73,7 @@
 
     invoke-virtual {v1, v3}, Landroid/preference/CheckBoxPreference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 107
+    .line 113
     iget-object v1, p0, Lcom/android/OriginalSettings/wifi/WifiApEnabler;->mCheckBox:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
@@ -87,14 +87,14 @@
     .locals 2
 
     .prologue
-    .line 97
+    .line 103
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiApEnabler;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/wifi/WifiApEnabler;->mReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 98
+    .line 104
     return-void
 .end method
 
@@ -102,7 +102,7 @@
     .locals 3
 
     .prologue
-    .line 92
+    .line 98
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiApEnabler;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/wifi/WifiApEnabler;->mReceiver:Landroid/content/BroadcastReceiver;
@@ -111,10 +111,10 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 93
+    .line 99
     invoke-direct {p0}, Lcom/android/OriginalSettings/wifi/WifiApEnabler;->enableWifiCheckBox()V
 
-    .line 94
+    .line 100
     return-void
 .end method
 
@@ -127,14 +127,14 @@
 
     const/4 v5, 0x0
 
-    .line 112
+    .line 128
     iget-object v3, p0, Lcom/android/OriginalSettings/wifi/WifiApEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 116
+    .line 132
     .local v0, cr:Landroid/content/ContentResolver;
     iget-object v3, p0, Lcom/android/OriginalSettings/wifi/WifiApEnabler;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -142,7 +142,7 @@
 
     move-result v2
 
-    .line 117
+    .line 133
     .local v2, wifiState:I
     if-eqz p1, :cond_1
 
@@ -154,18 +154,18 @@
 
     if-ne v2, v3, :cond_1
 
-    .line 119
+    .line 135
     :cond_0
     iget-object v3, p0, Lcom/android/OriginalSettings/wifi/WifiApEnabler;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v3, v5}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
 
-    .line 120
+    .line 136
     const-string v3, "wifi_saved_state"
 
     invoke-static {v0, v3, v6}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 123
+    .line 139
     :cond_1
     iget-object v3, p0, Lcom/android/OriginalSettings/wifi/WifiApEnabler;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -177,19 +177,19 @@
 
     if-eqz v3, :cond_3
 
-    .line 125
+    .line 141
     iget-object v3, p0, Lcom/android/OriginalSettings/wifi/WifiApEnabler;->mCheckBox:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v3, v5}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
 
-    .line 133
+    .line 149
     :goto_0
     if-nez p1, :cond_2
 
-    .line 134
+    .line 150
     const/4 v1, 0x0
 
-    .line 136
+    .line 152
     .local v1, wifiSavedState:I
     :try_start_0
     const-string v3, "wifi_saved_state"
@@ -200,36 +200,36 @@
 
     move-result v1
 
-    .line 140
+    .line 156
     :goto_1
     if-ne v1, v6, :cond_2
 
-    .line 141
+    .line 157
     iget-object v3, p0, Lcom/android/OriginalSettings/wifi/WifiApEnabler;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v3, v6}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
 
-    .line 142
+    .line 158
     const-string v3, "wifi_saved_state"
 
     invoke-static {v0, v3, v5}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 145
+    .line 161
     .end local v1           #wifiSavedState:I
     :cond_2
     return-void
 
-    .line 127
+    .line 143
     :cond_3
     iget-object v3, p0, Lcom/android/OriginalSettings/wifi/WifiApEnabler;->mCheckBox:Landroid/preference/CheckBoxPreference;
 
-    const v4, 0x7f0d01f0
+    const v4, 0x7f09021a
 
     invoke-virtual {v3, v4}, Landroid/preference/CheckBoxPreference;->setSummary(I)V
 
     goto :goto_0
 
-    .line 137
+    .line 153
     .restart local v1       #wifiSavedState:I
     :catch_0
     move-exception v3

@@ -8,7 +8,7 @@
     .locals 0
 
     .prologue
-    .line 28
+    .line 24
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -20,7 +20,7 @@
     .parameter "state"
 
     .prologue
-    .line 55
+    .line 37
     const/4 v0, 0x0
 
     invoke-static {p0, v0, p1}, Lcom/android/OriginalSettings/wifi/Summary;->get(Landroid/content/Context;Ljava/lang/String;Landroid/net/NetworkInfo$DetailedState;)Ljava/lang/String;
@@ -37,27 +37,27 @@
     .parameter "state"
 
     .prologue
-    .line 30
+    .line 26
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
     if-nez p1, :cond_1
 
-    const v2, 0x7f090013
+    const v2, 0x7f0a0015
 
     :goto_0
     invoke-virtual {v3, v2}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v0
 
-    .line 32
+    .line 28
     .local v0, formats:[Ljava/lang/String;
     invoke-virtual {p2}, Landroid/net/NetworkInfo$DetailedState;->ordinal()I
 
     move-result v1
 
-    .line 34
+    .line 30
     .local v1, index:I
     array-length v2, v0
 
@@ -71,23 +71,23 @@
 
     if-nez v2, :cond_2
 
-    .line 35
+    .line 31
     :cond_0
     const/4 v2, 0x0
 
-    .line 37
+    .line 33
     :goto_1
     return-object v2
 
-    .line 30
+    .line 26
     .end local v0           #formats:[Ljava/lang/String;
     .end local v1           #index:I
     :cond_1
-    const v2, 0x7f090014
+    const v2, 0x7f0a0016
 
     goto :goto_0
 
-    .line 37
+    .line 33
     .restart local v0       #formats:[Ljava/lang/String;
     .restart local v1       #index:I
     :cond_2

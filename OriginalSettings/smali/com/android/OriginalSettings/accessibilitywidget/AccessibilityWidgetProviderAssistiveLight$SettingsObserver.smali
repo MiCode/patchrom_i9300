@@ -25,13 +25,13 @@
     .parameter "context"
 
     .prologue
-    .line 293
+    .line 278
     invoke-direct {p0, p1}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 294
+    .line 279
     iput-object p2, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight$SettingsObserver;->mContext:Landroid/content/Context;
 
-    .line 295
+    .line 280
     return-void
 .end method
 
@@ -42,12 +42,12 @@
     .parameter "selfChange"
 
     .prologue
-    .line 309
+    .line 294
     iget-object v0, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight$SettingsObserver;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->updateWidget(Landroid/content/Context;)V
 
-    .line 310
+    .line 295
     return-void
 .end method
 
@@ -55,14 +55,14 @@
     .locals 3
 
     .prologue
-    .line 298
+    .line 283
     iget-object v1, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight$SettingsObserver;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 299
+    .line 284
     .local v0, resolver:Landroid/content/ContentResolver;
     const-string v1, "torch_light"
 
@@ -74,7 +74,7 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 301
+    .line 286
     return-void
 .end method
 
@@ -82,7 +82,7 @@
     .locals 1
 
     .prologue
-    .line 304
+    .line 289
     iget-object v0, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight$SettingsObserver;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -91,6 +91,6 @@
 
     invoke-virtual {v0, p0}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 305
+    .line 290
     return-void
 .end method

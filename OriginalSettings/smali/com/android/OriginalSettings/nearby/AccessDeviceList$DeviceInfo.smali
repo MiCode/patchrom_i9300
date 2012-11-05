@@ -36,12 +36,12 @@
     .parameter "port"
 
     .prologue
-    .line 25
+    .line 26
     iput-object p1, p0, Lcom/android/OriginalSettings/nearby/AccessDeviceList$DeviceInfo;->this$0:Lcom/android/OriginalSettings/nearby/AccessDeviceList;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 19
+    .line 18
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/OriginalSettings/nearby/AccessDeviceList$DeviceInfo;->mMac:Ljava/lang/String;
@@ -51,29 +51,29 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/nearby/AccessDeviceList$DeviceInfo;->mName:Ljava/lang/String;
 
-    .line 21
+    .line 22
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/OriginalSettings/nearby/AccessDeviceList$DeviceInfo;->mIp:Ljava/lang/String;
 
-    .line 22
+    .line 24
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/OriginalSettings/nearby/AccessDeviceList$DeviceInfo;->mPort:Ljava/lang/String;
 
-    .line 26
+    .line 27
     invoke-virtual {p0, p2}, Lcom/android/OriginalSettings/nearby/AccessDeviceList$DeviceInfo;->setMac(Ljava/lang/String;)V
 
-    .line 27
+    .line 28
     invoke-virtual {p0, p4}, Lcom/android/OriginalSettings/nearby/AccessDeviceList$DeviceInfo;->setName(Ljava/lang/String;)V
 
-    .line 28
+    .line 29
     invoke-virtual {p0, p3}, Lcom/android/OriginalSettings/nearby/AccessDeviceList$DeviceInfo;->setIp(Ljava/lang/String;)V
 
-    .line 29
+    .line 30
     invoke-virtual {p0, p5}, Lcom/android/OriginalSettings/nearby/AccessDeviceList$DeviceInfo;->setPort(Ljava/lang/String;)V
 
-    .line 30
+    .line 31
     return-void
 .end method
 
@@ -93,7 +93,7 @@
     .locals 1
 
     .prologue
-    .line 44
+    .line 42
     iget-object v0, p0, Lcom/android/OriginalSettings/nearby/AccessDeviceList$DeviceInfo;->mName:Ljava/lang/String;
 
     return-object v0
@@ -104,10 +104,10 @@
     .parameter "mIp"
 
     .prologue
-    .line 59
+    .line 54
     iput-object p1, p0, Lcom/android/OriginalSettings/nearby/AccessDeviceList$DeviceInfo;->mIp:Ljava/lang/String;
 
-    .line 60
+    .line 55
     return-void
 .end method
 
@@ -116,10 +116,10 @@
     .parameter "mMac"
 
     .prologue
-    .line 39
+    .line 38
     iput-object p1, p0, Lcom/android/OriginalSettings/nearby/AccessDeviceList$DeviceInfo;->mMac:Ljava/lang/String;
 
-    .line 40
+    .line 39
     return-void
 .end method
 
@@ -128,10 +128,10 @@
     .parameter "mName"
 
     .prologue
-    .line 49
+    .line 46
     iput-object p1, p0, Lcom/android/OriginalSettings/nearby/AccessDeviceList$DeviceInfo;->mName:Ljava/lang/String;
 
-    .line 50
+    .line 47
     return-void
 .end method
 
@@ -140,9 +140,9 @@
     .parameter "mPort"
 
     .prologue
-    .line 69
+    .line 62
     iput-object p1, p0, Lcom/android/OriginalSettings/nearby/AccessDeviceList$DeviceInfo;->mPort:Ljava/lang/String;
 
-    .line 70
+    .line 63
     return-void
 .end method

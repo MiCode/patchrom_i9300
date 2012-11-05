@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 832
+    .line 805
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$9;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,14 +42,14 @@
     .parameter "reason"
 
     .prologue
-    .line 837
+    .line 811
     const-string v0, "WifiP2pSettings"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, " connect fail "
+    const-string v2, " create group fail "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -65,7 +65,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 838
+    .line 812
     return-void
 .end method
 
@@ -73,13 +73,21 @@
     .locals 2
 
     .prologue
-    .line 834
+    .line 807
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$9;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
+
+    const/4 v1, 0x1
+
+    #setter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->mMultiConnect:Z
+    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$1002(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;Z)Z
+
+    .line 808
     const-string v0, "WifiP2pSettings"
 
-    const-string v1, " connect success"
+    const-string v1, " create group succeed "
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 835
+    .line 809
     return-void
 .end method

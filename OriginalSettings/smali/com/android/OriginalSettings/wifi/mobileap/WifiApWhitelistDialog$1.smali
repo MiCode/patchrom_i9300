@@ -3,7 +3,7 @@
 .source "WifiApWhitelistDialog.java"
 
 # interfaces
-.implements Landroid/text/TextWatcher;
+.implements Landroid/text/InputFilter;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 138
+    .line 76
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApWhitelistDialog$1;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApWhitelistDialog;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,41 +37,43 @@
 
 
 # virtual methods
-.method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 1
-    .parameter "s"
-
-    .prologue
-    .line 151
-    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApWhitelistDialog$1;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApWhitelistDialog;
-
-    #calls: Lcom/android/OriginalSettings/wifi/mobileap/WifiApWhitelistDialog;->validate()V
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApWhitelistDialog;->access$000(Lcom/android/OriginalSettings/wifi/mobileap/WifiApWhitelistDialog;)V
-
-    .line 152
-    return-void
-.end method
-
-.method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
-    .parameter "s"
+.method public filter(Ljava/lang/CharSequence;IILandroid/text/Spanned;II)Ljava/lang/CharSequence;
+    .locals 2
+    .parameter "source"
     .parameter "start"
-    .parameter "count"
-    .parameter "after"
+    .parameter "end"
+    .parameter "dest"
+    .parameter "dstart"
+    .parameter "dend"
 
     .prologue
-    .line 147
-    return-void
-.end method
+    .line 78
+    const-string v1, "^[0-9a-fA-F]+$"
 
-.method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
-    .parameter "s"
-    .parameter "start"
-    .parameter "before"
-    .parameter "count"
+    invoke-static {v1}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
-    .prologue
-    .line 142
-    return-void
+    move-result-object v0
+
+    .line 79
+    .local v0, ps:Ljava/util/regex/Pattern;
+    invoke-virtual {v0, p1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/regex/Matcher;->matches()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, ""
+
+    .line 80
+    :goto_0
+    return-object v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
 .end method

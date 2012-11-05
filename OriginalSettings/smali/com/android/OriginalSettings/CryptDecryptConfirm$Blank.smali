@@ -47,7 +47,7 @@
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/BaseActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 44
-    const v1, 0x7f040027
+    const v1, 0x7f040028
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/CryptDecryptConfirm$Blank;->setContentView(I)V
 

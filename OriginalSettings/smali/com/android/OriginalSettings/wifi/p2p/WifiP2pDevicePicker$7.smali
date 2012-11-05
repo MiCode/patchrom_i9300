@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 716
+    .line 847
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$7;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "reason"
 
     .prologue
-    .line 722
+    .line 853
     const-string v0, "WifiP2pDevicePicker"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -65,15 +65,15 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 723
+    .line 854
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$7;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;
 
     const/4 v1, 0x3
 
     #calls: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->setP2pMenu(I)V
-    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->access$1900(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;I)V
+    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->access$600(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;I)V
 
-    .line 724
+    .line 855
     return-void
 .end method
 
@@ -81,21 +81,21 @@
     .locals 2
 
     .prologue
-    .line 718
+    .line 849
     const-string v0, "WifiP2pDevicePicker"
 
     const-string v1, " discover success"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 719
+    .line 850
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$7;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;
 
     const/4 v1, 0x3
 
     #calls: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->setP2pMenu(I)V
-    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->access$1900(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;I)V
+    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->access$600(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;I)V
 
-    .line 720
+    .line 851
     return-void
 .end method

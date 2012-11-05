@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/DisplaySettings;->showGuideDialog()V
+    value = Lcom/android/OriginalSettings/DisplaySettings;->onCreateDialog(I)Landroid/app/Dialog;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -33,7 +33,7 @@
     .parameter
 
     .prologue
-    .line 768
+    .line 1039
     iput-object p1, p0, Lcom/android/OriginalSettings/DisplaySettings$6;->this$0:Lcom/android/OriginalSettings/DisplaySettings;
 
     iput-object p2, p0, Lcom/android/OriginalSettings/DisplaySettings$6;->val$edit:Landroid/content/SharedPreferences$Editor;
@@ -50,13 +50,13 @@
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 3
     .parameter "dialog"
-    .parameter "arg1"
+    .parameter "id"
 
     .prologue
-    .line 770
+    .line 1041
     iget-object v0, p0, Lcom/android/OriginalSettings/DisplaySettings$6;->val$edit:Landroid/content/SharedPreferences$Editor;
 
-    const-string v1, "pref_smart_stay_noti"
+    const-string v1, "pref_font_noti"
 
     iget-object v2, p0, Lcom/android/OriginalSettings/DisplaySettings$6;->val$mcheck:Landroid/widget/CheckBox;
 
@@ -66,11 +66,14 @@
 
     invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 771
+    .line 1042
     iget-object v0, p0, Lcom/android/OriginalSettings/DisplaySettings$6;->val$edit:Landroid/content/SharedPreferences$Editor;
 
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 772
+    .line 1043
+    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
+
+    .line 1044
     return-void
 .end method

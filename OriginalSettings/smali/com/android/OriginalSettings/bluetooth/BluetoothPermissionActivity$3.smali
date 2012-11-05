@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 214
+    .line 241
     iput-object p1, p0, Lcom/android/OriginalSettings/bluetooth/BluetoothPermissionActivity$3;->this$0:Lcom/android/OriginalSettings/bluetooth/BluetoothPermissionActivity;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,10 +43,10 @@
     .parameter "isChecked"
 
     .prologue
-    .line 216
+    .line 243
     if-eqz p2, :cond_0
 
-    .line 217
+    .line 244
     iget-object v0, p0, Lcom/android/OriginalSettings/bluetooth/BluetoothPermissionActivity$3;->this$0:Lcom/android/OriginalSettings/bluetooth/BluetoothPermissionActivity;
 
     const/4 v1, 0x1
@@ -54,11 +54,11 @@
     #setter for: Lcom/android/OriginalSettings/bluetooth/BluetoothPermissionActivity;->mRememberMapChoiceValue:Z
     invoke-static {v0, v1}, Lcom/android/OriginalSettings/bluetooth/BluetoothPermissionActivity;->access$302(Lcom/android/OriginalSettings/bluetooth/BluetoothPermissionActivity;Z)Z
 
-    .line 221
+    .line 248
     :goto_0
     return-void
 
-    .line 219
+    .line 246
     :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/bluetooth/BluetoothPermissionActivity$3;->this$0:Lcom/android/OriginalSettings/bluetooth/BluetoothPermissionActivity;
 

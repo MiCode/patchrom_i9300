@@ -18,12 +18,15 @@
         <item>10 perc</item>
         <item>30 perc</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 másodperc</item>
         <item>30 másodperc</item>
         <item>1 perc</item>
-        <item>2 perc</item>
+        <item>3 perc</item>
         <item>5 perc</item>
+        <item>10 perc</item>
+        <item>15 perc</item>
+        <item>30 perc</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Soha</item>
@@ -34,6 +37,18 @@
         <item>5 perc</item>
         <item>10 perc</item>
         <item>30 perc</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 másodperc</item>
+        <item>30 másodperc</item>
+        <item>1 perc</item>
+        <item>3 perc</item>
+        <item>5 perc</item>
+        <item>10 perc</item>
+        <item>15 perc</item>
+        <item>30 perc</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>Azonnal</item>
@@ -93,17 +108,7 @@
         <item>Szétkapcsolva</item>
         <item>Sikertelen</item>
         <item>Csatlakoztatva</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>A rossz minőségű kapcsolatok átmeneti elkerülése</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,20 +122,10 @@
         <item>Szétkapcsolva</item>
         <item>Sikertelen</item>
         <item>Csatlakoztatva</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>A rossz minőségű kapcsolatok átmeneti elkerülése</item>
     </string-array>
     <string-array name="wifi_ap_security">
-        <item>Megnyitás</item>
+        <item>Nincs</item>
         <item>WPA PSK</item>
         <item>WPA2 PSK</item>
     </string-array>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>Nyilvános webes meghajtó</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Nyomja meg a gombot</item>
+        <item>PIN a társeszközről</item>
+        <item>PIN az eszközről</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Csatlakoztatva</item>
+        <item>Meghívása van</item>
+        <item>Kapcsolódás sikertelen</item>
+        <item>Érintse meg a kapcsolódáshoz</item>
+        <item>Túl nagy szám</item>
+        <item>Másik eszközhöz csatlakozik</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>Nincs időkorlát</item>
@@ -152,6 +155,10 @@
         <item>20 perc</item>
         <item>30 perc</item>
         <item>60 perc</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Minden eszköz eng.</item>
+        <item>Csak az engedélyezett eszközök</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>Auto.</item>
@@ -178,19 +185,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-    </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Nyomja meg a gombot</item>
-        <item>PIN a társeszközről</item>
-        <item>PIN az eszközről</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Csatlakoztatva</item>
-        <item>Meghívása van</item>
-        <item>Kapcsolódás sikertelen</item>
-        <item>Érintse meg a kapcsolódáshoz</item>
-        <item>Túl nagy szám</item>
-        <item>Másik eszközhöz csatlakozik</item>
     </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 perc</item>
@@ -221,7 +215,7 @@
         <item>0</item>
     </string-array>
     <string-array name="wifi_frequency_band_entries">
-        <item>Automatikus</item>
+        <item>Auto.</item>
         <item>Csak 5 GHz</item>
         <item>Csak 2,4 GHz</item>
     </string-array>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>Nyilvános webes meghajtó</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -266,16 +261,6 @@
     <string-array name="wifi_proxy_settings">
         <item>Nincs</item>
         <item>Kézi</item>
-    </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Normál</item>
-        <item>Downtown</item>
-        <item>Otthoni</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>Ez a legáltalánosabb Wi-Fi kapcsolódási beállítás</item>
-        <item>Sok Wi-Fi hálózattal rendelkező területen a nagyobb jelerősség érdekében gyakori lesz a Wi-Fi hálózatváltás</item>
-        <item>Kevés Wi-Fi hálózattal rendelkező területen a Wi-Fi kapcsolat a lehető leghosszabb ideig fennmarad</item>
     </string-array>
     <string-array name="emergency_tone_entries">
         <item>Ki</item>
@@ -307,11 +292,6 @@
         <item>Eszköz belső tára</item>
         <item>Cserélhető SD-kártya</item>
         <item>Alapértelmezés</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>Ki</item>
-        <item>Rezgés</item>
-        <item>Néma</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Rövid</item>
@@ -346,6 +326,15 @@
         <item>5x animációs skála</item>
         <item>10x animációs skála</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Animáció kikapcsolva</item>
+        <item>0,5x animációs skála</item>
+        <item>1x animációs skála</item>
+        <item>1,5x animációs skála</item>
+        <item>2x animációs skála</item>
+        <item>5x animációs skála</item>
+        <item>10x animációs skála</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>Normál korlát</item>
         <item>Nincs háttérfolyamat</item>
@@ -370,22 +359,8 @@
         <item>Időtúllépés</item>
         <item>Sikertelen</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>Belső tárhely</item>
+        <item>Eszköz</item>
         <item>SD-kártya</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -415,15 +390,28 @@
         <item>Fényképek</item>
         <item>Zenék</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>Magas</item>
-        <item>Közepes</item>
-        <item>Alacsony</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Automatikus</item>
         <item>Kézzel</item>
         <item>Mindig kérdezzen rá</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Mindig kikapcsolva</item>
+        <item>3 másodperc</item>
+        <item>5 másodperc</item>
+        <item>10 másodperc</item>
+        <item>15 másodperc</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Nincs</item>
+        <item>Összes névjegy</item>
+        <item>Kedvencek</item>
+        <item>Egyedi</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>Magas</item>
+        <item>Közepes</item>
+        <item>Alacsony</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1,5 másodperc</item>
@@ -439,11 +427,24 @@
     <string-array name="contents_type_entries">
         <item>Hírek</item>
         <item>Részvény</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Hírek</item>
+        <item>Részvény</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>Lassú</item>
         <item>Normál</item>
         <item>Gyors</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Nincs</item>
+        <item>Minden 30 percben</item>
+        <item>1 óránként</item>
+        <item>2 óránként</item>
+        <item>4 óránként</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>BT fülh.</item>
@@ -451,5 +452,9 @@
         <item>Telefon</item>
         <item>HID (billentyűzet, egér stb.)</item>
         <item>Minden eszköz</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Sztereó</item>
+        <item>Surround</item>
     </string-array>
 </resources>

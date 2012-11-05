@@ -48,39 +48,39 @@
     .end annotation
 
     .prologue
-    .line 131
+    .line 139
     .local p5, objects:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     iput-object p1, p0, Lcom/android/OriginalSettings/lockscreenshortcut/AppList$AppListAdapter;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/AppList;
 
-    .line 132
+    .line 140
     invoke-direct {p0, p2, p3, p4, p5}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;IILjava/util/List;)V
 
-    .line 134
+    .line 142
     return-void
 .end method
 
 
 # virtual methods
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 5
+    .locals 6
     .parameter "position"
     .parameter "convertView"
     .parameter "parent"
 
     .prologue
-    .line 138
+    .line 146
     iget-object v2, p0, Lcom/android/OriginalSettings/lockscreenshortcut/AppList$AppListAdapter;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/AppList;
 
     invoke-virtual {v2}, Lcom/android/OriginalSettings/lockscreenshortcut/AppList;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v1
 
-    .line 141
+    .line 149
     .local v1, inflater:Landroid/view/LayoutInflater;
-    if-nez p2, :cond_2
+    if-nez p2, :cond_1
 
-    .line 142
-    const v2, 0x7f040061
+    .line 150
+    const v2, 0x7f040074
 
     const/4 v3, 0x0
 
@@ -88,14 +88,14 @@
 
     move-result-object p2
 
-    .line 143
+    .line 151
     new-instance v0, Lcom/android/OriginalSettings/lockscreenshortcut/AppList$ViewHolder;
 
     invoke-direct {v0}, Lcom/android/OriginalSettings/lockscreenshortcut/AppList$ViewHolder;-><init>()V
 
-    .line 145
+    .line 153
     .local v0, holder:Lcom/android/OriginalSettings/lockscreenshortcut/AppList$ViewHolder;
-    const v2, 0x7f0a012f
+    const v2, 0x7f0b0137
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -105,8 +105,8 @@
 
     iput-object v2, v0, Lcom/android/OriginalSettings/lockscreenshortcut/AppList$ViewHolder;->text:Landroid/widget/TextView;
 
-    .line 146
-    const v2, 0x7f0a0006
+    .line 154
+    const v2, 0x7f0b007e
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -116,10 +116,10 @@
 
     iput-object v2, v0, Lcom/android/OriginalSettings/lockscreenshortcut/AppList$ViewHolder;->icon:Landroid/widget/ImageView;
 
-    .line 148
+    .line 156
     invoke-virtual {p2, v0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    .line 154
+    .line 162
     :goto_0
     invoke-virtual {p0, p1}, Lcom/android/OriginalSettings/lockscreenshortcut/AppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
 
@@ -142,7 +142,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 155
+    .line 163
     iget-object v3, v0, Lcom/android/OriginalSettings/lockscreenshortcut/AppList$ViewHolder;->text:Landroid/widget/TextView;
 
     invoke-virtual {p0, p1}, Lcom/android/OriginalSettings/lockscreenshortcut/AppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
@@ -164,7 +164,7 @@
 
     invoke-virtual {v3, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 156
+    .line 164
     :cond_0
     iget-object v2, p0, Lcom/android/OriginalSettings/lockscreenshortcut/AppList$AppListAdapter;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/AppList;
 
@@ -172,6 +172,10 @@
     invoke-static {v2}, Lcom/android/OriginalSettings/lockscreenshortcut/AppList;->access$100(Lcom/android/OriginalSettings/lockscreenshortcut/AppList;)Ljava/util/HashMap;
 
     move-result-object v3
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {p0, p1}, Lcom/android/OriginalSettings/lockscreenshortcut/AppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
 
@@ -181,21 +185,9 @@
 
     iget-object v2, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v2, v2, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v3, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_1
-
-    .line 157
-    iget-object v3, v0, Lcom/android/OriginalSettings/lockscreenshortcut/AppList$ViewHolder;->icon:Landroid/widget/ImageView;
-
-    iget-object v2, p0, Lcom/android/OriginalSettings/lockscreenshortcut/AppList$AppListAdapter;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/AppList;
-
-    #getter for: Lcom/android/OriginalSettings/lockscreenshortcut/AppList;->mIconCache:Ljava/util/HashMap;
-    invoke-static {v2}, Lcom/android/OriginalSettings/lockscreenshortcut/AppList;->access$100(Lcom/android/OriginalSettings/lockscreenshortcut/AppList;)Ljava/util/HashMap;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
@@ -209,6 +201,66 @@
 
     iget-object v2, v2, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
 
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v3, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_2
+
+    .line 165
+    iget-object v3, v0, Lcom/android/OriginalSettings/lockscreenshortcut/AppList$ViewHolder;->icon:Landroid/widget/ImageView;
+
+    iget-object v2, p0, Lcom/android/OriginalSettings/lockscreenshortcut/AppList$AppListAdapter;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/AppList;
+
+    #getter for: Lcom/android/OriginalSettings/lockscreenshortcut/AppList;->mIconCache:Ljava/util/HashMap;
+    invoke-static {v2}, Lcom/android/OriginalSettings/lockscreenshortcut/AppList;->access$100(Lcom/android/OriginalSettings/lockscreenshortcut/AppList;)Ljava/util/HashMap;
+
+    move-result-object v4
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p0, p1}, Lcom/android/OriginalSettings/lockscreenshortcut/AppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/content/pm/ResolveInfo;
+
+    iget-object v2, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v2, v2, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {p0, p1}, Lcom/android/OriginalSettings/lockscreenshortcut/AppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/content/pm/ResolveInfo;
+
+    iget-object v2, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
     invoke-virtual {v4, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
@@ -217,13 +269,13 @@
 
     invoke-virtual {v3, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 159
-    :cond_1
+    .line 170
+    :goto_1
     return-object p2
 
-    .line 151
+    .line 159
     .end local v0           #holder:Lcom/android/OriginalSettings/lockscreenshortcut/AppList$ViewHolder;
-    :cond_2
+    :cond_1
     invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v0
@@ -231,5 +283,30 @@
     check-cast v0, Lcom/android/OriginalSettings/lockscreenshortcut/AppList$ViewHolder;
 
     .restart local v0       #holder:Lcom/android/OriginalSettings/lockscreenshortcut/AppList$ViewHolder;
-    goto :goto_0
+    goto/16 :goto_0
+
+    .line 167
+    :cond_2
+    iget-object v3, v0, Lcom/android/OriginalSettings/lockscreenshortcut/AppList$ViewHolder;->icon:Landroid/widget/ImageView;
+
+    invoke-virtual {p0, p1}, Lcom/android/OriginalSettings/lockscreenshortcut/AppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/content/pm/ResolveInfo;
+
+    iget-object v4, p0, Lcom/android/OriginalSettings/lockscreenshortcut/AppList$AppListAdapter;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/AppList;
+
+    #getter for: Lcom/android/OriginalSettings/lockscreenshortcut/AppList;->mPm:Landroid/content/pm/PackageManager;
+    invoke-static {v4}, Lcom/android/OriginalSettings/lockscreenshortcut/AppList;->access$000(Lcom/android/OriginalSettings/lockscreenshortcut/AppList;)Landroid/content/pm/PackageManager;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v4}, Landroid/content/pm/ResolveInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v2
+
+    invoke-virtual {v3, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    goto :goto_1
 .end method

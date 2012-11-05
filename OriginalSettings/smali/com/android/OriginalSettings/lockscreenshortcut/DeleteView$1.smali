@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 318
+    .line 378
     iput-object p1, p0, Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView$1;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -39,14 +39,14 @@
     .parameter "animation"
 
     .prologue
-    .line 333
+    .line 393
     iget-object v0, p0, Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView$1;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;->setAnimating(Z)V
 
-    .line 334
+    .line 394
     return-void
 .end method
 
@@ -57,25 +57,25 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 326
+    .line 386
     iget-object v0, p0, Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView$1;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;
 
     invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;->setAnimating(Z)V
 
-    .line 327
+    .line 387
     iget-object v0, p0, Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView$1;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;
 
     #setter for: Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;->mIsOnDeleting:Z
     invoke-static {v0, v1}, Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;->access$002(Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;Z)Z
 
-    .line 328
+    .line 388
     iget-object v0, p0, Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView$1;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;->setVisibility(I)V
 
-    .line 329
+    .line 389
     return-void
 .end method
 
@@ -84,7 +84,7 @@
     .parameter "animation"
 
     .prologue
-    .line 338
+    .line 398
     return-void
 .end method
 
@@ -93,13 +93,13 @@
     .parameter "animation"
 
     .prologue
-    .line 321
+    .line 381
     iget-object v0, p0, Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView$1;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;->setAnimating(Z)V
 
-    .line 322
+    .line 382
     return-void
 .end method

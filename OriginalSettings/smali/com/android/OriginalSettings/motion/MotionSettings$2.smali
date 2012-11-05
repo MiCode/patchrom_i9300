@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 259
+    .line 474
     iput-object p1, p0, Lcom/android/OriginalSettings/motion/MotionSettings$2;->this$0:Lcom/android/OriginalSettings/motion/MotionSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -44,11 +44,11 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 261
+    .line 476
     iget-object v1, p0, Lcom/android/OriginalSettings/motion/MotionSettings$2;->this$0:Lcom/android/OriginalSettings/motion/MotionSettings;
 
-    #getter for: Lcom/android/OriginalSettings/motion/MotionSettings;->mMotions:Landroid/preference/CheckBoxPreference;
-    invoke-static {v1}, Lcom/android/OriginalSettings/motion/MotionSettings;->access$500(Lcom/android/OriginalSettings/motion/MotionSettings;)Landroid/preference/CheckBoxPreference;
+    #getter for: Lcom/android/OriginalSettings/motion/MotionSettings;->mActionBarSwitch:Landroid/widget/Switch;
+    invoke-static {v1}, Lcom/android/OriginalSettings/motion/MotionSettings;->access$500(Lcom/android/OriginalSettings/motion/MotionSettings;)Landroid/widget/Switch;
 
     move-result-object v1
 
@@ -70,8 +70,8 @@
     const/4 v0, 0x1
 
     :cond_0
-    invoke-virtual {v1, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v1, v0}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 262
+    .line 477
     return-void
 .end method

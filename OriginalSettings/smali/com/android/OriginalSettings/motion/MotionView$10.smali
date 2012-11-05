@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 323
+    .line 355
     iput-object p1, p0, Lcom/android/OriginalSettings/motion/MotionView$10;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,19 +42,19 @@
     .parameter "dialog"
 
     .prologue
-    .line 325
+    .line 357
     const-string v0, "MotionView"
 
     const-string v1, "Use ring dismiss"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 326
+    .line 358
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/MotionView$10;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
 
     #calls: Lcom/android/OriginalSettings/motion/MotionView;->updateCheckedUI()V
     invoke-static {v0}, Lcom/android/OriginalSettings/motion/MotionView;->access$400(Lcom/android/OriginalSettings/motion/MotionView;)V
 
-    .line 327
+    .line 359
     return-void
 .end method

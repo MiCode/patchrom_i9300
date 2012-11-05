@@ -21,7 +21,9 @@
     .end annotation
 .end field
 
-.field protected mAuthDescs:[Landroid/accounts/AuthenticatorDescription;
+.field private mAuthenticatorHelper:Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;
+
+.field private mDateFormat:Ljava/text/DateFormat;
 
 .field private final mHandler:Landroid/os/Handler;
 
@@ -29,17 +31,7 @@
 
 .field private mSyncStatusObserver:Landroid/content/SyncStatusObserver;
 
-.field private mTypeToAuthDescription:Ljava/util/Map;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Landroid/accounts/AuthenticatorDescription;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private mTimeFormat:Ljava/text/DateFormat;
 
 
 # direct methods
@@ -47,29 +39,29 @@
     .locals 1
 
     .prologue
-    .line 51
+    .line 53
     invoke-direct {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;-><init>()V
 
-    .line 57
-    new-instance v0, Ljava/util/HashMap;
-
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
-
-    iput-object v0, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mTypeToAuthDescription:Ljava/util/Map;
-
-    .line 60
+    .line 59
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mHandler:Landroid/os/Handler;
 
-    .line 62
+    .line 61
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mAccountTypeToAuthorities:Ljava/util/HashMap;
 
-    .line 103
+    .line 62
+    new-instance v0, Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;
+
+    invoke-direct {v0}, Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;-><init>()V
+
+    iput-object v0, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mAuthenticatorHelper:Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;
+
+    .line 114
     new-instance v0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase$1;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase$1;-><init>(Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;)V
@@ -84,10 +76,131 @@
     .parameter "x0"
 
     .prologue
-    .line 51
+    .line 53
     iget-object v0, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mHandler:Landroid/os/Handler;
 
     return-object v0
+.end method
+
+.method private addFacebookSSORetryPreference(Landroid/preference/PreferenceScreen;Landroid/content/Context;)V
+    .locals 8
+    .parameter "pref"
+    .parameter "mContext"
+
+    .prologue
+    .line 179
+    const-string v4, "com.sec.android.app.sns3"
+
+    .line 180
+    .local v4, facebookSSORetryPackage:Ljava/lang/String;
+    const-string v3, "com.sec.android.app.sns3.auth.sp.facebook.SnsAccountFbAuthSSOActivity"
+
+    .line 182
+    .local v3, facebookSSORetryCls:Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getActivity()Landroid/app/Activity;
+
+    move-result-object v6
+
+    invoke-static {v6}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
+
+    move-result-object v6
+
+    const-string v7, "com.facebook.auth.login"
+
+    invoke-virtual {v6, v7}, Landroid/accounts/AccountManager;->getAccountsByType(Ljava/lang/String;)[Landroid/accounts/Account;
+
+    move-result-object v0
+
+    .line 184
+    .local v0, accounts:[Landroid/accounts/Account;
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getActivity()Landroid/app/Activity;
+
+    move-result-object v6
+
+    invoke-static {v6}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
+
+    move-result-object v6
+
+    const-string v7, "com.sec.android.app.sns3.facebook"
+
+    invoke-virtual {v6, v7}, Landroid/accounts/AccountManager;->getAccountsByType(Ljava/lang/String;)[Landroid/accounts/Account;
+
+    move-result-object v1
+
+    .line 187
+    .local v1, accounts2:[Landroid/accounts/Account;
+    array-length v6, v0
+
+    if-lez v6, :cond_0
+
+    array-length v6, v1
+
+    if-nez v6, :cond_0
+
+    .line 189
+    const-string v6, "AccountSettings"
+
+    const-string v7, "Facebook SSO is Failed."
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 191
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getPreferenceManager()Landroid/preference/PreferenceManager;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p2}, Landroid/preference/PreferenceManager;->createPreferenceScreen(Landroid/content/Context;)Landroid/preference/PreferenceScreen;
+
+    move-result-object v2
+
+    .line 192
+    .local v2, facebookSSORetry:Landroid/preference/PreferenceScreen;
+    new-instance v5, Landroid/content/Intent;
+
+    invoke-direct {v5}, Landroid/content/Intent;-><init>()V
+
+    .line 193
+    .local v5, mIntent:Landroid/content/Intent;
+    new-instance v6, Landroid/content/ComponentName;
+
+    invoke-direct {v6, v4, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v5, v6}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    .line 194
+    const-string v6, "facebookSSORetry"
+
+    invoke-virtual {v2, v6}, Landroid/preference/PreferenceScreen;->setKey(Ljava/lang/String;)V
+
+    .line 195
+    const v6, 0x7f090d52
+
+    invoke-virtual {p0, v6}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v2, v6}, Landroid/preference/PreferenceScreen;->setTitle(Ljava/lang/CharSequence;)V
+
+    .line 196
+    const v6, 0x7f090d53
+
+    invoke-virtual {p0, v6}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v2, v6}, Landroid/preference/PreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
+
+    .line 197
+    invoke-virtual {v2, v5}, Landroid/preference/PreferenceScreen;->setIntent(Landroid/content/Intent;)V
+
+    .line 198
+    invoke-virtual {p1, v2}, Landroid/preference/PreferenceScreen;->addItemFromInflater(Landroid/preference/Preference;)V
+
+    .line 200
+    .end local v2           #facebookSSORetry:Landroid/preference/PreferenceScreen;
+    .end local v5           #mIntent:Landroid/content/Intent;
+    :cond_0
+    return-void
 .end method
 
 .method private addSamsungBackupPreference(Landroid/preference/PreferenceScreen;Landroid/content/Context;)V
@@ -96,14 +209,14 @@
     .parameter "mContext"
 
     .prologue
-    .line 185
+    .line 151
     const-string v4, "com.sec.android.sCloudBackupApp"
 
-    .line 188
+    .line 154
     .local v4, samsungbackupPackage:Ljava/lang/String;
     const/4 v2, 0x0
 
-    .line 189
+    .line 155
     .local v2, packageInfo:Landroid/content/pm/PackageInfo;
     :try_start_0
     invoke-virtual {p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -116,17 +229,17 @@
 
     move-result-object v2
 
-    .line 190
+    .line 156
     if-eqz v2, :cond_0
 
-    .line 191
+    .line 157
     const-string v5, "AccountSettings"
 
     const-string v6, "Samsung Backup is Installed."
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 193
+    .line 159
     invoke-virtual {p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getPreferenceManager()Landroid/preference/PreferenceManager;
 
     move-result-object v5
@@ -135,13 +248,13 @@
 
     move-result-object v3
 
-    .line 194
+    .line 160
     .local v3, samsungBackup:Landroid/preference/PreferenceScreen;
     new-instance v1, Landroid/content/Intent;
 
     invoke-direct {v1}, Landroid/content/Intent;-><init>()V
 
-    .line 195
+    .line 161
     .local v1, mIntent:Landroid/content/Intent;
     new-instance v5, Landroid/content/ComponentName;
 
@@ -153,13 +266,13 @@
 
     invoke-virtual {v1, v5}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 196
+    .line 162
     const-string v5, "samsungbackup"
 
     invoke-virtual {v3, v5}, Landroid/preference/PreferenceScreen;->setKey(Ljava/lang/String;)V
 
-    .line 197
-    const v5, 0x7f0d0a93
+    .line 163
+    const v5, 0x7f090cba
 
     invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getString(I)Ljava/lang/String;
 
@@ -167,30 +280,30 @@
 
     invoke-virtual {v3, v5}, Landroid/preference/PreferenceScreen;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 198
+    .line 164
     invoke-virtual {v3, v1}, Landroid/preference/PreferenceScreen;->setIntent(Landroid/content/Intent;)V
 
-    .line 199
+    .line 165
     invoke-virtual {p1, v3}, Landroid/preference/PreferenceScreen;->addItemFromInflater(Landroid/preference/Preference;)V
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 206
+    .line 171
     .end local v1           #mIntent:Landroid/content/Intent;
     .end local v3           #samsungBackup:Landroid/preference/PreferenceScreen;
     :cond_0
     :goto_0
     return-void
 
-    .line 201
+    .line 167
     :catch_0
     move-exception v0
 
-    .line 202
+    .line 168
     .local v0, e:Landroid/content/pm/PackageManager$NameNotFoundException;
     invoke-virtual {v0}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
 
-    .line 203
+    .line 169
     const-string v5, "AccountSettings"
 
     const-string v6, "Samsung Backup is NOT Installed"
@@ -202,172 +315,543 @@
 
 
 # virtual methods
-.method protected addPreferencesForType(Ljava/lang/String;)Landroid/preference/PreferenceScreen;
-    .locals 8
+.method public addPreferencesForType(Ljava/lang/String;Landroid/preference/PreferenceScreen;)Landroid/preference/PreferenceScreen;
+    .locals 17
     .parameter "accountType"
+    .parameter "parent"
 
     .prologue
+    .line 209
+    const/4 v11, 0x0
+
+    .line 210
+    .local v11, prefs:Landroid/preference/PreferenceScreen;
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mAuthenticatorHelper:Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v13, v0}, Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;->containsAccountType(Ljava/lang/String;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_2
+
+    .line 211
+    const/4 v6, 0x0
+
     .line 213
-    const/4 v4, 0x0
-
-    .line 214
-    .local v4, prefs:Landroid/preference/PreferenceScreen;
-    iget-object v5, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mTypeToAuthDescription:Ljava/util/Map;
-
-    invoke-interface {v5, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    .line 215
+    .local v6, desc:Landroid/accounts/AuthenticatorDescription;
     const/4 v2, 0x0
 
-    .line 217
-    .local v2, desc:Landroid/accounts/AuthenticatorDescription;
+    .line 214
+    .local v2, addFacebookSSO:Z
     :try_start_0
-    iget-object v5, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mTypeToAuthDescription:Ljava/util/Map;
+    const-string v13, "com.facebook.auth.login"
 
-    invoke-interface {v5, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v0, p1
 
-    move-result-object v5
+    invoke-virtual {v13, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-object v0, v5
+    move-result v13
 
-    check-cast v0, Landroid/accounts/AuthenticatorDescription;
+    if-eqz v13, :cond_0
 
-    move-object v2, v0
+    .line 215
+    move-object/from16 v0, p0
 
-    .line 218
-    if-eqz v2, :cond_0
+    iget-object v13, v0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mAuthenticatorHelper:Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;
 
-    iget v5, v2, Landroid/accounts/AuthenticatorDescription;->accountPreferencesId:I
+    const-string v14, "com.sec.android.app.sns3.facebook"
 
-    if-eqz v5, :cond_0
+    invoke-virtual {v13, v14}, Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;->getAccountTypeDescription(Ljava/lang/String;)Landroid/accounts/AuthenticatorDescription;
 
-    .line 219
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getActivity()Landroid/app/Activity;
+    move-result-object v6
 
-    move-result-object v5
+    .line 216
+    const/4 v2, 0x1
 
-    iget-object v6, v2, Landroid/accounts/AuthenticatorDescription;->packageName:Ljava/lang/String;
+    .line 221
+    :goto_0
+    if-eqz v6, :cond_2
 
-    const/4 v7, 0x0
+    iget v13, v6, Landroid/accounts/AuthenticatorDescription;->accountPreferencesId:I
 
-    invoke-virtual {v5, v6, v7}, Landroid/app/Activity;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
+    if-eqz v13, :cond_2
 
-    move-result-object v1
+    .line 222
+    invoke-virtual/range {p0 .. p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getActivity()Landroid/app/Activity;
 
-    .line 220
-    .local v1, authContext:Landroid/content/Context;
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getPreferenceManager()Landroid/preference/PreferenceManager;
+    move-result-object v13
 
-    move-result-object v5
+    iget-object v14, v6, Landroid/accounts/AuthenticatorDescription;->packageName:Ljava/lang/String;
 
-    iget v6, v2, Landroid/accounts/AuthenticatorDescription;->accountPreferencesId:I
+    const/4 v15, 0x0
 
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {v13, v14, v15}, Landroid/app/Activity;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
 
-    move-result-object v7
+    move-result-object v3
 
-    invoke-virtual {v5, v1, v6, v7}, Landroid/preference/PreferenceManager;->inflateFromResource(Landroid/content/Context;ILandroid/preference/PreferenceScreen;)Landroid/preference/PreferenceScreen;
+    .line 225
+    .local v3, authContext:Landroid/content/Context;
+    const/4 v9, 0x1
+
+    .line 226
+    .local v9, isMatch:Z
+    new-instance v10, Ljava/util/ArrayList;
+
+    invoke-direct {v10}, Ljava/util/ArrayList;-><init>()V
+
+    .line 227
+    .local v10, preferenceList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/preference/Preference;>;"
+    invoke-virtual/range {p0 .. p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getPreferenceManager()Landroid/preference/PreferenceManager;
+
+    move-result-object v13
+
+    iget v14, v6, Landroid/accounts/AuthenticatorDescription;->accountPreferencesId:I
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getPreferenceManager()Landroid/preference/PreferenceManager;
+
+    move-result-object v15
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getActivity()Landroid/app/Activity;
+
+    move-result-object v16
+
+    invoke-virtual/range {v15 .. v16}, Landroid/preference/PreferenceManager;->createPreferenceScreen(Landroid/content/Context;)Landroid/preference/PreferenceScreen;
+
+    move-result-object v15
+
+    invoke-virtual {v13, v3, v14, v15}, Landroid/preference/PreferenceManager;->inflateFromResource(Landroid/content/Context;ILandroid/preference/PreferenceScreen;)Landroid/preference/PreferenceScreen;
 
     move-result-object v4
 
-    .line 222
-    const-string v5, "com.osp.app.signin"
+    .line 230
+    .local v4, authPrefScreen:Landroid/preference/PreferenceScreen;
+    const/4 v8, 0x0
 
-    invoke-virtual {p1, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    .local v8, i:I
+    invoke-virtual {v4}, Landroid/preference/PreferenceScreen;->getPreferenceCount()I
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    .local v5, count:I
+    :goto_1
+    if-ge v8, v5, :cond_5
 
-    .line 224
-    const-string v5, "AccountSettings"
+    .line 231
+    invoke-virtual {v4, v8}, Landroid/preference/PreferenceScreen;->getPreference(I)Landroid/preference/Preference;
 
-    const-string v6, "Accoun type is SSO"
+    move-result-object v1
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    .line 232
+    .local v1, accountPref:Landroid/preference/Preference;
+    instance-of v13, v1, Landroid/preference/PreferenceCategory;
 
-    .line 225
-    invoke-direct {p0, v4, v1}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->addSamsungBackupPreference(Landroid/preference/PreferenceScreen;Landroid/content/Context;)V
+    if-eqz v13, :cond_1
+
+    .line 233
+    new-instance v12, Landroid/preference/PreferenceCategory;
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getActivity()Landroid/app/Activity;
+
+    move-result-object v13
+
+    const/4 v14, 0x0
+
+    invoke-direct {v12, v13, v14}, Landroid/preference/PreferenceCategory;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    .line 234
+    .local v12, tmpPref:Landroid/preference/PreferenceCategory;
+    invoke-virtual {v1}, Landroid/preference/Preference;->getTitle()Ljava/lang/CharSequence;
+
+    move-result-object v13
+
+    invoke-virtual {v12, v13}, Landroid/preference/PreferenceCategory;->setTitle(Ljava/lang/CharSequence;)V
+
+    .line 235
+    invoke-virtual {v10, v12}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 230
+    .end local v12           #tmpPref:Landroid/preference/PreferenceCategory;
+    :goto_2
+    add-int/lit8 v8, v8, 0x1
+
+    goto :goto_1
+
+    .line 218
+    .end local v1           #accountPref:Landroid/preference/Preference;
+    .end local v3           #authContext:Landroid/content/Context;
+    .end local v4           #authPrefScreen:Landroid/preference/PreferenceScreen;
+    .end local v5           #count:I
+    .end local v8           #i:I
+    .end local v9           #isMatch:Z
+    .end local v10           #preferenceList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/preference/Preference;>;"
+    :cond_0
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mAuthenticatorHelper:Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v13, v0}, Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;->getAccountTypeDescription(Ljava/lang/String;)Landroid/accounts/AuthenticatorDescription;
+
+    move-result-object v6
+
+    goto :goto_0
+
+    .line 236
+    .restart local v1       #accountPref:Landroid/preference/Preference;
+    .restart local v3       #authContext:Landroid/content/Context;
+    .restart local v4       #authPrefScreen:Landroid/preference/PreferenceScreen;
+    .restart local v5       #count:I
+    .restart local v8       #i:I
+    .restart local v9       #isMatch:Z
+    .restart local v10       #preferenceList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/preference/Preference;>;"
+    :cond_1
+    instance-of v13, v1, Landroid/preference/PreferenceScreen;
+
+    if-eqz v13, :cond_3
+
+    .line 237
+    new-instance v12, Landroid/preference/PreferenceScreen;
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getActivity()Landroid/app/Activity;
+
+    move-result-object v13
+
+    const/4 v14, 0x0
+
+    invoke-direct {v12, v13, v14}, Landroid/preference/PreferenceScreen;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    .line 238
+    .local v12, tmpPref:Landroid/preference/PreferenceScreen;
+    invoke-virtual {v1}, Landroid/preference/Preference;->getTitle()Ljava/lang/CharSequence;
+
+    move-result-object v13
+
+    invoke-virtual {v12, v13}, Landroid/preference/PreferenceScreen;->setTitle(Ljava/lang/CharSequence;)V
+
+    .line 239
+    invoke-virtual {v1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v12, v13}, Landroid/preference/PreferenceScreen;->setKey(Ljava/lang/String;)V
+
+    .line 240
+    invoke-virtual {v1}, Landroid/preference/Preference;->getSummary()Ljava/lang/CharSequence;
+
+    move-result-object v13
+
+    invoke-virtual {v12, v13}, Landroid/preference/PreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
+
+    .line 241
+    invoke-virtual {v1}, Landroid/preference/Preference;->getIntent()Landroid/content/Intent;
+
+    move-result-object v13
+
+    invoke-virtual {v12, v13}, Landroid/preference/PreferenceScreen;->setIntent(Landroid/content/Intent;)V
+
+    .line 242
+    invoke-virtual {v10, v12}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 234
-    .end local v1           #authContext:Landroid/content/Context;
-    .end local v2           #desc:Landroid/accounts/AuthenticatorDescription;
-    :cond_0
-    :goto_0
-    return-object v4
+    goto :goto_2
 
-    .line 228
-    .restart local v2       #desc:Landroid/accounts/AuthenticatorDescription;
+    .line 275
+    .end local v1           #accountPref:Landroid/preference/Preference;
+    .end local v3           #authContext:Landroid/content/Context;
+    .end local v4           #authPrefScreen:Landroid/preference/PreferenceScreen;
+    .end local v5           #count:I
+    .end local v8           #i:I
+    .end local v9           #isMatch:Z
+    .end local v10           #preferenceList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/preference/Preference;>;"
+    .end local v12           #tmpPref:Landroid/preference/PreferenceScreen;
     :catch_0
-    move-exception v3
+    move-exception v7
 
-    .line 229
-    .local v3, e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    const-string v5, "AccountSettings"
+    .line 276
+    .local v7, e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    const-string v13, "AccountSettings"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "Couldn\'t load preferences.xml file from "
+    const-string v15, "Couldn\'t load preferences.xml file from "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v14
 
-    iget-object v7, v2, Landroid/accounts/AuthenticatorDescription;->packageName:Ljava/lang/String;
+    iget-object v15, v6, Landroid/accounts/AuthenticatorDescription;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v14
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v14
 
-    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v13, v14}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    .line 281
+    .end local v2           #addFacebookSSO:Z
+    .end local v6           #desc:Landroid/accounts/AuthenticatorDescription;
+    .end local v7           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    :cond_2
+    :goto_3
+    return-object v11
 
-    .line 230
-    .end local v3           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .line 243
+    .restart local v1       #accountPref:Landroid/preference/Preference;
+    .restart local v2       #addFacebookSSO:Z
+    .restart local v3       #authContext:Landroid/content/Context;
+    .restart local v4       #authPrefScreen:Landroid/preference/PreferenceScreen;
+    .restart local v5       #count:I
+    .restart local v6       #desc:Landroid/accounts/AuthenticatorDescription;
+    .restart local v8       #i:I
+    .restart local v9       #isMatch:Z
+    .restart local v10       #preferenceList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/preference/Preference;>;"
+    :cond_3
+    :try_start_1
+    instance-of v13, v1, Landroid/preference/Preference;
+
+    if-eqz v13, :cond_4
+
+    .line 244
+    new-instance v12, Landroid/preference/Preference;
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getActivity()Landroid/app/Activity;
+
+    move-result-object v13
+
+    const/4 v14, 0x0
+
+    invoke-direct {v12, v13, v14}, Landroid/preference/Preference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    .line 245
+    .local v12, tmpPref:Landroid/preference/Preference;
+    invoke-virtual {v1}, Landroid/preference/Preference;->getTitle()Ljava/lang/CharSequence;
+
+    move-result-object v13
+
+    invoke-virtual {v12, v13}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
+
+    .line 246
+    invoke-virtual {v1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v12, v13}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
+
+    .line 247
+    invoke-virtual {v1}, Landroid/preference/Preference;->getSummary()Ljava/lang/CharSequence;
+
+    move-result-object v13
+
+    invoke-virtual {v12, v13}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+
+    .line 248
+    invoke-virtual {v1}, Landroid/preference/Preference;->getIntent()Landroid/content/Intent;
+
+    move-result-object v13
+
+    invoke-virtual {v12, v13}, Landroid/preference/Preference;->setIntent(Landroid/content/Intent;)V
+
+    .line 249
+    invoke-virtual {v10, v12}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    :try_end_1
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+
+    goto/16 :goto_2
+
+    .line 277
+    .end local v1           #accountPref:Landroid/preference/Preference;
+    .end local v3           #authContext:Landroid/content/Context;
+    .end local v4           #authPrefScreen:Landroid/preference/PreferenceScreen;
+    .end local v5           #count:I
+    .end local v8           #i:I
+    .end local v9           #isMatch:Z
+    .end local v10           #preferenceList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/preference/Preference;>;"
+    .end local v12           #tmpPref:Landroid/preference/Preference;
     :catch_1
-    move-exception v3
+    move-exception v7
 
-    .line 231
-    .local v3, e:Landroid/content/res/Resources$NotFoundException;
-    const-string v5, "AccountSettings"
+    .line 278
+    .local v7, e:Landroid/content/res/Resources$NotFoundException;
+    const-string v13, "AccountSettings"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "Couldn\'t load preferences.xml file from "
+    const-string v15, "Couldn\'t load preferences.xml file from "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v14
 
-    iget-object v7, v2, Landroid/accounts/AuthenticatorDescription;->packageName:Ljava/lang/String;
+    iget-object v15, v6, Landroid/accounts/AuthenticatorDescription;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v14
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v14
 
-    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v13, v14}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto :goto_3
+
+    .line 251
+    .end local v7           #e:Landroid/content/res/Resources$NotFoundException;
+    .restart local v1       #accountPref:Landroid/preference/Preference;
+    .restart local v3       #authContext:Landroid/content/Context;
+    .restart local v4       #authPrefScreen:Landroid/preference/PreferenceScreen;
+    .restart local v5       #count:I
+    .restart local v8       #i:I
+    .restart local v9       #isMatch:Z
+    .restart local v10       #preferenceList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/preference/Preference;>;"
+    :cond_4
+    const/4 v9, 0x0
+
+    goto/16 :goto_2
+
+    .line 255
+    .end local v1           #accountPref:Landroid/preference/Preference;
+    :cond_5
+    const/4 v13, 0x1
+
+    if-ne v9, v13, :cond_6
+
+    .line 256
+    move-object/from16 v11, p2
+
+    .line 257
+    const/4 v8, 0x0
+
+    :try_start_2
+    invoke-virtual {v10}, Ljava/util/ArrayList;->size()I
+
+    move-result v5
+
+    :goto_4
+    if-ge v8, v5, :cond_6
+
+    .line 258
+    invoke-virtual {v10, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/preference/Preference;
+
+    .line 259
+    .restart local v1       #accountPref:Landroid/preference/Preference;
+    invoke-virtual {v11, v1}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
+
+    .line 257
+    add-int/lit8 v8, v8, 0x1
+
+    goto :goto_4
+
+    .line 265
+    .end local v1           #accountPref:Landroid/preference/Preference;
+    :cond_6
+    const-string v13, "com.osp.app.signin"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_7
+
+    .line 266
+    const-string v13, "AccountSettings"
+
+    const-string v14, "Accoun type is SSO"
+
+    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 267
+    invoke-virtual/range {p0 .. p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getActivity()Landroid/app/Activity;
+
+    move-result-object v13
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v11, v13}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->addSamsungBackupPreference(Landroid/preference/PreferenceScreen;Landroid/content/Context;)V
+
+    .line 271
+    :cond_7
+    if-eqz v2, :cond_2
+
+    .line 272
+    invoke-virtual/range {p0 .. p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getActivity()Landroid/app/Activity;
+
+    move-result-object v13
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v11, v13}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->addFacebookSSORetryPreference(Landroid/preference/PreferenceScreen;Landroid/content/Context;)V
+    :try_end_2
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_2 .. :try_end_2} :catch_1
+
+    goto/16 :goto_3
+.end method
+
+.method protected formatSyncDate(Ljava/util/Date;)Ljava/lang/String;
+    .locals 2
+    .parameter "date"
+
+    .prologue
+    .line 299
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v1, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mDateFormat:Ljava/text/DateFormat;
+
+    invoke-virtual {v1, p1}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, " "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mTimeFormat:Ljava/text/DateFormat;
+
+    invoke-virtual {v1, p1}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public getAuthoritiesForAccountType(Ljava/lang/String;)Ljava/util/ArrayList;
@@ -386,24 +870,24 @@
     .end annotation
 
     .prologue
-    .line 114
+    .line 125
     iget-object v5, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mAccountTypeToAuthorities:Ljava/util/HashMap;
 
     if-nez v5, :cond_2
 
-    .line 115
+    .line 126
     invoke-static {}, Lcom/google/android/collect/Maps;->newHashMap()Ljava/util/HashMap;
 
     move-result-object v5
 
     iput-object v5, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mAccountTypeToAuthorities:Ljava/util/HashMap;
 
-    .line 116
+    .line 127
     invoke-static {}, Landroid/content/ContentResolver;->getSyncAdapterTypes()[Landroid/content/SyncAdapterType;
 
     move-result-object v4
 
-    .line 117
+    .line 128
     .local v4, syncAdapters:[Landroid/content/SyncAdapterType;
     const/4 v1, 0x0
 
@@ -414,10 +898,10 @@
     :goto_0
     if-ge v1, v2, :cond_2
 
-    .line 118
+    .line 129
     aget-object v3, v4, v1
 
-    .line 119
+    .line 130
     .local v3, sa:Landroid/content/SyncAdapterType;
     iget-object v5, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mAccountTypeToAuthorities:Ljava/util/HashMap;
 
@@ -429,17 +913,17 @@
 
     check-cast v0, Ljava/util/ArrayList;
 
-    .line 120
+    .line 131
     .local v0, authorities:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     if-nez v0, :cond_0
 
-    .line 121
+    .line 132
     new-instance v0, Ljava/util/ArrayList;
 
     .end local v0           #authorities:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 122
+    .line 133
     .restart local v0       #authorities:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     iget-object v5, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mAccountTypeToAuthorities:Ljava/util/HashMap;
 
@@ -447,7 +931,7 @@
 
     invoke-virtual {v5, v6, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 124
+    .line 135
     :cond_0
     const-string v5, "AccountSettings"
 
@@ -459,7 +943,7 @@
 
     if-eqz v5, :cond_1
 
-    .line 125
+    .line 136
     const-string v5, "AccountSettings"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -496,18 +980,18 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 128
+    .line 139
     :cond_1
     iget-object v5, v3, Landroid/content/SyncAdapterType;->authority:Ljava/lang/String;
 
     invoke-virtual {v0, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 117
+    .line 128
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 131
+    .line 142
     .end local v0           #authorities:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     .end local v1           #i:I
     .end local v2           #n:I
@@ -526,342 +1010,41 @@
 .end method
 
 .method protected getDrawableForType(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
-    .locals 7
+    .locals 2
     .parameter "accountType"
 
     .prologue
-    .line 140
-    const/4 v3, 0x0
+    .line 290
+    iget-object v0, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mAuthenticatorHelper:Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;
 
-    .line 141
-    .local v3, icon:Landroid/graphics/drawable/Drawable;
-    iget-object v4, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mTypeToAuthDescription:Ljava/util/Map;
-
-    invoke-interface {v4, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    .line 143
-    :try_start_0
-    iget-object v4, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mTypeToAuthDescription:Ljava/util/Map;
-
-    invoke-interface {v4, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    check-cast v1, Landroid/accounts/AuthenticatorDescription;
-
-    .line 144
-    .local v1, desc:Landroid/accounts/AuthenticatorDescription;
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getActivity()Landroid/app/Activity;
-
-    move-result-object v4
-
-    iget-object v5, v1, Landroid/accounts/AuthenticatorDescription;->packageName:Ljava/lang/String;
-
-    const/4 v6, 0x0
-
-    invoke-virtual {v4, v5, v6}, Landroid/app/Activity;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
+    invoke-virtual {v0, v1, p1}, Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;->getDrawableForType(Landroid/content/Context;Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 145
-    .local v0, authContext:Landroid/content/Context;
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    iget v5, v1, Landroid/accounts/AuthenticatorDescription;->iconId:I
-
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_1
-
-    move-result-object v3
-
-    .line 154
-    .end local v0           #authContext:Landroid/content/Context;
-    .end local v1           #desc:Landroid/accounts/AuthenticatorDescription;
-    :cond_0
-    :goto_0
-    return-object v3
-
-    .line 146
-    :catch_0
-    move-exception v2
-
-    .line 148
-    .local v2, e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    const-string v4, "AccountSettings"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "No icon name for account type "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    .line 149
-    .end local v2           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    :catch_1
-    move-exception v2
-
-    .line 151
-    .local v2, e:Landroid/content/res/Resources$NotFoundException;
-    const-string v4, "AccountSettings"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "No icon resource for account type "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
+    return-object v0
 .end method
 
 .method protected getLabelForType(Ljava/lang/String;)Ljava/lang/CharSequence;
-    .locals 7
+    .locals 2
     .parameter "accountType"
 
     .prologue
-    .line 163
-    const/4 v3, 0x0
+    .line 294
+    iget-object v0, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mAuthenticatorHelper:Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;
 
-    .line 164
-    .local v3, label:Ljava/lang/CharSequence;
-    iget-object v4, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mTypeToAuthDescription:Ljava/util/Map;
-
-    invoke-interface {v4, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    .line 166
-    :try_start_0
-    iget-object v4, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mTypeToAuthDescription:Ljava/util/Map;
-
-    invoke-interface {v4, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    check-cast v1, Landroid/accounts/AuthenticatorDescription;
-
-    .line 167
-    .local v1, desc:Landroid/accounts/AuthenticatorDescription;
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getActivity()Landroid/app/Activity;
-
-    move-result-object v4
-
-    iget-object v5, v1, Landroid/accounts/AuthenticatorDescription;->packageName:Ljava/lang/String;
-
-    const/4 v6, 0x0
-
-    invoke-virtual {v4, v5, v6}, Landroid/app/Activity;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
+    invoke-virtual {v0, v1, p1}, Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;->getLabelForType(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .line 168
-    .local v0, authContext:Landroid/content/Context;
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    iget v5, v1, Landroid/accounts/AuthenticatorDescription;->labelId:I
-
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_1
-
-    move-result-object v3
-
-    .line 175
-    .end local v0           #authContext:Landroid/content/Context;
-    .end local v1           #desc:Landroid/accounts/AuthenticatorDescription;
-    :cond_0
-    :goto_0
-    return-object v3
-
-    .line 169
-    :catch_0
-    move-exception v2
-
-    .line 170
-    .local v2, e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    const-string v4, "AccountSettings"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "No label name for account type "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    .line 171
-    .end local v2           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    :catch_1
-    move-exception v2
-
-    .line 172
-    .local v2, e:Landroid/content/res/Resources$NotFoundException;
-    const-string v4, "AccountSettings"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "No label icon for account type "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-.end method
-
-.method protected getProviderNameForType(Landroid/accounts/Account;)Ljava/lang/CharSequence;
-    .locals 6
-    .parameter "account"
-
-    .prologue
-    .line 257
-    iget-object v3, p1, Landroid/accounts/Account;->type:Ljava/lang/String;
-
-    invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getLabelForType(Ljava/lang/String;)Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    .line 258
-    .local v1, providerName:Ljava/lang/CharSequence;
-    if-nez v1, :cond_0
-
-    .line 259
-    const-string v1, ""
-
-    move-object v2, v1
-
-    .line 268
-    .end local v1           #providerName:Ljava/lang/CharSequence;
-    .local v2, providerName:Ljava/lang/Object;
-    :goto_0
-    return-object v2
-
-    .line 262
-    .end local v2           #providerName:Ljava/lang/Object;
-    .restart local v1       #providerName:Ljava/lang/CharSequence;
-    :cond_0
-    const/4 v0, 0x0
-
-    .local v0, i:I
-    :goto_1
-    sget-object v3, Lcom/android/OriginalSettings/AccountTypes;->SAMSUNG_SOCIAL_HUB_ACCOUNTS:[Ljava/lang/String;
-
-    array-length v3, v3
-
-    if-ge v0, v3, :cond_2
-
-    .line 263
-    iget-object v3, p1, Landroid/accounts/Account;->type:Ljava/lang/String;
-
-    sget-object v4, Lcom/android/OriginalSettings/AccountTypes;->SAMSUNG_SOCIAL_HUB_ACCOUNTS:[Ljava/lang/String;
-
-    aget-object v4, v4, v0
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    .line 264
-    const v3, 0x7f0d083c
-
-    invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    const/4 v4, 0x1
-
-    new-array v4, v4, [Ljava/lang/Object;
-
-    const/4 v5, 0x0
-
-    aput-object v1, v4, v5
-
-    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 262
-    :cond_1
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_1
-
-    :cond_2
-    move-object v2, v1
-
-    .line 268
-    .restart local v2       #providerName:Ljava/lang/Object;
-    goto :goto_0
+    return-object v0
 .end method
 
 .method public onAccountsUpdated([Landroid/accounts/Account;)V
@@ -869,7 +1052,39 @@
     .parameter "accounts"
 
     .prologue
-    .line 69
+    .line 71
+    return-void
+.end method
+
+.method public onActivityCreated(Landroid/os/Bundle;)V
+    .locals 2
+    .parameter "savedInstanceState"
+
+    .prologue
+    .line 89
+    invoke-super {p0, p1}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
+
+    .line 91
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    .line 93
+    .local v0, activity:Landroid/app/Activity;
+    invoke-static {v0}, Landroid/text/format/DateFormat;->getDateFormat(Landroid/content/Context;)Ljava/text/DateFormat;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mDateFormat:Ljava/text/DateFormat;
+
+    .line 94
+    invoke-static {v0}, Landroid/text/format/DateFormat;->getTimeFormat(Landroid/content/Context;)Ljava/text/DateFormat;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mTimeFormat:Ljava/text/DateFormat;
+
+    .line 95
     return-void
 .end method
 
@@ -877,7 +1092,7 @@
     .locals 0
 
     .prologue
-    .line 76
+    .line 78
     return-void
 .end method
 
@@ -885,15 +1100,15 @@
     .locals 1
 
     .prologue
-    .line 98
+    .line 110
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onPause()V
 
-    .line 99
+    .line 111
     iget-object v0, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mStatusChangeListenerHandle:Ljava/lang/Object;
 
     invoke-static {v0}, Landroid/content/ContentResolver;->removeStatusChangeListener(Ljava/lang/Object;)V
 
-    .line 100
+    .line 112
     return-void
 .end method
 
@@ -901,10 +1116,10 @@
     .locals 2
 
     .prologue
-    .line 87
+    .line 99
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onResume()V
 
-    .line 88
+    .line 100
     const/16 v0, 0xd
 
     iget-object v1, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mSyncStatusObserver:Landroid/content/SyncStatusObserver;
@@ -915,10 +1130,10 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mStatusChangeListenerHandle:Ljava/lang/Object;
 
-    .line 93
+    .line 105
     invoke-virtual {p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->onSyncStateUpdated()V
 
-    .line 94
+    .line 106
     return-void
 .end method
 
@@ -926,64 +1141,26 @@
     .locals 0
 
     .prologue
-    .line 83
+    .line 85
     return-void
 .end method
 
-.method protected updateAuthDescriptions()V
-    .locals 4
+.method public updateAuthDescriptions()V
+    .locals 2
 
     .prologue
-    .line 242
+    .line 285
+    iget-object v0, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mAuthenticatorHelper:Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;
+
     invoke-virtual {p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-static {v1}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
+    invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;->updateAuthDescriptions(Landroid/content/Context;)V
 
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/accounts/AccountManager;->getAuthenticatorTypes()[Landroid/accounts/AuthenticatorDescription;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mAuthDescs:[Landroid/accounts/AuthenticatorDescription;
-
-    .line 243
-    const/4 v0, 0x0
-
-    .local v0, i:I
-    :goto_0
-    iget-object v1, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mAuthDescs:[Landroid/accounts/AuthenticatorDescription;
-
-    array-length v1, v1
-
-    if-ge v0, v1, :cond_0
-
-    .line 244
-    iget-object v1, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mTypeToAuthDescription:Ljava/util/Map;
-
-    iget-object v2, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mAuthDescs:[Landroid/accounts/AuthenticatorDescription;
-
-    aget-object v2, v2, v0
-
-    iget-object v2, v2, Landroid/accounts/AuthenticatorDescription;->type:Ljava/lang/String;
-
-    iget-object v3, p0, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->mAuthDescs:[Landroid/accounts/AuthenticatorDescription;
-
-    aget-object v3, v3, v0
-
-    invoke-interface {v1, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 243
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    .line 246
-    :cond_0
+    .line 286
     invoke-virtual {p0}, Lcom/android/OriginalSettings/accounts/AccountPreferenceBase;->onAuthDescriptionsUpdated()V
 
-    .line 247
+    .line 287
     return-void
 .end method

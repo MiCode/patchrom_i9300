@@ -16,10 +16,10 @@
     .locals 0
 
     .prologue
-    .line 53
+    .line 59
     invoke-direct {p0}, Lmiui/preference/BasePreferenceActivity;-><init>()V
 
-    .line 66
+    .line 72
     return-void
 .end method
 
@@ -29,7 +29,7 @@
     .locals 3
 
     .prologue
-    .line 60
+    .line 66
     new-instance v0, Landroid/content/Intent;
 
     invoke-super {p0}, Lmiui/preference/BasePreferenceActivity;->getIntent()Landroid/content/Intent;
@@ -38,7 +38,7 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Intent;)V
 
-    .line 61
+    .line 67
     .local v0, modIntent:Landroid/content/Intent;
     const-string v1, ":android:show_fragment"
 
@@ -50,13 +50,13 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 62
+    .line 68
     const-string v1, ":android:no_headers"
 
     const/4 v2, 0x1
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 63
+    .line 69
     return-object v0
 .end method

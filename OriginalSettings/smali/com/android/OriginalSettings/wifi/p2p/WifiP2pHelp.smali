@@ -38,7 +38,7 @@
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 29
-    const v0, 0x7f070066
+    const v0, 0x7f070078
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pHelp;->addPreferencesFromResource(I)V
 
@@ -61,7 +61,7 @@
 
     .prologue
     .line 42
-    const v2, 0x7f0400ed
+    const v2, 0x7f040110
 
     const/4 v3, 0x0
 
@@ -71,7 +71,7 @@
 
     .line 43
     .local v1, v:Landroid/view/View;
-    const v2, 0x7f0a02e7
+    const v2, 0x7f0b0346
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

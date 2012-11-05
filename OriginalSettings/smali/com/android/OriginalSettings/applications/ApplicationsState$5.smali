@@ -22,7 +22,7 @@
     .locals 0
 
     .prologue
-    .line 196
+    .line 206
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -37,19 +37,19 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 202
+    .line 212
     iget v1, p1, Landroid/content/pm/ApplicationInfo;->flags:I
 
     and-int/lit16 v1, v1, 0x80
 
     if-eqz v1, :cond_1
 
-    .line 207
+    .line 217
     :cond_0
     :goto_0
     return v0
 
-    .line 204
+    .line 214
     :cond_1
     iget v1, p1, Landroid/content/pm/ApplicationInfo;->flags:I
 
@@ -57,7 +57,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 207
+    .line 217
     const/4 v0, 0x0
 
     goto :goto_0
@@ -67,6 +67,6 @@
     .locals 0
 
     .prologue
-    .line 198
+    .line 208
     return-void
 .end method

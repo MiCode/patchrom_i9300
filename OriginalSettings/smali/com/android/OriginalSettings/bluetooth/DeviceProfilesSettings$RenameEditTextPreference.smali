@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 75
+    .line 80
     iput-object p1, p0, Lcom/android/OriginalSettings/bluetooth/DeviceProfilesSettings$RenameEditTextPreference;->this$0:Lcom/android/OriginalSettings/bluetooth/DeviceProfilesSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .parameter "x1"
 
     .prologue
-    .line 75
+    .line 80
     invoke-direct {p0, p1}, Lcom/android/OriginalSettings/bluetooth/DeviceProfilesSettings$RenameEditTextPreference;-><init>(Lcom/android/OriginalSettings/bluetooth/DeviceProfilesSettings;)V
 
     return-void
@@ -60,7 +60,7 @@
 
     const/4 v7, 0x0
 
-    .line 77
+    .line 82
     iget-object v5, p0, Lcom/android/OriginalSettings/bluetooth/DeviceProfilesSettings$RenameEditTextPreference;->this$0:Lcom/android/OriginalSettings/bluetooth/DeviceProfilesSettings;
 
     #getter for: Lcom/android/OriginalSettings/bluetooth/DeviceProfilesSettings;->mDeviceNamePref:Landroid/preference/EditTextPreference;
@@ -72,28 +72,28 @@
 
     move-result-object v0
 
-    .line 78
+    .line 83
     .local v0, d:Landroid/app/Dialog;
     instance-of v5, v0, Landroid/app/AlertDialog;
 
     if-eqz v5, :cond_2
 
-    .line 79
+    .line 84
     const/4 v4, 0x0
 
-    .line 80
+    .line 85
     .local v4, spaceNum:I
     invoke-interface {p1}, Landroid/text/Editable;->length()I
 
     move-result v3
 
-    .line 81
+    .line 86
     .local v3, length:I
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 83
+    .line 88
     .local v1, deviceName:Ljava/lang/String;
     const/4 v2, 0x0
 
@@ -101,32 +101,25 @@
     :goto_0
     if-ge v2, v3, :cond_1
 
-    .line 84
+    .line 89
     invoke-virtual {v1, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v5
 
     if-ne v5, v9, :cond_0
 
-    .line 85
+    .line 90
     add-int/lit8 v4, v4, 0x1
 
-    .line 83
+    .line 88
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 88
+    .line 93
     :cond_1
-    check-cast v0, Landroid/app/AlertDialog;
-
-    .end local v0           #d:Landroid/app/Dialog;
-    const/4 v5, -0x1
-
-    invoke-virtual {v0, v5}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
-
-    move-result-object v8
+    iget-object v8, p0, Lcom/android/OriginalSettings/bluetooth/DeviceProfilesSettings$RenameEditTextPreference;->this$0:Lcom/android/OriginalSettings/bluetooth/DeviceProfilesSettings;
 
     invoke-interface {p1}, Landroid/text/Editable;->length()I
 
@@ -139,9 +132,29 @@
     move v5, v6
 
     :goto_1
-    invoke-virtual {v8, v5}, Landroid/widget/Button;->setEnabled(Z)V
+    #setter for: Lcom/android/OriginalSettings/bluetooth/DeviceProfilesSettings;->mNameEditedButtonEnabled:Z
+    invoke-static {v8, v5}, Lcom/android/OriginalSettings/bluetooth/DeviceProfilesSettings;->access$102(Lcom/android/OriginalSettings/bluetooth/DeviceProfilesSettings;Z)Z
 
-    .line 92
+    .line 94
+    check-cast v0, Landroid/app/AlertDialog;
+
+    .end local v0           #d:Landroid/app/Dialog;
+    const/4 v5, -0x1
+
+    invoke-virtual {v0, v5}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
+
+    move-result-object v5
+
+    iget-object v8, p0, Lcom/android/OriginalSettings/bluetooth/DeviceProfilesSettings$RenameEditTextPreference;->this$0:Lcom/android/OriginalSettings/bluetooth/DeviceProfilesSettings;
+
+    #getter for: Lcom/android/OriginalSettings/bluetooth/DeviceProfilesSettings;->mNameEditedButtonEnabled:Z
+    invoke-static {v8}, Lcom/android/OriginalSettings/bluetooth/DeviceProfilesSettings;->access$100(Lcom/android/OriginalSettings/bluetooth/DeviceProfilesSettings;)Z
+
+    move-result v8
+
+    invoke-virtual {v5, v8}, Landroid/widget/Button;->setEnabled(Z)V
+
+    .line 98
     .end local v1           #deviceName:Ljava/lang/String;
     .end local v2           #i:I
     .end local v3           #length:I
@@ -157,9 +170,10 @@
 
     invoke-interface {p1, v5}, Landroid/text/Editable;->setFilters([Landroid/text/InputFilter;)V
 
-    .line 96
+    .line 102
     return-void
 
+    .restart local v0       #d:Landroid/app/Dialog;
     .restart local v1       #deviceName:Ljava/lang/String;
     .restart local v2       #i:I
     .restart local v3       #length:I
@@ -167,7 +181,7 @@
     :cond_3
     move v5, v7
 
-    .line 88
+    .line 93
     goto :goto_1
 .end method
 
@@ -179,7 +193,7 @@
     .parameter "after"
 
     .prologue
-    .line 101
+    .line 107
     return-void
 .end method
 
@@ -191,6 +205,6 @@
     .parameter "count"
 
     .prologue
-    .line 106
+    .line 112
     return-void
 .end method

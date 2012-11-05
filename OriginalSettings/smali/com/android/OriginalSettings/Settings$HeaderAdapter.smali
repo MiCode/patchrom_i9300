@@ -34,17 +34,23 @@
 
 .field private final isTablet:Z
 
+.field private mAuthHelper:Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;
+
 .field private final mBluetoothEnabler:Lcom/android/OriginalSettings/bluetooth/BluetoothEnabler;
 
-.field private final mEasyModeEnabler:Lcom/android/OriginalSettings/easymode/EasyModeEnabler;
+.field private mContext:Landroid/content/Context;
+
+.field private final mDormantModeEnabler:Lcom/android/OriginalSettings/dormantmode/DormantModeEnabler;
 
 .field private final mHeaderItemLayoutResID:I
 
 .field private mInflater:Landroid/view/LayoutInflater;
 
+.field private final mMotionEnabler:Lcom/android/OriginalSettings/motion/MotionEnabler;
+
 .field private final mPowerSavingEnabler:Lcom/android/OriginalSettings/powersavingmode/PowerSavingEnabler;
 
-.field private mSelectedId:I
+.field private mTetheredData:I
 
 .field private final mWifiApEnabler:Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;
 
@@ -52,10 +58,11 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Ljava/util/List;)V
-    .locals 5
+.method public constructor <init>(Landroid/content/Context;Ljava/util/List;Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;)V
+    .locals 6
     .parameter "context"
     .parameter
+    .parameter "authenticatorHelper"
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,23 +70,33 @@
             "Ljava/util/List",
             "<",
             "Landroid/preference/PreferenceActivity$Header;",
-            ">;)V"
+            ">;",
+            "Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;",
+            ")V"
         }
     .end annotation
 
     .prologue
     .local p2, objects:Ljava/util/List;,"Ljava/util/List<Landroid/preference/PreferenceActivity$Header;>;"
-    const/4 v4, -0x1
-
     const/4 v2, 0x0
 
-    .line 634
-    invoke-direct {p0, p1, v2, p2}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
+    const/4 v3, 0x1
 
-    .line 577
-    iput v4, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mSelectedId:I
+    const/4 v4, 0x0
 
-    .line 635
+    .line 873
+    invoke-direct {p0, p1, v4, p2}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
+
+    .line 819
+    iput v4, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mTetheredData:I
+
+    .line 874
+    iput-object p1, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mContext:Landroid/content/Context;
+
+    .line 875
+    iput-object p3, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mAuthHelper:Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;
+
+    .line 876
     const-string v1, "layout_inflater"
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -90,87 +107,121 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 639
+    .line 880
     new-instance v1, Lcom/android/OriginalSettings/wifi/WifiEnabler;
 
-    new-instance v3, Landroid/widget/Switch;
+    new-instance v5, Landroid/widget/Switch;
 
-    invoke-direct {v3, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+    invoke-direct {v5, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    invoke-direct {v1, p1, v3}, Lcom/android/OriginalSettings/wifi/WifiEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
+    invoke-direct {v1, p1, v5}, Lcom/android/OriginalSettings/wifi/WifiEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
 
     iput-object v1, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mWifiEnabler:Lcom/android/OriginalSettings/wifi/WifiEnabler;
 
-    .line 645
-    const/4 v1, 0x0
+    .line 893
+    iput-object v2, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mWifiApEnabler:Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;
 
-    iput-object v1, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mWifiApEnabler:Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;
-
-    .line 646
+    .line 895
     new-instance v1, Lcom/android/OriginalSettings/bluetooth/BluetoothEnabler;
 
-    new-instance v3, Landroid/widget/Switch;
+    new-instance v5, Landroid/widget/Switch;
 
-    invoke-direct {v3, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+    invoke-direct {v5, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    invoke-direct {v1, p1, v3}, Lcom/android/OriginalSettings/bluetooth/BluetoothEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
+    invoke-direct {v1, p1, v5}, Lcom/android/OriginalSettings/bluetooth/BluetoothEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
 
     iput-object v1, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mBluetoothEnabler:Lcom/android/OriginalSettings/bluetooth/BluetoothEnabler;
 
-    .line 647
+    .line 896
+    new-instance v1, Lcom/android/OriginalSettings/dormantmode/DormantModeEnabler;
+
+    new-instance v5, Landroid/widget/Switch;
+
+    invoke-direct {v5, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+
+    invoke-direct {v1, p1, v5}, Lcom/android/OriginalSettings/dormantmode/DormantModeEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
+
+    iput-object v1, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mDormantModeEnabler:Lcom/android/OriginalSettings/dormantmode/DormantModeEnabler;
+
+    .line 897
     new-instance v1, Lcom/android/OriginalSettings/powersavingmode/PowerSavingEnabler;
 
-    new-instance v3, Landroid/widget/Switch;
+    new-instance v5, Landroid/widget/Switch;
 
-    invoke-direct {v3, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+    invoke-direct {v5, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    invoke-direct {v1, p1, v3}, Lcom/android/OriginalSettings/powersavingmode/PowerSavingEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
+    invoke-direct {v1, p1, v5}, Lcom/android/OriginalSettings/powersavingmode/PowerSavingEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
 
     iput-object v1, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mPowerSavingEnabler:Lcom/android/OriginalSettings/powersavingmode/PowerSavingEnabler;
 
-    .line 648
-    new-instance v1, Lcom/android/OriginalSettings/easymode/EasyModeEnabler;
+    .line 898
+    new-instance v1, Lcom/android/OriginalSettings/motion/MotionEnabler;
 
-    new-instance v3, Landroid/widget/Switch;
+    new-instance v5, Landroid/widget/Switch;
 
-    invoke-direct {v3, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+    invoke-direct {v5, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    invoke-direct {v1, p1, v3}, Lcom/android/OriginalSettings/easymode/EasyModeEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
+    invoke-direct {v1, p1, v5}, Lcom/android/OriginalSettings/motion/MotionEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
 
-    iput-object v1, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mEasyModeEnabler:Lcom/android/OriginalSettings/easymode/EasyModeEnabler;
+    iput-object v1, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mMotionEnabler:Lcom/android/OriginalSettings/motion/MotionEnabler;
 
-    .line 650
+    .line 901
+    instance-of v1, p1, Landroid/app/Activity;
+
+    if-eqz v1, :cond_1
+
+    move-object v1, p1
+
+    check-cast v1, Landroid/app/Activity;
+
+    :goto_0
+    invoke-static {v1}, Lcom/android/OriginalSettings/guide/GuideFragment;->isInGuideMode(Landroid/app/Activity;)Z
+
+    move-result v1
+
+    if-ne v1, v3, :cond_0
+
+    move-object v1, p1
+
+    .line 903
+    check-cast v1, Landroid/app/Activity;
+
+    iget-object v2, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mWifiEnabler:Lcom/android/OriginalSettings/wifi/WifiEnabler;
+
+    iget-object v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mBluetoothEnabler:Lcom/android/OriginalSettings/bluetooth/BluetoothEnabler;
+
+    invoke-static {v1, v2, v5}, Lcom/android/OriginalSettings/guide/GuideFragment;->setEnablersForGuide(Landroid/app/Activity;Lcom/android/OriginalSettings/wifi/WifiEnabler;Lcom/android/OriginalSettings/bluetooth/BluetoothEnabler;)V
+
+    .line 906
+    :cond_0
     sget-object v1, Lcom/android/internal/R$styleable;->Theme:[I
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 651
+    .line 907
     .local v0, a:Landroid/content/res/TypedArray;
-    const/16 v1, 0xf9
+    const/16 v1, 0xf5
 
-    const v3, 0x1090097
+    const v2, 0x10900bd
 
-    invoke-virtual {v0, v1, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v1
 
     iput v1, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mHeaderItemLayoutResID:I
 
-    .line 652
-    const/16 v1, 0x118
+    .line 908
+    const/16 v1, 0x11d
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+    invoke-virtual {v0, v1, v4}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v1
 
     iput-boolean v1, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->isDeviceDefault:Z
 
-    .line 653
-    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
-
-    .line 655
+    .line 910
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -181,34 +232,41 @@
 
     iget v1, v1, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
 
-    const/16 v3, 0x258
+    const/16 v2, 0x258
 
-    if-lt v1, v3, :cond_0
+    if-lt v1, v2, :cond_2
 
-    const/4 v1, 0x1
+    move v1, v3
 
-    :goto_0
+    :goto_1
     iput-boolean v1, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->isTablet:Z
 
-    .line 656
-    iput v4, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mSelectedId:I
-
-    .line 657
+    .line 911
     return-void
 
-    :cond_0
-    move v1, v2
+    .end local v0           #a:Landroid/content/res/TypedArray;
+    :cond_1
+    move-object v1, v2
 
-    .line 655
+    .line 901
     goto :goto_0
+
+    .restart local v0       #a:Landroid/content/res/TypedArray;
+    :cond_2
+    move v1, v4
+
+    .line 910
+    goto :goto_1
 .end method
 
 .method static getHeaderType(Landroid/preference/PreferenceActivity$Header;)I
-    .locals 4
+    .locals 5
     .parameter "header"
 
     .prologue
-    .line 589
+    const/4 v4, 0x0
+
+    .line 831
     iget-object v0, p0, Landroid/preference/PreferenceActivity$Header;->fragment:Ljava/lang/String;
 
     if-nez v0, :cond_0
@@ -217,71 +275,93 @@
 
     if-nez v0, :cond_0
 
-    .line 590
+    .line 832
     const/4 v0, 0x0
 
-    .line 595
+    .line 841
     :goto_0
     return v0
 
-    .line 592
+    .line 833
     :cond_0
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0a0313
+    const-wide/32 v2, 0x7f0b0376
 
     cmp-long v0, v0, v2
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0a0314
+    const-wide/32 v2, 0x7f0b0379
 
     cmp-long v0, v0, v2
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0a0315
+    const-wide/32 v2, 0x7f0b037f
 
     cmp-long v0, v0, v2
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0a0316
+    const-wide/32 v2, 0x7f0b0384
 
     cmp-long v0, v0, v2
 
-    if-eqz v0, :cond_1
+    if-nez v0, :cond_1
 
-    iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
-
-    const-wide/32 v2, 0x7f0a0323
-
-    cmp-long v0, v0, v2
-
-    if-nez v0, :cond_2
-
-    const/4 v0, 0x0
-
-    invoke-static {v0}, Lcom/android/OriginalSettings/Utils;->isTablet(Landroid/content/Context;)Z
+    invoke-static {v4}, Lcom/android/OriginalSettings/Utils;->isTablet(Landroid/content/Context;)Z
 
     move-result v0
 
+    if-eqz v0, :cond_3
+
+    :cond_1
+    iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
+
+    const-wide/32 v2, 0x7f0b0397
+
+    cmp-long v0, v0, v2
+
     if-nez v0, :cond_2
 
-    .line 593
-    :cond_1
+    invoke-static {v4}, Lcom/android/OriginalSettings/Utils;->isTablet(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    :cond_2
+    iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
+
+    const-wide/32 v2, 0x7f0b0377
+
+    cmp-long v0, v0, v2
+
+    if-eqz v0, :cond_3
+
+    iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
+
+    const-wide/32 v2, 0x7f0b0378
+
+    cmp-long v0, v0, v2
+
+    if-nez v0, :cond_4
+
+    .line 839
+    :cond_3
     const/4 v0, 0x2
 
     goto :goto_0
 
-    .line 595
-    :cond_2
+    .line 841
+    :cond_4
     const/4 v0, 0x1
 
     goto :goto_0
@@ -293,7 +373,7 @@
     .locals 1
 
     .prologue
-    .line 607
+    .line 853
     const/4 v0, 0x0
 
     return v0
@@ -304,14 +384,14 @@
     .parameter "position"
 
     .prologue
-    .line 601
+    .line 847
     invoke-virtual {p0, p1}, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/preference/PreferenceActivity$Header;
 
-    .line 602
+    .line 848
     .local v0, header:Landroid/preference/PreferenceActivity$Header;
     invoke-static {v0}, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->getHeaderType(Landroid/preference/PreferenceActivity$Header;)I
 
@@ -321,742 +401,790 @@
 .end method
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 9
+    .locals 12
     .parameter "position"
     .parameter "convertView"
     .parameter "parent"
 
     .prologue
-    .line 662
+    .line 916
     invoke-virtual {p0, p1}, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->getItem(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/preference/PreferenceActivity$Header;
+    check-cast v1, Landroid/preference/PreferenceActivity$Header;
 
-    .line 663
-    .local v0, header:Landroid/preference/PreferenceActivity$Header;
-    invoke-static {v0}, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->getHeaderType(Landroid/preference/PreferenceActivity$Header;)I
+    .line 917
+    .local v1, header:Landroid/preference/PreferenceActivity$Header;
+    invoke-static {v1}, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->getHeaderType(Landroid/preference/PreferenceActivity$Header;)I
 
-    move-result v1
+    move-result v2
 
-    .line 664
-    .local v1, headerType:I
-    const/4 v4, 0x0
-
-    .line 666
-    .local v4, view:Landroid/view/View;
-    if-nez p2, :cond_7
-
-    .line 667
-    new-instance v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;
-
-    const/4 v5, 0x0
-
-    invoke-direct {v2, v5}, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;-><init>(Lcom/android/OriginalSettings/Settings$1;)V
-
-    .line 668
-    .local v2, holder:Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;
-    packed-switch v1, :pswitch_data_0
-
-    .line 711
-    :goto_0
-    invoke-virtual {v4, v2}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
-
-    .line 718
-    :goto_1
-    packed-switch v1, :pswitch_data_1
-
-    .line 786
-    :cond_0
-    :goto_2
-    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
-
-    move-result-object v5
-
-    const-string v6, "CscFeature_Common_EnableUiDisplayMirroring"
-
-    invoke-virtual {v5, v6}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    .line 788
-    invoke-static {}, Lcom/android/OriginalSettings/Settings;->checkEnableMirroring()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    .line 789
-    iget-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
-
-    const/4 v6, 0x5
-
-    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setGravity(I)V
-
-    .line 793
-    :cond_1
-    return-object v4
-
-    .line 670
-    :pswitch_0
-    iget-boolean v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->isDeviceDefault:Z
-
-    if-eqz v5, :cond_3
-
-    iget-boolean v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->isTablet:Z
-
-    if-eqz v5, :cond_3
-
-    .line 671
-    iget v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mHeaderItemLayoutResID:I
-
-    const v6, 0x10900ee
-
-    if-ne v5, v6, :cond_2
-
-    .line 672
-    iget-object v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
-
-    const v6, 0x10900eb
-
+    .line 918
+    .local v2, headerType:I
     const/4 v7, 0x0
 
-    invoke-virtual {v5, v6, p3, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    .line 920
+    .local v7, view:Landroid/view/View;
+    if-nez p2, :cond_6
 
-    move-result-object v4
+    .line 921
+    new-instance v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;
+
+    const/4 v8, 0x0
+
+    invoke-direct {v3, v8}, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;-><init>(Lcom/android/OriginalSettings/Settings$1;)V
+
+    .line 922
+    .local v3, holder:Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;
+    packed-switch v2, :pswitch_data_0
+
+    .line 969
+    :goto_0
+    invoke-virtual {v7, v3}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
+
+    .line 976
+    :goto_1
+    packed-switch v2, :pswitch_data_1
+
+    .line 1054
+    :goto_2
+    iget-wide v8, v1, Landroid/preference/PreferenceActivity$Header;->id:J
+
+    const-wide/32 v10, 0x7f0b0378
+
+    cmp-long v8, v8, v10
+
+    if-nez v8, :cond_0
+
+    .line 1064
+    :cond_0
+    return-object v7
+
+    .line 924
+    :pswitch_0
+    iget-boolean v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->isDeviceDefault:Z
+
+    if-eqz v8, :cond_2
+
+    iget-boolean v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->isTablet:Z
+
+    if-eqz v8, :cond_2
+
+    .line 925
+    iget v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mHeaderItemLayoutResID:I
+
+    const v9, 0x109011b
+
+    if-ne v8, v9, :cond_1
+
+    .line 926
+    iget-object v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
+
+    const v9, 0x1090118
+
+    const/4 v10, 0x0
+
+    invoke-virtual {v8, v9, p3, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v7
 
     :goto_3
-    move-object v5, v4
+    move-object v8, v7
 
-    .line 678
-    check-cast v5, Landroid/widget/TextView;
+    .line 932
+    check-cast v8, Landroid/widget/TextView;
 
-    iput-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
+    iput-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
 
     goto :goto_0
 
-    .line 674
-    :cond_2
-    iget-object v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
+    .line 928
+    :cond_1
+    iget-object v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v6, 0x10900ec
+    const v9, 0x1090119
 
-    const/4 v7, 0x0
+    const/4 v10, 0x0
 
-    invoke-virtual {v5, v6, p3, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v8, v9, p3, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v7
 
     goto :goto_3
 
-    .line 676
-    :cond_3
-    new-instance v4, Landroid/widget/TextView;
+    .line 930
+    :cond_2
+    new-instance v7, Landroid/widget/TextView;
 
-    .end local v4           #view:Landroid/view/View;
+    .end local v7           #view:Landroid/view/View;
     invoke-virtual {p0}, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->getContext()Landroid/content/Context;
 
-    move-result-object v5
+    move-result-object v8
 
-    const/4 v6, 0x0
+    const/4 v9, 0x0
 
-    const v7, 0x1010208
+    const v10, 0x1010208
 
-    invoke-direct {v4, v5, v6, v7}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+    invoke-direct {v7, v8, v9, v10}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .restart local v4       #view:Landroid/view/View;
+    .restart local v7       #view:Landroid/view/View;
     goto :goto_3
 
-    .line 682
+    .line 936
     :pswitch_1
-    iget-boolean v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->isDeviceDefault:Z
+    iget-boolean v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->isDeviceDefault:Z
 
-    if-eqz v5, :cond_5
+    if-eqz v8, :cond_4
 
-    .line 683
-    iget v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mHeaderItemLayoutResID:I
+    .line 937
+    iget v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mHeaderItemLayoutResID:I
 
-    const v6, 0x10900ee
+    const v9, 0x109011b
 
-    if-ne v5, v6, :cond_4
+    if-ne v8, v9, :cond_3
 
-    .line 684
-    iget-object v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
+    .line 938
+    iget-object v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v6, 0x10900f0
+    const v9, 0x109011d
 
-    const/4 v7, 0x0
+    const/4 v10, 0x0
 
-    invoke-virtual {v5, v6, p3, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v8, v9, p3, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v7
 
-    .line 688
+    .line 942
     :goto_4
-    const v5, 0x1020006
+    const v8, 0x1020006
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v8
 
-    check-cast v5, Landroid/widget/ImageView;
+    check-cast v8, Landroid/widget/ImageView;
 
-    iput-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
+    iput-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
 
-    .line 689
-    const v5, 0x1020016
+    .line 943
+    const v8, 0x1020016
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v8
 
-    check-cast v5, Landroid/widget/TextView;
+    check-cast v8, Landroid/widget/TextView;
 
-    iput-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
+    iput-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
 
-    .line 690
-    const v5, 0x1020010
+    .line 944
+    const v8, 0x1020010
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v8
 
-    check-cast v5, Landroid/widget/TextView;
+    check-cast v8, Landroid/widget/TextView;
 
-    iput-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
+    iput-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
 
-    .line 691
-    const v5, 0x10203a8
+    .line 945
+    const v8, 0x10203db
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v8
 
-    check-cast v5, Landroid/widget/Switch;
+    check-cast v8, Landroid/widget/Switch;
 
-    iput-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
+    iput-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
 
     goto/16 :goto_0
 
-    .line 686
-    :cond_4
-    iget-object v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
+    .line 940
+    :cond_3
+    iget-object v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v6, 0x10900f1
+    const v9, 0x109011e
 
-    const/4 v7, 0x0
+    const/4 v10, 0x0
 
-    invoke-virtual {v5, v6, p3, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v8, v9, p3, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v7
 
     goto :goto_4
 
-    .line 693
-    :cond_5
-    iget-object v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
+    .line 947
+    :cond_4
+    iget-object v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v6, 0x7f040089
+    const v9, 0x7f0400aa
 
-    const/4 v7, 0x0
+    const/4 v10, 0x0
 
-    invoke-virtual {v5, v6, p3, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v8, v9, p3, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v7
 
-    .line 694
-    const v5, 0x7f0a003b
+    .line 948
+    const v8, 0x7f0b0035
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v8
 
-    check-cast v5, Landroid/widget/ImageView;
+    check-cast v8, Landroid/widget/ImageView;
 
-    iput-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
+    iput-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
 
-    .line 695
-    const v5, 0x1020016
+    .line 949
+    const v8, 0x1020016
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v8
 
-    check-cast v5, Landroid/widget/TextView;
+    check-cast v8, Landroid/widget/TextView;
 
-    iput-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
+    iput-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
 
-    .line 696
-    const v5, 0x1020010
+    .line 951
+    const v8, 0x1020010
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v8
 
-    check-cast v5, Landroid/widget/TextView;
+    check-cast v8, Landroid/widget/TextView;
 
-    iput-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
+    iput-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
 
-    .line 697
-    const v5, 0x7f0a0188
+    .line 953
+    const v8, 0x7f0b01e2
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v8
 
-    check-cast v5, Landroid/widget/Switch;
+    check-cast v8, Landroid/widget/Switch;
 
-    iput-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
+    iput-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
 
     goto/16 :goto_0
 
-    .line 702
+    .line 958
     :pswitch_2
-    iget-boolean v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->isDeviceDefault:Z
+    iget-boolean v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->isDeviceDefault:Z
 
-    if-eqz v5, :cond_6
+    if-eqz v8, :cond_5
 
-    .line 703
-    iget-object v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
+    .line 959
+    iget-object v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    iget v6, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mHeaderItemLayoutResID:I
+    iget v9, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mHeaderItemLayoutResID:I
 
-    const/4 v7, 0x0
+    const/4 v10, 0x0
 
-    invoke-virtual {v5, v6, p3, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v8, v9, p3, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v7
 
-    .line 706
+    .line 962
     :goto_5
-    const v5, 0x1020006
+    const v8, 0x1020006
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v8
 
-    check-cast v5, Landroid/widget/ImageView;
+    check-cast v8, Landroid/widget/ImageView;
 
-    iput-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
+    iput-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
 
-    .line 707
-    const v5, 0x1020016
+    .line 963
+    const v8, 0x1020016
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v8
 
-    check-cast v5, Landroid/widget/TextView;
+    check-cast v8, Landroid/widget/TextView;
 
-    iput-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
+    iput-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
 
-    .line 708
-    const v5, 0x1020010
+    .line 965
+    const v8, 0x1020010
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v8
 
-    check-cast v5, Landroid/widget/TextView;
+    check-cast v8, Landroid/widget/TextView;
 
-    iput-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
+    iput-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
 
     goto/16 :goto_0
 
-    .line 705
-    :cond_6
-    iget-object v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
+    .line 961
+    :cond_5
+    iget-object v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v6, 0x1090097
+    const v9, 0x10900bd
 
-    const/4 v7, 0x0
+    const/4 v10, 0x0
 
-    invoke-virtual {v5, v6, p3, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v8, v9, p3, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v7
 
     goto :goto_5
 
-    .line 713
-    .end local v2           #holder:Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;
-    :cond_7
-    move-object v4, p2
-
-    .line 714
-    invoke-virtual {v4}, Landroid/view/View;->getTag()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;
-
-    .restart local v2       #holder:Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;
-    goto/16 :goto_1
-
-    .line 720
-    :pswitch_3
-    iget-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
-
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->getContext()Landroid/content/Context;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v6
-
-    invoke-virtual {v0, v6}, Landroid/preference/PreferenceActivity$Header;->getTitle(Landroid/content/res/Resources;)Ljava/lang/CharSequence;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto/16 :goto_2
-
-    .line 726
-    :pswitch_4
-    iget-boolean v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->isDeviceDefault:Z
-
-    if-eqz v5, :cond_a
-
-    .line 727
-    iget v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mHeaderItemLayoutResID:I
-
-    const v6, 0x10900ee
-
-    if-ne v5, v6, :cond_9
-
-    .line 728
-    iget-object v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
-
-    const v6, 0x10900f0
-
-    const/4 v7, 0x0
-
-    invoke-virtual {v5, v6, p3, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
-
-    move-result-object v4
-
-    .line 732
-    :goto_6
-    const v5, 0x1020006
-
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/widget/ImageView;
-
-    iput-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
-
-    .line 733
-    const v5, 0x1020016
-
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/widget/TextView;
-
-    iput-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
-
-    .line 734
-    const v5, 0x1020010
-
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/widget/TextView;
-
-    iput-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
-
-    .line 735
-    const v5, 0x10203a8
-
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/widget/Switch;
-
-    iput-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
-
-    .line 736
-    invoke-virtual {v4, v2}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
-
-    .line 747
-    :goto_7
-    iget-wide v5, v0, Landroid/preference/PreferenceActivity$Header;->id:J
-
-    const-wide/32 v7, 0x7f0a0314
-
-    cmp-long v5, v5, v7
-
-    if-nez v5, :cond_b
-
-    .line 748
-    iget-object v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mWifiEnabler:Lcom/android/OriginalSettings/wifi/WifiEnabler;
-
-    iget-object v6, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
-
-    invoke-virtual {v5, v6}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->setSwitch(Landroid/widget/Switch;)V
-
-    .line 763
-    :cond_8
-    :goto_8
-    :pswitch_5
-    iget-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
-
-    iget v6, v0, Landroid/preference/PreferenceActivity$Header;->iconRes:I
-
-    invoke-virtual {v5, v6}, Landroid/widget/ImageView;->setImageResource(I)V
-
-    .line 764
-    iget-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
-
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->getContext()Landroid/content/Context;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v6
-
-    invoke-virtual {v0, v6}, Landroid/preference/PreferenceActivity$Header;->getTitle(Landroid/content/res/Resources;)Ljava/lang/CharSequence;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 765
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->getContext()Landroid/content/Context;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v5
-
-    invoke-virtual {v0, v5}, Landroid/preference/PreferenceActivity$Header;->getSummary(Landroid/content/res/Resources;)Ljava/lang/CharSequence;
+    .line 971
+    .end local v3           #holder:Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;
+    :cond_6
+    move-object v7, p2
+
+    .line 972
+    invoke-virtual {v7}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v3
 
-    .line 766
-    .local v3, summary:Ljava/lang/CharSequence;
-    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    check-cast v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;
 
-    move-result v5
+    .restart local v3       #holder:Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;
+    goto/16 :goto_1
 
-    if-nez v5, :cond_f
+    .line 978
+    :pswitch_3
+    iget-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
 
-    .line 767
-    iget-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->getContext()Landroid/content/Context;
 
-    const/4 v6, 0x0
+    move-result-object v9
 
-    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v9}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    .line 768
-    iget-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
+    move-result-object v9
 
-    invoke-virtual {v5, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v9}, Landroid/preference/PreferenceActivity$Header;->getTitle(Landroid/content/res/Resources;)Ljava/lang/CharSequence;
 
-    .line 774
-    :goto_9
-    iget v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mHeaderItemLayoutResID:I
+    move-result-object v9
 
-    const v6, 0x1090097
-
-    if-eq v5, v6, :cond_0
-
-    iget-boolean v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->isTablet:Z
-
-    if-eqz v5, :cond_0
-
-    .line 775
-    iget v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mSelectedId:I
-
-    if-ne v5, p1, :cond_10
-
-    .line 776
-    iget-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
-
-    sget-object v6, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
-
-    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
+    invoke-virtual {v8, v9}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_2
 
-    .line 730
-    .end local v3           #summary:Ljava/lang/CharSequence;
-    :cond_9
-    iget-object v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
+    .line 984
+    :pswitch_4
+    iget-boolean v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->isDeviceDefault:Z
 
-    const v6, 0x10900f1
+    if-eqz v8, :cond_8
 
-    const/4 v7, 0x0
+    .line 985
+    iget v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mHeaderItemLayoutResID:I
 
-    invoke-virtual {v5, v6, p3, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    const v9, 0x109011b
+
+    if-ne v8, v9, :cond_7
+
+    .line 986
+    iget-object v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
+
+    const v9, 0x109011d
+
+    const/4 v10, 0x0
+
+    invoke-virtual {v8, v9, p3, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v7
+
+    .line 990
+    :goto_6
+    const v8, 0x1020006
+
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/widget/ImageView;
+
+    iput-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
+
+    .line 991
+    const v8, 0x1020016
+
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/widget/TextView;
+
+    iput-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
+
+    .line 992
+    const v8, 0x1020010
+
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/widget/TextView;
+
+    iput-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
+
+    .line 993
+    const v8, 0x10203db
+
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/widget/Switch;
+
+    iput-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
+
+    .line 994
+    invoke-virtual {v7, v3}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
+
+    .line 1005
+    :goto_7
+    iget-wide v8, v1, Landroid/preference/PreferenceActivity$Header;->id:J
+
+    const-wide/32 v10, 0x7f0b0376
+
+    cmp-long v8, v8, v10
+
+    if-nez v8, :cond_9
+
+    .line 1006
+    iget-object v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mWifiEnabler:Lcom/android/OriginalSettings/wifi/WifiEnabler;
+
+    iget-object v9, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
+
+    invoke-virtual {v8, v9}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->setSwitch(Landroid/widget/Switch;)V
+
+    .line 1029
+    :goto_8
+    :pswitch_5
+    iget-object v8, v1, Landroid/preference/PreferenceActivity$Header;->extras:Landroid/os/Bundle;
+
+    if-eqz v8, :cond_f
+
+    iget-object v8, v1, Landroid/preference/PreferenceActivity$Header;->extras:Landroid/os/Bundle;
+
+    const-string v9, "account_type"
+
+    invoke-virtual {v8, v9}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_f
+
+    .line 1031
+    iget-object v8, v1, Landroid/preference/PreferenceActivity$Header;->extras:Landroid/os/Bundle;
+
+    const-string v9, "account_type"
+
+    invoke-virtual {v8, v9}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 1033
+    .local v0, accType:Ljava/lang/String;
+    iget-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
+
+    invoke-virtual {v8}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v5
+
+    .line 1034
+    .local v5, lp:Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->getContext()Landroid/content/Context;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v8
+
+    const v9, 0x7f0f0019
+
+    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v8
+
+    iput v8, v5, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    .line 1036
+    iget v8, v5, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    iput v8, v5, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    .line 1037
+    iget-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
+
+    invoke-virtual {v8, v5}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 1038
+    iget-object v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mAuthHelper:Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;
+
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->getContext()Landroid/content/Context;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9, v0}, Lcom/android/OriginalSettings/accounts/AuthenticatorHelper;->getDrawableForType(Landroid/content/Context;Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v4
+
+    .line 1039
+    .local v4, icon:Landroid/graphics/drawable/Drawable;
+    iget-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
+
+    invoke-virtual {v8, v4}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    .line 1043
+    .end local v0           #accType:Ljava/lang/String;
+    .end local v4           #icon:Landroid/graphics/drawable/Drawable;
+    .end local v5           #lp:Landroid/view/ViewGroup$LayoutParams;
+    :goto_9
+    iget-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
+
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->getContext()Landroid/content/Context;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v9
+
+    invoke-virtual {v1, v9}, Landroid/preference/PreferenceActivity$Header;->getTitle(Landroid/content/res/Resources;)Ljava/lang/CharSequence;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 1044
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->getContext()Landroid/content/Context;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v8
+
+    invoke-virtual {v1, v8}, Landroid/preference/PreferenceActivity$Header;->getSummary(Landroid/content/res/Resources;)Ljava/lang/CharSequence;
+
+    move-result-object v6
+
+    .line 1045
+    .local v6, summary:Ljava/lang/CharSequence;
+    invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_10
+
+    .line 1046
+    iget-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
+
+    const/4 v9, 0x0
+
+    invoke-virtual {v8, v9}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 1047
+    iget-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
+
+    invoke-virtual {v8, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto/16 :goto_2
+
+    .line 988
+    .end local v6           #summary:Ljava/lang/CharSequence;
+    :cond_7
+    iget-object v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
+
+    const v9, 0x109011e
+
+    const/4 v10, 0x0
+
+    invoke-virtual {v8, v9, p3, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v7
 
     goto/16 :goto_6
 
-    .line 738
-    :cond_a
-    iget-object v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
+    .line 996
+    :cond_8
+    iget-object v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v6, 0x7f040089
+    const v9, 0x7f0400aa
 
-    const/4 v7, 0x0
+    const/4 v10, 0x0
 
-    invoke-virtual {v5, v6, p3, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v8, v9, p3, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v7
 
-    .line 739
-    const v5, 0x7f0a003b
+    .line 997
+    const v8, 0x7f0b0035
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v8
 
-    check-cast v5, Landroid/widget/ImageView;
+    check-cast v8, Landroid/widget/ImageView;
 
-    iput-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
+    iput-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
 
-    .line 740
-    const v5, 0x1020016
+    .line 998
+    const v8, 0x1020016
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v8
 
-    check-cast v5, Landroid/widget/TextView;
+    check-cast v8, Landroid/widget/TextView;
 
-    iput-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
+    iput-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
 
-    .line 741
-    const v5, 0x1020010
+    .line 999
+    const v8, 0x1020010
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v8
 
-    check-cast v5, Landroid/widget/TextView;
+    check-cast v8, Landroid/widget/TextView;
 
-    iput-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
+    iput-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
 
-    .line 742
-    const v5, 0x7f0a0188
+    .line 1000
+    const v8, 0x7f0b01e2
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v8
 
-    check-cast v5, Landroid/widget/Switch;
+    check-cast v8, Landroid/widget/Switch;
 
-    iput-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
+    iput-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
 
-    .line 743
-    invoke-virtual {v4, v2}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
+    .line 1001
+    invoke-virtual {v7, v3}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
     goto/16 :goto_7
 
-    .line 749
+    .line 1007
+    :cond_9
+    iget-wide v8, v1, Landroid/preference/PreferenceActivity$Header;->id:J
+
+    const-wide/32 v10, 0x7f0b0377
+
+    cmp-long v8, v8, v10
+
+    if-nez v8, :cond_a
+
+    .line 1010
+    :cond_a
+    iget-wide v8, v1, Landroid/preference/PreferenceActivity$Header;->id:J
+
+    const-wide/32 v10, 0x7f0b0378
+
+    cmp-long v8, v8, v10
+
+    if-nez v8, :cond_b
+
+    .line 1016
     :cond_b
-    iget-wide v5, v0, Landroid/preference/PreferenceActivity$Header;->id:J
+    iget-wide v8, v1, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v7, 0x7f0a0315
+    const-wide/32 v10, 0x7f0b037f
 
-    cmp-long v5, v5, v7
+    cmp-long v8, v8, v10
 
-    if-nez v5, :cond_c
+    if-nez v8, :cond_c
 
-    .line 752
+    .line 1017
+    iget-object v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mDormantModeEnabler:Lcom/android/OriginalSettings/dormantmode/DormantModeEnabler;
+
+    iget-object v9, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
+
+    invoke-virtual {v8, v9}, Lcom/android/OriginalSettings/dormantmode/DormantModeEnabler;->setSwitch(Landroid/widget/Switch;)V
+
+    goto/16 :goto_8
+
+    .line 1018
     :cond_c
-    iget-wide v5, v0, Landroid/preference/PreferenceActivity$Header;->id:J
+    iget-wide v8, v1, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v7, 0x7f0a0316
+    const-wide/32 v10, 0x7f0b0384
 
-    cmp-long v5, v5, v7
+    cmp-long v8, v8, v10
 
-    if-nez v5, :cond_d
+    if-nez v8, :cond_d
 
-    .line 753
-    iget-object v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mBluetoothEnabler:Lcom/android/OriginalSettings/bluetooth/BluetoothEnabler;
+    .line 1019
+    iget-object v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mPowerSavingEnabler:Lcom/android/OriginalSettings/powersavingmode/PowerSavingEnabler;
 
-    iget-object v6, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
+    iget-object v9, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
 
-    invoke-virtual {v5, v6}, Lcom/android/OriginalSettings/bluetooth/BluetoothEnabler;->setSwitch(Landroid/widget/Switch;)V
+    invoke-virtual {v8, v9}, Lcom/android/OriginalSettings/powersavingmode/PowerSavingEnabler;->setSwitch(Landroid/widget/Switch;)V
 
     goto/16 :goto_8
 
-    .line 754
+    .line 1020
     :cond_d
-    iget-wide v5, v0, Landroid/preference/PreferenceActivity$Header;->id:J
+    iget-wide v8, v1, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v7, 0x7f0a0323
+    const-wide/32 v10, 0x7f0b0397
 
-    cmp-long v5, v5, v7
+    cmp-long v8, v8, v10
 
-    if-nez v5, :cond_e
+    if-nez v8, :cond_e
 
-    .line 755
-    iget-object v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mPowerSavingEnabler:Lcom/android/OriginalSettings/powersavingmode/PowerSavingEnabler;
+    .line 1021
+    iget-object v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mMotionEnabler:Lcom/android/OriginalSettings/motion/MotionEnabler;
 
-    iget-object v6, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
+    iget-object v9, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
 
-    invoke-virtual {v5, v6}, Lcom/android/OriginalSettings/powersavingmode/PowerSavingEnabler;->setSwitch(Landroid/widget/Switch;)V
+    invoke-virtual {v8, v9}, Lcom/android/OriginalSettings/motion/MotionEnabler;->setSwitch(Landroid/widget/Switch;)V
 
     goto/16 :goto_8
 
-    .line 756
+    .line 1023
     :cond_e
-    iget-wide v5, v0, Landroid/preference/PreferenceActivity$Header;->id:J
+    iget-object v8, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mBluetoothEnabler:Lcom/android/OriginalSettings/bluetooth/BluetoothEnabler;
 
-    const-wide/32 v7, 0x7f0a0313
+    iget-object v9, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
 
-    cmp-long v5, v5, v7
-
-    if-nez v5, :cond_8
-
-    .line 757
-    iget-object v5, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mEasyModeEnabler:Lcom/android/OriginalSettings/easymode/EasyModeEnabler;
-
-    iget-object v6, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
-
-    invoke-virtual {v5, v6}, Lcom/android/OriginalSettings/easymode/EasyModeEnabler;->setSwitch(Landroid/widget/Switch;)V
+    invoke-virtual {v8, v9}, Lcom/android/OriginalSettings/bluetooth/BluetoothEnabler;->setSwitch(Landroid/widget/Switch;)V
 
     goto/16 :goto_8
 
-    .line 770
-    .restart local v3       #summary:Ljava/lang/CharSequence;
+    .line 1041
     :cond_f
-    iget-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
+    iget-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
 
-    const/16 v6, 0x8
+    iget v9, v1, Landroid/preference/PreferenceActivity$Header;->iconRes:I
 
-    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v8, v9}, Landroid/widget/ImageView;->setImageResource(I)V
 
     goto/16 :goto_9
 
-    .line 778
+    .line 1049
+    .restart local v6       #summary:Ljava/lang/CharSequence;
     :cond_10
-    iget-object v5, v2, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
+    iget-object v8, v3, Lcom/android/OriginalSettings/Settings$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
 
-    sget-object v6, Landroid/graphics/Typeface;->DEFAULT:Landroid/graphics/Typeface;
+    const/16 v9, 0x8
 
-    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
+    invoke-virtual {v8, v9}, Landroid/widget/TextView;->setVisibility(I)V
 
     goto/16 :goto_2
 
-    .line 668
-    nop
-
+    .line 922
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -1064,7 +1192,7 @@
         :pswitch_1
     .end packed-switch
 
-    .line 718
+    .line 976
     :pswitch_data_1
     .packed-switch 0x0
         :pswitch_3
@@ -1077,7 +1205,7 @@
     .locals 1
 
     .prologue
-    .line 617
+    .line 863
     const/4 v0, 0x3
 
     return v0
@@ -1087,7 +1215,7 @@
     .locals 1
 
     .prologue
-    .line 622
+    .line 868
     const/4 v0, 0x1
 
     return v0
@@ -1098,7 +1226,7 @@
     .parameter "position"
 
     .prologue
-    .line 612
+    .line 858
     invoke-virtual {p0, p1}, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->getItemViewType(I)I
 
     move-result v0
@@ -1120,33 +1248,38 @@
     .locals 1
 
     .prologue
-    .line 806
+    .line 1088
     iget-object v0, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mWifiEnabler:Lcom/android/OriginalSettings/wifi/WifiEnabler;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->pause()V
 
-    .line 807
+    .line 1089
     iget-object v0, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mWifiApEnabler:Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;
 
     if-eqz v0, :cond_0
 
-    .line 809
+    .line 1095
     :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mBluetoothEnabler:Lcom/android/OriginalSettings/bluetooth/BluetoothEnabler;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/bluetooth/BluetoothEnabler;->pause()V
 
-    .line 810
+    .line 1096
     iget-object v0, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mPowerSavingEnabler:Lcom/android/OriginalSettings/powersavingmode/PowerSavingEnabler;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/powersavingmode/PowerSavingEnabler;->pause()V
 
-    .line 811
-    iget-object v0, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mEasyModeEnabler:Lcom/android/OriginalSettings/easymode/EasyModeEnabler;
+    .line 1097
+    iget-object v0, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mDormantModeEnabler:Lcom/android/OriginalSettings/dormantmode/DormantModeEnabler;
 
-    invoke-virtual {v0}, Lcom/android/OriginalSettings/easymode/EasyModeEnabler;->pause()V
+    invoke-virtual {v0}, Lcom/android/OriginalSettings/dormantmode/DormantModeEnabler;->pause()V
 
-    .line 812
+    .line 1098
+    iget-object v0, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mMotionEnabler:Lcom/android/OriginalSettings/motion/MotionEnabler;
+
+    invoke-virtual {v0}, Lcom/android/OriginalSettings/motion/MotionEnabler;->pause()V
+
+    .line 1099
     return-void
 .end method
 
@@ -1154,45 +1287,54 @@
     .locals 1
 
     .prologue
-    .line 797
+    .line 1068
     iget-object v0, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mWifiEnabler:Lcom/android/OriginalSettings/wifi/WifiEnabler;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->resume()V
 
-    .line 798
+    .line 1075
     iget-object v0, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mWifiApEnabler:Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;
 
     if-eqz v0, :cond_0
 
-    .line 800
+    .line 1081
     :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mBluetoothEnabler:Lcom/android/OriginalSettings/bluetooth/BluetoothEnabler;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/bluetooth/BluetoothEnabler;->resume()V
 
-    .line 801
+    .line 1082
+    iget-object v0, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mDormantModeEnabler:Lcom/android/OriginalSettings/dormantmode/DormantModeEnabler;
+
+    invoke-virtual {v0}, Lcom/android/OriginalSettings/dormantmode/DormantModeEnabler;->resume()V
+
+    .line 1083
     iget-object v0, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mPowerSavingEnabler:Lcom/android/OriginalSettings/powersavingmode/PowerSavingEnabler;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/powersavingmode/PowerSavingEnabler;->resume()V
 
-    .line 802
-    iget-object v0, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mEasyModeEnabler:Lcom/android/OriginalSettings/easymode/EasyModeEnabler;
+    .line 1084
+    iget-object v0, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mMotionEnabler:Lcom/android/OriginalSettings/motion/MotionEnabler;
 
-    invoke-virtual {v0}, Lcom/android/OriginalSettings/easymode/EasyModeEnabler;->resume()V
+    invoke-virtual {v0}, Lcom/android/OriginalSettings/motion/MotionEnabler;->resume()V
 
-    .line 803
+    .line 1085
     return-void
 .end method
 
-.method public setSelectedId(I)V
-    .locals 0
-    .parameter "nSelId"
+.method public setEnablersForGuide(Lcom/android/OriginalSettings/Settings;)V
+    .locals 2
+    .parameter "settings"
 
     .prologue
-    .line 626
-    iput p1, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mSelectedId:I
+    .line 1118
+    iget-object v0, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mWifiEnabler:Lcom/android/OriginalSettings/wifi/WifiEnabler;
 
-    .line 627
+    iget-object v1, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mBluetoothEnabler:Lcom/android/OriginalSettings/bluetooth/BluetoothEnabler;
+
+    invoke-static {p1, v0, v1}, Lcom/android/OriginalSettings/guide/GuideFragment;->setEnablersForGuide(Landroid/app/Activity;Lcom/android/OriginalSettings/wifi/WifiEnabler;Lcom/android/OriginalSettings/bluetooth/BluetoothEnabler;)V
+
+    .line 1119
     return-void
 .end method
 
@@ -1203,19 +1345,19 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 815
+    .line 1102
     if-eqz p1, :cond_0
 
-    .line 816
+    .line 1103
     iget-object v0, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mWifiApEnabler:Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;
 
     invoke-virtual {v0, v2}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;->secSetSoftapEnabled(Z)V
 
-    .line 821
+    .line 1108
     :goto_0
     return-void
 
-    .line 818
+    .line 1105
     :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mWifiApEnabler:Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;
 
@@ -1223,7 +1365,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;->setChecked(Z)V
 
-    .line 819
+    .line 1106
     iget-object v0, p0, Lcom/android/OriginalSettings/Settings$HeaderAdapter;->mWifiApEnabler:Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;
 
     invoke-virtual {v0, v2}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;->setEnabled(Z)V

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 203
+    .line 196
     iput-object p1, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$6;->this$0:Lcom/android/OriginalSettings/motion/DoubleTapTutorial;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .parameter "arg1"
 
     .prologue
-    .line 207
+    .line 200
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$6;->this$0:Lcom/android/OriginalSettings/motion/DoubleTapTutorial;
 
     #getter for: Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mListView:Landroid/widget/ListView;
@@ -55,7 +55,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->smoothScrollToPosition(I)V
 
-    .line 208
+    .line 201
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$6;->this$0:Lcom/android/OriginalSettings/motion/DoubleTapTutorial;
 
     const/4 v1, 0x1
@@ -63,7 +63,7 @@
     #setter for: Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mCanDoubleTap:Z
     invoke-static {v0, v1}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->access$402(Lcom/android/OriginalSettings/motion/DoubleTapTutorial;Z)Z
 
-    .line 209
+    .line 202
     invoke-static {}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->access$500()Landroid/hardware/motion/MotionRecognitionManager;
 
     move-result-object v0
@@ -79,7 +79,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 210
+    .line 203
     invoke-static {}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->access$500()Landroid/hardware/motion/MotionRecognitionManager;
 
     move-result-object v0
@@ -95,7 +95,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/hardware/motion/MotionRecognitionManager;->registerListenerEvent(Landroid/hardware/motion/MRListener;I)V
 
-    .line 212
+    .line 205
     :cond_0
     return-void
 .end method

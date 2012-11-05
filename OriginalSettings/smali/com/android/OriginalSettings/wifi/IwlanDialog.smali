@@ -92,7 +92,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04005a
+    const v2, 0x7f04006e
 
     const/4 v3, 0x0
 
@@ -102,7 +102,7 @@
 
     .line 144
     .local v0, row:Landroid/view/View;
-    const v1, 0x7f0a00a3
+    const v1, 0x7f0b00b1
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -113,7 +113,7 @@
     invoke-virtual {v1, p2}, Landroid/widget/TextView;->setText(I)V
 
     .line 145
-    const v1, 0x7f0a0110
+    const v1, 0x7f0b012b
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -159,7 +159,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0d0a4c
+    const v1, 0x7f090c68
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -195,7 +195,7 @@
     :cond_0
     iget-object v3, p0, Lcom/android/OriginalSettings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0d0a49
+    const v4, 0x7f090c65
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -260,7 +260,7 @@
     .line 243
     iget-object v3, p0, Lcom/android/OriginalSettings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0d0a4a
+    const v4, 0x7f090c66
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -302,7 +302,7 @@
 
     iget-object v1, p0, Lcom/android/OriginalSettings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0d0a52
+    const v2, 0x7f090c6e
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -633,7 +633,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f040059
+    const v6, 0x7f04006d
 
     const/4 v7, 0x0
 
@@ -657,14 +657,14 @@
     if-nez v5, :cond_0
 
     .line 75
-    const v5, 0x7f0d0a3e
+    const v5, 0x7f090c5a
 
     invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/wifi/IwlanDialog;->setTitle(I)V
 
     .line 76
     iget-object v5, p0, Lcom/android/OriginalSettings/wifi/IwlanDialog;->mView:Landroid/view/View;
 
-    const v6, 0x7f0a010d
+    const v6, 0x7f0b0128
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -675,7 +675,7 @@
     .line 77
     iget-object v5, p0, Lcom/android/OriginalSettings/wifi/IwlanDialog;->mView:Landroid/view/View;
 
-    const v6, 0x7f0a010e
+    const v6, 0x7f0b0129
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -693,7 +693,7 @@
     .line 79
     iget-object v5, p0, Lcom/android/OriginalSettings/wifi/IwlanDialog;->mView:Landroid/view/View;
 
-    const v6, 0x7f0a010f
+    const v6, 0x7f0b012a
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -729,7 +729,7 @@
     .line 109
     iget-object v5, p0, Lcom/android/OriginalSettings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0d0a50
+    const v6, 0x7f090c6c
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -740,7 +740,7 @@
     .line 110
     iget-object v5, p0, Lcom/android/OriginalSettings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0d0a51
+    const v6, 0x7f090c6d
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -780,7 +780,7 @@
     .line 113
     iget-object v5, p0, Lcom/android/OriginalSettings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0d0a3c
+    const v6, 0x7f090c58
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -792,7 +792,7 @@
     :goto_1
     iget-object v5, p0, Lcom/android/OriginalSettings/wifi/IwlanDialog;->mView:Landroid/view/View;
 
-    const v6, 0x7f0a010c
+    const v6, 0x7f0b0127
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -816,7 +816,7 @@
     if-eqz v4, :cond_1
 
     .line 122
-    const v5, 0x7f0d0a46
+    const v5, 0x7f090c62
 
     invoke-direct {p0, v1, v5, v4}, Lcom/android/OriginalSettings/wifi/IwlanDialog;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -833,7 +833,7 @@
     if-eqz v3, :cond_2
 
     .line 127
-    const v5, 0x7f0d0a47
+    const v5, 0x7f090c63
 
     invoke-direct {p0, v1, v5, v3}, Lcom/android/OriginalSettings/wifi/IwlanDialog;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -850,7 +850,7 @@
     .line 131
     iget-object v5, p0, Lcom/android/OriginalSettings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0d0a4e
+    const v6, 0x7f090c6a
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -861,7 +861,7 @@
     .line 132
     iget-object v5, p0, Lcom/android/OriginalSettings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0d0a52
+    const v6, 0x7f090c6e
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -893,7 +893,7 @@
     :cond_4
     iget-object v5, p0, Lcom/android/OriginalSettings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0d0a4d
+    const v6, 0x7f090c69
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -906,7 +906,7 @@
 
     iget-object v6, p0, Lcom/android/OriginalSettings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0d0a4f
+    const v7, 0x7f090c6b
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

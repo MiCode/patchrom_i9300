@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 501
+    .line 521
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -45,7 +45,7 @@
     .parameter "in"
 
     .prologue
-    .line 503
+    .line 523
     new-instance v0, Lcom/android/OriginalSettings/RingerVolumePreference$SavedState;
 
     invoke-direct {v0, p1}, Lcom/android/OriginalSettings/RingerVolumePreference$SavedState;-><init>(Landroid/os/Parcel;)V
@@ -58,7 +58,7 @@
     .parameter "x0"
 
     .prologue
-    .line 501
+    .line 521
     invoke-virtual {p0, p1}, Lcom/android/OriginalSettings/RingerVolumePreference$SavedState$1;->createFromParcel(Landroid/os/Parcel;)Lcom/android/OriginalSettings/RingerVolumePreference$SavedState;
 
     move-result-object v0
@@ -71,7 +71,7 @@
     .parameter "size"
 
     .prologue
-    .line 507
+    .line 527
     new-array v0, p1, [Lcom/android/OriginalSettings/RingerVolumePreference$SavedState;
 
     return-object v0
@@ -82,7 +82,7 @@
     .parameter "x0"
 
     .prologue
-    .line 501
+    .line 521
     invoke-virtual {p0, p1}, Lcom/android/OriginalSettings/RingerVolumePreference$SavedState$1;->newArray(I)[Lcom/android/OriginalSettings/RingerVolumePreference$SavedState;
 
     move-result-object v0

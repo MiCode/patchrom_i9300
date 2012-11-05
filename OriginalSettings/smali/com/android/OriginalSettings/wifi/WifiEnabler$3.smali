@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 425
+    .line 472
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/WifiEnabler$3;->this$0:Lcom/android/OriginalSettings/wifi/WifiEnabler;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,11 +38,40 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 0
+    .locals 1
     .parameter "dialog"
     .parameter "which"
 
     .prologue
-    .line 427
+    .line 476
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiEnabler$3;->this$0:Lcom/android/OriginalSettings/wifi/WifiEnabler;
+
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiEnabler;->mContext:Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->access$1000(Lcom/android/OriginalSettings/wifi/WifiEnabler;)Landroid/content/Context;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/Activity;
+
+    invoke-static {v0}, Lcom/android/OriginalSettings/guide/GuideFragment;->isInGuideMode(Landroid/app/Activity;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 478
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiEnabler$3;->this$0:Lcom/android/OriginalSettings/wifi/WifiEnabler;
+
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiEnabler;->mContext:Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->access$1000(Lcom/android/OriginalSettings/wifi/WifiEnabler;)Landroid/content/Context;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/Activity;
+
+    invoke-static {p1, p2, v0}, Lcom/android/OriginalSettings/guide/GuideFragment;->onApDisableClick(Landroid/content/DialogInterface;ILandroid/app/Activity;)V
+
+    .line 481
+    :cond_0
     return-void
 .end method

@@ -4,11 +4,9 @@
 
 
 # instance fields
-.field private mCheckBox:Landroid/view/View;
-
 .field private mFragment:Lcom/android/OriginalSettings/SettingsPreferenceFragment;
 
-.field private mSetingsButton:Landroid/widget/ImageView;
+.field private mSettingsButton:Landroid/widget/ImageView;
 
 .field private mSettingsIntent:Landroid/content/Intent;
 
@@ -24,20 +22,20 @@
     .parameter "attrs"
 
     .prologue
-    .line 42
+    .line 41
     invoke-direct {p0, p1, p2}, Landroid/preference/CheckBoxPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 43
-    const v0, 0x7f04008b
+    .line 42
+    const v0, 0x7f0400ac
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->setLayoutResource(I)V
 
-    .line 44
-    const v0, 0x7f04008c
+    .line 43
+    const v0, 0x7f0400ad
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->setWidgetLayoutResource(I)V
 
-    .line 45
+    .line 44
     return-void
 .end method
 
@@ -47,77 +45,77 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 98
-    iget-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSetingsButton:Landroid/widget/ImageView;
+    .line 97
+    iget-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSettingsButton:Landroid/widget/ImageView;
 
     if-eqz v1, :cond_0
 
-    .line 99
+    .line 98
     iget-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSettingsIntent:Landroid/content/Intent;
 
     if-nez v1, :cond_3
 
-    .line 100
-    iget-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSetingsButton:Landroid/widget/ImageView;
+    .line 99
+    iget-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSettingsButton:Landroid/widget/ImageView;
 
     const/16 v2, 0x8
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 111
+    .line 110
     :cond_0
     :goto_0
     iget-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mTitleText:Landroid/widget/TextView;
 
     if-eqz v1, :cond_1
 
-    .line 112
+    .line 111
     iget-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mTitleText:Landroid/widget/TextView;
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 114
+    .line 113
     :cond_1
     iget-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSummaryText:Landroid/widget/TextView;
 
     if-eqz v1, :cond_2
 
-    .line 115
+    .line 114
     iget-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSummaryText:Landroid/widget/TextView;
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 117
+    .line 116
     :cond_2
     return-void
 
-    .line 102
+    .line 101
     :cond_3
     invoke-virtual {p0}, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->isChecked()Z
 
     move-result v0
 
-    .line 103
+    .line 102
     .local v0, checked:Z
-    iget-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSetingsButton:Landroid/widget/ImageView;
+    iget-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSettingsButton:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setEnabled(Z)V
 
-    .line 104
-    iget-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSetingsButton:Landroid/widget/ImageView;
+    .line 103
+    iget-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSettingsButton:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setClickable(Z)V
 
-    .line 105
-    iget-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSetingsButton:Landroid/widget/ImageView;
+    .line 104
+    iget-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSettingsButton:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setFocusable(Z)V
 
-    .line 106
+    .line 105
     if-nez v0, :cond_0
 
-    .line 107
-    iget-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSetingsButton:Landroid/widget/ImageView;
+    .line 106
+    iget-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSettingsButton:Landroid/widget/ImageView;
 
     const v2, 0x3ecccccd
 
@@ -129,25 +127,22 @@
 
 # virtual methods
 .method protected onBindView(Landroid/view/View;)V
-    .locals 2
+    .locals 3
     .parameter "view"
 
     .prologue
-    .line 49
+    .line 48
     invoke-super {p0, p1}, Landroid/preference/CheckBoxPreference;->onBindView(Landroid/view/View;)V
 
-    .line 50
-    const v0, 0x7f0a0189
+    .line 49
+    const v1, 0x7f0b01e3
 
-    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mCheckBox:Landroid/view/View;
-
-    .line 51
-    iget-object v0, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mCheckBox:Landroid/view/View;
-
+    .line 50
+    .local v0, textLayout:Landroid/view/View;
     new-instance v1, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference$1;
 
     invoke-direct {v1, p0}, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference$1;-><init>(Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;)V
@@ -155,46 +150,46 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 58
-    const v0, 0x7f0a018a
+    const v1, 0x7f0b01e4
 
-    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/widget/ImageView;
+    check-cast v1, Landroid/widget/ImageView;
 
-    iput-object v0, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSetingsButton:Landroid/widget/ImageView;
+    iput-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSettingsButton:Landroid/widget/ImageView;
 
     .line 59
-    const v0, 0x1020016
+    const v1, 0x1020016
 
-    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/widget/TextView;
+    check-cast v1, Landroid/widget/TextView;
 
-    iput-object v0, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mTitleText:Landroid/widget/TextView;
+    iput-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mTitleText:Landroid/widget/TextView;
 
     .line 60
-    const v0, 0x1020010
+    const v1, 0x1020010
 
-    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/widget/TextView;
+    check-cast v1, Landroid/widget/TextView;
 
-    iput-object v0, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSummaryText:Landroid/widget/TextView;
+    iput-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSummaryText:Landroid/widget/TextView;
 
     .line 61
-    iget-object v0, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSetingsButton:Landroid/widget/ImageView;
+    iget-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSettingsButton:Landroid/widget/ImageView;
 
-    new-instance v1, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference$2;
+    new-instance v2, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference$2;
 
-    invoke-direct {v1, p0}, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference$2;-><init>(Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;)V
+    invoke-direct {v2, p0}, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference$2;-><init>(Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 68
     invoke-direct {p0}, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->enableSettingsButton()V
@@ -207,23 +202,23 @@
     .locals 1
 
     .prologue
-    .line 84
+    .line 83
     invoke-virtual {p0}, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->isChecked()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 85
+    .line 84
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->setChecked(Z)V
 
-    .line 89
+    .line 88
     :goto_0
     return-void
 
-    .line 87
+    .line 86
     :cond_0
     const/4 v0, 0x1
 
@@ -232,12 +227,11 @@
     goto :goto_0
 .end method
 
-.method protected onSettingsButtonClicked(Landroid/view/View;)V
+.method protected onSettingsButtonClicked()V
     .locals 2
-    .parameter "arg0"
 
     .prologue
-    .line 92
+    .line 91
     iget-object v0, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mFragment:Lcom/android/OriginalSettings/SettingsPreferenceFragment;
 
     if-eqz v0, :cond_0
@@ -246,14 +240,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 93
+    .line 92
     iget-object v0, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mFragment:Lcom/android/OriginalSettings/SettingsPreferenceFragment;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSettingsIntent:Landroid/content/Intent;
 
     invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->startActivity(Landroid/content/Intent;)V
 
-    .line 95
+    .line 94
     :cond_0
     return-void
 .end method
@@ -263,13 +257,13 @@
     .parameter "enabled"
 
     .prologue
-    .line 74
+    .line 73
     invoke-super {p0, p1}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
 
-    .line 75
+    .line 74
     invoke-direct {p0}, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->enableSettingsButton()V
 
-    .line 76
+    .line 75
     return-void
 .end method
 
@@ -279,12 +273,12 @@
     .parameter "intent"
 
     .prologue
-    .line 79
+    .line 78
     iput-object p1, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mFragment:Lcom/android/OriginalSettings/SettingsPreferenceFragment;
 
-    .line 80
+    .line 79
     iput-object p2, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->mSettingsIntent:Landroid/content/Intent;
 
-    .line 81
+    .line 80
     return-void
 .end method

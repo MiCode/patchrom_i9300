@@ -120,17 +120,17 @@
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/flipfont/FontListPreference;->setKey(Ljava/lang/String;)V
 
     .line 110
-    const v0, 0x7f0d072f
+    const v0, 0x7f09085b
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/flipfont/FontListPreference;->setTitle(I)V
 
     .line 111
-    const v0, 0x7f0d0730
+    const v0, 0x7f09085c
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/flipfont/FontListPreference;->setSummary(I)V
 
     .line 112
-    const v0, 0x7f0d0731
+    const v0, 0x7f09085d
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/flipfont/FontListPreference;->setDialogTitle(I)V
 
@@ -140,7 +140,7 @@
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/flipfont/FontListPreference;->setNegativeButtonText(I)V
 
     .line 115
-    const v0, 0x7f02004d
+    const v0, 0x7f020072
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/flipfont/FontListPreference;->setDialogIcon(I)V
 
@@ -360,7 +360,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d0735
+    const v5, 0x7f090861
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -382,7 +382,7 @@
 
     .line 391
     .local v0, builder:Landroid/app/AlertDialog$Builder;
-    const v4, 0x7f0d0023
+    const v4, 0x7f090034
 
     new-instance v5, Lcom/android/OriginalSettings/flipfont/FontListPreference$3;
 
@@ -392,7 +392,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d0024
+    const v5, 0x7f090035
 
     new-instance v6, Lcom/android/OriginalSettings/flipfont/FontListPreference$2;
 
@@ -448,7 +448,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d0734
+    const v5, 0x7f090860
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -556,7 +556,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0737
+    const v3, 0x7f090863
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -606,7 +606,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0736
+    const v3, 0x7f090862
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -677,7 +677,7 @@
 
     move-result-object v27
 
-    invoke-static/range {v26 .. v27}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v26 .. v27}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 233
     move-object/from16 v0, p0
@@ -735,7 +735,7 @@
 
     move-result-object v27
 
-    invoke-static/range {v26 .. v27}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v26 .. v27}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 239
     invoke-virtual/range {p0 .. p0}, Lcom/android/OriginalSettings/flipfont/FontListPreference;->savePreferences()V
@@ -871,7 +871,7 @@
 
     const-string v27, "onOkButtonPressed() : selectedFont == null "
 
-    invoke-static/range {v26 .. v27}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v26 .. v27}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 329
     :goto_1
@@ -1058,7 +1058,7 @@
 
     move-result-object v27
 
-    invoke-static/range {v26 .. v27}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v26 .. v27}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 277
     move-object/from16 v0, p0
@@ -1167,7 +1167,7 @@
 
     move-result-object v27
 
-    invoke-static/range {v26 .. v27}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v26 .. v27}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_3
 
@@ -1350,6 +1350,18 @@
 
     if-eqz v26, :cond_5
 
+    const-string v26, "com.sec.android.app.music"
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, v26
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+
+    move-result v26
+
+    if-eqz v26, :cond_5
+
     .line 314
     const-string v26, "com.infraware.polarisoffice"
 
@@ -1429,7 +1441,7 @@
 
     move-result-object v27
 
-    invoke-static/range {v26 .. v27}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v26 .. v27}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_4
 
@@ -1446,7 +1458,7 @@
 
     invoke-virtual {v4, v0}, Landroid/app/ActivityManager;->restartPackage(Ljava/lang/String;)V
 
-    goto :goto_5
+    goto/16 :goto_5
 
     .line 325
     .end local v3           #aTask:Landroid/app/ActivityManager$RunningTaskInfo;
@@ -1499,7 +1511,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0733
+    const v3, 0x7f09085f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1530,14 +1542,14 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 143
     const-string v2, "FontListPreference"
 
     const-string v3, "onPrepareDialogBuilder : KEY_PREFERENCE : MONOTYPE"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 145
     const-string v2, "MONOTYPE"
@@ -1553,7 +1565,7 @@
 
     const-string v3, "onPrepareDialogBuilder : selectedFont == KEY_PREFERENCE"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 149
     iget-boolean v2, p0, Lcom/android/OriginalSettings/flipfont/FontListPreference;->mDefaultUseHelvetica:Z
@@ -1595,7 +1607,7 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 155
     const-string v2, "FontListPreference"
@@ -1620,7 +1632,7 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 171
     :goto_1
@@ -1676,7 +1688,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0732
+    const v3, 0x7f09085e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1723,7 +1735,7 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 163
     const-string v2, "FontListPreference"
@@ -1748,7 +1760,7 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
@@ -1758,7 +1770,7 @@
 
     const-string v3, "onPrepareDialogBuilder : selectedFont != KEY_PREFERENCE"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 167
     iget-object v2, p0, Lcom/android/OriginalSettings/flipfont/FontListPreference;->mFontListAdapter:Lcom/android/OriginalSettings/flipfont/FontListAdapter;
@@ -1792,7 +1804,7 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 169
     const-string v2, "FontListPreference"
@@ -1817,7 +1829,7 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_1
 .end method
@@ -1926,7 +1938,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0735
+    const v6, 0x7f090861
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1948,7 +1960,7 @@
 
     .line 439
     .local v1, builder:Landroid/app/AlertDialog$Builder;
-    const v5, 0x7f0d0023
+    const v5, 0x7f090034
 
     new-instance v6, Lcom/android/OriginalSettings/flipfont/FontListPreference$6;
 
@@ -1958,7 +1970,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0024
+    const v6, 0x7f090035
 
     new-instance v7, Lcom/android/OriginalSettings/flipfont/FontListPreference$5;
 
@@ -2013,7 +2025,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0734
+    const v6, 0x7f090860
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -2130,7 +2142,7 @@
     if-ge v0, v1, :cond_1
 
     .line 206
-    const v0, 0x7f0d0738
+    const v0, 0x7f090864
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/flipfont/FontListPreference;->setDialogTitle(I)V
 

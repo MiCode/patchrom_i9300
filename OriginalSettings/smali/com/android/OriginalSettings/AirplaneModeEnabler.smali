@@ -228,7 +228,7 @@
 
     move-result-object v6
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 141
     const-string v5, "AirplaneModeEnabler"
@@ -251,7 +251,7 @@
 
     move-result-object v6
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 142
     iget-object v5, p0, Lcom/android/OriginalSettings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
@@ -398,7 +398,7 @@
     .local v2, value:Z
     if-eqz v2, :cond_1
 
-    const v1, 0x7f0d07ba
+    const v1, 0x7f090910
 
     .line 162
     .local v1, resMsg:I
@@ -411,7 +411,7 @@
 
     .line 163
     .local v0, mAlertDialog:Landroid/app/AlertDialog$Builder;
-    const v3, 0x7f0d0112
+    const v3, 0x7f090129
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -446,7 +446,7 @@
     .end local v0           #mAlertDialog:Landroid/app/AlertDialog$Builder;
     .end local v1           #resMsg:I
     :cond_1
-    const v1, 0x7f0d07bb
+    const v1, 0x7f090911
 
     goto :goto_1
 .end method

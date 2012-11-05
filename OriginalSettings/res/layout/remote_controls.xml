@@ -6,8 +6,6 @@
         <fragment android:id="@id/account" android:layout_width="wrap_content" android:layout_height="wrap_content" class="com.android.OriginalSettings.fmm.RemoteControls$FragmentAccount" />
         <fragment android:id="@id/samsung_account" android:layout_width="wrap_content" android:layout_height="wrap_content" class="com.android.OriginalSettings.fmm.RemoteControls$SamsungAccount" />
         <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="1.0dip" />
-        <fragment android:id="@id/google_account" android:layout_width="wrap_content" android:layout_height="wrap_content" class="com.android.OriginalSettings.fmm.RemoteControls$GoogleAccount" />
-        <fragment android:id="@id/location_consent" android:layout_width="wrap_content" android:layout_height="wrap_content" class="com.android.OriginalSettings.fmm.RemoteControls$FragmentLocation" />
-        <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+        <fragment android:id="@id/location_consent" android:layout_width="wrap_content" android:layout_height="150.0dip" class="com.android.OriginalSettings.fmm.RemoteControls$FragmentLocation" />
     </LinearLayout>
 </ScrollView>

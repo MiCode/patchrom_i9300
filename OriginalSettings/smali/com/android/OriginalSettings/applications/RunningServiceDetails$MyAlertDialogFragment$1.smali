@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 529
+    .line 527
     iput-object p1, p0, Lcom/android/OriginalSettings/applications/RunningServiceDetails$MyAlertDialogFragment$1;->this$0:Lcom/android/OriginalSettings/applications/RunningServiceDetails$MyAlertDialogFragment;
 
     iput-object p2, p0, Lcom/android/OriginalSettings/applications/RunningServiceDetails$MyAlertDialogFragment$1;->val$comp:Landroid/content/ComponentName;
@@ -48,7 +48,7 @@
     .parameter "which"
 
     .prologue
-    .line 531
+    .line 529
     iget-object v1, p0, Lcom/android/OriginalSettings/applications/RunningServiceDetails$MyAlertDialogFragment$1;->this$0:Lcom/android/OriginalSettings/applications/RunningServiceDetails$MyAlertDialogFragment;
 
     invoke-virtual {v1}, Lcom/android/OriginalSettings/applications/RunningServiceDetails$MyAlertDialogFragment;->getOwner()Lcom/android/OriginalSettings/applications/RunningServiceDetails;
@@ -61,16 +61,16 @@
 
     move-result-object v0
 
-    .line 532
+    .line 530
     .local v0, ad:Lcom/android/OriginalSettings/applications/RunningServiceDetails$ActiveDetail;
     if-eqz v0, :cond_0
 
-    .line 533
+    .line 531
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/applications/RunningServiceDetails$ActiveDetail;->stopActiveService(Z)V
 
-    .line 535
+    .line 533
     :cond_0
     return-void
 .end method

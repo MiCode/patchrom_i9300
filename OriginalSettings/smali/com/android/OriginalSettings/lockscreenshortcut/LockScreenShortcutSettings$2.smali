@@ -3,7 +3,7 @@
 .source "LockScreenShortcutSettings.java"
 
 # interfaces
-.implements Landroid/view/View$OnLongClickListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 529
+    .line 719
     iput-object p1, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$2;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,179 +37,230 @@
 
 
 # virtual methods
-.method public onLongClick(Landroid/view/View;)Z
-    .locals 8
+.method public onClick(Landroid/view/View;)V
+    .locals 7
     .parameter "v"
 
     .prologue
-    const/4 v7, 0x1
+    .line 721
+    iget-object v5, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$2;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
 
-    const/4 v5, 0x0
+    #getter for: Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->mIsOnSelecting:Z
+    invoke-static {v5}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->access$000(Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;)Z
 
-    .line 531
-    iget-object v0, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$2;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
+    move-result v5
 
-    #getter for: Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->mIsOnDragging:Z
-    invoke-static {v0}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->access$400(Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;)Z
+    if-eqz v5, :cond_0
 
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    .line 532
-    iget-object v0, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$2;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
-
-    #setter for: Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->mIsOnDragging:Z
-    invoke-static {v0, v7}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->access$402(Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;Z)Z
-
-    .line 533
-    const/4 v6, 0x0
-
-    .line 534
-    .local v6, selectedItem:I
-    const/4 v6, 0x0
-
+    .line 744
     :goto_0
-    iget-object v0, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$2;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
+    return-void
+
+    .line 724
+    :cond_0
+    iget-object v5, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$2;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
+
+    const/4 v6, 0x1
+
+    #setter for: Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->mIsOnSelecting:Z
+    invoke-static {v5, v6}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->access$002(Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;Z)Z
+
+    .line 725
+    new-instance v2, Landroid/content/Intent;
+
+    invoke-direct {v2}, Landroid/content/Intent;-><init>()V
+
+    .line 727
+    .local v2, intent:Landroid/content/Intent;
+    const-string v5, "com.android.settings"
+
+    const-string v6, "com.android.settings.lockscreenshortcut.AppList"
+
+    invoke-virtual {v2, v5, v6}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 728
+    const-string v4, ""
+
+    .line 729
+    .local v4, shortcut_app_list:Ljava/lang/String;
+    const/4 v1, 0x0
+
+    .local v1, i:I
+    :goto_1
+    iget-object v5, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$2;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #getter for: Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->mNumOfSavedShortcut:I
-    invoke-static {v0}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->access$100(Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;)I
+    invoke-static {v5}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->access$100(Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;)I
 
-    move-result v0
+    move-result v5
 
-    if-ge v6, v0, :cond_0
+    if-ge v1, v5, :cond_1
 
-    .line 535
-    iget-object v0, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$2;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
+    .line 730
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    #getter for: Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->mShortCutButton:Ljava/util/ArrayList;
-    invoke-static {v0}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->access$300(Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;)Ljava/util/ArrayList;
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v0
+    iget-object v5, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$2;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
 
-    invoke-virtual {v0, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    #getter for: Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->mShortCutList:Ljava/util/ArrayList;
+    invoke-static {v5}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->access$200(Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;)Ljava/util/ArrayList;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result v0
+    move-result-object v5
 
-    if-eqz v0, :cond_2
+    check-cast v5, Landroid/content/pm/ResolveInfo;
 
-    .line 537
-    :cond_0
-    iget-object v0, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$2;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
+    iget-object v5, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    #setter for: Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->mOnDragItem:I
-    invoke-static {v0, v6}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->access$502(Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;I)I
+    iget-object v5, v5, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
-    .line 539
-    const-string v0, "dot"
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v6, "/"
 
-    const-string v3, "Dot : "
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v1
+    iget-object v5, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$2;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
 
-    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    #getter for: Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->mShortCutList:Ljava/util/ArrayList;
+    invoke-static {v5}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->access$200(Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;)Ljava/util/ArrayList;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v5
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    check-cast v5, Landroid/content/pm/ResolveInfo;
 
-    move-result-object v1
+    iget-object v5, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    invoke-static {v0, v1}, Landroid/content/ClipData;->newPlainText(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/ClipData;
+    iget-object v5, v5, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
 
-    move-result-object v2
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 540
-    .local v2, data:Landroid/content/ClipData;
-    iget-object v0, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$2;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
+    move-result-object v5
 
-    new-instance v1, Lcom/android/OriginalSettings/lockscreenshortcut/IconDragShadowBuilder;
+    const-string v6, ";"
 
-    invoke-direct {v1, p1}, Lcom/android/OriginalSettings/lockscreenshortcut/IconDragShadowBuilder;-><init>(Landroid/view/View;)V
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    #setter for: Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->mDragShadowBuilder:Lcom/android/OriginalSettings/lockscreenshortcut/IconDragShadowBuilder;
-    invoke-static {v0, v1}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->access$602(Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;Lcom/android/OriginalSettings/lockscreenshortcut/IconDragShadowBuilder;)Lcom/android/OriginalSettings/lockscreenshortcut/IconDragShadowBuilder;
+    move-result-object v5
 
-    .line 541
-    iget-object v0, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$2;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
-
-    iget-object v1, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$2;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
-
-    #getter for: Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->mDragShadowBuilder:Lcom/android/OriginalSettings/lockscreenshortcut/IconDragShadowBuilder;
-    invoke-static {v1}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->access$600(Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;)Lcom/android/OriginalSettings/lockscreenshortcut/IconDragShadowBuilder;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    move-object v1, p1
+    .line 731
+    .local v3, shortcut_app:Ljava/lang/String;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    move-object v4, p1
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    #calls: Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->startDrag(Landroid/view/View;Landroid/content/ClipData;Lcom/android/OriginalSettings/lockscreenshortcut/IconDragShadowBuilder;Ljava/lang/Object;I)Z
-    invoke-static/range {v0 .. v5}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->access$700(Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;Landroid/view/View;Landroid/content/ClipData;Lcom/android/OriginalSettings/lockscreenshortcut/IconDragShadowBuilder;Ljava/lang/Object;I)Z
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 542
+    move-result-object v5
+
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 729
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_1
+
+    .line 734
+    .end local v3           #shortcut_app:Ljava/lang/String;
+    :cond_1
     const/4 v0, 0x0
 
-    invoke-virtual {p1, v0}, Landroid/view/View;->setAlpha(F)V
+    .line 735
+    .local v0, clicked_view_index:I
+    const/4 v0, 0x0
 
-    .line 543
-    iget-object v0, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$2;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
+    :goto_2
+    iget-object v5, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$2;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
 
-    #getter for: Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->mDeleteArea:Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;
-    invoke-static {v0}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->access$800(Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;)Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;
+    #getter for: Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->mNumOfSavedShortcut:I
+    invoke-static {v5}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->access$100(Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;)I
 
-    move-result-object v0
+    move-result v5
 
-    invoke-virtual {v0, v5}, Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;->setVisibility(I)V
+    if-ge v0, v5, :cond_2
 
-    .line 544
-    iget-object v0, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$2;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
+    .line 736
+    iget-object v5, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$2;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
 
-    #getter for: Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->mDeleteArea:Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;
-    invoke-static {v0}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->access$800(Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;)Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;
+    #getter for: Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->mShortCutButton:Ljava/util/ArrayList;
+    invoke-static {v5}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->access$300(Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;)Ljava/util/ArrayList;
 
-    move-result-object v0
+    move-result-object v5
 
-    const v1, 0x7f0201f1
+    invoke-virtual {v5, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;->setImageResource(I)V
+    move-result-object v5
 
-    .line 545
-    iget-object v0, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$2;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
+    invoke-virtual {p1, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    #getter for: Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->mDeleteArea:Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;
-    invoke-static {v0}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->access$800(Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;)Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;
+    move-result v5
 
-    move-result-object v0
+    if-eqz v5, :cond_3
 
-    const v1, 0x7f0201e9
-
-    invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/lockscreenshortcut/DeleteView;->setBackgroundResource(I)V
-
-    .line 547
-    .end local v2           #data:Landroid/content/ClipData;
-    .end local v6           #selectedItem:I
-    :cond_1
-    return v7
-
-    .line 534
-    .restart local v6       #selectedItem:I
+    .line 739
     :cond_2
-    add-int/lit8 v6, v6, 0x1
+    const-string v5, "clicked_view_index"
 
-    goto :goto_0
+    invoke-virtual {v2, v5, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    .line 740
+    const-string v5, "shortcut_app_list"
+
+    invoke-virtual {v2, v5, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 741
+    const-string v5, "num_of_shortcut"
+
+    iget-object v6, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$2;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
+
+    #getter for: Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->mNumOfSavedShortcut:I
+    invoke-static {v6}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->access$100(Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;)I
+
+    move-result v6
+
+    invoke-virtual {v2, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    .line 742
+    const-string v5, "max_num_of_shortcut"
+
+    sget v6, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->MAX_SHORTCUT_ICON:I
+
+    invoke-virtual {v2, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    .line 743
+    iget-object v5, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$2;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
+
+    const/16 v6, 0x65
+
+    invoke-virtual {v5, v2, v6}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->startActivityForResult(Landroid/content/Intent;I)V
+
+    goto/16 :goto_0
+
+    .line 735
+    :cond_3
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_2
 .end method

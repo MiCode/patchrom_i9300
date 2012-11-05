@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 228
+    .line 241
     iput-object p1, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount$1;->this$0:Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,22 +42,22 @@
     .parameter "arg0"
 
     .prologue
-    .line 231
+    .line 244
     iget-object v1, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount$1;->this$0:Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;
 
     #getter for: Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->returnvalue_sa:I
-    invoke-static {v1}, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->access$200(Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;)I
+    invoke-static {v1}, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->access$300(Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;)I
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 232
+    .line 245
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 233
+    .line 246
     .local v0, mIntent:Landroid/content/Intent;
     const-string v1, "com.osp.app.signin"
 
@@ -65,19 +65,19 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 234
+    .line 247
     const-string v1, "MODE"
 
     const-string v2, "REMOTE_CONTROLS"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 235
+    .line 248
     iget-object v1, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount$1;->this$0:Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;
 
     invoke-virtual {v1, v0}, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->startActivity(Landroid/content/Intent;)V
 
-    .line 237
+    .line 250
     .end local v0           #mIntent:Landroid/content/Intent;
     :cond_0
     return-void

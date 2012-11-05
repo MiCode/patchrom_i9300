@@ -12,6 +12,8 @@
 
 .field private misMissedEvent:Landroid/preference/CheckBoxPreference;
 
+.field private misVoiceRecording:Landroid/preference/CheckBoxPreference;
+
 
 # direct methods
 .method public constructor <init>()V
@@ -31,10 +33,10 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 58
+    .line 61
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 59
+    .line 62
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LedIndicatorSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
@@ -43,13 +45,13 @@
 
     move-result-object v0
 
-    .line 61
+    .line 64
     .local v0, mContentResolver:Landroid/content/ContentResolver;
-    const v1, 0x7f070029
+    const v1, 0x7f070030
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/LedIndicatorSettings;->addPreferencesFromResource(I)V
 
-    .line 63
+    .line 66
     const-string v1, "led_indicator_charging_key"
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/LedIndicatorSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -60,7 +62,7 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/LedIndicatorSettings;->misCharing:Landroid/preference/CheckBoxPreference;
 
-    .line 64
+    .line 67
     const-string v1, "led_indicator_low_battery_key"
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/LedIndicatorSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -71,7 +73,7 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/LedIndicatorSettings;->misLowBattery:Landroid/preference/CheckBoxPreference;
 
-    .line 65
+    .line 68
     const-string v1, "led_indicator_missed_event_key"
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/LedIndicatorSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -82,7 +84,18 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/LedIndicatorSettings;->misMissedEvent:Landroid/preference/CheckBoxPreference;
 
-    .line 66
+    .line 69
+    const-string v1, "led_indicator_voice_recording_key"
+
+    invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/LedIndicatorSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/preference/CheckBoxPreference;
+
+    iput-object v1, p0, Lcom/android/OriginalSettings/LedIndicatorSettings;->misVoiceRecording:Landroid/preference/CheckBoxPreference;
+
+    .line 70
     const-string v1, "led_indicator_incoming_notification_key"
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/LedIndicatorSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -93,7 +106,7 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/LedIndicatorSettings;->misIncomingNotification:Landroid/preference/CheckBoxPreference;
 
-    .line 68
+    .line 72
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LedIndicatorSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
@@ -102,7 +115,7 @@
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 70
+    .line 74
     return-void
 .end method
 
@@ -110,17 +123,17 @@
     .locals 2
 
     .prologue
-    .line 84
+    .line 89
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onPause()V
 
-    .line 85
+    .line 90
     const-string v0, "LedIndicatorSettings"
 
     const-string v1, "onPause() "
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 86
+    .line 91
     return-void
 .end method
 
@@ -134,7 +147,7 @@
 
     const/4 v1, 0x1
 
-    .line 95
+    .line 100
     iget-object v2, p0, Lcom/android/OriginalSettings/LedIndicatorSettings;->misCharing:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -143,7 +156,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 96
+    .line 101
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LedIndicatorSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -163,11 +176,11 @@
     :cond_0
     invoke-static {v2, v3, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 109
+    .line 117
     :goto_0
     return v1
 
-    .line 98
+    .line 103
     :cond_1
     iget-object v2, p0, Lcom/android/OriginalSettings/LedIndicatorSettings;->misLowBattery:Landroid/preference/CheckBoxPreference;
 
@@ -177,7 +190,7 @@
 
     if-eqz v2, :cond_3
 
-    .line 99
+    .line 104
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LedIndicatorSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -199,7 +212,7 @@
 
     goto :goto_0
 
-    .line 101
+    .line 106
     :cond_3
     iget-object v2, p0, Lcom/android/OriginalSettings/LedIndicatorSettings;->misMissedEvent:Landroid/preference/CheckBoxPreference;
 
@@ -209,7 +222,7 @@
 
     if-eqz v2, :cond_5
 
-    .line 102
+    .line 107
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LedIndicatorSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -231,9 +244,9 @@
 
     goto :goto_0
 
-    .line 104
+    .line 109
     :cond_5
-    iget-object v2, p0, Lcom/android/OriginalSettings/LedIndicatorSettings;->misIncomingNotification:Landroid/preference/CheckBoxPreference;
+    iget-object v2, p0, Lcom/android/OriginalSettings/LedIndicatorSettings;->misVoiceRecording:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -241,14 +254,14 @@
 
     if-eqz v2, :cond_7
 
-    .line 105
+    .line 110
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LedIndicatorSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
-    const-string v3, "led_indicator_incoming_notification"
+    const-string v3, "led_indicator_voice_recording"
 
-    iget-object v4, p0, Lcom/android/OriginalSettings/LedIndicatorSettings;->misIncomingNotification:Landroid/preference/CheckBoxPreference;
+    iget-object v4, p0, Lcom/android/OriginalSettings/LedIndicatorSettings;->misVoiceRecording:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v4}, Landroid/preference/CheckBoxPreference;->isChecked()Z
 
@@ -263,8 +276,40 @@
 
     goto :goto_0
 
-    .line 109
+    .line 112
     :cond_7
+    iget-object v2, p0, Lcom/android/OriginalSettings/LedIndicatorSettings;->misIncomingNotification:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {p2, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_9
+
+    .line 113
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LedIndicatorSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string v3, "led_indicator_incoming_notification"
+
+    iget-object v4, p0, Lcom/android/OriginalSettings/LedIndicatorSettings;->misIncomingNotification:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v4}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_8
+
+    move v0, v1
+
+    :cond_8
+    invoke-static {v2, v3, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    goto :goto_0
+
+    .line 117
+    :cond_9
     invoke-super {p0, p1, p2}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v1
@@ -280,17 +325,17 @@
 
     const/4 v1, 0x1
 
-    .line 73
+    .line 77
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onResume()V
 
-    .line 74
+    .line 78
     const-string v0, "LedIndicatorSettings"
 
     const-string v3, "onResume() "
 
-    invoke-static {v0, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 76
+    .line 80
     iget-object v3, p0, Lcom/android/OriginalSettings/LedIndicatorSettings;->misCharing:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LedIndicatorSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -310,7 +355,7 @@
     :goto_0
     invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 77
+    .line 81
     iget-object v3, p0, Lcom/android/OriginalSettings/LedIndicatorSettings;->misLowBattery:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LedIndicatorSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -330,7 +375,7 @@
     :goto_1
     invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 78
+    .line 82
     iget-object v3, p0, Lcom/android/OriginalSettings/LedIndicatorSettings;->misMissedEvent:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LedIndicatorSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -350,7 +395,27 @@
     :goto_2
     invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 79
+    .line 83
+    iget-object v3, p0, Lcom/android/OriginalSettings/LedIndicatorSettings;->misVoiceRecording:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LedIndicatorSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v4, "led_indicator_voice_recording"
+
+    invoke-static {v0, v4, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-ne v0, v1, :cond_3
+
+    move v0, v1
+
+    :goto_3
+    invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+
+    .line 84
     iget-object v0, p0, Lcom/android/OriginalSettings/LedIndicatorSettings;->misIncomingNotification:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LedIndicatorSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -363,53 +428,59 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
-    :goto_3
+    :goto_4
     invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 81
+    .line 86
     return-void
 
     :cond_0
     move v0, v2
 
-    .line 76
+    .line 80
     goto :goto_0
 
     :cond_1
     move v0, v2
 
-    .line 77
+    .line 81
     goto :goto_1
 
     :cond_2
     move v0, v2
 
-    .line 78
+    .line 82
     goto :goto_2
 
     :cond_3
+    move v0, v2
+
+    .line 83
+    goto :goto_3
+
+    :cond_4
     move v1, v2
 
-    .line 79
-    goto :goto_3
+    .line 84
+    goto :goto_4
 .end method
 
 .method public onStop()V
     .locals 2
 
     .prologue
-    .line 90
+    .line 95
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onStop()V
 
-    .line 91
+    .line 96
     const-string v0, "LedIndicatorSettings"
 
     const-string v1, "onStop() "
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 92
+    .line 97
     return-void
 .end method

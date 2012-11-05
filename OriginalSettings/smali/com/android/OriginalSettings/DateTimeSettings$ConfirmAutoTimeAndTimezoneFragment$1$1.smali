@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 702
+    .line 708
     iput-object p1, p0, Lcom/android/OriginalSettings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment$1$1;->this$1:Lcom/android/OriginalSettings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment$1;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 3
 
     .prologue
-    .line 704
+    .line 710
     iget-object v1, p0, Lcom/android/OriginalSettings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment$1$1;->this$1:Lcom/android/OriginalSettings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment$1;
 
     iget-object v1, v1, Lcom/android/OriginalSettings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment$1;->val$context:Landroid/content/Context;
@@ -54,12 +54,12 @@
 
     check-cast v0, Landroid/os/PowerManager;
 
-    .line 705
+    .line 711
     .local v0, powerManager:Landroid/os/PowerManager;
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/os/PowerManager;->reboot(Ljava/lang/String;)V
 
-    .line 706
+    .line 712
     return-void
 .end method

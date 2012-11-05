@@ -36,10 +36,10 @@
     .locals 1
 
     .prologue
-    .line 164
+    .line 174
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 165
+    .line 175
     invoke-static {}, Ljava/text/Collator;->getInstance()Ljava/text/Collator;
 
     move-result-object v0
@@ -57,7 +57,7 @@
     .parameter "object2"
 
     .prologue
-    .line 168
+    .line 178
     iget-wide v0, p1, Lcom/android/OriginalSettings/applications/ApplicationsState$AppEntry;->size:J
 
     iget-wide v2, p2, Lcom/android/OriginalSettings/applications/ApplicationsState$AppEntry;->size:J
@@ -68,11 +68,11 @@
 
     const/4 v0, 0x1
 
-    .line 170
+    .line 180
     :goto_0
     return v0
 
-    .line 169
+    .line 179
     :cond_0
     iget-wide v0, p1, Lcom/android/OriginalSettings/applications/ApplicationsState$AppEntry;->size:J
 
@@ -86,7 +86,7 @@
 
     goto :goto_0
 
-    .line 170
+    .line 180
     :cond_1
     iget-object v0, p0, Lcom/android/OriginalSettings/applications/ApplicationsState$2;->sCollator:Ljava/text/Collator;
 
@@ -107,7 +107,7 @@
     .parameter "x1"
 
     .prologue
-    .line 164
+    .line 174
     check-cast p1, Lcom/android/OriginalSettings/applications/ApplicationsState$AppEntry;
 
     .end local p1

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 97
+    .line 117
     iput-object p1, p0, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings$1;->this$0:Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -36,7 +36,7 @@
     .locals 2
 
     .prologue
-    .line 107
+    .line 127
     iget-object v0, p0, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings$1;->this$0:Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;
 
     iget-object v0, v0, Lcom/android/OriginalSettings/bluetooth/DeviceListPreferenceFragment;->mLocalAdapter:Lcom/android/OriginalSettings/bluetooth/LocalBluetoothAdapter;
@@ -53,24 +53,60 @@
 
     if-eqz v0, :cond_0
 
-    .line 108
+    .line 128
+    iget-object v0, p0, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings$1;->this$0:Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;
+
+    iget-object v0, v0, Lcom/android/OriginalSettings/bluetooth/DeviceListPreferenceFragment;->mLocalAdapter:Lcom/android/OriginalSettings/bluetooth/LocalBluetoothAdapter;
+
+    invoke-virtual {v0}, Lcom/android/OriginalSettings/bluetooth/LocalBluetoothAdapter;->getName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;->access$002(Ljava/lang/String;)Ljava/lang/String;
+
+    .line 129
+    invoke-static {}, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;->access$000()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    .line 130
+    invoke-static {}, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;->access$000()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;->access$102(Ljava/lang/String;)Ljava/lang/String;
+
+    .line 131
     iget-object v0, p0, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings$1;->this$0:Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;
 
     iget-object v0, v0, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;->mMyDevicePreference:Landroid/preference/CheckBoxPreference;
 
-    iget-object v1, p0, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings$1;->this$0:Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;
-
-    iget-object v1, v1, Lcom/android/OriginalSettings/bluetooth/DeviceListPreferenceFragment;->mLocalAdapter:Lcom/android/OriginalSettings/bluetooth/LocalBluetoothAdapter;
-
-    invoke-virtual {v1}, Lcom/android/OriginalSettings/bluetooth/LocalBluetoothAdapter;->getName()Ljava/lang/String;
+    invoke-static {}, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;->access$100()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 110
+    .line 136
     :cond_0
+    :goto_0
     return-void
+
+    .line 134
+    :cond_1
+    iget-object v0, p0, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings$1;->this$0:Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;
+
+    iget-object v0, v0, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;->mMyDevicePreference:Landroid/preference/CheckBoxPreference;
+
+    invoke-static {}, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;->access$100()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setTitle(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
 .end method
 
 
@@ -81,12 +117,12 @@
     .parameter "intent"
 
     .prologue
-    .line 100
+    .line 120
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 101
+    .line 121
     .local v0, action:Ljava/lang/String;
     const-string v1, "android.bluetooth.adapter.action.LOCAL_NAME_CHANGED"
 
@@ -96,10 +132,10 @@
 
     if-eqz v1, :cond_0
 
-    .line 102
+    .line 122
     invoke-direct {p0}, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings$1;->updateDeviceName()V
 
-    .line 104
+    .line 124
     :cond_0
     return-void
 .end method

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1118
+    .line 1977
     iput-object p1, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$14;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,14 +42,14 @@
     .parameter "reason"
 
     .prologue
-    .line 1123
+    .line 1982
     const-string v0, "WfdPickerActivity"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, " discoverPeersWithFlush fail "
+    const-string v2, "discoverPeers fail "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -65,7 +65,15 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1124
+    .line 1983
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$14;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+
+    const/4 v1, 0x1
+
+    #calls: Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->finishScanDevice(I)V
+    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->access$3700(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;I)V
+
+    .line 1984
     return-void
 .end method
 
@@ -73,13 +81,13 @@
     .locals 2
 
     .prologue
-    .line 1120
+    .line 1979
     const-string v0, "WfdPickerActivity"
 
-    const-string v1, " discoverPeersWithFlush success"
+    const-string v1, "discoverPeers success"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1121
+    .line 1980
     return-void
 .end method

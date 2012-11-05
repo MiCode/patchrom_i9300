@@ -25,7 +25,7 @@
         <item quantity="one">Adgangskoden skal indeholde mindst 1 tal eller symbol</item>
     </plurals>
     <plurals name="lock_timeout_minutes">
-        <item quantity="other">%d Minutter</item>
+        <item quantity="other">%d minutter</item>
         <item quantity="one">1 minut</item>
     </plurals>
     <plurals name="lock_timeout_seconds">

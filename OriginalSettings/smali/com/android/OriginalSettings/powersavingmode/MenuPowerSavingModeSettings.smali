@@ -7,6 +7,16 @@
 
 
 # instance fields
+.field private iBackgroundColor:I
+
+.field private iCpuPowerSavinge:I
+
+.field private iDisplayPowerSaving:I
+
+.field private iOffHapticFeedback:I
+
+.field private mActionBarLayout:Landroid/view/View;
+
 .field private mActionBarSwitch:Landroid/widget/Switch;
 
 .field private mBackgroundColor:Landroid/preference/CheckBoxPreference;
@@ -27,10 +37,10 @@
     .locals 2
 
     .prologue
-    .line 45
+    .line 46
     invoke-direct {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;-><init>()V
 
-    .line 71
+    .line 78
     new-instance v0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings$1;
 
     new-instance v1, Landroid/os/Handler;
@@ -49,7 +59,7 @@
     .parameter "x0"
 
     .prologue
-    .line 45
+    .line 46
     invoke-direct {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->updateUIPowerSaving()V
 
     return-void
@@ -63,7 +73,7 @@
 
     const/4 v4, 0x0
 
-    .line 158
+    .line 192
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
@@ -74,7 +84,7 @@
 
     move-result v0
 
-    .line 159
+    .line 193
     .local v0, powersavingState:I
     const-string v1, "MenuPowerSavingModeSettings"
 
@@ -98,55 +108,55 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 160
+    .line 194
     if-nez v0, :cond_0
 
-    .line 161
+    .line 195
     iget-object v1, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mCpuPowerSavinge:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
 
-    .line 162
+    .line 196
     iget-object v1, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mDisplayPowerSaving:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
 
-    .line 163
+    .line 197
     iget-object v1, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mBackgroundColor:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
 
-    .line 164
+    .line 198
     iget-object v1, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mOffHapticFeedback:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
 
-    .line 172
+    .line 206
     :goto_0
     return-void
 
-    .line 166
+    .line 200
     :cond_0
     iget-object v1, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v1, v5}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 167
+    .line 201
     iget-object v1, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mCpuPowerSavinge:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v1, v5}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
 
-    .line 168
+    .line 202
     iget-object v1, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mDisplayPowerSaving:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v1, v5}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
 
-    .line 169
+    .line 203
     iget-object v1, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mBackgroundColor:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v1, v5}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
 
-    .line 170
+    .line 204
     iget-object v1, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mOffHapticFeedback:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v1, v5}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
@@ -157,190 +167,199 @@
 
 # virtual methods
 .method public isAllOptionDisabled()Z
-    .locals 10
+    .locals 11
 
     .prologue
-    const/4 v6, 0x1
+    const/4 v7, 0x1
 
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
-    .line 200
+    .line 234
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v5
+    move-result-object v6
 
-    const-string v8, "psm_switch"
+    const-string v9, "psm_switch"
 
-    invoke-static {v5, v8, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v6, v9, v8}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v4
 
-    .line 201
+    .line 235
     .local v4, powersavingState:I
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v5
+    move-result-object v6
 
-    const-string v8, "psm_cpu_clock"
+    const-string v9, "psm_cpu_clock"
 
-    invoke-static {v5, v8, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v6, v9, v8}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v1
 
-    .line 202
+    .line 236
     .local v1, cpu:I
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v5
+    move-result-object v6
 
-    const-string v8, "psm_display"
+    const-string v9, "psm_display"
 
-    invoke-static {v5, v8, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v6, v9, v8}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v2
 
-    .line 203
+    .line 237
     .local v2, display:I
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v5
+    move-result-object v6
 
-    const-string v8, "psm_background_colour"
+    const-string v9, "psm_background_colour"
 
-    invoke-static {v5, v8, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v6, v9, v8}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
 
-    .line 204
+    .line 238
     .local v0, back:I
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v5
+    move-result-object v6
 
-    const-string v8, "psm_haptic_feedback"
+    const-string v9, "psm_haptic_feedback"
 
-    invoke-static {v5, v8, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v6, v9, v8}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v3
 
-    .line 206
+    .line 241
     .local v3, haptic:I
-    const-string v5, "MenuPowerSavingModeSettings"
+    const-string v6, "MenuPowerSavingModeSettings"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "isAllOptionDisabled(), powersavingState : "
+    const-string v10, "isAllOptionDisabled(), powersavingState : "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    const-string v9, ", cpu : "
+    const-string v10, ", cpu : "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    const-string v9, ", display : "
+    const-string v10, ", display : "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    const-string v9, ", back : "
+    const-string v10, ", back : "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    const-string v9, ", haptic : "
+    const-string v10, ", haptic : "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-static {v5, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 207
-    const-string v5, "vibrator"
-
-    invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/os/Vibrator;
-
-    invoke-virtual {v5}, Landroid/os/Vibrator;->hasVibrator()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    .line 214
-    if-nez v1, :cond_2
-
-    if-nez v2, :cond_2
-
-    if-nez v0, :cond_2
-
-    if-nez v3, :cond_2
-
-    move v5, v6
-
-    .line 217
-    :goto_0
-    return v5
-
-    .line 208
-    :cond_0
+    .line 244
     if-nez v1, :cond_1
 
     if-nez v2, :cond_1
 
-    if-nez v0, :cond_1
+    move v5, v7
 
-    move v5, v6
+    .line 246
+    .local v5, retVal:Z
+    :goto_0
+    const-string v6, "vibrator"
 
-    .line 209
-    goto :goto_0
+    invoke-virtual {p0, v6}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
+    move-result-object v6
+
+    check-cast v6, Landroid/os/Vibrator;
+
+    invoke-virtual {v6}, Landroid/os/Vibrator;->hasVibrator()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    .line 247
+    if-eqz v5, :cond_2
+
+    if-nez v3, :cond_2
+
+    move v5, v7
+
+    .line 250
+    :cond_0
+    :goto_1
+    if-eqz v5, :cond_3
+
+    if-nez v0, :cond_3
+
+    move v5, v7
+
+    .line 253
+    :goto_2
+    return v5
+
+    .end local v5           #retVal:Z
     :cond_1
-    move v5, v7
+    move v5, v8
 
-    .line 211
+    .line 244
     goto :goto_0
 
+    .restart local v5       #retVal:Z
     :cond_2
-    move v5, v7
+    move v5, v8
 
-    .line 217
-    goto :goto_0
+    .line 247
+    goto :goto_1
+
+    :cond_3
+    move v5, v8
+
+    .line 250
+    goto :goto_2
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
@@ -356,27 +375,27 @@
 
     const/4 v5, 0x0
 
-    .line 82
+    .line 89
     const-string v3, "MenuPowerSavingModeSettings"
 
     const-string v6, "onCreate() "
 
     invoke-static {v3, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 83
+    .line 90
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 85
-    const v3, 0x7f07002f
+    .line 92
+    const v3, 0x7f070036
 
     invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->addPreferencesFromResource(I)V
 
-    .line 86
+    .line 93
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 87
+    .line 94
     .local v0, activity:Landroid/app/Activity;
     new-instance v3, Landroid/widget/Switch;
 
@@ -384,56 +403,42 @@
 
     iput-object v3, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    .line 89
+    .line 96
     instance-of v3, v0, Lmiui/preference/BasePreferenceActivity;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_0
 
     move-object v2, v0
 
-    .line 90
+    .line 97
     check-cast v2, Lmiui/preference/BasePreferenceActivity;
 
-    .line 91
+    .line 99
     .local v2, preferenceActivity:Lmiui/preference/BasePreferenceActivity;
-    invoke-virtual {v2}, Lmiui/preference/BasePreferenceActivity;->onIsHidingHeaders()Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    invoke-virtual {v2}, Lmiui/preference/BasePreferenceActivity;->onIsMultiPane()Z
-
-    move-result v3
-
-    if-nez v3, :cond_1
-
-    .line 92
-    :cond_0
     invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v6, 0x7f0e0002
+    const v6, 0x7f0f0002
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    .line 94
+    .line 101
     .local v1, padding:I
     iget-object v3, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v3, v5, v5, v1, v5}, Landroid/widget/Switch;->setPadding(IIII)V
 
-    .line 95
+    .line 102
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v3
 
     invoke-virtual {v3, v7, v7}, Landroid/app/ActionBar;->setDisplayOptions(II)V
 
-    .line 97
+    .line 104
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v3
@@ -448,10 +453,26 @@
 
     invoke-virtual {v3, v6, v7}, Landroid/app/ActionBar;->setCustomView(Landroid/view/View;Landroid/app/ActionBar$LayoutParams;)V
 
-    .line 103
+    .line 108
+    invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/app/ActionBar;->getCustomView()Landroid/view/View;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mActionBarLayout:Landroid/view/View;
+
+    .line 109
+    iget-object v3, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mActionBarSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v3}, Landroid/widget/Switch;->requestFocus()Z
+
+    .line 112
     .end local v1           #padding:I
     .end local v2           #preferenceActivity:Lmiui/preference/BasePreferenceActivity;
-    :cond_1
+    :cond_0
     new-instance v3, Lcom/android/OriginalSettings/powersavingmode/PowerSavingEnabler;
 
     iget-object v6, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mActionBarSwitch:Landroid/widget/Switch;
@@ -460,7 +481,7 @@
 
     iput-object v3, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mPowerSavingEnabler:Lcom/android/OriginalSettings/powersavingmode/PowerSavingEnabler;
 
-    .line 105
+    .line 114
     const-string v3, "power_saving_cpu"
 
     invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -471,7 +492,7 @@
 
     iput-object v3, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mCpuPowerSavinge:Landroid/preference/CheckBoxPreference;
 
-    .line 106
+    .line 115
     iget-object v6, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mCpuPowerSavinge:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -484,14 +505,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_2
 
     move v3, v4
 
     :goto_0
     invoke-virtual {v6, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 107
+    .line 116
     const-string v3, "power_saving_display"
 
     invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -502,7 +523,7 @@
 
     iput-object v3, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mDisplayPowerSaving:Landroid/preference/CheckBoxPreference;
 
-    .line 108
+    .line 117
     iget-object v6, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mDisplayPowerSaving:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -515,14 +536,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_3
 
     move v3, v4
 
     :goto_1
     invoke-virtual {v6, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 109
+    .line 118
     const-string v3, "power_saving_background_color"
 
     invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -533,7 +554,7 @@
 
     iput-object v3, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mBackgroundColor:Landroid/preference/CheckBoxPreference;
 
-    .line 110
+    .line 119
     iget-object v6, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mBackgroundColor:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -546,14 +567,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_4
 
     move v3, v4
 
     :goto_2
     invoke-virtual {v6, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 111
+    .line 120
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
@@ -562,17 +583,17 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1
 
-    .line 112
+    .line 121
     iget-object v3, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mBackgroundColor:Landroid/preference/CheckBoxPreference;
 
-    const v6, 0x7f0d0810
+    const v6, 0x7f090979
 
     invoke-virtual {v3, v6}, Landroid/preference/CheckBoxPreference;->setSummary(I)V
 
-    .line 115
-    :cond_2
+    .line 129
+    :cond_1
     const-string v3, "power_saving_haptic"
 
     invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -583,7 +604,7 @@
 
     iput-object v3, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mOffHapticFeedback:Landroid/preference/CheckBoxPreference;
 
-    .line 116
+    .line 130
     iget-object v3, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mOffHapticFeedback:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -596,12 +617,12 @@
 
     move-result v6
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_5
 
     :goto_3
     invoke-virtual {v3, v4}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 117
+    .line 131
     const-string v3, "vibrator"
 
     invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -614,38 +635,90 @@
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_6
 
-    .line 120
+    .line 135
     :goto_4
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string v4, "psm_cpu_clock"
+
+    invoke-static {v3, v4, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    iput v3, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->iCpuPowerSavinge:I
+
+    .line 136
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string v4, "psm_display"
+
+    invoke-static {v3, v4, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    iput v3, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->iDisplayPowerSaving:I
+
+    .line 137
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string v4, "psm_background_colour"
+
+    invoke-static {v3, v4, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    iput v3, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->iBackgroundColor:I
+
+    .line 138
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string v4, "psm_haptic_feedback"
+
+    invoke-static {v3, v4, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    iput v3, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->iOffHapticFeedback:I
+
+    .line 139
     return-void
+
+    :cond_2
+    move v3, v5
+
+    .line 115
+    goto/16 :goto_0
 
     :cond_3
     move v3, v5
 
-    .line 106
-    goto :goto_0
+    .line 117
+    goto/16 :goto_1
 
     :cond_4
     move v3, v5
 
-    .line 108
-    goto :goto_1
-
-    :cond_5
-    move v3, v5
-
-    .line 110
+    .line 119
     goto :goto_2
 
-    :cond_6
+    :cond_5
     move v4, v5
 
-    .line 116
+    .line 130
     goto :goto_3
 
-    .line 118
-    :cond_7
+    .line 132
+    :cond_6
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v3
@@ -658,89 +731,171 @@
 .end method
 
 .method public onPause()V
-    .locals 4
+    .locals 6
 
     .prologue
-    const/4 v3, 0x1
+    const/4 v5, 0x1
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    .line 135
-    const-string v0, "MenuPowerSavingModeSettings"
+    .line 158
+    const-string v1, "MenuPowerSavingModeSettings"
 
-    const-string v1, "onPause() "
+    const-string v2, "onPause() "
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 136
+    .line 159
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onPause()V
 
-    .line 138
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->isAllOptionDisabled()Z
+    .line 161
+    iget v1, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->iCpuPowerSavinge:I
 
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 139
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string v1, "psm_switch"
+    const-string v3, "psm_cpu_clock"
 
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    .line 140
-    iget-object v0, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mActionBarSwitch:Landroid/widget/Switch;
+    move-result v2
 
-    invoke-virtual {v0, v2}, Landroid/widget/Switch;->setChecked(Z)V
+    if-ne v1, v2, :cond_0
 
-    .line 141
-    iget-object v0, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mActionBarSwitch:Landroid/widget/Switch;
+    iget v1, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->iDisplayPowerSaving:I
 
-    invoke-virtual {v0, v2}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    .line 142
+    move-result-object v2
+
+    const-string v3, "psm_display"
+
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-ne v1, v2, :cond_0
+
+    iget v1, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->iBackgroundColor:I
+
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string v3, "psm_background_colour"
+
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-ne v1, v2, :cond_0
+
+    iget v1, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->iOffHapticFeedback:I
+
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string v3, "psm_haptic_feedback"
+
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-eq v1, v2, :cond_1
+
+    .line 165
+    :cond_0
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "android.settings.POWERSAVING_CHANGED"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 166
+    .local v0, intent:Landroid/content/Intent;
+    const-string v1, "changed"
+
+    const-string v2, "true"
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 167
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
-    move-result-object v0
+    .line 170
+    .end local v0           #intent:Landroid/content/Intent;
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->isAllOptionDisabled()Z
 
-    const v1, 0x7f0d0a86
+    move-result v1
 
-    invoke-static {v0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    if-eqz v1, :cond_2
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
-
-    .line 147
-    :goto_0
-    iget-object v0, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mPowerSavingEnabler:Lcom/android/OriginalSettings/powersavingmode/PowerSavingEnabler;
-
-    invoke-virtual {v0}, Lcom/android/OriginalSettings/powersavingmode/PowerSavingEnabler;->pause()V
-
-    .line 148
+    .line 171
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object v1
 
-    iget-object v1, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mPowerSavingObserver:Landroid/database/ContentObserver;
+    const-string v2, "psm_switch"
 
-    invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
+    invoke-static {v1, v2, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 149
+    .line 172
+    iget-object v1, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mActionBarSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v1, v4}, Landroid/widget/Switch;->setChecked(Z)V
+
+    .line 173
+    iget-object v1, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mActionBarSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v1, v4}, Landroid/widget/Switch;->setEnabled(Z)V
+
+    .line 174
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    const v2, 0x7f090cae
+
+    invoke-static {v1, v2, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+
+    .line 179
+    :goto_0
+    iget-object v1, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mPowerSavingEnabler:Lcom/android/OriginalSettings/powersavingmode/PowerSavingEnabler;
+
+    invoke-virtual {v1}, Lcom/android/OriginalSettings/powersavingmode/PowerSavingEnabler;->pause()V
+
+    .line 180
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mPowerSavingObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v1, v2}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
+
+    .line 181
     return-void
 
-    .line 145
-    :cond_0
-    iget-object v0, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mActionBarSwitch:Landroid/widget/Switch;
+    .line 177
+    :cond_2
+    iget-object v1, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v3}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v1, v5}, Landroid/widget/Switch;->setEnabled(Z)V
 
     goto :goto_0
 .end method
@@ -751,7 +906,7 @@
     .parameter "arg1"
 
     .prologue
-    .line 225
+    .line 259
     const/4 v0, 0x0
 
     return v0
@@ -767,7 +922,7 @@
 
     const/4 v2, 0x0
 
-    .line 175
+    .line 209
     iget-object v0, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mCpuPowerSavinge:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -776,7 +931,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 176
+    .line 210
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
@@ -796,7 +951,7 @@
     :goto_0
     invoke-static {v3, v4, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 189
+    .line 223
     :cond_0
     :goto_1
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->isAllOptionDisabled()Z
@@ -805,12 +960,12 @@
 
     if-eqz v0, :cond_8
 
-    .line 190
+    .line 224
     iget-object v0, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v0, v2}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 195
+    .line 229
     :goto_2
     invoke-super {p0, p1, p2}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
@@ -821,10 +976,10 @@
     :cond_1
     move v0, v2
 
-    .line 176
+    .line 210
     goto :goto_0
 
-    .line 178
+    .line 212
     :cond_2
     iget-object v0, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mDisplayPowerSaving:Landroid/preference/CheckBoxPreference;
 
@@ -834,7 +989,7 @@
 
     if-eqz v0, :cond_4
 
-    .line 179
+    .line 213
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
@@ -861,7 +1016,7 @@
 
     goto :goto_3
 
-    .line 181
+    .line 215
     :cond_4
     iget-object v0, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mBackgroundColor:Landroid/preference/CheckBoxPreference;
 
@@ -871,7 +1026,7 @@
 
     if-eqz v0, :cond_6
 
-    .line 182
+    .line 216
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
@@ -898,7 +1053,7 @@
 
     goto :goto_4
 
-    .line 184
+    .line 218
     :cond_6
     iget-object v0, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mOffHapticFeedback:Landroid/preference/CheckBoxPreference;
 
@@ -908,7 +1063,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 185
+    .line 219
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
@@ -935,7 +1090,7 @@
 
     goto :goto_5
 
-    .line 192
+    .line 226
     :cond_8
     iget-object v0, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
@@ -950,30 +1105,43 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 123
+    .line 142
     const-string v0, "MenuPowerSavingModeSettings"
 
     const-string v1, "onResume() "
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 124
+    .line 143
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onResume()V
 
-    .line 125
+    .line 145
+    iget-object v0, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mActionBarLayout:Landroid/view/View;
+
+    if-eqz v0, :cond_0
+
+    .line 146
+    iget-object v0, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mActionBarLayout:Landroid/view/View;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    .line 148
+    :cond_0
     invoke-direct {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->updateUIPowerSaving()V
 
-    .line 126
+    .line 149
     iget-object v0, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mPowerSavingEnabler:Lcom/android/OriginalSettings/powersavingmode/PowerSavingEnabler;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/powersavingmode/PowerSavingEnabler;->resume()V
 
-    .line 127
+    .line 150
     iget-object v0, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v0, v3}, Landroid/widget/Switch;->setEnabled(Z)V
 
-    .line 128
+    .line 151
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -988,7 +1156,7 @@
 
     invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 131
+    .line 154
     return-void
 .end method
 
@@ -996,16 +1164,29 @@
     .locals 2
 
     .prologue
-    .line 153
+    .line 185
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onStop()V
 
-    .line 154
+    .line 186
     const-string v0, "MenuPowerSavingModeSettings"
 
     const-string v1, "onStop() "
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 155
+    .line 187
+    iget-object v0, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mActionBarLayout:Landroid/view/View;
+
+    if-eqz v0, :cond_0
+
+    .line 188
+    iget-object v0, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->mActionBarLayout:Landroid/view/View;
+
+    const/4 v1, 0x4
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    .line 189
+    :cond_0
     return-void
 .end method

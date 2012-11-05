@@ -3,12 +3,12 @@
 .source "WfdPickerActivity.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnKeyListener;
+.implements Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->onCreateDialog(I)Landroid/app/AlertDialog;
+    value = Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->scanDevice()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1219
+    .line 1990
     iput-object p1, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$15;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,40 +37,49 @@
 
 
 # virtual methods
-.method public onKey(Landroid/content/DialogInterface;ILandroid/view/KeyEvent;)Z
-    .locals 2
-    .parameter "arg0"
-    .parameter "keyCode"
-    .parameter "event"
+.method public onFailure(I)V
+    .locals 3
+    .parameter "reason"
 
     .prologue
-    .line 1222
-    const/4 v0, 0x4
-
-    if-ne p2, v0, :cond_0
-
-    invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 1224
+    .line 1996
     const-string v0, "WfdPickerActivity"
 
-    const-string v1, "Back Button is pressed... same process with cancel..."
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "discoverPeersWithFlush fail "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1226
-    const/4 v0, 0x1
+    .line 1997
+    return-void
+.end method
 
-    .line 1228
-    :goto_0
-    return v0
+.method public onSuccess()V
+    .locals 2
 
-    :cond_0
-    const/4 v0, 0x0
+    .prologue
+    .line 1992
+    const-string v0, "WfdPickerActivity"
 
-    goto :goto_0
+    const-string v1, "discoverPeersWithFlush success"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1993
+    return-void
 .end method

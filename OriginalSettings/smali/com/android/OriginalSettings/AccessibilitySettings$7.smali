@@ -1,14 +1,11 @@
 .class Lcom/android/OriginalSettings/AccessibilitySettings$7;
-.super Ljava/lang/Object;
+.super Landroid/preference/Preference;
 .source "AccessibilitySettings.java"
-
-# interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/AccessibilitySettings;->onCreateDialog(I)Landroid/app/Dialog;
+    value = Lcom/android/OriginalSettings/AccessibilitySettings;->updateServicesPreferences()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -22,63 +19,68 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/OriginalSettings/AccessibilitySettings;)V
+.method constructor <init>(Lcom/android/OriginalSettings/AccessibilitySettings;Landroid/content/Context;)V
     .locals 0
     .parameter
+    .parameter "x0"
 
     .prologue
-    .line 1229
+    .line 1006
     iput-object p1, p0, Lcom/android/OriginalSettings/AccessibilitySettings$7;->this$0:Lcom/android/OriginalSettings/AccessibilitySettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p2}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method protected onBindView(Landroid/view/View;)V
     .locals 5
-    .parameter "dialog"
-    .parameter "which"
+    .parameter "view"
 
     .prologue
-    .line 1234
-    iget-object v3, p0, Lcom/android/OriginalSettings/AccessibilitySettings$7;->this$0:Lcom/android/OriginalSettings/AccessibilitySettings;
+    .line 1009
+    invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    const/4 v4, 0x1
+    .line 1011
+    const v3, 0x7f0b0252
 
-    invoke-virtual {v3, v4}, Lcom/android/OriginalSettings/AccessibilitySettings;->removeDialog(I)V
+    invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    .line 1235
-    const-string v3, "ro.screenreader.market"
+    move-result-object v0
 
-    const-string v4, "market://search?q=pname:com.google.android.marvin.talkback"
+    check-cast v0, Landroid/widget/LinearLayout;
 
-    invoke-static {v3, v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    .line 1013
+    .local v0, containerView:Landroid/widget/LinearLayout;
+    const/16 v3, 0x11
 
-    move-result-object v2
+    invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    .line 1238
-    .local v2, screenreaderMarketLink:Ljava/lang/String;
-    invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    .line 1015
+    const v3, 0x7f0b0198
+
+    invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    .line 1239
-    .local v1, marketUri:Landroid/net/Uri;
-    new-instance v0, Landroid/content/Intent;
+    check-cast v1, Landroid/widget/TextView;
 
-    const-string v3, "android.intent.action.VIEW"
-
-    invoke-direct {v0, v3, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
-
-    .line 1240
-    .local v0, marketIntent:Landroid/content/Intent;
+    .line 1016
+    .local v1, summaryView:Landroid/widget/TextView;
     iget-object v3, p0, Lcom/android/OriginalSettings/AccessibilitySettings$7;->this$0:Lcom/android/OriginalSettings/AccessibilitySettings;
 
-    invoke-virtual {v3, v0}, Lcom/android/OriginalSettings/AccessibilitySettings;->startActivity(Landroid/content/Intent;)V
+    const v4, 0x7f09068d
 
-    .line 1241
+    invoke-virtual {v3, v4}, Lcom/android/OriginalSettings/AccessibilitySettings;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 1017
+    .local v2, title:Ljava/lang/String;
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 1018
     return-void
 .end method

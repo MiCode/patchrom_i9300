@@ -18,12 +18,15 @@
         <item>10 minut</item>
         <item>30 minut</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 sekund</item>
         <item>30 sekund</item>
         <item>1 minuta</item>
-        <item>2 minuty</item>
+        <item>3 minuty</item>
         <item>5 minut</item>
+        <item>10 minut</item>
+        <item>15 minut</item>
+        <item>30 minut</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Nikdy</item>
@@ -34,6 +37,18 @@
         <item>5 minut</item>
         <item>10 minut</item>
         <item>30 minut</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 sekund</item>
+        <item>30 sekund</item>
+        <item>1 minuta</item>
+        <item>3 minuty</item>
+        <item>5 minut</item>
+        <item>10 minut</item>
+        <item>15 minut</item>
+        <item>30 minut</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>Okamžitě</item>
@@ -55,7 +70,7 @@
     </string-array>
     <string-array name="tts_rate_entries">
         <item>Velmi pomalu</item>
-        <item>Pomalé</item>
+        <item>Pomalu</item>
         <item>Normální</item>
         <item>Rychle</item>
         <item>Velmi rychle</item>
@@ -93,17 +108,7 @@
         <item>Odpojeno</item>
         <item>Neúspěšně</item>
         <item>Připojeno</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Dočasné předcházení slabému připojení</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>Odpojeno</item>
         <item>Neúspěšně</item>
         <item>Připojeno</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Dočasné předcházení slabému připojení</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>Otevřít</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Tlačítko</item>
+        <item>PIN kód z rovnocenného zařízení</item>
+        <item>PIN kód z tohoto zařízení</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Připojeno</item>
+        <item>Pozván</item>
+        <item>Připojení se nezdařilo</item>
+        <item>Klepnutím připojte</item>
+        <item>Mimo rozsah</item>
+        <item>Připojeno k jinému zařízení</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>Žádný časový limit</item>
@@ -152,6 +155,10 @@
         <item>20 minut</item>
         <item>30 minut</item>
         <item>60 minut</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Povolit vš. zařízení</item>
+        <item>Pouze povolená zařízení</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>Automaticky</item>
@@ -178,19 +185,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-    </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Tlačítko</item>
-        <item>PIN kód z rovnocenného zařízení</item>
-        <item>PIN kód z tohoto zařízení</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Připojeno</item>
-        <item>Pozván</item>
-        <item>Připojení se nezdařilo</item>
-        <item>Klepnutím připojte</item>
-        <item>Mimo rozsah</item>
-        <item>Připojeno k jinému zařízení</item>
     </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 min.</item>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -254,7 +249,7 @@
         <item>GTC</item>
     </string-array>
     <string-array name="wifi_network_setup">
-        <item>Vypnout</item>
+        <item>Vyp</item>
         <item>Tlačítko</item>
         <item>PIN kód z přístupového bodu</item>
         <item>PIN kód z tohoto zařízení</item>
@@ -266,16 +261,6 @@
     <string-array name="wifi_proxy_settings">
         <item>Žádný</item>
         <item>Ručně</item>
-    </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Normální</item>
-        <item>Downtown</item>
-        <item>Domů</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>Toto je nejobecnější nastavení připojení Wi-Fi</item>
-        <item>Pokud jste v oblasti pokrytí mnoha sítěmi Wi-Fi, připojení Wi-Fi se bude často odpojovat a připojovat z důvodu dosažení lepší intenzity signálu</item>
-        <item>Pokud jste v oblasti pokrytí několika sítěmi Wi-Fi, připojení Wi-Fi bude udržováno tak dlouho, jak to jen bude možné</item>
     </string-array>
     <string-array name="emergency_tone_entries">
         <item>Vypnout</item>
@@ -307,11 +292,6 @@
         <item>Interní úložiště v zařízení</item>
         <item>Vyjímatelná SD karta</item>
         <item>Výchozí</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>Vypnout</item>
-        <item>Vibrace</item>
-        <item>Ztlumit</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Krátký</item>
@@ -346,6 +326,15 @@
         <item>Měřítko animace 5x</item>
         <item>Měřítko animace 10x</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Animace je vypnutá</item>
+        <item>Měřítko animace 0,5x</item>
+        <item>Měřítko animace 1x</item>
+        <item>Měřítko animace 1,5x</item>
+        <item>Měřítko animace 2x</item>
+        <item>Měřítko animace 5x</item>
+        <item>Měřítko animace 10x</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>Standardní limit</item>
         <item>Žádné procesy na pozadí</item>
@@ -370,22 +359,8 @@
         <item>Časový limit</item>
         <item>Neúspěšně</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>Paměť USB</item>
+        <item>Zařízení</item>
         <item>SD karta</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -415,15 +390,28 @@
         <item>Fotografie</item>
         <item>Hudba</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>Vysoká</item>
-        <item>Střední</item>
-        <item>Nízká</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Automaticky</item>
         <item>Ručně</item>
         <item>Vždy zobrazit dotaz</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Vždy vypnuto</item>
+        <item>3 sekundy</item>
+        <item>5 sekund</item>
+        <item>10 sekund</item>
+        <item>15 sekund</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Žádný</item>
+        <item>Všechny kontakty</item>
+        <item>Oblíbené</item>
+        <item>Vlastní</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>Vysoká</item>
+        <item>Střední</item>
+        <item>Nízká</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1,5 sekundy</item>
@@ -439,11 +427,24 @@
     <string-array name="contents_type_entries">
         <item>Novinky</item>
         <item>Akcie</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Zprávy</item>
+        <item>Akcie</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
-        <item>Pomalé</item>
+        <item>Pomalu</item>
         <item>Normální</item>
         <item>Rychle</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Žádný</item>
+        <item>Každých 30 minut</item>
+        <item>Každou hodinu</item>
+        <item>Každé 2 hodiny</item>
+        <item>Každé 4 hodiny</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>Sluchátka</item>
@@ -451,5 +452,9 @@
         <item>Telefon</item>
         <item>HID (klávesnice, myš, atd.)</item>
         <item>Všechna zařízení</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Stereo</item>
+        <item>Prostorový</item>
     </string-array>
 </resources>

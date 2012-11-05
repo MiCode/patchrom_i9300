@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1440
+    .line 1522
     iput-object p1, p0, Lcom/android/OriginalSettings/DataUsageSummary$15;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,23 +38,16 @@
 
 # virtual methods
 .method public onInspectRangeChanged()V
-    .locals 2
+    .locals 1
 
     .prologue
-    .line 1443
-    const-string v0, "DataUsage"
-
-    const-string v1, "onInspectRangeChanged()"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1444
+    .line 1526
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$15;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     #calls: Lcom/android/OriginalSettings/DataUsageSummary;->updateDetailData()V
-    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->access$2500(Lcom/android/OriginalSettings/DataUsageSummary;)V
+    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->access$2000(Lcom/android/OriginalSettings/DataUsageSummary;)V
 
-    .line 1445
+    .line 1527
     return-void
 .end method
 
@@ -62,13 +55,13 @@
     .locals 3
 
     .prologue
-    .line 1454
+    .line 1536
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$15;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$15;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$900(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/widget/ChartDataUsageView;
+    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1900(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/widget/ChartDataUsageView;
 
     move-result-object v1
 
@@ -77,9 +70,9 @@
     move-result-wide v1
 
     #calls: Lcom/android/OriginalSettings/DataUsageSummary;->setPolicyLimitBytes(J)V
-    invoke-static {v0, v1, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1800(Lcom/android/OriginalSettings/DataUsageSummary;J)V
+    invoke-static {v0, v1, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1100(Lcom/android/OriginalSettings/DataUsageSummary;J)V
 
-    .line 1455
+    .line 1537
     return-void
 .end method
 
@@ -87,13 +80,13 @@
     .locals 3
 
     .prologue
-    .line 1449
+    .line 1531
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$15;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$15;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$900(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/widget/ChartDataUsageView;
+    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1900(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/widget/ChartDataUsageView;
 
     move-result-object v1
 
@@ -102,90 +95,34 @@
     move-result-wide v1
 
     #calls: Lcom/android/OriginalSettings/DataUsageSummary;->setPolicyWarningBytes(J)V
-    invoke-static {v0, v1, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$3100(Lcom/android/OriginalSettings/DataUsageSummary;J)V
+    invoke-static {v0, v1, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1300(Lcom/android/OriginalSettings/DataUsageSummary;J)V
 
-    .line 1450
+    .line 1532
     return-void
 .end method
 
 .method public requestLimitEdit()V
-    .locals 2
+    .locals 1
 
     .prologue
-    .line 1467
+    .line 1546
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$15;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1300(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
+    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary$LimitEditorFragment;->show(Lcom/android/OriginalSettings/DataUsageSummary;)V
 
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    .line 1468
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$15;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1300(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/app/DialogFragment;->dismiss()V
-
-    .line 1470
-    :cond_0
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$15;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$15;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary$LimitEditorFragment;->show(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
-
-    move-result-object v1
-
-    #setter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-    invoke-static {v0, v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1302(Lcom/android/OriginalSettings/DataUsageSummary;Landroid/app/DialogFragment;)Landroid/app/DialogFragment;
-
-    .line 1471
+    .line 1547
     return-void
 .end method
 
 .method public requestWarningEdit()V
-    .locals 2
+    .locals 1
 
     .prologue
-    .line 1459
+    .line 1541
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$15;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1300(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
+    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary$WarningEditorFragment;->show(Lcom/android/OriginalSettings/DataUsageSummary;)V
 
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    .line 1460
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$15;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1300(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/app/DialogFragment;->dismiss()V
-
-    .line 1462
-    :cond_0
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$15;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$15;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary$WarningEditorFragment;->show(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
-
-    move-result-object v1
-
-    #setter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-    invoke-static {v0, v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1302(Lcom/android/OriginalSettings/DataUsageSummary;Landroid/app/DialogFragment;)Landroid/app/DialogFragment;
-
-    .line 1463
+    .line 1542
     return-void
 .end method

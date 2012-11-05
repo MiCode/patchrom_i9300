@@ -1,11 +1,14 @@
 .class Lcom/android/OriginalSettings/SoundSettings$2;
-.super Landroid/os/Handler;
+.super Ljava/lang/Object;
 .source "SoundSettings.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/OriginalSettings/SoundSettings;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/OriginalSettings/SoundSettings;->onCreate(Landroid/os/Bundle;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,68 +27,83 @@
     .parameter
 
     .prologue
-    .line 186
+    .line 372
     iput-object p1, p0, Lcom/android/OriginalSettings/SoundSettings$2;->this$0:Lcom/android/OriginalSettings/SoundSettings;
 
-    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
+    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
-    .locals 2
-    .parameter "msg"
+.method public run()V
+    .locals 4
 
     .prologue
-    .line 188
-    iget v0, p1, Landroid/os/Message;->what:I
+    const/4 v3, 0x2
 
-    packed-switch v0, :pswitch_data_0
+    const/4 v2, 0x1
 
-    .line 196
-    :goto_0
-    return-void
-
-    .line 190
-    :pswitch_0
+    .line 374
     iget-object v0, p0, Lcom/android/OriginalSettings/SoundSettings$2;->this$0:Lcom/android/OriginalSettings/SoundSettings;
 
     #getter for: Lcom/android/OriginalSettings/SoundSettings;->mRingtonePreference:Landroid/preference/Preference;
-    invoke-static {v0}, Lcom/android/OriginalSettings/SoundSettings;->access$100(Lcom/android/OriginalSettings/SoundSettings;)Landroid/preference/Preference;
+    invoke-static {v0}, Lcom/android/OriginalSettings/SoundSettings;->access$000(Lcom/android/OriginalSettings/SoundSettings;)Landroid/preference/Preference;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    .line 375
+    iget-object v0, p0, Lcom/android/OriginalSettings/SoundSettings$2;->this$0:Lcom/android/OriginalSettings/SoundSettings;
+
+    iget-object v1, p0, Lcom/android/OriginalSettings/SoundSettings$2;->this$0:Lcom/android/OriginalSettings/SoundSettings;
+
+    #getter for: Lcom/android/OriginalSettings/SoundSettings;->mRingtonePreference:Landroid/preference/Preference;
+    invoke-static {v1}, Lcom/android/OriginalSettings/SoundSettings;->access$000(Lcom/android/OriginalSettings/SoundSettings;)Landroid/preference/Preference;
 
     move-result-object v1
 
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    #calls: Lcom/android/OriginalSettings/SoundSettings;->updateRingtoneName(ILandroid/preference/Preference;I)V
+    invoke-static {v0, v2, v1, v2}, Lcom/android/OriginalSettings/SoundSettings;->access$500(Lcom/android/OriginalSettings/SoundSettings;ILandroid/preference/Preference;I)V
 
-    check-cast v0, Ljava/lang/CharSequence;
-
-    invoke-virtual {v1, v0}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
-
-    goto :goto_0
-
-    .line 193
-    :pswitch_1
+    .line 378
+    :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/SoundSettings$2;->this$0:Lcom/android/OriginalSettings/SoundSettings;
 
     #getter for: Lcom/android/OriginalSettings/SoundSettings;->mNotificationPreference:Landroid/preference/Preference;
-    invoke-static {v0}, Lcom/android/OriginalSettings/SoundSettings;->access$200(Lcom/android/OriginalSettings/SoundSettings;)Landroid/preference/Preference;
+    invoke-static {v0}, Lcom/android/OriginalSettings/SoundSettings;->access$100(Lcom/android/OriginalSettings/SoundSettings;)Landroid/preference/Preference;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    .line 379
+    iget-object v0, p0, Lcom/android/OriginalSettings/SoundSettings$2;->this$0:Lcom/android/OriginalSettings/SoundSettings;
+
+    iget-object v1, p0, Lcom/android/OriginalSettings/SoundSettings$2;->this$0:Lcom/android/OriginalSettings/SoundSettings;
+
+    #getter for: Lcom/android/OriginalSettings/SoundSettings;->mNotificationPreference:Landroid/preference/Preference;
+    invoke-static {v1}, Lcom/android/OriginalSettings/SoundSettings;->access$100(Lcom/android/OriginalSettings/SoundSettings;)Landroid/preference/Preference;
 
     move-result-object v1
 
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    #calls: Lcom/android/OriginalSettings/SoundSettings;->updateRingtoneName(ILandroid/preference/Preference;I)V
+    invoke-static {v0, v3, v1, v3}, Lcom/android/OriginalSettings/SoundSettings;->access$500(Lcom/android/OriginalSettings/SoundSettings;ILandroid/preference/Preference;I)V
 
-    check-cast v0, Ljava/lang/CharSequence;
+    .line 382
+    :cond_1
+    iget-object v0, p0, Lcom/android/OriginalSettings/SoundSettings$2;->this$0:Lcom/android/OriginalSettings/SoundSettings;
 
-    invoke-virtual {v1, v0}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+    #getter for: Lcom/android/OriginalSettings/SoundSettings;->mRingtone2Preference:Landroid/preference/Preference;
+    invoke-static {v0}, Lcom/android/OriginalSettings/SoundSettings;->access$400(Lcom/android/OriginalSettings/SoundSettings;)Landroid/preference/Preference;
 
-    goto :goto_0
+    move-result-object v0
 
-    .line 188
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
+    if-eqz v0, :cond_2
+
+    .line 386
+    :cond_2
+    return-void
 .end method

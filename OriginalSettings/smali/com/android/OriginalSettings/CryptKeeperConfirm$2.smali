@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 113
+    .line 108
     iput-object p1, p0, Lcom/android/OriginalSettings/CryptKeeperConfirm$2;->this$0:Lcom/android/OriginalSettings/CryptKeeperConfirm;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "view"
 
     .prologue
-    .line 115
+    .line 110
     check-cast p1, Landroid/widget/CheckBox;
 
     .end local p1
@@ -52,18 +52,18 @@
 
     if-eqz v0, :cond_0
 
-    .line 116
+    .line 111
     const-string v0, "sys.google_encryption"
 
     const-string v1, "false"
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 120
+    .line 115
     :goto_0
     return-void
 
-    .line 118
+    .line 113
     :cond_0
     const-string v0, "sys.google_encryption"
 

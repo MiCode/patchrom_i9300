@@ -18,12 +18,15 @@
         <item>10 mínútur</item>
         <item>30 mínútur</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 sekúndur</item>
         <item>30 sekúndur</item>
         <item>1 mínúta</item>
-        <item>2 mínútur</item>
+        <item>3 mínútur</item>
         <item>5 mínútur</item>
+        <item>10 mínútur</item>
+        <item>15 mínútur</item>
+        <item>30 mínútur</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Aldrei</item>
@@ -34,6 +37,18 @@
         <item>5 mínútur</item>
         <item>10 mínútur</item>
         <item>30 mínútur</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 sekúndur</item>
+        <item>30 sekúndur</item>
+        <item>1 mínúta</item>
+        <item>3 mínútur</item>
+        <item>5 mínútur</item>
+        <item>10 mínútur</item>
+        <item>15 mínútur</item>
+        <item>30 mínútur</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>Tafarlaust</item>
@@ -93,17 +108,7 @@
         <item>Aftengt</item>
         <item>Mistókst</item>
         <item>Tengt</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Temporarily avoiding poor connection</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>Aftengt</item>
         <item>Mistókst</item>
         <item>Tengt</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Temporarily avoiding poor connection</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>Opna</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Ýttu á hnapp</item>
+        <item>PIN-númer frá pörunartæki</item>
+        <item>PIN-númer frá þessu tæki</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Tengt</item>
+        <item>Boðið</item>
+        <item>Tenging brást</item>
+        <item>Pikkaðu til að tengja</item>
+        <item>Síminn er utan svæðis</item>
+        <item>Tengt við annað tæki</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>Slökkva aldrei</item>
@@ -152,6 +155,10 @@
         <item>20 mínútur</item>
         <item>30 mínútur</item>
         <item>60 mínútur</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Leyfa öll tæki</item>
+        <item>Aðeins leyfð tæki</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>Sjálfvirkt</item>
@@ -178,19 +185,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-    </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Ýttu á hnapp</item>
-        <item>PIN-númer frá pörunartæki</item>
-        <item>PIN-númer frá þessu tæki</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Tengt</item>
-        <item>Boðið</item>
-        <item>Tenging brást</item>
-        <item>Pikkaðu til að tengja</item>
-        <item>Síminn er utan svæðis</item>
-        <item>Tengt við annað tæki</item>
     </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 mín.</item>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -267,16 +262,6 @@
         <item>Ekkert</item>
         <item>Handvirkt</item>
     </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Venjulegt</item>
-        <item>Downtown</item>
-        <item>Heima</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>Þetta er almennasta Wi-Fi-tengistillingin</item>
-        <item>Ef þú ert á svæði með mörgum Wi-Fi-netum verður Wi-Fi endurtengt reglulega til að auka sendistyrkinn</item>
-        <item>Ef þú ert á svæði með fáum Wi-Fi-netum verður reynt að halda Wi-Fi-tengingu eins lengi og mögulegt er</item>
-    </string-array>
     <string-array name="emergency_tone_entries">
         <item>Slökkt</item>
         <item>Áminning</item>
@@ -302,11 +287,6 @@
         <item>Innra geymslupláss tækis</item>
         <item>Laust SD-kort</item>
         <item>Sjálfgefið</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>Slökkt</item>
-        <item>Titringur</item>
-        <item>Þögn</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Stutt</item>
@@ -341,6 +321,15 @@
         <item>Skali hreyfimyndar 5x</item>
         <item>Skali hreyfimyndar 10x</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Slökkt á hreyfimynd</item>
+        <item>Skali hreyfimyndar 0,5x</item>
+        <item>Skali hreyfimyndar 1x</item>
+        <item>Skali hreyfimyndar 1,5x</item>
+        <item>Skali hreyfimyndar 2x</item>
+        <item>Skali hreyfimyndar 5x</item>
+        <item>Skali hreyfimyndar 10x</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>Venjuleg mörk</item>
         <item>Engin vinnsla í bakgrunni</item>
@@ -365,22 +354,8 @@
         <item>Útrunnið</item>
         <item>Mistókst</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>USB-geymsla</item>
+        <item>Tæki</item>
         <item>SD-kort</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -410,15 +385,28 @@
         <item>Ljósmyndir</item>
         <item>Tónlist</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>Mikið</item>
-        <item>Miðlungs</item>
-        <item>Lítið</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Sjálfvirkt</item>
         <item>Handvirkt</item>
         <item>Spyrja alltaf</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Alltaf slökkt</item>
+        <item>3 sekúndur</item>
+        <item>5 sekúndur</item>
+        <item>10 sekúndur</item>
+        <item>15 sekúndur</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Ekkert</item>
+        <item>Allir tengiliðir</item>
+        <item>Eftirlæti</item>
+        <item>Sérstilla</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>Mikið</item>
+        <item>Miðlungs</item>
+        <item>Lítið</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1,5 sekúndur</item>
@@ -434,11 +422,24 @@
     <string-array name="contents_type_entries">
         <item>Fréttir</item>
         <item>Kjötkraftur</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Fréttir</item>
+        <item>Kjötkraftur</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>Hægt</item>
         <item>Venjulegt</item>
         <item>Hratt</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Ekkert</item>
+        <item>Á 30 mínútna fresti</item>
+        <item>Á 1 klst. fresti</item>
+        <item>Á tveggja klukkustunda fresti</item>
+        <item>Á 4 klst. fresti</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>Höfuðtól</item>
@@ -446,5 +447,9 @@
         <item>Sími</item>
         <item>HID (lyklaborð, mús o.s.frv.)</item>
         <item>Öll tæki</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Steríó</item>
+        <item>Surround</item>
     </string-array>
 </resources>

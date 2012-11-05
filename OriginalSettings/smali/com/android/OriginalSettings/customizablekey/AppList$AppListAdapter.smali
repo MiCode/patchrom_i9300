@@ -77,7 +77,7 @@
 
     .line 103
     .local v2, inflater:Landroid/view/LayoutInflater;
-    const v3, 0x7f040061
+    const v3, 0x7f040074
 
     const/4 v4, 0x0
 
@@ -86,7 +86,7 @@
     move-result-object p2
 
     .line 105
-    const v3, 0x7f0a012f
+    const v3, 0x7f0b0137
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -96,7 +96,7 @@
 
     .line 106
     .local v1, appName:Landroid/widget/TextView;
-    const v3, 0x7f0a0006
+    const v3, 0x7f0b007e
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

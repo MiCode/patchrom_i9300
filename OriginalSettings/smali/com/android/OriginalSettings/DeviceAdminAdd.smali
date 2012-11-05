@@ -54,7 +54,7 @@
 
 .field mDeviceAdmin:Landroid/app/enterprise/EnterpriseDeviceAdminInfo;
 
-.field mHandlerAdmin:Landroid/os/Handler;
+.field mHandler:Landroid/os/Handler;
 
 .field mRefreshing:Z
 
@@ -200,7 +200,7 @@
 
     invoke-direct {v8, v9}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    iput-object v8, p0, Lcom/android/OriginalSettings/DeviceAdminAdd;->mHandlerAdmin:Landroid/os/Handler;
+    iput-object v8, p0, Lcom/android/OriginalSettings/DeviceAdminAdd;->mHandler:Landroid/os/Handler;
 
     .line 103
     const-string v8, "enterprise_policy"
@@ -737,12 +737,12 @@
     iput-object v8, p0, Lcom/android/OriginalSettings/DeviceAdminAdd;->mAddMsgText:Ljava/lang/CharSequence;
 
     .line 199
-    const v8, 0x7f040048
+    const v8, 0x7f040046
 
     invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/DeviceAdminAdd;->setContentView(I)V
 
     .line 201
-    const v8, 0x7f0a0098
+    const v8, 0x7f0b00a6
 
     invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/DeviceAdminAdd;->findViewById(I)Landroid/view/View;
 
@@ -753,7 +753,7 @@
     iput-object v8, p0, Lcom/android/OriginalSettings/DeviceAdminAdd;->mAdminIcon:Landroid/widget/ImageView;
 
     .line 202
-    const v8, 0x7f0a0099
+    const v8, 0x7f0b00a7
 
     invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/DeviceAdminAdd;->findViewById(I)Landroid/view/View;
 
@@ -764,7 +764,7 @@
     iput-object v8, p0, Lcom/android/OriginalSettings/DeviceAdminAdd;->mAdminName:Landroid/widget/TextView;
 
     .line 203
-    const v8, 0x7f0a009a
+    const v8, 0x7f0b00a8
 
     invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/DeviceAdminAdd;->findViewById(I)Landroid/view/View;
 
@@ -775,7 +775,7 @@
     iput-object v8, p0, Lcom/android/OriginalSettings/DeviceAdminAdd;->mAdminDescription:Landroid/widget/TextView;
 
     .line 205
-    const v8, 0x7f0a009c
+    const v8, 0x7f0b00aa
 
     invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/DeviceAdminAdd;->findViewById(I)Landroid/view/View;
 
@@ -786,7 +786,7 @@
     iput-object v8, p0, Lcom/android/OriginalSettings/DeviceAdminAdd;->mAddMsg:Landroid/widget/TextView;
 
     .line 206
-    const v8, 0x7f0a009b
+    const v8, 0x7f0b00a9
 
     invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/DeviceAdminAdd;->findViewById(I)Landroid/view/View;
 
@@ -811,7 +811,7 @@
     invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/DeviceAdminAdd;->toggleMessageEllipsis(Landroid/view/View;)V
 
     .line 216
-    const v8, 0x7f0a009d
+    const v8, 0x7f0b00ab
 
     invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/DeviceAdminAdd;->findViewById(I)Landroid/view/View;
 
@@ -822,7 +822,7 @@
     iput-object v8, p0, Lcom/android/OriginalSettings/DeviceAdminAdd;->mAdminWarning:Landroid/widget/TextView;
 
     .line 217
-    const v8, 0x7f0a009e
+    const v8, 0x7f0b00ac
 
     invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/DeviceAdminAdd;->findViewById(I)Landroid/view/View;
 
@@ -833,7 +833,7 @@
     iput-object v8, p0, Lcom/android/OriginalSettings/DeviceAdminAdd;->mAdminPolicies:Landroid/view/ViewGroup;
 
     .line 218
-    const v8, 0x7f0a001b
+    const v8, 0x7f0b003c
 
     invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/DeviceAdminAdd;->findViewById(I)Landroid/view/View;
 
@@ -853,7 +853,7 @@
     invoke-virtual {v8, v9}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 224
-    const v8, 0x7f0a00a1
+    const v8, 0x7f0b00af
 
     invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/DeviceAdminAdd;->findViewById(I)Landroid/view/View;
 
@@ -911,7 +911,7 @@
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     .line 290
-    const v2, 0x7f0d04ee
+    const v2, 0x7f0905b8
 
     new-instance v3, Lcom/android/OriginalSettings/DeviceAdminAdd$4;
 
@@ -920,7 +920,7 @@
     invoke-virtual {v0, v2, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 297
-    const v2, 0x7f0d04ef
+    const v2, 0x7f0905b9
 
     const/4 v3, 0x0
 
@@ -1006,7 +1006,7 @@
 
     if-eqz v1, :cond_3
 
-    const v1, 0x1080284
+    const v1, 0x108028d
 
     :goto_3
     invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setImageResource(I)V
@@ -1034,7 +1034,7 @@
 
     .line 383
     :cond_3
-    const v1, 0x1080283
+    const v1, 0x108028c
 
     goto :goto_3
 .end method
@@ -1281,7 +1281,7 @@
     .line 346
     iget-object v5, p0, Lcom/android/OriginalSettings/DeviceAdminAdd;->mAdminWarning:Landroid/widget/TextView;
 
-    const v6, 0x7f0d0648
+    const v6, 0x7f090742
 
     new-array v7, v11, [Ljava/lang/Object;
 
@@ -1310,7 +1310,7 @@
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 348
-    const v5, 0x7f0d0640
+    const v5, 0x7f09073a
 
     invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/DeviceAdminAdd;->getText(I)Ljava/lang/CharSequence;
 
@@ -1321,7 +1321,7 @@
     .line 349
     iget-object v5, p0, Lcom/android/OriginalSettings/DeviceAdminAdd;->mActionButton:Landroid/widget/Button;
 
-    const v6, 0x7f0d0641
+    const v6, 0x7f09073b
 
     invoke-virtual {p0, v6}, Lcom/android/OriginalSettings/DeviceAdminAdd;->getText(I)Ljava/lang/CharSequence;
 
@@ -1454,7 +1454,7 @@
     .line 367
     iget-object v5, p0, Lcom/android/OriginalSettings/DeviceAdminAdd;->mAdminWarning:Landroid/widget/TextView;
 
-    const v6, 0x7f0d0647
+    const v6, 0x7f090741
 
     new-array v7, v11, [Ljava/lang/Object;
 
@@ -1483,7 +1483,7 @@
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 369
-    const v5, 0x7f0d0644
+    const v5, 0x7f09073e
 
     invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/DeviceAdminAdd;->getText(I)Ljava/lang/CharSequence;
 
@@ -1494,7 +1494,7 @@
     .line 370
     iget-object v5, p0, Lcom/android/OriginalSettings/DeviceAdminAdd;->mActionButton:Landroid/widget/Button;
 
-    const v6, 0x7f0d0645
+    const v6, 0x7f09073f
 
     invoke-virtual {p0, v6}, Lcom/android/OriginalSettings/DeviceAdminAdd;->getText(I)Ljava/lang/CharSequence;
 

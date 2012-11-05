@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 461
+    .line 236
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 1
@@ -46,7 +46,7 @@
     .parameter "in"
 
     .prologue
-    .line 469
+    .line 240
     new-instance v0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;
 
     invoke-direct {v0, p1}, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;-><init>(Landroid/os/Parcel;)V
@@ -72,7 +72,7 @@
     .parameter "size"
 
     .prologue
-    .line 479
+    .line 245
     new-array v0, p1, [Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;
 
     return-object v0

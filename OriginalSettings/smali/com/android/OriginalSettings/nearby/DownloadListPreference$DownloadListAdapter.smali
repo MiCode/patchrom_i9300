@@ -35,28 +35,28 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 133
+    .line 149
     iput-object p1, p0, Lcom/android/OriginalSettings/nearby/DownloadListPreference$DownloadListAdapter;->this$0:Lcom/android/OriginalSettings/nearby/DownloadListPreference;
 
-    .line 134
+    .line 150
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    .line 125
+    .line 141
     iput-object v1, p0, Lcom/android/OriginalSettings/nearby/DownloadListPreference$DownloadListAdapter;->context:Landroid/content/Context;
 
-    .line 127
+    .line 143
     iput-object v1, p0, Lcom/android/OriginalSettings/nearby/DownloadListPreference$DownloadListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 129
+    .line 145
     iput-object v1, p0, Lcom/android/OriginalSettings/nearby/DownloadListPreference$DownloadListAdapter;->mEntries:[Ljava/lang/String;
 
-    .line 130
+    .line 147
     iput-object v1, p0, Lcom/android/OriginalSettings/nearby/DownloadListPreference$DownloadListAdapter;->mEntriesValues:[Ljava/lang/String;
 
-    .line 136
+    .line 152
     iput-object p2, p0, Lcom/android/OriginalSettings/nearby/DownloadListPreference$DownloadListAdapter;->context:Landroid/content/Context;
 
-    .line 138
+    .line 154
     const-string v1, "layout_inflater"
 
     invoke-virtual {p2, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -67,14 +67,14 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/nearby/DownloadListPreference$DownloadListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 140
+    .line 156
     invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 141
+    .line 157
     .local v0, res:Landroid/content/res/Resources;
-    const v1, 0x7f090053
+    const v1, 0x7f0a0057
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -82,8 +82,8 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/nearby/DownloadListPreference$DownloadListAdapter;->mEntries:[Ljava/lang/String;
 
-    .line 142
-    const v1, 0x7f090054
+    .line 158
+    const v1, 0x7f0a0058
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -91,7 +91,7 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/nearby/DownloadListPreference$DownloadListAdapter;->mEntriesValues:[Ljava/lang/String;
 
-    .line 143
+    .line 159
     return-void
 .end method
 
@@ -101,7 +101,7 @@
     .locals 1
 
     .prologue
-    .line 148
+    .line 163
     iget-object v0, p0, Lcom/android/OriginalSettings/nearby/DownloadListPreference$DownloadListAdapter;->mEntries:[Ljava/lang/String;
 
     array-length v0, v0
@@ -114,7 +114,7 @@
     .parameter "position"
 
     .prologue
-    .line 154
+    .line 168
     iget-object v0, p0, Lcom/android/OriginalSettings/nearby/DownloadListPreference$DownloadListAdapter;->mEntries:[Ljava/lang/String;
 
     aget-object v0, v0, p1
@@ -127,7 +127,7 @@
     .parameter "position"
 
     .prologue
-    .line 160
+    .line 173
     int-to-long v0, p1
 
     return-wide v0
@@ -140,10 +140,10 @@
     .parameter "parent"
 
     .prologue
-    .line 168
+    .line 180
     iget-object v1, p0, Lcom/android/OriginalSettings/nearby/DownloadListPreference$DownloadListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x10900fe
+    const v2, 0x109012d
 
     const/4 v3, 0x0
 
@@ -151,7 +151,7 @@
 
     move-result-object p2
 
-    .line 170
+    .line 186
     const v1, 0x1020014
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -160,7 +160,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 171
+    .line 187
     .local v0, v:Landroid/widget/TextView;
     iget-object v1, p0, Lcom/android/OriginalSettings/nearby/DownloadListPreference$DownloadListAdapter;->mEntries:[Ljava/lang/String;
 
@@ -168,22 +168,42 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 173
+    .line 189
     const/4 v1, 0x1
 
     if-ne p1, v1, :cond_0
 
-    .line 175
+    .line 190
     const v1, -0x777778
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 176
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
-
-    .line 179
+    .line 193
     :cond_0
     return-object v0
+.end method
+
+.method public isEnabled(I)Z
+    .locals 1
+    .parameter "position"
+
+    .prologue
+    .line 198
+    const/4 v0, 0x1
+
+    if-ne p1, v0, :cond_0
+
+    .line 199
+    const/4 v0, 0x0
+
+    .line 201
+    :goto_0
+    return v0
+
+    :cond_0
+    invoke-super {p0, p1}, Landroid/widget/BaseAdapter;->isEnabled(I)Z
+
+    move-result v0
+
+    goto :goto_0
 .end method

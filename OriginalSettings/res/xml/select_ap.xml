@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen android:title="@string/wifi_ap_titlebar"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.android.OriginalSettings.ProgressCategory android:persistent="false" android:title="@string/select_wifi_ap_title" android:key="select_wifi_ap" />
-    <Preference android:persistent="false" android:title="@string/scan_ap" android:key="select_ap_dialog_scan_network" />
-</PreferenceScreen>

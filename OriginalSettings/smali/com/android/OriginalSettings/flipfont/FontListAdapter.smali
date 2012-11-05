@@ -44,7 +44,7 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 119
+    .line 123
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
     .line 48
@@ -97,15 +97,15 @@
     .line 87
     iput-object v6, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->droidSansFont:Landroid/graphics/Typeface;
 
-    .line 120
+    .line 124
     iput-object p1, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->context:Landroid/content/Context;
 
-    .line 121
+    .line 125
     iget-object v5, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mTypefaceFinder:Lcom/android/OriginalSettings/flipfont/TypefaceFinder;
 
     iput-object p1, v5, Lcom/android/OriginalSettings/flipfont/TypefaceFinder;->context:Landroid/content/Context;
 
-    .line 122
+    .line 126
     const-string v5, "layout_inflater"
 
     invoke-virtual {p1, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -116,14 +116,14 @@
 
     iput-object v5, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 123
+    .line 127
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v5
 
     iput-object v5, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mPackageManager:Landroid/content/pm/PackageManager;
 
-    .line 125
+    .line 129
     :try_start_0
     iget-object v5, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mPackageManager:Landroid/content/pm/PackageManager;
 
@@ -135,10 +135,10 @@
 
     iput-object v5, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mInstalledApplications:Ljava/util/List;
 
-    .line 128
+    .line 132
     const/4 v2, 0x0
 
-    .line 129
+    .line 133
     .local v2, fontPackageName:Ljava/lang/String;
     const/4 v3, 0x0
 
@@ -152,7 +152,7 @@
 
     if-ge v3, v5, :cond_1
 
-    .line 130
+    .line 134
     iget-object v5, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mInstalledApplications:Ljava/util/List;
 
     invoke-interface {v5, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -163,7 +163,7 @@
 
     iget-object v2, v5, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
-    .line 131
+    .line 135
     const-string v5, "com.monotype.android.font."
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
@@ -172,14 +172,14 @@
 
     if-eqz v5, :cond_0
 
-    .line 132
+    .line 136
     iget-object v5, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mPackageManager:Landroid/content/pm/PackageManager;
 
     invoke-virtual {v5, v2}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
 
     move-result-object v4
 
-    .line 133
+    .line 137
     .local v4, res:Landroid/content/res/Resources;
     invoke-virtual {v4}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
 
@@ -187,21 +187,21 @@
 
     iput-object v5, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mFontAssetManager:Landroid/content/res/AssetManager;
 
-    .line 134
+    .line 138
     iget-object v5, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mTypefaceFinder:Lcom/android/OriginalSettings/flipfont/TypefaceFinder;
 
     iget-object v6, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mFontAssetManager:Landroid/content/res/AssetManager;
 
     invoke-virtual {v5, v6, v2}, Lcom/android/OriginalSettings/flipfont/TypefaceFinder;->findTypefaces(Landroid/content/res/AssetManager;Ljava/lang/String;)Z
 
-    .line 129
+    .line 133
     .end local v4           #res:Landroid/content/res/Resources;
     :cond_0
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 137
+    .line 141
     :cond_1
     iget-object v5, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mTypefaceFinder:Lcom/android/OriginalSettings/flipfont/TypefaceFinder;
 
@@ -217,7 +217,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 144
+    .line 148
     .end local v2           #fontPackageName:Ljava/lang/String;
     .end local v3           #i:I
     :goto_1
@@ -227,7 +227,7 @@
 
     invoke-direct {v1, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 145
+    .line 149
     .local v1, f:Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
@@ -235,7 +235,7 @@
 
     if-eqz v5, :cond_2
 
-    .line 146
+    .line 150
     const-string v5, "/system/fonts/UIFont.ttf"
 
     invoke-static {v5}, Landroid/graphics/Typeface;->createFromFile(Ljava/lang/String;)Landroid/graphics/Typeface;
@@ -244,16 +244,16 @@
 
     iput-object v5, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->droidSansFont:Landroid/graphics/Typeface;
 
-    .line 151
+    .line 155
     :goto_2
     return-void
 
-    .line 139
+    .line 143
     .end local v1           #f:Ljava/io/File;
     :catch_0
     move-exception v0
 
-    .line 141
+    .line 145
     .local v0, e:Ljava/lang/Exception;
     const-string v5, "FontListAdapter"
 
@@ -275,11 +275,11 @@
 
     move-result-object v6
 
-    invoke-static {v5, v6}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secV(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
-    .line 149
+    .line 153
     .end local v0           #e:Ljava/lang/Exception;
     .restart local v1       #f:Ljava/io/File;
     :cond_2
@@ -304,14 +304,14 @@
     .parameter "fontPackageName"
 
     .prologue
-    .line 283
+    .line 293
     const/16 v5, 0x2f
 
     invoke-virtual {p1, v5}, Ljava/lang/String;->lastIndexOf(I)I
 
     move-result v4
 
-    .line 284
+    .line 294
     .local v4, start_pos:I
     const/16 v5, 0x2e
 
@@ -319,16 +319,16 @@
 
     move-result v1
 
-    .line 285
+    .line 295
     .local v1, end_pos:I
     if-gez v1, :cond_0
 
-    .line 286
+    .line 296
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    .line 288
+    .line 298
     :cond_0
     add-int/lit8 v5, v4, 0x1
 
@@ -336,7 +336,7 @@
 
     move-result-object v2
 
-    .line 289
+    .line 299
     .local v2, loadTypeface:Ljava/lang/String;
     const-string v5, " "
 
@@ -346,7 +346,7 @@
 
     move-result-object v2
 
-    .line 291
+    .line 301
     :try_start_0
     iget-object v5, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mPackageManager:Landroid/content/pm/PackageManager;
 
@@ -354,7 +354,7 @@
 
     move-result-object v3
 
-    .line 292
+    .line 302
     .local v3, res:Landroid/content/res/Resources;
     invoke-virtual {v3}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
 
@@ -364,7 +364,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 297
+    .line 307
     .end local v3           #res:Landroid/content/res/Resources;
     :goto_0
     iget-object v5, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mFontAssetManager:Landroid/content/res/AssetManager;
@@ -399,11 +399,11 @@
 
     return-object v5
 
-    .line 293
+    .line 303
     :catch_0
     move-exception v0
 
-    .line 295
+    .line 305
     .local v0, e:Ljava/lang/Exception;
     const-string v5, "FontListAdapter"
 
@@ -425,25 +425,18 @@
 
     move-result-object v6
 
-    invoke-static {v5, v6}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secV(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
 
 .method private setFont(ILandroid/widget/TextView;)V
-    .locals 3
+    .locals 2
     .parameter "position"
     .parameter "textView"
 
     .prologue
-    .line 252
-    iget-object v1, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->context:Landroid/content/Context;
-
-    const v2, 0x1030044
-
-    invoke-virtual {p2, v1, v2}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
-
-    .line 253
+    .line 263
     iget-object v1, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mTypefaces:Ljava/util/Vector;
 
     invoke-virtual {v1, p1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
@@ -452,14 +445,14 @@
 
     check-cast v0, Landroid/graphics/Typeface;
 
-    .line 254
+    .line 264
     .local v0, fontTypeface:Landroid/graphics/Typeface;
     if-eqz v0, :cond_0
 
-    .line 255
+    .line 265
     invoke-virtual {p2, v0}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
-    .line 257
+    .line 267
     :cond_0
     return-void
 .end method
@@ -470,7 +463,7 @@
     .locals 1
 
     .prologue
-    .line 157
+    .line 161
     iget-object v0, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mFontNames:Ljava/util/Vector;
 
     invoke-virtual {v0}, Ljava/util/Vector;->size()I
@@ -485,13 +478,13 @@
     .parameter "position"
 
     .prologue
-    const v4, 0x7f0d073b
+    const v4, 0x7f090867
 
-    const v3, 0x7f0d073a
+    const v3, 0x7f090866
 
-    const v2, 0x7f0d0739
+    const v2, 0x7f090865
 
-    .line 182
+    .line 186
     iget-object v1, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mFontNames:Ljava/util/Vector;
 
     invoke-virtual {v1, p1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
@@ -500,7 +493,7 @@
 
     check-cast v0, Ljava/lang/String;
 
-    .line 183
+    .line 187
     .local v0, tmpString:Ljava/lang/String;
     const-string v1, "Cool"
 
@@ -510,7 +503,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 184
+    .line 188
     iget-object v1, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->context:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -524,13 +517,13 @@
     .end local v0           #tmpString:Ljava/lang/String;
     check-cast v0, Ljava/lang/String;
 
-    .line 212
+    .line 222
     .restart local v0       #tmpString:Ljava/lang/String;
     :cond_0
     :goto_0
     return-object v0
 
-    .line 185
+    .line 189
     :cond_1
     const-string v1, "Rose"
 
@@ -540,7 +533,7 @@
 
     if-eqz v1, :cond_2
 
-    .line 186
+    .line 190
     iget-object v1, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->context:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -557,7 +550,7 @@
     .restart local v0       #tmpString:Ljava/lang/String;
     goto :goto_0
 
-    .line 187
+    .line 191
     :cond_2
     const-string v1, "Choco"
 
@@ -567,7 +560,7 @@
 
     if-eqz v1, :cond_3
 
-    .line 188
+    .line 192
     iget-object v1, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->context:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -584,7 +577,7 @@
     .restart local v0       #tmpString:Ljava/lang/String;
     goto :goto_0
 
-    .line 190
+    .line 194
     :cond_3
     const-string v1, "Rosemary"
 
@@ -594,7 +587,7 @@
 
     if-eqz v1, :cond_4
 
-    .line 191
+    .line 195
     iget-object v1, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->context:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -611,7 +604,7 @@
     .restart local v0       #tmpString:Ljava/lang/String;
     goto :goto_0
 
-    .line 192
+    .line 196
     :cond_4
     const-string v1, "Choco cooky"
 
@@ -621,7 +614,7 @@
 
     if-eqz v1, :cond_5
 
-    .line 193
+    .line 197
     iget-object v1, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->context:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -638,7 +631,7 @@
     .restart local v0       #tmpString:Ljava/lang/String;
     goto :goto_0
 
-    .line 195
+    .line 199
     :cond_5
     const-string v1, "Cool jazz"
 
@@ -648,7 +641,7 @@
 
     if-eqz v1, :cond_6
 
-    .line 196
+    .line 200
     iget-object v1, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->context:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -665,7 +658,7 @@
     .restart local v0       #tmpString:Ljava/lang/String;
     goto :goto_0
 
-    .line 197
+    .line 201
     :cond_6
     const-string v1, "Apple mint"
 
@@ -675,14 +668,14 @@
 
     if-eqz v1, :cond_7
 
-    .line 198
+    .line 202
     iget-object v1, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->context:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0d073c
+    const v2, 0x7f090868
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -694,7 +687,7 @@
     .restart local v0       #tmpString:Ljava/lang/String;
     goto/16 :goto_0
 
-    .line 200
+    .line 204
     :cond_7
     const-string v1, "Tinker bell"
 
@@ -704,14 +697,14 @@
 
     if-eqz v1, :cond_8
 
-    .line 201
+    .line 205
     iget-object v1, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->context:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0d073d
+    const v2, 0x7f090869
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -723,7 +716,7 @@
     .restart local v0       #tmpString:Ljava/lang/String;
     goto/16 :goto_0
 
-    .line 203
+    .line 207
     :cond_8
     const-string v1, "Shao Nv"
 
@@ -733,14 +726,14 @@
 
     if-eqz v1, :cond_9
 
-    .line 204
+    .line 208
     iget-object v1, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->context:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0d0a01
+    const v2, 0x7f090c2c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -752,7 +745,7 @@
     .restart local v0       #tmpString:Ljava/lang/String;
     goto/16 :goto_0
 
-    .line 206
+    .line 210
     :cond_9
     const-string v1, "Kaiti"
 
@@ -762,14 +755,14 @@
 
     if-eqz v1, :cond_a
 
-    .line 207
+    .line 211
     iget-object v1, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->context:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0d0a02
+    const v2, 0x7f090c2d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -781,7 +774,7 @@
     .restart local v0       #tmpString:Ljava/lang/String;
     goto/16 :goto_0
 
-    .line 209
+    .line 213
     :cond_a
     const-string v1, "Miao"
 
@@ -789,16 +782,74 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_b
 
-    .line 210
+    .line 214
     iget-object v1, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->context:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0d0a03
+    const v2, 0x7f090c2e
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    .end local v0           #tmpString:Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
+
+    .restart local v0       #tmpString:Ljava/lang/String;
+    goto/16 :goto_0
+
+    .line 216
+    :cond_b
+    const-string v1, "Maruberi"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_c
+
+    .line 217
+    iget-object v1, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->context:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f09086a
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    .end local v0           #tmpString:Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
+
+    .restart local v0       #tmpString:Ljava/lang/String;
+    goto/16 :goto_0
+
+    .line 219
+    :cond_c
+    const-string v1, "Mincho"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 220
+    iget-object v1, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->context:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f09086b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -816,7 +867,7 @@
     .parameter "position"
 
     .prologue
-    .line 165
+    .line 169
     iget-object v0, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mTypefaceFiles:Ljava/util/Vector;
 
     invoke-virtual {v0, p1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
@@ -831,7 +882,7 @@
     .parameter "position"
 
     .prologue
-    .line 173
+    .line 177
     int-to-long v0, p1
 
     return-wide v0
@@ -844,10 +895,10 @@
     .parameter "parent"
 
     .prologue
-    .line 229
+    .line 239
     iget-object v5, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v6, 0x10900fe
+    const v6, 0x7f0400dd
 
     const/4 v7, 0x0
 
@@ -855,7 +906,7 @@
 
     move-result-object p2
 
-    .line 230
+    .line 240
     const v5, 0x1020014
 
     invoke-virtual {p2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -864,7 +915,7 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    .line 232
+    .line 242
     .local v3, v:Landroid/widget/TextView;
     invoke-virtual {p0, p1}, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->getFontName(I)Ljava/lang/String;
 
@@ -872,15 +923,15 @@
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 233
+    .line 243
     invoke-direct {p0, p1, v3}, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->setFont(ILandroid/widget/TextView;)V
 
-    .line 235
+    .line 245
     const/high16 v5, 0x41a0
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setTextSize(F)V
 
-    .line 237
+    .line 247
     iget-object v5, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->context:Landroid/content/Context;
 
     const-string v6, "window"
@@ -891,13 +942,13 @@
 
     check-cast v4, Landroid/view/WindowManager;
 
-    .line 238
+    .line 248
     .local v4, wm:Landroid/view/WindowManager;
     new-instance v1, Landroid/util/DisplayMetrics;
 
     invoke-direct {v1}, Landroid/util/DisplayMetrics;-><init>()V
 
-    .line 239
+    .line 249
     .local v1, metrics:Landroid/util/DisplayMetrics;
     invoke-interface {v4}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
 
@@ -905,10 +956,10 @@
 
     invoke-virtual {v5, v1}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
 
-    .line 240
+    .line 250
     iget v0, v1, Landroid/util/DisplayMetrics;->densityDpi:I
 
-    .line 242
+    .line 252
     .local v0, density:I
     const/high16 v5, 0x4282
 
@@ -922,11 +973,11 @@
 
     float-to-int v2, v5
 
-    .line 243
+    .line 253
     .local v2, pixelHeight:I
     invoke-virtual {v3, v2}, Landroid/widget/TextView;->setHeight(I)V
 
-    .line 245
+    .line 255
     return-object v3
 .end method
 
@@ -934,18 +985,18 @@
     .locals 6
 
     .prologue
-    .line 263
+    .line 273
     const/4 v1, 0x0
 
-    .line 264
+    .line 274
     .local v1, fontfile:Ljava/lang/String;
     const/4 v0, 0x0
 
-    .line 265
+    .line 275
     .local v0, fontPackageName:Ljava/lang/String;
     const/4 v3, 0x0
 
-    .line 266
+    .line 276
     .local v3, newTypeface:Landroid/graphics/Typeface;
     iget-object v4, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mTypefaces:Ljava/util/Vector;
 
@@ -953,10 +1004,10 @@
 
     invoke-virtual {v4, v5}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
-    .line 267
+    .line 277
     const/4 v2, 0x1
 
-    .line 268
+    .line 278
     .local v2, i:I
     :goto_0
     iget-object v4, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mTypefaceFiles:Ljava/util/Vector;
@@ -967,7 +1018,7 @@
 
     if-ge v2, v4, :cond_0
 
-    .line 269
+    .line 279
     iget-object v4, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mTypefaceFiles:Ljava/util/Vector;
 
     invoke-virtual {v4, v2}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
@@ -978,7 +1029,7 @@
 
     move-result-object v1
 
-    .line 270
+    .line 280
     iget-object v4, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mFontPackageNames:Ljava/util/Vector;
 
     invoke-virtual {v4, v2}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
@@ -989,22 +1040,22 @@
 
     move-result-object v0
 
-    .line 271
+    .line 281
     invoke-direct {p0, v1, v0}, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->getFont(Ljava/lang/String;Ljava/lang/String;)Landroid/graphics/Typeface;
 
     move-result-object v3
 
-    .line 272
+    .line 282
     iget-object v4, p0, Lcom/android/OriginalSettings/flipfont/FontListAdapter;->mTypefaces:Ljava/util/Vector;
 
     invoke-virtual {v4, v3}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
-    .line 273
+    .line 283
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 275
+    .line 285
     :cond_0
     return-void
 .end method

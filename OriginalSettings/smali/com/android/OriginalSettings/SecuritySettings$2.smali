@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 392
+    .line 397
     iput-object p1, p0, Lcom/android/OriginalSettings/SecuritySettings$2;->this$0:Lcom/android/OriginalSettings/SecuritySettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 394
+    .line 399
     iget-object v1, p0, Lcom/android/OriginalSettings/SecuritySettings$2;->this$0:Lcom/android/OriginalSettings/SecuritySettings;
 
     invoke-virtual {v1}, Lcom/android/OriginalSettings/SecuritySettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -61,12 +61,12 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 395
+    .line 400
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 396
+    .line 401
     .local v0, mIntent:Landroid/content/Intent;
     const-string v1, "com.osp.app.signin"
 
@@ -74,26 +74,26 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 397
+    .line 402
     const-string v1, "MODE"
 
     const-string v2, "REMOTE_CONTROLS"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 398
+    .line 403
     iget-object v1, p0, Lcom/android/OriginalSettings/SecuritySettings$2;->this$0:Lcom/android/OriginalSettings/SecuritySettings;
 
     const/16 v2, 0x3ea
 
     invoke-virtual {v1, v0, v2}, Lcom/android/OriginalSettings/SecuritySettings;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 402
+    .line 407
     .end local v0           #mIntent:Landroid/content/Intent;
     :goto_0
     return v3
 
-    .line 400
+    .line 405
     :cond_0
     iget-object v1, p0, Lcom/android/OriginalSettings/SecuritySettings$2;->this$0:Lcom/android/OriginalSettings/SecuritySettings;
 

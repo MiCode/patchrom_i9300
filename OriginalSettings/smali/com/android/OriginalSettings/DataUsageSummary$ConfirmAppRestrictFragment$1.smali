@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 2285
+    .line 2467
     iput-object p1, p0, Lcom/android/OriginalSettings/DataUsageSummary$ConfirmAppRestrictFragment$1;->this$0:Lcom/android/OriginalSettings/DataUsageSummary$ConfirmAppRestrictFragment;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 2287
+    .line 2470
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$ConfirmAppRestrictFragment$1;->this$0:Lcom/android/OriginalSettings/DataUsageSummary$ConfirmAppRestrictFragment;
 
     invoke-virtual {v1}, Lcom/android/OriginalSettings/DataUsageSummary$ConfirmAppRestrictFragment;->getTargetFragment()Landroid/app/Fragment;
@@ -52,17 +52,17 @@
 
     check-cast v0, Lcom/android/OriginalSettings/DataUsageSummary;
 
-    .line 2288
+    .line 2471
     .local v0, target:Lcom/android/OriginalSettings/DataUsageSummary;
     if-eqz v0, :cond_0
 
-    .line 2289
+    .line 2472
     const/4 v1, 0x1
 
     #calls: Lcom/android/OriginalSettings/DataUsageSummary;->setAppRestrictBackground(Z)V
-    invoke-static {v0, v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$2100(Lcom/android/OriginalSettings/DataUsageSummary;Z)V
+    invoke-static {v0, v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1500(Lcom/android/OriginalSettings/DataUsageSummary;Z)V
 
-    .line 2291
+    .line 2474
     :cond_0
     return-void
 .end method

@@ -3,12 +3,12 @@
 .source "CryptKeeper.java"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/text/TextWatcher;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/CryptKeeper;->showFactoryReset()V
+    value = Lcom/android/OriginalSettings/CryptKeeper;->passwordEntryInit()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 416
+    .line 520
     iput-object p1, p0, Lcom/android/OriginalSettings/CryptKeeper$3;->this$0:Lcom/android/OriginalSettings/CryptKeeper;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,22 +37,53 @@
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
-    .locals 3
-    .parameter "v"
+.method public afterTextChanged(Landroid/text/Editable;)V
+    .locals 1
+    .parameter "s"
 
     .prologue
-    .line 419
+    .line 528
     iget-object v0, p0, Lcom/android/OriginalSettings/CryptKeeper$3;->this$0:Lcom/android/OriginalSettings/CryptKeeper;
 
-    new-instance v1, Landroid/content/Intent;
+    #getter for: Lcom/android/OriginalSettings/CryptKeeper;->mPasswordEntry:Landroid/widget/EditText;
+    invoke-static {v0}, Lcom/android/OriginalSettings/CryptKeeper;->access$400(Lcom/android/OriginalSettings/CryptKeeper;)Landroid/widget/EditText;
 
-    const-string v2, "android.intent.action.MASTER_CLEAR"
+    move-result-object v0
 
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/CryptKeeper;->sendBroadcast(Landroid/content/Intent;)V
+    move-result-object v0
 
-    .line 420
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/OriginalSettings/CryptKeeper;->access$1102(Ljava/lang/String;)Ljava/lang/String;
+
+    .line 529
+    return-void
+.end method
+
+.method public beforeTextChanged(Ljava/lang/CharSequence;III)V
+    .locals 0
+    .parameter "s"
+    .parameter "start"
+    .parameter "count"
+    .parameter "after"
+
+    .prologue
+    .line 535
+    return-void
+.end method
+
+.method public onTextChanged(Ljava/lang/CharSequence;III)V
+    .locals 0
+    .parameter "s"
+    .parameter "start"
+    .parameter "before"
+    .parameter "count"
+
+    .prologue
+    .line 523
     return-void
 .end method

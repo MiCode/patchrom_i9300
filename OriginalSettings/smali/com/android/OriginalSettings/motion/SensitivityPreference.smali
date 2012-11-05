@@ -62,7 +62,7 @@
     iput-object p1, p0, Lcom/android/OriginalSettings/motion/SensitivityPreference;->mContext:Landroid/content/Context;
 
     .line 47
-    const v0, 0x7f04008e
+    const v0, 0x7f0400af
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/motion/SensitivityPreference;->setDialogLayoutResource(I)V
 
@@ -129,7 +129,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setMax(I)V
 
     .line 68
-    const v0, 0x7f0a018c
+    const v0, 0x7f0b01e6
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -173,7 +173,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 111
     iput p2, p0, Lcom/android/OriginalSettings/motion/SensitivityPreference;->mWhichButtonClicked:I
@@ -250,7 +250,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 101
     invoke-virtual {p0}, Lcom/android/OriginalSettings/motion/SensitivityPreference;->getContext()Landroid/content/Context;
@@ -276,7 +276,7 @@
 
     .prologue
     .line 52
-    const v0, 0x7f0d085e
+    const v0, 0x7f090a37
 
     new-instance v1, Lcom/android/OriginalSettings/motion/SensitivityPreference$1;
 
@@ -340,7 +340,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 134
     invoke-virtual {p0}, Lcom/android/OriginalSettings/motion/SensitivityPreference;->getContext()Landroid/content/Context;
@@ -479,7 +479,7 @@
 
     const-string v2, "showDialog :1 "
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 78
     invoke-virtual {p0}, Lcom/android/OriginalSettings/motion/SensitivityPreference;->getContext()Landroid/content/Context;
@@ -537,7 +537,7 @@
 
     const-string v2, "showDialog :2 "
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 83
     const/4 v1, 0x0
@@ -653,7 +653,7 @@
 
     const-string v2, "MOTION_TILT_TO_SCROLL_LIST"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 

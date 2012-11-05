@@ -54,38 +54,38 @@
 .end method
 
 .method private DoMasterReset()V
-    .locals 5
+    .locals 4
 
     .prologue
     .line 115
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
-    move-result-object v2
+    move-result-object v0
 
-    const-string v3, "CscFeature_Setting_EnableFactoryResetPasswordWhenNoSIM"
+    const-string v1, "CscFeature_Setting_EnableFactoryResetPasswordWhenNoSIM"
 
-    invoke-virtual {v2, v3}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
     .line 116
-    iget-object v2, p0, Lcom/android/OriginalSettings/MasterClearConfirm;->mFinalButton:Landroid/widget/Button;
+    iget-object v0, p0, Lcom/android/OriginalSettings/MasterClearConfirm;->mFinalButton:Landroid/widget/Button;
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v2, v3}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 119
     :cond_0
     invoke-static {}, Lcom/android/OriginalSettings/Utils;->isMonkeyRunning()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_2
 
-    .line 148
+    .line 150
     :cond_1
     :goto_0
     return-void
@@ -94,106 +94,152 @@
     :cond_2
     invoke-virtual {p0}, Lcom/android/OriginalSettings/MasterClearConfirm;->getActivity()Landroid/app/Activity;
 
-    move-result-object v2
+    move-result-object v0
 
-    const-string v3, "enterprise_policy"
+    const-string v1, "enterprise_policy"
 
-    invoke-virtual {v2, v3}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Landroid/app/enterprise/EnterpriseDeviceManager;
-
-    move-object v0, v2
+    check-cast v0, Landroid/app/enterprise/EnterpriseDeviceManager;
 
     check-cast v0, Landroid/app/enterprise/EnterpriseDeviceManager;
 
     .line 125
-    .local v0, edm:Landroid/app/enterprise/EnterpriseDeviceManager;
     invoke-virtual {v0}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/app/enterprise/RestrictionPolicy;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Landroid/app/enterprise/RestrictionPolicy;->isFactoryResetAllowed()Z
+    invoke-virtual {v0}, Landroid/app/enterprise/RestrictionPolicy;->isFactoryResetAllowed()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_1
 
     .line 130
-    iget-boolean v2, p0, Lcom/android/OriginalSettings/MasterClearConfirm;->mEraseSdCard:Z
+    iget-boolean v0, p0, Lcom/android/OriginalSettings/MasterClearConfirm;->mEraseSdCard:Z
 
-    if-eqz v2, :cond_3
+    if-eqz v0, :cond_3
 
     .line 131
-    new-instance v1, Landroid/content/Intent;
+    new-instance v0, Landroid/content/Intent;
 
-    const-string v2, "com.android.internal.os.storage.FORMAT_AND_FACTORY_RESET"
+    const-string v1, "com.android.internal.os.storage.FORMAT_AND_FACTORY_RESET"
 
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 132
-    .local v1, intent:Landroid/content/Intent;
-    sget-object v2, Lcom/android/internal/os/storage/ExternalStorageFormatter;->COMPONENT_NAME:Landroid/content/ComponentName;
+    sget-object v1, Lcom/android/internal/os/storage/ExternalStorageFormatter;->COMPONENT_NAME:Landroid/content/ComponentName;
 
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
     .line 133
     invoke-virtual {p0}, Lcom/android/OriginalSettings/MasterClearConfirm;->getActivity()Landroid/app/Activity;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2, v1}, Landroid/app/Activity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+    invoke-virtual {v1, v0}, Landroid/app/Activity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
     goto :goto_0
 
-    .line 141
-    .end local v1           #intent:Landroid/content/Intent;
+    .line 136
     :cond_3
-    const-string v2, "ATT"
+    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
-    const-string v3, "ro.csc.sales_code"
+    move-result-object v0
 
-    invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    const-string v1, "CscFeature_Setting_EnableModemResetDuringFactoryReset"
 
-    move-result-object v3
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v0
 
-    move-result v2
+    if-eqz v0, :cond_4
 
-    if-eqz v2, :cond_4
+    .line 138
+    const-string v0, "MasterClearConfirm"
+
+    const-string v1, "ready to Factory reset. Call SecFactoryReset."
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 139
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/MasterClearConfirm;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    .line 140
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/MasterClearConfirm;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    new-instance v2, Landroid/content/Intent;
+
+    const-class v3, Lcom/android/OriginalSettings/MasterClearModemReset;
+
+    invoke-direct {v2, v0, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    const-string v0, "FACTORY"
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v2, v0, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Landroid/app/Activity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+
+    goto :goto_0
 
     .line 142
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/MasterClearConfirm;->getActivity()Landroid/app/Activity;
-
-    move-result-object v2
-
-    new-instance v3, Landroid/content/Intent;
-
-    const-string v4, "android.intent.action.SEC_FACTORY_RESET_WITHOUT_FACTORY_UI"
-
-    invoke-direct {v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2, v3}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
-
-    goto :goto_0
-
-    .line 144
     :cond_4
+    const-string v0, "ATT"
+
+    invoke-static {}, Lcom/android/OriginalSettings/Utils;->readSalesCode()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    .line 143
     invoke-virtual {p0}, Lcom/android/OriginalSettings/MasterClearConfirm;->getActivity()Landroid/app/Activity;
 
-    move-result-object v2
+    move-result-object v0
 
-    new-instance v3, Landroid/content/Intent;
+    new-instance v1, Landroid/content/Intent;
 
-    const-string v4, "android.intent.action.MASTER_CLEAR"
+    const-string v2, "android.intent.action.SEC_FACTORY_RESET_WITHOUT_FACTORY_UI"
 
-    invoke-direct {v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v0, v1}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
     goto :goto_0
+
+    .line 145
+    :cond_5
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/MasterClearConfirm;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    new-instance v1, Landroid/content/Intent;
+
+    const-string v2, "android.intent.action.MASTER_CLEAR"
+
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+
+    goto/16 :goto_0
 .end method
 
 .method private SetFirstTimePhonepassword(Landroid/content/Intent;)V
@@ -201,7 +247,7 @@
     .parameter "intent"
 
     .prologue
-    .line 174
+    .line 176
     sget-object v0, Lcom/android/OriginalSettings/MasterClearConfirm$2;->$SwitchMap$com$android$settings$MasterClearConfirm$PWState:[I
 
     iget-object v1, p0, Lcom/android/OriginalSettings/MasterClearConfirm;->mPWState:Lcom/android/OriginalSettings/MasterClearConfirm$PWState;
@@ -214,11 +260,11 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 191
+    .line 193
     :goto_0
     return-void
 
-    .line 176
+    .line 178
     :pswitch_0
     const-string v0, ".password"
 
@@ -228,19 +274,19 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/MasterClearConfirm;->mNewPassword:Ljava/lang/String;
 
-    .line 177
+    .line 179
     sget-object v0, Lcom/android/OriginalSettings/MasterClearConfirm$PWState;->CONFIRM:Lcom/android/OriginalSettings/MasterClearConfirm$PWState;
 
     iput-object v0, p0, Lcom/android/OriginalSettings/MasterClearConfirm;->mPWState:Lcom/android/OriginalSettings/MasterClearConfirm$PWState;
 
-    .line 178
-    const v0, 0x7f0d000f
+    .line 180
+    const v0, 0x7f090020
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/MasterClearConfirm;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f0d0011
+    const v1, 0x7f090022
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/MasterClearConfirm;->getString(I)Ljava/lang/String;
 
@@ -254,13 +300,13 @@
 
     goto :goto_0
 
-    .line 183
+    .line 185
     :pswitch_1
     sget-object v0, Lcom/android/OriginalSettings/MasterClearConfirm$PWState;->CURRENT:Lcom/android/OriginalSettings/MasterClearConfirm$PWState;
 
     iput-object v0, p0, Lcom/android/OriginalSettings/MasterClearConfirm;->mPWState:Lcom/android/OriginalSettings/MasterClearConfirm$PWState;
 
-    .line 184
+    .line 186
     invoke-virtual {p0}, Lcom/android/OriginalSettings/MasterClearConfirm;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
@@ -275,12 +321,12 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
-    .line 186
+    .line 188
     invoke-direct {p0}, Lcom/android/OriginalSettings/MasterClearConfirm;->DoMasterReset()V
 
     goto :goto_0
 
-    .line 174
+    .line 176
     nop
 
     :pswitch_data_0
@@ -294,9 +340,9 @@
     .locals 5
 
     .prologue
-    const v3, 0x7f0d000f
+    const v3, 0x7f090020
 
-    .line 151
+    .line 153
     invoke-virtual {p0}, Lcom/android/OriginalSettings/MasterClearConfirm;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
@@ -311,27 +357,27 @@
 
     move-result-object v0
 
-    .line 153
+    .line 155
     .local v0, phone_password:Ljava/lang/String;
     if-nez v0, :cond_0
 
-    .line 154
+    .line 156
     sget-object v1, Lcom/android/OriginalSettings/MasterClearConfirm$PWState;->NEW:Lcom/android/OriginalSettings/MasterClearConfirm$PWState;
 
     iput-object v1, p0, Lcom/android/OriginalSettings/MasterClearConfirm;->mPWState:Lcom/android/OriginalSettings/MasterClearConfirm$PWState;
 
-    .line 155
+    .line 157
     invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/MasterClearConfirm;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const v2, 0x7f0d000e
+    const v2, 0x7f09001f
 
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/MasterClearConfirm;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    const v3, 0x7f0d001c
+    const v3, 0x7f09002d
 
     invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/MasterClearConfirm;->getString(I)Ljava/lang/String;
 
@@ -341,17 +387,17 @@
 
     invoke-virtual {p0, v1, v2, v3, v4}, Lcom/android/OriginalSettings/MasterClearConfirm;->queryPhonepassword(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
 
-    .line 161
+    .line 163
     :goto_0
     return-void
 
-    .line 158
+    .line 160
     :cond_0
     invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/MasterClearConfirm;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const v2, 0x7f0d0011
+    const v2, 0x7f090022
 
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/MasterClearConfirm;->getString(I)Ljava/lang/String;
 
@@ -390,10 +436,10 @@
     .locals 2
 
     .prologue
-    .line 234
+    .line 236
     iget-object v0, p0, Lcom/android/OriginalSettings/MasterClearConfirm;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0a0145
+    const v1, 0x7f0b0153
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -403,14 +449,14 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/MasterClearConfirm;->mFinalButton:Landroid/widget/Button;
 
-    .line 235
+    .line 237
     iget-object v0, p0, Lcom/android/OriginalSettings/MasterClearConfirm;->mFinalButton:Landroid/widget/Button;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/MasterClearConfirm;->mFinalClickListener:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 236
+    .line 238
     return-void
 .end method
 
@@ -420,14 +466,14 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 194
+    .line 196
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
     move-result-object v1
 
     sput-object v1, Lcom/android/OriginalSettings/MasterClearConfirm;->mTelMan:Landroid/telephony/TelephonyManager;
 
-    .line 195
+    .line 197
     sget-object v1, Lcom/android/OriginalSettings/MasterClearConfirm;->mTelMan:Landroid/telephony/TelephonyManager;
 
     invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getSimState()I
@@ -444,11 +490,11 @@
 
     if-ne v1, v0, :cond_1
 
-    .line 197
+    .line 199
     :cond_0
     const/4 v0, 0x0
 
-    .line 199
+    .line 201
     :cond_1
     return v0
 .end method
@@ -464,18 +510,18 @@
     .prologue
     const/4 v2, -0x1
 
-    .line 205
+    .line 207
     invoke-super {p0, p1, p2, p3}, Landroid/app/Fragment;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 207
+    .line 209
     packed-switch p1, :pswitch_data_0
 
-    .line 227
+    .line 229
     :cond_0
     :goto_0
     return-void
 
-    .line 209
+    .line 211
     :pswitch_0
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
@@ -489,15 +535,15 @@
 
     if-eqz v0, :cond_0
 
-    .line 210
+    .line 212
     if-ne p2, v2, :cond_0
 
-    .line 211
+    .line 213
     invoke-direct {p0, p3}, Lcom/android/OriginalSettings/MasterClearConfirm;->SetFirstTimePhonepassword(Landroid/content/Intent;)V
 
     goto :goto_0
 
-    .line 217
+    .line 219
     :pswitch_1
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
@@ -511,15 +557,15 @@
 
     if-eqz v0, :cond_0
 
-    .line 218
+    .line 220
     if-ne p2, v2, :cond_0
 
-    .line 219
+    .line 221
     invoke-direct {p0}, Lcom/android/OriginalSettings/MasterClearConfirm;->DoMasterReset()V
 
     goto :goto_0
 
-    .line 207
+    .line 209
     :pswitch_data_0
     .packed-switch 0x64
         :pswitch_0
@@ -532,15 +578,15 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 259
+    .line 261
     invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 261
+    .line 263
     invoke-virtual {p0}, Lcom/android/OriginalSettings/MasterClearConfirm;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
-    .line 262
+    .line 264
     .local v0, args:Landroid/os/Bundle;
     if-eqz v0, :cond_0
 
@@ -553,10 +599,10 @@
     :goto_0
     iput-boolean v1, p0, Lcom/android/OriginalSettings/MasterClearConfirm;->mEraseSdCard:Z
 
-    .line 263
+    .line 265
     return-void
 
-    .line 262
+    .line 264
     :cond_0
     const/4 v1, 0x0
 
@@ -570,8 +616,8 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 241
-    const v0, 0x7f04006a
+    .line 243
+    const v0, 0x7f040081
 
     const/4 v1, 0x0
 
@@ -581,10 +627,10 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/MasterClearConfirm;->mContentView:Landroid/view/View;
 
-    .line 242
+    .line 244
     invoke-direct {p0}, Lcom/android/OriginalSettings/MasterClearConfirm;->establishFinalConfirmationState()V
 
-    .line 243
+    .line 245
     iget-object v0, p0, Lcom/android/OriginalSettings/MasterClearConfirm;->mContentView:Landroid/view/View;
 
     return-object v0
@@ -594,10 +640,10 @@
     .locals 3
 
     .prologue
-    .line 249
+    .line 251
     invoke-super {p0}, Landroid/app/Fragment;->onResume()V
 
-    .line 250
+    .line 252
     invoke-virtual {p0}, Lcom/android/OriginalSettings/MasterClearConfirm;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
@@ -610,13 +656,13 @@
 
     check-cast v0, Landroid/app/enterprise/EnterpriseDeviceManager;
 
-    .line 251
+    .line 253
     .local v0, edm:Landroid/app/enterprise/EnterpriseDeviceManager;
     iget-object v1, p0, Lcom/android/OriginalSettings/MasterClearConfirm;->mFinalButton:Landroid/widget/Button;
 
     if-eqz v1, :cond_0
 
-    .line 252
+    .line 254
     iget-object v1, p0, Lcom/android/OriginalSettings/MasterClearConfirm;->mFinalButton:Landroid/widget/Button;
 
     invoke-virtual {v0}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/app/enterprise/RestrictionPolicy;
@@ -629,7 +675,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 254
+    .line 256
     :cond_0
     return-void
 .end method
@@ -642,12 +688,12 @@
     .parameter "requestCode"
 
     .prologue
-    .line 165
+    .line 167
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 166
+    .line 168
     .local v0, pickIntent:Landroid/content/Intent;
     const-string v1, "com.android.settings"
 
@@ -655,24 +701,24 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 167
+    .line 169
     const-string v1, ".title"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 168
+    .line 170
     const-string v1, ".subject"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 169
+    .line 171
     const-string v1, ".password"
 
     invoke-virtual {v0, v1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 170
+    .line 172
     invoke-virtual {p0, v0, p4}, Lcom/android/OriginalSettings/MasterClearConfirm;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 171
+    .line 173
     return-void
 .end method

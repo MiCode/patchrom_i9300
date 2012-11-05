@@ -27,12 +27,12 @@
     .parameter
 
     .prologue
-    .line 1442
+    .line 1698
     iput-object p1, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleAllowUpload;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1443
+    .line 1699
     return-void
 .end method
 
@@ -46,7 +46,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1448
+    .line 1703
     iget-object v2, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleAllowUpload;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
 
     #getter for: Lcom/android/OriginalSettings/nearby/NearbySettings;->mIMediaServer:Lcom/android/OriginalSettings/nearby/IMediaServer;
@@ -62,12 +62,12 @@
 
     if-nez v2, :cond_1
 
-    .line 1461
+    .line 1713
     :cond_0
     :goto_0
     return v1
 
-    .line 1453
+    .line 1707
     :cond_1
     :try_start_0
     iget-object v2, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleAllowUpload;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
@@ -85,16 +85,16 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1461
+    .line 1713
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 1455
+    .line 1708
     :catch_0
     move-exception v0
 
-    .line 1457
+    .line 1709
     .local v0, e:Ljava/lang/Exception;
     const-string v2, "AllshareSetting"
 

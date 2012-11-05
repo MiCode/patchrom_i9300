@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 256
+    .line 263
     iput-object p1, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert$4;->this$0:Lcom/android/OriginalSettings/fmm/SimChangeAlert;
 
     iput-object p2, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert$4;->val$chkbox:Landroid/widget/CheckBox;
@@ -52,7 +52,7 @@
 
     const/4 v0, 0x0
 
-    .line 259
+    .line 266
     iget-object v2, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert$4;->this$0:Lcom/android/OriginalSettings/fmm/SimChangeAlert;
 
     #calls: Lcom/android/OriginalSettings/fmm/SimChangeAlert;->getContentResolver()Landroid/content/ContentResolver;
@@ -68,7 +68,7 @@
 
     if-ne v2, v1, :cond_0
 
-    .line 260
+    .line 267
     iget-object v2, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert$4;->this$0:Lcom/android/OriginalSettings/fmm/SimChangeAlert;
 
     invoke-virtual {v2}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->getActivity()Landroid/app/Activity;
@@ -83,7 +83,7 @@
 
     invoke-static {v2, v3, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 261
+    .line 268
     :cond_0
     iget-object v2, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert$4;->this$0:Lcom/android/OriginalSettings/fmm/SimChangeAlert;
 
@@ -112,7 +112,7 @@
     :cond_1
     invoke-virtual {v2, v0}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 262
+    .line 269
     iget-object v0, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert$4;->val$chkbox:Landroid/widget/CheckBox;
 
     invoke-virtual {v0}, Landroid/widget/CheckBox;->isChecked()Z
@@ -121,10 +121,10 @@
 
     if-eqz v0, :cond_2
 
-    .line 263
+    .line 270
     sput-boolean v1, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->chkboxFlag:Z
 
-    .line 265
+    .line 272
     :cond_2
     return-void
 .end method

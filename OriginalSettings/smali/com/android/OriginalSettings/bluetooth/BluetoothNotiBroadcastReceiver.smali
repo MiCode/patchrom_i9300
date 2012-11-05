@@ -14,12 +14,12 @@
     .locals 1
 
     .prologue
-    .line 37
+    .line 38
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->quickPanelOn:Z
 
-    .line 41
+    .line 42
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->mNotiManager:Landroid/app/NotificationManager;
@@ -31,34 +31,46 @@
     .locals 0
 
     .prologue
-    .line 34
+    .line 35
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
-.method private destroyNotification()V
+.method private destroyNotification(Landroid/content/Context;)V
     .locals 2
+    .parameter "context"
 
     .prologue
-    .line 93
+    .line 106
+    const-string v0, "notification"
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/NotificationManager;
+
+    sput-object v0, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->mNotiManager:Landroid/app/NotificationManager;
+
+    .line 107
     sget-object v0, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->mNotiManager:Landroid/app/NotificationManager;
 
     if-eqz v0, :cond_0
 
-    .line 95
+    .line 108
     sget-object v0, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->mNotiManager:Landroid/app/NotificationManager;
 
     const v1, 0x1080080
 
     invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->cancel(I)V
 
-    .line 96
+    .line 109
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->mNotiManager:Landroid/app/NotificationManager;
 
-    .line 98
+    .line 111
     :cond_0
     return-void
 .end method
@@ -68,12 +80,12 @@
     .parameter "context"
 
     .prologue
-    const v7, 0x7f0d00aa
+    const v7, 0x7f0900be
 
-    .line 73
+    .line 85
     new-instance v0, Landroid/app/Notification;
 
-    const v3, 0x7f020262
+    const v3, 0x7f020313
 
     invoke-virtual {p1, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -85,24 +97,24 @@
 
     invoke-direct {v0, v3, v4, v5, v6}, Landroid/app/Notification;-><init>(ILjava/lang/CharSequence;J)V
 
-    .line 76
+    .line 88
     .local v0, notification:Landroid/app/Notification;
     new-instance v2, Landroid/content/Intent;
 
     invoke-direct {v2}, Landroid/content/Intent;-><init>()V
 
-    .line 77
+    .line 89
     .local v2, settingIntent:Landroid/content/Intent;
     const-string v3, "android.settings.BLUETOOTH_SETTINGS"
 
     invoke-virtual {v2, v3}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 78
+    .line 90
     const/high16 v3, 0x400
 
     invoke-virtual {v2, v3}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 79
+    .line 91
     const/4 v3, 0x0
 
     const/high16 v4, 0x4000
@@ -111,13 +123,13 @@
 
     move-result-object v1
 
-    .line 82
+    .line 94
     .local v1, pending:Landroid/app/PendingIntent;
     invoke-virtual {p1, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f0d00ab
+    const v4, 0x7f0900bf
 
     invoke-virtual {p1, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -125,21 +137,21 @@
 
     invoke-virtual {v0, p1, v3, v4, v1}, Landroid/app/Notification;->setLatestEventInfo(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
 
-    .line 84
+    .line 96
     iget v3, v0, Landroid/app/Notification;->flags:I
 
     or-int/lit8 v3, v3, 0x10
 
     iput v3, v0, Landroid/app/Notification;->flags:I
 
-    .line 85
+    .line 97
     iget v3, v0, Landroid/app/Notification;->defaults:I
 
     or-int/lit8 v3, v3, 0x1
 
     iput v3, v0, Landroid/app/Notification;->defaults:I
 
-    .line 87
+    .line 99
     const-string v3, "notification"
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -150,147 +162,193 @@
 
     sput-object v3, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->mNotiManager:Landroid/app/NotificationManager;
 
-    .line 88
+    .line 100
+    sget-object v3, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->mNotiManager:Landroid/app/NotificationManager;
+
+    if-eqz v3, :cond_0
+
+    .line 101
     sget-object v3, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->mNotiManager:Landroid/app/NotificationManager;
 
     const v4, 0x1080080
 
     invoke-virtual {v3, v4, v0}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
 
-    .line 90
+    .line 103
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 6
-    .parameter "context"
-    .parameter "intent"
+    .locals 4
+    .parameter
+    .parameter
 
     .prologue
-    const/16 v5, 0xc
+    const/16 v3, 0xc
 
-    const/high16 v4, -0x8000
+    const/high16 v2, -0x8000
 
-    .line 45
-    const-string v2, "BluetoothNotiBroadcastReceiver"
+    .line 46
+    const-string v0, "BluetoothNotiBroadcastReceiver"
 
-    const-string v3, "onReceive"
+    const-string v1, "onReceive"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 47
+    .line 48
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 49
-    .local v0, action:Ljava/lang/String;
-    const-string v2, "android.systemui.statusbar.action.BLUETOOTH_ON"
-
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
     .line 50
-    const/4 v2, 0x1
+    const-string v1, "android.systemui.statusbar.action.BLUETOOTH_ON"
 
-    sput-boolean v2, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->quickPanelOn:Z
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    .line 71
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 51
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->quickPanelOn:Z
+
+    .line 83
     :cond_0
     :goto_0
     return-void
 
-    .line 51
-    :cond_1
-    const-string v2, "android.bluetooth.device.action.BOND_STATE_CHANGED"
-
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
     .line 52
-    const-string v2, "android.bluetooth.device.extra.BOND_STATE"
+    :cond_1
+    const-string v1, "android.bluetooth.device.action.BOND_STATE_CHANGED"
 
-    invoke-virtual {p2, v2, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    .line 54
-    .local v1, state:I
-    if-ne v5, v1, :cond_0
+    if-eqz v1, :cond_2
+
+    .line 53
+    const-string v0, "android.bluetooth.device.extra.BOND_STATE"
+
+    invoke-virtual {p2, v0, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v0
 
     .line 55
-    invoke-direct {p0}, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->destroyNotification()V
+    if-ne v3, v0, :cond_0
+
+    .line 56
+    invoke-direct {p0, p1}, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->destroyNotification(Landroid/content/Context;)V
 
     goto :goto_0
-
-    .line 57
-    .end local v1           #state:I
-    :cond_2
-    const-string v2, "android.bluetooth.device.action.ACL_CONNECTED"
-
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3
 
     .line 58
-    invoke-direct {p0}, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->destroyNotification()V
+    :cond_2
+    const-string v1, "android.bluetooth.device.action.ACL_CONNECTED"
 
-    goto :goto_0
-
-    .line 59
-    :cond_3
-    const-string v2, "android.bluetooth.adapter.action.STATE_CHANGED"
-
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    .line 60
-    const-string v2, "android.bluetooth.adapter.extra.STATE"
-
-    invoke-virtual {p2, v2, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    .line 62
-    .restart local v1       #state:I
-    const/16 v2, 0xd
+    if-eqz v1, :cond_3
 
-    if-ne v2, v1, :cond_4
-
-    .line 63
-    invoke-direct {p0}, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->destroyNotification()V
+    .line 59
+    invoke-direct {p0, p1}, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->destroyNotification(Landroid/content/Context;)V
 
     goto :goto_0
 
+    .line 60
+    :cond_3
+    const-string v1, "android.bluetooth.adapter.action.STATE_CHANGED"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 61
+    const-string v0, "android.bluetooth.adapter.extra.STATE"
+
+    invoke-virtual {p2, v0, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v0
+
+    .line 63
+    const/16 v1, 0xd
+
+    if-ne v1, v0, :cond_4
+
     .line 64
-    :cond_4
-    if-ne v5, v1, :cond_0
+    invoke-direct {p0, p1}, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->destroyNotification(Landroid/content/Context;)V
+
+    goto :goto_0
 
     .line 65
-    sget-boolean v2, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->quickPanelOn:Z
-
-    if-eqz v2, :cond_0
+    :cond_4
+    if-ne v3, v0, :cond_0
 
     .line 66
-    const/4 v2, 0x0
+    sget-boolean v0, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->quickPanelOn:Z
 
-    sput-boolean v2, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->quickPanelOn:Z
+    if-eqz v0, :cond_0
 
     .line 67
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->quickPanelOn:Z
+
+    .line 69
+    invoke-static {p1}, Lcom/android/OriginalSettings/Utils;->isTablet(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    .line 70
     invoke-direct {p0, p1}, Lcom/android/OriginalSettings/bluetooth/BluetoothNotiBroadcastReceiver;->displayNotification(Landroid/content/Context;)V
+
+    goto :goto_0
+
+    .line 72
+    :cond_5
+    sget-boolean v0, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;->mIsForegroundBtSettings:Z
+
+    if-nez v0, :cond_0
+
+    .line 73
+    const-string v0, "BluetoothNotiBroadcastReceiver"
+
+    const-string v1, "Call list dialog"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 74
+    new-instance v0, Landroid/content/Intent;
+
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+
+    .line 75
+    const-class v1, Lcom/android/OriginalSettings/bluetooth/BluetoothScanDialog;
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, p1, v1}, Landroid/content/Intent;->setClassName(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 76
+    const/high16 v1, 0x1080
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    .line 77
+    invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
 .end method

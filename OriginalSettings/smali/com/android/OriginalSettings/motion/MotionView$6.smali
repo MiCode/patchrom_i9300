@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 282
+    .line 315
     iput-object p1, p0, Lcom/android/OriginalSettings/motion/MotionView$6;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 284
+    .line 317
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/MotionView$6;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
 
     #calls: Lcom/android/OriginalSettings/motion/MotionView;->getContentResolver()Landroid/content/ContentResolver;
@@ -61,13 +61,17 @@
 
     if-nez v0, :cond_0
 
-    .line 285
+    .line 318
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/MotionView$6;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
 
     #calls: Lcom/android/OriginalSettings/motion/MotionView;->showMotionDialog()V
     invoke-static {v0}, Lcom/android/OriginalSettings/motion/MotionView;->access$1000(Lcom/android/OriginalSettings/motion/MotionView;)V
 
-    .line 287
+    .line 324
+    :goto_0
+    return-void
+
+    .line 319
     :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/MotionView$6;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
 
@@ -89,17 +93,15 @@
 
     if-eqz v0, :cond_1
 
-    .line 288
+    .line 320
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/MotionView$6;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
 
     #calls: Lcom/android/OriginalSettings/motion/MotionView;->startTryActually()V
     invoke-static {v0}, Lcom/android/OriginalSettings/motion/MotionView;->access$800(Lcom/android/OriginalSettings/motion/MotionView;)V
 
-    .line 292
-    :goto_0
-    return-void
+    goto :goto_0
 
-    .line 290
+    .line 322
     :cond_1
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/MotionView$6;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
 

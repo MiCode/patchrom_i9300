@@ -203,12 +203,12 @@
 
     move-result-object v6
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 138
     iget-object v5, p0, Lcom/android/OriginalSettings/personalvibration/VibrationPatternListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v6, 0x10900fe
+    const v6, 0x7f0400dd
 
     const/4 v7, 0x0
 
@@ -225,15 +225,8 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    .line 140
-    .local v3, v:Landroid/widget/TextView;
-    iget-object v5, p0, Lcom/android/OriginalSettings/personalvibration/VibrationPatternListAdapter;->context:Landroid/content/Context;
-
-    const v6, 0x1030044
-
-    invoke-virtual {v3, v5, v6}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
-
     .line 142
+    .local v3, v:Landroid/widget/TextView;
     invoke-virtual {p0, p1}, Lcom/android/OriginalSettings/personalvibration/VibrationPatternListAdapter;->getPatternName(I)Ljava/lang/String;
 
     move-result-object v5
@@ -405,7 +398,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 173
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
@@ -450,7 +443,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 178
     const-string v0, "VibrationPatternListAdapter"
@@ -483,7 +476,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 179
     const-string v0, "VibrationPatternListAdapter"
@@ -516,7 +509,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 182
     iget-object v0, p0, Lcom/android/OriginalSettings/personalvibration/VibrationPatternListAdapter;->mPatternNames:Ljava/util/Vector;

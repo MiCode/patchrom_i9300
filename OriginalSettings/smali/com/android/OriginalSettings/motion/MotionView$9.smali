@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 310
+    .line 342
     iput-object p1, p0, Lcom/android/OriginalSettings/motion/MotionView$9;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 312
+    .line 344
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/MotionView$9;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
 
     const/4 v1, 0x1
@@ -51,6 +51,6 @@
     #calls: Lcom/android/OriginalSettings/motion/MotionView;->startTryActually(Z)V
     invoke-static {v0, v1}, Lcom/android/OriginalSettings/motion/MotionView;->access$1300(Lcom/android/OriginalSettings/motion/MotionView;Z)V
 
-    .line 313
+    .line 345
     return-void
 .end method

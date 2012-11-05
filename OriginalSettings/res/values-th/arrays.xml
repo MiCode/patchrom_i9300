@@ -18,12 +18,15 @@
         <item>10 ​นาที</item>
         <item>30 ​นาที</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 วินาที</item>
         <item>30 ​วินาที</item>
         <item>1 ​นาที</item>
-        <item>2 ​นาที</item>
+        <item>3 ​นาที</item>
         <item>5 ​นาที</item>
+        <item>10 ​นาที</item>
+        <item>15 ​นาที</item>
+        <item>30 ​นาที</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>ไม่</item>
@@ -34,6 +37,18 @@
         <item>5 ​นาที</item>
         <item>10 ​นาที</item>
         <item>30 ​นาที</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 วินาที</item>
+        <item>30 ​วินาที</item>
+        <item>1 ​นาที</item>
+        <item>3 ​นาที</item>
+        <item>5 ​นาที</item>
+        <item>10 ​นาที</item>
+        <item>15 ​นาที</item>
+        <item>30 ​นาที</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>ทันที</item>
@@ -93,17 +108,7 @@
         <item>เลิก​เชื่อม​ต่อ​แล้ว</item>
         <item>ไม่​สำเร็จ</item>
         <item>เชื่อม​ต่อ​แล้ว</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>หลีกเลี่ยงการเชื่อมต่อกับสัญญาณที่ไม่แรงพอชั่วคราว</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>เลิก​เชื่อม​ต่อ​แล้ว</item>
         <item>ไม่​สำเร็จ</item>
         <item>เชื่อม​ต่อ​แล้ว</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>หลีกเลี่ยงการเชื่อมต่อกับสัญญาณที่ไม่แรงพอชั่วคราว</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>เปิด​ไฟล์</item>
@@ -138,12 +133,21 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>ปุ่ม​พุ​ช</item>
+        <item>PIN ​สำหรับ​อุปกรณ์​ที่​เชื่อม​ต่อ</item>
+        <item>PIN ​สำหรับ​อุปกรณ์​นี้</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>เชื่อม​ต่อ​แล้ว</item>
+        <item>เชิญ</item>
+        <item>"การ​เชื่อม​ต่อ
+​ผิด​พลาด"</item>
+        <item>สัมผัส​เพื่อ​เชื่อม​ต่อ</item>
+        <item>อยู่​นอก​ช่วง</item>
+        <item>เชื่อม​ต่อ​กับ​อุปกรณ์​อื่น</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>ไม่​มี​การ​หมด​เวลา</item>
@@ -152,6 +156,10 @@
         <item>20 ​นาที</item>
         <item>30 ​นาที</item>
         <item>60 นาที</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>อนุญาตอุปกรณ์ทั้งหมด</item>
+        <item>เฉพาะ​อุปกรณ์​ที่​อนุญาต</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>อัตโนมัติ</item>
@@ -179,20 +187,6 @@
         <item>9</item>
         <item>10</item>
     </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>ปุ่ม​พุ​ช</item>
-        <item>PIN ​สำหรับ​อุปกรณ์​ที่​เชื่อม​ต่อ</item>
-        <item>PIN ​สำหรับ​อุปกรณ์​นี้</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>เชื่อม​ต่อ​แล้ว</item>
-        <item>เชิญ</item>
-        <item>"การ​เชื่อม​ต่อ
-​ผิด​พลาด"</item>
-        <item>สัมผัส​เพื่อ​เชื่อม​ต่อ</item>
-        <item>อยู่​นอก​ช่วง</item>
-        <item>เชื่อม​ต่อ​กับ​อุปกรณ์​อื่น</item>
-    </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 ​นาที</item>
         <item>5 ​นาที</item>
@@ -207,12 +201,12 @@
         <item>แรงมาก</item>
     </string-array>
     <string-array name="wifi_sleep_policy_entries">
-        <item>ตลอดเวลา</item>
+        <item>ทุก​ครั้ง</item>
         <item>เมื่อ​เสียบ​ปลั๊ก​อยู่​เท่า​นั้น</item>
         <item>ไม่ (​เพิ่ม​การ​ใช้​ข้อมูล)</item>
     </string-array>
     <string-array name="wifi_sleep_policy_entries_wifi_only">
-        <item>ตลอดเวลา</item>
+        <item>ทุก​ครั้ง</item>
         <item>เมื่อ​เสียบ​ปลั๊ก​อยู่​เท่า​นั้น</item>
         <item>ไม่</item>
     </string-array>
@@ -240,6 +234,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -267,16 +262,6 @@
     <string-array name="wifi_proxy_settings">
         <item>ไม่​มี</item>
         <item>เลือก​เอง</item>
-    </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>ปกติ</item>
-        <item>Downtown</item>
-        <item>บ้าน</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>นี่คือการตั้งค่าการเชื่อมต่อ Wi-Fi แบบทั่วไป</item>
-        <item>ถ้าคุณอยู่ในพื้นที่ที่มีเครือข่าย Wi-Fi มาก จะมีการเชื่อมต่อ Wi-Fi ใหม่บ่อยๆ เพื่อให้ได้สัญญาณที่แรงกว่า</item>
-        <item>ถ้าคุณอยู่ในพื้นที่ที่มีเครือข่าย Wi-Fi น้อย การเชื่อมต่อ Wi-Fi จะถูกรักษาไว้นานที่สุดเท่าที่จะเป็นไปได้</item>
     </string-array>
     <string-array name="emergency_tone_entries">
         <item>ปิด</item>
@@ -308,11 +293,6 @@
         <item>พื้นที่​จัด​เก็บ​ภาย​ใน​เครื่อง</item>
         <item>SD ​การ์ด​ที่​ถอด​ออก​ได้</item>
         <item>พื้น​ฐาน</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>ปิด</item>
-        <item>สั่น</item>
-        <item>ปิด​เสียง</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>สั้น</item>
@@ -347,6 +327,15 @@
         <item>สเกล​ภาพ​เคลื่อน​ไหว 5x</item>
         <item>สเกล​ภาพ​เคลื่อน​ไหว 10x</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>ปิด​ภาพ​เคลื่อน​ไหว</item>
+        <item>สเกล​ภาพ​เคลื่อน​ไหว 0.5x</item>
+        <item>สเกล​ภาพ​เคลื่อน​ไหว 1x</item>
+        <item>สเกล​ภาพ​เคลื่อน​ไหว 1.5x</item>
+        <item>สเกล​ภาพ​เคลื่อน​ไหว 2x</item>
+        <item>สเกล​ภาพ​เคลื่อน​ไหว 5x</item>
+        <item>สเกล​ภาพ​เคลื่อน​ไหว 10x</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>ขีด​จำกัด​มาตรฐาน</item>
         <item>ไม่​มี​การ​ดำเนิน​การ​พื้น​หลัง</item>
@@ -371,22 +360,8 @@
         <item>หมด​เวลา</item>
         <item>ไม่​สำเร็จ</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>ที่​เก็บข้อมูล USB</item>
+        <item>อุปกรณ์</item>
         <item>SD ​การ์ด</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -416,15 +391,29 @@
         <item>รูป​ถ่าย</item>
         <item>เพลง</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>สูง</item>
-        <item>กลาง</item>
-        <item>ต่ำ</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>อัตโนมัติ</item>
         <item>ด้วย​ตน​เอง</item>
         <item>ถาม​ทุก​ครั้ง</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>ปิด​ตลอด</item>
+        <item>3 วินาที</item>
+        <item>5 ​วินาที</item>
+        <item>10 วินาที</item>
+        <item>15 วินาที</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>ไม่​มี</item>
+        <item>ราย​ชื่อ​ทั้ง​หมด</item>
+        <item>"รายชื่อ
+ที่ชอบ"</item>
+        <item>กำหนด​เอง</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>สูง</item>
+        <item>กลาง</item>
+        <item>ต่ำ</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1.5 ​วินาที</item>
@@ -440,11 +429,24 @@
     <string-array name="contents_type_entries">
         <item>ข่าว</item>
         <item>หุ้น</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>ข่าว</item>
+        <item>หุ้น</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>ช้า</item>
         <item>ปกติ</item>
         <item>เร็ว</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>ไม่​มี</item>
+        <item>ทุกๆ 30 นาที</item>
+        <item>ทุกๆ 1 ชั่วโมง</item>
+        <item>ทุก 2 ชั่วโมง</item>
+        <item>ทุก 4 ​ชั่วโมง</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>หู​ฟัง</item>
@@ -452,5 +454,9 @@
         <item>โทรศัพท์</item>
         <item>HID (​แป้น​พิมพ์, ​เมาส์ และ​อื่นๆ)</item>
         <item>อุปกรณ์​ทั้ง​หมด</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>สเตอริโอ</item>
+        <item>Surround</item>
     </string-array>
 </resources>

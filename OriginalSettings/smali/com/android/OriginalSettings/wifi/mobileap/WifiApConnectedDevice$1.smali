@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 91
+    .line 109
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApConnectedDevice$1;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApConnectedDevice;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,14 +42,14 @@
     .parameter "v"
 
     .prologue
-    .line 95
+    .line 112
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApConnectedDevice$1;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApConnectedDevice;
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
     #calls: Lcom/android/OriginalSettings/wifi/mobileap/WifiApConnectedDevice;->showDialog(I)V
     invoke-static {v0, v1}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApConnectedDevice;->access$000(Lcom/android/OriginalSettings/wifi/mobileap/WifiApConnectedDevice;I)V
 
-    .line 96
+    .line 113
     return-void
 .end method

@@ -18,12 +18,15 @@
         <item>10 dakika</item>
         <item>30 dakika</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 saniye</item>
         <item>30 saniye</item>
         <item>1 dakika</item>
-        <item>2 dakika</item>
+        <item>3 dakika</item>
         <item>5 dakika</item>
+        <item>10 dakika</item>
+        <item>15 dakika</item>
+        <item>30 dakika</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Hiçbir zaman</item>
@@ -34,6 +37,18 @@
         <item>5 dakika</item>
         <item>10 dakika</item>
         <item>30 dakika</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 saniye</item>
+        <item>30 saniye</item>
+        <item>1 dakika</item>
+        <item>3 dakika</item>
+        <item>5 dakika</item>
+        <item>10 dakika</item>
+        <item>15 dakika</item>
+        <item>30 dakika</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>Hemen</item>
@@ -93,17 +108,7 @@
         <item>Bağlantı kesildi</item>
         <item>Başarısız</item>
         <item>Bağlantı kuruldu</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Kötü bağlantıdan geçici olarak kaçınılıyor</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>Bağlantı kesildi</item>
         <item>Başarısız</item>
         <item>Bağlantı kuruldu</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Kötü bağlantıdan geçici olarak kaçınılıyor</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>Aç</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Push tuşu</item>
+        <item>Eş cihazdan PIN</item>
+        <item>Bu cihazdan PIN</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Bağlantı kuruldu</item>
+        <item>Davet edildi</item>
+        <item>Bağlantı başarısız</item>
+        <item>Bağlanmak için dokun</item>
+        <item>Aralık dışında</item>
+        <item>Başka cihazla bağlandı</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>Zaman aşımı özelliğini devre dışı bırak</item>
@@ -152,6 +155,10 @@
         <item>20 dakika</item>
         <item>30 dakika</item>
         <item>60 dakika</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Tüm chzlara izin ver</item>
+        <item>Yalnızca izin verilen cihazlar</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>Otomatik</item>
@@ -179,19 +186,6 @@
         <item>9</item>
         <item>10</item>
     </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Push tuşu</item>
-        <item>Eş cihazdan PIN</item>
-        <item>Bu cihazdan PIN</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Bağlantı kuruldu</item>
-        <item>Davet edildi</item>
-        <item>Bağlantı başarısız</item>
-        <item>Bağlanmak için dokun</item>
-        <item>Aralık dışında</item>
-        <item>Başka cihazla bağlandı</item>
-    </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 dk</item>
         <item>5 dk</item>
@@ -206,12 +200,12 @@
         <item>Çok güçlü</item>
     </string-array>
     <string-array name="wifi_sleep_policy_entries">
-        <item>Her zaman</item>
+        <item>Daima</item>
         <item>Sadece fişe takıldığında</item>
         <item>Asla (veri kullanımını arttırır)</item>
     </string-array>
     <string-array name="wifi_sleep_policy_entries_wifi_only">
-        <item>Her zaman</item>
+        <item>Daima</item>
         <item>Sadece fişe takıldığında</item>
         <item>Hiçbir zaman</item>
     </string-array>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -266,16 +261,6 @@
     <string-array name="wifi_proxy_settings">
         <item>Hiçbiri</item>
         <item>Manuel</item>
-    </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Normal</item>
-        <item>Downtown</item>
-        <item>Ev</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>Bu en genel Wi-Fi bağlantı ayarıdır</item>
-        <item>Wi-Fi bağlantısı olan bir alandaysanız, Wi-Fi daha iyi sinyal kuvveti için sık sık tekrar bağlanacaktır</item>
-        <item>Wi-Fi bağlantısı düşük olan bir alandaysanız, Wi-Fi bağlantısı mümkün olduğu sürece sağlanır</item>
     </string-array>
     <string-array name="emergency_tone_entries">
         <item>Kapalı</item>
@@ -307,11 +292,6 @@
         <item>Dahili cihaz belleği</item>
         <item>Çıkartılabilir SD kart</item>
         <item>Varsayılan</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>Kapalı</item>
-        <item>Titreşim</item>
-        <item>Sessiz</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Kısa</item>
@@ -346,6 +326,15 @@
         <item>Animasyon ölçeği 5x</item>
         <item>Animasyon ölçeği 10x</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Animasyon kapalı</item>
+        <item>Animasyon ölçeği 0,5x</item>
+        <item>Animasyon ölçeği 1x</item>
+        <item>Animasyon ölçeği 1,5x</item>
+        <item>Animasyon ölçeği 2x</item>
+        <item>Animasyon ölçeği 5x</item>
+        <item>Animasyon ölçeği 10x</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>Standart limit</item>
         <item>Arkaplan işlemi yok</item>
@@ -370,22 +359,8 @@
         <item>Süre aşımı</item>
         <item>Başarısız</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>USB bellek</item>
+        <item>Cihaz</item>
         <item>SD kart</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -415,15 +390,28 @@
         <item>Fotoğraflar</item>
         <item>Müzik</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>Yüksek</item>
-        <item>Orta</item>
-        <item>Düşük</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Otomatik</item>
         <item>Manuel</item>
         <item>Her zaman sor</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Her zaman kapalı</item>
+        <item>3 saniye</item>
+        <item>5 saniye</item>
+        <item>10 saniye</item>
+        <item>15 saniye</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Hiçbiri</item>
+        <item>Tüm kişiler</item>
+        <item>Favorilerim</item>
+        <item>Özel</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>Yüksek</item>
+        <item>Orta</item>
+        <item>Düşük</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1,5 saniye</item>
@@ -439,11 +427,24 @@
     <string-array name="contents_type_entries">
         <item>Haberler</item>
         <item>Tahvil</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Haberler</item>
+        <item>Tahvil</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>Yavaş</item>
         <item>Normal</item>
         <item>Hızlı</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Hiçbiri</item>
+        <item>30 dakikada bir</item>
+        <item>1 saatte bir</item>
+        <item>2 saatte bir</item>
+        <item>4 saatte bir</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>Kulaklık</item>
@@ -451,5 +452,9 @@
         <item>Telefon</item>
         <item>HID (klavye, mouse, vb.)</item>
         <item>Tüm cihazlar</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Stereo</item>
+        <item>Surround</item>
     </string-array>
 </resources>

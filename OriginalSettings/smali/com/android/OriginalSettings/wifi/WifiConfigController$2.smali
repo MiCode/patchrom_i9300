@@ -3,12 +3,12 @@
 .source "WifiConfigController.java"
 
 # interfaces
-.implements Landroid/text/InputFilter;
+.implements Landroid/text/TextWatcher;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/wifi/WifiConfigController;->showIpConfigFields()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/OriginalSettings/wifi/WifiConfigController;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1192
+    .line 1120
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/WifiConfigController$2;->this$0:Lcom/android/OriginalSettings/wifi/WifiConfigController;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,132 +37,260 @@
 
 
 # virtual methods
-.method public filter(Ljava/lang/CharSequence;IILandroid/text/Spanned;II)Ljava/lang/CharSequence;
-    .locals 6
-    .parameter "source"
-    .parameter "start"
-    .parameter "end"
-    .parameter "dest"
-    .parameter "dstart"
-    .parameter "dend"
+.method public afterTextChanged(Landroid/text/Editable;)V
+    .locals 1
+    .parameter "editable"
 
     .prologue
-    .line 1194
-    if-le p3, p2, :cond_2
+    .line 1149
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiConfigController$2;->this$0:Lcom/android/OriginalSettings/wifi/WifiConfigController;
 
-    .line 1195
-    invoke-virtual {p4}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/android/OriginalSettings/wifi/WifiConfigController;->enableSubmitIfAppropriate()V
+
+    .line 1150
+    return-void
+.end method
+
+.method public beforeTextChanged(Ljava/lang/CharSequence;III)V
+    .locals 2
+    .parameter "s"
+    .parameter "start"
+    .parameter "count"
+    .parameter "after"
+
+    .prologue
+    .line 1144
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1196
-    .local v0, destTxt:Ljava/lang/String;
-    new-instance v4, Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/String;->getBytes()[B
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v0
 
-    const/4 v5, 0x0
+    array-length v0, v0
 
-    invoke-virtual {v0, v5, p5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    const/16 v1, 0x20
 
-    move-result-object v5
+    if-gt v0, v1, :cond_0
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 1145
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiConfigController$2;->this$0:Lcom/android/OriginalSettings/wifi/WifiConfigController;
 
-    move-result-object v4
+    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    invoke-interface {p1, p2, p3}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
+    move-result-object v1
 
-    move-result-object v5
+    iput-object v1, v0, Lcom/android/OriginalSettings/wifi/WifiConfigController;->mTempSsid:Ljava/lang/String;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    .line 1146
+    :cond_0
+    return-void
+.end method
 
-    move-result-object v4
+.method public onTextChanged(Ljava/lang/CharSequence;III)V
+    .locals 7
+    .parameter "s"
+    .parameter "start"
+    .parameter "before"
+    .parameter "count"
 
-    invoke-virtual {v0, p6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    .prologue
+    const/16 v6, 0x20
 
-    move-result-object v5
+    .line 1122
+    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v4
+    invoke-virtual {v0}, Ljava/lang/String;->getBytes()[B
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
+
+    array-length v0, v0
+
+    if-le v0, v6, :cond_1
+
+    .line 1123
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiConfigController$2;->this$0:Lcom/android/OriginalSettings/wifi/WifiConfigController;
+
+    iget-object v0, v0, Lcom/android/OriginalSettings/wifi/WifiConfigController;->mTempSsid:Ljava/lang/String;
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiConfigController$2;->this$0:Lcom/android/OriginalSettings/wifi/WifiConfigController;
+
+    iget-object v0, v0, Lcom/android/OriginalSettings/wifi/WifiConfigController;->mTempSsid:Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object v0
+
+    array-length v0, v0
+
+    if-gt v0, v6, :cond_2
+
+    .line 1124
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiConfigController$2;->this$0:Lcom/android/OriginalSettings/wifi/WifiConfigController;
+
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiConfigController;->mSsidView:Landroid/widget/EditText;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiConfigController;->access$100(Lcom/android/OriginalSettings/wifi/WifiConfigController;)Landroid/widget/EditText;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/OriginalSettings/wifi/WifiConfigController$2;->this$0:Lcom/android/OriginalSettings/wifi/WifiConfigController;
+
+    iget-object v1, v1, Lcom/android/OriginalSettings/wifi/WifiConfigController;->mTempSsid:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+
+    .line 1129
+    :goto_0
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiConfigController$2;->this$0:Lcom/android/OriginalSettings/wifi/WifiConfigController;
+
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiConfigController;->mAlertDialog:Landroid/app/AlertDialog;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiConfigController;->access$000(Lcom/android/OriginalSettings/wifi/WifiConfigController;)Landroid/app/AlertDialog;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    .line 1130
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiConfigController$2;->this$0:Lcom/android/OriginalSettings/wifi/WifiConfigController;
+
+    new-instance v1, Landroid/app/AlertDialog$Builder;
+
+    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiConfigController$2;->this$0:Lcom/android/OriginalSettings/wifi/WifiConfigController;
+
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiConfigController;->mConfigUi:Lcom/android/OriginalSettings/wifi/WifiConfigUiBase;
+    invoke-static {v2}, Lcom/android/OriginalSettings/wifi/WifiConfigController;->access$200(Lcom/android/OriginalSettings/wifi/WifiConfigController;)Lcom/android/OriginalSettings/wifi/WifiConfigUiBase;
 
     move-result-object v2
 
-    .line 1197
-    .local v2, resultingTxt:Ljava/lang/String;
-    const-string v4, "^\\d{1,3}(\\.(\\d{1,3}(\\.(\\d{1,3}(\\.(\\d{1,3})?)?)?)?)?)?"
+    invoke-interface {v2}, Lcom/android/OriginalSettings/wifi/WifiConfigUiBase;->getContext()Landroid/content/Context;
 
-    invoke-virtual {v2, v4}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
+    move-result-object v2
 
-    move-result v4
+    invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    if-nez v4, :cond_0
+    const v2, 0x7f0902e7
 
-    .line 1198
-    const-string v4, ""
+    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 1208
-    .end local v0           #destTxt:Ljava/lang/String;
-    .end local v2           #resultingTxt:Ljava/lang/String;
-    :goto_0
-    return-object v4
+    move-result-object v1
 
-    .line 1200
-    .restart local v0       #destTxt:Ljava/lang/String;
-    .restart local v2       #resultingTxt:Ljava/lang/String;
+    const v2, 0x1010355
+
+    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setIconAttribute(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiConfigController$2;->this$0:Lcom/android/OriginalSettings/wifi/WifiConfigController;
+
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiConfigController;->mConfigUi:Lcom/android/OriginalSettings/wifi/WifiConfigUiBase;
+    invoke-static {v2}, Lcom/android/OriginalSettings/wifi/WifiConfigController;->access$200(Lcom/android/OriginalSettings/wifi/WifiConfigController;)Lcom/android/OriginalSettings/wifi/WifiConfigUiBase;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Lcom/android/OriginalSettings/wifi/WifiConfigUiBase;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    const v3, 0x7f09027d
+
+    const/4 v4, 0x1
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    const/4 v5, 0x0
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    aput-object v6, v4, v5
+
+    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v1
+
+    const v2, 0x7f0902e8
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v2, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
+
+    move-result-object v1
+
+    #setter for: Lcom/android/OriginalSettings/wifi/WifiConfigController;->mAlertDialog:Landroid/app/AlertDialog;
+    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wifi/WifiConfigController;->access$002(Lcom/android/OriginalSettings/wifi/WifiConfigController;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+
+    .line 1136
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiConfigController$2;->this$0:Lcom/android/OriginalSettings/wifi/WifiConfigController;
+
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiConfigController;->mAlertDialog:Landroid/app/AlertDialog;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiConfigController;->access$000(Lcom/android/OriginalSettings/wifi/WifiConfigController;)Landroid/app/AlertDialog;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/OriginalSettings/wifi/WifiConfigController$2;->this$0:Lcom/android/OriginalSettings/wifi/WifiConfigController;
+
+    iget-object v1, v1, Lcom/android/OriginalSettings/wifi/WifiConfigController;->mDismissListener:Landroid/content/DialogInterface$OnDismissListener;
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+
+    .line 1139
     :cond_0
-    const-string v4, "\\."
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiConfigController$2;->this$0:Lcom/android/OriginalSettings/wifi/WifiConfigController;
 
-    invoke-virtual {v2, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiConfigController;->mSsidView:Landroid/widget/EditText;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiConfigController;->access$100(Lcom/android/OriginalSettings/wifi/WifiConfigController;)Landroid/widget/EditText;
 
-    move-result-object v3
+    move-result-object v0
 
-    .line 1201
-    .local v3, splits:[Ljava/lang/String;
-    const/4 v1, 0x0
+    iget-object v1, p0, Lcom/android/OriginalSettings/wifi/WifiConfigController$2;->this$0:Lcom/android/OriginalSettings/wifi/WifiConfigController;
 
-    .local v1, i:I
-    :goto_1
-    array-length v4, v3
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiConfigController;->mSsidView:Landroid/widget/EditText;
+    invoke-static {v1}, Lcom/android/OriginalSettings/wifi/WifiConfigController;->access$100(Lcom/android/OriginalSettings/wifi/WifiConfigController;)Landroid/widget/EditText;
 
-    if-ge v1, v4, :cond_2
+    move-result-object v1
 
-    .line 1202
-    aget-object v4, v3, v1
+    invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v4
+    invoke-interface {v1}, Landroid/text/Editable;->length()I
 
-    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
+    move-result v1
 
-    move-result v4
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setSelection(I)V
 
-    const/16 v5, 0xff
-
-    if-le v4, v5, :cond_1
-
-    .line 1203
-    const-string v4, ""
-
-    goto :goto_0
-
-    .line 1201
+    .line 1141
     :cond_1
-    add-int/lit8 v1, v1, 0x1
+    return-void
 
-    goto :goto_1
-
-    .line 1208
-    .end local v0           #destTxt:Ljava/lang/String;
-    .end local v1           #i:I
-    .end local v2           #resultingTxt:Ljava/lang/String;
-    .end local v3           #splits:[Ljava/lang/String;
+    .line 1126
     :cond_2
-    const/4 v4, 0x0
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiConfigController$2;->this$0:Lcom/android/OriginalSettings/wifi/WifiConfigController;
 
-    goto :goto_0
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiConfigController;->mSsidView:Landroid/widget/EditText;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiConfigController;->access$100(Lcom/android/OriginalSettings/wifi/WifiConfigController;)Landroid/widget/EditText;
+
+    move-result-object v0
+
+    const-string v1, ""
+
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+
+    goto/16 :goto_0
 .end method

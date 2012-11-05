@@ -18,12 +18,15 @@
         <item>10 minutter</item>
         <item>30 minutter</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 sekunder</item>
         <item>30 sekunder</item>
         <item>1 minut</item>
-        <item>2 minutter</item>
+        <item>3 minutter</item>
         <item>5 minutter</item>
+        <item>10 minutter</item>
+        <item>15 min.</item>
+        <item>30 minutter</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Aldrig</item>
@@ -33,7 +36,19 @@
         <item>2 minutter</item>
         <item>5 minutter</item>
         <item>10 minutter</item>
-        <item>30 Minutter</item>
+        <item>30 minutter</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 sekunder</item>
+        <item>30 sekunder</item>
+        <item>1 minut</item>
+        <item>3 minutter</item>
+        <item>5 minutter</item>
+        <item>10 minutter</item>
+        <item>15 min.</item>
+        <item>30 minutter</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>Med det samme</item>
@@ -44,7 +59,7 @@
         <item>2 minutter</item>
         <item>5 minutter</item>
         <item>10 minutter</item>
-        <item>30 Minutter</item>
+        <item>30 minutter</item>
     </string-array>
     <string-array name="entries_font_size">
         <item>Meget lille</item>
@@ -93,17 +108,7 @@
         <item>Afbrudt</item>
         <item>Mislykkedes</item>
         <item>Forbundet</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Undgår midlertidigt dårlig forbindelse</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>Afbrudt</item>
         <item>Mislykkedes</item>
         <item>Forbundet</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Undgår midlertidigt dårlig forbindelse</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>Åben</item>
@@ -138,20 +133,33 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Trykknap</item>
+        <item>PIN-kode fra peer-enhed</item>
+        <item>PIN-kode fra denne enhed</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Forbundet</item>
+        <item>Inviteret</item>
+        <item>"Forbindelsen
+mislykkedes"</item>
+        <item>Tryk for at tilslutte</item>
+        <item>Uden for rækkevidde</item>
+        <item>Sluttet til en anden enhed</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>Aldrig timeout</item>
-        <item>5 Minutter</item>
+        <item>5 minutter</item>
         <item>10 minutter</item>
         <item>20 min.</item>
         <item>30 minutter</item>
         <item>60 minutter</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Tillad alle enheder</item>
+        <item>Kun tilladte enheder</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>Auto</item>
@@ -178,20 +186,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-    </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Trykknap</item>
-        <item>PIN-kode fra peer-enhed</item>
-        <item>PIN-kode fra denne enhed</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Forbundet</item>
-        <item>Inviteret</item>
-        <item>"Forbindelsen
-mislykkedes"</item>
-        <item>Tryk for at tilslutte</item>
-        <item>Uden for rækkevidde</item>
-        <item>Sluttet til en anden enhed</item>
     </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 min.</item>
@@ -240,6 +234,7 @@ mislykkedes"</item>
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -267,16 +262,6 @@ mislykkedes"</item>
     <string-array name="wifi_proxy_settings">
         <item>Ingen</item>
         <item>Manuelt</item>
-    </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Normal</item>
-        <item>Downtown</item>
-        <item>Hjem</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>Dette er den mest generelle indstilling for Wi-Fi-forbindelse</item>
-        <item>Hvis du er i et område med mange Wi-Fi-netværk, opretter Wi-Fi forbindelse hyppigt for bedre signalstyrke</item>
-        <item>Hvis du er i et område med få Wi-Fi-netværk, opretholdes Wi-Fi-forbindelse så længe som muligt</item>
     </string-array>
     <string-array name="emergency_tone_entries">
         <item>Fra</item>
@@ -309,20 +294,15 @@ mislykkedes"</item>
         <item>Flytbart SD-kort</item>
         <item>Standard</item>
     </string-array>
-    <string-array name="silent_mode_entries">
-        <item>Fra</item>
-        <item>Vibration</item>
-        <item>Lydløs</item>
-    </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Kort</item>
         <item>Mellem</item>
         <item>Lang</item>
     </string-array>
     <string-array name="hdcp_checking_titles">
-        <item>Kontroller aldrig</item>
+        <item>Kontrollér aldrig</item>
         <item>Tjek kun for DRM-indhold</item>
-        <item>Kontroller altid</item>
+        <item>Kontrollér altid</item>
     </string-array>
     <string-array name="hdcp_checking_summaries">
         <item>Brug aldrig HDCP-kontrol</item>
@@ -339,6 +319,15 @@ mislykkedes"</item>
         <item>Animationsskala 10x</item>
     </string-array>
     <string-array name="transition_animation_scale_entries">
+        <item>Animation deaktiveret</item>
+        <item>Animationsskala 0,5x</item>
+        <item>Animationsskala 1x</item>
+        <item>Animationsskala 1,5x</item>
+        <item>Animationsskala 2x</item>
+        <item>Animationsskala 5x</item>
+        <item>Animationsskala 10x</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
         <item>Animation deaktiveret</item>
         <item>Animationsskala 0,5x</item>
         <item>Animationsskala 1x</item>
@@ -371,22 +360,8 @@ mislykkedes"</item>
         <item>Timeout</item>
         <item>Mislykkedes</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>USB-lager</item>
+        <item>Enhed</item>
         <item>SD-kort</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -404,7 +379,7 @@ mislykkedes"</item>
         <item>2</item>
     </string-array>
     <string-array name="allshare_access_control">
-        <item>Tillad alt</item>
+        <item>Tillad alle</item>
         <item>Kun tilladte enheder</item>
     </string-array>
     <string-array name="allshare_access_control_value">
@@ -416,35 +391,61 @@ mislykkedes"</item>
         <item>Billeder</item>
         <item>Musik</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>Høj</item>
-        <item>Mellem</item>
-        <item>Lav</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Automatisk</item>
         <item>Manuelt</item>
         <item>Spørg altid</item>
     </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Altid fra</item>
+        <item>3 sekunder</item>
+        <item>5 sekunder</item>
+        <item>10 sekunder</item>
+        <item>15 sekunder</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Ingen</item>
+        <item>Alle kontakter</item>
+        <item>Favoritter</item>
+        <item>Brugerdefineret</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>Høj</item>
+        <item>Mellem</item>
+        <item>Lav</item>
+    </string-array>
     <string-array name="touch_key_light_entries">
         <item>1,5 sekunder</item>
-        <item>6 Sekunder</item>
+        <item>6 sekunder</item>
         <item>Altid fra</item>
         <item>Altid tændt</item>
     </string-array>
     <string-array name="clock_position_entries">
         <item>Top</item>
         <item>Midterste</item>
-        <item>Bund</item>
+        <item>Nederst</item>
     </string-array>
     <string-array name="contents_type_entries">
         <item>Nyheder</item>
         <item>Aktie</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Nyheder</item>
+        <item>Aktie</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>Langsom</item>
         <item>Normal</item>
         <item>Hurtig</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Ingen</item>
+        <item>Hvert 30. minut</item>
+        <item>Hver time</item>
+        <item>Hver 2. time</item>
+        <item>Hver 4. time</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>Høretelefon</item>
@@ -452,5 +453,9 @@ mislykkedes"</item>
         <item>Telefon</item>
         <item>HID (tastatur, mus osv.)</item>
         <item>Alle enheder</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Stereo</item>
+        <item>Surround</item>
     </string-array>
 </resources>

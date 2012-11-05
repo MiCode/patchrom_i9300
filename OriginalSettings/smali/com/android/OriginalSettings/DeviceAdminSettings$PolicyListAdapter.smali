@@ -26,12 +26,12 @@
     .parameter
 
     .prologue
-    .line 126
+    .line 155
     iput-object p1, p0, Lcom/android/OriginalSettings/DeviceAdminSettings$PolicyListAdapter;->this$0:Lcom/android/OriginalSettings/DeviceAdminSettings;
 
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    .line 127
+    .line 156
     invoke-virtual {p1}, Lcom/android/OriginalSettings/DeviceAdminSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
@@ -46,7 +46,7 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/DeviceAdminSettings$PolicyListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 129
+    .line 158
     return-void
 .end method
 
@@ -56,7 +56,7 @@
     .locals 1
 
     .prologue
-    .line 148
+    .line 177
     const/4 v0, 0x0
 
     return v0
@@ -68,14 +68,14 @@
     .parameter "position"
 
     .prologue
-    .line 178
+    .line 207
     iget-object v3, p0, Lcom/android/OriginalSettings/DeviceAdminSettings$PolicyListAdapter;->this$0:Lcom/android/OriginalSettings/DeviceAdminSettings;
 
     invoke-virtual {v3}, Lcom/android/OriginalSettings/DeviceAdminSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 179
+    .line 208
     .local v0, activity:Landroid/app/Activity;
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
@@ -83,7 +83,7 @@
 
     check-cast v2, Lcom/android/OriginalSettings/DeviceAdminSettings$ViewHolder;
 
-    .line 180
+    .line 209
     .local v2, vh:Lcom/android/OriginalSettings/DeviceAdminSettings$ViewHolder;
     iget-object v3, p0, Lcom/android/OriginalSettings/DeviceAdminSettings$PolicyListAdapter;->this$0:Lcom/android/OriginalSettings/DeviceAdminSettings;
 
@@ -95,7 +95,7 @@
 
     check-cast v1, Landroid/app/admin/DeviceAdminInfo;
 
-    .line 181
+    .line 210
     .local v1, item:Landroid/app/admin/DeviceAdminInfo;
     iget-object v3, v2, Lcom/android/OriginalSettings/DeviceAdminSettings$ViewHolder;->icon:Landroid/widget/ImageView;
 
@@ -109,7 +109,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 182
+    .line 211
     iget-object v3, v2, Lcom/android/OriginalSettings/DeviceAdminSettings$ViewHolder;->name:Landroid/widget/TextView;
 
     invoke-virtual {v0}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -122,7 +122,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 183
+    .line 212
     iget-object v3, v2, Lcom/android/OriginalSettings/DeviceAdminSettings$ViewHolder;->checkbox:Landroid/widget/CheckBox;
 
     iget-object v4, p0, Lcom/android/OriginalSettings/DeviceAdminSettings$PolicyListAdapter;->this$0:Lcom/android/OriginalSettings/DeviceAdminSettings;
@@ -139,7 +139,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/CheckBox;->setChecked(Z)V
 
-    .line 185
+    .line 228
     :try_start_0
     iget-object v3, v2, Lcom/android/OriginalSettings/DeviceAdminSettings$ViewHolder;->description:Landroid/widget/TextView;
 
@@ -155,11 +155,11 @@
     :try_end_0
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 188
+    .line 231
     :goto_0
     return-void
 
-    .line 186
+    .line 229
     :catch_0
     move-exception v3
 
@@ -170,7 +170,7 @@
     .locals 1
 
     .prologue
-    .line 136
+    .line 165
     iget-object v0, p0, Lcom/android/OriginalSettings/DeviceAdminSettings$PolicyListAdapter;->this$0:Lcom/android/OriginalSettings/DeviceAdminSettings;
 
     iget-object v0, v0, Lcom/android/OriginalSettings/DeviceAdminSettings;->mAvailableAdmins:Ljava/util/ArrayList;
@@ -187,7 +187,7 @@
     .parameter "position"
 
     .prologue
-    .line 140
+    .line 169
     iget-object v0, p0, Lcom/android/OriginalSettings/DeviceAdminSettings$PolicyListAdapter;->this$0:Lcom/android/OriginalSettings/DeviceAdminSettings;
 
     iget-object v0, v0, Lcom/android/OriginalSettings/DeviceAdminSettings;->mAvailableAdmins:Ljava/util/ArrayList;
@@ -204,7 +204,7 @@
     .parameter "position"
 
     .prologue
-    .line 144
+    .line 173
     int-to-long v0, p1
 
     return-wide v0
@@ -217,23 +217,23 @@
     .parameter "parent"
 
     .prologue
-    .line 157
+    .line 186
     if-nez p2, :cond_0
 
-    .line 158
+    .line 187
     invoke-virtual {p0, p3}, Lcom/android/OriginalSettings/DeviceAdminSettings$PolicyListAdapter;->newView(Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
-    .line 162
+    .line 191
     .local v0, v:Landroid/view/View;
     :goto_0
     invoke-virtual {p0, v0, p1}, Lcom/android/OriginalSettings/DeviceAdminSettings$PolicyListAdapter;->bindView(Landroid/view/View;I)V
 
-    .line 163
+    .line 192
     return-object v0
 
-    .line 160
+    .line 189
     .end local v0           #v:Landroid/view/View;
     :cond_0
     move-object v0, p2
@@ -246,7 +246,7 @@
     .locals 1
 
     .prologue
-    .line 132
+    .line 161
     const/4 v0, 0x1
 
     return v0
@@ -257,7 +257,7 @@
     .parameter "position"
 
     .prologue
-    .line 152
+    .line 181
     const/4 v0, 0x1
 
     return v0
@@ -268,10 +268,10 @@
     .parameter "parent"
 
     .prologue
-    .line 167
+    .line 196
     iget-object v2, p0, Lcom/android/OriginalSettings/DeviceAdminSettings$PolicyListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f040049
+    const v3, 0x7f040047
 
     const/4 v4, 0x0
 
@@ -279,15 +279,15 @@
 
     move-result-object v1
 
-    .line 168
+    .line 197
     .local v1, v:Landroid/view/View;
     new-instance v0, Lcom/android/OriginalSettings/DeviceAdminSettings$ViewHolder;
 
     invoke-direct {v0}, Lcom/android/OriginalSettings/DeviceAdminSettings$ViewHolder;-><init>()V
 
-    .line 169
+    .line 198
     .local v0, h:Lcom/android/OriginalSettings/DeviceAdminSettings$ViewHolder;
-    const v2, 0x7f0a003b
+    const v2, 0x7f0b0035
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -297,8 +297,8 @@
 
     iput-object v2, v0, Lcom/android/OriginalSettings/DeviceAdminSettings$ViewHolder;->icon:Landroid/widget/ImageView;
 
-    .line 170
-    const v2, 0x7f0a00a3
+    .line 199
+    const v2, 0x7f0b00b1
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -308,8 +308,8 @@
 
     iput-object v2, v0, Lcom/android/OriginalSettings/DeviceAdminSettings$ViewHolder;->name:Landroid/widget/TextView;
 
-    .line 171
-    const v2, 0x7f0a00a5
+    .line 200
+    const v2, 0x7f0b00b3
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -319,8 +319,8 @@
 
     iput-object v2, v0, Lcom/android/OriginalSettings/DeviceAdminSettings$ViewHolder;->checkbox:Landroid/widget/CheckBox;
 
-    .line 172
-    const v2, 0x7f0a00a4
+    .line 201
+    const v2, 0x7f0b00b2
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -330,9 +330,9 @@
 
     iput-object v2, v0, Lcom/android/OriginalSettings/DeviceAdminSettings$ViewHolder;->description:Landroid/widget/TextView;
 
-    .line 173
+    .line 202
     invoke-virtual {v1, v0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    .line 174
+    .line 203
     return-object v1
 .end method

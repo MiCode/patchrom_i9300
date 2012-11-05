@@ -18,12 +18,15 @@
         <item>10 minuts</item>
         <item>30 minuts</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 segons</item>
         <item>30 segons</item>
         <item>1 minut</item>
-        <item>2 minuts</item>
+        <item>3 minuts</item>
         <item>5 minuts</item>
+        <item>10 minuts</item>
+        <item>15 minuts</item>
+        <item>30 minuts</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Mai</item>
@@ -34,6 +37,18 @@
         <item>5 minuts</item>
         <item>10 minuts</item>
         <item>30 minuts</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 segons</item>
+        <item>30 segons</item>
+        <item>1 minut</item>
+        <item>3 minuts</item>
+        <item>5 minuts</item>
+        <item>10 minuts</item>
+        <item>15 minuts</item>
+        <item>30 minuts</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>Immediatament</item>
@@ -93,17 +108,7 @@
         <item>Desconnectat</item>
         <item>No ha funcionat</item>
         <item>Connectat</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>"S'està evitant temporalment una connexió feble"</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>Desconnectat</item>
         <item>No ha funcionat</item>
         <item>Connectat</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>"S'està evitant temporalment una connexió feble"</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>Obrir</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Prémer el botó</item>
+        <item>PIN del dispositiu company</item>
+        <item>"PIN d'aquest dispositiu"</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Connectat</item>
+        <item>Convidat</item>
+        <item>Error de connexió</item>
+        <item>Toqui per connectar</item>
+        <item>Fora de rang</item>
+        <item>Connectat a un altre dispositiu</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>"No esgotar mai el temps d'espera"</item>
@@ -152,6 +155,10 @@
         <item>20 minuts</item>
         <item>30 minuts</item>
         <item>60 minuts</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Permetre tots disp</item>
+        <item>Només dispositius permesos</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>Auto</item>
@@ -178,19 +185,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-    </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Prémer el botó</item>
-        <item>PIN del dispositiu company</item>
-        <item>"PIN d'aquest dispositiu"</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Connectat</item>
-        <item>Convidat</item>
-        <item>Error de connexió</item>
-        <item>Toqui per connectar</item>
-        <item>Fora de rang</item>
-        <item>Connectat a un altre dispositiu</item>
     </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 min</item>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -266,16 +261,6 @@
     <string-array name="wifi_proxy_settings">
         <item>Cap</item>
         <item>Manual</item>
-    </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Normal</item>
-        <item>Downtown</item>
-        <item>Pers.</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>"Aquest és l'ajustament de connexió Wi-Fi més general"</item>
-        <item>Si és a una zona amb moltes xarxes Wi-Fi, la connexió Wi-Fi es tornarà a connectar amb freqüència per cercar un senyal més potent</item>
-        <item>Si és a una zona amb poques xarxes Wi-Fi, la connexió Wi-Fi es manté tant com sigui possible</item>
     </string-array>
     <string-array name="emergency_tone_entries">
         <item>Desactivat</item>
@@ -307,11 +292,6 @@
         <item>Emmagatzematge intern del dispositiu</item>
         <item>Targeta SD extraïble</item>
         <item>Predeterminat</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>Desactiv</item>
-        <item>Vibració</item>
-        <item>Silenci</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Curt</item>
@@ -346,6 +326,15 @@
         <item>"Escala d'animació 5x"</item>
         <item>"Escala d'animació 10x"</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>"L'animació està desactivada"</item>
+        <item>"Escala d'animació 0,5x"</item>
+        <item>"Escala d'animació 1x"</item>
+        <item>"Escala d'animació 1,5x"</item>
+        <item>"Escala d'animació 2x"</item>
+        <item>"Escala d'animació 5x"</item>
+        <item>"Escala d'animació 10x"</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>Límit estàndard</item>
         <item>Sense processos en segon pla</item>
@@ -370,22 +359,8 @@
         <item>"Temps d'espera"</item>
         <item>No ha funcionat</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>Emmagatzematge USB</item>
+        <item>Dispositiu</item>
         <item>Targ SD</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -415,15 +390,28 @@
         <item>Fotos</item>
         <item>Música</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>Alta</item>
-        <item>Mitjana</item>
-        <item>Baixa</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Automàtica</item>
         <item>Manualment</item>
         <item>Preguntar sempre</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Sempre desactivada</item>
+        <item>3 segons</item>
+        <item>5 segons</item>
+        <item>10 segons</item>
+        <item>15 segons</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Cap</item>
+        <item>Tots els contactes</item>
+        <item>Preferits</item>
+        <item>Personalitzat</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>Alta</item>
+        <item>Mitjana</item>
+        <item>Baixa</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1.5 segons</item>
@@ -439,11 +427,24 @@
     <string-array name="contents_type_entries">
         <item>Notícies</item>
         <item>Accions</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Notícies</item>
+        <item>Accions</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>Lent</item>
         <item>Normal</item>
         <item>Ràpid</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Cap</item>
+        <item>Cada 30 minuts</item>
+        <item>Cada 1 hora</item>
+        <item>Cada 2 hores</item>
+        <item>Cada 4 hores</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>Auricular</item>
@@ -451,5 +452,9 @@
         <item>Telèfon</item>
         <item>HID (teclat ratolí, etc.)</item>
         <item>Tots els dispositius</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Estèreo</item>
+        <item>So envoltant</item>
     </string-array>
 </resources>

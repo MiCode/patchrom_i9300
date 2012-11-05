@@ -18,12 +18,15 @@
         <item>10 nóiméad</item>
         <item>30 nóiméad</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 shoicind</item>
         <item>30 soicind</item>
         <item>1 nóiméad</item>
-        <item>2 nóiméad</item>
+        <item>3 nóiméad</item>
         <item>5 nóiméad</item>
+        <item>10 nóiméad</item>
+        <item>15 nóiméad</item>
+        <item>30 nóiméad</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Choíche</item>
@@ -34,6 +37,18 @@
         <item>5 nóiméad</item>
         <item>10 nóiméad</item>
         <item>30 nóiméad</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 shoicind</item>
+        <item>30 soicind</item>
+        <item>1 nóiméad</item>
+        <item>3 nóiméad</item>
+        <item>5 nóiméad</item>
+        <item>10 nóiméad</item>
+        <item>15 nóiméad</item>
+        <item>30 nóiméad</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>Láithreach</item>
@@ -93,17 +108,7 @@
         <item>Dínasctha</item>
         <item>Níor éirigh leis</item>
         <item>Nasctha</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Temporarily avoiding poor connection</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>Dínasctha</item>
         <item>Níor éirigh leis</item>
         <item>Nasctha</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Temporarily avoiding poor connection</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>Oscailte</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Brúchnaipe</item>
+        <item>PIN ón bpiarghléas</item>
+        <item>PIN ón ngléas seo</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Nasctha</item>
+        <item>Cuireadh faighte</item>
+        <item>Theip ar nascadh</item>
+        <item>Tapáil le nascadh</item>
+        <item>As raon</item>
+        <item>Nasctha le gléas eile</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>Ní am istigh riamh</item>
@@ -153,8 +156,12 @@
         <item>30 nóiméad</item>
         <item>60 nóiméad</item>
     </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Ceadaigh gach gléas</item>
+        <item>Gléasanna ceadaithe amháin</item>
+    </string-array>
     <string-array name="wifi_ap_channel">
-        <item>Uath-</item>
+        <item>Uath</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -178,19 +185,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-    </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Brúchnaipe</item>
-        <item>PIN ón bpiarghléas</item>
-        <item>PIN ón ngléas seo</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Nasctha</item>
-        <item>Cuireadh faighte</item>
-        <item>Theip ar nascadh</item>
-        <item>Tapáil chun nascadh</item>
-        <item>As raon</item>
-        <item>Nasctha le gléas eile</item>
     </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 nóim</item>
@@ -221,7 +215,7 @@
         <item>0</item>
     </string-array>
     <string-array name="wifi_frequency_band_entries">
-        <item>Uathoibríoch</item>
+        <item>Uath</item>
         <item>5 GHz amháin</item>
         <item>2.4 GHz amháin</item>
     </string-array>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -267,16 +262,6 @@
         <item>Dada</item>
         <item>Láimhe</item>
     </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Normálta</item>
-        <item>Downtown</item>
-        <item>Baile</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>Is é seo an socrú nasctha Wi-Fi is coitianta</item>
-        <item>Má tá tú in áit ina bhfuil go leor líonraí Wi-Fi, athnascfar an Wi-Fi go minic le haghaidh comhartha níos láidre</item>
-        <item>Má tá tú in áit nach bhfuil mórán líonraí Wi-Fi ann, coinnítear an nasc Wi-Fi chomh fada agus is féidir</item>
-    </string-array>
     <string-array name="emergency_tone_entries">
         <item>As</item>
         <item>Foláireamh</item>
@@ -303,14 +288,9 @@
         <item>Cárta SD inbhainte</item>
         <item>Réamhshocrú</item>
     </string-array>
-    <string-array name="silent_mode_entries">
-        <item>As</item>
-        <item>Crith</item>
-        <item>Balbh</item>
-    </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Gearr</item>
-        <item>Meán</item>
+        <item>Meánach</item>
         <item>Fada</item>
     </string-array>
     <string-array name="hdcp_checking_titles">
@@ -333,6 +313,15 @@
         <item>Scála beochana 10x</item>
     </string-array>
     <string-array name="transition_animation_scale_entries">
+        <item>Beochan as</item>
+        <item>Scála beochana 0.5x</item>
+        <item>Scála beochana 1x</item>
+        <item>Scála beochana 1.5x</item>
+        <item>Scála beochana 2x</item>
+        <item>Scála beochana 5x</item>
+        <item>Scála beochana 10x</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
         <item>Beochan as</item>
         <item>Scála beochana 0.5x</item>
         <item>Scála beochana 1x</item>
@@ -365,22 +354,8 @@
         <item>Am istigh</item>
         <item>Níor éirigh leis</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>Stóras USB</item>
+        <item>Gléas</item>
         <item>Cárta SD</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -410,15 +385,28 @@
         <item>Grianghraif</item>
         <item>Ceol</item>
     </string-array>
+    <string-array name="wifi_connect_entries">
+        <item>Uathoibríoch</item>
+        <item>De Láimhe</item>
+        <item>Iarr i gcónaí</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>As i gcónaí</item>
+        <item>3 shoicind</item>
+        <item>5 shoicind</item>
+        <item>10 soicind</item>
+        <item>15 shoicind</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Dada</item>
+        <item>Gach teagmhálaí</item>
+        <item>Ceanáin</item>
+        <item>Saincheaptha</item>
+    </string-array>
     <string-array name="signature_settings_verification_level_entries">
         <item>Ard</item>
         <item>Meán</item>
         <item>Íseal</item>
-    </string-array>
-    <string-array name="wifi_connect_entries">
-        <item>Uathoibríoch</item>
-        <item>Láimhe</item>
-        <item>Iarr i gcónaí</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1.5 soicind</item>
@@ -434,17 +422,34 @@
     <string-array name="contents_type_entries">
         <item>Nuacht</item>
         <item>Stoic</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Nuacht</item>
+        <item>Stoic</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>Mall</item>
         <item>Normálta</item>
         <item>Tapa</item>
     </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Dada</item>
+        <item>Gach 30 nóiméad</item>
+        <item>Gach 1 uair an chloig</item>
+        <item>Gach 2 uair</item>
+        <item>Gach 4 huaire an chloig</item>
+    </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>Gléas cinn</item>
         <item>PC</item>
         <item>Fón</item>
-        <item>Gléas ionchuir daonna (eochairchlár, luch srl.)</item>
+        <item>Gléas Ionchuir Daonna (eochairchlár, luch srl.)</item>
         <item>Gach gléas</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Steirió</item>
+        <item>Mórthimpeall</item>
     </string-array>
 </resources>

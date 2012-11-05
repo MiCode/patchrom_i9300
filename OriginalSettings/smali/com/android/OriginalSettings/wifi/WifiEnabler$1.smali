@@ -69,7 +69,7 @@
     #calls: Lcom/android/OriginalSettings/wifi/WifiEnabler;->handleWifiStateChanged(I)V
     invoke-static {v2, v3}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->access$000(Lcom/android/OriginalSettings/wifi/WifiEnabler;I)V
 
-    .line 132
+    .line 133
     :cond_0
     :goto_0
     return-void
@@ -173,7 +173,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_4
 
     .line 124
     iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiEnabler$1;->this$0:Lcom/android/OriginalSettings/wifi/WifiEnabler;
@@ -190,4 +190,59 @@
     invoke-static {v2, v3}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->access$300(Lcom/android/OriginalSettings/wifi/WifiEnabler;I)V
 
     goto :goto_0
+
+    .line 126
+    :cond_4
+    const-string v2, "com.android.settings.wifi.WIFI_ON"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 127
+    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiEnabler$1;->this$0:Lcom/android/OriginalSettings/wifi/WifiEnabler;
+
+    #calls: Lcom/android/OriginalSettings/wifi/WifiEnabler;->checkWifiTetheringAndDisable()Z
+    invoke-static {v2}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->access$400(Lcom/android/OriginalSettings/wifi/WifiEnabler;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_5
+
+    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiEnabler$1;->this$0:Lcom/android/OriginalSettings/wifi/WifiEnabler;
+
+    #calls: Lcom/android/OriginalSettings/wifi/WifiEnabler;->checkWifiDirectAndDisable()Z
+    invoke-static {v2}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->access$500(Lcom/android/OriginalSettings/wifi/WifiEnabler;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    .line 128
+    :cond_5
+    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiEnabler$1;->this$0:Lcom/android/OriginalSettings/wifi/WifiEnabler;
+
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiEnabler;->mHandler:Lcom/android/OriginalSettings/wifi/WifiEnabler$SwitchHandler;
+    invoke-static {v2}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->access$600(Lcom/android/OriginalSettings/wifi/WifiEnabler;)Lcom/android/OriginalSettings/wifi/WifiEnabler$SwitchHandler;
+
+    move-result-object v2
+
+    const/4 v3, 0x2
+
+    invoke-virtual {v2, v3}, Lcom/android/OriginalSettings/wifi/WifiEnabler$SwitchHandler;->sendEmptyMessage(I)Z
+
+    goto/16 :goto_0
+
+    .line 131
+    :cond_6
+    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiEnabler$1;->this$0:Lcom/android/OriginalSettings/wifi/WifiEnabler;
+
+    const/4 v3, 0x1
+
+    #calls: Lcom/android/OriginalSettings/wifi/WifiEnabler;->setWifiEnable(Z)V
+    invoke-static {v2, v3}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->access$700(Lcom/android/OriginalSettings/wifi/WifiEnabler;Z)V
+
+    goto/16 :goto_0
 .end method

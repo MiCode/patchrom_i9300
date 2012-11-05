@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    value = Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->connectFromMultiView()Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 749
+    .line 792
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$8;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "reason"
 
     .prologue
-    .line 754
+    .line 797
     const-string v0, "WifiP2pSettings"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -65,7 +65,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 755
+    .line 798
     return-void
 .end method
 
@@ -73,13 +73,13 @@
     .locals 2
 
     .prologue
-    .line 751
+    .line 794
     const-string v0, "WifiP2pSettings"
 
     const-string v1, " connect success"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 752
+    .line 795
     return-void
 .end method

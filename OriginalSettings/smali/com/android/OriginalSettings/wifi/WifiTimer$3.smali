@@ -3,12 +3,12 @@
 .source "WifiTimer.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/wifi/WifiTimer;->onCreateDialog(I)Landroid/app/Dialog;
+    value = Lcom/android/OriginalSettings/wifi/WifiTimer;->setActionBar()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 187
+    .line 169
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/WifiTimer$3;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimer;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,74 +37,42 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 5
-    .parameter "arg0"
-    .parameter "arg1"
+.method public onClick(Landroid/view/View;)V
+    .locals 2
+    .parameter "v"
 
     .prologue
-    const/16 v4, 0xb
+    .line 172
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiTimer$3;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimer;
 
-    .line 190
-    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
+    #calls: Lcom/android/OriginalSettings/wifi/WifiTimer;->saveChanges()Z
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiTimer;->access$000(Lcom/android/OriginalSettings/wifi/WifiTimer;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 173
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiTimer$3;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimer;
+
+    const/16 v1, 0x12d
+
+    #calls: Lcom/android/OriginalSettings/wifi/WifiTimer;->showDialog(I)V
+    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wifi/WifiTimer;->access$100(Lcom/android/OriginalSettings/wifi/WifiTimer;I)V
+
+    .line 176
+    :goto_0
+    return-void
+
+    .line 175
+    :cond_0
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiTimer$3;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimer;
+
+    invoke-virtual {v0}, Lcom/android/OriginalSettings/wifi/WifiTimer;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 191
-    .local v0, cal:Ljava/util/Calendar;
-    iget-object v1, p0, Lcom/android/OriginalSettings/wifi/WifiTimer$3;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimer;
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    iget-object v1, v1, Lcom/android/OriginalSettings/wifi/WifiTimer;->startTime_tv:Landroid/widget/TextView;
-
-    const-string v2, "hh:mm AA"
-
-    invoke-virtual {v0}, Ljava/util/Calendar;->getTime()Ljava/util/Date;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/text/format/DateFormat;->format(Ljava/lang/CharSequence;Ljava/util/Date;)Ljava/lang/CharSequence;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 192
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v4, v1}, Ljava/util/Calendar;->add(II)V
-
-    .line 193
-    iget-object v1, p0, Lcom/android/OriginalSettings/wifi/WifiTimer$3;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimer;
-
-    iget-object v1, v1, Lcom/android/OriginalSettings/wifi/WifiTimer;->endTime_tv:Landroid/widget/TextView;
-
-    const-string v2, "hh:mm AA"
-
-    invoke-virtual {v0}, Ljava/util/Calendar;->getTime()Ljava/util/Date;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/text/format/DateFormat;->format(Ljava/lang/CharSequence;Ljava/util/Date;)Ljava/lang/CharSequence;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 194
-    iget-object v1, p0, Lcom/android/OriginalSettings/wifi/WifiTimer$3;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimer;
-
-    iget-object v1, v1, Lcom/android/OriginalSettings/wifi/WifiTimer;->mEndTimePickerView:Landroid/widget/TimePicker;
-
-    invoke-virtual {v0, v4}, Ljava/util/Calendar;->get(I)I
-
-    move-result v2
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/widget/TimePicker;->setCurrentHour(Ljava/lang/Integer;)V
-
-    .line 195
-    return-void
+    goto :goto_0
 .end method

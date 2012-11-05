@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 330
+    .line 331
     iput-object p1, p0, Lcom/android/OriginalSettings/deviceinfo/Status$4;->this$0:Lcom/android/OriginalSettings/deviceinfo/Status;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,23 +39,23 @@
     .parameter "msg"
 
     .prologue
-    .line 332
+    .line 333
     const-string v2, "Status"
 
     const-string v3, "handleMessage"
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 333
+    .line 334
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
-    .line 365
+    .line 366
     :goto_0
     return-void
 
-    .line 335
+    .line 336
     :pswitch_0
     const-string v2, "Status"
 
@@ -63,7 +63,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 337
+    .line 338
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v2
@@ -78,16 +78,23 @@
 
     invoke-static {v2}, Lcom/android/OriginalSettings/deviceinfo/Status;->access$702([B)[B
 
-    .line 339
+    .line 340
+    invoke-static {}, Lcom/android/OriginalSettings/deviceinfo/Status;->access$700()[B
+
+    move-result-object v2
+
+    if-eqz v2, :cond_0
+
     invoke-static {}, Lcom/android/OriginalSettings/deviceinfo/Status;->access$700()[B
 
     move-result-object v2
 
     array-length v2, v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1
 
-    .line 340
+    .line 341
+    :cond_0
     const-string v2, "Status"
 
     const-string v3, "response is null"
@@ -96,8 +103,8 @@
 
     goto :goto_0
 
-    .line 344
-    :cond_0
+    .line 345
+    :cond_1
     iget-object v2, p0, Lcom/android/OriginalSettings/deviceinfo/Status$4;->this$0:Lcom/android/OriginalSettings/deviceinfo/Status;
 
     iget-object v3, p0, Lcom/android/OriginalSettings/deviceinfo/Status$4;->this$0:Lcom/android/OriginalSettings/deviceinfo/Status;
@@ -111,7 +118,7 @@
     #setter for: Lcom/android/OriginalSettings/deviceinfo/Status;->mUserName:Landroid/preference/Preference;
     invoke-static {v2, v3}, Lcom/android/OriginalSettings/deviceinfo/Status;->access$802(Lcom/android/OriginalSettings/deviceinfo/Status;Landroid/preference/Preference;)Landroid/preference/Preference;
 
-    .line 346
+    .line 347
     iget-object v2, p0, Lcom/android/OriginalSettings/deviceinfo/Status$4;->this$0:Lcom/android/OriginalSettings/deviceinfo/Status;
 
     invoke-static {}, Lcom/android/OriginalSettings/deviceinfo/Status;->access$700()[B
@@ -125,10 +132,10 @@
     #setter for: Lcom/android/OriginalSettings/deviceinfo/Status;->NAI_length:I
     invoke-static {v2, v3}, Lcom/android/OriginalSettings/deviceinfo/Status;->access$902(Lcom/android/OriginalSettings/deviceinfo/Status;I)I
 
-    .line 347
+    .line 348
     const/4 v1, 0x1
 
-    .line 350
+    .line 351
     .local v1, offset:I
     const-string v2, "Status"
 
@@ -159,7 +166,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 351
+    .line 352
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -171,9 +178,9 @@
 
     move-result v2
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v2, :cond_2
 
-    .line 352
+    .line 353
     iget-object v2, p0, Lcom/android/OriginalSettings/deviceinfo/Status$4;->this$0:Lcom/android/OriginalSettings/deviceinfo/Status;
 
     invoke-static {}, Lcom/android/OriginalSettings/deviceinfo/Status;->access$700()[B
@@ -192,13 +199,13 @@
 
     invoke-static {v2, v3}, Lcom/android/OriginalSettings/deviceinfo/Status;->access$1084(Lcom/android/OriginalSettings/deviceinfo/Status;Ljava/lang/Object;)Ljava/lang/String;
 
-    .line 351
+    .line 352
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 355
-    :cond_1
+    .line 356
+    :cond_2
     const-string v2, "Status"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -228,7 +235,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 356
+    .line 357
     iget-object v2, p0, Lcom/android/OriginalSettings/deviceinfo/Status$4;->this$0:Lcom/android/OriginalSettings/deviceinfo/Status;
 
     #getter for: Lcom/android/OriginalSettings/deviceinfo/Status;->user_name:Ljava/lang/String;
@@ -236,7 +243,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
     iget-object v2, p0, Lcom/android/OriginalSettings/deviceinfo/Status$4;->this$0:Lcom/android/OriginalSettings/deviceinfo/Status;
 
@@ -249,10 +256,10 @@
 
     move-result v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_4
 
-    .line 357
-    :cond_2
+    .line 358
+    :cond_3
     iget-object v2, p0, Lcom/android/OriginalSettings/deviceinfo/Status$4;->this$0:Lcom/android/OriginalSettings/deviceinfo/Status;
 
     #getter for: Lcom/android/OriginalSettings/deviceinfo/Status;->mUserName:Landroid/preference/Preference;
@@ -266,8 +273,8 @@
 
     goto/16 :goto_0
 
-    .line 359
-    :cond_3
+    .line 360
+    :cond_4
     iget-object v2, p0, Lcom/android/OriginalSettings/deviceinfo/Status$4;->this$0:Lcom/android/OriginalSettings/deviceinfo/Status;
 
     #getter for: Lcom/android/OriginalSettings/deviceinfo/Status;->mUserName:Landroid/preference/Preference;
@@ -286,7 +293,7 @@
 
     goto/16 :goto_0
 
-    .line 333
+    .line 334
     :pswitch_data_0
     .packed-switch 0xe
         :pswitch_0

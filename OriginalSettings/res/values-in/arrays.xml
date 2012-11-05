@@ -18,12 +18,15 @@
         <item>10 menit</item>
         <item>30 menit</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 detik</item>
         <item>30 detik</item>
         <item>1 menit</item>
-        <item>2 menit</item>
+        <item>3 menit</item>
         <item>5 Menit</item>
+        <item>10 menit</item>
+        <item>15 menit</item>
+        <item>30 menit</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Tdk pernah</item>
@@ -34,6 +37,18 @@
         <item>5 Menit</item>
         <item>10 menit</item>
         <item>30 menit</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 detik</item>
+        <item>30 detik</item>
+        <item>1 menit</item>
+        <item>3 menit</item>
+        <item>5 Menit</item>
+        <item>10 menit</item>
+        <item>15 menit</item>
+        <item>30 menit</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>segera</item>
@@ -93,17 +108,7 @@
         <item>Terputus</item>
         <item>Gagal</item>
         <item>Tersambung</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Menghindari sambungan buruk untuk sementara</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>Terputus</item>
         <item>Gagal</item>
         <item>Tersambung</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Menghindari sambungan buruk untuk sementara</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>Buka file</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Tombol gegas</item>
+        <item>PIN dari perangkat pasangan</item>
+        <item>PIN dari perangkat ini</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Tersambung</item>
+        <item>Diundang</item>
+        <item>Koneksi gagal</item>
+        <item>Ketuk untuk menyambungkan</item>
+        <item>Diluar jangkauan</item>
+        <item>Tersambung dengan perangkat lain</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>Tidak pernah habis waktu</item>
@@ -152,6 +155,10 @@
         <item>20 menit</item>
         <item>30 menit</item>
         <item>60 menit</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Bolehkan smua prngkt</item>
+        <item>Hanya perangkat yang diizinkan</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>Otomatis</item>
@@ -178,19 +185,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-    </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Tombol gegas</item>
-        <item>PIN dari perangkat pasangan</item>
-        <item>PIN dari perangkat ini</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Tersambung</item>
-        <item>Diundang</item>
-        <item>Koneksi gagal</item>
-        <item>Ketuk untuk menyambungkan</item>
-        <item>Diluar jangkauan</item>
-        <item>Tersambung dengan perangkat lain</item>
     </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 mnt</item>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -254,7 +249,7 @@
         <item>GTC</item>
     </string-array>
     <string-array name="wifi_network_setup">
-        <item>Mati</item>
+        <item>Tdk aktif</item>
         <item>Tombol gegas</item>
         <item>PIN dari poin akses</item>
         <item>PIN dari perangkat ini</item>
@@ -266,16 +261,6 @@
     <string-array name="wifi_proxy_settings">
         <item>Tidak ada</item>
         <item>Manual</item>
-    </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Normal</item>
-        <item>Downtown</item>
-        <item>Home</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>Ini adalah pengaturan koneksi Wi-Fi yang paling umum</item>
-        <item>Jika Anda berada di area dengan banyak jaringan Wi-Fi, Wi-Fi akan sering tersambung-ulang untuk mendapatkan kekuatan sinyal lebih baik</item>
-        <item>Jika Anda berada di area dengan sedikit jaringan Wi-Fi, koneksi Wi-Fi akan dipertahankan selama mungkin</item>
     </string-array>
     <string-array name="emergency_tone_entries">
         <item>Mati</item>
@@ -307,11 +292,6 @@
         <item>Penyimpanan perangkat internal</item>
         <item>Kartu SD yang bisa dilepas</item>
         <item>Default</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>Tdk aktif</item>
-        <item>Getar</item>
-        <item>Hening</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Pendek</item>
@@ -346,6 +326,15 @@
         <item>Skala animasi 5x</item>
         <item>Skala animasi 10x</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Animasi tidak aktif</item>
+        <item>Skala animasi 0.5x</item>
+        <item>Skala animasi 1x</item>
+        <item>Skala animasi 1.5x</item>
+        <item>Skala animasi 2x</item>
+        <item>Skala animasi 5x</item>
+        <item>Skala animasi 10x</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>Batas standar</item>
         <item>Tidak ada proses latar belakang</item>
@@ -370,22 +359,8 @@
         <item>Habis waktu</item>
         <item>Gagal</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>Penyimpanan USB</item>
+        <item>Perangkat</item>
         <item>Kartu SD</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -415,15 +390,28 @@
         <item>Foto</item>
         <item>Musik</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>Tinggi</item>
-        <item>Sedang</item>
-        <item>Rendah</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Otomatis</item>
         <item>Secara manual</item>
         <item>Selalu menanyakan</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Selalu nonaktif</item>
+        <item>3 detik</item>
+        <item>5 detik</item>
+        <item>10 detik</item>
+        <item>15 detik</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Tidak ada</item>
+        <item>Semua kontak</item>
+        <item>Favorit</item>
+        <item>Kustomisasi</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>Tinggi</item>
+        <item>Sedang</item>
+        <item>Rendah</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1.5 detik</item>
@@ -439,11 +427,24 @@
     <string-array name="contents_type_entries">
         <item>Berita</item>
         <item>Saham</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Berita</item>
+        <item>Saham</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>Lambat</item>
         <item>Normal</item>
         <item>Cepat</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Tidak ada</item>
+        <item>Setiap 30 menit</item>
+        <item>Setiap 1 jam</item>
+        <item>Setiap 2 jam</item>
+        <item>Setiap 4 jam</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>Headset</item>
@@ -451,5 +452,9 @@
         <item>Telepon</item>
         <item>HID (papan tombol, tetikus, dll.)</item>
         <item>Semua perangkat</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Stereo</item>
+        <item>Sekitar</item>
     </string-array>
 </resources>

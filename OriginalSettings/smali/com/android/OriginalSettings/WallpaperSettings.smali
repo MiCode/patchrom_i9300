@@ -4,8 +4,6 @@
 
 
 # instance fields
-.field mEdm:Landroid/app/enterprise/EnterpriseDeviceManager;
-
 .field private mHomeScreenWallpaper:Landroid/preference/PreferenceScreen;
 
 .field private mLockScreenWallpaper:Landroid/preference/PreferenceScreen;
@@ -16,7 +14,7 @@
     .locals 0
 
     .prologue
-    .line 39
+    .line 34
     invoke-direct {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;-><init>()V
 
     return-void
@@ -29,10 +27,10 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 53
+    .line 45
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 54
+    .line 46
     invoke-virtual {p0}, Lcom/android/OriginalSettings/WallpaperSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -41,28 +39,13 @@
 
     move-result-object v1
 
-    .line 57
+    .line 48
     .local v1, resolver:Landroid/content/ContentResolver;
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/WallpaperSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v2
-
-    const-string v3, "enterprise_policy"
-
-    invoke-virtual {v2, v3}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/app/enterprise/EnterpriseDeviceManager;
-
-    iput-object v2, p0, Lcom/android/OriginalSettings/WallpaperSettings;->mEdm:Landroid/app/enterprise/EnterpriseDeviceManager;
-
-    .line 61
-    const v2, 0x7f07005a
+    const v2, 0x7f07006a
 
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/WallpaperSettings;->addPreferencesFromResource(I)V
 
-    .line 63
+    .line 50
     const-string v2, "homescreen_wallpaper"
 
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/WallpaperSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -73,7 +56,7 @@
 
     iput-object v2, p0, Lcom/android/OriginalSettings/WallpaperSettings;->mHomeScreenWallpaper:Landroid/preference/PreferenceScreen;
 
-    .line 64
+    .line 51
     const-string v2, "lockscreen_wallpaper"
 
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/WallpaperSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -84,7 +67,7 @@
 
     iput-object v2, p0, Lcom/android/OriginalSettings/WallpaperSettings;->mLockScreenWallpaper:Landroid/preference/PreferenceScreen;
 
-    .line 67
+    .line 54
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v2
@@ -95,7 +78,7 @@
 
     move-result-object v0
 
-    .line 68
+    .line 55
     .local v0, download_contents:Ljava/lang/String;
     const-string v2, "Wallpaper"
 
@@ -105,7 +88,7 @@
 
     if-nez v2, :cond_0
 
-    .line 69
+    .line 56
     invoke-virtual {p0}, Lcom/android/OriginalSettings/WallpaperSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v2
@@ -118,7 +101,7 @@
 
     invoke-virtual {v2, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 72
+    .line 59
     :cond_0
     return-void
 .end method
@@ -127,10 +110,10 @@
     .locals 0
 
     .prologue
-    .line 90
+    .line 68
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onPause()V
 
-    .line 91
+    .line 69
     return-void
 .end method
 
@@ -142,7 +125,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 95
+    .line 73
     iget-object v2, p0, Lcom/android/OriginalSettings/WallpaperSettings;->mHomeScreenWallpaper:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {p2, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -151,16 +134,16 @@
 
     if-eqz v2, :cond_1
 
-    .line 96
+    .line 74
     new-instance v0, Landroid/content/Intent;
 
     const-string v2, "android.intent.action.SET_WALLPAPER"
 
     invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 97
+    .line 75
     .local v0, pickWallpaper:Landroid/content/Intent;
-    const v2, 0x7f0d0764
+    const v2, 0x7f090894
 
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/WallpaperSettings;->getString(I)Ljava/lang/String;
 
@@ -172,13 +155,13 @@
 
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/WallpaperSettings;->startActivity(Landroid/content/Intent;)V
 
-    .line 102
+    .line 80
     .end local v0           #pickWallpaper:Landroid/content/Intent;
     :cond_0
     :goto_0
     return v1
 
-    .line 99
+    .line 77
     :cond_1
     iget-object v2, p0, Lcom/android/OriginalSettings/WallpaperSettings;->mLockScreenWallpaper:Landroid/preference/PreferenceScreen;
 
@@ -188,7 +171,7 @@
 
     if-nez v2, :cond_0
 
-    .line 102
+    .line 80
     invoke-super {p0, p1, p2}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v1
@@ -197,62 +180,12 @@
 .end method
 
 .method public onResume()V
-    .locals 4
+    .locals 0
 
     .prologue
-    const/4 v3, 0x0
-
-    .line 76
+    .line 63
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onResume()V
 
-    .line 78
-    iget-object v1, p0, Lcom/android/OriginalSettings/WallpaperSettings;->mEdm:Landroid/app/enterprise/EnterpriseDeviceManager;
-
-    if-eqz v1, :cond_0
-
-    .line 79
-    iget-object v1, p0, Lcom/android/OriginalSettings/WallpaperSettings;->mEdm:Landroid/app/enterprise/EnterpriseDeviceManager;
-
-    invoke-virtual {v1}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/app/enterprise/RestrictionPolicy;
-
-    move-result-object v0
-
-    .line 80
-    .local v0, restrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
-    iget-object v1, p0, Lcom/android/OriginalSettings/WallpaperSettings;->mHomeScreenWallpaper:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v3}, Landroid/app/enterprise/RestrictionPolicy;->isWallpaperChangeAllowed(Z)Z
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
-
-    .line 81
-    iget-object v1, p0, Lcom/android/OriginalSettings/WallpaperSettings;->mLockScreenWallpaper:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v3}, Landroid/app/enterprise/RestrictionPolicy;->isWallpaperChangeAllowed(Z)Z
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
-
-    .line 82
-    const-string v1, "both_wallpaper"
-
-    invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/WallpaperSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v3}, Landroid/app/enterprise/RestrictionPolicy;->isWallpaperChangeAllowed(Z)Z
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
-
-    .line 86
-    .end local v0           #restrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
-    :cond_0
+    .line 64
     return-void
 .end method

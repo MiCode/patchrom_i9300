@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 176
+    .line 185
     invoke-direct {p0}, Landroid/preference/PreferenceFragment;-><init>()V
 
     return-void
@@ -31,33 +31,33 @@
     .locals 3
 
     .prologue
-    .line 180
+    .line 189
     invoke-super {p0}, Landroid/preference/PreferenceFragment;->onResume()V
 
-    .line 182
+    .line 191
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/RemoteControls$FragmentAccount;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 
-    .line 183
+    .line 192
     .local v1, root:Landroid/preference/PreferenceScreen;
     if-eqz v1, :cond_0
 
-    .line 184
+    .line 193
     invoke-virtual {v1}, Landroid/preference/PreferenceScreen;->removeAll()V
 
-    .line 186
+    .line 195
     :cond_0
-    const v2, 0x7f070021
+    const v2, 0x7f07002a
 
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/fmm/RemoteControls$FragmentAccount;->addPreferencesFromResource(I)V
 
-    .line 187
+    .line 196
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/RemoteControls$FragmentAccount;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 
-    .line 189
+    .line 198
     new-instance v0, Landroid/preference/PreferenceCategory;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/RemoteControls$FragmentAccount;->getActivity()Landroid/app/Activity;
@@ -66,15 +66,15 @@
 
     invoke-direct {v0, v2}, Landroid/preference/PreferenceCategory;-><init>(Landroid/content/Context;)V
 
-    .line 190
+    .line 199
     .local v0, AccountRegist:Landroid/preference/PreferenceCategory;
-    const v2, 0x7f0d079b
+    const v2, 0x7f0908f2
 
     invoke-virtual {v0, v2}, Landroid/preference/PreferenceCategory;->setTitle(I)V
 
-    .line 191
+    .line 200
     invoke-virtual {v1, v0}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
 
-    .line 192
+    .line 201
     return-void
 .end method

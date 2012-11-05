@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1191
+    .line 1270
     iput-object p1, p0, Lcom/android/OriginalSettings/DataUsageSummary$7;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,70 +38,56 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 5
+    .locals 4
     .parameter "v"
 
     .prologue
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    .line 1194
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary$7;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBoot:Landroid/widget/CheckBox;
-    invoke-static {v3}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1600(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/CheckBox;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/widget/CheckBox;->isChecked()Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    move v0, v1
-
-    .line 1195
-    .local v0, confirmAtBoot:Z
-    :goto_0
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary$7;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    invoke-virtual {v3}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v3
-
-    const-string v4, "mobile_data_question"
-
-    if-eqz v0, :cond_1
-
-    :goto_1
-    invoke-static {v3, v4, v1}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 1197
+    .line 1273
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$7;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
-    #calls: Lcom/android/OriginalSettings/DataUsageSummary;->updatePolicy(Z)V
-    invoke-static {v1, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1500(Lcom/android/OriginalSettings/DataUsageSummary;Z)V
+    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimit:Landroid/widget/CheckBox;
+    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1000(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/CheckBox;
 
-    .line 1198
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/CheckBox;->isChecked()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const/4 v0, 0x1
+
+    .line 1274
+    .local v0, disableAtLimit:Z
+    :goto_0
+    if-eqz v0, :cond_1
+
+    .line 1277
+    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$7;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
+
+    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary$ConfirmLimitFragment;->show(Lcom/android/OriginalSettings/DataUsageSummary;)V
+
+    .line 1281
+    :goto_1
     return-void
 
-    .end local v0           #confirmAtBoot:Z
+    .line 1273
+    .end local v0           #disableAtLimit:Z
     :cond_0
-    move v0, v2
+    const/4 v0, 0x0
 
-    .line 1194
     goto :goto_0
 
-    .restart local v0       #confirmAtBoot:Z
+    .line 1279
+    .restart local v0       #disableAtLimit:Z
     :cond_1
-    move v1, v2
+    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$7;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
-    .line 1195
+    const-wide/16 v2, -0x1
+
+    #calls: Lcom/android/OriginalSettings/DataUsageSummary;->setPolicyLimitBytes(J)V
+    invoke-static {v1, v2, v3}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1100(Lcom/android/OriginalSettings/DataUsageSummary;J)V
+
     goto :goto_1
 .end method

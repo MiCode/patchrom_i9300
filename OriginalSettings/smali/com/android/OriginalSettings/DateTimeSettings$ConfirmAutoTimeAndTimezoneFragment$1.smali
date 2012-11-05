@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 689
+    .line 695
     iput-object p1, p0, Lcom/android/OriginalSettings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment$1;->this$0:Lcom/android/OriginalSettings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment;
 
     iput-object p2, p0, Lcom/android/OriginalSettings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment$1;->val$context:Landroid/content/Context;
@@ -48,18 +48,18 @@
     .parameter "which"
 
     .prologue
-    .line 693
+    .line 699
     new-instance v0, Landroid/app/ProgressDialog;
 
     iget-object v2, p0, Lcom/android/OriginalSettings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment$1;->val$context:Landroid/content/Context;
 
     invoke-direct {v0, v2}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V
 
-    .line 694
+    .line 700
     .local v0, progressDialog:Landroid/app/ProgressDialog;
     iget-object v2, p0, Lcom/android/OriginalSettings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment$1;->this$0:Lcom/android/OriginalSettings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment;
 
-    const v3, 0x7f0d0127
+    const v3, 0x7f09013e
 
     invoke-virtual {v2, v3}, Lcom/android/OriginalSettings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -67,17 +67,17 @@
 
     invoke-virtual {v0, v2}, Landroid/app/ProgressDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    .line 695
+    .line 701
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2}, Landroid/app/ProgressDialog;->setIndeterminate(Z)V
 
-    .line 696
+    .line 702
     const/4 v2, 0x0
 
     invoke-virtual {v0, v2}, Landroid/app/ProgressDialog;->setCancelable(Z)V
 
-    .line 697
+    .line 703
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v2
@@ -86,15 +86,15 @@
 
     invoke-virtual {v2, v3}, Landroid/view/Window;->setType(I)V
 
-    .line 698
+    .line 704
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->show()V
 
-    .line 701
+    .line 707
     new-instance v1, Landroid/os/Handler;
 
     invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
-    .line 702
+    .line 708
     .local v1, rebootHandler:Landroid/os/Handler;
     new-instance v2, Lcom/android/OriginalSettings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment$1$1;
 
@@ -104,6 +104,6 @@
 
     invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 708
+    .line 714
     return-void
 .end method

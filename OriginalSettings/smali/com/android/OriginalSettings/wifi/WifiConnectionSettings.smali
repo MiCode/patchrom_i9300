@@ -66,7 +66,7 @@
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 32
-    const v6, 0x7f070064
+    const v6, 0x7f070076
 
     invoke-virtual {p0, v6}, Lcom/android/OriginalSettings/wifi/WifiConnectionSettings;->addPreferencesFromResource(I)V
 
@@ -88,7 +88,7 @@
 
     move-result-object v6
 
-    const-string v7, "wifi_connection_monitoring_settings"
+    const-string v7, "wifi_connection_monitor_settings"
 
     invoke-static {v6, v7, v8}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -100,7 +100,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f090030
+    const v7, 0x7f0a0031
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -112,7 +112,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f090031
+    const v7, 0x7f0a0032
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -255,7 +255,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f090031
+    const v6, 0x7f0a0032
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -277,7 +277,7 @@
 
     move-result-object v5
 
-    const-string v6, "wifi_connection_monitoring_settings"
+    const-string v6, "wifi_connection_monitor_settings"
 
     invoke-static {v5, v6, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 

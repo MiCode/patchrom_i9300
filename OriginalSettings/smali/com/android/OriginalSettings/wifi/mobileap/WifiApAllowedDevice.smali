@@ -7,32 +7,38 @@
 
 
 # instance fields
+.field private mFragment:Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;
+
 .field private mMac:Ljava/lang/String;
 
 .field private mName:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+.method constructor <init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;)V
     .locals 1
     .parameter "context"
     .parameter "mac"
     .parameter "name"
+    .parameter "fragment"
 
     .prologue
-    .line 35
+    .line 34
     invoke-direct {p0, p1}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    .line 36
-    const v0, 0x7f040098
+    .line 35
+    const v0, 0x7f0400b9
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->setLayoutResource(I)V
 
-    .line 37
+    .line 36
     iput-object p2, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->mMac:Ljava/lang/String;
 
-    .line 38
+    .line 37
     iput-object p3, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->mName:Ljava/lang/String;
+
+    .line 38
+    iput-object p4, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->mFragment:Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;
 
     .line 39
     return-void
@@ -43,17 +49,17 @@
     .parameter "x0"
 
     .prologue
-    .line 30
+    .line 28
     invoke-direct {p0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->showDialog()V
 
     return-void
 .end method
 
 .method private showDialog()V
-    .locals 4
+    .locals 6
 
     .prologue
-    .line 65
+    .line 73
     new-instance v0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApWhitelistDialog;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->getContext()Landroid/content/Context;
@@ -62,15 +68,19 @@
 
     const/4 v2, 0x2
 
-    iget-object v3, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->mMac:Ljava/lang/String;
+    iget-object v3, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->mName:Ljava/lang/String;
 
-    invoke-direct {v0, v1, v2, v3, p0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApWhitelistDialog;-><init>(Landroid/content/Context;ILjava/lang/String;Landroid/content/DialogInterface$OnClickListener;)V
+    iget-object v4, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->mMac:Ljava/lang/String;
 
-    .line 66
+    move-object v5, p0
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApWhitelistDialog;-><init>(Landroid/content/Context;ILjava/lang/String;Ljava/lang/String;Landroid/content/DialogInterface$OnClickListener;)V
+
+    .line 74
     .local v0, dialog:Lcom/android/OriginalSettings/wifi/mobileap/WifiApWhitelistDialog;
     invoke-virtual {v0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApWhitelistDialog;->show()V
 
-    .line 67
+    .line 75
     return-void
 .end method
 
@@ -81,25 +91,25 @@
     .parameter "preference"
 
     .prologue
-    .line 57
+    .line 65
     instance-of v1, p1, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;
 
     if-nez v1, :cond_0
 
-    .line 58
+    .line 66
     const/4 v1, 0x1
 
-    .line 61
+    .line 69
     :goto_0
     return v1
 
     :cond_0
     move-object v0, p1
 
-    .line 60
+    .line 68
     check-cast v0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;
 
-    .line 61
+    .line 69
     .local v0, other:Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;
     iget-object v1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->mMac:Ljava/lang/String;
 
@@ -117,7 +127,7 @@
     .parameter "x0"
 
     .prologue
-    .line 30
+    .line 28
     check-cast p1, Landroid/preference/Preference;
 
     .end local p1
@@ -132,7 +142,7 @@
     .locals 1
 
     .prologue
-    .line 83
+    .line 93
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->mMac:Ljava/lang/String;
 
     return-object v0
@@ -153,8 +163,8 @@
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 45
-    const v0, 0x7f0a01a2
+    .line 46
+    const v0, 0x7f0b01fb
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -168,10 +178,25 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 52
+    .line 53
+    const v0, 0x7f0b01fc
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/LinearLayout;
+
+    new-instance v1, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice$2;
+
+    invoke-direct {v1, p0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice$2;-><init>(Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 60
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    .line 53
+    .line 61
     return-void
 .end method
 
@@ -181,12 +206,12 @@
     .parameter "which"
 
     .prologue
-    .line 92
+    .line 102
     const/4 v0, -0x1
 
     if-ne p2, v0, :cond_0
 
-    .line 93
+    .line 103
     check-cast p1, Lcom/android/OriginalSettings/wifi/mobileap/WifiApWhitelistDialog;
 
     .end local p1
@@ -196,51 +221,59 @@
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->update(Ljava/lang/String;)Z
 
-    .line 95
+    .line 105
     :cond_0
     return-void
 .end method
 
 .method update(Ljava/lang/String;)Z
-    .locals 3
+    .locals 4
     .parameter "name"
 
     .prologue
-    .line 70
+    const/4 v1, 0x1
+
+    .line 78
     if-eqz p1, :cond_0
 
-    .line 71
-    iget-object v1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->mName:Ljava/lang/String;
+    .line 79
+    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->mName:Ljava/lang/String;
 
-    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
-    .line 72
+    .line 80
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->mName:Ljava/lang/String;
 
-    .line 73
+    .line 81
     invoke-static {}, Landroid/net/wifi/WifiApWhiteList;->getInstance()Landroid/net/wifi/WifiApWhiteList;
 
     move-result-object v0
 
-    .line 74
+    .line 82
     .local v0, whiteList:Landroid/net/wifi/WifiApWhiteList;
-    iget-object v1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->mMac:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->mMac:Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->mName:Ljava/lang/String;
+    iget-object v3, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->mName:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2}, Landroid/net/wifi/WifiApWhiteList;->modifyWhiteList(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, v2, v3}, Landroid/net/wifi/WifiApWhiteList;->modifyWhiteList(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 75
+    move-result v2
+
+    if-ne v1, v2, :cond_0
+
+    .line 83
     invoke-virtual {p0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->notifyHierarchyChanged()V
 
-    .line 76
-    const/4 v1, 0x1
+    .line 84
+    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->mFragment:Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;
 
-    .line 79
+    invoke-virtual {v2}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;->updateList()V
+
+    .line 89
     .end local v0           #whiteList:Landroid/net/wifi/WifiApWhiteList;
     :goto_0
     return v1

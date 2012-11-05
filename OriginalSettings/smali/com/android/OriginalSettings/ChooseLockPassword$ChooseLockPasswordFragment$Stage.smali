@@ -46,7 +46,7 @@
     .locals 16
 
     .prologue
-    const v5, 0x7f0d017c
+    const v5, 0x7f090198
 
     const/4 v15, 0x2
 
@@ -54,42 +54,42 @@
 
     const/4 v2, 0x0
 
-    .line 190
+    .line 189
     new-instance v0, Lcom/android/OriginalSettings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;
 
     const-string v1, "Introduction"
 
-    const v3, 0x7f0d048a
+    const v3, 0x7f09054e
 
-    const v4, 0x7f0d048c
+    const v4, 0x7f090550
 
     invoke-direct/range {v0 .. v5}, Lcom/android/OriginalSettings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;-><init>(Ljava/lang/String;IIII)V
 
     sput-object v0, Lcom/android/OriginalSettings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->Introduction:Lcom/android/OriginalSettings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;
 
-    .line 194
+    .line 193
     new-instance v6, Lcom/android/OriginalSettings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;
 
     const-string v7, "NeedToConfirm"
 
-    const v9, 0x7f0d048d
+    const v9, 0x7f090551
 
-    const v10, 0x7f0d048f
+    const v10, 0x7f090553
 
-    const v11, 0x7f0d0187
+    const v11, 0x7f0901a3
 
     invoke-direct/range {v6 .. v11}, Lcom/android/OriginalSettings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;-><init>(Ljava/lang/String;IIII)V
 
     sput-object v6, Lcom/android/OriginalSettings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->NeedToConfirm:Lcom/android/OriginalSettings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;
 
-    .line 198
+    .line 197
     new-instance v9, Lcom/android/OriginalSettings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;
 
     const-string v10, "ConfirmWrong"
 
-    const v12, 0x7f0d0490
+    const v12, 0x7f090554
 
-    const v13, 0x7f0d0491
+    const v13, 0x7f090555
 
     move v11, v15
 
@@ -99,7 +99,7 @@
 
     sput-object v9, Lcom/android/OriginalSettings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->ConfirmWrong:Lcom/android/OriginalSettings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;
 
-    .line 188
+    .line 187
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/android/OriginalSettings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;
@@ -135,19 +135,19 @@
     .end annotation
 
     .prologue
-    .line 205
+    .line 204
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 206
+    .line 205
     iput p3, p0, Lcom/android/OriginalSettings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaHint:I
 
-    .line 207
+    .line 206
     iput p4, p0, Lcom/android/OriginalSettings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericHint:I
 
-    .line 208
+    .line 207
     iput p5, p0, Lcom/android/OriginalSettings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->buttonText:I
 
-    .line 209
+    .line 208
     return-void
 .end method
 
@@ -156,7 +156,7 @@
     .parameter
 
     .prologue
-    .line 188
+    .line 187
     const-class v0, Lcom/android/OriginalSettings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -172,7 +172,7 @@
     .locals 1
 
     .prologue
-    .line 188
+    .line 187
     sget-object v0, Lcom/android/OriginalSettings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->$VALUES:[Lcom/android/OriginalSettings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;
 
     invoke-virtual {v0}, [Lcom/android/OriginalSettings/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->clone()Ljava/lang/Object;

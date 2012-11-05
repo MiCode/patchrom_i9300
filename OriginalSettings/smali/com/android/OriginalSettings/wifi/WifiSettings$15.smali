@@ -3,7 +3,7 @@
 .source "WifiSettings.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1364
+    .line 1352
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$15;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,31 +37,24 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 1
+.method public onDismiss(Landroid/content/DialogInterface;)V
+    .locals 2
+    .parameter "dialog"
 
     .prologue
-    .line 1366
+    .line 1354
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$15;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
 
-    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mErrorDialog:Landroid/app/AlertDialog;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$1700(Lcom/android/OriginalSettings/wifi/WifiSettings;)Landroid/app/AlertDialog;
+    iget-object v1, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$15;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
 
-    move-result-object v0
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mErrorDialogRunnable:Ljava/lang/Runnable;
+    invoke-static {v1}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$1300(Lcom/android/OriginalSettings/wifi/WifiSettings;)Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_0
+    move-result-object v1
 
-    .line 1367
-    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$15;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
+    #calls: Lcom/android/OriginalSettings/wifi/WifiSettings;->removeDialogTimer(Ljava/lang/Runnable;)V
+    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$900(Lcom/android/OriginalSettings/wifi/WifiSettings;Ljava/lang/Runnable;)V
 
-    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mErrorDialog:Landroid/app/AlertDialog;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$1700(Lcom/android/OriginalSettings/wifi/WifiSettings;)Landroid/app/AlertDialog;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
-
-    .line 1369
-    :cond_0
+    .line 1355
     return-void
 .end method

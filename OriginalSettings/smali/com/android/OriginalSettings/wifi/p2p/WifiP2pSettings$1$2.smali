@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 311
+    .line 307
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$1$2;->this$1:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$1;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "reason"
 
     .prologue
-    .line 316
+    .line 312
     const-string v0, "WifiP2pSettings"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -65,7 +65,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 317
+    .line 313
     return-void
 .end method
 
@@ -73,13 +73,13 @@
     .locals 2
 
     .prologue
-    .line 313
+    .line 309
     const-string v0, "WifiP2pSettings"
 
     const-string v1, " connect success"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 314
+    .line 310
     return-void
 .end method

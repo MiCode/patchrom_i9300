@@ -39,7 +39,7 @@
     .parameter
 
     .prologue
-    .line 1949
+    .line 2144
     iput-object p1, p0, Lcom/android/OriginalSettings/DataUsageSummary$WarningEditorFragment$1;->this$0:Lcom/android/OriginalSettings/DataUsageSummary$WarningEditorFragment;
 
     iput-object p2, p0, Lcom/android/OriginalSettings/DataUsageSummary$WarningEditorFragment$1;->val$bytesPicker:Landroid/widget/NumberPicker;
@@ -63,12 +63,12 @@
     .parameter "which"
 
     .prologue
-    .line 1952
+    .line 2148
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary$WarningEditorFragment$1;->val$bytesPicker:Landroid/widget/NumberPicker;
 
     invoke-virtual {v2}, Landroid/widget/NumberPicker;->clearFocus()V
 
-    .line 1954
+    .line 2150
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary$WarningEditorFragment$1;->val$bytesPicker:Landroid/widget/NumberPicker;
 
     invoke-virtual {v2}, Landroid/widget/NumberPicker;->getValue()I
@@ -81,7 +81,7 @@
 
     mul-long v0, v2, v4
 
-    .line 1955
+    .line 2151
     .local v0, bytes:J
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary$WarningEditorFragment$1;->val$editor:Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
 
@@ -89,14 +89,14 @@
 
     invoke-virtual {v2, v3, v0, v1}, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;->setPolicyWarningBytes(Landroid/net/NetworkTemplate;J)V
 
-    .line 1956
+    .line 2152
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary$WarningEditorFragment$1;->val$target:Lcom/android/OriginalSettings/DataUsageSummary;
 
     const/4 v3, 0x0
 
     #calls: Lcom/android/OriginalSettings/DataUsageSummary;->updatePolicy(Z)V
-    invoke-static {v2, v3}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1500(Lcom/android/OriginalSettings/DataUsageSummary;Z)V
+    invoke-static {v2, v3}, Lcom/android/OriginalSettings/DataUsageSummary;->access$800(Lcom/android/OriginalSettings/DataUsageSummary;Z)V
 
-    .line 1957
+    .line 2153
     return-void
 .end method

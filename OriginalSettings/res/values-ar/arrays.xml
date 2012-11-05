@@ -18,12 +18,15 @@
         <item>10 دقائق</item>
         <item>30 دقيقة</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 ثانية</item>
         <item>30 ثانية</item>
         <item>دقيقة واحدة</item>
-        <item>دقيقتين</item>
+        <item>3 دقائق</item>
         <item>5 دقائق</item>
+        <item>10 دقائق</item>
+        <item>15 دقيقة</item>
+        <item>30 دقيقة</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>أبدا</item>
@@ -34,6 +37,18 @@
         <item>5 دقائق</item>
         <item>10 دقائق</item>
         <item>30 دقيقة</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 ثانية</item>
+        <item>30 ثانية</item>
+        <item>دقيقة واحدة</item>
+        <item>3 دقائق</item>
+        <item>5 دقائق</item>
+        <item>10 دقائق</item>
+        <item>15 دقيقة</item>
+        <item>30 دقيقة</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>في الحال</item>
@@ -93,17 +108,7 @@
         <item>تم الفصل</item>
         <item>غير ناجح</item>
         <item>تم التوصيل</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>يتم تجنب الاتصال الضعيف مؤقتًا</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,20 +122,10 @@
         <item>تم الفصل</item>
         <item>غير ناجح</item>
         <item>تم التوصيل</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>يتم تجنب الاتصال الضعيف مؤقتًا</item>
     </string-array>
     <string-array name="wifi_ap_security">
-        <item>فتح</item>
+        <item>Open</item>
         <item>WPA PSK</item>
         <item>WPA2 PSK</item>
     </string-array>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>زر الدفع</item>
+        <item>رمز PIN للجهاز النظير</item>
+        <item>رمز PIN لهذا الجهاز</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>تم التوصيل</item>
+        <item>تمت الدعوة</item>
+        <item>فشل التوصيل</item>
+        <item>انقر للتوصيل</item>
+        <item>خارج المدى</item>
+        <item>متصل بجهاز آخر</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>لا توجد مهلة مطلقا</item>
@@ -152,6 +155,10 @@
         <item>20 دقيقة</item>
         <item>30 دقيقة</item>
         <item>60 دقيقة</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>السماح لجميع الأجهزة</item>
+        <item>الأجهزة المسموح بها فقط</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>تلقائي</item>
@@ -179,19 +186,6 @@
         <item>9</item>
         <item>۱۰</item>
     </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>زر الدفع</item>
-        <item>رمز PIN للجهاز النظير</item>
-        <item>رمز PIN لهذا الجهاز</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>تم التوصيل</item>
-        <item>تمت الدعوة</item>
-        <item>فشل التوصيل</item>
-        <item>انقر للتوصيل</item>
-        <item>خارج المدى</item>
-        <item>متصل بجهاز آخر</item>
-    </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 دقيقة</item>
         <item>5 دقائق</item>
@@ -218,7 +212,7 @@
     <string-array name="wifi_sleep_policy_values">
         <item>2</item>
         <item>1</item>
-        <item>۰</item>
+        <item>0</item>
     </string-array>
     <string-array name="wifi_frequency_band_entries">
         <item>تلقائي</item>
@@ -226,7 +220,7 @@
         <item>2.4 جيجاهرتز فقط</item>
     </string-array>
     <string-array name="wifi_frequency_band_values">
-        <item>۰</item>
+        <item>0</item>
         <item>1</item>
         <item>2</item>
     </string-array>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -254,7 +249,7 @@
         <item>GTC</item>
     </string-array>
     <string-array name="wifi_network_setup">
-        <item>غير فعال</item>
+        <item>غير مفعل</item>
         <item>زر الدفع</item>
         <item>رمز PIN من نقطة الوصول</item>
         <item>رمز PIN لهذا الجهاز</item>
@@ -267,23 +262,13 @@
         <item>لا شيء</item>
         <item>يدوي</item>
     </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>عادي</item>
-        <item>Downtown</item>
-        <item>منزل</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>هو أكثر إعدادات الاتصال عبر شبكة Wi-Fi انتشارا</item>
-        <item>في حالة التواجد في منطقة بها عدة شبكات Wi-Fi، تتم إعادة الاتصال بشبكة Wi-Fi بشكل متكرر للحصول على قوة إشارة أفضل</item>
-        <item>في حالة التواجد في منطقة بها عدد قليل من شبكات Wi-Fi، يتم الاحتفاظ باتصال Wi-Fi لأطول فترة ممكنة</item>
-    </string-array>
     <string-array name="emergency_tone_entries">
         <item>غير فعال</item>
         <item>تنبيه</item>
         <item>اهتزاز</item>
     </string-array>
     <string-array name="emergency_tone_values">
-        <item>۰</item>
+        <item>0</item>
         <item>1</item>
         <item>2</item>
     </string-array>
@@ -307,11 +292,6 @@
         <item>وحدة التخزين الداخلية بالجهاز</item>
         <item>بطاقة SD قابلة للإزالة</item>
         <item>افتراضي</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>غير فعال</item>
-        <item>اهتزاز</item>
-        <item>كتم</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>قصير</item>
@@ -346,6 +326,15 @@
         <item>مقياس الحركة بمعدل 5x</item>
         <item>مقياس الحركة بمعدل 10x</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>الرسوم متحركة قيد الإيقاف</item>
+        <item>مقياس الحركة بمعدل 0.5x</item>
+        <item>مقياس الحركة بمعدل 1x</item>
+        <item>مقياس الحركة بمعدل 1.5x</item>
+        <item>مقياس الحركة بمعدل 2x</item>
+        <item>مقياس الحركة بمعدل 5x</item>
+        <item>مقياس الحركة بمعدل 10x</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>الحد القياسي</item>
         <item>لا يتم إجراء أي عمليات في الخلفية</item>
@@ -370,26 +359,12 @@
         <item>مهلة الشاشة</item>
         <item>غير ناجح</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>۱۰</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>وحدة تخزين USB</item>
+        <item>الجهاز</item>
         <item>بطاقة SD</item>
     </string-array>
     <string-array name="allshare_download_to_value">
-        <item>۰</item>
+        <item>0</item>
         <item>1</item>
     </string-array>
     <string-array name="allshare_download_from">
@@ -398,7 +373,7 @@
         <item>الرفض دوما</item>
     </string-array>
     <string-array name="allshare_download_from_value">
-        <item>۰</item>
+        <item>0</item>
         <item>1</item>
         <item>2</item>
     </string-array>
@@ -407,7 +382,7 @@
         <item>الأجهزة المسموح بها فقط</item>
     </string-array>
     <string-array name="allshare_access_control_value">
-        <item>۰</item>
+        <item>0</item>
         <item>1</item>
     </string-array>
     <string-array name="allshare_contents_share">
@@ -415,15 +390,28 @@
         <item>صور فوتوغرافية</item>
         <item>الموسيقى</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>مرتفعة</item>
-        <item>وسط</item>
-        <item>غير هامة</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>تلقائي</item>
         <item>يدوي</item>
         <item>اسأل دائما</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>غير مفعل دائما</item>
+        <item>3 ثوان</item>
+        <item>5 ثوان</item>
+        <item>10 ثوان</item>
+        <item>15 ثانية</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>لا شيء</item>
+        <item>كل الأسماء</item>
+        <item>المفضلة</item>
+        <item>ضبط مخصص</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>مرتفعة</item>
+        <item>وسط</item>
+        <item>غير هامة</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1.5 ثانية</item>
@@ -439,11 +427,24 @@
     <string-array name="contents_type_entries">
         <item>أخبار</item>
         <item>الأسهم</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>الأخبار</item>
+        <item>الأسهم</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>بطيء</item>
         <item>عادي</item>
         <item>سريع</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>لا شيء</item>
+        <item>كل 30 دقيقة</item>
+        <item>كل ساعة</item>
+        <item>كل ساعتين</item>
+        <item>كل 4 ساعات</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>سماعة رأس</item>
@@ -451,5 +452,9 @@
         <item>الهاتف</item>
         <item>أجهزة HID‬ (لوحة المفاتيح، الماوس، وما إلى ذلك)</item>
         <item>كل الأجهزة</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>استيريو</item>
+        <item>مجسم</item>
     </string-array>
 </resources>

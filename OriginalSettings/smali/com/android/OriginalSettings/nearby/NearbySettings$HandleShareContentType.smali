@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1376
+    .line 1640
     iput-object p1, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleShareContentType;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .parameter "x1"
 
     .prologue
-    .line 1376
+    .line 1640
     invoke-direct {p0, p1}, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleShareContentType;-><init>(Lcom/android/OriginalSettings/nearby/NearbySettings;)V
 
     return-void
@@ -50,229 +50,247 @@
 
 # virtual methods
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
-    .locals 9
+    .locals 11
     .parameter "preference"
     .parameter "newValue"
 
     .prologue
-    const/4 v5, 0x0
+    const/4 v7, 0x0
 
-    .line 1384
-    const-string v6, "AllshareSetting"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "AllshareSetting: HandleShareContentType"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1385
-    iget-object v6, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleShareContentType;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
+    .line 1647
+    iget-object v8, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleShareContentType;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
 
     #getter for: Lcom/android/OriginalSettings/nearby/NearbySettings;->mIMediaServer:Lcom/android/OriginalSettings/nearby/IMediaServer;
-    invoke-static {v6}, Lcom/android/OriginalSettings/nearby/NearbySettings;->access$000(Lcom/android/OriginalSettings/nearby/NearbySettings;)Lcom/android/OriginalSettings/nearby/IMediaServer;
+    invoke-static {v8}, Lcom/android/OriginalSettings/nearby/NearbySettings;->access$000(Lcom/android/OriginalSettings/nearby/NearbySettings;)Lcom/android/OriginalSettings/nearby/IMediaServer;
 
-    move-result-object v6
+    move-result-object v8
 
-    if-eqz v6, :cond_0
+    if-eqz v8, :cond_0
 
     if-eqz p2, :cond_0
 
-    instance-of v6, p2, Ljava/util/HashSet;
+    instance-of v8, p2, Ljava/util/HashSet;
 
-    if-nez v6, :cond_1
+    if-nez v8, :cond_1
 
-    .line 1435
+    .line 1693
     :cond_0
     :goto_0
-    return v5
+    return v7
 
-    .line 1392
+    .line 1653
     :cond_1
     :try_start_0
-    iget-object v6, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleShareContentType;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
+    iget-object v8, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleShareContentType;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
+
+    const/4 v9, 0x0
+
+    #setter for: Lcom/android/OriginalSettings/nearby/NearbySettings;->bDBUpdated:Z
+    invoke-static {v8, v9}, Lcom/android/OriginalSettings/nearby/NearbySettings;->access$1902(Lcom/android/OriginalSettings/nearby/NearbySettings;Z)Z
+
+    .line 1655
+    iget-object v8, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleShareContentType;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
 
     #getter for: Lcom/android/OriginalSettings/nearby/NearbySettings;->mIMediaServer:Lcom/android/OriginalSettings/nearby/IMediaServer;
-    invoke-static {v6}, Lcom/android/OriginalSettings/nearby/NearbySettings;->access$000(Lcom/android/OriginalSettings/nearby/NearbySettings;)Lcom/android/OriginalSettings/nearby/IMediaServer;
+    invoke-static {v8}, Lcom/android/OriginalSettings/nearby/NearbySettings;->access$000(Lcom/android/OriginalSettings/nearby/NearbySettings;)Lcom/android/OriginalSettings/nearby/IMediaServer;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-interface {v6}, Lcom/android/OriginalSettings/nearby/IMediaServer;->getSharedMediaType()I
+    invoke-interface {v8}, Lcom/android/OriginalSettings/nearby/IMediaServer;->getSharedMediaType()I
 
-    move-result v2
+    move-result v3
 
-    .line 1394
-    .local v2, flag:I
+    .line 1657
+    .local v3, flag:I
     move-object v0, p2
 
     check-cast v0, Ljava/util/HashSet;
 
-    move-object v4, v0
+    move-object v6, v0
 
-    .line 1396
-    .local v4, value:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
-    const-string v6, "0"
+    .line 1659
+    .local v6, value:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
+    const-string v8, "0"
 
-    invoke-virtual {v4, v6}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v8}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_2
+    if-eqz v8, :cond_2
 
-    .line 1398
-    const v6, 0xff00
+    .line 1660
+    const v8, 0xff00
 
-    or-int/2addr v2, v6
+    or-int/2addr v3, v8
 
-    .line 1406
+    .line 1666
     :goto_1
-    const-string v6, "1"
+    const-string v8, "1"
 
-    invoke-virtual {v4, v6}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v8}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_3
+    if-eqz v8, :cond_3
 
-    .line 1408
-    const/high16 v6, 0xff
+    .line 1667
+    const/high16 v8, 0xff
 
-    or-int/2addr v2, v6
+    or-int/2addr v3, v8
 
-    .line 1416
+    .line 1673
     :goto_2
-    const-string v6, "2"
+    const-string v8, "2"
 
-    invoke-virtual {v4, v6}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v8}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_4
+    if-eqz v8, :cond_4
 
-    .line 1418
-    or-int/lit16 v2, v2, 0xff
+    .line 1674
+    or-int/lit16 v3, v3, 0xff
 
-    .line 1426
+    .line 1680
     :goto_3
-    iget-object v6, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleShareContentType;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
+    iget-object v8, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleShareContentType;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
 
     #getter for: Lcom/android/OriginalSettings/nearby/NearbySettings;->mIMediaServer:Lcom/android/OriginalSettings/nearby/IMediaServer;
-    invoke-static {v6}, Lcom/android/OriginalSettings/nearby/NearbySettings;->access$000(Lcom/android/OriginalSettings/nearby/NearbySettings;)Lcom/android/OriginalSettings/nearby/IMediaServer;
-
-    move-result-object v6
-
-    invoke-interface {v6, v2}, Lcom/android/OriginalSettings/nearby/IMediaServer;->setSharedMediaType(I)V
-
-    .line 1427
-    const-string v6, "AllshareSetting"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "AllshareSetting: Photos/Videos/Music: "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-static {v2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    invoke-static {v8}, Lcom/android/OriginalSettings/nearby/NearbySettings;->access$000(Lcom/android/OriginalSettings/nearby/NearbySettings;)Lcom/android/OriginalSettings/nearby/IMediaServer;
 
     move-result-object v8
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-interface {v8, v3}, Lcom/android/OriginalSettings/nearby/IMediaServer;->setSharedMediaType(I)V
 
-    move-result-object v7
+    .line 1681
+    const-string v8, "AllshareSetting"
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v6, v7}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v10, "AllshareSetting: Photos/Videos/Music: "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-static {v3}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1682
+    iget-object v8, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleShareContentType;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
+
+    #getter for: Lcom/android/OriginalSettings/nearby/NearbySettings;->mContext:Landroid/content/Context;
+    invoke-static {v8}, Lcom/android/OriginalSettings/nearby/NearbySettings;->access$400(Lcom/android/OriginalSettings/nearby/NearbySettings;)Landroid/content/Context;
+
+    move-result-object v8
+
+    const-string v9, "pref_allshare"
+
+    const/4 v10, 0x0
+
+    invoke-virtual {v8, v9, v10}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v5
+
+    .line 1684
+    .local v5, preference2:Landroid/content/SharedPreferences;
+    invoke-interface {v5}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v2
+
+    .line 1685
+    .local v2, edit:Landroid/content/SharedPreferences$Editor;
+    const-string v8, "TEMP_NEW"
+
+    invoke-interface {v2, v8, v3}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
+
+    .line 1686
+    invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->commit()Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1435
-    const/4 v5, 0x1
+    .line 1693
+    const/4 v7, 0x1
 
     goto :goto_0
 
-    .line 1402
+    .line 1662
+    .end local v2           #edit:Landroid/content/SharedPreferences$Editor;
+    .end local v5           #preference2:Landroid/content/SharedPreferences;
     :cond_2
-    const v3, -0xff01
+    const v4, -0xff01
 
-    .line 1403
-    .local v3, mask:I
-    and-int/2addr v2, v3
+    .line 1663
+    .local v4, mask:I
+    and-int/2addr v3, v4
 
     goto :goto_1
 
-    .line 1412
-    .end local v3           #mask:I
+    .line 1669
+    .end local v4           #mask:I
     :cond_3
-    const v3, -0xff0001
+    const v4, -0xff0001
 
-    .line 1413
-    .restart local v3       #mask:I
-    and-int/2addr v2, v3
+    .line 1670
+    .restart local v4       #mask:I
+    and-int/2addr v3, v4
 
     goto :goto_2
 
-    .line 1422
-    .end local v3           #mask:I
+    .line 1676
+    .end local v4           #mask:I
     :cond_4
-    const/16 v3, -0x100
+    const/16 v4, -0x100
 
-    .line 1423
-    .restart local v3       #mask:I
-    and-int/2addr v2, v3
+    .line 1677
+    .restart local v4       #mask:I
+    and-int/2addr v3, v4
 
     goto :goto_3
 
-    .line 1429
-    .end local v2           #flag:I
-    .end local v3           #mask:I
-    .end local v4           #value:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
+    .line 1688
+    .end local v3           #flag:I
+    .end local v4           #mask:I
+    .end local v6           #value:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
     :catch_0
     move-exception v1
 
-    .line 1431
+    .line 1689
     .local v1, e:Landroid/os/RemoteException;
-    const-string v6, "AllshareSetting"
+    const-string v8, "AllshareSetting"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "AllshareSetting: "
+    const-string v10, "AllshareSetting: "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v9
 
-    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v9
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v9
 
-    invoke-static {v6, v7}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method

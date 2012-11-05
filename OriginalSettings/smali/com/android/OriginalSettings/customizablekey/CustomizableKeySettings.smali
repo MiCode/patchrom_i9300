@@ -107,7 +107,7 @@
     .locals 5
 
     .prologue
-    const v4, 0x7f0d015b
+    const v4, 0x7f090177
 
     .line 83
     invoke-virtual {p0}, Lcom/android/OriginalSettings/customizablekey/CustomizableKeySettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -200,7 +200,7 @@
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 57
-    const v0, 0x7f070014
+    const v0, 0x7f07001a
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/customizablekey/CustomizableKeySettings;->addPreferencesFromResource(I)V
 
@@ -259,7 +259,7 @@
 
     .line 121
     .local v0, inflater:Landroid/view/LayoutInflater;
-    const v3, 0x7f040084
+    const v3, 0x7f0400a3
 
     invoke-virtual {v0, v3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -283,7 +283,7 @@
 
     invoke-direct {v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0d0a99
+    const v3, 0x7f090cca
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

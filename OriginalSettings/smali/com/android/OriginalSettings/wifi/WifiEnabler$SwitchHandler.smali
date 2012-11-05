@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 516
+    .line 603
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/WifiEnabler$SwitchHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiEnabler;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,41 +39,41 @@
     .parameter "msg"
 
     .prologue
-    .line 519
+    .line 606
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 527
+    .line 614
     :goto_0
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    .line 528
+    .line 615
     return-void
 
-    .line 521
+    .line 608
     :pswitch_0
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiEnabler$SwitchHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiEnabler;
 
     const/4 v1, 0x1
 
     #calls: Lcom/android/OriginalSettings/wifi/WifiEnabler;->setSwitchChecked(Z)V
-    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->access$800(Lcom/android/OriginalSettings/wifi/WifiEnabler;Z)V
+    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->access$1200(Lcom/android/OriginalSettings/wifi/WifiEnabler;Z)V
 
     goto :goto_0
 
-    .line 524
+    .line 611
     :pswitch_1
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiEnabler$SwitchHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiEnabler;
 
     const/4 v1, 0x0
 
     #calls: Lcom/android/OriginalSettings/wifi/WifiEnabler;->setSwitchChecked(Z)V
-    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->access$800(Lcom/android/OriginalSettings/wifi/WifiEnabler;Z)V
+    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->access$1200(Lcom/android/OriginalSettings/wifi/WifiEnabler;Z)V
 
     goto :goto_0
 
-    .line 519
+    .line 606
     nop
 
     :pswitch_data_0

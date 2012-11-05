@@ -23,10 +23,10 @@
     .locals 1
 
     .prologue
-    .line 42
+    .line 41
     invoke-direct {p0}, Lcom/android/OriginalSettings/BaseActivity;-><init>()V
 
-    .line 43
+    .line 42
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
@@ -43,25 +43,25 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 47
+    .line 46
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/BaseActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 49
-    const v1, 0x7f04002d
+    .line 48
+    const v1, 0x7f04002e
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/CryptKeeperConfirm$Blank;->setContentView(I)V
 
-    .line 51
+    .line 50
     invoke-static {}, Lcom/android/OriginalSettings/Utils;->isMonkeyRunning()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 52
+    .line 51
     invoke-virtual {p0}, Lcom/android/OriginalSettings/CryptKeeperConfirm$Blank;->finish()V
 
-    .line 55
+    .line 54
     :cond_0
     const-string v1, "statusbar"
 
@@ -71,13 +71,13 @@
 
     check-cast v0, Landroid/app/StatusBarManager;
 
-    .line 56
+    .line 55
     .local v0, sbm:Landroid/app/StatusBarManager;
     const/high16 v1, 0x177
 
     invoke-virtual {v0, v1}, Landroid/app/StatusBarManager;->disable(I)V
 
-    .line 67
+    .line 66
     iget-object v1, p0, Lcom/android/OriginalSettings/CryptKeeperConfirm$Blank;->mHandler:Landroid/os/Handler;
 
     new-instance v2, Lcom/android/OriginalSettings/CryptKeeperConfirm$Blank$1;
@@ -88,6 +88,6 @@
 
     invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 89
+    .line 84
     return-void
 .end method

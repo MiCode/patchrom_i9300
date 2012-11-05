@@ -1,5 +1,5 @@
 .class Lcom/android/OriginalSettings/AccessibilitySettings$2;
-.super Landroid/database/ContentObserver;
+.super Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
 .source "AccessibilitySettings.java"
 
 
@@ -19,70 +19,31 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/OriginalSettings/AccessibilitySettings;Landroid/os/Handler;)V
+.method constructor <init>(Lcom/android/OriginalSettings/AccessibilitySettings;)V
     .locals 0
     .parameter
-    .parameter "x0"
 
     .prologue
-    .line 255
+    .line 193
     iput-object p1, p0, Lcom/android/OriginalSettings/AccessibilitySettings$2;->this$0:Lcom/android/OriginalSettings/AccessibilitySettings;
 
-    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
+    invoke-direct {p0}, Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onChange(Z)V
-    .locals 3
-    .parameter "selfChange"
+.method public onChange()V
+    .locals 1
 
     .prologue
-    const/4 v0, 0x0
+    .line 196
+    iget-object v0, p0, Lcom/android/OriginalSettings/AccessibilitySettings$2;->this$0:Lcom/android/OriginalSettings/AccessibilitySettings;
 
-    .line 258
-    iget-object v1, p0, Lcom/android/OriginalSettings/AccessibilitySettings$2;->this$0:Lcom/android/OriginalSettings/AccessibilitySettings;
+    #calls: Lcom/android/OriginalSettings/AccessibilitySettings;->updateLockScreenRotationCheckbox()V
+    invoke-static {v0}, Lcom/android/OriginalSettings/AccessibilitySettings;->access$300(Lcom/android/OriginalSettings/AccessibilitySettings;)V
 
-    #getter for: Lcom/android/OriginalSettings/AccessibilitySettings;->mToggleAutoRotateScreenPreference:Landroid/preference/CheckBoxPreference;
-    invoke-static {v1}, Lcom/android/OriginalSettings/AccessibilitySettings;->access$300(Lcom/android/OriginalSettings/AccessibilitySettings;)Landroid/preference/CheckBoxPreference;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_1
-
-    .line 259
-    iget-object v1, p0, Lcom/android/OriginalSettings/AccessibilitySettings$2;->this$0:Lcom/android/OriginalSettings/AccessibilitySettings;
-
-    invoke-virtual {v1}, Lcom/android/OriginalSettings/AccessibilitySettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string v2, "accelerometer_rotation"
-
-    invoke-static {v1, v2, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const/4 v0, 0x1
-
-    .line 261
-    .local v0, autoRotationEnabled:Z
-    :cond_0
-    iget-object v1, p0, Lcom/android/OriginalSettings/AccessibilitySettings$2;->this$0:Lcom/android/OriginalSettings/AccessibilitySettings;
-
-    #getter for: Lcom/android/OriginalSettings/AccessibilitySettings;->mToggleAutoRotateScreenPreference:Landroid/preference/CheckBoxPreference;
-    invoke-static {v1}, Lcom/android/OriginalSettings/AccessibilitySettings;->access$300(Lcom/android/OriginalSettings/AccessibilitySettings;)Landroid/preference/CheckBoxPreference;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
-
-    .line 263
-    .end local v0           #autoRotationEnabled:Z
-    :cond_1
+    .line 197
     return-void
 .end method

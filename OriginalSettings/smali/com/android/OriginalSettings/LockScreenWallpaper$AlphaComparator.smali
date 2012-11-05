@@ -39,12 +39,12 @@
     .parameter
 
     .prologue
-    .line 225
+    .line 272
     iput-object p1, p0, Lcom/android/OriginalSettings/LockScreenWallpaper$AlphaComparator;->this$0:Lcom/android/OriginalSettings/LockScreenWallpaper;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 226
+    .line 273
     invoke-static {}, Ljava/text/Collator;->getInstance()Ljava/text/Collator;
 
     move-result-object v0
@@ -62,13 +62,13 @@
     .parameter "b"
 
     .prologue
-    .line 231
+    .line 278
     if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/android/OriginalSettings/LockScreenWallpaper$AlphaComparator;->this$0:Lcom/android/OriginalSettings/LockScreenWallpaper;
 
     #getter for: Lcom/android/OriginalSettings/LockScreenWallpaper;->mPm:Landroid/content/pm/PackageManager;
-    invoke-static {v0}, Lcom/android/OriginalSettings/LockScreenWallpaper;->access$300(Lcom/android/OriginalSettings/LockScreenWallpaper;)Landroid/content/pm/PackageManager;
+    invoke-static {v0}, Lcom/android/OriginalSettings/LockScreenWallpaper;->access$400(Lcom/android/OriginalSettings/LockScreenWallpaper;)Landroid/content/pm/PackageManager;
 
     move-result-object v0
 
@@ -81,18 +81,18 @@
     :cond_0
     const/4 v0, -0x1
 
-    .line 234
+    .line 281
     :goto_0
     return v0
 
-    .line 232
+    .line 279
     :cond_1
     if-eqz p2, :cond_2
 
     iget-object v0, p0, Lcom/android/OriginalSettings/LockScreenWallpaper$AlphaComparator;->this$0:Lcom/android/OriginalSettings/LockScreenWallpaper;
 
     #getter for: Lcom/android/OriginalSettings/LockScreenWallpaper;->mPm:Landroid/content/pm/PackageManager;
-    invoke-static {v0}, Lcom/android/OriginalSettings/LockScreenWallpaper;->access$300(Lcom/android/OriginalSettings/LockScreenWallpaper;)Landroid/content/pm/PackageManager;
+    invoke-static {v0}, Lcom/android/OriginalSettings/LockScreenWallpaper;->access$400(Lcom/android/OriginalSettings/LockScreenWallpaper;)Landroid/content/pm/PackageManager;
 
     move-result-object v0
 
@@ -107,14 +107,14 @@
 
     goto :goto_0
 
-    .line 234
+    .line 281
     :cond_3
     iget-object v0, p0, Lcom/android/OriginalSettings/LockScreenWallpaper$AlphaComparator;->sCollator:Ljava/text/Collator;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/LockScreenWallpaper$AlphaComparator;->this$0:Lcom/android/OriginalSettings/LockScreenWallpaper;
 
     #getter for: Lcom/android/OriginalSettings/LockScreenWallpaper;->mPm:Landroid/content/pm/PackageManager;
-    invoke-static {v1}, Lcom/android/OriginalSettings/LockScreenWallpaper;->access$300(Lcom/android/OriginalSettings/LockScreenWallpaper;)Landroid/content/pm/PackageManager;
+    invoke-static {v1}, Lcom/android/OriginalSettings/LockScreenWallpaper;->access$400(Lcom/android/OriginalSettings/LockScreenWallpaper;)Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
@@ -129,7 +129,7 @@
     iget-object v2, p0, Lcom/android/OriginalSettings/LockScreenWallpaper$AlphaComparator;->this$0:Lcom/android/OriginalSettings/LockScreenWallpaper;
 
     #getter for: Lcom/android/OriginalSettings/LockScreenWallpaper;->mPm:Landroid/content/pm/PackageManager;
-    invoke-static {v2}, Lcom/android/OriginalSettings/LockScreenWallpaper;->access$300(Lcom/android/OriginalSettings/LockScreenWallpaper;)Landroid/content/pm/PackageManager;
+    invoke-static {v2}, Lcom/android/OriginalSettings/LockScreenWallpaper;->access$400(Lcom/android/OriginalSettings/LockScreenWallpaper;)Landroid/content/pm/PackageManager;
 
     move-result-object v2
 
@@ -154,7 +154,7 @@
     .parameter "x1"
 
     .prologue
-    .line 225
+    .line 272
     check-cast p1, Landroid/content/pm/ResolveInfo;
 
     .end local p1

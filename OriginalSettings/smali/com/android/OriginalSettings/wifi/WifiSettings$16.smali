@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/wifi/WifiSettings;->getErrorAnimationView(II)Landroid/view/View;
+    value = Lcom/android/OriginalSettings/wifi/WifiSettings;->showDurationDialog(IIZ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1396
+    .line 1357
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$16;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,27 +41,27 @@
     .locals 1
 
     .prologue
-    .line 1398
+    .line 1359
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$16;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
 
-    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mErrorDialogAni:Landroid/graphics/drawable/AnimationDrawable;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$1800(Lcom/android/OriginalSettings/wifi/WifiSettings;)Landroid/graphics/drawable/AnimationDrawable;
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mErrorDialog:Landroid/app/AlertDialog;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$1400(Lcom/android/OriginalSettings/wifi/WifiSettings;)Landroid/app/AlertDialog;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 1399
+    .line 1360
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$16;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
 
-    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mErrorDialogAni:Landroid/graphics/drawable/AnimationDrawable;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$1800(Lcom/android/OriginalSettings/wifi/WifiSettings;)Landroid/graphics/drawable/AnimationDrawable;
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mErrorDialog:Landroid/app/AlertDialog;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$1400(Lcom/android/OriginalSettings/wifi/WifiSettings;)Landroid/app/AlertDialog;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/graphics/drawable/AnimationDrawable;->start()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 1400
+    .line 1362
     :cond_0
     return-void
 .end method

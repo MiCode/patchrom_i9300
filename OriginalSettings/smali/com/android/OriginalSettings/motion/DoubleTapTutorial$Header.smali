@@ -32,22 +32,22 @@
     .prologue
     const/4 v1, -0x1
 
-    .line 372
+    .line 365
     iput-object p1, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$Header;->this$0:Lcom/android/OriginalSettings/motion/DoubleTapTutorial;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 373
+    .line 366
     iput v1, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$Header;->titleRes:I
 
-    .line 374
+    .line 367
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$Header;->title:Ljava/lang/CharSequence;
 
-    .line 375
+    .line 368
     iput v1, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$Header;->iconRes:I
 
-    .line 376
+    .line 369
     return-void
 .end method

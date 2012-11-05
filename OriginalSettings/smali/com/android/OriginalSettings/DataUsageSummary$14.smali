@@ -37,7 +37,7 @@
     .parameter
 
     .prologue
-    .line 1395
+    .line 1470
     iput-object p1, p0, Lcom/android/OriginalSettings/DataUsageSummary$14;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -51,11 +51,11 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1414
+    .line 1491
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary$14;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mAdapter:Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;
-    invoke-static {v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$2800(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;
+    invoke-static {v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$2600(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;
 
     move-result-object v2
 
@@ -68,7 +68,7 @@
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary$14;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     #calls: Lcom/android/OriginalSettings/DataUsageSummary;->isAppDetailMode()Z
-    invoke-static {v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$2900(Lcom/android/OriginalSettings/DataUsageSummary;)Z
+    invoke-static {v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$2700(Lcom/android/OriginalSettings/DataUsageSummary;)Z
 
     move-result v2
 
@@ -76,13 +76,13 @@
 
     const/4 v0, 0x1
 
-    .line 1415
+    .line 1492
     .local v0, isEmpty:Z
     :goto_0
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary$14;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mEmpty:Landroid/widget/TextView;
-    invoke-static {v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$3000(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/TextView;
+    invoke-static {v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$2800(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/TextView;
 
     move-result-object v2
 
@@ -91,17 +91,17 @@
     :goto_1
     invoke-virtual {v2, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 1416
+    .line 1493
     return-void
 
     .end local v0           #isEmpty:Z
     :cond_0
     move v0, v1
 
-    .line 1414
+    .line 1491
     goto :goto_0
 
-    .line 1415
+    .line 1492
     .restart local v0       #isEmpty:Z
     :cond_1
     const/16 v1, 0x8
@@ -128,7 +128,7 @@
     .end annotation
 
     .prologue
-    .line 1398
+    .line 1473
     new-instance v0, Lcom/android/OriginalSettings/net/SummaryForAllUidLoader;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$14;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
@@ -139,18 +139,18 @@
 
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary$14;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mStatsService:Landroid/net/INetworkStatsService;
-    invoke-static {v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$100(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/net/INetworkStatsService;
+    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mStatsSession:Landroid/net/INetworkStatsSession;
+    invoke-static {v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$2100(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/net/INetworkStatsSession;
 
     move-result-object v2
 
-    invoke-direct {v0, v1, v2, p2}, Lcom/android/OriginalSettings/net/SummaryForAllUidLoader;-><init>(Landroid/content/Context;Landroid/net/INetworkStatsService;Landroid/os/Bundle;)V
+    invoke-direct {v0, v1, v2, p2}, Lcom/android/OriginalSettings/net/SummaryForAllUidLoader;-><init>(Landroid/content/Context;Landroid/net/INetworkStatsSession;Landroid/os/Bundle;)V
 
     return-object v0
 .end method
 
 .method public onLoadFinished(Landroid/content/Loader;Landroid/net/NetworkStats;)V
-    .locals 1
+    .locals 3
     .parameter
     .parameter "data"
     .annotation system Ldalvik/annotation/Signature;
@@ -166,21 +166,36 @@
     .end annotation
 
     .prologue
-    .line 1403
+    .line 1478
     .local p1, loader:Landroid/content/Loader;,"Landroid/content/Loader<Landroid/net/NetworkStats;>;"
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$14;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
+    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$14;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mAdapter:Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;
-    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->access$2800(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;
+    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyManager:Landroid/net/NetworkPolicyManager;
+    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$2500(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/net/NetworkPolicyManager;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v2}, Landroid/net/NetworkPolicyManager;->getAppsWithPolicy(I)[I
 
     move-result-object v0
 
-    invoke-virtual {v0, p2}, Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;->bindStats(Landroid/net/NetworkStats;)V
+    .line 1480
+    .local v0, restrictedAppIds:[I
+    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$14;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
-    .line 1404
+    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mAdapter:Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;
+    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$2600(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2, v0}, Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;->bindStats(Landroid/net/NetworkStats;[I)V
+
+    .line 1481
     invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary$14;->updateEmptyVisible()V
 
-    .line 1405
+    .line 1482
     return-void
 .end method
 
@@ -190,7 +205,7 @@
     .parameter "x1"
 
     .prologue
-    .line 1395
+    .line 1470
     check-cast p2, Landroid/net/NetworkStats;
 
     .end local p2
@@ -200,7 +215,7 @@
 .end method
 
 .method public onLoaderReset(Landroid/content/Loader;)V
-    .locals 2
+    .locals 3
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -213,22 +228,26 @@
     .end annotation
 
     .prologue
-    .line 1409
+    .line 1486
     .local p1, loader:Landroid/content/Loader;,"Landroid/content/Loader<Landroid/net/NetworkStats;>;"
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$14;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mAdapter:Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;
-    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->access$2800(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;
+    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->access$2600(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;
 
     move-result-object v0
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;->bindStats(Landroid/net/NetworkStats;)V
+    const/4 v2, 0x0
 
-    .line 1410
+    new-array v2, v2, [I
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;->bindStats(Landroid/net/NetworkStats;[I)V
+
+    .line 1487
     invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary$14;->updateEmptyVisible()V
 
-    .line 1411
+    .line 1488
     return-void
 .end method

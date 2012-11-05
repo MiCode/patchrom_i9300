@@ -3,12 +3,12 @@
 .source "NearbySettings.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/content/DialogInterface$OnCancelListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/nearby/NearbySettings;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
+    value = Lcom/android/OriginalSettings/nearby/NearbySettings;->requestWelcomePopup()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,30 +20,15 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
 
-.field final synthetic val$handler:Landroid/preference/Preference$OnPreferenceChangeListener;
-
-.field final synthetic val$newValue:Ljava/lang/Object;
-
-.field final synthetic val$preference:Landroid/preference/Preference;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/OriginalSettings/nearby/NearbySettings;Landroid/preference/Preference$OnPreferenceChangeListener;Landroid/preference/Preference;Ljava/lang/Object;)V
+.method constructor <init>(Lcom/android/OriginalSettings/nearby/NearbySettings;)V
     .locals 0
-    .parameter
-    .parameter
-    .parameter
     .parameter
 
     .prologue
-    .line 1254
+    .line 822
     iput-object p1, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$8;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
-
-    iput-object p2, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$8;->val$handler:Landroid/preference/Preference$OnPreferenceChangeListener;
-
-    iput-object p3, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$8;->val$preference:Landroid/preference/Preference;
-
-    iput-object p4, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$8;->val$newValue:Ljava/lang/Object;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
@@ -52,19 +37,18 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 3
+.method public onCancel(Landroid/content/DialogInterface;)V
+    .locals 2
+    .parameter "dialog"
 
     .prologue
-    .line 1258
-    iget-object v0, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$8;->val$handler:Landroid/preference/Preference$OnPreferenceChangeListener;
+    .line 824
+    const-string v0, "AllshareSetting"
 
-    iget-object v1, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$8;->val$preference:Landroid/preference/Preference;
+    const-string v1, "AllshareSetting: Startup Dialog: show again next time"
 
-    iget-object v2, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$8;->val$newValue:Ljava/lang/Object;
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-interface {v0, v1, v2}, Landroid/preference/Preference$OnPreferenceChangeListener;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
-
-    .line 1259
+    .line 825
     return-void
 .end method

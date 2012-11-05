@@ -19,24 +19,24 @@
     .parameter "context"
 
     .prologue
-    .line 115
+    .line 114
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 116
+    .line 115
     .local v2, res:Landroid/content/res/Resources;
     new-instance v0, Landroid/app/Notification$Builder;
 
     invoke-direct {v0, p1}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 117
+    .line 116
     .local v0, builder:Landroid/app/Notification$Builder;
     const/4 v3, 0x1
 
     invoke-virtual {v0, v3}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
 
-    .line 119
+    .line 118
     const-string v3, "notification"
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -45,7 +45,7 @@
 
     check-cast v1, Landroid/app/NotificationManager;
 
-    .line 121
+    .line 120
     .local v1, manager:Landroid/app/NotificationManager;
     const v3, 0x1080080
 
@@ -55,7 +55,7 @@
 
     invoke-virtual {v1, v3, v4}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
 
-    .line 122
+    .line 121
     return-void
 .end method
 
@@ -174,15 +174,15 @@
     :cond_2
     invoke-virtual {p1, v2}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 70
+    .line 69
     invoke-direct {p0, p1}, Lcom/android/OriginalSettings/bluetooth/BluetoothPairingRequest;->playPopupAlert(Landroid/content/Context;)V
 
-    .line 112
+    .line 111
     :cond_3
     :goto_0
     return-void
 
-    .line 105
+    .line 104
     :cond_4
     const-string v1, "android.bluetooth.device.action.PAIRING_CANCEL"
 
@@ -192,7 +192,7 @@
 
     if-eqz v0, :cond_3
 
-    .line 108
+    .line 107
     const-string v0, "notification"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -201,7 +201,7 @@
 
     check-cast v0, Landroid/app/NotificationManager;
 
-    .line 110
+    .line 109
     const v1, 0x1080080
 
     invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->cancel(I)V

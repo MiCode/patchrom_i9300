@@ -52,31 +52,31 @@
     .parameter "state"
 
     .prologue
-    .line 924
+    .line 1120
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
-    .line 925
+    .line 1121
     #getter for: Lcom/android/OriginalSettings/applications/InstalledAppDetails;->mPm:Landroid/content/pm/PackageManager;
-    invoke-static {p1}, Lcom/android/OriginalSettings/applications/InstalledAppDetails;->access$1200(Lcom/android/OriginalSettings/applications/InstalledAppDetails;)Landroid/content/pm/PackageManager;
+    invoke-static {p1}, Lcom/android/OriginalSettings/applications/InstalledAppDetails;->access$1400(Lcom/android/OriginalSettings/applications/InstalledAppDetails;)Landroid/content/pm/PackageManager;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/OriginalSettings/applications/InstalledAppDetails$DisableChanger;->mPm:Landroid/content/pm/PackageManager;
 
-    .line 926
+    .line 1122
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/applications/InstalledAppDetails$DisableChanger;->mActivity:Ljava/lang/ref/WeakReference;
 
-    .line 927
+    .line 1123
     iput-object p2, p0, Lcom/android/OriginalSettings/applications/InstalledAppDetails$DisableChanger;->mInfo:Landroid/content/pm/ApplicationInfo;
 
-    .line 928
+    .line 1124
     iput p3, p0, Lcom/android/OriginalSettings/applications/InstalledAppDetails$DisableChanger;->mState:I
 
-    .line 929
+    .line 1125
     return-void
 .end method
 
@@ -87,7 +87,7 @@
     .parameter "params"
 
     .prologue
-    .line 933
+    .line 1129
     iget-object v0, p0, Lcom/android/OriginalSettings/applications/InstalledAppDetails$DisableChanger;->mPm:Landroid/content/pm/PackageManager;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/applications/InstalledAppDetails$DisableChanger;->mInfo:Landroid/content/pm/ApplicationInfo;
@@ -100,7 +100,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/pm/PackageManager;->setApplicationEnabledSetting(Ljava/lang/String;II)V
 
-    .line 934
+    .line 1130
     const/4 v0, 0x0
 
     return-object v0

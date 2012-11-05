@@ -27,12 +27,12 @@
     .parameter
 
     .prologue
-    .line 1497
+    .line 1740
     iput-object p1, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleRejectDevice;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1498
+    .line 1741
     return-void
 .end method
 
@@ -46,7 +46,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1503
+    .line 1745
     iget-object v2, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleRejectDevice;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
 
     #getter for: Lcom/android/OriginalSettings/nearby/NearbySettings;->mIMediaServer:Lcom/android/OriginalSettings/nearby/IMediaServer;
@@ -62,13 +62,13 @@
 
     if-nez v2, :cond_1
 
-    .line 1519
+    .line 1757
     .end local p2
     :cond_0
     :goto_0
     return v1
 
-    .line 1510
+    .line 1750
     .restart local p2
     :cond_1
     :try_start_0
@@ -98,14 +98,14 @@
 
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1511
+    .line 1751
     check-cast p2, Ljava/util/HashSet;
 
     .end local p2
     iget-object v2, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleRejectDevice;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
 
     #getter for: Lcom/android/OriginalSettings/nearby/NearbySettings;->mContext:Landroid/content/Context;
-    invoke-static {v2}, Lcom/android/OriginalSettings/nearby/NearbySettings;->access$1400(Lcom/android/OriginalSettings/nearby/NearbySettings;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/OriginalSettings/nearby/NearbySettings;->access$400(Lcom/android/OriginalSettings/nearby/NearbySettings;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -113,16 +113,16 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1519
+    .line 1757
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 1513
+    .line 1752
     :catch_0
     move-exception v0
 
-    .line 1515
+    .line 1753
     .local v0, e:Ljava/lang/Exception;
     const-string v2, "AllshareSetting"
 

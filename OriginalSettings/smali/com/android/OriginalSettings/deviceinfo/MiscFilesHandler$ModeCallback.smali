@@ -32,15 +32,15 @@
     .parameter "context"
 
     .prologue
-    .line 85
+    .line 88
     iput-object p1, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;->this$0:Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 86
+    .line 89
     iput-object p2, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;->mContext:Landroid/content/Context;
 
-    .line 87
+    .line 90
     #getter for: Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->mAdapter:Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$MemoryMearurementAdapter;
     invoke-static {p1}, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->access$000(Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;)Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$MemoryMearurementAdapter;
 
@@ -52,7 +52,7 @@
 
     iput v0, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;->mDataCount:I
 
-    .line 88
+    .line 91
     return-void
 .end method
 
@@ -61,19 +61,19 @@
     .parameter "dir"
 
     .prologue
-    .line 157
+    .line 165
     invoke-virtual {p1}, Ljava/io/File;->isDirectory()Z
 
     move-result v3
 
     if-eqz v3, :cond_1
 
-    .line 158
+    .line 166
     invoke-virtual {p1}, Ljava/io/File;->list()[Ljava/lang/String;
 
     move-result-object v0
 
-    .line 159
+    .line 167
     .local v0, children:[Ljava/lang/String;
     const/4 v1, 0x0
 
@@ -83,7 +83,7 @@
 
     if-ge v1, v3, :cond_1
 
-    .line 160
+    .line 168
     new-instance v3, Ljava/io/File;
 
     aget-object v4, v0, v1
@@ -94,21 +94,21 @@
 
     move-result v2
 
-    .line 161
+    .line 169
     .local v2, success:Z
     if-nez v2, :cond_0
 
-    .line 162
+    .line 170
     const/4 v3, 0x0
 
-    .line 167
+    .line 175
     .end local v0           #children:[Ljava/lang/String;
     .end local v1           #i:I
     .end local v2           #success:Z
     :goto_1
     return v3
 
-    .line 159
+    .line 167
     .restart local v0       #children:[Ljava/lang/String;
     .restart local v1       #i:I
     .restart local v2       #success:Z
@@ -117,7 +117,7 @@
 
     goto :goto_0
 
-    .line 167
+    .line 175
     .end local v0           #children:[Ljava/lang/String;
     .end local v1           #i:I
     .end local v2           #success:Z
@@ -139,14 +139,14 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 101
+    .line 106
     iget-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;->this$0:Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->getListView()Landroid/widget/ListView;
 
     move-result-object v10
 
-    .line 102
+    .line 107
     .local v10, lv:Landroid/widget/ListView;
     invoke-interface {p2}, Landroid/view/MenuItem;->getItemId()I
 
@@ -154,17 +154,17 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 150
+    .line 158
     :goto_0
     return v2
 
-    .line 105
+    .line 110
     :pswitch_0
     invoke-virtual {v10}, Landroid/widget/ListView;->getCheckedItemPositions()Landroid/util/SparseBooleanArray;
 
     move-result-object v7
 
-    .line 106
+    .line 111
     .local v7, checkedItems:Landroid/util/SparseBooleanArray;
     iget-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;->this$0:Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;
 
@@ -176,13 +176,13 @@
 
     move-result v6
 
-    .line 107
+    .line 112
     .local v6, checkedCount:I
     iget v0, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;->mDataCount:I
 
     if-le v6, v0, :cond_0
 
-    .line 108
+    .line 113
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -219,18 +219,18 @@
 
     throw v0
 
-    .line 111
+    .line 116
     :cond_0
     iget v0, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;->mDataCount:I
 
     if-lez v0, :cond_5
 
-    .line 112
+    .line 117
     new-instance v11, Ljava/util/ArrayList;
 
     invoke-direct {v11}, Ljava/util/ArrayList;-><init>()V
 
-    .line 113
+    .line 118
     .local v11, toRemove:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Object;>;"
     const/4 v9, 0x0
 
@@ -240,26 +240,26 @@
 
     if-ge v9, v0, :cond_4
 
-    .line 114
+    .line 119
     invoke-virtual {v7, v9}, Landroid/util/SparseBooleanArray;->get(I)Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    .line 113
+    .line 118
     :goto_2
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_1
 
-    .line 118
+    .line 123
     :cond_1
     sget-boolean v0, Lcom/android/OriginalSettings/deviceinfo/StorageMeasurement;->LOGV:Z
 
     if-eqz v0, :cond_2
 
-    .line 119
+    .line 124
     const-string v0, "MemorySettings"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -293,7 +293,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 122
+    .line 127
     :cond_2
     new-instance v8, Ljava/io/File;
 
@@ -312,7 +312,7 @@
 
     invoke-direct {v8, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 123
+    .line 128
     .local v8, file:Ljava/io/File;
     invoke-virtual {v8}, Ljava/io/File;->isDirectory()Z
 
@@ -320,10 +320,10 @@
 
     if-eqz v0, :cond_3
 
-    .line 124
+    .line 129
     invoke-direct {p0, v8}, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;->deleteDir(Ljava/io/File;)Z
 
-    .line 128
+    .line 133
     :goto_3
     iget-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;->this$0:Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;
 
@@ -340,13 +340,13 @@
 
     goto :goto_2
 
-    .line 126
+    .line 131
     :cond_3
     invoke-virtual {v8}, Ljava/io/File;->delete()Z
 
     goto :goto_3
 
-    .line 130
+    .line 135
     .end local v8           #file:Ljava/io/File;
     :cond_4
     iget-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;->this$0:Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;
@@ -358,7 +358,7 @@
 
     invoke-virtual {v0, v11}, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$MemoryMearurementAdapter;->removeAll(Ljava/util/List;)V
 
-    .line 131
+    .line 136
     iget-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;->this$0:Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;
 
     #getter for: Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->mAdapter:Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$MemoryMearurementAdapter;
@@ -368,7 +368,7 @@
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$MemoryMearurementAdapter;->notifyDataSetChanged()V
 
-    .line 132
+    .line 137
     iget-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;->this$0:Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;
 
     #getter for: Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->mAdapter:Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$MemoryMearurementAdapter;
@@ -382,13 +382,13 @@
 
     iput v0, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;->mDataCount:I
 
-    .line 134
+    .line 139
     .end local v9           #i:I
     .end local v11           #toRemove:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Object;>;"
     :cond_5
     invoke-virtual {p1}, Landroid/view/ActionMode;->finish()V
 
-    .line 136
+    .line 141
     iget-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;->this$0:Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;
 
     new-instance v1, Landroid/content/Intent;
@@ -427,7 +427,7 @@
 
     goto/16 :goto_0
 
-    .line 143
+    .line 148
     .end local v6           #checkedCount:I
     .end local v7           #checkedItems:Landroid/util/SparseBooleanArray;
     :pswitch_1
@@ -437,18 +437,39 @@
     :goto_4
     iget v0, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;->mDataCount:I
 
-    if-ge v9, v0, :cond_6
+    if-ge v9, v0, :cond_7
 
-    .line 144
-    invoke-virtual {v10, v9, v2}, Landroid/widget/ListView;->setItemChecked(IZ)V
+    .line 149
+    invoke-virtual {v10, v9}, Landroid/widget/ListView;->getChildAt(I)Landroid/view/View;
 
-    .line 143
+    move-result-object v0
+
+    if-eqz v0, :cond_6
+
+    invoke-virtual {v10, v9}, Landroid/widget/ListView;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/View;->isEnabled()Z
+
+    move-result v0
+
+    if-nez v0, :cond_6
+
+    .line 148
+    :goto_5
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_4
 
-    .line 147
+    .line 152
     :cond_6
+    invoke-virtual {v10, v9, v2}, Landroid/widget/ListView;->setItemChecked(IZ)V
+
+    goto :goto_5
+
+    .line 155
+    :cond_7
     const-wide/16 v3, 0x0
 
     move-object v0, p0
@@ -461,9 +482,11 @@
 
     goto/16 :goto_0
 
-    .line 102
+    .line 107
+    nop
+
     :pswitch_data_0
-    .packed-switch 0x7f0a033e
+    .packed-switch 0x7f0b03ac
         :pswitch_0
         :pswitch_1
     .end packed-switch
@@ -475,20 +498,20 @@
     .parameter "menu"
 
     .prologue
-    .line 91
+    .line 94
     iget-object v1, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;->this$0:Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;
 
     invoke-virtual {v1}, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->getMenuInflater()Landroid/view/MenuInflater;
 
     move-result-object v0
 
-    .line 92
+    .line 95
     .local v0, inflater:Landroid/view/MenuInflater;
-    const v1, 0x7f110001
+    const v1, 0x7f120003
 
     invoke-virtual {v0, v1, p2}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    .line 93
+    .line 96
     const/4 v1, 0x1
 
     return v1
@@ -499,7 +522,7 @@
     .parameter "mode"
 
     .prologue
-    .line 172
+    .line 180
     return-void
 .end method
 
@@ -511,20 +534,20 @@
     .parameter "checked"
 
     .prologue
-    .line 176
+    .line 184
     iget-object v6, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;->this$0:Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;
 
     invoke-virtual {v6}, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->getListView()Landroid/widget/ListView;
 
     move-result-object v2
 
-    .line 177
+    .line 185
     .local v2, lv:Landroid/widget/ListView;
     invoke-virtual {v2}, Landroid/widget/ListView;->getCheckedItemCount()I
 
     move-result v3
 
-    .line 178
+    .line 186
     .local v3, numChecked:I
     iget-object v6, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;->this$0:Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;
 
@@ -570,20 +593,20 @@
 
     invoke-virtual {p1, v6}, Landroid/view/ActionMode;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 181
+    .line 189
     invoke-virtual {v2}, Landroid/widget/ListView;->getCheckedItemPositions()Landroid/util/SparseBooleanArray;
 
     move-result-object v0
 
-    .line 182
+    .line 190
     .local v0, checkedItems:Landroid/util/SparseBooleanArray;
     const-wide/16 v4, 0x0
 
-    .line 183
+    .line 191
     .local v4, selectedDataSize:J
     if-lez v3, :cond_1
 
-    .line 184
+    .line 192
     const/4 v1, 0x0
 
     .local v1, i:I
@@ -592,14 +615,14 @@
 
     if-ge v1, v6, :cond_1
 
-    .line 185
+    .line 193
     invoke-virtual {v0, v1}, Landroid/util/SparseBooleanArray;->get(I)Z
 
     move-result v6
 
     if-eqz v6, :cond_0
 
-    .line 187
+    .line 195
     iget-object v6, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;->this$0:Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;
 
     #getter for: Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->mAdapter:Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$MemoryMearurementAdapter;
@@ -615,13 +638,13 @@
 
     add-long/2addr v4, v6
 
-    .line 184
+    .line 192
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 191
+    .line 199
     .end local v1           #i:I
     :cond_1
     iget-object v6, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;->this$0:Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;
@@ -672,18 +695,29 @@
 
     invoke-virtual {p1, v6}, Landroid/view/ActionMode;->setSubtitle(Ljava/lang/CharSequence;)V
 
-    .line 194
+    .line 202
     return-void
 .end method
 
 .method public onPrepareActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
-    .locals 1
+    .locals 6
     .parameter "mode"
     .parameter "menu"
 
     .prologue
-    .line 97
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    return v0
+    .line 101
+    const-wide/16 v3, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move v5, v2
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;->onItemCheckedStateChanged(Landroid/view/ActionMode;IJZ)V
+
+    .line 102
+    return v2
 .end method

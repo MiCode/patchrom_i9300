@@ -25,279 +25,257 @@
     .parameter "looper"
 
     .prologue
-    .line 86
+    .line 95
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
 
-    .line 87
+    .line 96
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 88
+    .line 97
     return-void
 .end method
 
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 7
+    .locals 8
     .parameter "msg"
 
     .prologue
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    .line 92
+    .line 101
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/os/Bundle;
 
-    .line 93
+    .line 102
     .local v1, arguments:Landroid/os/Bundle;
-    const-string v2, "com.android.settings.wifi.wifisheduler_action_type"
+    const-string v3, "com.android.settings.wifi.wifisheduler_action_type"
 
-    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v1, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
-    .line 94
+    .line 103
     .local v0, actionType:I
-    const-string v2, "WifiTimer"
+    const-string v3, "WifiTimer"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Message received "
+    const-string v5, "Message received "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 95
-    const/16 v2, 0x1389
-
-    if-ne v0, v2, :cond_2
-
-    .line 96
-    const-string v2, "WifiTimer"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "EnableAlarm: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
-
-    #getter for: Lcom/android/OriginalSettings/wifi/WifiTimerService;->mSharedPref:Landroid/content/SharedPreferences;
-    invoke-static {v4}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$000(Lcom/android/OriginalSettings/wifi/WifiTimerService;)Landroid/content/SharedPreferences;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    const-string v5, "wifitimer_enabled"
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-interface {v4, v5, v6}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    move-result-object v4
 
-    move-result v4
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v3
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    .line 104
+    const/16 v3, 0x1389
 
-    move-result-object v3
+    if-ne v0, v3, :cond_2
 
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    .line 105
+    const-string v3, "WifiTimer"
 
-    .line 97
-    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "EnableAlarm: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
 
     #getter for: Lcom/android/OriginalSettings/wifi/WifiTimerService;->mSharedPref:Landroid/content/SharedPreferences;
-    invoke-static {v2}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$000(Lcom/android/OriginalSettings/wifi/WifiTimerService;)Landroid/content/SharedPreferences;
+    invoke-static {v5}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$000(Lcom/android/OriginalSettings/wifi/WifiTimerService;)Landroid/content/SharedPreferences;
 
-    move-result-object v2
+    move-result-object v5
 
-    const-string v3, "wifitimer_enabled"
+    const-string v6, "wifitimer_enabled"
 
-    invoke-interface {v2, v3, v6}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-interface {v5, v6, v7}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v2
+    move-result v5
 
-    if-eqz v2, :cond_1
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    .line 98
-    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
+    move-result-object v4
 
-    #calls: Lcom/android/OriginalSettings/wifi/WifiTimerService;->cancelAlarm()V
-    invoke-static {v2}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$100(Lcom/android/OriginalSettings/wifi/WifiTimerService;)V
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 99
-    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
+    move-result-object v4
 
-    #calls: Lcom/android/OriginalSettings/wifi/WifiTimerService;->wifiStartAlarm()V
-    invoke-static {v2}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$200(Lcom/android/OriginalSettings/wifi/WifiTimerService;)V
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 123
+    .line 106
+    iget-object v3, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
+
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiTimerService;->mSharedPref:Landroid/content/SharedPreferences;
+    invoke-static {v3}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$000(Lcom/android/OriginalSettings/wifi/WifiTimerService;)Landroid/content/SharedPreferences;
+
+    move-result-object v3
+
+    const-string v4, "wifitimer_enabled"
+
+    invoke-interface {v3, v4, v7}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    .line 107
+    iget-object v3, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
+
+    #calls: Lcom/android/OriginalSettings/wifi/WifiTimerService;->cancelAllAlarms()V
+    invoke-static {v3}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$100(Lcom/android/OriginalSettings/wifi/WifiTimerService;)V
+
+    .line 108
+    iget-object v3, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
+
+    #calls: Lcom/android/OriginalSettings/wifi/WifiTimerService;->sheduleAllAlarms()V
+    invoke-static {v3}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$200(Lcom/android/OriginalSettings/wifi/WifiTimerService;)V
+
+    .line 127
     :cond_0
     :goto_0
     return-void
 
-    .line 101
+    .line 110
     :cond_1
-    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
+    iget-object v3, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
 
-    #calls: Lcom/android/OriginalSettings/wifi/WifiTimerService;->cancelAlarm()V
-    invoke-static {v2}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$100(Lcom/android/OriginalSettings/wifi/WifiTimerService;)V
-
-    goto :goto_0
-
-    .line 103
-    :cond_2
-    const/16 v2, 0x138a
-
-    if-ne v0, v2, :cond_4
-
-    .line 104
-    const-string v2, "wifisheduler_alarm_type"
-
-    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result v2
-
-    const/16 v3, 0x3e9
-
-    if-ne v2, v3, :cond_3
-
-    .line 105
-    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
-
-    const/4 v3, 0x1
-
-    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v3
-
-    #calls: Lcom/android/OriginalSettings/wifi/WifiTimerService;->enableWifi(Ljava/lang/Boolean;)V
-    invoke-static {v2, v3}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$300(Lcom/android/OriginalSettings/wifi/WifiTimerService;Ljava/lang/Boolean;)V
-
-    .line 106
-    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
-
-    #calls: Lcom/android/OriginalSettings/wifi/WifiTimerService;->wifiStopAlarm()V
-    invoke-static {v2}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$400(Lcom/android/OriginalSettings/wifi/WifiTimerService;)V
+    #calls: Lcom/android/OriginalSettings/wifi/WifiTimerService;->cancelAllAlarms()V
+    invoke-static {v3}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$100(Lcom/android/OriginalSettings/wifi/WifiTimerService;)V
 
     goto :goto_0
-
-    .line 107
-    :cond_3
-    const-string v2, "wifisheduler_alarm_type"
-
-    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result v2
-
-    const/16 v3, 0x3ea
-
-    if-ne v2, v3, :cond_0
-
-    .line 108
-    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
-
-    invoke-static {v6}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v3
-
-    #calls: Lcom/android/OriginalSettings/wifi/WifiTimerService;->enableWifi(Ljava/lang/Boolean;)V
-    invoke-static {v2, v3}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$300(Lcom/android/OriginalSettings/wifi/WifiTimerService;Ljava/lang/Boolean;)V
-
-    .line 109
-    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
-
-    #calls: Lcom/android/OriginalSettings/wifi/WifiTimerService;->wifiStartAlarm()V
-    invoke-static {v2}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$200(Lcom/android/OriginalSettings/wifi/WifiTimerService;)V
-
-    goto :goto_0
-
-    .line 111
-    :cond_4
-    const/16 v2, 0x138b
-
-    if-ne v0, v2, :cond_0
 
     .line 112
-    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
+    :cond_2
+    const/16 v3, 0x138c
 
-    #getter for: Lcom/android/OriginalSettings/wifi/WifiTimerService;->mSharedPref:Landroid/content/SharedPreferences;
-    invoke-static {v2}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$000(Lcom/android/OriginalSettings/wifi/WifiTimerService;)Landroid/content/SharedPreferences;
-
-    move-result-object v2
-
-    const-string v3, "wifitimer_enabled"
-
-    invoke-interface {v2, v3, v6}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_6
+    if-ne v0, v3, :cond_4
 
     .line 113
-    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
+    const-string v3, "wifisheduler_alarm_type"
 
-    #getter for: Lcom/android/OriginalSettings/wifi/WifiTimerService;->mSharedPref:Landroid/content/SharedPreferences;
-    invoke-static {v2}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$000(Lcom/android/OriginalSettings/wifi/WifiTimerService;)Landroid/content/SharedPreferences;
+    invoke-virtual {v1, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
-    move-result-object v2
+    move-result v3
 
-    const-string v3, "wifitimer_wifi_start"
+    const/16 v4, 0x3e9
 
-    invoke-interface {v2, v3, v6}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_5
+    if-ne v3, v4, :cond_3
 
     .line 114
-    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
+    iget-object v3, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
 
-    #calls: Lcom/android/OriginalSettings/wifi/WifiTimerService;->wifiStopAlarm()V
-    invoke-static {v2}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$400(Lcom/android/OriginalSettings/wifi/WifiTimerService;)V
+    const/4 v4, 0x1
+
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v4
+
+    #calls: Lcom/android/OriginalSettings/wifi/WifiTimerService;->enableWifi(Ljava/lang/Boolean;)V
+    invoke-static {v3, v4}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$300(Lcom/android/OriginalSettings/wifi/WifiTimerService;Ljava/lang/Boolean;)V
 
     goto :goto_0
+
+    .line 115
+    :cond_3
+    const-string v3, "wifisheduler_alarm_type"
+
+    invoke-virtual {v1, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+
+    move-result v3
+
+    const/16 v4, 0x3ea
+
+    if-ne v3, v4, :cond_0
 
     .line 116
-    :cond_5
-    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
+    iget-object v3, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
 
-    #calls: Lcom/android/OriginalSettings/wifi/WifiTimerService;->cancelAlarm()V
-    invoke-static {v2}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$100(Lcom/android/OriginalSettings/wifi/WifiTimerService;)V
+    invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    .line 117
-    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
+    move-result-object v4
 
-    #calls: Lcom/android/OriginalSettings/wifi/WifiTimerService;->wifiStartAlarm()V
-    invoke-static {v2}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$200(Lcom/android/OriginalSettings/wifi/WifiTimerService;)V
+    #calls: Lcom/android/OriginalSettings/wifi/WifiTimerService;->enableWifi(Ljava/lang/Boolean;)V
+    invoke-static {v3, v4}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$300(Lcom/android/OriginalSettings/wifi/WifiTimerService;Ljava/lang/Boolean;)V
 
     goto :goto_0
 
-    .line 120
-    :cond_6
-    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
+    .line 118
+    :cond_4
+    const/16 v3, 0x138b
 
-    #calls: Lcom/android/OriginalSettings/wifi/WifiTimerService;->cancelAlarm()V
-    invoke-static {v2}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$100(Lcom/android/OriginalSettings/wifi/WifiTimerService;)V
+    if-ne v0, v3, :cond_5
+
+    .line 119
+    iget-object v3, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
+
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiTimerService;->mSharedPref:Landroid/content/SharedPreferences;
+    invoke-static {v3}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$000(Lcom/android/OriginalSettings/wifi/WifiTimerService;)Landroid/content/SharedPreferences;
+
+    move-result-object v3
+
+    const-string v4, "wifitimer_enabled"
+
+    invoke-interface {v3, v4, v7}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    .line 120
+    iget-object v3, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
+
+    #calls: Lcom/android/OriginalSettings/wifi/WifiTimerService;->sheduleAllAlarms()V
+    invoke-static {v3}, Lcom/android/OriginalSettings/wifi/WifiTimerService;->access$200(Lcom/android/OriginalSettings/wifi/WifiTimerService;)V
+
+    goto :goto_0
+
+    .line 122
+    :cond_5
+    const/16 v3, 0x138d
+
+    if-ne v0, v3, :cond_0
+
+    .line 123
+    new-instance v2, Landroid/content/Intent;
+
+    const-string v3, "android.net.wifi.SEC_PICK_WIFI_NETWORK_WITH_DIALOG"
+
+    invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 124
+    .local v2, intent:Landroid/content/Intent;
+    const-string v3, "launch_with"
+
+    const/4 v4, 0x3
+
+    invoke-virtual {v2, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    .line 125
+    iget-object v3, p0, Lcom/android/OriginalSettings/wifi/WifiTimerService$SheduleHandler;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimerService;
+
+    iget-object v3, v3, Lcom/android/OriginalSettings/wifi/WifiTimerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
     goto :goto_0
 .end method

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 801
+    .line 804
     iput-object p1, p0, Lcom/android/OriginalSettings/RadioInfo$7;->this$0:Lcom/android/OriginalSettings/RadioInfo;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,14 +42,14 @@
     .parameter "item"
 
     .prologue
-    .line 803
+    .line 806
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.VIEW"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 809
+    .line 812
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "com.android.phone"
 
@@ -57,12 +57,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 811
+    .line 814
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo$7;->this$0:Lcom/android/OriginalSettings/RadioInfo;
 
     invoke-virtual {v1, v0}, Lcom/android/OriginalSettings/RadioInfo;->startActivity(Landroid/content/Intent;)V
 
-    .line 812
+    .line 815
     const/4 v1, 0x1
 
     return v1

@@ -147,7 +147,7 @@
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 35
-    const v0, 0x7f07005a
+    const v0, 0x7f07006a
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/WallpaperTypeSettings;->addPreferencesFromResource(I)V
 

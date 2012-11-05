@@ -357,7 +357,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v2, 0x7f0d00f0
+    const v2, 0x7f090107
 
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/BandMode;->getString(I)Ljava/lang/String;
 
@@ -406,7 +406,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d00f1
+    const v2, 0x7f090108
 
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/BandMode;->getString(I)Ljava/lang/String;
 
@@ -457,7 +457,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d00f2
+    const v2, 0x7f090109
 
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/BandMode;->getString(I)Ljava/lang/String;
 
@@ -479,7 +479,7 @@
 
     .prologue
     .line 117
-    const v2, 0x7f0d00ef
+    const v2, 0x7f090106
 
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/BandMode;->getString(I)Ljava/lang/String;
 
@@ -536,12 +536,12 @@
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/BandMode;->requestWindowFeature(I)Z
 
     .line 62
-    const v0, 0x7f040011
+    const v0, 0x7f04000f
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/BandMode;->setContentView(I)V
 
     .line 64
-    const v0, 0x7f0d00ee
+    const v0, 0x7f090105
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/BandMode;->getString(I)Ljava/lang/String;
 
@@ -568,7 +568,7 @@
     iput-object v0, p0, Lcom/android/OriginalSettings/BandMode;->mPhone:Lcom/android/internal/telephony/Phone;
 
     .line 70
-    const v0, 0x7f0a0029
+    const v0, 0x7f0b0020
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/BandMode;->findViewById(I)Landroid/view/View;
 

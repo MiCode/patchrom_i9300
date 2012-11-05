@@ -1,11 +1,14 @@
 .class Lcom/android/OriginalSettings/wfd/WfdPickerActivity$12;
-.super Landroid/os/CountDownTimer;
+.super Ljava/lang/Object;
 .source "WfdPickerActivity.java"
+
+# interfaces
+.implements Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->scanDevice()V
+    value = Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->cancelWfdConnect()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,70 +22,40 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;JJ)V
+.method constructor <init>(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;)V
     .locals 0
     .parameter
-    .parameter "x0"
-    .parameter "x1"
 
     .prologue
-    .line 1093
+    .line 1652
     iput-object p1, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$12;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
 
-    invoke-direct {p0, p2, p3, p4, p5}, Landroid/os/CountDownTimer;-><init>(JJ)V
+    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onFinish()V
-    .locals 2
-
-    .prologue
-    .line 1101
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$12;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
-
-    const/4 v1, 0x0
-
-    #calls: Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->scanDeviceResultRoutine(I)V
-    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->access$3700(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;I)V
-
-    .line 1102
-    return-void
-.end method
-
-.method public onTick(J)V
+.method public onFailure(I)V
     .locals 3
-    .parameter "millisUntilFinished"
+    .parameter "reason"
 
     .prologue
-    .line 1095
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$12;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
-
-    invoke-static {v0}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->access$2310(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;)I
-
-    .line 1096
+    .line 1658
     const-string v0, "WfdPickerActivity"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "scan tick:"
+    const-string v2, "cancelConnect fail "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$12;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
-
-    #getter for: Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->mTickCount:I
-    invoke-static {v2}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->access$2300(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;)I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -92,6 +65,21 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1097
+    .line 1659
+    return-void
+.end method
+
+.method public onSuccess()V
+    .locals 2
+
+    .prologue
+    .line 1654
+    const-string v0, "WfdPickerActivity"
+
+    const-string v1, "cancelConnect success"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1655
     return-void
 .end method

@@ -76,33 +76,33 @@
 
     .prologue
     .line 144
-    invoke-virtual {p0}, Landroid/bluetooth/BluetoothClass;->getDeviceClass()I
+    invoke-virtual {p0}, Landroid/bluetooth/BluetoothClass;->getPeripheralMinorClass()I
 
     move-result v0
 
     sparse-switch v0, :sswitch_data_0
 
     .line 152
-    const v0, 0x7f020093
+    const v0, 0x7f0200dd
 
     :goto_0
     return v0
 
     .line 146
     :sswitch_0
-    const v0, 0x7f02008f
+    const v0, 0x7f0200d9
 
     goto :goto_0
 
     .line 148
     :sswitch_1
-    const v0, 0x7f020091
+    const v0, 0x7f0200db
 
     goto :goto_0
 
     .line 150
     :sswitch_2
-    const v0, 0x7f02009e
+    const v0, 0x7f0200e6
 
     goto :goto_0
 
@@ -150,12 +150,10 @@
 .end method
 
 .method public getConnectionStatus(Landroid/bluetooth/BluetoothDevice;)I
-    .locals 3
+    .locals 2
     .parameter "device"
 
     .prologue
-    const/4 v2, 0x0
-
     .line 78
     iget-object v1, p0, Lcom/android/OriginalSettings/bluetooth/HidProfile;->mService:Landroid/bluetooth/BluetoothInputDevice;
 
@@ -171,18 +169,6 @@
 
     if-nez v1, :cond_0
 
-    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/bluetooth/BluetoothDevice;
-
-    invoke-virtual {v1, p1}, Landroid/bluetooth/BluetoothDevice;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
     iget-object v1, p0, Lcom/android/OriginalSettings/bluetooth/HidProfile;->mService:Landroid/bluetooth/BluetoothInputDevice;
 
     invoke-virtual {v1, p1}, Landroid/bluetooth/BluetoothInputDevice;->getConnectionState(Landroid/bluetooth/BluetoothDevice;)I
@@ -193,7 +179,7 @@
     return v1
 
     :cond_0
-    move v1, v2
+    const/4 v1, 0x0
 
     goto :goto_0
 .end method
@@ -207,7 +193,7 @@
     if-nez p1, :cond_0
 
     .line 136
-    const v0, 0x7f020090
+    const v0, 0x7f0200da
 
     .line 138
     :goto_0
@@ -227,7 +213,7 @@
 
     .prologue
     .line 117
-    const v0, 0x7f0d01b8
+    const v0, 0x7f0901d9
 
     return v0
 .end method
@@ -284,13 +270,13 @@
 
     .line 124
     :pswitch_1
-    const v1, 0x7f0d01d0
+    const v1, 0x7f0901f4
 
     goto :goto_0
 
     .line 127
     :pswitch_2
-    const v1, 0x7f0d01ca
+    const v1, 0x7f0901ee
 
     goto :goto_0
 

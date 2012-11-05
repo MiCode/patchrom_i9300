@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 123
+    .line 122
     iput-object p1, p0, Lcom/android/OriginalSettings/IccLockSettings$1;->this$0:Lcom/android/OriginalSettings/IccLockSettings;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -43,28 +43,28 @@
 
     const/4 v3, 0x0
 
-    .line 125
+    .line 124
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/AsyncResult;
 
-    .line 126
+    .line 125
     .local v0, ar:Landroid/os/AsyncResult;
     iget v4, p1, Landroid/os/Message;->what:I
 
     packed-switch v4, :pswitch_data_0
 
-    .line 147
+    .line 146
     :goto_0
     return-void
 
-    .line 129
+    .line 128
     :pswitch_0
     iget-object v1, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     check-cast v1, Lcom/android/internal/telephony/CommandException;
 
-    .line 130
+    .line 129
     .local v1, ce:Lcom/android/internal/telephony/CommandException;
     if-eqz v1, :cond_0
 
@@ -76,14 +76,14 @@
 
     if-ne v4, v5, :cond_0
 
-    .line 131
+    .line 130
     const-string v2, "IccLockSettings"
 
     const-string v3, "mHandler, /ENABLE_ICC_PIN_COMPLETE/ : GENERIC_FAILURE"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 132
+    .line 131
     iget-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings$1;->this$0:Lcom/android/OriginalSettings/IccLockSettings;
 
     #calls: Lcom/android/OriginalSettings/IccLockSettings;->iccLockNotAllowed()V
@@ -91,7 +91,7 @@
 
     goto :goto_0
 
-    .line 134
+    .line 133
     :cond_0
     const-string v4, "IccLockSettings"
 
@@ -113,9 +113,9 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 135
+    .line 134
     iget-object v4, p0, Lcom/android/OriginalSettings/IccLockSettings$1;->this$0:Lcom/android/OriginalSettings/IccLockSettings;
 
     iget-object v5, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
@@ -133,7 +133,7 @@
 
     goto :goto_1
 
-    .line 140
+    .line 139
     .end local v1           #ce:Lcom/android/internal/telephony/CommandException;
     :pswitch_1
     iget-object v4, p0, Lcom/android/OriginalSettings/IccLockSettings$1;->this$0:Lcom/android/OriginalSettings/IccLockSettings;
@@ -153,7 +153,7 @@
 
     goto :goto_2
 
-    .line 143
+    .line 142
     :pswitch_2
     iget-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings$1;->this$0:Lcom/android/OriginalSettings/IccLockSettings;
 
@@ -162,7 +162,7 @@
 
     goto :goto_0
 
-    .line 126
+    .line 125
     nop
 
     :pswitch_data_0

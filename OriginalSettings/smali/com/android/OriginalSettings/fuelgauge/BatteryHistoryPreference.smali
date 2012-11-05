@@ -18,7 +18,7 @@
     invoke-direct {p0, p1}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
     .line 40
-    const v0, 0x7f04007e
+    const v0, 0x7f04009b
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/fuelgauge/BatteryHistoryPreference;->setLayoutResource(I)V
 
@@ -40,7 +40,7 @@
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
     .line 52
-    const v1, 0x1010004
+    const v1, 0x1010002
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

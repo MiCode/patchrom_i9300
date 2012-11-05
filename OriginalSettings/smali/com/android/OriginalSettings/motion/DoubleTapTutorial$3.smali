@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 108
+    .line 101
     iput-object p1, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$3;->this$0:Lcom/android/OriginalSettings/motion/DoubleTapTutorial;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,14 +42,14 @@
     .parameter "motionEvent"
 
     .prologue
-    .line 110
+    .line 103
     invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->getMotion()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 118
+    .line 111
     const-string v0, "DoubleTapTutorial"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -74,14 +74,14 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 121
+    .line 114
     :cond_0
     :goto_0
     return-void
 
-    .line 112
+    .line 105
     :pswitch_0
     const-string v0, "DoubleTapTutorial"
 
@@ -107,9 +107,9 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 113
+    .line 106
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$3;->this$0:Lcom/android/OriginalSettings/motion/DoubleTapTutorial;
 
     #getter for: Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mHandler:Landroid/os/Handler;
@@ -119,7 +119,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 114
+    .line 107
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$3;->this$0:Lcom/android/OriginalSettings/motion/DoubleTapTutorial;
 
     #getter for: Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mHandler:Landroid/os/Handler;
@@ -133,7 +133,7 @@
 
     goto :goto_0
 
-    .line 110
+    .line 103
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

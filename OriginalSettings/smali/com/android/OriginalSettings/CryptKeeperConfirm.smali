@@ -26,17 +26,17 @@
     .locals 1
 
     .prologue
-    .line 40
+    .line 39
     invoke-direct {p0}, Landroid/app/Fragment;-><init>()V
 
-    .line 94
+    .line 89
     new-instance v0, Lcom/android/OriginalSettings/CryptKeeperConfirm$1;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/CryptKeeperConfirm$1;-><init>(Lcom/android/OriginalSettings/CryptKeeperConfirm;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/CryptKeeperConfirm;->mFinalClickListener:Landroid/view/View$OnClickListener;
 
-    .line 113
+    .line 108
     new-instance v0, Lcom/android/OriginalSettings/CryptKeeperConfirm$2;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/CryptKeeperConfirm$2;-><init>(Lcom/android/OriginalSettings/CryptKeeperConfirm;)V
@@ -50,10 +50,10 @@
     .locals 2
 
     .prologue
-    .line 109
+    .line 104
     iget-object v0, p0, Lcom/android/OriginalSettings/CryptKeeperConfirm;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0a005e
+    const v1, 0x7f0b005e
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -63,14 +63,14 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/CryptKeeperConfirm;->mFinalButton:Landroid/widget/Button;
 
-    .line 110
+    .line 105
     iget-object v0, p0, Lcom/android/OriginalSettings/CryptKeeperConfirm;->mFinalButton:Landroid/widget/Button;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/CryptKeeperConfirm;->mFinalClickListener:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 111
+    .line 106
     return-void
 .end method
 
@@ -83,8 +83,8 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 126
-    const v2, 0x7f04002e
+    .line 121
+    const v2, 0x7f04002f
 
     const/4 v3, 0x0
 
@@ -94,10 +94,10 @@
 
     iput-object v2, p0, Lcom/android/OriginalSettings/CryptKeeperConfirm;->mContentView:Landroid/view/View;
 
-    .line 128
+    .line 123
     iget-object v2, p0, Lcom/android/OriginalSettings/CryptKeeperConfirm;->mContentView:Landroid/view/View;
 
-    const v3, 0x7f0a005d
+    const v3, 0x7f0b005d
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -105,13 +105,13 @@
 
     check-cast v0, Landroid/widget/CheckBox;
 
-    .line 129
+    .line 124
     .local v0, fastEncryption:Landroid/widget/CheckBox;
     iget-object v2, p0, Lcom/android/OriginalSettings/CryptKeeperConfirm;->mFastEncryptionChecker:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v2}, Landroid/widget/CheckBox;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 130
+    .line 125
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -120,7 +120,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d07cc
+    const v4, 0x7f090930
 
     invoke-virtual {v3, v4}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -140,7 +140,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d07cd
+    const v4, 0x7f090931
 
     invoke-virtual {v3, v4}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -154,14 +154,14 @@
 
     move-result-object v1
 
-    .line 132
+    .line 127
     .local v1, text:Ljava/lang/String;
     invoke-virtual {v0, v1}, Landroid/widget/CheckBox;->setText(Ljava/lang/CharSequence;)V
 
-    .line 134
+    .line 129
     invoke-direct {p0}, Lcom/android/OriginalSettings/CryptKeeperConfirm;->establishFinalConfirmationState()V
 
-    .line 135
+    .line 130
     iget-object v2, p0, Lcom/android/OriginalSettings/CryptKeeperConfirm;->mContentView:Landroid/view/View;
 
     return-object v2

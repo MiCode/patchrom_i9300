@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 883
+    .line 886
     iput-object p1, p0, Lcom/android/OriginalSettings/RadioInfo$13;->this$0:Lcom/android/OriginalSettings/RadioInfo;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,18 +42,18 @@
     .parameter "v"
 
     .prologue
-    .line 886
+    .line 889
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo$13;->this$0:Lcom/android/OriginalSettings/RadioInfo;
 
     #getter for: Lcom/android/OriginalSettings/RadioInfo;->phone:Lcom/android/internal/telephony/Phone;
-    invoke-static {v0}, Lcom/android/OriginalSettings/RadioInfo;->access$1500(Lcom/android/OriginalSettings/RadioInfo;)Lcom/android/internal/telephony/Phone;
+    invoke-static {v0}, Lcom/android/OriginalSettings/RadioInfo;->access$1600(Lcom/android/OriginalSettings/RadioInfo;)Lcom/android/internal/telephony/Phone;
 
     move-result-object v1
 
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo$13;->this$0:Lcom/android/OriginalSettings/RadioInfo;
 
     #calls: Lcom/android/OriginalSettings/RadioInfo;->isRadioOn()Z
-    invoke-static {v0}, Lcom/android/OriginalSettings/RadioInfo;->access$3000(Lcom/android/OriginalSettings/RadioInfo;)Z
+    invoke-static {v0}, Lcom/android/OriginalSettings/RadioInfo;->access$3100(Lcom/android/OriginalSettings/RadioInfo;)Z
 
     move-result v0
 
@@ -64,10 +64,10 @@
     :goto_0
     invoke-interface {v1, v0}, Lcom/android/internal/telephony/Phone;->setRadioPower(Z)V
 
-    .line 887
+    .line 890
     return-void
 
-    .line 886
+    .line 889
     :cond_0
     const/4 v0, 0x0
 

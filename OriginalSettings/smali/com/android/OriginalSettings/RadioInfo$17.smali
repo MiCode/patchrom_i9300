@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 966
+    .line 969
     iput-object p1, p0, Lcom/android/OriginalSettings/RadioInfo$17;->this$0:Lcom/android/OriginalSettings/RadioInfo;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,18 +42,18 @@
     .parameter "v"
 
     .prologue
-    .line 968
+    .line 971
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo$17;->this$0:Lcom/android/OriginalSettings/RadioInfo;
 
     #getter for: Lcom/android/OriginalSettings/RadioInfo;->phone:Lcom/android/internal/telephony/Phone;
-    invoke-static {v0}, Lcom/android/OriginalSettings/RadioInfo;->access$1500(Lcom/android/OriginalSettings/RadioInfo;)Lcom/android/internal/telephony/Phone;
+    invoke-static {v0}, Lcom/android/OriginalSettings/RadioInfo;->access$1600(Lcom/android/OriginalSettings/RadioInfo;)Lcom/android/internal/telephony/Phone;
 
     move-result-object v1
 
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo$17;->this$0:Lcom/android/OriginalSettings/RadioInfo;
 
     #getter for: Lcom/android/OriginalSettings/RadioInfo;->phone:Lcom/android/internal/telephony/Phone;
-    invoke-static {v0}, Lcom/android/OriginalSettings/RadioInfo;->access$1500(Lcom/android/OriginalSettings/RadioInfo;)Lcom/android/internal/telephony/Phone;
+    invoke-static {v0}, Lcom/android/OriginalSettings/RadioInfo;->access$1600(Lcom/android/OriginalSettings/RadioInfo;)Lcom/android/internal/telephony/Phone;
 
     move-result-object v0
 
@@ -68,16 +68,16 @@
     :goto_0
     invoke-interface {v1, v0}, Lcom/android/internal/telephony/Phone;->disableDnsCheck(Z)V
 
-    .line 969
+    .line 972
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo$17;->this$0:Lcom/android/OriginalSettings/RadioInfo;
 
     #calls: Lcom/android/OriginalSettings/RadioInfo;->updateDnsCheckState()V
-    invoke-static {v0}, Lcom/android/OriginalSettings/RadioInfo;->access$3700(Lcom/android/OriginalSettings/RadioInfo;)V
+    invoke-static {v0}, Lcom/android/OriginalSettings/RadioInfo;->access$3800(Lcom/android/OriginalSettings/RadioInfo;)V
 
-    .line 970
+    .line 973
     return-void
 
-    .line 968
+    .line 971
     :cond_0
     const/4 v0, 0x0
 

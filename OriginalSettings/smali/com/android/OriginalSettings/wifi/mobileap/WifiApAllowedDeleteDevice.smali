@@ -13,10 +13,10 @@
     .parameter "context"
 
     .prologue
-    .line 34
+    .line 26
     invoke-direct {p0, p1}, Landroid/preference/CheckBoxPreference;-><init>(Landroid/content/Context;)V
 
-    .line 35
+    .line 27
     return-void
 .end method
 
@@ -27,25 +27,25 @@
     .parameter "preference"
 
     .prologue
-    .line 47
+    .line 39
     instance-of v1, p1, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDeleteDevice;
 
     if-nez v1, :cond_0
 
-    .line 48
+    .line 40
     const/4 v1, 0x1
 
-    .line 51
+    .line 43
     :goto_0
     return v1
 
     :cond_0
     move-object v0, p1
 
-    .line 50
+    .line 42
     check-cast v0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDeleteDevice;
 
-    .line 51
+    .line 43
     .local v0, other:Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDeleteDevice;
     iget-object v1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDeleteDevice;->mMac:Ljava/lang/String;
 
@@ -63,7 +63,7 @@
     .parameter "x0"
 
     .prologue
-    .line 31
+    .line 23
     check-cast p1, Landroid/preference/Preference;
 
     .end local p1
@@ -79,16 +79,16 @@
     .parameter "mac"
 
     .prologue
-    .line 41
+    .line 33
     invoke-super {p0, p1}, Landroid/preference/CheckBoxPreference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 42
+    .line 34
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDeleteDevice;->mMac:Ljava/lang/String;
 
-    .line 43
+    .line 35
     return-void
 .end method

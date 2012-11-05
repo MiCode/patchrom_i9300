@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 83
+    .line 79
     iput-object p1, p0, Lcom/android/OriginalSettings/nfc/SBeam$1;->this$0:Lcom/android/OriginalSettings/nfc/SBeam;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 86
+    .line 82
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 87
+    .line 83
     .local v0, action:Ljava/lang/String;
     const-string v1, "android.nfc.action.ADAPTER_STATE_CHANGED"
 
@@ -55,7 +55,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 88
+    .line 84
     iget-object v1, p0, Lcom/android/OriginalSettings/nfc/SBeam$1;->this$0:Lcom/android/OriginalSettings/nfc/SBeam;
 
     const-string v2, "android.nfc.extra.ADAPTER_STATE"
@@ -69,7 +69,7 @@
     #calls: Lcom/android/OriginalSettings/nfc/SBeam;->handleNfcStateChanged(I)V
     invoke-static {v1, v2}, Lcom/android/OriginalSettings/nfc/SBeam;->access$000(Lcom/android/OriginalSettings/nfc/SBeam;I)V
 
-    .line 90
+    .line 86
     :cond_0
     return-void
 .end method

@@ -72,8 +72,8 @@
 
     :array_0
     .array-data 0x4
-        0xdt 0x0t 0xat 0x7ft
-        0x3bt 0x0t 0xat 0x7ft
+        0x36t 0x0t 0xbt 0x7ft
+        0x35t 0x0t 0xbt 0x7ft
     .end array-data
 .end method
 
@@ -671,24 +671,24 @@
     const/4 v2, 0x0
 
     .line 103
-    const v0, 0x7f0d0558
+    const v0, 0x7f09063c
 
     invoke-interface {p1, v2, v2, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x108032e
+    const v1, 0x108036d
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
     .line 105
-    const v0, 0x7f0d0559
+    const v0, 0x7f09063d
 
     invoke-interface {p1, v2, v3, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x1080345
+    const v1, 0x1080384
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -879,7 +879,7 @@
 
     move-result v1
 
-    const v2, 0x7f0a003b
+    const v2, 0x7f0b0035
 
     if-ne v1, v2, :cond_1
 

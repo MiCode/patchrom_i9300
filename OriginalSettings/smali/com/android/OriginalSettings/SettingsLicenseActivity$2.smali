@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 198
+    .line 197
     iput-object p1, p0, Lcom/android/OriginalSettings/SettingsLicenseActivity$2;->this$0:Lcom/android/OriginalSettings/SettingsLicenseActivity;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,11 +42,11 @@
     .parameter "dlgi"
 
     .prologue
-    .line 201
+    .line 200
     iget-object v0, p0, Lcom/android/OriginalSettings/SettingsLicenseActivity$2;->this$0:Lcom/android/OriginalSettings/SettingsLicenseActivity;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/SettingsLicenseActivity;->finish()V
 
-    .line 202
+    .line 201
     return-void
 .end method

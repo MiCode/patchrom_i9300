@@ -26,7 +26,7 @@
     .parameter "x1"
 
     .prologue
-    .line 448
+    .line 437
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$2;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
 
     invoke-direct {p0, p2, p3, p4, p5}, Landroid/os/CountDownTimer;-><init>(JJ)V
@@ -40,49 +40,28 @@
     .locals 3
 
     .prologue
-    const/4 v1, 0x1
-
     const/4 v2, 0x0
 
-    .line 452
+    .line 441
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$2;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
 
     #getter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->mScanClicked:Z
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$900(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;)Z
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$700(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;)Z
 
     move-result v0
+
+    const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 453
+    .line 442
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$2;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
 
     #calls: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->setScanTimer(ZZ)V
-    invoke-static {v0, v2, v2}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$1000(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;ZZ)V
+    invoke-static {v0, v2, v2}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$800(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;ZZ)V
 
-    .line 454
+    .line 443
     :cond_0
-    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$2;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
-
-    invoke-virtual {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/preference/PreferenceScreen;->getPreferenceCount()I
-
-    move-result v0
-
-    if-eq v0, v1, :cond_1
-
-    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$2;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
-
-    #getter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->mIsTablet:Z
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$200(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$2;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
@@ -95,12 +74,24 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_1
 
-    :cond_1
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$2;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
 
     #getter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->mPeersBusy:Landroid/preference/PreferenceGroup;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$1700(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;)Landroid/preference/PreferenceGroup;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/preference/PreferenceGroup;->getPreferenceCount()I
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$2;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
+
+    #getter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->mPeersConnected:Landroid/preference/PreferenceGroup;
     invoke-static {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$1600(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;)Landroid/preference/PreferenceGroup;
 
     move-result-object v0
@@ -109,20 +100,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$2;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
-
-    #getter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->mPeersConnected:Landroid/preference/PreferenceGroup;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$1500(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;)Landroid/preference/PreferenceGroup;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/preference/PreferenceGroup;->getPreferenceCount()I
-
-    move-result v0
-
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$2;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
 
@@ -135,30 +113,30 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
-    .line 458
+    .line 447
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$2;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
 
     #getter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->mNoDeviceText:Landroid/widget/TextView;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$1900(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$2000(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;)Landroid/widget/TextView;
 
     move-result-object v0
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 459
+    .line 448
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$2;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
 
     #getter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->mNoDeviceImage:Landroid/widget/ImageView;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$2000(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;)Landroid/widget/ImageView;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$2100(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;)Landroid/widget/ImageView;
 
     move-result-object v0
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 461
-    :cond_2
+    .line 450
+    :cond_1
     return-void
 .end method
 
@@ -167,6 +145,6 @@
     .parameter "millisUntilFinished"
 
     .prologue
-    .line 450
+    .line 439
     return-void
 .end method

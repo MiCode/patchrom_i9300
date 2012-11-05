@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 240
+    .line 233
     iput-object p1, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$7;->this$0:Lcom/android/OriginalSettings/motion/DoubleTapTutorial;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,12 +42,12 @@
     .parameter "dialog"
 
     .prologue
-    .line 242
+    .line 235
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$7;->this$0:Lcom/android/OriginalSettings/motion/DoubleTapTutorial;
 
     #calls: Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->stopAnimation()V
     invoke-static {v0}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->access$700(Lcom/android/OriginalSettings/motion/DoubleTapTutorial;)V
 
-    .line 243
+    .line 236
     return-void
 .end method

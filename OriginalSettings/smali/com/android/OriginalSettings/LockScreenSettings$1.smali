@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 417
+    .line 493
     iput-object p1, p0, Lcom/android/OriginalSettings/LockScreenSettings$1;->this$0:Lcom/android/OriginalSettings/LockScreenSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 419
+    .line 495
     iget-object v0, p0, Lcom/android/OriginalSettings/LockScreenSettings$1;->this$0:Lcom/android/OriginalSettings/LockScreenSettings;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -56,7 +56,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 420
+    .line 496
     iget-object v0, p0, Lcom/android/OriginalSettings/LockScreenSettings$1;->this$0:Lcom/android/OriginalSettings/LockScreenSettings;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -67,12 +67,12 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 421
+    .line 497
     iget-object v0, p0, Lcom/android/OriginalSettings/LockScreenSettings$1;->this$0:Lcom/android/OriginalSettings/LockScreenSettings;
 
     #calls: Lcom/android/OriginalSettings/LockScreenSettings;->broadcastMotionChanged(Z)V
     invoke-static {v0, v2}, Lcom/android/OriginalSettings/LockScreenSettings;->access$000(Lcom/android/OriginalSettings/LockScreenSettings;Z)V
 
-    .line 422
+    .line 498
     return-void
 .end method

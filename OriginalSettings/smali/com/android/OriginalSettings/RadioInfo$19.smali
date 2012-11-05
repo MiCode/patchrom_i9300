@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 986
+    .line 989
     iput-object p1, p0, Lcom/android/OriginalSettings/RadioInfo$19;->this$0:Lcom/android/OriginalSettings/RadioInfo;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,12 +42,12 @@
     .parameter "v"
 
     .prologue
-    .line 988
+    .line 991
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo$19;->this$0:Lcom/android/OriginalSettings/RadioInfo;
 
     #calls: Lcom/android/OriginalSettings/RadioInfo;->updatePingState()V
-    invoke-static {v0}, Lcom/android/OriginalSettings/RadioInfo;->access$3800(Lcom/android/OriginalSettings/RadioInfo;)V
+    invoke-static {v0}, Lcom/android/OriginalSettings/RadioInfo;->access$3900(Lcom/android/OriginalSettings/RadioInfo;)V
 
-    .line 989
+    .line 992
     return-void
 .end method

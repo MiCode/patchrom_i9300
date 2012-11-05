@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 397
+    .line 407
     iput-object p1, p0, Lcom/android/OriginalSettings/personalvibration/BackgroundView$UpdateTimeTask$1;->this$1:Lcom/android/OriginalSettings/personalvibration/BackgroundView$UpdateTimeTask;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,13 +41,13 @@
     .locals 1
 
     .prologue
-    .line 399
+    .line 409
     iget-object v0, p0, Lcom/android/OriginalSettings/personalvibration/BackgroundView$UpdateTimeTask$1;->this$1:Lcom/android/OriginalSettings/personalvibration/BackgroundView$UpdateTimeTask;
 
     iget-object v0, v0, Lcom/android/OriginalSettings/personalvibration/BackgroundView$UpdateTimeTask;->this$0:Lcom/android/OriginalSettings/personalvibration/BackgroundView;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/personalvibration/BackgroundView;->invalidate()V
 
-    .line 400
+    .line 410
     return-void
 .end method

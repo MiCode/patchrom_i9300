@@ -26,7 +26,7 @@
     .locals 3
 
     .prologue
-    .line 50
+    .line 48
     new-instance v0, Landroid/content/ComponentName;
 
     const-string v1, "com.android.settings"
@@ -44,10 +44,10 @@
     .locals 0
 
     .prologue
-    .line 46
+    .line 45
     invoke-direct {p0}, Landroid/appwidget/AppWidgetProvider;-><init>()V
 
-    .line 288
+    .line 273
     return-void
 .end method
 
@@ -56,20 +56,20 @@
     .parameter "context"
 
     .prologue
-    .line 101
+    .line 98
     new-instance v0, Landroid/widget/RemoteViews;
 
     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v1
 
-    const v2, 0x7f040005
+    const v2, 0x7f040002
 
     invoke-direct {v0, v1, v2}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
-    .line 103
+    .line 100
     .local v0, views:Landroid/widget/RemoteViews;
-    const v1, 0x7f0a000e
+    const v1, 0x7f0b000a
 
     const/4 v2, 0x1
 
@@ -79,10 +79,10 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
-    .line 106
+    .line 103
     invoke-static {v0, p0}, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->updateButtons(Landroid/widget/RemoteViews;Landroid/content/Context;)V
 
-    .line 107
+    .line 104
     return-object v0
 .end method
 
@@ -91,12 +91,12 @@
     .parameter "context"
 
     .prologue
-    .line 280
+    .line 265
     sget-object v0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->sSettingsObserver:Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight$SettingsObserver;
 
     if-nez v0, :cond_0
 
-    .line 281
+    .line 266
     new-instance v0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight$SettingsObserver;
 
     new-instance v1, Landroid/os/Handler;
@@ -111,12 +111,12 @@
 
     sput-object v0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->sSettingsObserver:Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight$SettingsObserver;
 
-    .line 283
+    .line 268
     sget-object v0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->sSettingsObserver:Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight$SettingsObserver;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight$SettingsObserver;->startObserving()V
 
-    .line 285
+    .line 270
     :cond_0
     return-void
 .end method
@@ -129,22 +129,22 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 165
+    .line 153
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 166
+    .line 154
     const-class v1, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;
 
     invoke-virtual {v0, p0, v1}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
 
-    .line 167
+    .line 155
     const-string v1, "android.intent.category.ALTERNATIVE"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 168
+    .line 156
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -169,12 +169,12 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
-    .line 169
+    .line 157
     invoke-static {p0, v3, v0, v3}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object v0
 
-    .line 176
+    .line 164
     return-object v0
 .end method
 
@@ -185,7 +185,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 271
+    .line 257
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
@@ -200,7 +200,7 @@
 
     const/4 v0, 0x1
 
-    .line 274
+    .line 259
     .local v0, result:Z
     :cond_0
     const-string v1, "AccessibilityWidgetProviderAssistiveLight"
@@ -223,9 +223,9 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 276
+    .line 261
     return v0
 .end method
 
@@ -234,22 +234,22 @@
     .parameter "context"
 
     .prologue
-    const v9, 0x7f0d082f
+    const v9, 0x7f090998
 
-    const v8, 0x7f02020b
+    const v8, 0x7f02028d
 
     const/4 v6, 0x1
 
     const/4 v7, 0x0
 
-    .line 230
+    .line 217
     invoke-static {p1}, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->getWidgetMode(Landroid/content/Context;)Z
 
     move-result v4
 
     if-nez v4, :cond_1
 
-    .line 231
+    .line 218
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
@@ -258,7 +258,7 @@
 
     invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 233
+    .line 220
     const/4 v4, 0x1
 
     :try_start_0
@@ -266,7 +266,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 238
+    .line 225
     :goto_0
     const-string v4, "notification"
 
@@ -276,39 +276,39 @@
 
     check-cast v2, Landroid/app/NotificationManager;
 
-    .line 240
+    .line 227
     .local v2, notificationManager:Landroid/app/NotificationManager;
     iget-object v4, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->mAssistiveNotification:Landroid/app/Notification;
 
     if-nez v4, :cond_0
 
-    .line 241
+    .line 228
     new-instance v4, Landroid/app/Notification;
 
     invoke-direct {v4}, Landroid/app/Notification;-><init>()V
 
     iput-object v4, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->mAssistiveNotification:Landroid/app/Notification;
 
-    .line 242
+    .line 229
     iget-object v4, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->mAssistiveNotification:Landroid/app/Notification;
 
     iput v8, v4, Landroid/app/Notification;->icon:I
 
-    .line 243
+    .line 230
     iget-object v4, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->mAssistiveNotification:Landroid/app/Notification;
 
     const-wide/16 v5, 0x0
 
     iput-wide v5, v4, Landroid/app/Notification;->when:J
 
-    .line 244
+    .line 231
     iget-object v4, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->mAssistiveNotification:Landroid/app/Notification;
 
     const/4 v5, 0x2
 
     iput v5, v4, Landroid/app/Notification;->flags:I
 
-    .line 245
+    .line 232
     iget-object v4, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->mAssistiveNotification:Landroid/app/Notification;
 
     invoke-virtual {p1, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -317,7 +317,7 @@
 
     iput-object v5, v4, Landroid/app/Notification;->tickerText:Ljava/lang/CharSequence;
 
-    .line 248
+    .line 235
     :cond_0
     new-instance v1, Landroid/content/Intent;
 
@@ -325,13 +325,13 @@
 
     invoke-direct {v1, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 249
+    .line 236
     .local v1, mIntent:Landroid/content/Intent;
     invoke-static {p1, v7, v1, v7}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object v3
 
-    .line 250
+    .line 237
     .local v3, pi:Landroid/app/PendingIntent;
     iget-object v4, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->mAssistiveNotification:Landroid/app/Notification;
 
@@ -339,7 +339,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0830
+    const v6, 0x7f090999
 
     invoke-virtual {p1, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -347,7 +347,7 @@
 
     invoke-virtual {v4, p1, v5, v6, v3}, Landroid/app/Notification;->setLatestEventInfo(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
 
-    .line 252
+    .line 239
     iget-object v4, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->mAssistiveNotification:Landroid/app/Notification;
 
     iget v4, v4, Landroid/app/Notification;->icon:I
@@ -356,7 +356,7 @@
 
     invoke-virtual {v2, v4, v5}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
 
-    .line 265
+    .line 251
     .end local v1           #mIntent:Landroid/content/Intent;
     .end local v3           #pi:Landroid/app/PendingIntent;
     :goto_1
@@ -384,27 +384,27 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 267
+    .line 253
     return-void
 
-    .line 234
+    .line 221
     .end local v2           #notificationManager:Landroid/app/NotificationManager;
     :catch_0
     move-exception v0
 
-    .line 235
+    .line 222
     .local v0, e:Ljava/lang/Exception;
     const-string v4, "AccessibilityWidgetProviderAssistiveLight"
 
     const-string v5, "could not turn off torch light"
 
-    invoke-static {v4, v5, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v4, v5, v0}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 
-    .line 254
+    .line 241
     .end local v0           #e:Ljava/lang/Exception;
     :cond_1
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -415,7 +415,7 @@
 
     invoke-static {v4, v5, v7}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 256
+    .line 243
     const/4 v4, 0x0
 
     :try_start_1
@@ -423,7 +423,7 @@
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 261
+    .line 248
     :goto_2
     const-string v4, "notification"
 
@@ -433,24 +433,24 @@
 
     check-cast v2, Landroid/app/NotificationManager;
 
-    .line 262
+    .line 249
     .restart local v2       #notificationManager:Landroid/app/NotificationManager;
     invoke-virtual {v2, v8}, Landroid/app/NotificationManager;->cancel(I)V
 
     goto :goto_1
 
-    .line 257
+    .line 244
     .end local v2           #notificationManager:Landroid/app/NotificationManager;
     :catch_1
     move-exception v0
 
-    .line 258
+    .line 245
     .restart local v0       #e:Ljava/lang/Exception;
     const-string v4, "AccessibilityWidgetProviderAssistiveLight"
 
     const-string v5, "could not turn off torch light"
 
-    invoke-static {v4, v5, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v4, v5, v0}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_2
 .end method
@@ -461,21 +461,21 @@
     .parameter "context"
 
     .prologue
-    const v3, 0x7f0a0012
+    const v3, 0x7f0b000e
 
-    const v2, 0x7f0a0011
+    const v2, 0x7f0b000d
 
-    .line 133
-    const v0, 0x7f0a000e
+    .line 129
+    const v0, 0x7f0b000a
 
     const/4 v1, 0x0
 
     invoke-virtual {p0, v0, v1}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
-    .line 134
-    const v0, 0x7f0a0010
+    .line 130
+    const v0, 0x7f0b000c
 
-    const v1, 0x7f0d082b
+    const v1, 0x7f090b5f
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -483,51 +483,51 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
-    .line 136
+    .line 132
     invoke-static {p1}, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->getWidgetMode(Landroid/content/Context;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 137
+    .line 133
     const v0, 0x7f020005
 
     invoke-virtual {p0, v2, v0}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
 
-    .line 138
+    .line 134
     const v0, 0x7f020001
+
+    invoke-virtual {p0, v3, v0}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
+
+    .line 135
+    const-string v0, "AccessibilityWidgetProviderAssistiveLight"
+
+    const-string v1, "updateButtons , icon_on"
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 142
+    :goto_0
+    return-void
+
+    .line 138
+    :cond_0
+    const v0, 0x7f020004
+
+    invoke-virtual {p0, v2, v0}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
+
+    .line 139
+    const/high16 v0, 0x7f02
 
     invoke-virtual {p0, v3, v0}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
 
     .line 140
     const-string v0, "AccessibilityWidgetProviderAssistiveLight"
 
-    const-string v1, "updateButtons , icon_on"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 154
-    :goto_0
-    return-void
-
-    .line 143
-    :cond_0
-    const v0, 0x7f020004
-
-    invoke-virtual {p0, v2, v0}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
-
-    .line 144
-    const/high16 v0, 0x7f02
-
-    invoke-virtual {p0, v3, v0}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
-
-    .line 146
-    const-string v0, "AccessibilityWidgetProviderAssistiveLight"
-
     const-string v1, "updateButtons , icon_off"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
@@ -537,18 +537,18 @@
     .parameter "context"
 
     .prologue
-    .line 116
+    .line 113
     invoke-static {p0}, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->buildUpdate(Landroid/content/Context;)Landroid/widget/RemoteViews;
 
     move-result-object v1
 
-    .line 119
+    .line 116
     .local v1, views:Landroid/widget/RemoteViews;
     invoke-static {p0}, Landroid/appwidget/AppWidgetManager;->getInstance(Landroid/content/Context;)Landroid/appwidget/AppWidgetManager;
 
     move-result-object v0
 
-    .line 121
+    .line 117
     .local v0, gm:Landroid/appwidget/AppWidgetManager;
     const-string v2, "AccessibilityWidgetProviderAssistiveLight"
 
@@ -572,17 +572,17 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 122
+    .line 118
     sget-object v2, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->THIS_APPWIDGET:Landroid/content/ComponentName;
 
     invoke-virtual {v0, v2, v1}, Landroid/appwidget/AppWidgetManager;->updateAppWidget(Landroid/content/ComponentName;Landroid/widget/RemoteViews;)V
 
-    .line 123
+    .line 119
     invoke-static {p0}, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->checkObserver(Landroid/content/Context;)V
 
-    .line 124
+    .line 120
     return-void
 .end method
 
@@ -596,14 +596,14 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 84
+    .line 81
     invoke-static {p1}, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->getWidgetMode(Landroid/content/Context;)Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 85
+    .line 82
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -612,13 +612,13 @@
 
     invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 87
+    .line 84
     const/4 v2, 0x0
 
     :try_start_0
     invoke-static {v2}, Lcom/sec/android/hardware/SecHardwareInterface;->setTorchLight(I)V
 
-    .line 89
+    .line 86
     const-string v2, "notification"
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -627,31 +627,31 @@
 
     check-cast v1, Landroid/app/NotificationManager;
 
-    .line 90
+    .line 87
     .local v1, notificationManager:Landroid/app/NotificationManager;
-    const v2, 0x7f02020b
+    const v2, 0x7f02028d
 
     invoke-virtual {v1, v2}, Landroid/app/NotificationManager;->cancel(I)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 95
+    .line 92
     .end local v1           #notificationManager:Landroid/app/NotificationManager;
     :cond_0
     :goto_0
     return-void
 
-    .line 91
+    .line 88
     :catch_0
     move-exception v0
 
-    .line 92
+    .line 89
     .local v0, e:Ljava/lang/Exception;
     const-string v2, "AccessibilityWidgetProviderAssistiveLight"
 
     const-string v3, "could not turn off torch light"
 
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v0}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
@@ -661,22 +661,22 @@
     .parameter "context"
 
     .prologue
-    .line 76
+    .line 73
     sget-object v0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->sSettingsObserver:Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight$SettingsObserver;
 
     if-eqz v0, :cond_0
 
-    .line 77
+    .line 74
     sget-object v0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->sSettingsObserver:Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight$SettingsObserver;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight$SettingsObserver;->stopObserving()V
 
-    .line 78
+    .line 75
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->sSettingsObserver:Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight$SettingsObserver;
 
-    .line 80
+    .line 77
     :cond_0
     return-void
 .end method
@@ -686,10 +686,10 @@
     .parameter "context"
 
     .prologue
-    .line 71
+    .line 68
     invoke-static {p1}, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->checkObserver(Landroid/content/Context;)V
 
-    .line 72
+    .line 69
     return-void
 .end method
 
@@ -699,16 +699,16 @@
     .parameter "intent"
 
     .prologue
-    const v9, 0x7f0d082f
+    const v9, 0x7f090998
 
-    const v7, 0x7f02020b
+    const v7, 0x7f02028d
 
     const/4 v8, 0x0
 
-    .line 187
+    .line 175
     invoke-super {p0, p1, p2}, Landroid/appwidget/AppWidgetProvider;->onReceive(Landroid/content/Context;Landroid/content/Intent;)V
 
-    .line 189
+    .line 177
     const-string v5, "android.intent.category.ALTERNATIVE"
 
     invoke-virtual {p2, v5}, Landroid/content/Intent;->hasCategory(Ljava/lang/String;)Z
@@ -717,12 +717,12 @@
 
     if-eqz v5, :cond_2
 
-    .line 190
+    .line 178
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v1
 
-    .line 191
+    .line 179
     .local v1, data:Landroid/net/Uri;
     invoke-virtual {v1}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
 
@@ -732,34 +732,34 @@
 
     move-result v0
 
-    .line 192
+    .line 180
     .local v0, buttonId:I
     const/4 v5, 0x1
 
     if-ne v0, v5, :cond_0
 
-    .line 194
+    .line 181
     const-string v5, "AccessibilityWidgetProviderAssistiveLight"
 
     const-string v6, "BUTTON_CENTER : "
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 195
+    .line 182
     invoke-direct {p0, p1}, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->toggleWidgetMode(Landroid/content/Context;)V
 
-    .line 226
+    .line 213
     :cond_0
     invoke-static {p1}, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->updateWidget(Landroid/content/Context;)V
 
-    .line 227
+    .line 214
     .end local v0           #buttonId:I
     .end local v1           #data:Landroid/net/Uri;
     :cond_1
     :goto_0
     return-void
 
-    .line 199
+    .line 186
     :cond_2
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -773,14 +773,14 @@
 
     if-eqz v5, :cond_1
 
-    .line 200
+    .line 187
     invoke-static {p1}, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->getWidgetMode(Landroid/content/Context;)Z
 
     move-result v5
 
     if-eqz v5, :cond_1
 
-    .line 201
+    .line 188
     const-string v5, "notification"
 
     invoke-virtual {p1, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -789,42 +789,42 @@
 
     check-cast v3, Landroid/app/NotificationManager;
 
-    .line 202
+    .line 189
     .local v3, notificationManager:Landroid/app/NotificationManager;
     invoke-virtual {v3, v7}, Landroid/app/NotificationManager;->cancel(I)V
 
-    .line 204
+    .line 191
     iget-object v5, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->mAssistiveNotification:Landroid/app/Notification;
 
     if-nez v5, :cond_3
 
-    .line 205
+    .line 192
     new-instance v5, Landroid/app/Notification;
 
     invoke-direct {v5}, Landroid/app/Notification;-><init>()V
 
     iput-object v5, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->mAssistiveNotification:Landroid/app/Notification;
 
-    .line 206
+    .line 193
     iget-object v5, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->mAssistiveNotification:Landroid/app/Notification;
 
     iput v7, v5, Landroid/app/Notification;->icon:I
 
-    .line 207
+    .line 194
     iget-object v5, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->mAssistiveNotification:Landroid/app/Notification;
 
     const-wide/16 v6, 0x0
 
     iput-wide v6, v5, Landroid/app/Notification;->when:J
 
-    .line 208
+    .line 195
     iget-object v5, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->mAssistiveNotification:Landroid/app/Notification;
 
     const/4 v6, 0x2
 
     iput v6, v5, Landroid/app/Notification;->flags:I
 
-    .line 209
+    .line 196
     iget-object v5, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->mAssistiveNotification:Landroid/app/Notification;
 
     invoke-virtual {p1, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -833,7 +833,7 @@
 
     iput-object v6, v5, Landroid/app/Notification;->tickerText:Ljava/lang/CharSequence;
 
-    .line 212
+    .line 199
     :cond_3
     new-instance v2, Landroid/content/Intent;
 
@@ -841,13 +841,13 @@
 
     invoke-direct {v2, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 213
+    .line 200
     .local v2, mIntent:Landroid/content/Intent;
     invoke-static {p1, v8, v2, v8}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object v4
 
-    .line 214
+    .line 201
     .local v4, pi:Landroid/app/PendingIntent;
     iget-object v5, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->mAssistiveNotification:Landroid/app/Notification;
 
@@ -855,7 +855,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d0830
+    const v7, 0x7f090999
 
     invoke-virtual {p1, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -863,7 +863,7 @@
 
     invoke-virtual {v5, p1, v6, v7, v4}, Landroid/app/Notification;->setLatestEventInfo(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
 
-    .line 216
+    .line 203
     iget-object v5, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->mAssistiveNotification:Landroid/app/Notification;
 
     iget v5, v5, Landroid/app/Notification;->icon:I
@@ -882,7 +882,7 @@
     .parameter "appWidgetIds"
 
     .prologue
-    .line 61
+    .line 58
     const-string v2, "AccessibilityWidgetProviderAssistiveLight"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -905,14 +905,14 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 63
+    .line 60
     invoke-static {p1}, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->buildUpdate(Landroid/content/Context;)Landroid/widget/RemoteViews;
 
     move-result-object v1
 
-    .line 64
+    .line 61
     .local v1, view:Landroid/widget/RemoteViews;
     const/4 v0, 0x0
 
@@ -922,17 +922,17 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 65
+    .line 62
     aget v2, p3, v0
 
     invoke-virtual {p2, v2, v1}, Landroid/appwidget/AppWidgetManager;->updateAppWidget(ILandroid/widget/RemoteViews;)V
 
-    .line 64
+    .line 61
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 67
+    .line 64
     :cond_0
     return-void
 .end method

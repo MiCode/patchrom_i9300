@@ -18,12 +18,15 @@
         <item>10 minutit</item>
         <item>30 minutit</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 sekundit</item>
         <item>30 sekundit</item>
         <item>1 minut</item>
-        <item>2 minutit</item>
+        <item>3 minutit</item>
         <item>5 minutit</item>
+        <item>10 minutit</item>
+        <item>15 minutit</item>
+        <item>30 minutit</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Mitte kunagi</item>
@@ -34,6 +37,18 @@
         <item>5 minutit</item>
         <item>10 minutit</item>
         <item>30 minutit</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 sekundit</item>
+        <item>30 sekundit</item>
+        <item>1 minut</item>
+        <item>3 minutit</item>
+        <item>5 minutit</item>
+        <item>10 minutit</item>
+        <item>15 minutit</item>
+        <item>30 minutit</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>Kohe</item>
@@ -93,17 +108,7 @@
         <item>Ühendus katkestatud</item>
         <item>Nurjunud</item>
         <item>Ühendatud</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Kehva ühenduse ajutine vältimine</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>Ühendus katkestatud</item>
         <item>Nurjunud</item>
         <item>Ühendatud</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Kehva ühenduse ajutine vältimine</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>Ava</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Vajutage nuppu</item>
+        <item>PIN-kood partnerseadmest</item>
+        <item>PIN-kood sellest seadmest</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Ühendatud</item>
+        <item>Kutsutud</item>
+        <item>Ühendamine nurjus</item>
+        <item>Toksake ühendamiseks</item>
+        <item>Levist väljas</item>
+        <item>Ühendatud teise seadmega</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>Energiasäästurežiimita</item>
@@ -152,6 +155,10 @@
         <item>20 minutit</item>
         <item>30 minutit</item>
         <item>60 minutit</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Luba kõik seadmed</item>
+        <item>Ainult lubatud seadmed</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>Automaatne</item>
@@ -178,19 +185,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-    </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Vajutage nuppu</item>
-        <item>PIN-kood partnerseadmest</item>
-        <item>PIN-kood sellest seadmest</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Ühendatud</item>
-        <item>Kutsutud</item>
-        <item>Ühendamine nurjus</item>
-        <item>Toksake ühendamiseks</item>
-        <item>Levist väljas</item>
-        <item>Ühendatud teise seadmega</item>
     </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 min.</item>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -267,16 +262,6 @@
         <item>Puudub</item>
         <item>Käsitsi</item>
     </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Tavaline</item>
-        <item>Downtown</item>
-        <item>Kodu</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>See on kõige tavalisem Wi-Fi ühenduse seadistus</item>
-        <item>Kui olete piirkonnas, kus on mitu Wi-Fi võrku, luuakse Wi-Fi võrguga ühendus tihti, et tagada parem signaalitugevus</item>
-        <item>Kui olete piirkonnas, kus on vähe Wi-Fi võrke, säilitatakse Wi-Fi ühendus võimalikult kauaks</item>
-    </string-array>
     <string-array name="emergency_tone_entries">
         <item>Väljas</item>
         <item>Märguanne</item>
@@ -293,6 +278,11 @@
         <item>CHAP</item>
         <item>PAP või CHAP</item>
     </string-array>
+    <string-array name="apn_protocol_entries">
+        <item>IPv4</item>
+        <item>IPv6</item>
+        <item>IPv4/IPv6</item>
+    </string-array>
     <string-array name="bearer_entries">
         <item>LTE</item>
         <item>eHRPD</item>
@@ -302,11 +292,6 @@
         <item>Seadme sisemälu</item>
         <item>Eemaldatav SD-kaart</item>
         <item>Vaikimisi</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>Väljas</item>
-        <item>Värin</item>
-        <item>Vaigista</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Lühike</item>
@@ -341,6 +326,15 @@
         <item>Animatsiooni skaala 5x</item>
         <item>Animatsiooni skaala 10x</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Animatsioon on välja lülitatud</item>
+        <item>Animatsiooni skaala 0.5x</item>
+        <item>Animatsiooni skaala 1x</item>
+        <item>Animatsiooni skaala 1.5x</item>
+        <item>Animatsiooni skaala 2x</item>
+        <item>Animatsiooni skaala 5x</item>
+        <item>Animatsiooni skaala 10x</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>Standardne piirang</item>
         <item>Ei ole taustal töötavaid toiminguid</item>
@@ -365,22 +359,8 @@
         <item>Kuvalõpp</item>
         <item>Nurjunud</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>USB-mälu</item>
+        <item>Seade</item>
         <item>SD kaart</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -410,15 +390,28 @@
         <item>Fotod</item>
         <item>Muusika</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>Kõrge</item>
-        <item>Keskmine</item>
-        <item>Madal</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Automaatne</item>
         <item>Käsitsi</item>
         <item>Küsi alati</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Alati väljas</item>
+        <item>3 sekundit</item>
+        <item>5 sekundit</item>
+        <item>10 sekundit</item>
+        <item>15 sekundit</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Puudub</item>
+        <item>Kõik kontaktid</item>
+        <item>Lemmikud</item>
+        <item>Kohandus</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>Kõrge</item>
+        <item>Keskmine</item>
+        <item>Madal</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1.5 sekundit</item>
@@ -434,11 +427,24 @@
     <string-array name="contents_type_entries">
         <item>Uudised</item>
         <item>Aktsiainfo</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Uudised</item>
+        <item>Aktsiainfo</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>Aeglane</item>
         <item>Tavaline</item>
         <item>Kiire</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Puudub</item>
+        <item>Iga 30 minuti järel</item>
+        <item>Iga 1 tunni järel</item>
+        <item>Iga 2 tunni järel</item>
+        <item>Iga 4 tunni järel</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>Peakompl.</item>
@@ -446,5 +452,9 @@
         <item>Telefon</item>
         <item>HID (klaviatuur, hiir jne.)</item>
         <item>Kõik seadmed</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Stereo</item>
+        <item>Ruumiline</item>
     </string-array>
 </resources>

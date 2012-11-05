@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 249
+    .line 464
     iput-object p1, p0, Lcom/android/OriginalSettings/motion/MotionSettings$1;->this$0:Lcom/android/OriginalSettings/motion/MotionSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 251
+    .line 466
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/MotionSettings$1;->this$0:Lcom/android/OriginalSettings/motion/MotionSettings;
 
     #calls: Lcom/android/OriginalSettings/motion/MotionSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -57,7 +57,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 252
+    .line 467
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/MotionSettings$1;->this$0:Lcom/android/OriginalSettings/motion/MotionSettings;
 
     #calls: Lcom/android/OriginalSettings/motion/MotionSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -69,7 +69,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 253
+    .line 468
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/MotionSettings$1;->this$0:Lcom/android/OriginalSettings/motion/MotionSettings;
 
     #calls: Lcom/android/OriginalSettings/motion/MotionSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -81,12 +81,12 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 254
+    .line 469
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/MotionSettings$1;->this$0:Lcom/android/OriginalSettings/motion/MotionSettings;
 
     #calls: Lcom/android/OriginalSettings/motion/MotionSettings;->broadcastMotionChanged(Z)V
     invoke-static {v0, v2}, Lcom/android/OriginalSettings/motion/MotionSettings;->access$300(Lcom/android/OriginalSettings/motion/MotionSettings;Z)V
 
-    .line 255
+    .line 470
     return-void
 .end method

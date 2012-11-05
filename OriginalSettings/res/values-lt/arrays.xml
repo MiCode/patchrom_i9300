@@ -7,7 +7,7 @@
         <item>Azija</item>
         <item>Australija</item>
         <item>Ramiojo vandenyno regionas</item>
-        <item>Visi</item>
+        <item>Visos</item>
     </string-array>
     <string-array name="screen_timeout_entries">
         <item>15 sekundžių</item>
@@ -18,12 +18,15 @@
         <item>10 minučių</item>
         <item>30 minučių</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 sekundžių</item>
         <item>30 sekundžių</item>
         <item>1 minutė</item>
-        <item>2 minutės</item>
+        <item>3 minutės</item>
         <item>5 minutės</item>
+        <item>10 minučių</item>
+        <item>15 minučių</item>
+        <item>30 minučių</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Niekada</item>
@@ -34,6 +37,18 @@
         <item>5 minutės</item>
         <item>10 minučių</item>
         <item>30 minučių</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 sekundžių</item>
+        <item>30 sekundžių</item>
+        <item>1 minutė</item>
+        <item>3 minutės</item>
+        <item>5 minutės</item>
+        <item>10 minučių</item>
+        <item>15 minučių</item>
+        <item>30 minučių</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>Nedelsiant</item>
@@ -93,17 +108,7 @@
         <item>Atjungta</item>
         <item>Nepavyko</item>
         <item>Prisijungta</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Laikinai vengiama prasto ryšio</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>Atjungta</item>
         <item>Nepavyko</item>
         <item>Prisijungta</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Laikinai vengiama prasto ryšio</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>Atidaryti</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Naujienų mygtukas</item>
+        <item>To paties tipo įrenginio PIN</item>
+        <item>Šio įrenginio PIN</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Prisijungta</item>
+        <item>Pakviestas (-a)</item>
+        <item>Prisijungti nepavyko</item>
+        <item>Bakstelėkite ir prisijunkite</item>
+        <item>Už ribų</item>
+        <item>Prijungta prie kito įrenginio</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>Jokios pertraukos</item>
@@ -152,6 +155,10 @@
         <item>20 minučių</item>
         <item>30 minučių</item>
         <item>60 min.</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Leisti visus įreng.</item>
+        <item>Tik leidžiami įrenginiai</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>Automatinis</item>
@@ -178,19 +185,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-    </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Naujienų mygtukas</item>
-        <item>To paties tipo įrenginio PIN</item>
-        <item>Šio įrenginio PIN</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Prisijungta</item>
-        <item>Pakviestas (-a)</item>
-        <item>Prisijungti nepavyko</item>
-        <item>Bakstelėkite ir prisijunkite</item>
-        <item>Už ribų</item>
-        <item>Prijungta prie kito įrenginio</item>
     </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 min.</item>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -266,16 +261,6 @@
     <string-array name="wifi_proxy_settings">
         <item>Nėra</item>
         <item>Rankinis</item>
-    </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Įprastas</item>
-        <item>Downtown</item>
-        <item>Namų</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>Tai pats bendriausias Wi-Fi ryšio nustatymas</item>
-        <item>Jei esate vietoje, kurioje yra daug Wi-Fi tinklų, dažnai bus iš naujo prisijungiama prie Wi-Fi, kad būtų išlaikytas stiprus signalas</item>
-        <item>Jei esate vietoje, kurioje veikia vos keli Wi-Fi tinklai, Wi-Fi ryšys išlaikomas kuo ilgiau</item>
     </string-array>
     <string-array name="emergency_tone_entries">
         <item>Išjungta</item>
@@ -307,11 +292,6 @@
         <item>Vidinė įrenginio atmintinė</item>
         <item>Išimama SD kortelė</item>
         <item>Numatytasis</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>Išjungti</item>
-        <item>Vibruoti</item>
-        <item>Nutildyti</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Trumpas</item>
@@ -346,6 +326,15 @@
         <item>Animacijos lygis 5x</item>
         <item>Animacijos lygis 10x</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Animacija išjungta</item>
+        <item>Animacijos lygis 0.5x</item>
+        <item>Animacijos lygis 1x</item>
+        <item>Animacijos lygis 1.5x</item>
+        <item>Animacijos lygis 2x</item>
+        <item>Animacijos lygis 5x</item>
+        <item>Animacijos lygis 10x</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>Standartinis limitas</item>
         <item>Jokių foninių procesų</item>
@@ -370,22 +359,8 @@
         <item>Pabaiga</item>
         <item>Nepavyko</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>USB laikmena</item>
+        <item>Įrenginys</item>
         <item>SD kortelė</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -415,15 +390,28 @@
         <item>Nuotraukos</item>
         <item>Muzika</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>Didelė</item>
-        <item>Vidutinis</item>
-        <item>Maža</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Automatinis</item>
         <item>Rankiniu būdu</item>
         <item>Visada klausti</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Visada išjungta</item>
+        <item>3 sekundės</item>
+        <item>5 sekundės</item>
+        <item>10 sekundžių</item>
+        <item>15 sekundžių</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Nėra</item>
+        <item>Visi adresatai</item>
+        <item>Mėgstamiausieji</item>
+        <item>Pasirinktinis</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>Didelė</item>
+        <item>Vidutinis</item>
+        <item>Maža</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1.5 sek.</item>
@@ -439,11 +427,24 @@
     <string-array name="contents_type_entries">
         <item>Naujienos</item>
         <item>Akcijos</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Naujienos</item>
+        <item>Akcijos</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>Lėtas</item>
         <item>Įprastas</item>
         <item>Greitas</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Nėra</item>
+        <item>Kas 30 min.</item>
+        <item>Kas 1 val.</item>
+        <item>Kas 2 val.</item>
+        <item>Kas 4 val.</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>Ausinės</item>
@@ -451,5 +452,9 @@
         <item>Telefonas</item>
         <item>HID (klaviatūra, pelė ir pan.)</item>
         <item>Visi įrenginiai</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Stereo</item>
+        <item>Erdvinis garsas</item>
     </string-array>
 </resources>

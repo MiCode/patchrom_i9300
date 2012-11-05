@@ -13,3 +13,18 @@
 
     return-void
 .end method
+
+
+# virtual methods
+.method public onNavigateUp()Z
+    .locals 1
+
+    .prologue
+    .line 27
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/SubSettings;->finish()V
+
+    .line 28
+    const/4 v0, 0x1
+
+    return v0
+.end method

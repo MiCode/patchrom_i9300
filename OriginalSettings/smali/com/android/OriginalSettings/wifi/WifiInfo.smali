@@ -25,7 +25,7 @@
     invoke-super {p0, p1}, Lmiui/preference/BasePreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 33
-    const v0, 0x7f070051
+    const v0, 0x7f07005e
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/wifi/WifiInfo;->addPreferencesFromResource(I)V
 

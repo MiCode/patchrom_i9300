@@ -33,7 +33,7 @@
     .parameter
 
     .prologue
-    .line 335
+    .line 330
     iput-object p1, p0, Lcom/android/OriginalSettings/personalvibration/SelectPatternDialog$1;->this$0:Lcom/android/OriginalSettings/personalvibration/SelectPatternDialog;
 
     iput-object p2, p0, Lcom/android/OriginalSettings/personalvibration/SelectPatternDialog$1;->val$imm:Landroid/view/inputmethod/InputMethodManager;
@@ -53,7 +53,7 @@
     .parameter "whichButton"
 
     .prologue
-    .line 337
+    .line 332
     iget-object v0, p0, Lcom/android/OriginalSettings/personalvibration/SelectPatternDialog$1;->val$imm:Landroid/view/inputmethod/InputMethodManager;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/personalvibration/SelectPatternDialog$1;->val$EditPattern:Landroid/widget/TextView;
@@ -66,6 +66,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
-    .line 339
+    .line 334
     return-void
 .end method

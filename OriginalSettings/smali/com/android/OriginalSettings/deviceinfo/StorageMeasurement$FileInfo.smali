@@ -43,19 +43,19 @@
     .parameter "id"
 
     .prologue
-    .line 544
+    .line 627
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 545
+    .line 628
     iput-object p1, p0, Lcom/android/OriginalSettings/deviceinfo/StorageMeasurement$FileInfo;->mFileName:Ljava/lang/String;
 
-    .line 546
+    .line 629
     iput-wide p2, p0, Lcom/android/OriginalSettings/deviceinfo/StorageMeasurement$FileInfo;->mSize:J
 
-    .line 547
+    .line 630
     iput-wide p4, p0, Lcom/android/OriginalSettings/deviceinfo/StorageMeasurement$FileInfo;->mId:J
 
-    .line 548
+    .line 631
     return-void
 .end method
 
@@ -66,7 +66,7 @@
     .parameter "that"
 
     .prologue
-    .line 552
+    .line 635
     if-eq p0, p1, :cond_0
 
     iget-wide v0, p0, Lcom/android/OriginalSettings/deviceinfo/StorageMeasurement$FileInfo;->mSize:J
@@ -80,7 +80,7 @@
     :cond_0
     const/4 v0, 0x0
 
-    .line 553
+    .line 636
     :goto_0
     return v0
 
@@ -108,7 +108,7 @@
     .parameter "x0"
 
     .prologue
-    .line 539
+    .line 622
     check-cast p1, Lcom/android/OriginalSettings/deviceinfo/StorageMeasurement$FileInfo;
 
     .end local p1
@@ -123,7 +123,7 @@
     .locals 3
 
     .prologue
-    .line 558
+    .line 641
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

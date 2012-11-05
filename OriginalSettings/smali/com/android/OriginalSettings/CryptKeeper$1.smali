@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 222
+    .line 237
     iput-object p1, p0, Lcom/android/OriginalSettings/CryptKeeper$1;->this$0:Lcom/android/OriginalSettings/CryptKeeper;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,17 +39,18 @@
     .parameter "msg"
 
     .prologue
-    .line 225
+    .line 240
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 230
+    .line 249
     :goto_0
+    :pswitch_0
     return-void
 
-    .line 227
-    :pswitch_0
+    .line 242
+    :pswitch_1
     iget-object v0, p0, Lcom/android/OriginalSettings/CryptKeeper$1;->this$0:Lcom/android/OriginalSettings/CryptKeeper;
 
     #calls: Lcom/android/OriginalSettings/CryptKeeper;->updateProgress()V
@@ -57,9 +58,20 @@
 
     goto :goto_0
 
-    .line 225
+    .line 246
+    :pswitch_2
+    iget-object v0, p0, Lcom/android/OriginalSettings/CryptKeeper$1;->this$0:Lcom/android/OriginalSettings/CryptKeeper;
+
+    #calls: Lcom/android/OriginalSettings/CryptKeeper;->notifyUser()V
+    invoke-static {v0}, Lcom/android/OriginalSettings/CryptKeeper;->access$900(Lcom/android/OriginalSettings/CryptKeeper;)V
+
+    goto :goto_0
+
+    .line 240
     :pswitch_data_0
     .packed-switch 0x1
+        :pswitch_1
         :pswitch_0
+        :pswitch_2
     .end packed-switch
 .end method

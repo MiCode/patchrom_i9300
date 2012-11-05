@@ -1,77 +1,101 @@
-.class Lcom/android/OriginalSettings/SecuritySettings$5;
+.class synthetic Lcom/android/OriginalSettings/SecuritySettings$5;
 .super Ljava/lang/Object;
 .source "SecuritySettings.java"
 
-# interfaces
-.implements Ljava/lang/Runnable;
-
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/SecuritySettings;->updateSIMLockEnable(Z)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/OriginalSettings/SecuritySettings;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1008
     name = null
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/OriginalSettings/SecuritySettings;
+# static fields
+.field static final synthetic $SwitchMap$com$android$settings$SecuritySettings$PWState:[I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/OriginalSettings/SecuritySettings;)V
-    .locals 0
-    .parameter
+.method static constructor <clinit>()V
+    .locals 3
 
     .prologue
-    .line 962
-    iput-object p1, p0, Lcom/android/OriginalSettings/SecuritySettings$5;->this$0:Lcom/android/OriginalSettings/SecuritySettings;
-
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public run()V
-    .locals 2
-
-    .prologue
-    .line 964
-    invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
+    .line 915
+    invoke-static {}, Lcom/android/OriginalSettings/SecuritySettings$PWState;->values()[Lcom/android/OriginalSettings/SecuritySettings$PWState;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getSimState()I
+    array-length v0, v0
 
-    move-result v0
+    new-array v0, v0, [I
 
-    packed-switch v0, :pswitch_data_0
+    sput-object v0, Lcom/android/OriginalSettings/SecuritySettings$5;->$SwitchMap$com$android$settings$SecuritySettings$PWState:[I
 
-    .line 971
-    iget-object v0, p0, Lcom/android/OriginalSettings/SecuritySettings$5;->this$0:Lcom/android/OriginalSettings/SecuritySettings;
+    :try_start_0
+    sget-object v0, Lcom/android/OriginalSettings/SecuritySettings$5;->$SwitchMap$com$android$settings$SecuritySettings$PWState:[I
 
-    #getter for: Lcom/android/OriginalSettings/SecuritySettings;->mSimLockPreferences:Landroid/preference/PreferenceCategory;
-    invoke-static {v0}, Lcom/android/OriginalSettings/SecuritySettings;->access$000(Lcom/android/OriginalSettings/SecuritySettings;)Landroid/preference/PreferenceCategory;
+    sget-object v1, Lcom/android/OriginalSettings/SecuritySettings$PWState;->NEW:Lcom/android/OriginalSettings/SecuritySettings$PWState;
 
-    move-result-object v0
+    invoke-virtual {v1}, Lcom/android/OriginalSettings/SecuritySettings$PWState;->ordinal()I
 
-    const/4 v1, 0x1
+    move-result v1
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceCategory;->setEnabled(Z)V
+    const/4 v2, 0x1
 
-    .line 973
-    :pswitch_0
+    aput v2, v0, v1
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_2
+
+    :goto_0
+    :try_start_1
+    sget-object v0, Lcom/android/OriginalSettings/SecuritySettings$5;->$SwitchMap$com$android$settings$SecuritySettings$PWState:[I
+
+    sget-object v1, Lcom/android/OriginalSettings/SecuritySettings$PWState;->CONFIRM:Lcom/android/OriginalSettings/SecuritySettings$PWState;
+
+    invoke-virtual {v1}, Lcom/android/OriginalSettings/SecuritySettings$PWState;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x2
+
+    aput v2, v0, v1
+    :try_end_1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
+
+    :goto_1
+    :try_start_2
+    sget-object v0, Lcom/android/OriginalSettings/SecuritySettings$5;->$SwitchMap$com$android$settings$SecuritySettings$PWState:[I
+
+    sget-object v1, Lcom/android/OriginalSettings/SecuritySettings$PWState;->CURRENT:Lcom/android/OriginalSettings/SecuritySettings$PWState;
+
+    invoke-virtual {v1}, Lcom/android/OriginalSettings/SecuritySettings$PWState;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x3
+
+    aput v2, v0, v1
+    :try_end_2
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_0
+
+    :goto_2
     return-void
 
-    .line 964
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_0
-        :pswitch_0
-    .end packed-switch
+    :catch_0
+    move-exception v0
+
+    goto :goto_2
+
+    :catch_1
+    move-exception v0
+
+    goto :goto_1
+
+    :catch_2
+    move-exception v0
+
+    goto :goto_0
 .end method

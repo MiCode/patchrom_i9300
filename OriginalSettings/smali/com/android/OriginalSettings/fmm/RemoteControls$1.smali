@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 68
+    .line 67
     iput-object p1, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$1;->this$0:Lcom/android/OriginalSettings/fmm/RemoteControls;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -44,7 +44,7 @@
 
     const/4 v0, 0x0
 
-    .line 71
+    .line 70
     iget-object v2, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$1;->this$0:Lcom/android/OriginalSettings/fmm/RemoteControls;
 
     #calls: Lcom/android/OriginalSettings/fmm/RemoteControls;->getContentResolver()Landroid/content/ContentResolver;
@@ -62,12 +62,12 @@
 
     move v0, v1
 
-    .line 73
+    .line 72
     .local v0, Enabled:Z
     :cond_0
     if-eqz v0, :cond_1
 
-    .line 74
+    .line 73
     const-string v2, "RemoteControls"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -88,9 +88,9 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 75
+    .line 74
     iget-object v2, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$1;->this$0:Lcom/android/OriginalSettings/fmm/RemoteControls;
 
     #getter for: Lcom/android/OriginalSettings/fmm/RemoteControls;->mActionBarSwitch:Landroid/widget/Switch;
@@ -100,7 +100,7 @@
 
     invoke-virtual {v2, v1}, Landroid/widget/Switch;->setEnabled(Z)V
 
-    .line 77
+    .line 76
     :cond_1
     return-void
 .end method

@@ -5,7 +5,7 @@
         <item>Europe</item>
         <item>Africa</item>
         <item>Asia</item>
-        <item>Australia</item>
+        <item>Australija</item>
         <item>Pacific</item>
         <item>Sve</item>
     </string-array>
@@ -18,12 +18,15 @@
         <item>10 min</item>
         <item>30 min</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 sek</item>
         <item>30 sek</item>
         <item>1 min</item>
-        <item>2 min</item>
+        <item>3 min</item>
         <item>5 min</item>
+        <item>10 min</item>
+        <item>15 min</item>
+        <item>30 min</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Nikad</item>
@@ -34,6 +37,18 @@
         <item>5 min</item>
         <item>10 min</item>
         <item>30 min</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 sek</item>
+        <item>30 sek</item>
+        <item>1 min</item>
+        <item>3 min</item>
+        <item>5 min</item>
+        <item>10 min</item>
+        <item>15 min</item>
+        <item>30 min</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>Odmah</item>
@@ -93,17 +108,7 @@
         <item>Odspojeno</item>
         <item>Neuspješno</item>
         <item>Spojeno</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Privremeno izbjegavanje loše veze</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>Odspojeno</item>
         <item>Neuspješno</item>
         <item>Spojeno</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Privremeno izbjegavanje loše veze</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>Otvorena</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Pritisnite tipku</item>
+        <item>PIN drugog uređaja</item>
+        <item>PIN ovog uređaja</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Spojeno</item>
+        <item>Pozvan</item>
+        <item>Spajanje neuspješno</item>
+        <item>Dodirnite za spajanje</item>
+        <item>Izvan dosega</item>
+        <item>Spojen na drugi uređaj</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>Bez isteka</item>
@@ -152,6 +155,10 @@
         <item>20 min</item>
         <item>30 min</item>
         <item>60 min</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Dozvoli sve uređaje</item>
+        <item>Samo dopušteni uređaji</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>Auto</item>
@@ -178,19 +185,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-    </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Pritisnite tipku</item>
-        <item>PIN drugog uređaja</item>
-        <item>PIN ovog uređaja</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Spojeno</item>
-        <item>Pozvan</item>
-        <item>Spajanje neuspješno</item>
-        <item>Dodirnite za spajanje</item>
-        <item>Izvan dosega</item>
-        <item>Spojen na drugi uređaj</item>
     </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 min</item>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -266,16 +261,6 @@
     <string-array name="wifi_proxy_settings">
         <item>Ništa</item>
         <item>Ručno</item>
-    </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Normalno</item>
-        <item>Downtown</item>
-        <item>Kuća</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>Ovo je najopćenitija postavka Wi-Fi veze</item>
-        <item>Ako ste u području s mnogo Wi-Fi mreža, Wi-Fi će se često ponovno povezivati kako bi se omogućio jači signal</item>
-        <item>Ako ste u području s malo Wi-Fi mreža, Wi-Fi veza održava se što je dulje moguće</item>
     </string-array>
     <string-array name="emergency_tone_entries">
         <item>Isključeno</item>
@@ -307,11 +292,6 @@
         <item>Memorija uređaja</item>
         <item>Zamjenjiva SD kartica</item>
         <item>Zadano</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>Isključeno</item>
-        <item>Vibracija</item>
-        <item>Bez zvuka</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Kratko</item>
@@ -346,6 +326,15 @@
         <item>Brzina animacije 5x</item>
         <item>Brzina animacije 10x</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Animacija je isključena</item>
+        <item>Brzina animacije 0.5x</item>
+        <item>Brzina animacije 1x</item>
+        <item>Brzina animacije 1.5x</item>
+        <item>Brzina animacije 2x</item>
+        <item>Brzina animacije 5x</item>
+        <item>Brzina animacije 10x</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>Standardno ograničenje</item>
         <item>Bez pozadinskih procesa</item>
@@ -370,22 +359,8 @@
         <item>Istek zaslona</item>
         <item>Neuspješno</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>USB memorija</item>
+        <item>Uređaj</item>
         <item>SD kartica</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -415,15 +390,28 @@
         <item>Slike</item>
         <item>Glazba</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>Visoki</item>
-        <item>Srednje</item>
-        <item>Niski</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Automatski</item>
         <item>Ručno</item>
         <item>Uvijek pitaj</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Uvijek isključeno</item>
+        <item>3 sek</item>
+        <item>5 sek</item>
+        <item>10 sek</item>
+        <item>15 sek</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Ništa</item>
+        <item>Svi kontakti</item>
+        <item>Favoriti</item>
+        <item>Prilagođeno</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>Visoki</item>
+        <item>Srednje</item>
+        <item>Niski</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1,5 sek</item>
@@ -439,11 +427,24 @@
     <string-array name="contents_type_entries">
         <item>Vijesti</item>
         <item>Dionice</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Vijesti</item>
+        <item>Dionice</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>Sporo</item>
         <item>Normalno</item>
         <item>Brzo</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Ništa</item>
+        <item>Svakih 30 min</item>
+        <item>Svakih 1 sat</item>
+        <item>Svaka 2 sata</item>
+        <item>Svaka 4 sata</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>Slušalica</item>
@@ -451,5 +452,9 @@
         <item>Telefon</item>
         <item>HID (tipkovnica, miš itd.)</item>
         <item>Svi uređaji</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Stereo</item>
+        <item>Surround</item>
     </string-array>
 </resources>

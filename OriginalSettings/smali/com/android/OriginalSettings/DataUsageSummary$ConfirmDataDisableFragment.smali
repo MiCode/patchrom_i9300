@@ -19,43 +19,41 @@
     .locals 0
 
     .prologue
-    .line 2100
+    .line 2304
     invoke-direct {p0}, Landroid/app/DialogFragment;-><init>()V
 
     return-void
 .end method
 
-.method public static show(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
+.method public static show(Lcom/android/OriginalSettings/DataUsageSummary;)V
     .locals 3
     .parameter "parent"
 
     .prologue
-    .line 2102
+    .line 2306
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->isAdded()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    const/4 v0, 0x0
-
-    .line 2108
+    .line 2311
     :goto_0
-    return-object v0
+    return-void
 
-    .line 2104
+    .line 2308
     :cond_0
     new-instance v0, Lcom/android/OriginalSettings/DataUsageSummary$ConfirmDataDisableFragment;
 
     invoke-direct {v0}, Lcom/android/OriginalSettings/DataUsageSummary$ConfirmDataDisableFragment;-><init>()V
 
-    .line 2105
+    .line 2309
     .local v0, dialog:Lcom/android/OriginalSettings/DataUsageSummary$ConfirmDataDisableFragment;
     const/4 v1, 0x0
 
     invoke-virtual {v0, p0, v1}, Lcom/android/OriginalSettings/DataUsageSummary$ConfirmDataDisableFragment;->setTargetFragment(Landroid/app/Fragment;I)V
 
-    .line 2106
+    .line 2310
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v1
@@ -69,63 +67,31 @@
 
 
 # virtual methods
-.method public onCancel(Landroid/content/DialogInterface;)V
-    .locals 2
-    .parameter "dialog"
-
-    .prologue
-    .line 2152
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary$ConfirmDataDisableFragment;->getTargetFragment()Landroid/app/Fragment;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/OriginalSettings/DataUsageSummary;
-
-    .line 2153
-    .local v0, target:Lcom/android/OriginalSettings/DataUsageSummary;
-    if-eqz v0, :cond_0
-
-    .line 2154
-    const/4 v1, 0x1
-
-    #calls: Lcom/android/OriginalSettings/DataUsageSummary;->setMobileDataEnabled(Z)V
-    invoke-static {v0, v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1400(Lcom/android/OriginalSettings/DataUsageSummary;Z)V
-
-    .line 2156
-    :cond_0
-    return-void
-.end method
-
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
     .locals 5
     .parameter "savedInstanceState"
 
     .prologue
-    .line 2113
+    .line 2315
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary$ConfirmDataDisableFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    .line 2115
+    .line 2317
     .local v1, context:Landroid/content/Context;
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 2116
+    .line 2319
     .local v0, builder:Landroid/app/AlertDialog$Builder;
-    const v3, 0x7f0d06d7
-
-    invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
-
-    .line 2118
     const-string v3, "ro.csc.sales_code"
 
     invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 2119
+    .line 2320
     .local v2, salesCode:Ljava/lang/String;
     const-string v3, "SKT"
 
@@ -135,12 +101,12 @@
 
     if-eqz v3, :cond_0
 
-    .line 2120
-    const v3, 0x7f0d06c8
+    .line 2321
+    const v3, 0x7f0907e7
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 2129
+    .line 2330
     :goto_0
     const v3, 0x104000a
 
@@ -150,23 +116,21 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 2138
+    .line 2340
     const/high16 v3, 0x104
 
-    new-instance v4, Lcom/android/OriginalSettings/DataUsageSummary$ConfirmDataDisableFragment$2;
-
-    invoke-direct {v4, p0}, Lcom/android/OriginalSettings/DataUsageSummary$ConfirmDataDisableFragment$2;-><init>(Lcom/android/OriginalSettings/DataUsageSummary$ConfirmDataDisableFragment;)V
+    const/4 v4, 0x0
 
     invoke-virtual {v0, v3, v4}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 2147
+    .line 2342
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v3
 
     return-object v3
 
-    .line 2121
+    .line 2322
     :cond_0
     const-string v3, "KTT"
 
@@ -176,14 +140,14 @@
 
     if-eqz v3, :cond_1
 
-    .line 2122
-    const v3, 0x7f0d06c9
+    .line 2323
+    const v3, 0x7f0907e8
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     goto :goto_0
 
-    .line 2123
+    .line 2324
     :cond_1
     const-string v3, "LGT"
 
@@ -193,16 +157,16 @@
 
     if-eqz v3, :cond_2
 
-    .line 2124
-    const v3, 0x7f0d06ca
+    .line 2325
+    const v3, 0x7f0907e9
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     goto :goto_0
 
-    .line 2126
+    .line 2327
     :cond_2
-    const v3, 0x7f0d06c3
+    const v3, 0x7f0907e2
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 

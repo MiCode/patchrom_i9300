@@ -38,7 +38,7 @@
     const/16 v6, 0x8
 
     .line 42
-    const v4, 0x7f040077
+    const v4, 0x7f040095
 
     const/4 v5, 0x0
 
@@ -46,7 +46,7 @@
 
     move-result-object v3
 
-    .line 47
+    .line 48
     .local v3, view:Landroid/view/View;
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/PowerSavingModeTips;->getActivity()Landroid/app/Activity;
 
@@ -58,8 +58,8 @@
 
     if-eqz v4, :cond_0
 
-    .line 48
-    const v4, 0x7f0a0164
+    .line 49
+    const v4, 0x7f0b0195
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -67,13 +67,13 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 49
+    .line 50
     .local v0, mBackgroundTips:Landroid/widget/TextView;
-    const v4, 0x7f0d081d
+    const v4, 0x7f090986
 
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setText(I)V
 
-    .line 52
+    .line 61
     .end local v0           #mBackgroundTips:Landroid/widget/TextView;
     :cond_0
     invoke-virtual {p0}, Lcom/android/OriginalSettings/powersavingmode/PowerSavingModeTips;->getActivity()Landroid/app/Activity;
@@ -94,13 +94,13 @@
 
     if-eqz v4, :cond_1
 
-    .line 61
+    .line 70
     :goto_0
     return-object v3
 
-    .line 54
+    .line 63
     :cond_1
-    const v4, 0x7f0a0165
+    const v4, 0x7f0b0196
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -108,9 +108,9 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    .line 55
+    .line 64
     .local v2, mHapticTipsTitle:Landroid/widget/TextView;
-    const v4, 0x7f0a0166
+    const v4, 0x7f0b0197
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -118,11 +118,11 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    .line 57
+    .line 66
     .local v1, mHapticTips:Landroid/widget/TextView;
     invoke-virtual {v2, v6}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 58
+    .line 67
     invoke-virtual {v1, v6}, Landroid/widget/TextView;->setVisibility(I)V
 
     goto :goto_0

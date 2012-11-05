@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 374
+    .line 401
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$5;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,12 +43,12 @@
     .parameter "which"
 
     .prologue
-    .line 377
+    .line 404
     const/4 v0, -0x1
 
     if-ne p2, v0, :cond_0
 
-    .line 378
+    .line 405
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$5;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;
 
     #getter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
@@ -58,7 +58,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 379
+    .line 406
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$5;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;
 
     #getter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
@@ -69,7 +69,7 @@
     iget-object v1, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$5;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;
 
     #getter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
-    invoke-static {v1}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->access$600(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;)Landroid/net/wifi/p2p/WifiP2pManager$Channel;
+    invoke-static {v1}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->access$700(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;)Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
     move-result-object v1
 
@@ -79,7 +79,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/net/wifi/p2p/WifiP2pManager;->removeGroup(Landroid/net/wifi/p2p/WifiP2pManager$Channel;Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;)V
 
-    .line 389
+    .line 416
     :cond_0
     return-void
 .end method

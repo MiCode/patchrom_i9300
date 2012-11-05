@@ -1,11 +1,14 @@
 .class Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler$18;
-.super Landroid/telephony/PhoneStateListener;
+.super Ljava/lang/Object;
 .source "WifiApSwitchEnabler.java"
+
+# interfaces
+.implements Landroid/content/DialogInterface$OnCancelListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;->showDialog(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,31 +27,35 @@
     .parameter
 
     .prologue
-    .line 551
+    .line 559
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler$18;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;
 
-    invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
+    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onServiceStateChanged(Landroid/telephony/ServiceState;)V
+.method public onCancel(Landroid/content/DialogInterface;)V
     .locals 2
-    .parameter "serviceState"
+    .parameter "dialog"
 
     .prologue
-    .line 554
+    .line 561
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler$18;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;
 
-    invoke-virtual {p1}, Landroid/telephony/ServiceState;->getRoaming()Z
+    const/4 v1, 0x1
 
-    move-result v1
+    invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;->setEnabled(Z)V
 
-    #setter for: Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;->mIsRoaming:Z
-    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;->access$502(Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;Z)Z
+    .line 562
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler$18;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;
 
-    .line 555
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;->setChecked(Z)V
+
+    .line 563
     return-void
 .end method

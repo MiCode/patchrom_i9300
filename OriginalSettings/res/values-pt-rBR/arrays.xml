@@ -18,12 +18,15 @@
         <item>10 minutos</item>
         <item>30 minutos</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 segundos</item>
         <item>30 segundos</item>
         <item>1 minuto</item>
-        <item>2 minutos</item>
+        <item>3 minutos</item>
         <item>5 minutos</item>
+        <item>10 minutos</item>
+        <item>15 minutos</item>
+        <item>30 minutos</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Nunca</item>
@@ -34,6 +37,18 @@
         <item>5 minutos</item>
         <item>10 minutos</item>
         <item>30 minutos</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 segundos</item>
+        <item>30 segundos</item>
+        <item>1 minuto</item>
+        <item>3 minutos</item>
+        <item>5 minutos</item>
+        <item>10 minutos</item>
+        <item>15 minutos</item>
+        <item>30 minutos</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>Imediatamente</item>
@@ -91,19 +106,9 @@
         <item>Suspenso</item>
         <item>Desconectando...</item>
         <item>Desconectado</item>
-        <item>Falhou</item>
+        <item>Malsucedido</item>
         <item>Conectado</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Temporarily avoiding poor connection</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -115,19 +120,9 @@
         <item>Suspenso</item>
         <item>Desconectando de %s...</item>
         <item>Desconectado</item>
-        <item>Falhou</item>
+        <item>Malsucedido</item>
         <item>Conectado</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Temporarily avoiding poor connection</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>Aberta</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Botão</item>
+        <item>PIN do dispositivo par</item>
+        <item>PIN deste dispositivo</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Conectado</item>
+        <item>Convidado</item>
+        <item>Falha de conexão</item>
+        <item>Toque para conectar</item>
+        <item>Fora do intervalo</item>
+        <item>Conectado a outro dispositivo</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>Nunca esgotar tempo</item>
@@ -152,6 +155,10 @@
         <item>20 minutos</item>
         <item>30 minutos</item>
         <item>60 minutos</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Permitir todos disp.</item>
+        <item>Somente dispositivos permitidos</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>Automático</item>
@@ -178,19 +185,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-    </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Botão</item>
-        <item>PIN do dispositivo par</item>
-        <item>PIN deste dispositivo</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Conectado</item>
-        <item>Convidado</item>
-        <item>Falha de conexão</item>
-        <item>Toque para conectar</item>
-        <item>Fora do intervalo</item>
-        <item>Conectado a outro dispositivo</item>
     </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 min.</item>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -254,7 +249,7 @@
         <item>GTC</item>
     </string-array>
     <string-array name="wifi_network_setup">
-        <item>Desligar</item>
+        <item>Desativado</item>
         <item>Botão</item>
         <item>PIN do ponto de acesso</item>
         <item>PIN deste dispositivo</item>
@@ -266,16 +261,6 @@
     <string-array name="wifi_proxy_settings">
         <item>Nenhum</item>
         <item>Manual</item>
-    </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Normal</item>
-        <item>Downtown</item>
-        <item>Casa</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>Esta é a configuração de conexão Wi-Fi mais geral</item>
-        <item>Se você estiver em uma área com muitas redes Wi-Fi, a conexão Wi-Fi será reconectada com frequência por um sinal melhor</item>
-        <item>Se você estiver em uma área com poucas redes Wi-Fi, a conexão Wi-Fi é mantida enquanto for possível</item>
     </string-array>
     <string-array name="emergency_tone_entries">
         <item>Desligar</item>
@@ -303,14 +288,9 @@
         <item>Cartão SD removível</item>
         <item>Padrão</item>
     </string-array>
-    <string-array name="silent_mode_entries">
-        <item>Inativos</item>
-        <item>Vibração</item>
-        <item>Silenciar</item>
-    </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Curto</item>
-        <item>Médio</item>
+        <item>Média</item>
         <item>Longo</item>
     </string-array>
     <string-array name="hdcp_checking_titles">
@@ -341,6 +321,15 @@
         <item>Escala da animação 5x</item>
         <item>Escala da animação 10x</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>A animação está desligada</item>
+        <item>Escala da animação 0.5x</item>
+        <item>Escala da animação 1x</item>
+        <item>Escala da animação 1.5x</item>
+        <item>Escala da animação 2x</item>
+        <item>Escala da animação 5x</item>
+        <item>Escala da animação 10x</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>Limite padrão</item>
         <item>Sem processos em segundo plano</item>
@@ -363,24 +352,10 @@
         <item>Conectando...</item>
         <item>Conectado</item>
         <item>Tempo esgotado</item>
-        <item>Falhou</item>
-    </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
+        <item>Malsucedido</item>
     </string-array>
     <string-array name="allshare_download_to">
-        <item>Armazenamento USB</item>
+        <item>Dispositivo</item>
         <item>Cartão SD</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -410,15 +385,28 @@
         <item>Fotos</item>
         <item>Músicas</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>Alta</item>
-        <item>Médio</item>
-        <item>Baixa</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Automático</item>
         <item>Manualmente</item>
         <item>Perguntar sempre</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Sempre desligado</item>
+        <item>3 segundos</item>
+        <item>5 segundos</item>
+        <item>10 segundos</item>
+        <item>15 segundos</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Nenhum</item>
+        <item>Todos os contatos</item>
+        <item>Favoritos</item>
+        <item>Personalizar</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>Alta</item>
+        <item>Média</item>
+        <item>Baixa</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1.5 segundos</item>
@@ -427,18 +415,31 @@
         <item>Sempre ligado</item>
     </string-array>
     <string-array name="clock_position_entries">
-        <item>Em cima</item>
+        <item>Acima</item>
         <item>Meio</item>
         <item>Embaixo</item>
     </string-array>
     <string-array name="contents_type_entries">
         <item>Novidade</item>
         <item>Ação</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Notícias</item>
+        <item>Ação</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
-        <item>Lento</item>
+        <item>Lenta</item>
         <item>Normal</item>
-        <item>Rápido</item>
+        <item>Rápida</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Nenhum</item>
+        <item>Cada 30 minutos</item>
+        <item>Cada 1 hora</item>
+        <item>A cada 2 horas</item>
+        <item>Cada 4 horas</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>Fone de ouvido</item>
@@ -446,5 +447,9 @@
         <item>Telefone</item>
         <item>HID (teclado, mouse, etc.)</item>
         <item>Todos os dispositivos</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Estéreo</item>
+        <item>Surround</item>
     </string-array>
 </resources>

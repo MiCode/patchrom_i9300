@@ -3,12 +3,12 @@
 .source "WfdPickerActivity.java"
 
 # interfaces
-.implements Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->createAutoConnectDialog()Landroid/app/AlertDialog;
+    value = Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->createWfdTerminateDialog()Landroid/app/AlertDialog;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 918
+    .line 1384
     iput-object p1, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$5;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,94 +37,120 @@
 
 
 # virtual methods
-.method public onFailure(I)V
-    .locals 3
-    .parameter "reason"
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 4
+    .parameter "arg0"
+    .parameter "arg1"
 
     .prologue
-    .line 923
-    const-string v0, "WfdPickerActivity"
+    const/4 v3, 0x0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    .line 1387
+    const-string v1, "WfdPickerActivity"
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "createWfdTerminateDialog ok is clicked.."
 
-    const-string v2, " connect fail "
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 1390
+    iget-object v1, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$5;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
 
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    #getter for: Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->mWfdSwitchEnabler:Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;
+    invoke-static {v1}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->access$2400(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;)Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v1, :cond_0
 
-    .line 925
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$5;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+    .line 1391
+    iget-object v1, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$5;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
 
-    #getter for: Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->mTimer:Landroid/os/CountDownTimer;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->access$1200(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;)Landroid/os/CountDownTimer;
+    #getter for: Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->mWfdSwitchEnabler:Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;
+    invoke-static {v1}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->access$2400(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;)Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v1, v3}, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->setP2PDisable(Z)V
 
-    .line 926
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$5;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
-
-    #getter for: Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->mTimer:Landroid/os/CountDownTimer;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->access$1200(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;)Landroid/os/CountDownTimer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/os/CountDownTimer;->cancel()V
-
-    .line 929
+    .line 1395
     :cond_0
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$5;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+    iget-object v1, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$5;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
 
-    const/4 v1, 0x0
+    #getter for: Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->mCastEndConnect:Landroid/view/MenuItem;
+    invoke-static {v1}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->access$2500(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;)Landroid/view/MenuItem;
 
-    #setter for: Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->bStartConnectingFlag:Z
-    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->access$2002(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;Z)Z
+    move-result-object v1
 
-    .line 930
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$5;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+    invoke-interface {v1, v3}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
-    const/16 v1, 0xb
+    .line 1396
+    iget-object v1, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$5;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
 
-    #calls: Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->removeDialog(I)V
-    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->access$2700(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;I)V
+    const/4 v2, 0x2
 
-    .line 931
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$5;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+    #calls: Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->setCastMenu(I)V
+    invoke-static {v1, v2}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->access$2600(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;I)V
 
-    const/16 v1, 0xd
+    .line 1397
+    iget-object v1, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$5;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
 
-    #calls: Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->showDialog(I)V
-    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->access$2800(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;I)V
+    #getter for: Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->mInPickerDialog:Z
+    invoke-static {v1}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->access$1500(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;)Z
 
-    .line 932
-    return-void
-.end method
+    move-result v1
 
-.method public onSuccess()V
-    .locals 2
+    if-eqz v1, :cond_1
 
-    .prologue
-    .line 920
-    const-string v0, "WfdPickerActivity"
+    .line 1398
+    iget-object v1, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$5;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
 
-    const-string v1, " connect success"
+    invoke-virtual {v1}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->getActivity()Landroid/app/Activity;
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v1
 
-    .line 921
+    check-cast v1, Lcom/android/OriginalSettings/wfd/WfdPickerDialog;
+
+    invoke-virtual {v1}, Lcom/android/OriginalSettings/wfd/WfdPickerDialog;->changeToScan()V
+
+    .line 1399
+    :cond_1
+    iget-object v1, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$5;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+
+    #getter for: Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->mMenuItemScanStop:Landroid/view/MenuItem;
+    invoke-static {v1}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->access$2700(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;)Landroid/view/MenuItem;
+
+    move-result-object v1
+
+    invoke-interface {v1, v3}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
+
+    .line 1403
+    iget-object v1, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$5;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+
+    #getter for: Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->mWfdManager:Lcom/samsung/wfd/WfdManager;
+    invoke-static {v1}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->access$800(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;)Lcom/samsung/wfd/WfdManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/samsung/wfd/WfdManager;->setWfdTerminate()Z
+
+    .line 1405
+    iget-object v1, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$5;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+
+    invoke-virtual {v1}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v0
+
+    .line 1406
+    .local v0, preferenceScreen:Landroid/preference/PreferenceScreen;
+    iget-object v1, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$5;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+
+    #getter for: Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->mPeersConnected:Landroid/preference/PreferenceGroup;
+    invoke-static {v1}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->access$2800(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;)Landroid/preference/PreferenceGroup;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+
+    .line 1408
     return-void
 .end method

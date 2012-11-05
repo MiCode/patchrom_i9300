@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 94
+    .line 95
     iput-object p1, p0, Lcom/android/OriginalSettings/FontSizeListPreference$1;->this$0:Lcom/android/OriginalSettings/FontSizeListPreference;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .parameter "arg1"
 
     .prologue
-    .line 97
+    .line 98
     const-string v0, "FontSizeListPreference"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -64,9 +64,9 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 98
+    .line 99
     iget-object v0, p0, Lcom/android/OriginalSettings/FontSizeListPreference$1;->this$0:Lcom/android/OriginalSettings/FontSizeListPreference;
 
     #getter for: Lcom/android/OriginalSettings/FontSizeListPreference;->isWidget:Ljava/lang/Boolean;
@@ -80,7 +80,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 99
+    .line 100
     iget-object v0, p0, Lcom/android/OriginalSettings/FontSizeListPreference$1;->this$0:Lcom/android/OriginalSettings/FontSizeListPreference;
 
     const/4 v1, 0x0
@@ -92,7 +92,7 @@
     #setter for: Lcom/android/OriginalSettings/FontSizeListPreference;->isWidget:Ljava/lang/Boolean;
     invoke-static {v0, v1}, Lcom/android/OriginalSettings/FontSizeListPreference;->access$002(Lcom/android/OriginalSettings/FontSizeListPreference;Ljava/lang/Boolean;)Ljava/lang/Boolean;
 
-    .line 100
+    .line 101
     iget-object v0, p0, Lcom/android/OriginalSettings/FontSizeListPreference$1;->this$0:Lcom/android/OriginalSettings/FontSizeListPreference;
 
     #getter for: Lcom/android/OriginalSettings/FontSizeListPreference;->mFontSize:Lcom/android/OriginalSettings/DisplaySettings;
@@ -102,7 +102,7 @@
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/DisplaySettings;->finish()V
 
-    .line 102
+    .line 103
     :cond_0
     return-void
 .end method

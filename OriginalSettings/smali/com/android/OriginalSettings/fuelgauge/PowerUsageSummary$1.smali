@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 107
+    .line 110
     iput-object p1, p0, Lcom/android/OriginalSettings/fuelgauge/PowerUsageSummary$1;->this$0:Lcom/android/OriginalSettings/fuelgauge/PowerUsageSummary;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 111
+    .line 114
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 112
+    .line 115
     .local v0, action:Ljava/lang/String;
     const-string v4, "android.intent.action.BATTERY_CHANGED"
 
@@ -55,12 +55,12 @@
 
     if-eqz v4, :cond_0
 
-    .line 113
+    .line 116
     invoke-static {p2}, Lcom/android/OriginalSettings/Utils;->getBatteryPercentage(Landroid/content/Intent;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 114
+    .line 117
     .local v1, batteryLevel:Ljava/lang/String;
     iget-object v4, p0, Lcom/android/OriginalSettings/fuelgauge/PowerUsageSummary$1;->this$0:Lcom/android/OriginalSettings/fuelgauge/PowerUsageSummary;
 
@@ -72,13 +72,13 @@
 
     move-result-object v2
 
-    .line 116
+    .line 119
     .local v2, batteryStatus:Ljava/lang/String;
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    const v5, 0x7f0d05a6
+    const v5, 0x7f090698
 
     const/4 v6, 0x2
 
@@ -96,7 +96,7 @@
 
     move-result-object v3
 
-    .line 118
+    .line 121
     .local v3, batterySummary:Ljava/lang/String;
     iget-object v4, p0, Lcom/android/OriginalSettings/fuelgauge/PowerUsageSummary$1;->this$0:Lcom/android/OriginalSettings/fuelgauge/PowerUsageSummary;
 
@@ -107,7 +107,7 @@
 
     invoke-virtual {v4, v3}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 120
+    .line 123
     .end local v1           #batteryLevel:Ljava/lang/String;
     .end local v2           #batteryStatus:Ljava/lang/String;
     .end local v3           #batterySummary:Ljava/lang/String;

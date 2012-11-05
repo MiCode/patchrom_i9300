@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1220
+    .line 1304
     iput-object p1, p0, Lcom/android/OriginalSettings/DataUsageSummary$9;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -44,11 +44,11 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1223
+    .line 1307
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary$9;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrict:Landroid/widget/CheckBox;
-    invoke-static {v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1900(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/CheckBox;
+    invoke-static {v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1400(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/CheckBox;
 
     move-result-object v2
 
@@ -56,112 +56,38 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_0
 
     const/4 v0, 0x1
 
-    .line 1225
+    .line 1309
     .local v0, restrictBackground:Z
     :goto_0
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_1
 
-    .line 1226
+    .line 1313
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$9;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
-    #calls: Lcom/android/OriginalSettings/DataUsageSummary;->hasLimitedNetworks()Z
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$2000(Lcom/android/OriginalSettings/DataUsageSummary;)Z
+    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary$ConfirmAppRestrictFragment;->show(Lcom/android/OriginalSettings/DataUsageSummary;)V
 
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    .line 1230
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$9;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1300(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    .line 1231
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$9;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1300(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/app/DialogFragment;->dismiss()V
-
-    .line 1233
-    :cond_0
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$9;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary$9;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    invoke-static {v2}, Lcom/android/OriginalSettings/DataUsageSummary$ConfirmAppRestrictFragment;->show(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
-
-    move-result-object v2
-
-    #setter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-    invoke-static {v1, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1302(Lcom/android/OriginalSettings/DataUsageSummary;Landroid/app/DialogFragment;)Landroid/app/DialogFragment;
-
-    .line 1245
+    .line 1317
     :goto_1
     return-void
 
     .end local v0           #restrictBackground:Z
-    :cond_1
+    :cond_0
     move v0, v1
 
-    .line 1223
+    .line 1307
     goto :goto_0
 
-    .line 1237
+    .line 1315
     .restart local v0       #restrictBackground:Z
-    :cond_2
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$9;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1300(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_3
-
-    .line 1238
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$9;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1300(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/app/DialogFragment;->dismiss()V
-
-    .line 1240
-    :cond_3
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$9;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary$9;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    invoke-static {v2}, Lcom/android/OriginalSettings/DataUsageSummary$DeniedRestrictFragment;->show(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
-
-    move-result-object v2
-
-    #setter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-    invoke-static {v1, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1302(Lcom/android/OriginalSettings/DataUsageSummary;Landroid/app/DialogFragment;)Landroid/app/DialogFragment;
-
-    goto :goto_1
-
-    .line 1243
-    :cond_4
+    :cond_1
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary$9;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     #calls: Lcom/android/OriginalSettings/DataUsageSummary;->setAppRestrictBackground(Z)V
-    invoke-static {v2, v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$2100(Lcom/android/OriginalSettings/DataUsageSummary;Z)V
+    invoke-static {v2, v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1500(Lcom/android/OriginalSettings/DataUsageSummary;Z)V
 
     goto :goto_1
 .end method

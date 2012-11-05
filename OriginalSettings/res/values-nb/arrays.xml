@@ -18,12 +18,15 @@
         <item>10 minutter</item>
         <item>30 minutter</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 sekunder</item>
         <item>30 sekunder</item>
         <item>1 minutt</item>
-        <item>2 minutter</item>
+        <item>3 minutter</item>
         <item>5 minutter</item>
+        <item>10 minutter</item>
+        <item>15 minutter</item>
+        <item>30 minutter</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Aldri</item>
@@ -34,6 +37,18 @@
         <item>5 minutter</item>
         <item>10 minutter</item>
         <item>30 minutter</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 sekunder</item>
+        <item>30 sekunder</item>
+        <item>1 minutt</item>
+        <item>3 minutter</item>
+        <item>5 minutter</item>
+        <item>10 minutter</item>
+        <item>15 minutter</item>
+        <item>30 minutter</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>Umiddelbart</item>
@@ -93,17 +108,7 @@
         <item>Frakoblet</item>
         <item>Mislykket</item>
         <item>Tilkoblet</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Unngår dårlig tilkobling midlertidig</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -113,21 +118,11 @@
         <item>Henter IP-adresse fra %s...</item>
         <item>Koblet til %1$s</item>
         <item>Suspendert</item>
-        <item>Frakobler fra %s...</item>
+        <item>Kobler fra %s...</item>
         <item>Frakoblet</item>
         <item>Mislykket</item>
         <item>Tilkoblet</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Unngår dårlig tilkobling midlertidig</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>Åpen</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>Passord</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Trykknapp</item>
+        <item>PIN-kode fra peer-enhet</item>
+        <item>PIN-kode fra denne enheten</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Tilkoblet</item>
+        <item>Invitert</item>
+        <item>Kunne ikke koble til</item>
+        <item>Trykk for å koble til</item>
+        <item>Utenfor verdiområdet</item>
+        <item>Koblet til en annen enhet</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>Aldri tidsavbrudd</item>
@@ -153,8 +156,12 @@
         <item>30 minutter</item>
         <item>60 minutter</item>
     </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Tillatt alle enheter</item>
+        <item>Bare tillatte enheter</item>
+    </string-array>
     <string-array name="wifi_ap_channel">
-        <item>Auto</item>
+        <item>Automatisk</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -178,19 +185,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-    </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Trykknapp</item>
-        <item>PIN-kode fra peer-enhet</item>
-        <item>PIN-kode fra denne enheten</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Tilkoblet</item>
-        <item>Invitert</item>
-        <item>Kunne ikke koble til</item>
-        <item>Trykk for å koble til</item>
-        <item>Utenfor verdiområdet</item>
-        <item>Koblet til en annen enhet</item>
     </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 min</item>
@@ -221,7 +215,7 @@
         <item>0</item>
     </string-array>
     <string-array name="wifi_frequency_band_entries">
-        <item>Auto</item>
+        <item>Automatisk</item>
         <item>Bare 5 GHz</item>
         <item>Bare 2,4 GHz</item>
     </string-array>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>Passord</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -256,7 +251,7 @@
     <string-array name="wifi_network_setup">
         <item>Av</item>
         <item>Trykknapp</item>
-        <item>PIN fra tilgangspunkt</item>
+        <item>PIN-kode fra tilgangspunkt</item>
         <item>PIN-kode fra denne enheten</item>
     </string-array>
     <string-array name="wifi_ip_settings">
@@ -266,16 +261,6 @@
     <string-array name="wifi_proxy_settings">
         <item>Ingen</item>
         <item>Manuelt</item>
-    </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Normal</item>
-        <item>Downtown</item>
-        <item>Hjem</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>Dette er den mest generelle Wi-Fi-tilkoblingsinnstillingen</item>
-        <item>Hvis du er i et område med mange Wi-Fi-nettverk, kobler Wi-Fi til jevnlig for å bedre signalstyrken</item>
-        <item>Hvis du er i et område med få Wi-Fi-nettverk, opprettholdes Wi-Fi-tilkoblingen så lenge som mulig</item>
     </string-array>
     <string-array name="emergency_tone_entries">
         <item>Av</item>
@@ -308,14 +293,9 @@
         <item>Flyttbart SD-kort</item>
         <item>Standard</item>
     </string-array>
-    <string-array name="silent_mode_entries">
-        <item>Av</item>
-        <item>Vibrer</item>
-        <item>Lydløs</item>
-    </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Kort</item>
-        <item>Medium</item>
+        <item>Middels</item>
         <item>Lang</item>
     </string-array>
     <string-array name="hdcp_checking_titles">
@@ -338,6 +318,15 @@
         <item>Animasjonsskala 10x</item>
     </string-array>
     <string-array name="transition_animation_scale_entries">
+        <item>Animasjon er slått av</item>
+        <item>Animasjonsskala 0,5x</item>
+        <item>Animasjonsskala 1x</item>
+        <item>Animasjonsskala 1,5x</item>
+        <item>Animasjonsskala 2x</item>
+        <item>Animasjonsskala 5x</item>
+        <item>Animasjonsskala 10x</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
         <item>Animasjon er slått av</item>
         <item>Animasjonsskala 0,5x</item>
         <item>Animasjonsskala 1x</item>
@@ -370,22 +359,8 @@
         <item>Tidsavbrudd</item>
         <item>Mislykket</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10 %</item>
-        <item>20 %</item>
-        <item>30%</item>
-        <item>40 %</item>
-        <item>50 %</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>USB-lagring</item>
+        <item>Enhet</item>
         <item>SD-kort</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -415,15 +390,28 @@
         <item>Bilder</item>
         <item>Musikk</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>Høy</item>
-        <item>Medium</item>
-        <item>Lav</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Automatisk</item>
         <item>Manuell</item>
         <item>Spør alltid</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Alltid av</item>
+        <item>3 sekunder</item>
+        <item>5 sekunder</item>
+        <item>10 sekunder</item>
+        <item>15 sekunder</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Ingen</item>
+        <item>Alle kontakter</item>
+        <item>Favoritter</item>
+        <item>Egendefinert</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>Høy</item>
+        <item>Middels</item>
+        <item>Lav</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1,5 sekunder</item>
@@ -439,17 +427,34 @@
     <string-array name="contents_type_entries">
         <item>Nyheter</item>
         <item>Aksje</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Nyheter</item>
+        <item>Aksje</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>Langsom</item>
         <item>Normal</item>
         <item>Rask</item>
     </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Ingen</item>
+        <item>Hvert 30. minutt</item>
+        <item>Hver time</item>
+        <item>Hver 2. time</item>
+        <item>Hver 4. time</item>
+    </string-array>
     <string-array name="bluetooth_class_of_device_entries">
-        <item>Headset</item>
+        <item>Headsett</item>
         <item>PC</item>
         <item>Telefon</item>
         <item>HID (tastatur, mus osv.)</item>
         <item>Alle enheter</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Stereo</item>
+        <item>Surround</item>
     </string-array>
 </resources>

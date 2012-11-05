@@ -41,7 +41,7 @@
     <timezone id="Asia/Beirut">Austrumeiropas laiks (Beirūta)</timezone>
     <timezone id="Africa/Cairo">Austrumeiropas laiks (Kaira)</timezone>
     <timezone id="Europe/Helsinki">Austrumeiropas laiks (Helsinki)</timezone>
-    <timezone id="Asia/Jerusalem">Jeruzaleme</timezone>
+    <timezone id="Asia/Jerusalem">Jerusalem</timezone>
     <timezone id="Europe/Minsk">Minska</timezone>
     <timezone id="Africa/Harare">Harare</timezone>
     <timezone id="Asia/Baghdad">Bagdāde</timezone>
@@ -57,14 +57,14 @@
     <timezone id="Asia/Karachi">Karači</timezone>
     <timezone id="Asia/Oral">Orāla</timezone>
     <timezone id="Asia/Yekaterinburg">Jekaterinburga</timezone>
-    <timezone id="Asia/Calcutta">Kalkuta</timezone>
+    <timezone id="Asia/Calcutta">Calcutta</timezone>
     <timezone id="Asia/Colombo">Kolombo</timezone>
     <timezone id="Asia/Katmandu">Katmandu</timezone>
     <timezone id="Asia/Almaty">Almati</timezone>
     <timezone id="Asia/Rangoon">Jangona</timezone>
     <timezone id="Asia/Krasnoyarsk">Krasnojarska</timezone>
     <timezone id="Asia/Bangkok">Bangkoka</timezone>
-    <timezone id="Asia/Shanghai">Šanhaja</timezone>
+    <timezone id="Asia/Shanghai">Shanghai</timezone>
     <timezone id="Asia/Hong_Kong">Honkonga</timezone>
     <timezone id="Asia/Irkutsk">Irkutska</timezone>
     <timezone id="Asia/Kuala_Lumpur">Kualalumpura</timezone>

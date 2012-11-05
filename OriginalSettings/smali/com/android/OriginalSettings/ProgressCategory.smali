@@ -46,12 +46,12 @@
     iput-boolean v0, p0, Lcom/android/OriginalSettings/ProgressCategory;->mChangeProgressText:Z
 
     .line 34
-    const v0, 0x7f0d0a9e
+    const v0, 0x7f090ccf
 
     iput v0, p0, Lcom/android/OriginalSettings/ProgressCategory;->mNoDeviceTitle:I
 
     .line 38
-    const v0, 0x7f040091
+    const v0, 0x7f0400b2
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/ProgressCategory;->setLayoutResource(I)V
 
@@ -76,7 +76,7 @@
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/ProgressCategoryBase;->onBindView(Landroid/view/View;)V
 
     .line 44
-    const v3, 0x7f0a018e
+    const v3, 0x7f0b01e8
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -86,7 +86,7 @@
 
     .line 45
     .local v2, textView:Landroid/widget/TextView;
-    const v3, 0x7f0a018d
+    const v3, 0x7f0b01e7
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -103,7 +103,7 @@
 
     if-eqz v3, :cond_4
 
-    const v3, 0x7f0d0093
+    const v3, 0x7f0900a7
 
     :goto_0
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
@@ -192,7 +192,7 @@
     .line 49
     .end local v0           #noDeviceFound:Z
     :cond_4
-    const v3, 0x7f0d019f
+    const v3, 0x7f0901bd
 
     goto :goto_0
 
@@ -248,7 +248,7 @@
     .line 71
     iget-object v3, p0, Lcom/android/OriginalSettings/ProgressCategory;->mNoDeviceFoundPreference:Landroid/preference/Preference;
 
-    const v6, 0x7f040088
+    const v6, 0x7f0400a8
 
     invoke-virtual {v3, v6}, Landroid/preference/Preference;->setLayoutResource(I)V
 
@@ -300,18 +300,6 @@
     return-void
 .end method
 
-.method public setNoDeviceFoundText(I)V
-    .locals 0
-    .parameter "resource_id"
-
-    .prologue
-    .line 104
-    iput p1, p0, Lcom/android/OriginalSettings/ProgressCategory;->mNoDeviceTitle:I
-
-    .line 105
-    return-void
-.end method
-
 .method public setProgress(Z)V
     .locals 0
     .parameter "progressOn"
@@ -350,7 +338,7 @@
 
     .line 100
     :cond_0
-    const v0, 0x7f0d0093
+    const v0, 0x7f0900a7
 
     iput v0, p0, Lcom/android/OriginalSettings/ProgressCategory;->mProgressText:I
 

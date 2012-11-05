@@ -3,7 +3,7 @@
 .source "DataUsageSummary.java"
 
 # interfaces
-.implements Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+.implements Landroid/widget/TabHost$TabContentFactory;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 667
+    .line 811
     iput-object p1, p0, Lcom/android/OriginalSettings/DataUsageSummary$3;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,113 +37,26 @@
 
 
 # virtual methods
-.method public onGlobalLayout()V
-    .locals 8
+.method public createTabContent(Ljava/lang/String;)Landroid/view/View;
+    .locals 2
+    .parameter "tag"
 
     .prologue
-    const-wide/16 v6, 0x0
+    .line 814
+    new-instance v0, Landroid/view/View;
 
-    const/4 v5, 0x0
-
-    const/4 v4, 0x3
-
-    const/4 v3, 0x2
-
-    .line 670
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$3;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$400(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/ListView;
+    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mTabHost:Landroid/widget/TabHost;
+    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$200(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/TabHost;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/ListView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    invoke-virtual {v1}, Landroid/widget/TabHost;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary$3;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
+    invoke-direct {v0, v1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mFirstLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
-    invoke-static {v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$300(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/view/ViewTreeObserver;->removeGlobalOnLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
-
-    .line 672
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$3;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mTabsContainer:Landroid/view/ViewGroup;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$600(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/view/ViewGroup;
-
-    move-result-object v1
-
-    #calls: Lcom/android/OriginalSettings/DataUsageSummary;->buildLayoutTransition()Landroid/animation/LayoutTransition;
-    invoke-static {}, Lcom/android/OriginalSettings/DataUsageSummary;->access$500()Landroid/animation/LayoutTransition;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->setLayoutTransition(Landroid/animation/LayoutTransition;)V
-
-    .line 673
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$3;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$700(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/view/ViewGroup;
-
-    move-result-object v1
-
-    #calls: Lcom/android/OriginalSettings/DataUsageSummary;->buildLayoutTransition()Landroid/animation/LayoutTransition;
-    invoke-static {}, Lcom/android/OriginalSettings/DataUsageSummary;->access$500()Landroid/animation/LayoutTransition;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->setLayoutTransition(Landroid/animation/LayoutTransition;)V
-
-    .line 674
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$3;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitchesContainer:Landroid/view/ViewGroup;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$800(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/view/ViewGroup;
-
-    move-result-object v1
-
-    #calls: Lcom/android/OriginalSettings/DataUsageSummary;->buildLayoutTransition()Landroid/animation/LayoutTransition;
-    invoke-static {}, Lcom/android/OriginalSettings/DataUsageSummary;->access$500()Landroid/animation/LayoutTransition;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->setLayoutTransition(Landroid/animation/LayoutTransition;)V
-
-    .line 676
-    #calls: Lcom/android/OriginalSettings/DataUsageSummary;->buildLayoutTransition()Landroid/animation/LayoutTransition;
-    invoke-static {}, Lcom/android/OriginalSettings/DataUsageSummary;->access$500()Landroid/animation/LayoutTransition;
-
-    move-result-object v0
-
-    .line 677
-    .local v0, chartTransition:Landroid/animation/LayoutTransition;
-    invoke-virtual {v0, v3, v6, v7}, Landroid/animation/LayoutTransition;->setStartDelay(IJ)V
-
-    .line 678
-    invoke-virtual {v0, v4, v6, v7}, Landroid/animation/LayoutTransition;->setStartDelay(IJ)V
-
-    .line 679
-    invoke-virtual {v0, v3, v5}, Landroid/animation/LayoutTransition;->setAnimator(ILandroid/animation/Animator;)V
-
-    .line 680
-    invoke-virtual {v0, v4, v5}, Landroid/animation/LayoutTransition;->setAnimator(ILandroid/animation/Animator;)V
-
-    .line 681
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$3;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$900(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/widget/ChartDataUsageView;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Lcom/android/OriginalSettings/widget/ChartDataUsageView;->setLayoutTransition(Landroid/animation/LayoutTransition;)V
-
-    .line 682
-    return-void
+    return-object v0
 .end method

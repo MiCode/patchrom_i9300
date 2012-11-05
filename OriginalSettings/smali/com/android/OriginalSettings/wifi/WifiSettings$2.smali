@@ -3,7 +3,7 @@
 .source "WifiSettings.java"
 
 # interfaces
-.implements Landroid/hardware/motion/MRListener;
+.implements Landroid/net/wifi/WifiManager$ActionListener;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 452
+    .line 407
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$2;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,53 +37,64 @@
 
 
 # virtual methods
-.method public onMotionListener(Landroid/hardware/motion/MREvent;)V
-    .locals 1
-    .parameter "motionEvent"
+.method public onFailure(I)V
+    .locals 3
+    .parameter "reason"
 
     .prologue
-    .line 454
-    invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->getMotion()I
-
-    move-result v0
-
-    packed-switch v0, :pswitch_data_0
-
-    .line 461
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 456
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$2;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
-
-    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$300(Lcom/android/OriginalSettings/wifi/WifiSettings;)Landroid/net/wifi/WifiManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
+    .line 412
+    invoke-static {}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$200()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 457
+    const-string v0, "WifiSettings"
+
+    const-string v1, "ActionListener::onFailure"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 413
+    :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$2;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
 
-    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mScanner:Lcom/android/OriginalSettings/wifi/WifiSettings$Scanner;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$400(Lcom/android/OriginalSettings/wifi/WifiSettings;)Lcom/android/OriginalSettings/wifi/WifiSettings$Scanner;
+    invoke-virtual {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings$Scanner;->forceScan()V
+    const v1, 0x7f090299
 
-    goto :goto_0
+    const/4 v2, 0x0
 
-    .line 454
-    :pswitch_data_0
-    .packed-switch 0x23
-        :pswitch_0
-    .end packed-switch
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+
+    .line 416
+    return-void
+.end method
+
+.method public onSuccess()V
+    .locals 2
+
+    .prologue
+    .line 409
+    invoke-static {}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$200()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "WifiSettings"
+
+    const-string v1, "ActionListener::onSuccess"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 410
+    :cond_0
+    return-void
 .end method

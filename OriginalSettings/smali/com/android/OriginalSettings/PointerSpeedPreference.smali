@@ -15,6 +15,8 @@
 
 
 # instance fields
+.field private final mIm:Landroid/hardware/input/InputManager;
+
 .field private mOldSpeed:I
 
 .field private mRestoredOldState:Z
@@ -33,10 +35,10 @@
     .parameter "attrs"
 
     .prologue
-    .line 56
+    .line 51
     invoke-direct {p0, p1, p2}, Landroid/preference/SeekBarDialogPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 48
+    .line 43
     new-instance v0, Lcom/android/OriginalSettings/PointerSpeedPreference$1;
 
     new-instance v1, Landroid/os/Handler;
@@ -47,7 +49,22 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mSpeedObserver:Landroid/database/ContentObserver;
 
-    .line 57
+    .line 52
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/PointerSpeedPreference;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const-string v1, "input"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/hardware/input/InputManager;
+
+    iput-object v0, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mIm:Landroid/hardware/input/InputManager;
+
+    .line 53
     return-void
 .end method
 
@@ -56,62 +73,28 @@
     .parameter "x0"
 
     .prologue
-    .line 36
+    .line 33
     invoke-direct {p0}, Lcom/android/OriginalSettings/PointerSpeedPreference;->onSpeedChanged()V
 
     return-void
-.end method
-
-.method private getSpeed(I)I
-    .locals 3
-    .parameter "defaultValue"
-
-    .prologue
-    .line 97
-    move v0, p1
-
-    .line 99
-    .local v0, speed:I
-    :try_start_0
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/PointerSpeedPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string v2, "pointer_speed"
-
-    invoke-static {v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
-    :try_end_0
-    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v0
-
-    .line 103
-    :goto_0
-    return v0
-
-    .line 101
-    :catch_0
-    move-exception v1
-
-    goto :goto_0
 .end method
 
 .method private onSpeedChanged()V
     .locals 3
 
     .prologue
-    .line 107
-    const/4 v1, 0x0
+    .line 93
+    iget-object v1, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mIm:Landroid/hardware/input/InputManager;
 
-    invoke-direct {p0, v1}, Lcom/android/OriginalSettings/PointerSpeedPreference;->getSpeed(I)I
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/PointerSpeedPreference;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/hardware/input/InputManager;->getPointerSpeed(Landroid/content/Context;)I
 
     move-result v0
 
-    .line 108
+    .line 94
     .local v0, speed:I
     iget-object v1, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mSeekBar:Landroid/widget/SeekBar;
 
@@ -119,72 +102,35 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    .line 109
+    .line 95
     return-void
 .end method
 
 .method private restoreOldState()V
-    .locals 1
+    .locals 2
 
     .prologue
-    .line 128
+    .line 114
     iget-boolean v0, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mRestoredOldState:Z
 
     if-eqz v0, :cond_0
 
-    .line 132
+    .line 118
     :goto_0
     return-void
 
-    .line 130
+    .line 116
     :cond_0
-    iget v0, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mOldSpeed:I
+    iget-object v0, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mIm:Landroid/hardware/input/InputManager;
 
-    invoke-direct {p0, v0}, Lcom/android/OriginalSettings/PointerSpeedPreference;->setSpeed(I)V
+    iget v1, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mOldSpeed:I
 
-    .line 131
+    invoke-virtual {v0, v1}, Landroid/hardware/input/InputManager;->tryPointerSpeed(I)V
+
+    .line 117
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mRestoredOldState:Z
-
-    goto :goto_0
-.end method
-
-.method private setSpeed(I)V
-    .locals 2
-    .parameter "speed"
-
-    .prologue
-    .line 136
-    :try_start_0
-    const-string v1, "window"
-
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v1
-
-    invoke-static {v1}, Landroid/view/IWindowManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/view/IWindowManager;
-
-    move-result-object v0
-
-    .line 138
-    .local v0, wm:Landroid/view/IWindowManager;
-    if-eqz v0, :cond_0
-
-    .line 139
-    invoke-interface {v0, p1}, Landroid/view/IWindowManager;->setPointerSpeed(I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 143
-    .end local v0           #wm:Landroid/view/IWindowManager;
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 141
-    :catch_0
-    move-exception v1
 
     goto :goto_0
 .end method
@@ -196,33 +142,37 @@
     .parameter "view"
 
     .prologue
-    .line 72
+    .line 68
     invoke-super {p0, p1}, Landroid/preference/SeekBarDialogPreference;->onBindDialogView(Landroid/view/View;)V
 
-    .line 74
+    .line 70
     invoke-static {p1}, Lcom/android/OriginalSettings/PointerSpeedPreference;->getSeekBar(Landroid/view/View;)Landroid/widget/SeekBar;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mSeekBar:Landroid/widget/SeekBar;
 
-    .line 75
+    .line 71
     iget-object v0, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mSeekBar:Landroid/widget/SeekBar;
 
     const/16 v1, 0xe
 
     invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setMax(I)V
 
-    .line 76
-    const/4 v0, 0x0
+    .line 72
+    iget-object v0, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mIm:Landroid/hardware/input/InputManager;
 
-    invoke-direct {p0, v0}, Lcom/android/OriginalSettings/PointerSpeedPreference;->getSpeed(I)I
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/PointerSpeedPreference;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/hardware/input/InputManager;->getPointerSpeed(Landroid/content/Context;)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mOldSpeed:I
 
-    .line 77
+    .line 73
     iget-object v0, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mSeekBar:Landroid/widget/SeekBar;
 
     iget v1, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mOldSpeed:I
@@ -231,24 +181,24 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    .line 78
+    .line 74
     iget-object v0, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mSeekBar:Landroid/widget/SeekBar;
 
     invoke-virtual {v0, p0}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
-    .line 79
+    .line 75
     return-void
 .end method
 
 .method protected onDialogClosed(Z)V
-    .locals 3
+    .locals 4
     .parameter "positiveResult"
 
     .prologue
-    .line 113
+    .line 99
     invoke-super {p0, p1}, Landroid/preference/SeekBarDialogPreference;->onDialogClosed(Z)V
 
-    .line 115
+    .line 101
     invoke-virtual {p0}, Lcom/android/OriginalSettings/PointerSpeedPreference;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -257,33 +207,37 @@
 
     move-result-object v0
 
-    .line 117
+    .line 103
     .local v0, resolver:Landroid/content/ContentResolver;
     if-eqz p1, :cond_0
 
-    .line 118
-    const-string v1, "pointer_speed"
+    .line 104
+    iget-object v1, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mIm:Landroid/hardware/input/InputManager;
 
-    iget-object v2, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mSeekBar:Landroid/widget/SeekBar;
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/PointerSpeedPreference;->getContext()Landroid/content/Context;
 
-    invoke-virtual {v2}, Landroid/widget/SeekBar;->getProgress()I
+    move-result-object v2
 
-    move-result v2
+    iget-object v3, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mSeekBar:Landroid/widget/SeekBar;
 
-    add-int/lit8 v2, v2, -0x7
+    invoke-virtual {v3}, Landroid/widget/SeekBar;->getProgress()I
 
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    move-result v3
 
-    .line 124
+    add-int/lit8 v3, v3, -0x7
+
+    invoke-virtual {v1, v2, v3}, Landroid/hardware/input/InputManager;->setPointerSpeed(Landroid/content/Context;I)V
+
+    .line 110
     :goto_0
     iget-object v1, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mSpeedObserver:Landroid/database/ContentObserver;
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 125
+    .line 111
     return-void
 
-    .line 121
+    .line 107
     :cond_0
     invoke-direct {p0}, Lcom/android/OriginalSettings/PointerSpeedPreference;->restoreOldState()V
 
@@ -291,23 +245,25 @@
 .end method
 
 .method public onProgressChanged(Landroid/widget/SeekBar;IZ)V
-    .locals 1
+    .locals 2
     .parameter "seekBar"
     .parameter "progress"
     .parameter "fromTouch"
 
     .prologue
-    .line 82
+    .line 78
     iget-boolean v0, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mTouchInProgress:Z
 
     if-nez v0, :cond_0
 
-    .line 83
-    add-int/lit8 v0, p2, -0x7
+    .line 79
+    iget-object v0, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mIm:Landroid/hardware/input/InputManager;
 
-    invoke-direct {p0, v0}, Lcom/android/OriginalSettings/PointerSpeedPreference;->setSpeed(I)V
+    add-int/lit8 v1, p2, -0x7
 
-    .line 85
+    invoke-virtual {v0, v1}, Landroid/hardware/input/InputManager;->tryPointerSpeed(I)V
+
+    .line 81
     :cond_0
     return-void
 .end method
@@ -317,7 +273,7 @@
     .parameter
 
     .prologue
-    .line 162
+    .line 137
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -332,43 +288,45 @@
 
     if-nez v0, :cond_1
 
-    .line 164
+    .line 139
     :cond_0
     invoke-super {p0, p1}, Landroid/preference/SeekBarDialogPreference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
-    .line 173
+    .line 148
     :goto_0
     return-void
 
-    .line 168
+    .line 143
     :cond_1
     check-cast p1, Lcom/android/OriginalSettings/PointerSpeedPreference$SavedState;
 
-    .line 169
+    .line 144
     invoke-virtual {p1}, Lcom/android/OriginalSettings/PointerSpeedPreference$SavedState;->getSuperState()Landroid/os/Parcelable;
 
     move-result-object v0
 
     invoke-super {p0, v0}, Landroid/preference/SeekBarDialogPreference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
-    .line 170
+    .line 145
     iget v0, p1, Lcom/android/OriginalSettings/PointerSpeedPreference$SavedState;->oldSpeed:I
 
     iput v0, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mOldSpeed:I
 
-    .line 171
+    .line 146
     iget-object v0, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mSeekBar:Landroid/widget/SeekBar;
 
     iget v1, p1, Lcom/android/OriginalSettings/PointerSpeedPreference$SavedState;->progress:I
 
     invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    .line 172
-    iget v0, p1, Lcom/android/OriginalSettings/PointerSpeedPreference$SavedState;->progress:I
+    .line 147
+    iget-object v0, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mIm:Landroid/hardware/input/InputManager;
 
-    add-int/lit8 v0, v0, -0x7
+    iget v1, p1, Lcom/android/OriginalSettings/PointerSpeedPreference$SavedState;->progress:I
 
-    invoke-direct {p0, v0}, Lcom/android/OriginalSettings/PointerSpeedPreference;->setSpeed(I)V
+    add-int/lit8 v1, v1, -0x7
+
+    invoke-virtual {v0, v1}, Landroid/hardware/input/InputManager;->tryPointerSpeed(I)V
 
     goto :goto_0
 .end method
@@ -377,12 +335,12 @@
     .locals 3
 
     .prologue
-    .line 147
+    .line 122
     invoke-super {p0}, Landroid/preference/SeekBarDialogPreference;->onSaveInstanceState()Landroid/os/Parcelable;
 
     move-result-object v1
 
-    .line 148
+    .line 123
     .local v1, superState:Landroid/os/Parcelable;
     invoke-virtual {p0}, Lcom/android/OriginalSettings/PointerSpeedPreference;->getDialog()Landroid/app/Dialog;
 
@@ -403,17 +361,17 @@
     :cond_0
     move-object v0, v1
 
-    .line 157
+    .line 132
     :goto_0
     return-object v0
 
-    .line 151
+    .line 126
     :cond_1
     new-instance v0, Lcom/android/OriginalSettings/PointerSpeedPreference$SavedState;
 
     invoke-direct {v0, v1}, Lcom/android/OriginalSettings/PointerSpeedPreference$SavedState;-><init>(Landroid/os/Parcelable;)V
 
-    .line 152
+    .line 127
     .local v0, myState:Lcom/android/OriginalSettings/PointerSpeedPreference$SavedState;
     iget-object v2, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mSeekBar:Landroid/widget/SeekBar;
 
@@ -423,12 +381,12 @@
 
     iput v2, v0, Lcom/android/OriginalSettings/PointerSpeedPreference$SavedState;->progress:I
 
-    .line 153
+    .line 128
     iget v2, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mOldSpeed:I
 
     iput v2, v0, Lcom/android/OriginalSettings/PointerSpeedPreference$SavedState;->oldSpeed:I
 
-    .line 156
+    .line 131
     invoke-direct {p0}, Lcom/android/OriginalSettings/PointerSpeedPreference;->restoreOldState()V
 
     goto :goto_0
@@ -439,35 +397,37 @@
     .parameter "seekBar"
 
     .prologue
-    .line 88
+    .line 84
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mTouchInProgress:Z
 
-    .line 89
+    .line 85
     return-void
 .end method
 
 .method public onStopTrackingTouch(Landroid/widget/SeekBar;)V
-    .locals 1
+    .locals 2
     .parameter "seekBar"
 
     .prologue
-    .line 92
+    .line 88
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mTouchInProgress:Z
 
-    .line 93
+    .line 89
+    iget-object v0, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mIm:Landroid/hardware/input/InputManager;
+
     invoke-virtual {p1}, Landroid/widget/SeekBar;->getProgress()I
 
-    move-result v0
+    move-result v1
 
-    add-int/lit8 v0, v0, -0x7
+    add-int/lit8 v1, v1, -0x7
 
-    invoke-direct {p0, v0}, Lcom/android/OriginalSettings/PointerSpeedPreference;->setSpeed(I)V
+    invoke-virtual {v0, v1}, Landroid/hardware/input/InputManager;->tryPointerSpeed(I)V
 
-    .line 94
+    .line 90
     return-void
 .end method
 
@@ -476,10 +436,10 @@
     .parameter "state"
 
     .prologue
-    .line 61
+    .line 57
     invoke-super {p0, p1}, Landroid/preference/SeekBarDialogPreference;->showDialog(Landroid/os/Bundle;)V
 
-    .line 63
+    .line 59
     invoke-virtual {p0}, Lcom/android/OriginalSettings/PointerSpeedPreference;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -500,11 +460,11 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 67
+    .line 63
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/OriginalSettings/PointerSpeedPreference;->mRestoredOldState:Z
 
-    .line 68
+    .line 64
     return-void
 .end method

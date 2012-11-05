@@ -44,7 +44,7 @@
     .locals 8
 
     .prologue
-    const v7, 0x7f0d017c
+    const v7, 0x7f090198
 
     const/4 v6, 0x2
 
@@ -57,7 +57,7 @@
 
     const-string v1, "Introduction"
 
-    const v2, 0x7f0d09ed
+    const v2, 0x7f090c13
 
     invoke-direct {v0, v1, v4, v2, v7}, Lcom/android/OriginalSettings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;-><init>(Ljava/lang/String;III)V
 
@@ -68,9 +68,9 @@
 
     const-string v1, "NeedToConfirm"
 
-    const v2, 0x7f0d048f
+    const v2, 0x7f090553
 
-    const v3, 0x7f0d0187
+    const v3, 0x7f0901a3
 
     invoke-direct {v0, v1, v5, v2, v3}, Lcom/android/OriginalSettings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;-><init>(Ljava/lang/String;III)V
 
@@ -81,7 +81,7 @@
 
     const-string v1, "ConfirmWrong"
 
-    const v2, 0x7f0d0491
+    const v2, 0x7f090555
 
     invoke-direct {v0, v1, v6, v2, v7}, Lcom/android/OriginalSettings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;-><init>(Ljava/lang/String;III)V
 

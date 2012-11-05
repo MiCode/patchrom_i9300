@@ -18,12 +18,15 @@
         <item>10 минут</item>
         <item>30 минут</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 секунд</item>
         <item>30 секунд</item>
         <item>1 минута</item>
-        <item>2 минуты</item>
+        <item>3 минуты</item>
         <item>5 минут</item>
+        <item>10 минут</item>
+        <item>15 минут</item>
+        <item>30 минут</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Никогда</item>
@@ -34,6 +37,18 @@
         <item>5 минут</item>
         <item>10 минут</item>
         <item>30 минут</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 минута</item>
+        <item>3 минуты</item>
+        <item>5 минут</item>
+        <item>10 минут</item>
+        <item>15 минут</item>
+        <item>30 минут</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>Немедленно</item>
@@ -93,17 +108,7 @@
         <item>Отключено</item>
         <item>Сбой</item>
         <item>Подключено</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Временно избегать плохого соединения</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>Отключено</item>
         <item>Сбой</item>
         <item>Подключено</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Временно избегать плохого соединения</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>Открытый</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Нажмите кнопку</item>
+        <item>PIN-код другого устройства</item>
+        <item>PIN-код этого устройства</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Подключено</item>
+        <item>Вы приглашены</item>
+        <item>Сбой при подключении</item>
+        <item>Нажмите для подключения</item>
+        <item>Вне диапазона</item>
+        <item>Подключено к другому устройству</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>Не использовать время ожидания</item>
@@ -152,6 +155,10 @@
         <item>20 минут</item>
         <item>30 минут</item>
         <item>60 минут</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Разрешить все устр.</item>
+        <item>Только разрешенные устройства</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>Авто</item>
@@ -178,19 +185,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-    </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Нажмите кнопку</item>
-        <item>PIN-код другого устройства</item>
-        <item>PIN-код этого устройства</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Подключено</item>
-        <item>Вы приглашены</item>
-        <item>Сбой при подключении</item>
-        <item>Нажмите для подключения</item>
-        <item>Вне диапазона</item>
-        <item>Подключено к другому устройству</item>
     </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 минуты</item>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -266,16 +261,6 @@
     <string-array name="wifi_proxy_settings">
         <item>Нет</item>
         <item>Вручную</item>
-    </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Обычный</item>
-        <item>Downtown</item>
-        <item>Домашний</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>Это универсальный параметр подключения к Wi-Fi</item>
-        <item>Если вы находитесь в зоне с несколькими сетями Wi-Fi, сеть Wi-Fi будет меняться для улучшения качества сигнала</item>
-        <item>Если вы находитесь в зоне с несколькими сетями Wi-Fi, подключение к Wi-Fi сохраняется как можно дольше</item>
     </string-array>
     <string-array name="emergency_tone_entries">
         <item>Выключено</item>
@@ -307,11 +292,6 @@
         <item>Внутренняя память устройства</item>
         <item>Съемная карта памяти SD</item>
         <item>По умолчанию</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>Выключено</item>
-        <item>Вибрация</item>
-        <item>Выключить звук</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Короткая</item>
@@ -346,6 +326,15 @@
         <item>Масштаб анимации: 5x</item>
         <item>Масштаб анимации: 10x</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Анимация отключена</item>
+        <item>Масштаб анимации: 0.5x</item>
+        <item>Масштаб анимации: 1x</item>
+        <item>Масштаб анимации: 1.5x</item>
+        <item>Масштаб анимации: 2x</item>
+        <item>Масштаб анимации: 5x</item>
+        <item>Масштаб анимации: 10x</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>Стандартное ограничение</item>
         <item>Нет фоновых процессов</item>
@@ -367,25 +356,11 @@
         <item>Инициализация...</item>
         <item>Подключение...</item>
         <item>Подключено</item>
-        <item>Время истекло</item>
+        <item>Время ожидания</item>
         <item>Сбой</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>USB-накопитель</item>
+        <item>Устройство</item>
         <item>Карта памяти</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -415,15 +390,28 @@
         <item>Фотографии</item>
         <item>Музыка</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>Высокий</item>
-        <item>Средний</item>
-        <item>Низкий</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Автоматически</item>
         <item>Вручную</item>
         <item>Всегда спрашивать</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Всегда выкл.</item>
+        <item>3 секунды</item>
+        <item>5 секунд</item>
+        <item>10 секунд</item>
+        <item>15 секунд</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Нет</item>
+        <item>Все контакты</item>
+        <item>Избранное</item>
+        <item>Создать</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>Высокий</item>
+        <item>Средний</item>
+        <item>Низкий</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1,5 секунды</item>
@@ -439,11 +427,24 @@
     <string-array name="contents_type_entries">
         <item>Новости</item>
         <item>Акции</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Новости</item>
+        <item>Акции</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>Медленно</item>
         <item>Обычная</item>
         <item>Быстро</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Нет</item>
+        <item>Каждые 30 минут</item>
+        <item>Каждый час</item>
+        <item>Каждые 2 часа</item>
+        <item>Каждые 4 часа</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>Гарнитура</item>
@@ -451,5 +452,9 @@
         <item>Телефон</item>
         <item>Устройство ввода (клавиатура, мышь и т. д.)</item>
         <item>Все устройства</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Стерео</item>
+        <item>Объемный звук</item>
     </string-array>
 </resources>

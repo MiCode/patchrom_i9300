@@ -470,9 +470,9 @@
     :cond_10
     new-instance v1, Landroid/widget/ArrayAdapter;
 
-    const v11, 0x1090084
+    const v11, 0x1090099
 
-    const v12, 0x1020181
+    const v12, 0x102018a
 
     invoke-direct {v1, v6, v11, v12, v5}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;II[Ljava/lang/Object;)V
 

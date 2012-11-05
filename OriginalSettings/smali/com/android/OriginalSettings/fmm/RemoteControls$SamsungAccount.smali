@@ -33,18 +33,29 @@
     .locals 0
 
     .prologue
-    .line 195
+    .line 204
     invoke-direct {p0}, Landroid/preference/PreferenceFragment;-><init>()V
 
     return-void
 .end method
 
-.method static synthetic access$200(Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;)I
+.method static synthetic access$200(Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;)Landroid/accounts/AuthenticatorDescription;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 195
+    .line 204
+    iget-object v0, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->mSamsungDescription:Landroid/accounts/AuthenticatorDescription;
+
+    return-object v0
+.end method
+
+.method static synthetic access$300(Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;)I
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 204
     iget v0, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->returnvalue_sa:I
 
     return v0
@@ -61,7 +72,7 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 207
+    .line 216
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
@@ -74,7 +85,7 @@
 
     move-result-object v0
 
-    .line 208
+    .line 217
     .local v0, desc:[Landroid/accounts/AuthenticatorDescription;
     const/4 v2, 0x0
 
@@ -84,7 +95,7 @@
 
     if-ge v2, v5, :cond_0
 
-    .line 209
+    .line 218
     aget-object v5, v0, v2
 
     iget-object v5, v5, Landroid/accounts/AuthenticatorDescription;->type:Ljava/lang/String;
@@ -95,15 +106,20 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2
 
-    .line 210
+    .line 219
     aget-object v5, v0, v2
 
     iput-object v5, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->mSamsungDescription:Landroid/accounts/AuthenticatorDescription;
 
-    .line 216
+    .line 224
     :cond_0
+    iget-object v5, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->mSamsungDescription:Landroid/accounts/AuthenticatorDescription;
+
+    if-eqz v5, :cond_1
+
+    .line 226
     :try_start_0
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->getActivity()Landroid/app/Activity;
 
@@ -123,17 +139,51 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 221
+    .line 232
+    :cond_1
     :goto_1
-    const v5, 0x7f040008
+    const v5, 0x7f040006
 
     invoke-virtual {p1, v5, p2, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v4
 
-    .line 222
+    .line 233
     .local v4, view:Landroid/view/View;
-    const v5, 0x7f0a0016
+    iget-object v5, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->mSamsungDescription:Landroid/accounts/AuthenticatorDescription;
+
+    if-nez v5, :cond_3
+
+    .line 253
+    :goto_2
+    return-object v4
+
+    .line 217
+    .end local v4           #view:Landroid/view/View;
+    :cond_2
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    .line 227
+    :catch_0
+    move-exception v1
+
+    .line 228
+    .local v1, e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    const-string v5, "RemoteControls"
+
+    const-string v6, "No Package name for account type com.osp.app.signin"
+
+    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secW(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    .line 235
+    .end local v1           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .restart local v4       #view:Landroid/view/View;
+    :cond_3
+    const v5, 0x7f0b0014
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -141,7 +191,7 @@
 
     check-cast v3, Landroid/widget/ImageView;
 
-    .line 223
+    .line 236
     .local v3, mSamsungIcon:Landroid/widget/ImageView;
     iget-object v5, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->authContext:Landroid/content/Context;
 
@@ -159,8 +209,8 @@
 
     invoke-virtual {v3, v5}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 224
-    const v5, 0x7f0a0017
+    .line 237
+    const v5, 0x7f0b0015
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -170,8 +220,8 @@
 
     iput-object v5, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->mSamsungTitle:Landroid/widget/TextView;
 
-    .line 225
-    const v5, 0x7f0a0018
+    .line 238
+    const v5, 0x7f0b0016
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -181,8 +231,8 @@
 
     iput-object v5, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->mSamsungSummary:Landroid/widget/TextView;
 
-    .line 226
-    const v5, 0x7f0a0019
+    .line 239
+    const v5, 0x7f0b0017
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -192,14 +242,14 @@
 
     iput-object v5, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->mSamsungAdd:Landroid/widget/ImageView;
 
-    .line 227
+    .line 240
     iget-object v5, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->mSamsungAdd:Landroid/widget/ImageView;
 
-    const v6, 0x7f020254
+    const v6, 0x7f0202ee
 
     invoke-virtual {v5, v6}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 228
+    .line 241
     iget-object v5, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->mSamsungAdd:Landroid/widget/ImageView;
 
     new-instance v6, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount$1;
@@ -208,30 +258,7 @@
 
     invoke-virtual {v5, v6}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 240
-    return-object v4
-
-    .line 208
-    .end local v3           #mSamsungIcon:Landroid/widget/ImageView;
-    .end local v4           #view:Landroid/view/View;
-    :cond_1
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-
-    .line 217
-    :catch_0
-    move-exception v1
-
-    .line 218
-    .local v1, e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    const-string v5, "RemoteControls"
-
-    const-string v6, "No Package name for account type com.osp.app.signin"
-
-    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
+    goto :goto_2
 .end method
 
 .method public onResume()V
@@ -240,10 +267,27 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 245
+    .line 258
     invoke-super {p0}, Landroid/preference/PreferenceFragment;->onResume()V
 
-    .line 247
+    .line 259
+    iget-object v2, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->mSamsungDescription:Landroid/accounts/AuthenticatorDescription;
+
+    if-nez v2, :cond_0
+
+    .line 260
+    const-string v2, "RemoteControls"
+
+    const-string v3, "No Instance for account type com.osp.app.signin"
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 276
+    :goto_0
+    return-void
+
+    .line 264
+    :cond_0
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -252,7 +296,7 @@
 
     move-result-object v0
 
-    .line 248
+    .line 265
     .local v0, manager:Landroid/accounts/AccountManager;
     const-string v2, "com.osp.app.signin"
 
@@ -260,18 +304,18 @@
 
     move-result-object v1
 
-    .line 249
+    .line 266
     .local v1, samsungAccnts:[Landroid/accounts/Account;
     array-length v2, v1
 
     iput v2, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->returnvalue_sa:I
 
-    .line 250
+    .line 267
     iget v2, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->returnvalue_sa:I
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
-    .line 251
+    .line 268
     iget-object v2, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->mSamsungTitle:Landroid/widget/TextView;
 
     aget-object v3, v1, v4
@@ -280,7 +324,7 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 252
+    .line 269
     iget-object v2, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->mSamsungSummary:Landroid/widget/TextView;
 
     iget-object v3, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->authContext:Landroid/content/Context;
@@ -299,33 +343,31 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 253
+    .line 270
     iget-object v2, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->mSamsungAdd:Landroid/widget/ImageView;
 
     const/16 v3, 0x8
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 259
-    :goto_0
-    return-void
+    goto :goto_0
 
-    .line 255
-    :cond_0
+    .line 272
+    :cond_1
     iget-object v2, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->mSamsungTitle:Landroid/widget/TextView;
 
-    const v3, 0x7f0d0674
+    const v3, 0x7f090772
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
-    .line 256
+    .line 273
     iget-object v2, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->mSamsungSummary:Landroid/widget/TextView;
 
-    const v3, 0x7f0d079c
+    const v3, 0x7f0908f3
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
-    .line 257
+    .line 274
     iget-object v2, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$SamsungAccount;->mSamsungAdd:Landroid/widget/ImageView;
 
     invoke-virtual {v2, v4}, Landroid/widget/ImageView;->setVisibility(I)V

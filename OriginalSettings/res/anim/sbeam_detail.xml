@@ -4,4 +4,6 @@
     <item android:duration="500" android:drawable="@drawable/sbeam_tutorial_1" />
     <item android:duration="500" android:drawable="@drawable/sbeam_tutorial_2" />
     <item android:duration="500" android:drawable="@drawable/sbeam_tutorial_3" />
+    <item android:duration="500" android:drawable="@drawable/sbeam_tutorial_4" />
+    <item android:duration="500" android:drawable="@drawable/sbeam_tutorial_5" />
 </animation-list>

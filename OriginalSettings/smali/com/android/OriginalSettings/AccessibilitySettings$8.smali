@@ -20,25 +20,15 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/OriginalSettings/AccessibilitySettings;
 
-.field final synthetic val$edit:Landroid/content/SharedPreferences$Editor;
-
-.field final synthetic val$mcheck:Landroid/widget/CheckBox;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/OriginalSettings/AccessibilitySettings;Landroid/content/SharedPreferences$Editor;Landroid/widget/CheckBox;)V
+.method constructor <init>(Lcom/android/OriginalSettings/AccessibilitySettings;)V
     .locals 0
-    .parameter
-    .parameter
     .parameter
 
     .prologue
-    .line 1250
+    .line 1408
     iput-object p1, p0, Lcom/android/OriginalSettings/AccessibilitySettings$8;->this$0:Lcom/android/OriginalSettings/AccessibilitySettings;
-
-    iput-object p2, p0, Lcom/android/OriginalSettings/AccessibilitySettings$8;->val$edit:Landroid/content/SharedPreferences$Editor;
-
-    iput-object p3, p0, Lcom/android/OriginalSettings/AccessibilitySettings$8;->val$mcheck:Landroid/widget/CheckBox;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
@@ -48,32 +38,47 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 3
+    .locals 5
     .parameter "dialog"
-    .parameter "id"
+    .parameter "which"
 
     .prologue
-    .line 1252
-    iget-object v0, p0, Lcom/android/OriginalSettings/AccessibilitySettings$8;->val$edit:Landroid/content/SharedPreferences$Editor;
+    .line 1413
+    iget-object v3, p0, Lcom/android/OriginalSettings/AccessibilitySettings$8;->this$0:Lcom/android/OriginalSettings/AccessibilitySettings;
 
-    const-string v1, "pref_font_noti"
+    const/4 v4, 0x1
 
-    iget-object v2, p0, Lcom/android/OriginalSettings/AccessibilitySettings$8;->val$mcheck:Landroid/widget/CheckBox;
+    invoke-virtual {v3, v4}, Lcom/android/OriginalSettings/AccessibilitySettings;->removeDialog(I)V
 
-    invoke-virtual {v2}, Landroid/widget/CheckBox;->isChecked()Z
+    .line 1414
+    const-string v3, "ro.screenreader.market"
 
-    move-result v2
+    const-string v4, "market://search?q=pname:com.google.android.marvin.talkback"
 
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    invoke-static {v3, v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 1253
-    iget-object v0, p0, Lcom/android/OriginalSettings/AccessibilitySettings$8;->val$edit:Landroid/content/SharedPreferences$Editor;
+    move-result-object v2
 
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    .line 1417
+    .local v2, screenreaderMarketLink:Ljava/lang/String;
+    invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    .line 1254
-    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
+    move-result-object v1
 
-    .line 1255
+    .line 1418
+    .local v1, marketUri:Landroid/net/Uri;
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v3, "android.intent.action.VIEW"
+
+    invoke-direct {v0, v3, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+
+    .line 1419
+    .local v0, marketIntent:Landroid/content/Intent;
+    iget-object v3, p0, Lcom/android/OriginalSettings/AccessibilitySettings$8;->this$0:Lcom/android/OriginalSettings/AccessibilitySettings;
+
+    invoke-virtual {v3, v0}, Lcom/android/OriginalSettings/AccessibilitySettings;->startActivity(Landroid/content/Intent;)V
+
+    .line 1420
     return-void
 .end method

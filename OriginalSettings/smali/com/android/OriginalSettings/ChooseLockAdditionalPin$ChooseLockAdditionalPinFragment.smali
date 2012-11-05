@@ -441,7 +441,7 @@
     if-ge v1, v6, :cond_0
 
     .line 409
-    const v6, 0x7f0d017a
+    const v6, 0x7f090196
 
     new-array v4, v4, [Ljava/lang/Object;
 
@@ -508,7 +508,7 @@
     :cond_1
     iget-object v5, p0, Lcom/android/OriginalSettings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->mHeaderText:Landroid/widget/TextView;
 
-    const v6, 0x7f0d017b
+    const v6, 0x7f090197
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(I)V
 
@@ -565,7 +565,7 @@
     if-ge v6, v7, :cond_0
 
     .line 285
-    const v6, 0x7f0d017a
+    const v6, 0x7f090196
 
     new-array v7, v8, [Ljava/lang/Object;
 
@@ -596,7 +596,7 @@
     if-le v6, v7, :cond_1
 
     .line 288
-    const v6, 0x7f0d017e
+    const v6, 0x7f09019a
 
     new-array v7, v8, [Ljava/lang/Object;
 
@@ -659,7 +659,7 @@
 
     .line 298
     :cond_2
-    const v6, 0x7f0d0181
+    const v6, 0x7f09019d
 
     invoke-virtual {p0, v6}, Lcom/android/OriginalSettings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->getString(I)Ljava/lang/String;
 
@@ -743,7 +743,7 @@
 
     .line 316
     :cond_8
-    const v6, 0x7f0d017f
+    const v6, 0x7f09019b
 
     invoke-virtual {p0, v6}, Lcom/android/OriginalSettings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->getString(I)Ljava/lang/String;
 
@@ -762,7 +762,7 @@
     if-eqz v6, :cond_a
 
     .line 320
-    const v6, 0x7f0d0180
+    const v6, 0x7f09019c
 
     invoke-virtual {p0, v6}, Lcom/android/OriginalSettings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->getString(I)Ljava/lang/String;
 
@@ -827,10 +827,6 @@
     invoke-super {p0, p1, p2, p3}, Landroid/app/Fragment;->onActivityResult(IILandroid/content/Intent;)V
 
     .line 261
-    sget-boolean v0, Lcom/android/OriginalSettings/Utils;->DBG:Z
-
-    if-eqz v0, :cond_0
-
     const-string v0, "ChooseLockAdditionalPin"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -861,14 +857,13 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 262
-    :cond_0
     packed-switch p1, :pswitch_data_0
 
     .line 270
-    :cond_1
+    :cond_0
     :goto_0
     return-void
 
@@ -876,7 +871,7 @@
     :pswitch_0
     const/4 v0, -0x1
 
-    if-eq p2, v0, :cond_1
+    if-eq p2, v0, :cond_0
 
     .line 265
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->getActivity()Landroid/app/Activity;
@@ -913,20 +908,20 @@
 
     move-result v0
 
-    sparse-switch v0, :sswitch_data_0
+    packed-switch v0, :pswitch_data_0
 
     .line 379
     :goto_0
     return-void
 
     .line 371
-    :sswitch_0
+    :pswitch_0
     invoke-direct {p0}, Lcom/android/OriginalSettings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->handleNext()V
 
     goto :goto_0
 
     .line 375
-    :sswitch_1
+    :pswitch_1
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
@@ -936,11 +931,11 @@
     goto :goto_0
 
     .line 369
-    :sswitch_data_0
-    .sparse-switch
-        0x7f0a000b -> :sswitch_0
-        0x7f0a001b -> :sswitch_1
-    .end sparse-switch
+    :pswitch_data_0
+    .packed-switch 0x7f0b003c
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
@@ -1090,7 +1085,7 @@
 
     .line 186
     .local v6, view:Landroid/view/View;
-    const v7, 0x7f0a001b
+    const v7, 0x7f0b003c
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1106,7 +1101,7 @@
     invoke-virtual {v7, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 189
-    const v7, 0x7f0a000b
+    const v7, 0x7f0b003d
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1122,7 +1117,7 @@
     invoke-virtual {v7, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 193
-    const v7, 0x7f0a0041
+    const v7, 0x7f0b003e
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1133,7 +1128,7 @@
     iput-object v7, p0, Lcom/android/OriginalSettings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->mKeyboardView:Landroid/inputmethodservice/KeyboardView;
 
     .line 194
-    const v7, 0x7f0a003f
+    const v7, 0x7f0b003a
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1178,7 +1173,7 @@
     invoke-virtual {v7, v8}, Lcom/android/internal/widget/PasswordEntryKeyboardHelper;->setKeyboardMode(I)V
 
     .line 203
-    const v7, 0x7f0a003d
+    const v7, 0x7f0b0038
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1189,7 +1184,7 @@
     iput-object v7, p0, Lcom/android/OriginalSettings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->mHeaderText:Landroid/widget/TextView;
 
     .line 204
-    const v7, 0x7f0a0040
+    const v7, 0x7f0b003b
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1243,7 +1238,7 @@
 
     .line 225
     .local v3, preferenceActivity:Lmiui/preference/BasePreferenceActivity;
-    const v1, 0x7f0d09ed
+    const v1, 0x7f090c13
 
     .line 226
     .local v1, id:I
@@ -1371,7 +1366,7 @@
     .line 240
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment;->mLockText:Landroid/widget/TextView;
 
-    const v1, 0x7f0d09ee
+    const v1, 0x7f090c14
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

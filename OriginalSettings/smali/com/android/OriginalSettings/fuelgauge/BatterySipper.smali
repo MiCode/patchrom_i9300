@@ -139,13 +139,7 @@
     iput-object p3, p0, Lcom/android/OriginalSettings/fuelgauge/BatterySipper;->mHandler:Landroid/os/Handler;
 
     .line 69
-    invoke-virtual {p8}, [D->clone()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, [D
-
-    iput-object v0, p0, Lcom/android/OriginalSettings/fuelgauge/BatterySipper;->values:[D
+    iput-object p8, p0, Lcom/android/OriginalSettings/fuelgauge/BatterySipper;->values:[D
 
     .line 70
     iput-object p4, p0, Lcom/android/OriginalSettings/fuelgauge/BatterySipper;->name:Ljava/lang/String;
@@ -802,7 +796,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d05e6
+    const v7, 0x7f0906d8
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -813,7 +807,7 @@
     .line 120
     :cond_1
     :goto_1
-    const v6, 0x7f0200e9
+    const v6, 0x7f02012e
 
     iput v6, p0, Lcom/android/OriginalSettings/fuelgauge/BatterySipper;->iconId:I
 
@@ -853,7 +847,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d05e7
+    const v7, 0x7f0906d9
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

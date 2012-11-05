@@ -18,12 +18,15 @@
         <item>10 منٹ</item>
         <item>30 منٹ</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 سیکنڈز</item>
         <item>30 سیکنڈز</item>
         <item>1 منٹ</item>
-        <item>2 منٹ</item>
+        <item>3 منٹ</item>
         <item>5 منٹ</item>
+        <item>10 منٹ</item>
+        <item>15منٹ</item>
+        <item>30 منٹ</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>کبھی نہیں</item>
@@ -34,6 +37,18 @@
         <item>5 منٹ</item>
         <item>10 منٹ</item>
         <item>30 منٹ</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 سیکنڈز</item>
+        <item>30 سیکنڈز</item>
+        <item>1 منٹ</item>
+        <item>3 منٹ</item>
+        <item>5 منٹ</item>
+        <item>10 منٹ</item>
+        <item>15منٹ</item>
+        <item>30 منٹ</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>جلدی</item>
@@ -93,17 +108,7 @@
         <item>غیر منسلک ہو گیا</item>
         <item>ناکام</item>
         <item>منسلک ہوگیا</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Temporarily avoiding poor connection</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>غیر منسلک ہو گیا</item>
         <item>ناکام</item>
         <item>منسلک ہوگیا</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Temporarily avoiding poor connection</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>کھولیں</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>پش بٹن</item>
+        <item>پیئر آلہ سے پن</item>
+        <item>اس آلہ سے پن</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>منسلک ہوگیا</item>
+        <item>مدعو کیا</item>
+        <item>کنکشن ناکام</item>
+        <item>کنکٹ ہونے کیلئے تھپکائیں</item>
+        <item>حدد سے زیادہ</item>
+        <item>کسی دوسرے آلے سے جڑا ہوا</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>ہر گز وقت ختم نہ ہو</item>
@@ -152,6 +155,10 @@
         <item>20 منٹ</item>
         <item>30 منٹ</item>
         <item>60 منٹ</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>سب آلات کو اجازت دیں</item>
+        <item>صرف اجازت یافتہ آلات</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>آٹو</item>
@@ -179,19 +186,6 @@
         <item>9</item>
         <item>10</item>
     </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>پش بٹن</item>
-        <item>پیئر آلہ سے پن</item>
-        <item>اس آلہ سے پن</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>منسلک ہوگیا</item>
-        <item>مدعو کیا</item>
-        <item>کنکشن ناکام</item>
-        <item>کنکٹ ہونے کیلئے تھپکائیں</item>
-        <item>حدد سے زیادہ</item>
-        <item>کسی دوسرے آلے سے جڑا ہوا</item>
-    </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 منٹ</item>
         <item>5 منٹ</item>
@@ -206,12 +200,12 @@
         <item>بہت طاقتور</item>
     </string-array>
     <string-array name="wifi_sleep_policy_entries">
-        <item>ہمیشہ</item>
+        <item>ھمیشہ</item>
         <item>صرف جب پلگ ان کیا گیا ہو</item>
         <item>ہر گز نہیں (ڈیٹا کا استعمال بڑھاتا ہے)</item>
     </string-array>
     <string-array name="wifi_sleep_policy_entries_wifi_only">
-        <item>ہمیشہ</item>
+        <item>ھمیشہ</item>
         <item>صرف جب پلگ ان کیا گیا ہو</item>
         <item>کبھی نہیں</item>
     </string-array>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -267,16 +262,6 @@
         <item>نہیں</item>
         <item>مینوئل</item>
     </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>عام</item>
-        <item>Downtown</item>
-        <item>ہوم</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>یہ سب سے زیادہ عمومی Wi-Fi کنکشن سیٹنگ ہے</item>
-        <item>اگر آپ کسی بہت سے Wi-Fi نیٹ ورکس والے علاقہ میں ہیں، تو Wi-Fi بہتر سگنل کی قوت کے لئے اکثر پھر سے جڑے گا</item>
-        <item>اگر آپ کسی چند Wi-Fi نیٹ ورکس والے علاقہ میں ہیں، تو Wi-Fi کنکشن جس قدر دیر تک ممکن ہو برقرار رہتا ہے</item>
-    </string-array>
     <string-array name="emergency_tone_entries">
         <item>آف</item>
         <item>تنبیہ</item>
@@ -302,11 +287,6 @@
         <item>آلہ کا داخلی ذخیرہ</item>
         <item>قابل حمل SD کارڈ</item>
         <item>طے شدہ</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>آف</item>
-        <item>تھرتھرائیں</item>
-        <item>آواز بند</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>چھوٹا</item>
@@ -341,6 +321,15 @@
         <item>حرکت اندازی پیمانہ 5x</item>
         <item>حرکت اندازی پیمانہ 10x</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>حرکت اندازی آف ہے</item>
+        <item>حرکت اندازی پیمانہ 0.5x</item>
+        <item>حرکت اندازی پیمانہ 1x</item>
+        <item>حرکت اندازی پیمانہ 1.5x</item>
+        <item>حرکت اندازی پیمانہ 2x</item>
+        <item>حرکت اندازی پیمانہ 5x</item>
+        <item>حرکت اندازی پیمانہ 10x</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>معیاری حد</item>
         <item>کوئی پس منظر عملیات نہیں</item>
@@ -365,22 +354,8 @@
         <item>ٹائم آؤٹ</item>
         <item>ناکام</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>USB ذخیرہ</item>
+        <item>آلہ</item>
         <item>SD کارڈ</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -410,15 +385,28 @@
         <item>فوٹو</item>
         <item>میوزک</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>زیادہ</item>
-        <item>درمیانہ</item>
-        <item>کم</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>آٹومیٹک</item>
         <item>دستی طور پر</item>
         <item>ہمیشہ پوچھیں</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>ہمیشہ آف</item>
+        <item>3 سیکینڈ</item>
+        <item>5 سیکنڈز</item>
+        <item>10 سیکنڈز</item>
+        <item>15 سیکنڈز</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>نہیں</item>
+        <item>تمام کانٹیکٹس</item>
+        <item>پسند کردہ</item>
+        <item>کسٹم</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>زیادہ</item>
+        <item>درمیانہ</item>
+        <item>کم</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1.5 سیکنڈ</item>
@@ -434,11 +422,24 @@
     <string-array name="contents_type_entries">
         <item>خبریں</item>
         <item>سٹاک</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>خبریں</item>
+        <item>سٹاک</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>آہستہ</item>
         <item>معمولی</item>
         <item>تیز</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>نہیں</item>
+        <item>ہر 30 منٹ</item>
+        <item>ہر 1 گھنٹے پر</item>
+        <item>ہر 2 گھنٹے پر</item>
+        <item>ہر 4 گھنٹے پر</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>ہیڈسیٹ</item>
@@ -446,5 +447,9 @@
         <item>فون</item>
         <item>HID (کی بورڈ، ماؤس، وغیرہ)</item>
         <item>سب آلات</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>اسٹیریو</item>
+        <item>سراونڈ</item>
     </string-array>
 </resources>

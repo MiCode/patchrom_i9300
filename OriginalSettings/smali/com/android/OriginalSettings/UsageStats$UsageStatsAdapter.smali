@@ -111,7 +111,7 @@
 
     const-string v9, "Failed initializing usage stats service"
 
-    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
@@ -346,7 +346,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0400c5
+    const v4, 0x7f0400e1
 
     const/4 v5, 0x0
 
@@ -361,7 +361,7 @@
 
     .line 172
     .local v0, holder:Lcom/android/OriginalSettings/UsageStats$AppViewHolder;
-    const v3, 0x7f0a0235
+    const v3, 0x7f0b0262
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -372,7 +372,7 @@
     iput-object v3, v0, Lcom/android/OriginalSettings/UsageStats$AppViewHolder;->pkgName:Landroid/widget/TextView;
 
     .line 173
-    const v3, 0x7f0a0236
+    const v3, 0x7f0b0263
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -383,7 +383,7 @@
     iput-object v3, v0, Lcom/android/OriginalSettings/UsageStats$AppViewHolder;->launchCount:Landroid/widget/TextView;
 
     .line 174
-    const v3, 0x7f0a0237
+    const v3, 0x7f0b0264
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -508,7 +508,7 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secW(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 .end method

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 314
+    .line 292
     iput-object p1, p0, Lcom/android/OriginalSettings/motion/ShakeTutorial$ShakeTutorialFragment$6;->this$0:Lcom/android/OriginalSettings/motion/ShakeTutorial$ShakeTutorialFragment;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,12 +42,12 @@
     .parameter "dialog"
 
     .prologue
-    .line 316
+    .line 294
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/ShakeTutorial$ShakeTutorialFragment$6;->this$0:Lcom/android/OriginalSettings/motion/ShakeTutorial$ShakeTutorialFragment;
 
     #calls: Lcom/android/OriginalSettings/motion/ShakeTutorial$ShakeTutorialFragment;->stopAnimation()V
     invoke-static {v0}, Lcom/android/OriginalSettings/motion/ShakeTutorial$ShakeTutorialFragment;->access$800(Lcom/android/OriginalSettings/motion/ShakeTutorial$ShakeTutorialFragment;)V
 
-    .line 317
+    .line 295
     return-void
 .end method

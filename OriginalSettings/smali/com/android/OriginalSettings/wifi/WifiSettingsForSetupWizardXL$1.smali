@@ -1,101 +1,55 @@
-.class synthetic Lcom/android/OriginalSettings/wifi/WifiSettingsForSetupWizardXL$1;
+.class Lcom/android/OriginalSettings/wifi/WifiSettingsForSetupWizardXL$1;
 .super Ljava/lang/Object;
 .source "WifiSettingsForSetupWizardXL.java"
 
+# interfaces
+.implements Landroid/net/wifi/WifiManager$ActionListener;
+
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/OriginalSettings/wifi/WifiSettingsForSetupWizardXL;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/OriginalSettings/wifi/WifiSettingsForSetupWizardXL;->onBackButtonPressed()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
+    accessFlags = 0x0
     name = null
 .end annotation
 
 
-# static fields
-.field static final synthetic $SwitchMap$android$net$NetworkInfo$DetailedState:[I
+# instance fields
+.field final synthetic this$0:Lcom/android/OriginalSettings/wifi/WifiSettingsForSetupWizardXL;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 3
+.method constructor <init>(Lcom/android/OriginalSettings/wifi/WifiSettingsForSetupWizardXL;)V
+    .locals 0
+    .parameter
 
     .prologue
-    .line 281
-    invoke-static {}, Landroid/net/NetworkInfo$DetailedState;->values()[Landroid/net/NetworkInfo$DetailedState;
+    .line 599
+    iput-object p1, p0, Lcom/android/OriginalSettings/wifi/WifiSettingsForSetupWizardXL$1;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettingsForSetupWizardXL;
 
-    move-result-object v0
+    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    array-length v0, v0
-
-    new-array v0, v0, [I
-
-    sput-object v0, Lcom/android/OriginalSettings/wifi/WifiSettingsForSetupWizardXL$1;->$SwitchMap$android$net$NetworkInfo$DetailedState:[I
-
-    :try_start_0
-    sget-object v0, Lcom/android/OriginalSettings/wifi/WifiSettingsForSetupWizardXL$1;->$SwitchMap$android$net$NetworkInfo$DetailedState:[I
-
-    sget-object v1, Landroid/net/NetworkInfo$DetailedState;->SCANNING:Landroid/net/NetworkInfo$DetailedState;
-
-    invoke-virtual {v1}, Landroid/net/NetworkInfo$DetailedState;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x1
-
-    aput v2, v0, v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_2
-
-    :goto_0
-    :try_start_1
-    sget-object v0, Lcom/android/OriginalSettings/wifi/WifiSettingsForSetupWizardXL$1;->$SwitchMap$android$net$NetworkInfo$DetailedState:[I
-
-    sget-object v1, Landroid/net/NetworkInfo$DetailedState;->CONNECTING:Landroid/net/NetworkInfo$DetailedState;
-
-    invoke-virtual {v1}, Landroid/net/NetworkInfo$DetailedState;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x2
-
-    aput v2, v0, v1
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
-
-    :goto_1
-    :try_start_2
-    sget-object v0, Lcom/android/OriginalSettings/wifi/WifiSettingsForSetupWizardXL$1;->$SwitchMap$android$net$NetworkInfo$DetailedState:[I
-
-    sget-object v1, Landroid/net/NetworkInfo$DetailedState;->CONNECTED:Landroid/net/NetworkInfo$DetailedState;
-
-    invoke-virtual {v1}, Landroid/net/NetworkInfo$DetailedState;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x3
-
-    aput v2, v0, v1
-    :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_0
-
-    :goto_2
     return-void
+.end method
 
-    :catch_0
-    move-exception v0
 
-    goto :goto_2
+# virtual methods
+.method public onFailure(I)V
+    .locals 0
+    .parameter "reason"
 
-    :catch_1
-    move-exception v0
+    .prologue
+    .line 604
+    return-void
+.end method
 
-    goto :goto_1
+.method public onSuccess()V
+    .locals 0
 
-    :catch_2
-    move-exception v0
-
-    goto :goto_0
+    .prologue
+    .line 601
+    return-void
 .end method

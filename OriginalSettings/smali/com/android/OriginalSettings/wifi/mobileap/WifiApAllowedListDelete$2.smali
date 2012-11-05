@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 117
+    .line 116
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedListDelete$2;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedListDelete;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,11 +42,11 @@
     .parameter "arg0"
 
     .prologue
-    .line 120
+    .line 119
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedListDelete$2;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedListDelete;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedListDelete;->finish()V
 
-    .line 121
+    .line 120
     return-void
 .end method

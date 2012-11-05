@@ -582,7 +582,7 @@
 
     .line 486
     .local v0, ab:Landroid/app/AlertDialog$Builder;
-    const v3, 0x7f0d01d3
+    const v3, 0x7f0901f7
 
     invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/bluetooth/DockService;->getString(I)Ljava/lang/String;
 
@@ -620,7 +620,7 @@
 
     .line 495
     .local v10, pixelScaleFactor:F
-    const v3, 0x7f0400a1
+    const v3, 0x7f0400c0
 
     const/4 v5, 0x0
 
@@ -630,7 +630,7 @@
 
     .line 496
     .local v1, view:Landroid/view/View;
-    const v3, 0x7f0a01d5
+    const v3, 0x7f0b022d
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1347,7 +1347,7 @@
     .parameter "firstTime"
 
     .prologue
-    const v3, 0x7f0d01d5
+    const v3, 0x7f0901f9
 
     const/4 v5, 0x1
 
@@ -1430,7 +1430,7 @@
     .line 606
     .restart local v0       #items:[Ljava/lang/CharSequence;
     :pswitch_3
-    const v2, 0x7f0d01d4
+    const v2, 0x7f0901f8
 
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/bluetooth/DockService;->getString(I)Ljava/lang/String;
 

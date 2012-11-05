@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 836
+    .line 1015
     iput-object p1, p0, Lcom/android/OriginalSettings/applications/InstalledAppDetails$MyAlertDialogFragment$6;->this$0:Lcom/android/OriginalSettings/applications/InstalledAppDetails$MyAlertDialogFragment;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 839
+    .line 1018
     new-instance v1, Lcom/android/OriginalSettings/applications/InstalledAppDetails$DisableChanger;
 
     iget-object v0, p0, Lcom/android/OriginalSettings/applications/InstalledAppDetails$MyAlertDialogFragment$6;->this$0:Lcom/android/OriginalSettings/applications/InstalledAppDetails$MyAlertDialogFragment;
@@ -83,6 +83,6 @@
 
     invoke-virtual {v1, v2}, Lcom/android/OriginalSettings/applications/InstalledAppDetails$DisableChanger;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 842
+    .line 1021
     return-void
 .end method

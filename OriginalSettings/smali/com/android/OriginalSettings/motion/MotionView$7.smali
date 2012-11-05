@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 296
+    .line 328
     iput-object p1, p0, Lcom/android/OriginalSettings/motion/MotionView$7;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,12 +42,12 @@
     .parameter "dialog"
 
     .prologue
-    .line 298
+    .line 330
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/MotionView$7;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
 
     #calls: Lcom/android/OriginalSettings/motion/MotionView;->stopAnimation()V
     invoke-static {v0}, Lcom/android/OriginalSettings/motion/MotionView;->access$1200(Lcom/android/OriginalSettings/motion/MotionView;)V
 
-    .line 299
+    .line 331
     return-void
 .end method

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 404
+    .line 371
     iput-object p1, p0, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 404
+    .line 371
     invoke-direct {p0, p1}, Lcom/android/OriginalSettings/GSensorSettings$setHandler;-><init>(Lcom/android/OriginalSettings/GSensorSettings;)V
 
     return-void
@@ -61,26 +61,26 @@
 
     const/4 v4, 0x2
 
-    .line 406
+    .line 373
     new-array v1, v4, [F
 
-    .line 407
+    .line 374
     .local v1, position:[F
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 408
+    .line 375
     .local v0, message:Landroid/os/Message;
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
-    .line 462
+    .line 420
     :goto_0
     return-void
 
-    .line 410
+    .line 377
     :pswitch_0
     iget-object v2, p0, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
 
@@ -89,11 +89,11 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0754
+    const v3, 0x7f090884
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
-    .line 411
+    .line 378
     iget-object v2, p0, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
 
     #getter for: Lcom/android/OriginalSettings/GSensorSettings;->drawView:Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;
@@ -103,7 +103,7 @@
 
     invoke-virtual {v2, v1}, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->getPoint([F)[F
 
-    .line 412
+    .line 379
     iget-object v2, p0, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
 
     #getter for: Lcom/android/OriginalSettings/GSensorSettings;->drawView:Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;
@@ -114,7 +114,7 @@
     #calls: Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->updateState(I)V
     invoke-static {v2, v4}, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->access$200(Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;I)V
 
-    .line 413
+    .line 380
     aget v2, v1, v9
 
     iget-object v3, p0, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
@@ -132,7 +132,7 @@
 
     sput v2, Lcom/android/OriginalSettings/GSensorSettings;->ani_gap_x:F
 
-    .line 414
+    .line 381
     aget v2, v1, v5
 
     iget-object v3, p0, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
@@ -150,12 +150,12 @@
 
     sput v2, Lcom/android/OriginalSettings/GSensorSettings;->ani_gap_y:F
 
-    .line 415
+    .line 382
     const/16 v2, 0x32
 
     sput v2, Lcom/android/OriginalSettings/GSensorSettings;->ani_count:I
 
-    .line 416
+    .line 383
     iget-object v2, p0, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
 
     #getter for: Lcom/android/OriginalSettings/GSensorSettings;->drawView:Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;
@@ -167,18 +167,18 @@
 
     invoke-virtual {v2, v3}, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->setImage(I)V
 
-    .line 417
+    .line 384
     iput v4, v0, Landroid/os/Message;->what:I
 
-    .line 418
+    .line 385
     invoke-virtual {p0, v0, v6, v7}, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 419
+    .line 386
     invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->removeMessages(I)V
 
     goto :goto_0
 
-    .line 422
+    .line 389
     :pswitch_1
     sget v2, Lcom/android/OriginalSettings/GSensorSettings;->ani_count:I
 
@@ -188,7 +188,7 @@
 
     if-ltz v2, :cond_0
 
-    .line 429
+    .line 390
     iget-object v2, p0, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
 
     #getter for: Lcom/android/OriginalSettings/GSensorSettings;->drawView:Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;
@@ -200,7 +200,7 @@
 
     invoke-virtual {v2, v3}, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->setImage(I)V
 
-    .line 430
+    .line 391
     iget-object v2, p0, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
 
     #getter for: Lcom/android/OriginalSettings/GSensorSettings;->drawView:Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;
@@ -210,43 +210,43 @@
 
     invoke-virtual {v2}, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->invalidate()V
 
-    .line 431
+    .line 392
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->removeMessages(I)V
 
-    .line 432
+    .line 393
     iput v4, v0, Landroid/os/Message;->what:I
 
-    .line 433
+    .line 394
     invoke-virtual {p0, v0, v6, v7}, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     goto :goto_0
 
-    .line 435
+    .line 396
     :cond_0
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->removeMessages(I)V
 
-    .line 436
+    .line 397
     const/4 v2, 0x3
 
     iput v2, v0, Landroid/os/Message;->what:I
 
-    .line 437
+    .line 398
     invoke-virtual {p0, v0, v6, v7}, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 438
+    .line 399
     const/16 v2, 0x32
 
     sput v2, Lcom/android/OriginalSettings/GSensorSettings;->ani_count:I
 
     goto/16 :goto_0
 
-    .line 442
+    .line 403
     :pswitch_2
     const/4 v2, 0x3
 
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->removeMessages(I)V
 
-    .line 443
+    .line 404
     iget-object v2, p0, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
 
     #getter for: Lcom/android/OriginalSettings/GSensorSettings;->mSensorManager:Landroid/hardware/SensorManager;
@@ -262,7 +262,7 @@
 
     sput v2, Lcom/android/OriginalSettings/GSensorSettings;->file:I
 
-    .line 445
+    .line 406
     const-string v2, "GSensorSettings"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -285,12 +285,12 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 449
+    .line 407
     invoke-static {v9}, Lcom/android/OriginalSettings/GSensorSettings;->access$1502(I)I
 
-    .line 450
+    .line 408
     iget-object v2, p0, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
 
     #getter for: Lcom/android/OriginalSettings/GSensorSettings;->drawView:Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;
@@ -301,7 +301,7 @@
     #calls: Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->updateState(I)V
     invoke-static {v2, v5}, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->access$200(Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;I)V
 
-    .line 451
+    .line 409
     iget-object v2, p0, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
 
     #getter for: Lcom/android/OriginalSettings/GSensorSettings;->text:Landroid/widget/TextView;
@@ -309,22 +309,22 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0753
+    const v3, 0x7f090883
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
-    .line 452
+    .line 410
     sget v2, Lcom/android/OriginalSettings/GSensorSettings;->file:I
 
     if-lez v2, :cond_1
 
-    .line 453
+    .line 411
     iget-object v2, p0, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
 
     #calls: Lcom/android/OriginalSettings/GSensorSettings;->diplayCompleted()V
     invoke-static {v2}, Lcom/android/OriginalSettings/GSensorSettings;->access$1600(Lcom/android/OriginalSettings/GSensorSettings;)V
 
-    .line 457
+    .line 415
     :goto_1
     iget-object v2, p0, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
 
@@ -337,7 +337,7 @@
 
     goto/16 :goto_0
 
-    .line 455
+    .line 413
     :cond_1
     iget-object v2, p0, Lcom/android/OriginalSettings/GSensorSettings$setHandler;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
 
@@ -346,7 +346,7 @@
 
     goto :goto_1
 
-    .line 408
+    .line 375
     nop
 
     :pswitch_data_0

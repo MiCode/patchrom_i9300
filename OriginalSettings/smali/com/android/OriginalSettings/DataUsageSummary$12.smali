@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1271
+    .line 1344
     iput-object p1, p0, Lcom/android/OriginalSettings/DataUsageSummary$12;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
     .end annotation
 
     .prologue
-    .line 1274
+    .line 1347
     .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     invoke-virtual {p1, p3}, Landroid/widget/AdapterView;->getItemAtPosition(I)Ljava/lang/Object;
 
@@ -62,17 +62,22 @@
 
     check-cast v0, Lcom/android/OriginalSettings/DataUsageSummary$CycleItem;
 
-    .line 1275
+    .line 1348
     .local v0, cycle:Lcom/android/OriginalSettings/DataUsageSummary$CycleItem;
     instance-of v1, v0, Lcom/android/OriginalSettings/DataUsageSummary$CycleChangeItem;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
-    .line 1277
+    .line 1351
+    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$12;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
+
+    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary$CycleEditorFragment;->show(Lcom/android/OriginalSettings/DataUsageSummary;)V
+
+    .line 1354
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$12;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mCycleSpinner:Landroid/widget/Spinner;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$2400(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/Spinner;
+    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1800(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/Spinner;
 
     move-result-object v1
 
@@ -80,102 +85,16 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/Spinner;->setSelection(I)V
 
-    .line 1281
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$12;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1300(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    .line 1282
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$12;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1300(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/app/DialogFragment;->dismiss()V
-
-    .line 1284
-    :cond_0
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$12;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary$12;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    invoke-static {v2}, Lcom/android/OriginalSettings/DataUsageSummary$CycleEditorFragment;->show(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
-
-    move-result-object v2
-
-    #setter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-    invoke-static {v1, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1302(Lcom/android/OriginalSettings/DataUsageSummary;Landroid/app/DialogFragment;)Landroid/app/DialogFragment;
-
-    .line 1298
+    .line 1368
     :goto_0
     return-void
 
-    .line 1288
-    :cond_1
-    const-string v1, "DataUsage"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "showing cycle "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, ", start="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-wide v3, v0, Lcom/android/OriginalSettings/DataUsageSummary$CycleItem;->start:J
-
-    invoke-virtual {v2, v3, v4}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, ", end="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-wide v3, v0, Lcom/android/OriginalSettings/DataUsageSummary$CycleItem;->end:J
-
-    invoke-virtual {v2, v3, v4}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, "]"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1294
+    .line 1364
+    :cond_0
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$12;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$900(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/widget/ChartDataUsageView;
+    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1900(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/widget/ChartDataUsageView;
 
     move-result-object v1
 
@@ -185,11 +104,11 @@
 
     invoke-virtual {v1, v2, v3, v4, v5}, Lcom/android/OriginalSettings/widget/ChartDataUsageView;->setVisibleRange(JJ)V
 
-    .line 1296
+    .line 1366
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$12;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     #calls: Lcom/android/OriginalSettings/DataUsageSummary;->updateDetailData()V
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$2500(Lcom/android/OriginalSettings/DataUsageSummary;)V
+    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$2000(Lcom/android/OriginalSettings/DataUsageSummary;)V
 
     goto :goto_0
 .end method
@@ -206,7 +125,7 @@
     .end annotation
 
     .prologue
-    .line 1303
+    .line 1373
     .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     return-void
 .end method

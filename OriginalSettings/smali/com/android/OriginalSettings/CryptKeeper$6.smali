@@ -3,12 +3,12 @@
 .source "CryptKeeper.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/CryptKeeper;->passwordEntryInit()V
+    value = Lcom/android/OriginalSettings/CryptKeeper;->updateEmergencyCallButtonState()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,15 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/OriginalSettings/CryptKeeper;
 
-.field final synthetic val$imm:Landroid/view/inputmethod/InputMethodManager;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/OriginalSettings/CryptKeeper;Landroid/view/inputmethod/InputMethodManager;)V
+.method constructor <init>(Lcom/android/OriginalSettings/CryptKeeper;)V
     .locals 0
-    .parameter
     .parameter
 
     .prologue
-    .line 515
+    .line 751
     iput-object p1, p0, Lcom/android/OriginalSettings/CryptKeeper$6;->this$0:Lcom/android/OriginalSettings/CryptKeeper;
-
-    iput-object p2, p0, Lcom/android/OriginalSettings/CryptKeeper$6;->val$imm:Landroid/view/inputmethod/InputMethodManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,43 +37,17 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 3
+.method public onClick(Landroid/view/View;)V
+    .locals 1
+    .parameter "v"
 
     .prologue
-    const/4 v2, 0x0
+    .line 755
+    iget-object v0, p0, Lcom/android/OriginalSettings/CryptKeeper$6;->this$0:Lcom/android/OriginalSettings/CryptKeeper;
 
-    .line 517
-    invoke-static {}, Lcom/android/OriginalSettings/CryptKeeper;->access$200()I
+    #calls: Lcom/android/OriginalSettings/CryptKeeper;->takeEmergencyCallAction()V
+    invoke-static {v0}, Lcom/android/OriginalSettings/CryptKeeper;->access$1400(Lcom/android/OriginalSettings/CryptKeeper;)V
 
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 518
-    invoke-static {}, Lcom/android/OriginalSettings/CryptKeeper;->access$1200()Z
-
-    move-result v0
-
-    const/4 v1, 0x1
-
-    if-ne v0, v1, :cond_1
-
-    .line 519
-    invoke-static {v2}, Lcom/android/OriginalSettings/CryptKeeper;->access$1202(Z)Z
-
-    .line 524
-    :cond_0
-    :goto_0
+    .line 756
     return-void
-
-    .line 521
-    :cond_1
-    iget-object v0, p0, Lcom/android/OriginalSettings/CryptKeeper$6;->val$imm:Landroid/view/inputmethod/InputMethodManager;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v2, v1}, Landroid/view/inputmethod/InputMethodManager;->showSoftInputUnchecked(ILandroid/os/ResultReceiver;)V
-
-    goto :goto_0
 .end method

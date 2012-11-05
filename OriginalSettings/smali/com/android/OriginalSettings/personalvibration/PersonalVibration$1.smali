@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 283
+    .line 310
     iput-object p1, p0, Lcom/android/OriginalSettings/personalvibration/PersonalVibration$1;->this$0:Lcom/android/OriginalSettings/personalvibration/PersonalVibration;
 
     iput-object p2, p0, Lcom/android/OriginalSettings/personalvibration/PersonalVibration$1;->val$imm:Landroid/view/inputmethod/InputMethodManager;
@@ -48,12 +48,12 @@
     .parameter "whichButton"
 
     .prologue
-    .line 286
+    .line 313
     new-instance v3, Landroid/content/ContentValues;
 
     invoke-direct {v3}, Landroid/content/ContentValues;-><init>()V
 
-    .line 287
+    .line 314
     .local v3, values:Landroid/content/ContentValues;
     iget-object v4, p0, Lcom/android/OriginalSettings/personalvibration/PersonalVibration$1;->this$0:Lcom/android/OriginalSettings/personalvibration/PersonalVibration;
 
@@ -70,13 +70,30 @@
 
     move-result-object v1
 
-    .line 288
+    .line 315
     .local v1, mPatternName:Ljava/lang/String;
+    const-string v4, "\n"
+
+    const-string v5, " "
+
+    invoke-virtual {v1, v4, v5}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string v5, "\r"
+
+    const-string v6, " "
+
+    invoke-virtual {v4, v5, v6}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 316
     const-string v4, "vibration_name"
 
     invoke-virtual {v3, v4, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 289
+    .line 317
     const-string v4, "vibration_pattern"
 
     iget-object v5, p0, Lcom/android/OriginalSettings/personalvibration/PersonalVibration$1;->this$0:Lcom/android/OriginalSettings/personalvibration/PersonalVibration;
@@ -89,7 +106,7 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 290
+    .line 318
     const-string v4, "vibration_type"
 
     const/4 v5, 0x1
@@ -100,7 +117,7 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 292
+    .line 320
     iget-object v4, p0, Lcom/android/OriginalSettings/personalvibration/PersonalVibration$1;->this$0:Lcom/android/OriginalSettings/personalvibration/PersonalVibration;
 
     invoke-virtual {v4}, Lcom/android/OriginalSettings/personalvibration/PersonalVibration;->getContentResolver()Landroid/content/ContentResolver;
@@ -117,7 +134,7 @@
 
     move-result-object v2
 
-    .line 296
+    .line 324
     .local v2, uri:Landroid/net/Uri;
     const-string v4, "PersonalVibration"
 
@@ -149,16 +166,16 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 297
+    .line 325
     const-string v4, "PersonalVibration"
 
     const-string v5, "OK was clicked, the pattern saved sucessfully"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 301
+    .line 329
     iget-object v4, p0, Lcom/android/OriginalSettings/personalvibration/PersonalVibration$1;->this$0:Lcom/android/OriginalSettings/personalvibration/PersonalVibration;
 
     #getter for: Lcom/android/OriginalSettings/personalvibration/PersonalVibration;->mFromContact:Ljava/lang/Boolean;
@@ -172,7 +189,7 @@
 
     if-nez v4, :cond_0
 
-    .line 302
+    .line 330
     const-string v4, "PersonalVibration"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -205,9 +222,9 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 303
+    .line 331
     iget-object v4, p0, Lcom/android/OriginalSettings/personalvibration/PersonalVibration$1;->this$0:Lcom/android/OriginalSettings/personalvibration/PersonalVibration;
 
     invoke-virtual {v4}, Lcom/android/OriginalSettings/personalvibration/PersonalVibration;->getContentResolver()Landroid/content/ContentResolver;
@@ -222,7 +239,7 @@
 
     invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
-    .line 306
+    .line 334
     :cond_0
     iget-object v4, p0, Lcom/android/OriginalSettings/personalvibration/PersonalVibration$1;->this$0:Lcom/android/OriginalSettings/personalvibration/PersonalVibration;
 
@@ -230,21 +247,21 @@
 
     iput-object v5, v4, Lcom/android/OriginalSettings/personalvibration/PersonalVibration;->mDialog:Landroid/app/AlertDialog;
 
-    .line 308
+    .line 336
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 309
+    .line 337
     .local v0, intent:Landroid/content/Intent;
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
-    .line 310
+    .line 338
     const-string v4, "savedVibrationPatternName"
 
     invoke-virtual {v0, v4, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 311
+    .line 339
     const-string v4, "savedVibrationPattern"
 
     iget-object v5, p0, Lcom/android/OriginalSettings/personalvibration/PersonalVibration$1;->this$0:Lcom/android/OriginalSettings/personalvibration/PersonalVibration;
@@ -257,14 +274,14 @@
 
     invoke-virtual {v0, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 312
+    .line 340
     iget-object v4, p0, Lcom/android/OriginalSettings/personalvibration/PersonalVibration$1;->this$0:Lcom/android/OriginalSettings/personalvibration/PersonalVibration;
 
     const/4 v5, -0x1
 
     invoke-virtual {v4, v5, v0}, Lcom/android/OriginalSettings/personalvibration/PersonalVibration;->setResult(ILandroid/content/Intent;)V
 
-    .line 313
+    .line 341
     iget-object v4, p0, Lcom/android/OriginalSettings/personalvibration/PersonalVibration$1;->val$imm:Landroid/view/inputmethod/InputMethodManager;
 
     iget-object v5, p0, Lcom/android/OriginalSettings/personalvibration/PersonalVibration$1;->this$0:Lcom/android/OriginalSettings/personalvibration/PersonalVibration;
@@ -282,11 +299,18 @@
 
     invoke-virtual {v4, v5, v6}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
-    .line 314
+    .line 343
+    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
+
+    .line 344
     iget-object v4, p0, Lcom/android/OriginalSettings/personalvibration/PersonalVibration$1;->this$0:Lcom/android/OriginalSettings/personalvibration/PersonalVibration;
 
-    invoke-virtual {v4}, Lcom/android/OriginalSettings/personalvibration/PersonalVibration;->finish()V
+    new-instance v5, Lcom/android/OriginalSettings/personalvibration/PersonalVibration$1$1;
 
-    .line 316
+    invoke-direct {v5, p0}, Lcom/android/OriginalSettings/personalvibration/PersonalVibration$1$1;-><init>(Lcom/android/OriginalSettings/personalvibration/PersonalVibration$1;)V
+
+    invoke-virtual {v4, v5}, Lcom/android/OriginalSettings/personalvibration/PersonalVibration;->runOnUiThread(Ljava/lang/Runnable;)V
+
+    .line 350
     return-void
 .end method

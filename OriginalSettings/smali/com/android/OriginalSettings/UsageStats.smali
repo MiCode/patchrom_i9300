@@ -110,7 +110,7 @@
 
     const-string v1, "Failed to retrieve usagestats service"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 238
     :goto_0
@@ -136,12 +136,12 @@
     iput-object v0, p0, Lcom/android/OriginalSettings/UsageStats;->mPm:Landroid/content/pm/PackageManager;
 
     .line 229
-    const v0, 0x7f0400c4
+    const v0, 0x7f0400e0
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/UsageStats;->setContentView(I)V
 
     .line 230
-    const v0, 0x7f0a0233
+    const v0, 0x7f0b0260
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/UsageStats;->findViewById(I)Landroid/view/View;
 
@@ -157,7 +157,7 @@
     invoke-virtual {v0, p0}, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
 
     .line 233
-    const v0, 0x7f0a0234
+    const v0, 0x7f0b0261
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/UsageStats;->findViewById(I)Landroid/view/View;
 

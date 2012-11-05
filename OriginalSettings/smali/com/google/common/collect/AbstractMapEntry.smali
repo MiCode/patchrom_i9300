@@ -43,17 +43,17 @@
     .local p0, this:Lcom/google/common/collect/AbstractMapEntry;,"Lcom/google/common/collect/AbstractMapEntry<TK;TV;>;"
     const/4 v1, 0x0
 
-    .line 44
+    .line 47
     instance-of v2, p1, Ljava/util/Map$Entry;
 
     if-eqz v2, :cond_0
 
     move-object v0, p1
 
-    .line 45
+    .line 48
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 46
+    .line 49
     .local v0, that:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<**>;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapEntry;->getKey()Ljava/lang/Object;
 
@@ -85,7 +85,7 @@
 
     const/4 v1, 0x1
 
-    .line 49
+    .line 52
     .end local v0           #that:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<**>;"
     :cond_0
     return v1
@@ -114,18 +114,18 @@
     .local p0, this:Lcom/google/common/collect/AbstractMapEntry;,"Lcom/google/common/collect/AbstractMapEntry<TK;TV;>;"
     const/4 v2, 0x0
 
-    .line 53
+    .line 56
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapEntry;->getKey()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 54
+    .line 57
     .local v0, k:Ljava/lang/Object;,"TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapEntry;->getValue()Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 55
+    .line 58
     .local v1, v:Ljava/lang/Object;,"TV;"
     if-nez v0, :cond_0
 
@@ -164,7 +164,7 @@
     .end annotation
 
     .prologue
-    .line 40
+    .line 43
     .local p0, this:Lcom/google/common/collect/AbstractMapEntry;,"Lcom/google/common/collect/AbstractMapEntry<TK;TV;>;"
     .local p1, value:Ljava/lang/Object;,"TV;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
@@ -178,7 +178,7 @@
     .locals 2
 
     .prologue
-    .line 62
+    .line 65
     .local p0, this:Lcom/google/common/collect/AbstractMapEntry;,"Lcom/google/common/collect/AbstractMapEntry<TK;TV;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 

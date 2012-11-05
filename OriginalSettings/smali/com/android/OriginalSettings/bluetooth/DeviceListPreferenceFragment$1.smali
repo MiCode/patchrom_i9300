@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 160
+    .line 158
     iput-object p1, p0, Lcom/android/OriginalSettings/bluetooth/DeviceListPreferenceFragment$1;->this$0:Lcom/android/OriginalSettings/bluetooth/DeviceListPreferenceFragment;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,18 +42,18 @@
     .parameter "motionEvent"
 
     .prologue
-    .line 162
+    .line 160
     invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->getMotion()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 168
+    .line 166
     :goto_0
     return-void
 
-    .line 164
+    .line 162
     :pswitch_0
     const-string v0, "DeviceListPreferenceFragment"
 
@@ -61,14 +61,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 165
+    .line 163
     iget-object v0, p0, Lcom/android/OriginalSettings/bluetooth/DeviceListPreferenceFragment$1;->this$0:Lcom/android/OriginalSettings/bluetooth/DeviceListPreferenceFragment;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/bluetooth/DeviceListPreferenceFragment;->startScanning()V
 
     goto :goto_0
 
-    .line 162
+    .line 160
     nop
 
     :pswitch_data_0

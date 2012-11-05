@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 281
+    .line 288
     iput-object p1, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert$PreferenceArea$1;->this$0:Lcom/android/OriginalSettings/fmm/SimChangeAlert$PreferenceArea;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "arg0"
 
     .prologue
-    .line 298
+    .line 305
     invoke-static {}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->access$700()Landroid/preference/EditTextPreference;
 
     move-result-object v0
@@ -59,14 +59,14 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 299
+    .line 306
     iget-object v0, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert$PreferenceArea$1;->this$0:Lcom/android/OriginalSettings/fmm/SimChangeAlert$PreferenceArea;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert$PreferenceArea;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    const v1, 0x7f0d07a9
+    const v1, 0x7f0908ff
 
     const/4 v2, 0x0
 
@@ -76,7 +76,7 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 301
+    .line 308
     :cond_0
     return-void
 .end method
@@ -89,7 +89,7 @@
     .parameter "arg3"
 
     .prologue
-    .line 293
+    .line 300
     return-void
 .end method
 
@@ -101,6 +101,6 @@
     .parameter "arg3"
 
     .prologue
-    .line 287
+    .line 294
     return-void
 .end method

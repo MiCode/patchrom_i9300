@@ -3,7 +3,7 @@
 .source "WifiApSwitchEnabler.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/content/DialogInterface$OnCancelListener;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 344
+    .line 433
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler$8;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,19 +37,25 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method public onCancel(Landroid/content/DialogInterface;)V
     .locals 2
-    .parameter "arg0"
-    .parameter "arg1"
+    .parameter "dialog"
 
     .prologue
-    .line 346
+    .line 435
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler$8;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;->setSoftapEnabled(Z)Z
+    invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;->setEnabled(Z)V
 
-    .line 347
+    .line 436
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler$8;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;->setChecked(Z)V
+
+    .line 437
     return-void
 .end method

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 122
+    .line 135
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList$1;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 125
+    .line 138
     iget-object v1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList$1;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;
 
     #getter for: Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;->mDeviceList:Landroid/preference/PreferenceScreen;
@@ -60,31 +60,32 @@
 
     if-ge v1, v2, :cond_0
 
-    .line 126
+    .line 139
     iget-object v1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList$1;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;
 
     #calls: Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;->showDialog(I)V
     invoke-static {v1, v3}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;->access$100(Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;I)V
 
-    .line 131
+    .line 144
     :goto_0
     return-void
 
-    .line 128
+    .line 141
     :cond_0
     iget-object v1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList$1;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;
 
-    invoke-virtual {v1}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;->getActivity()Landroid/app/Activity;
+    #getter for: Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;->mActivity:Landroid/app/Activity;
+    invoke-static {v1}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;->access$200(Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;)Landroid/app/Activity;
 
     move-result-object v1
 
-    const v2, 0x7f0d0290
+    const v2, 0x7f0902fa
 
     invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
     move-result-object v0
 
-    .line 129
+    .line 142
     .local v0, toast:Landroid/widget/Toast;
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 

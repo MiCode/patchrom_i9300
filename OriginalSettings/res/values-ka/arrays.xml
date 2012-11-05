@@ -18,12 +18,15 @@
         <item>10 წუთი</item>
         <item>30 წუთი</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 წამი</item>
         <item>30 წამი</item>
         <item>1 წუთი</item>
-        <item>2 წუთი</item>
+        <item>3 წუთი</item>
         <item>5 წუთი</item>
+        <item>10 წუთი</item>
+        <item>15 წუთი</item>
+        <item>30 წუთი</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>არასოდეს</item>
@@ -35,8 +38,20 @@
         <item>10 წუთი</item>
         <item>30 წუთი</item>
     </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 წამი</item>
+        <item>30 წამი</item>
+        <item>1 წუთი</item>
+        <item>3 წუთი</item>
+        <item>5 წუთი</item>
+        <item>10 წუთი</item>
+        <item>15 წუთი</item>
+        <item>30 წუთი</item>
+        <item>1 hours</item>
+    </string-array>
     <string-array name="lock_after_timeout_entries">
-        <item>დაუყოვნებ.</item>
+        <item>დაუყოვნებლად</item>
         <item>5 წამი</item>
         <item>15 წამი</item>
         <item>30 წამი</item>
@@ -93,17 +108,7 @@
         <item>გაითიშა</item>
         <item>ვერ შესრულდა</item>
         <item>დაკავშირებულია</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Temporarily avoiding poor connection</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>გაითიშა</item>
         <item>ვერ შესრულდა</item>
         <item>დაკავშირებულია</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Temporarily avoiding poor connection</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>გახსნა</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>გამოსაძახებელი ღილაკი</item>
+        <item>PIN სხვა მოწყობილობიდან</item>
+        <item>PIN ამ მოწყობილობიდან</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>დაკავშირებულია</item>
+        <item>მოწვეულია</item>
+        <item>ვერ დაუკავშირდა</item>
+        <item>დააკაკუნეთ, რომ დაუკავშირდეთ</item>
+        <item>საზღვრებს გადააჭარბა</item>
+        <item>დაკავშირებულია სხვა აპარატთან</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>ეკრანი არასდროს ჩაქრეს ავტომატურად</item>
@@ -152,6 +155,10 @@
         <item>20 წუთი</item>
         <item>30 წუთი</item>
         <item>60 წუთი</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>ყველას დაშვება</item>
+        <item>მხოლოდ ნებადართული მოწყობილობები</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>ავტომატური</item>
@@ -178,19 +185,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-    </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>გამოსაძახებელი ღილაკი</item>
-        <item>PIN სხვა მოწყობილობიდან</item>
-        <item>PIN ამ მოწყობილობიდან</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>დაკავშირებულია</item>
-        <item>მოწვეულია</item>
-        <item>ვერ დაუკავშირდა</item>
-        <item>დააკაკუნეთ, რომ დაუკავშირდეთ</item>
-        <item>საზღვრებს გადააჭარბა</item>
-        <item>დაკავშირებულია სხვა აპარატთან</item>
     </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 წთ.</item>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -267,16 +262,6 @@
         <item>არც ერთი</item>
         <item>მექანიკური</item>
     </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>ნორმალური</item>
-        <item>Downtown</item>
-        <item>საწყისი გვერდი</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>ეს არის ყველაზე ზოგადი Wi-Fi კავშირის პარამეტრი</item>
-        <item>თუ ხართ ისეთ ზონაში, სადაც არის ბევრი Wi-Fi ქსელი, Wi-Fi ხშირად დაუკავშირდება ყველაზე ძლიერ სიგნალს</item>
-        <item>თუ ხართ ისეთ ზონაში, სადაც თითქმის არ არის Wi-Fi ქსელები, Wi-Fi კავშირი ნარჩუნდება შეძლებისდაგვარად დიდხანს</item>
-    </string-array>
     <string-array name="emergency_tone_entries">
         <item>გამორთ.</item>
         <item>გაფრთხილება</item>
@@ -302,11 +287,6 @@
         <item>აპარატის შიდა მეხსიერება</item>
         <item>მოცილებადი SD ბარათი</item>
         <item>ნაგულისხმევი</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>გამორთ.</item>
-        <item>ვიბრაცია</item>
-        <item>უხმო რეჟიმი</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>მოკლე</item>
@@ -341,6 +321,15 @@
         <item>ანიმაციის სკალა 5x</item>
         <item>ანიმაციის სკალა 10x</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>ანიმაცია გამორთულია</item>
+        <item>ანიმაციის სკალა 0.5x</item>
+        <item>ანიმაციის სკალა 1x</item>
+        <item>ანიმაციის სკალა 1.5x</item>
+        <item>ანიმაციის სკალა 2x</item>
+        <item>ანიმაციის სკალა 5x</item>
+        <item>ანიმაციის სკალა 10x</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>სტანდარტული შეზღუდვა</item>
         <item>ფონზე რაიმე პროცესი არაა გაშვებული</item>
@@ -365,22 +354,8 @@
         <item>დრო ამოიწურა</item>
         <item>ვერ შესრულდა</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>USB მეხსიერება</item>
+        <item>მოწყობილობა</item>
         <item>SDბარათი</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -410,15 +385,28 @@
         <item>ფოტოები</item>
         <item>მუსიკა</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>მაღალი</item>
-        <item>საშუალო</item>
-        <item>დაბალი</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>ავტომატური</item>
         <item>მექანიკურად</item>
         <item>ყოველთვის მკითხე</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>მუდამ გამორთული</item>
+        <item>3 წამი</item>
+        <item>5 წამი</item>
+        <item>10 წამი</item>
+        <item>15 წამი</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>არც ერთი</item>
+        <item>ყველა კონტაქტი</item>
+        <item>ფავორიტები</item>
+        <item>შერჩეული</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>მაღალი</item>
+        <item>საშუალო</item>
+        <item>დაბალი</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1,5 წამი</item>
@@ -434,11 +422,24 @@
     <string-array name="contents_type_entries">
         <item>ახალი ამბები</item>
         <item>ბირჟა</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>ახალი ამბები</item>
+        <item>ბირჟა</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>ნელი</item>
         <item>ნორმალური</item>
         <item>სწრაფი</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>არც ერთი</item>
+        <item>30 წუთში ერთხელ</item>
+        <item>1 საათში ერთხელ</item>
+        <item>ყოველ 2 საათში</item>
+        <item>ყოველ 4 საათში</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>გარნიტურა</item>
@@ -446,5 +447,9 @@
         <item>ტელეფონი</item>
         <item>HID (კლავიატურა, თაგუნა და ა.შ.)</item>
         <item>ყველა მოწყობილობა</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>სტერეო</item>
+        <item>გარემო</item>
     </string-array>
 </resources>

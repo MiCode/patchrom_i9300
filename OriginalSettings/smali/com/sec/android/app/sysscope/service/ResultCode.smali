@@ -51,7 +51,7 @@
 
     const/4 v4, 0x0
 
-    .line 9
+    .line 5
     new-instance v0, Lcom/sec/android/app/sysscope/service/ResultCode;
 
     const-string v1, "OK"
@@ -60,18 +60,19 @@
 
     sput-object v0, Lcom/sec/android/app/sysscope/service/ResultCode;->OK:Lcom/sec/android/app/sysscope/service/ResultCode;
 
-    .line 19
+    .line 7
     new-instance v0, Lcom/sec/android/app/sysscope/service/ResultCode;
 
     const-string v1, "ADB_RUNNING_AS_ROOT"
 
+    .line 10
     const v2, 0x10001
 
     invoke-direct {v0, v1, v5, v2}, Lcom/sec/android/app/sysscope/service/ResultCode;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/sec/android/app/sysscope/service/ResultCode;->ADB_RUNNING_AS_ROOT:Lcom/sec/android/app/sysscope/service/ResultCode;
 
-    .line 27
+    .line 14
     new-instance v0, Lcom/sec/android/app/sysscope/service/ResultCode;
 
     const-string v1, "PARTITION_TAMPERED"
@@ -82,7 +83,7 @@
 
     sput-object v0, Lcom/sec/android/app/sysscope/service/ResultCode;->PARTITION_TAMPERED:Lcom/sec/android/app/sysscope/service/ResultCode;
 
-    .line 35
+    .line 18
     new-instance v0, Lcom/sec/android/app/sysscope/service/ResultCode;
 
     const-string v1, "ROOT_PROCESS_FOUND"
@@ -93,7 +94,7 @@
 
     sput-object v0, Lcom/sec/android/app/sysscope/service/ResultCode;->ROOT_PROCESS_FOUND:Lcom/sec/android/app/sysscope/service/ResultCode;
 
-    .line 43
+    .line 22
     new-instance v0, Lcom/sec/android/app/sysscope/service/ResultCode;
 
     const-string v1, "DANGEROUS_FILE_DETECTED"
@@ -104,7 +105,7 @@
 
     sput-object v0, Lcom/sec/android/app/sysscope/service/ResultCode;->DANGEROUS_FILE_DETECTED:Lcom/sec/android/app/sysscope/service/ResultCode;
 
-    .line 51
+    .line 26
     new-instance v0, Lcom/sec/android/app/sysscope/service/ResultCode;
 
     const-string v1, "NOT_OFFICIAL_BINARY"
@@ -117,7 +118,7 @@
 
     sput-object v0, Lcom/sec/android/app/sysscope/service/ResultCode;->NOT_OFFICIAL_BINARY:Lcom/sec/android/app/sysscope/service/ResultCode;
 
-    .line 5
+    .line 3
     const/4 v0, 0x6
 
     new-array v0, v0, [Lcom/sec/android/app/sysscope/service/ResultCode;
@@ -160,18 +161,18 @@
     .parameter "code"
 
     .prologue
-    .line 61
+    .line 31
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 57
+    .line 29
     const-string v0, ""
 
     iput-object v0, p0, Lcom/sec/android/app/sysscope/service/ResultCode;->mDescription:Ljava/lang/String;
 
-    .line 63
+    .line 32
     iput p3, p0, Lcom/sec/android/app/sysscope/service/ResultCode;->mCode:I
 
-    .line 65
+    .line 33
     return-void
 .end method
 
@@ -180,7 +181,7 @@
     .parameter "value"
 
     .prologue
-    .line 105
+    .line 53
     invoke-static {}, Lcom/sec/android/app/sysscope/service/ResultCode;->values()[Lcom/sec/android/app/sysscope/service/ResultCode;
 
     move-result-object v2
@@ -192,23 +193,23 @@
     :goto_0
     if-lt v1, v3, :cond_1
 
-    .line 115
+    .line 58
     const/4 v0, 0x0
 
     :cond_0
     return-object v0
 
-    .line 105
+    .line 53
     :cond_1
     aget-object v0, v2, v1
 
-    .line 107
+    .line 54
     .local v0, r:Lcom/sec/android/app/sysscope/service/ResultCode;
     iget v4, v0, Lcom/sec/android/app/sysscope/service/ResultCode;->mCode:I
 
     if-eq v4, p0, :cond_0
 
-    .line 105
+    .line 53
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
@@ -255,7 +256,7 @@
     .locals 1
 
     .prologue
-    .line 131
+    .line 66
     iget-object v0, p0, Lcom/sec/android/app/sysscope/service/ResultCode;->mDescription:Ljava/lang/String;
 
     return-object v0
@@ -266,10 +267,10 @@
     .parameter "description"
 
     .prologue
-    .line 97
+    .line 49
     iput-object p1, p0, Lcom/sec/android/app/sysscope/service/ResultCode;->mDescription:Ljava/lang/String;
 
-    .line 99
+    .line 50
     return-void
 .end method
 
@@ -277,7 +278,7 @@
     .locals 1
 
     .prologue
-    .line 81
+    .line 41
     iget v0, p0, Lcom/sec/android/app/sysscope/service/ResultCode;->mCode:I
 
     return v0

@@ -14,6 +14,8 @@
 
 .field private mDialog:Landroid/app/AlertDialog;
 
+.field private mHandler:Landroid/os/Handler;
+
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -24,54 +26,61 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 27
+    .line 30
     invoke-direct {p0, p1, p2}, Landroid/preference/MultiSelectListPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 16
+    .line 17
     iput-object v1, p0, Lcom/android/OriginalSettings/nearby/RejectListPreference;->context:Landroid/content/Context;
 
-    .line 18
+    .line 19
     const-string v0, "AllshareSetting"
 
     iput-object v0, p0, Lcom/android/OriginalSettings/nearby/RejectListPreference;->TAG:Ljava/lang/String;
 
-    .line 19
+    .line 21
     const-string v0, "RejectListPreference: "
 
     iput-object v0, p0, Lcom/android/OriginalSettings/nearby/RejectListPreference;->TAGClass:Ljava/lang/String;
 
-    .line 21
+    .line 25
     iput-object v1, p0, Lcom/android/OriginalSettings/nearby/RejectListPreference;->mAccessDevice:Lcom/android/OriginalSettings/nearby/AccessDeviceList;
 
-    .line 23
+    .line 27
     iput-object v1, p0, Lcom/android/OriginalSettings/nearby/RejectListPreference;->mDialog:Landroid/app/AlertDialog;
 
-    .line 29
+    .line 93
+    new-instance v0, Lcom/android/OriginalSettings/nearby/RejectListPreference$2;
+
+    invoke-direct {v0, p0}, Lcom/android/OriginalSettings/nearby/RejectListPreference$2;-><init>(Lcom/android/OriginalSettings/nearby/RejectListPreference;)V
+
+    iput-object v0, p0, Lcom/android/OriginalSettings/nearby/RejectListPreference;->mHandler:Landroid/os/Handler;
+
+    .line 32
     iput-object p1, p0, Lcom/android/OriginalSettings/nearby/RejectListPreference;->context:Landroid/content/Context;
 
-    .line 30
-    const v0, 0x7f0d093d
+    .line 33
+    const v0, 0x7f090b43
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/nearby/RejectListPreference;->setPositiveButtonText(I)V
 
-    .line 31
-    const v0, 0x7f0d0936
+    .line 34
+    const v0, 0x7f090b3c
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/nearby/RejectListPreference;->setNegativeButtonText(I)V
 
-    .line 33
+    .line 36
     new-instance v0, Lcom/android/OriginalSettings/nearby/AccessDeviceList;
 
     invoke-direct {v0, p1}, Lcom/android/OriginalSettings/nearby/AccessDeviceList;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/nearby/RejectListPreference;->mAccessDevice:Lcom/android/OriginalSettings/nearby/AccessDeviceList;
 
-    .line 34
+    .line 37
     iget-object v0, p0, Lcom/android/OriginalSettings/nearby/RejectListPreference;->mAccessDevice:Lcom/android/OriginalSettings/nearby/AccessDeviceList;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/nearby/AccessDeviceList;->loadPreference()V
 
-    .line 35
+    .line 38
     return-void
 .end method
 
@@ -82,17 +91,17 @@
     .parameter "builder"
 
     .prologue
-    .line 40
+    .line 42
     const-string v0, "AllshareSetting"
 
     const-string v1, "RejectListPreference: onPrepareDialogBuilder"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 41
+    .line 43
     invoke-super {p0, p1}, Landroid/preference/MultiSelectListPreference;->onPrepareDialogBuilder(Landroid/app/AlertDialog$Builder;)V
 
-    .line 42
+    .line 44
     return-void
 .end method
 
@@ -101,14 +110,14 @@
     .parameter "state"
 
     .prologue
-    .line 47
+    .line 48
     const-string v1, "AllshareSetting"
 
     const-string v2, "RejectListPreference: showDialog"
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 49
+    .line 50
     iget-object v1, p0, Lcom/android/OriginalSettings/nearby/RejectListPreference;->mAccessDevice:Lcom/android/OriginalSettings/nearby/AccessDeviceList;
 
     if-nez v1, :cond_0
@@ -137,7 +146,7 @@
 
     if-nez v1, :cond_1
 
-    .line 58
+    .line 57
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
     iget-object v2, p0, Lcom/android/OriginalSettings/nearby/RejectListPreference;->context:Landroid/content/Context;
@@ -146,7 +155,7 @@
 
     iget-object v2, p0, Lcom/android/OriginalSettings/nearby/RejectListPreference;->context:Landroid/content/Context;
 
-    const v3, 0x7f0d0948
+    const v3, 0x7f090b4e
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -158,7 +167,7 @@
 
     iget-object v2, p0, Lcom/android/OriginalSettings/nearby/RejectListPreference;->context:Landroid/content/Context;
 
-    const v3, 0x7f0d0946
+    const v3, 0x7f090b4c
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -168,7 +177,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0935
+    const v2, 0x7f090b3b
 
     new-instance v3, Lcom/android/OriginalSettings/nearby/RejectListPreference$1;
 
@@ -184,11 +193,11 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/nearby/RejectListPreference;->mDialog:Landroid/app/AlertDialog;
 
-    .line 76
+    .line 75
     :goto_0
     return-void
 
-    .line 68
+    .line 67
     :cond_1
     iget-object v1, p0, Lcom/android/OriginalSettings/nearby/RejectListPreference;->mAccessDevice:Lcom/android/OriginalSettings/nearby/AccessDeviceList;
 
@@ -198,7 +207,7 @@
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/nearby/RejectListPreference;->setEntries([Ljava/lang/CharSequence;)V
 
-    .line 69
+    .line 68
     iget-object v1, p0, Lcom/android/OriginalSettings/nearby/RejectListPreference;->mAccessDevice:Lcom/android/OriginalSettings/nearby/AccessDeviceList;
 
     invoke-virtual {v1}, Lcom/android/OriginalSettings/nearby/AccessDeviceList;->getRejectEntryValues()[Ljava/lang/CharSequence;
@@ -207,17 +216,17 @@
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/nearby/RejectListPreference;->setEntryValues([Ljava/lang/CharSequence;)V
 
-    .line 71
+    .line 70
     invoke-super {p0, p1}, Landroid/preference/MultiSelectListPreference;->showDialog(Landroid/os/Bundle;)V
 
-    .line 73
+    .line 72
     invoke-virtual {p0}, Lcom/android/OriginalSettings/nearby/RejectListPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v0
 
     check-cast v0, Landroid/app/AlertDialog;
 
-    .line 74
+    .line 73
     .local v0, dialog:Landroid/app/AlertDialog;
     iput-object v0, p0, Lcom/android/OriginalSettings/nearby/RejectListPreference;->mDialog:Landroid/app/AlertDialog;
 
@@ -225,22 +234,22 @@
 .end method
 
 .method public updateDialog()Z
-    .locals 2
+    .locals 4
 
     .prologue
-    .line 80
+    .line 78
     const-string v0, "AllshareSetting"
 
     const-string v1, "RejectListPreference: updateDialog"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 82
+    .line 80
     iget-object v0, p0, Lcom/android/OriginalSettings/nearby/RejectListPreference;->mDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
-    .line 84
+    .line 81
     iget-object v0, p0, Lcom/android/OriginalSettings/nearby/RejectListPreference;->mDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->isShowing()Z
@@ -249,27 +258,31 @@
 
     if-eqz v0, :cond_0
 
-    .line 86
+    .line 82
     const-string v0, "AllshareSetting"
 
     const-string v1, "RejectListPreference: refresh popup"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 87
+    .line 83
     iget-object v0, p0, Lcom/android/OriginalSettings/nearby/RejectListPreference;->mDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 89
-    const/4 v0, 0x0
+    .line 85
+    iget-object v0, p0, Lcom/android/OriginalSettings/nearby/RejectListPreference;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/nearby/RejectListPreference;->showDialog(Landroid/os/Bundle;)V
+    const/16 v1, 0xbb9
 
-    .line 90
+    const-wide/16 v2, 0x32
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+
+    .line 87
     const/4 v0, 0x1
 
-    .line 93
+    .line 90
     :goto_0
     return v0
 

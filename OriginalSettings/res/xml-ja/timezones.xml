@@ -11,7 +11,7 @@
     <timezone id="America/Denver">アメリカ山地時間 (デンバー)</timezone>
     <timezone id="America/Costa_Rica">アメリカ中部時間 (コスタリカ共和国)</timezone>
     <timezone id="America/Chicago">アメリカ中部時間 (シカゴ)</timezone>
-    <timezone id="America/Mexico_City">アメリカ中部時間（メキシコシティ）</timezone>
+    <timezone id="America/Mexico_City">アメリカ中部時間 (メキシコシティー)</timezone>
     <timezone id="America/Regina">アメリカ中部時間 (レジャイナ)</timezone>
     <timezone id="America/Bogota">ボゴタ</timezone>
     <timezone id="America/New_York">アメリカ東部時間 (ニューヨーク)</timezone>
@@ -31,9 +31,9 @@
     <timezone id="Africa/Casablanca">カサブランカ</timezone>
     <timezone id="Europe/London">グリニッジ標準時 (ヨーロッパ/ロンドン)</timezone>
     <timezone id="Europe/Amsterdam">中欧標準時 (アムステルダム)</timezone>
-    <timezone id="Europe/Belgrade">中欧標準時（ベオグラード）</timezone>
+    <timezone id="Europe/Belgrade">中欧標準時 (Belgrade)</timezone>
     <timezone id="Europe/Brussels">中欧標準時 (ブリュッセル)</timezone>
-    <timezone id="Europe/Sarajevo">中欧標準時（サラエボ）</timezone>
+    <timezone id="Europe/Sarajevo">中欧標準時 (Sarajevo)</timezone>
     <timezone id="Africa/Windhoek">ビントフック</timezone>
     <timezone id="Africa/Brazzaville">西アフリカ時間 (ブラザビル)</timezone>
     <timezone id="Asia/Amman">東欧標準時 (アンマン)</timezone>

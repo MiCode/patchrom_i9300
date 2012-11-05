@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 59
+    .line 53
     iput-object p1, p0, Lcom/android/OriginalSettings/MediaFormat$1;->this$0:Lcom/android/OriginalSettings/MediaFormat;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,25 +42,18 @@
     .parameter "v"
 
     .prologue
-    .line 62
-    const-string v2, "MemorySettings"
-
-    const-string v3, "Storage : format - erase everything"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 65
+    .line 56
     invoke-static {}, Lcom/android/OriginalSettings/Utils;->isMonkeyRunning()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 76
+    .line 67
     :goto_0
     return-void
 
-    .line 68
+    .line 59
     :cond_0
     new-instance v0, Landroid/content/Intent;
 
@@ -68,13 +61,13 @@
 
     invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 69
+    .line 60
     .local v0, intent:Landroid/content/Intent;
     sget-object v2, Lcom/android/internal/os/storage/ExternalStorageFormatter;->COMPONENT_NAME:Landroid/content/ComponentName;
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 71
+    .line 62
     iget-object v2, p0, Lcom/android/OriginalSettings/MediaFormat$1;->this$0:Lcom/android/OriginalSettings/MediaFormat;
 
     invoke-virtual {v2}, Lcom/android/OriginalSettings/MediaFormat;->getIntent()Landroid/content/Intent;
@@ -89,18 +82,18 @@
 
     check-cast v1, Landroid/os/storage/StorageVolume;
 
-    .line 73
+    .line 64
     .local v1, storageVolume:Landroid/os/storage/StorageVolume;
     const-string v2, "storage_volume"
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 74
+    .line 65
     iget-object v2, p0, Lcom/android/OriginalSettings/MediaFormat$1;->this$0:Lcom/android/OriginalSettings/MediaFormat;
 
     invoke-virtual {v2, v0}, Lcom/android/OriginalSettings/MediaFormat;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    .line 75
+    .line 66
     iget-object v2, p0, Lcom/android/OriginalSettings/MediaFormat$1;->this$0:Lcom/android/OriginalSettings/MediaFormat;
 
     invoke-virtual {v2}, Lcom/android/OriginalSettings/MediaFormat;->finish()V

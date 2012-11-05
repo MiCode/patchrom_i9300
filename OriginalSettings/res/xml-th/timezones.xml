@@ -64,6 +64,7 @@
     <timezone id="Asia/Rangoon">ย่างกุ้ง</timezone>
     <timezone id="Asia/Krasnoyarsk">ครัสโนยาร์สก์</timezone>
     <timezone id="Asia/Bangkok">กรุงเทพ</timezone>
+    <timezone id="Asia/Manila">มะนิลา</timezone>
     <timezone id="Asia/Shanghai">Beijing</timezone>
     <timezone id="Asia/Hong_Kong">ฮ่องกง</timezone>
     <timezone id="Asia/Irkutsk">อีร์คุตสค์</timezone>
@@ -84,4 +85,5 @@
     <timezone id="Pacific/Auckland">โอคแลนด์</timezone>
     <timezone id="Pacific/Fiji">ฟิจิ</timezone>
     <timezone id="Pacific/Tongatapu">ตองกาตาปู</timezone>
+    <timezone id="Asia/Singapore">สิงคโปร์</timezone>
 </timezones>

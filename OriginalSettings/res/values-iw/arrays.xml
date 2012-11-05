@@ -18,15 +18,18 @@
         <item>10 דקות</item>
         <item>30 דקות</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 שניות</item>
         <item>30 שניות</item>
         <item>דקה</item>
-        <item>2 דקות</item>
+        <item>3 דקות</item>
         <item>5 דקות</item>
+        <item>10 דקות</item>
+        <item>15 דקות</item>
+        <item>30 דקות</item>
     </string-array>
     <string-array name="dream_timeout_entries">
-        <item>אף פעם</item>
+        <item>תמיד</item>
         <item>15 שניות</item>
         <item>30 שניות</item>
         <item>דקה</item>
@@ -34,6 +37,18 @@
         <item>5 דקות</item>
         <item>10 דקות</item>
         <item>30 דקות</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 שניות</item>
+        <item>30 שניות</item>
+        <item>דקה</item>
+        <item>3 דקות</item>
+        <item>5 דקות</item>
+        <item>10 דקות</item>
+        <item>15 דקות</item>
+        <item>30 דקות</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>מידי</item>
@@ -93,17 +108,7 @@
         <item>מנותק</item>
         <item>ללא הצלחה</item>
         <item>מחובר</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>נמנע זמנית מחיבור חלש</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>מנותק</item>
         <item>ללא הצלחה</item>
         <item>מחובר</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>נמנע זמנית מחיבור חלש</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>פתוח</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>לחץ על הלחצן</item>
+        <item>קוד PIN מהתקן עמית</item>
+        <item>קוד PIN מהתקן זה</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>מחובר</item>
+        <item>הוזמנו</item>
+        <item>החיבור נכשל</item>
+        <item>הקש כדי להתחבר</item>
+        <item>מחוץ לטווח</item>
+        <item>מחובר להתקן אחר</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>תמיד</item>
@@ -152,6 +155,10 @@
         <item>20 דקות</item>
         <item>30 דקות</item>
         <item>60 דקות</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>אפשר את כל ההתקנים</item>
+        <item>התקנים מותרים בלבד</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>אוטומטי</item>
@@ -179,19 +186,6 @@
         <item>9</item>
         <item>10</item>
     </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>לחץ על הלחצן</item>
-        <item>קוד PIN מהתקן עמית</item>
-        <item>קוד PIN מהתקן זה</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>מחובר</item>
-        <item>הוזמנו</item>
-        <item>החיבור נכשל</item>
-        <item>הקש כדי להתחבר</item>
-        <item>מחוץ לטווח</item>
-        <item>מחובר להתקן אחר</item>
-    </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 דקות</item>
         <item>5 דקות</item>
@@ -213,7 +207,7 @@
     <string-array name="wifi_sleep_policy_entries_wifi_only">
         <item>תמיד</item>
         <item>רק כאשר מחובר</item>
-        <item>אף פעם</item>
+        <item>תמיד</item>
     </string-array>
     <string-array name="wifi_sleep_policy_values">
         <item>2</item>
@@ -222,8 +216,8 @@
     </string-array>
     <string-array name="wifi_frequency_band_entries">
         <item>אוטומטי</item>
-        <item>‏5‎ GHz בלבד</item>
-        <item>‏2.4‎ GHz בלבד</item>
+        <item>5‎ GHz בלבד</item>
+        <item>2.4‎ GHz בלבד</item>
     </string-array>
     <string-array name="wifi_frequency_band_values">
         <item>0</item>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -266,16 +261,6 @@
     <string-array name="wifi_proxy_settings">
         <item>ללא</item>
         <item>ידני</item>
-    </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>רגיל</item>
-        <item>Downtown</item>
-        <item>בית</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>זוהי הגדרת חיבור Wi-Fi הכללית ביותר</item>
-        <item>אם אתה נמצא באזור שבו רשתות Wi-Fi רבות, ה-Wi-Fi יתחבר מחדש לעיתים קרובות לקבלת עוצמת אות טובה יותר</item>
-        <item>אם אתה נמצא באזור שבו רשתות Wi-Fi מעטות, חיבור ה-Wi-Fi נשמר לזמן רב ככל האפשר</item>
     </string-array>
     <string-array name="emergency_tone_entries">
         <item>כבוי</item>
@@ -307,11 +292,6 @@
         <item>אמצעי אחסון פנימי של ההתקן</item>
         <item>כרטיס SD שניתן להסיר</item>
         <item>ברירת מחדל</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>כבוי</item>
-        <item>רטט</item>
-        <item>השתק</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>קצר</item>
@@ -346,6 +326,15 @@
         <item>רמת הנפשה 5x</item>
         <item>רמת הנפשה 10x</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>הנפשה מושבתת</item>
+        <item>רמת הנפשה 0.5x</item>
+        <item>רמת הנפשה 1x</item>
+        <item>רמת הנפשה 1.5x</item>
+        <item>רמת הנפשה 2x</item>
+        <item>רמת הנפשה 5x</item>
+        <item>רמת הנפשה 10x</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>מגבלה רגילה</item>
         <item>ללא תהליכי רקע</item>
@@ -370,22 +359,8 @@
         <item>נעילת מסך אוטומטית</item>
         <item>ללא הצלחה</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>אחסון טלפון פנימי</item>
+        <item>התקן</item>
         <item>כרטיס SD חיצוני</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -415,15 +390,28 @@
         <item>תצלומים</item>
         <item>מוסיקה</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>גבוה</item>
-        <item>בינוני</item>
-        <item>נמוך</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>אוטומטי</item>
         <item>באופן ידני</item>
         <item>שאל תמיד</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>כבוי תמיד</item>
+        <item>3 שניות</item>
+        <item>5 שניות</item>
+        <item>10 שניות</item>
+        <item>15 שניות</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>ללא</item>
+        <item>כל אנשי הקשר</item>
+        <item>מועדפים</item>
+        <item>תפריט מותאם</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>גבוה</item>
+        <item>בינוני</item>
+        <item>נמוך</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1.5 שניות</item>
@@ -439,11 +427,24 @@
     <string-array name="contents_type_entries">
         <item>חדשות</item>
         <item>מניות</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>חדשות</item>
+        <item>מניות</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>לאט</item>
         <item>רגיל</item>
         <item>מהיר</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>ללא</item>
+        <item>כל 30 דקות</item>
+        <item>כל שעה</item>
+        <item>כל 2 שעות</item>
+        <item>כל 4 שעות</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>אוזנייה</item>
@@ -451,5 +452,9 @@
         <item>טלפון</item>
         <item>HID (מקלדת, עכבר וכולי)</item>
         <item>כל ההתקנים</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>סטריאו</item>
+        <item>סראונד</item>
     </string-array>
 </resources>

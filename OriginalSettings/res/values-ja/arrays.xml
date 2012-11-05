@@ -18,15 +18,18 @@
         <item>10分</item>
         <item>30分</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15秒</item>
         <item>30秒</item>
         <item>1​分</item>
-        <item>2分​</item>
+        <item>3分</item>
         <item>5分</item>
+        <item>10分</item>
+        <item>15分</item>
+        <item>30分</item>
     </string-array>
     <string-array name="dream_timeout_entries">
-        <item>設定なし</item>
+        <item>なし</item>
         <item>15秒</item>
         <item>30秒</item>
         <item>1​分</item>
@@ -35,8 +38,20 @@
         <item>10分</item>
         <item>30分</item>
     </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15秒</item>
+        <item>30秒</item>
+        <item>1​分</item>
+        <item>3分</item>
+        <item>5分</item>
+        <item>10分</item>
+        <item>15分</item>
+        <item>30分</item>
+        <item>1 hours</item>
+    </string-array>
     <string-array name="lock_after_timeout_entries">
-        <item>すぐに着信</item>
+        <item>すぐ</item>
         <item>5秒</item>
         <item>15秒</item>
         <item>30秒</item>
@@ -58,7 +73,7 @@
         <item>遅い</item>
         <item>標準</item>
         <item>速い</item>
-        <item>高速</item>
+        <item>非常​に​速い</item>
     </string-array>
     <string-array name="tts_rate_values">
         <item>60</item>
@@ -68,7 +83,7 @@
         <item>200</item>
     </string-array>
     <string-array name="tts_pitch_entries">
-        <item>残りわずか</item>
+        <item>非常​に​低い</item>
         <item>低</item>
         <item>標準</item>
         <item>高</item>
@@ -85,7 +100,7 @@
         <item></item>
         <item>スキャン​中...</item>
         <item>接続中...</item>
-        <item>認証中…</item>
+        <item>認証​中...</item>
         <item>IPアドレスを取得中...</item>
         <item>接続しました。</item>
         <item>一時停止</item>
@@ -93,22 +108,12 @@
         <item>切断</item>
         <item>失敗しました。</item>
         <item>接続しました。</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>接続不良により一時的に無効</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
         <item>スキャン​中...</item>
-        <item>%sへ接続中…</item>
+        <item>%s​へ​接続​中...</item>
         <item>%sによる認証中...</item>
         <item>%sからIPアドレスを取得中...</item>
         <item>%1$に​接続​</item>
@@ -117,20 +122,10 @@
         <item>切断</item>
         <item>失敗しました。</item>
         <item>接続しました。</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>接続不良により一時的に無効</item>
     </string-array>
     <string-array name="wifi_ap_security">
-        <item>開く</item>
+        <item>オープン</item>
         <item>WPA PSK</item>
         <item>WPA2 PSK</item>
     </string-array>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>プッシュボタン</item>
+        <item>ピアデバイスからのPIN</item>
+        <item>このデバイスからのPIN</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>接続しました。</item>
+        <item>招待​しました。</item>
+        <item>接続に失敗しました。</item>
+        <item>タップして接続</item>
+        <item>圏外</item>
+        <item>他のデバイスと接続されています。</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>タイムアウト​なし</item>
@@ -151,7 +154,11 @@
         <item>10分</item>
         <item>20分</item>
         <item>30分</item>
-        <item>60分</item>
+        <item>1時間</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>全て​の​デバ​イス​を​許可</item>
+        <item>許可デバイスのみ</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>自動</item>
@@ -179,19 +186,6 @@
         <item>9</item>
         <item>10</item>
     </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>プッシュボタン</item>
-        <item>ピアデバイスからのPIN</item>
-        <item>このデバイスからのPIN</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>接続しました。</item>
-        <item>招待​しました。</item>
-        <item>接続に失敗しました。</item>
-        <item>タップして接続</item>
-        <item>圏外</item>
-        <item>他のデバイスと接続されています。</item>
-    </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2分</item>
         <item>5分​</item>
@@ -206,14 +200,14 @@
         <item>非常に強い</item>
     </string-array>
     <string-array name="wifi_sleep_policy_entries">
-        <item>通常</item>
-        <item>電源接続時のみ</item>
-        <item>接続しない（データ使用量が増加）</item>
+        <item>常にON</item>
+        <item>電源​接続時​のみ​ON</item>
+        <item>常にOFF（データ使用量が増加）</item>
     </string-array>
     <string-array name="wifi_sleep_policy_entries_wifi_only">
-        <item>通常</item>
-        <item>電源接続時のみ</item>
-        <item>設定なし</item>
+        <item>常にON</item>
+        <item>電源​接続時​のみ​ON</item>
+        <item>なし</item>
     </string-array>
     <string-array name="wifi_sleep_policy_values">
         <item>2</item>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -266,16 +261,6 @@
     <string-array name="wifi_proxy_settings">
         <item>なし</item>
         <item>手動で選択</item>
-    </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>標準</item>
-        <item>Downtown</item>
-        <item>自宅</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>最も一般的なWi-Fi接続の設定</item>
-        <item>Wi-Fiネットワークが多い地域にいる場合、より良い信号強度のWi-Fiに頻繁に再接続</item>
-        <item>Wi-Fiネットワークが少ない地域にいる場合、Wi-Fi接続を可能な限り維持</item>
     </string-array>
     <string-array name="emergency_tone_entries">
         <item>OFF</item>
@@ -305,17 +290,12 @@
     </string-array>
     <string-array name="app_install_location_entries">
         <item>本体内蔵メモリ</item>
-        <item>リムーバブル​SD​カード</item>
+        <item>外部​SD​カード</item>
         <item>標準</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>OFF</item>
-        <item>バイブ設定</item>
-        <item>消音</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>短い</item>
-        <item>標準</item>
+        <item>中</item>
         <item>長い</item>
     </string-array>
     <string-array name="hdcp_checking_titles">
@@ -338,6 +318,15 @@
         <item>アニメーションスケール 10倍</item>
     </string-array>
     <string-array name="transition_animation_scale_entries">
+        <item>アニメーションOFF</item>
+        <item>アニメーションスケール 0.5倍</item>
+        <item>アニメーションスケール 1倍</item>
+        <item>アニメーションスケール 1.5倍</item>
+        <item>アニメーションスケール 2倍</item>
+        <item>アニメーションスケール 5倍</item>
+        <item>アニメーションスケール 10倍</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
         <item>アニメーションOFF</item>
         <item>アニメーションスケール 0.5倍</item>
         <item>アニメーションスケール 1倍</item>
@@ -370,22 +359,8 @@
         <item>タイムアウト</item>
         <item>失敗しました。</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>ユーザーメモリ（本体）</item>
+        <item>デバイス</item>
         <item>外部SDカード</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -415,15 +390,28 @@
         <item>画像</item>
         <item>音楽</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>高</item>
-        <item>標準</item>
-        <item>低</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>自動</item>
         <item>手動</item>
         <item>毎回​確認</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>常にOFF</item>
+        <item>3秒</item>
+        <item>5秒</item>
+        <item>10秒</item>
+        <item>15秒</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>なし</item>
+        <item>全ての連絡先</item>
+        <item>お気に入り</item>
+        <item>カスタム</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>高</item>
+        <item>標準</item>
+        <item>低</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1.5秒</item>
@@ -439,17 +427,34 @@
     <string-array name="contents_type_entries">
         <item>ニュース</item>
         <item>株式</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>ニュース</item>
+        <item>株式</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>遅い</item>
         <item>標準</item>
         <item>速い</item>
     </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>なし</item>
+        <item>30分ごと</item>
+        <item>1時間ごと</item>
+        <item>2時間​ごと</item>
+        <item>4時間ごと</item>
+    </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>ヘッドセット</item>
         <item>PC</item>
-        <item>本体</item>
+        <item>電話</item>
         <item>入力装置​（キーボード、​マウス​など）</item>
         <item>全て​の​デバイス</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>ステレオ</item>
+        <item>サラウンド</item>
     </string-array>
 </resources>

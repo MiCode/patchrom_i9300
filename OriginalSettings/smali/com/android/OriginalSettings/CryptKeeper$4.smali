@@ -3,7 +3,7 @@
 .source "CryptKeeper.java"
 
 # interfaces
-.implements Landroid/text/TextWatcher;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
@@ -20,15 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/OriginalSettings/CryptKeeper;
 
+.field final synthetic val$imm:Landroid/view/inputmethod/InputMethodManager;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/OriginalSettings/CryptKeeper;)V
+.method constructor <init>(Lcom/android/OriginalSettings/CryptKeeper;Landroid/view/inputmethod/InputMethodManager;)V
     .locals 0
+    .parameter
     .parameter
 
     .prologue
-    .line 481
+    .line 560
     iput-object p1, p0, Lcom/android/OriginalSettings/CryptKeeper$4;->this$0:Lcom/android/OriginalSettings/CryptKeeper;
+
+    iput-object p2, p0, Lcom/android/OriginalSettings/CryptKeeper$4;->val$imm:Landroid/view/inputmethod/InputMethodManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
@@ -37,53 +42,16 @@
 
 
 # virtual methods
-.method public afterTextChanged(Landroid/text/Editable;)V
+.method public onClick(Landroid/view/View;)V
     .locals 1
-    .parameter "s"
+    .parameter "v"
 
     .prologue
-    .line 489
-    iget-object v0, p0, Lcom/android/OriginalSettings/CryptKeeper$4;->this$0:Lcom/android/OriginalSettings/CryptKeeper;
+    .line 563
+    iget-object v0, p0, Lcom/android/OriginalSettings/CryptKeeper$4;->val$imm:Landroid/view/inputmethod/InputMethodManager;
 
-    #getter for: Lcom/android/OriginalSettings/CryptKeeper;->mPasswordEntry:Landroid/widget/EditText;
-    invoke-static {v0}, Lcom/android/OriginalSettings/CryptKeeper;->access$400(Lcom/android/OriginalSettings/CryptKeeper;)Landroid/widget/EditText;
+    invoke-virtual {v0}, Landroid/view/inputmethod/InputMethodManager;->showInputMethodPicker()V
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/OriginalSettings/CryptKeeper;->access$1102(Ljava/lang/String;)Ljava/lang/String;
-
-    .line 490
-    return-void
-.end method
-
-.method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
-    .parameter "s"
-    .parameter "start"
-    .parameter "count"
-    .parameter "after"
-
-    .prologue
-    .line 496
-    return-void
-.end method
-
-.method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
-    .parameter "s"
-    .parameter "start"
-    .parameter "before"
-    .parameter "count"
-
-    .prologue
-    .line 484
+    .line 564
     return-void
 .end method

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoPreference;->showDialog()V
+    value = Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoPreference;->showDialog(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 98
+    .line 90
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoPreference$2;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoPreference;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,11 +38,17 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 0
+    .locals 1
     .parameter "arg0"
     .parameter "arg1"
 
     .prologue
-    .line 101
+    .line 93
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoPreference$2;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoPreference;
+
+    #calls: Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoPreference;->changeAllowPolicy()V
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoPreference;->access$000(Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoPreference;)V
+
+    .line 94
     return-void
 .end method

@@ -107,7 +107,7 @@
     iput-object v0, p0, Lcom/android/OriginalSettings/SettingsLicenseActivity;->mSpinnerDlg:Landroid/app/ProgressDialog;
 
     .line 222
-    const v0, 0x7f0d0484
+    const v0, 0x7f090548
 
     const/4 v1, 0x1
 
@@ -131,12 +131,12 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 192
+    .line 191
     new-instance v6, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v6, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 193
+    .line 192
     .local v6, builder:Landroid/app/AlertDialog$Builder;
     const/4 v0, 0x1
 
@@ -150,18 +150,18 @@
 
     move-result-object v0
 
-    const v2, 0x7f0d0483
+    const v2, 0x7f090547
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 197
+    .line 196
     invoke-virtual {v6}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/OriginalSettings/SettingsLicenseActivity;->mTextDlg:Landroid/app/AlertDialog;
 
-    .line 198
+    .line 197
     iget-object v0, p0, Lcom/android/OriginalSettings/SettingsLicenseActivity;->mTextDlg:Landroid/app/AlertDialog;
 
     new-instance v2, Lcom/android/OriginalSettings/SettingsLicenseActivity$2;
@@ -170,7 +170,7 @@
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    .line 206
+    .line 205
     iget-object v0, p0, Lcom/android/OriginalSettings/SettingsLicenseActivity;->mWebView:Landroid/webkit/WebView;
 
     const-string v3, "text/html"
@@ -183,7 +183,7 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/webkit/WebView;->loadDataWithBaseURL(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 207
+    .line 206
     iget-object v0, p0, Lcom/android/OriginalSettings/SettingsLicenseActivity;->mWebView:Landroid/webkit/WebView;
 
     new-instance v2, Lcom/android/OriginalSettings/SettingsLicenseActivity$3;
@@ -235,7 +235,7 @@
 
     const-string v6, "The system property for the license file is empty."
 
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 137
     invoke-direct {p0}, Lcom/android/OriginalSettings/SettingsLicenseActivity;->showErrorAndFinish()V
@@ -273,11 +273,6 @@
 
     invoke-virtual {v5, v8}, Landroid/webkit/WebSettings;->setDisableSelection(Z)Z
 
-    .line 148
-    iget-object v5, p0, Lcom/android/OriginalSettings/SettingsLicenseActivity;->mWebView:Landroid/webkit/WebView;
-
-    invoke-virtual {v5, v7}, Landroid/webkit/WebView;->setFindOptionEnabled(Z)V
-
     .line 151
     new-instance v5, Lcom/android/OriginalSettings/SettingsLicenseActivity$1;
 
@@ -286,7 +281,7 @@
     iput-object v5, p0, Lcom/android/OriginalSettings/SettingsLicenseActivity;->mHandler:Landroid/os/Handler;
 
     .line 166
-    const v5, 0x7f0d0483
+    const v5, 0x7f090547
 
     invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/SettingsLicenseActivity;->getText(I)Ljava/lang/CharSequence;
 
@@ -294,7 +289,7 @@
 
     .line 167
     .local v4, title:Ljava/lang/CharSequence;
-    const v5, 0x7f0d0485
+    const v5, 0x7f090549
 
     invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/SettingsLicenseActivity;->getText(I)Ljava/lang/CharSequence;
 
@@ -374,18 +369,8 @@
 
     .line 186
     :cond_1
-    iget-object v0, p0, Lcom/android/OriginalSettings/SettingsLicenseActivity;->mWebView:Landroid/webkit/WebView;
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/OriginalSettings/SettingsLicenseActivity;->mWebView:Landroid/webkit/WebView;
-
-    invoke-virtual {v0}, Landroid/webkit/WebView;->destroy()V
-
-    .line 187
-    :cond_2
     invoke-super {p0}, Lcom/android/OriginalSettings/BaseActivity;->onDestroy()V
 
-    .line 188
+    .line 187
     return-void
 .end method

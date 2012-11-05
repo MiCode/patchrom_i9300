@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 228
+    .line 261
     iput-object p1, p0, Lcom/android/OriginalSettings/motion/MotionView$3;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,12 +42,12 @@
     .parameter "dialog"
 
     .prologue
-    .line 230
+    .line 263
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/MotionView$3;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
 
     #calls: Lcom/android/OriginalSettings/motion/MotionView;->updateCheckedUI()V
     invoke-static {v0}, Lcom/android/OriginalSettings/motion/MotionView;->access$400(Lcom/android/OriginalSettings/motion/MotionView;)V
 
-    .line 231
+    .line 264
     return-void
 .end method

@@ -238,7 +238,7 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0d099e
+    const v2, 0x7f090ba9
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -258,7 +258,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09005f
+    const v2, 0x7f0a0063
 
     iget v3, p0, Lcom/android/OriginalSettings/BlockSettings;->mListIndex:I
 
@@ -305,7 +305,7 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0d09a8
+    const v2, 0x7f090bb3
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -325,7 +325,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090062
+    const v2, 0x7f0a0066
 
     iget v3, p0, Lcom/android/OriginalSettings/BlockSettings;->mListIndex:I
 
@@ -372,7 +372,7 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0d09a5
+    const v2, 0x7f090bb0
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -392,7 +392,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090061
+    const v2, 0x7f0a0065
 
     iget v3, p0, Lcom/android/OriginalSettings/BlockSettings;->mListIndex:I
 
@@ -439,7 +439,7 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0d09a2
+    const v2, 0x7f090bad
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -459,7 +459,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090060
+    const v2, 0x7f0a0064
 
     iget v3, p0, Lcom/android/OriginalSettings/BlockSettings;->mListIndex:I
 
@@ -597,7 +597,7 @@
     if-ne v0, v3, :cond_4
 
     .line 156
-    const v1, 0x7f0d09ad
+    const v1, 0x7f090bb8
 
     .line 162
     .local v1, res_id:I
@@ -624,7 +624,7 @@
     if-ne v0, v3, :cond_6
 
     .line 168
-    const v1, 0x7f0d09ae
+    const v1, 0x7f090bb9
 
     .line 174
     .restart local v1       #res_id:I
@@ -651,7 +651,7 @@
     if-ne v0, v3, :cond_8
 
     .line 180
-    const v1, 0x7f0d09af
+    const v1, 0x7f090bba
 
     .line 186
     .restart local v1       #res_id:I
@@ -678,7 +678,7 @@
     if-ne v0, v3, :cond_a
 
     .line 192
-    const v1, 0x7f0d09b1
+    const v1, 0x7f090bbc
 
     .line 198
     .restart local v1       #res_id:I
@@ -699,7 +699,7 @@
     if-ne v0, v4, :cond_5
 
     .line 158
-    const v1, 0x7f0d09b0
+    const v1, 0x7f090bbb
 
     .restart local v1       #res_id:I
     goto :goto_0
@@ -707,7 +707,7 @@
     .line 160
     .end local v1           #res_id:I
     :cond_5
-    const v1, 0x7f0d09b3
+    const v1, 0x7f090bbe
 
     .restart local v1       #res_id:I
     goto :goto_0
@@ -718,7 +718,7 @@
     if-ne v0, v4, :cond_7
 
     .line 170
-    const v1, 0x7f0d09b0
+    const v1, 0x7f090bbb
 
     .restart local v1       #res_id:I
     goto :goto_1
@@ -726,7 +726,7 @@
     .line 172
     .end local v1           #res_id:I
     :cond_7
-    const v1, 0x7f0d09b3
+    const v1, 0x7f090bbe
 
     .restart local v1       #res_id:I
     goto :goto_1
@@ -737,7 +737,7 @@
     if-ne v0, v4, :cond_9
 
     .line 182
-    const v1, 0x7f0d09b0
+    const v1, 0x7f090bbb
 
     .restart local v1       #res_id:I
     goto :goto_2
@@ -745,7 +745,7 @@
     .line 184
     .end local v1           #res_id:I
     :cond_9
-    const v1, 0x7f0d09b3
+    const v1, 0x7f090bbe
 
     .restart local v1       #res_id:I
     goto :goto_2
@@ -756,7 +756,7 @@
     if-ne v0, v4, :cond_b
 
     .line 194
-    const v1, 0x7f0d09b2
+    const v1, 0x7f090bbd
 
     .restart local v1       #res_id:I
     goto :goto_3
@@ -764,7 +764,7 @@
     .line 196
     .end local v1           #res_id:I
     :cond_b
-    const v1, 0x7f0d09b3
+    const v1, 0x7f090bbe
 
     .restart local v1       #res_id:I
     goto :goto_3
@@ -783,7 +783,7 @@
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 84
-    const v0, 0x7f070010
+    const v0, 0x7f070011
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/BlockSettings;->addPreferencesFromResource(I)V
 

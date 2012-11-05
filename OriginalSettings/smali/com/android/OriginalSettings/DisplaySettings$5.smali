@@ -1,14 +1,11 @@
 .class Lcom/android/OriginalSettings/DisplaySettings$5;
-.super Ljava/lang/Object;
+.super Landroid/os/Handler;
 .source "DisplaySettings.java"
-
-# interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/DisplaySettings;->onCreateDialog(I)Landroid/app/Dialog;
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/OriginalSettings/DisplaySettings;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,60 +17,49 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/OriginalSettings/DisplaySettings;
 
-.field final synthetic val$edit:Landroid/content/SharedPreferences$Editor;
-
-.field final synthetic val$mcheck:Landroid/widget/CheckBox;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/OriginalSettings/DisplaySettings;Landroid/content/SharedPreferences$Editor;Landroid/widget/CheckBox;)V
+.method constructor <init>(Lcom/android/OriginalSettings/DisplaySettings;)V
     .locals 0
-    .parameter
-    .parameter
     .parameter
 
     .prologue
-    .line 725
+    .line 247
     iput-object p1, p0, Lcom/android/OriginalSettings/DisplaySettings$5;->this$0:Lcom/android/OriginalSettings/DisplaySettings;
 
-    iput-object p2, p0, Lcom/android/OriginalSettings/DisplaySettings$5;->val$edit:Landroid/content/SharedPreferences$Editor;
-
-    iput-object p3, p0, Lcom/android/OriginalSettings/DisplaySettings$5;->val$mcheck:Landroid/widget/CheckBox;
-
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 3
-    .parameter "dialog"
-    .parameter "id"
+.method public handleMessage(Landroid/os/Message;)V
+    .locals 1
+    .parameter "msg"
 
     .prologue
-    .line 727
-    iget-object v0, p0, Lcom/android/OriginalSettings/DisplaySettings$5;->val$edit:Landroid/content/SharedPreferences$Editor;
+    .line 249
+    iget v0, p1, Landroid/os/Message;->what:I
 
-    const-string v1, "pref_font_noti"
+    packed-switch v0, :pswitch_data_0
 
-    iget-object v2, p0, Lcom/android/OriginalSettings/DisplaySettings$5;->val$mcheck:Landroid/widget/CheckBox;
-
-    invoke-virtual {v2}, Landroid/widget/CheckBox;->isChecked()Z
-
-    move-result v2
-
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
-
-    .line 728
-    iget-object v0, p0, Lcom/android/OriginalSettings/DisplaySettings$5;->val$edit:Landroid/content/SharedPreferences$Editor;
-
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
-
-    .line 729
-    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
-
-    .line 730
+    .line 254
+    :goto_0
     return-void
+
+    .line 251
+    :pswitch_0
+    iget-object v0, p0, Lcom/android/OriginalSettings/DisplaySettings$5;->this$0:Lcom/android/OriginalSettings/DisplaySettings;
+
+    #calls: Lcom/android/OriginalSettings/DisplaySettings;->updateAnimation()V
+    invoke-static {v0}, Lcom/android/OriginalSettings/DisplaySettings;->access$400(Lcom/android/OriginalSettings/DisplaySettings;)V
+
+    goto :goto_0
+
+    .line 249
+    :pswitch_data_0
+    .packed-switch 0x66
+        :pswitch_0
+    .end packed-switch
 .end method

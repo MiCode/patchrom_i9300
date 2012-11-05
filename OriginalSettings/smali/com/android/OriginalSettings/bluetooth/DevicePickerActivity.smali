@@ -89,7 +89,7 @@
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/BaseActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 47
-    const v0, 0x7f040014
+    const v0, 0x7f040012
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/bluetooth/DevicePickerActivity;->setContentView(I)V
 

@@ -14,10 +14,10 @@
     .locals 1
 
     .prologue
-    .line 70
+    .line 85
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 71
+    .line 86
     const-string v0, "package"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -30,7 +30,7 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/applications/CanBeOnSdCardChecker;->mPm:Landroid/content/pm/IPackageManager;
 
-    .line 73
+    .line 88
     return-void
 .end method
 
@@ -43,10 +43,10 @@
     .prologue
     const/4 v3, 0x2
 
-    .line 85
+    .line 100
     const/4 v0, 0x0
 
-    .line 86
+    .line 101
     .local v0, canBe:Z
     iget v1, p1, Landroid/content/pm/ApplicationInfo;->flags:I
 
@@ -56,31 +56,23 @@
 
     if-eqz v1, :cond_1
 
-    .line 87
+    .line 102
     const/4 v0, 0x1
 
-    .line 104
+    .line 118
     :cond_0
     :goto_0
     return v0
 
-    .line 89
+    .line 104
     :cond_1
-    iget v1, p1, Landroid/content/pm/ApplicationInfo;->flags:I
-
-    const/high16 v2, 0x2000
-
-    and-int/2addr v1, v2
-
-    if-nez v1, :cond_0
-
     iget v1, p1, Landroid/content/pm/ApplicationInfo;->flags:I
 
     and-int/lit8 v1, v1, 0x1
 
     if-nez v1, :cond_0
 
-    .line 91
+    .line 105
     iget v1, p1, Landroid/content/pm/ApplicationInfo;->installLocation:I
 
     if-eq v1, v3, :cond_2
@@ -89,13 +81,13 @@
 
     if-nez v1, :cond_3
 
-    .line 93
+    .line 107
     :cond_2
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 94
+    .line 108
     :cond_3
     iget v1, p1, Landroid/content/pm/ApplicationInfo;->installLocation:I
 
@@ -103,12 +95,12 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 96
+    .line 110
     iget v1, p0, Lcom/android/OriginalSettings/applications/CanBeOnSdCardChecker;->mInstallLocation:I
 
     if-ne v1, v3, :cond_0
 
-    .line 99
+    .line 113
     const/4 v0, 0x1
 
     goto :goto_0
@@ -118,7 +110,7 @@
     .locals 3
 
     .prologue
-    .line 77
+    .line 92
     :try_start_0
     iget-object v1, p0, Lcom/android/OriginalSettings/applications/CanBeOnSdCardChecker;->mPm:Landroid/content/pm/IPackageManager;
 
@@ -130,21 +122,21 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 82
+    .line 97
     :goto_0
     return-void
 
-    .line 78
+    .line 93
     :catch_0
     move-exception v0
 
-    .line 79
+    .line 94
     .local v0, e:Landroid/os/RemoteException;
     const-string v1, "CanBeOnSdCardChecker"
 
     const-string v2, "Is Package Manager running?"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

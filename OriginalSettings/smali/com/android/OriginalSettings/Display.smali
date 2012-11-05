@@ -151,12 +151,12 @@
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/BaseActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 40
-    const v6, 0x7f040051
+    const v6, 0x7f040050
 
     invoke-virtual {p0, v6}, Lcom/android/OriginalSettings/Display;->setContentView(I)V
 
     .line 42
-    const v6, 0x7f0a00bd
+    const v6, 0x7f0b00cb
 
     invoke-virtual {p0, v6}, Lcom/android/OriginalSettings/Display;->findViewById(I)Landroid/view/View;
 
@@ -188,7 +188,7 @@
     .local v2, r:Landroid/content/res/Resources;
     const/4 v6, 0x0
 
-    const v7, 0x7f0d004d
+    const v7, 0x7f09005f
 
     invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -199,7 +199,7 @@
     .line 47
     const/4 v6, 0x1
 
-    const v7, 0x7f0d004e
+    const v7, 0x7f090060
 
     invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -208,7 +208,7 @@
     aput-object v7, v4, v6
 
     .line 48
-    const v6, 0x7f0d004f
+    const v6, 0x7f090061
 
     invoke-virtual {v2, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -235,7 +235,7 @@
     invoke-virtual {v6, v0}, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
 
     .line 55
-    const v6, 0x7f0a00be
+    const v6, 0x7f0b00cc
 
     invoke-virtual {p0, v6}, Lcom/android/OriginalSettings/Display;->findViewById(I)Landroid/view/View;
 
@@ -248,7 +248,7 @@
     .line 56
     iget-object v6, p0, Lcom/android/OriginalSettings/Display;->mPreview:Landroid/widget/TextView;
 
-    const v7, 0x7f0d0050
+    const v7, 0x7f090062
 
     invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -257,7 +257,7 @@
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 58
-    const v6, 0x7f0a00bf
+    const v6, 0x7f0b00cd
 
     invoke-virtual {p0, v6}, Lcom/android/OriginalSettings/Display;->findViewById(I)Landroid/view/View;
 
@@ -267,7 +267,7 @@
 
     .line 59
     .local v3, save:Landroid/widget/Button;
-    const v6, 0x7f0d0051
+    const v6, 0x7f090063
 
     invoke-virtual {v2, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

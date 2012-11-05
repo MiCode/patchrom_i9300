@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 94
+    .line 89
     iput-object p1, p0, Lcom/android/OriginalSettings/CryptKeeperConfirm$1;->this$0:Lcom/android/OriginalSettings/CryptKeeperConfirm;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,18 +42,18 @@
     .parameter "v"
 
     .prologue
-    .line 97
+    .line 92
     invoke-static {}, Lcom/android/OriginalSettings/Utils;->isMonkeyRunning()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 105
+    .line 100
     :goto_0
     return-void
 
-    .line 101
+    .line 96
     :cond_0
     new-instance v0, Landroid/content/Intent;
 
@@ -67,7 +67,7 @@
 
     invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 102
+    .line 97
     .local v0, intent:Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/OriginalSettings/CryptKeeperConfirm$1;->this$0:Lcom/android/OriginalSettings/CryptKeeperConfirm;
 
@@ -77,7 +77,7 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
-    .line 104
+    .line 99
     iget-object v1, p0, Lcom/android/OriginalSettings/CryptKeeperConfirm$1;->this$0:Lcom/android/OriginalSettings/CryptKeeperConfirm;
 
     invoke-virtual {v1, v0}, Lcom/android/OriginalSettings/CryptKeeperConfirm;->startActivity(Landroid/content/Intent;)V

@@ -3453,7 +3453,7 @@
 
     move-result-object v55
 
-    invoke-static/range {v54 .. v55}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v54 .. v55}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1d
 

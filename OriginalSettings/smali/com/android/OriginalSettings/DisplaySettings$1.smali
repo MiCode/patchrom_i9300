@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 138
+    .line 179
     iput-object p1, p0, Lcom/android/OriginalSettings/DisplaySettings$1;->this$0:Lcom/android/OriginalSettings/DisplaySettings;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -44,12 +44,12 @@
 
     const/4 v5, 0x1
 
-    .line 141
+    .line 182
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 142
+    .line 183
     .local v0, action:Ljava/lang/String;
     const-string v2, "DisplaySettings"
 
@@ -81,18 +81,18 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 143
+    .line 184
     const-string v2, "android.intent.action.BATTERY_CHANGED"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3
 
-    .line 144
+    .line 185
     const-string v2, "level"
 
     invoke-virtual {p2, v2, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
@@ -103,20 +103,20 @@
 
     if-gt v2, v3, :cond_2
 
-    .line 145
+    .line 186
     const-string v2, "status"
 
     invoke-virtual {p2, v2, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v1
 
-    .line 146
+    .line 187
     .local v1, battStatus:I
     const/4 v2, 0x2
 
     if-ne v1, v2, :cond_1
 
-    .line 147
+    .line 188
     iget-object v2, p0, Lcom/android/OriginalSettings/DisplaySettings$1;->this$0:Lcom/android/OriginalSettings/DisplaySettings;
 
     #getter for: Lcom/android/OriginalSettings/DisplaySettings;->mBrightnessPreference:Lcom/android/OriginalSettings/BrightnessPreference;
@@ -126,13 +126,13 @@
 
     invoke-virtual {v2, v5}, Lcom/android/OriginalSettings/BrightnessPreference;->setEnabled(Z)V
 
-    .line 154
+    .line 197
     .end local v1           #battStatus:I
     :cond_0
     :goto_0
     return-void
 
-    .line 149
+    .line 190
     .restart local v1       #battStatus:I
     :cond_1
     iget-object v2, p0, Lcom/android/OriginalSettings/DisplaySettings$1;->this$0:Lcom/android/OriginalSettings/DisplaySettings;
@@ -146,7 +146,7 @@
 
     goto :goto_0
 
-    .line 152
+    .line 193
     .end local v1           #battStatus:I
     :cond_2
     iget-object v2, p0, Lcom/android/OriginalSettings/DisplaySettings$1;->this$0:Lcom/android/OriginalSettings/DisplaySettings;
@@ -157,6 +157,27 @@
     move-result-object v2
 
     invoke-virtual {v2, v5}, Lcom/android/OriginalSettings/BrightnessPreference;->setEnabled(Z)V
+
+    goto :goto_0
+
+    .line 194
+    :cond_3
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "com.android.settings.action.FONT_SIZE_CLOSE"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 195
+    iget-object v2, p0, Lcom/android/OriginalSettings/DisplaySettings$1;->this$0:Lcom/android/OriginalSettings/DisplaySettings;
+
+    invoke-virtual {v2}, Lcom/android/OriginalSettings/DisplaySettings;->finish()V
 
     goto :goto_0
 .end method

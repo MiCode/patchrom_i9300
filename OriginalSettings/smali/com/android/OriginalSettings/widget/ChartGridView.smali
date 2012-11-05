@@ -27,14 +27,14 @@
     .parameter "context"
 
     .prologue
-    .line 55
+    .line 56
     const/4 v0, 0x0
 
     const/4 v1, 0x0
 
     invoke-direct {p0, p1, v0, v1}, Lcom/android/OriginalSettings/widget/ChartGridView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 56
+    .line 57
     return-void
 .end method
 
@@ -44,12 +44,12 @@
     .parameter "attrs"
 
     .prologue
-    .line 59
+    .line 60
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/OriginalSettings/widget/ChartGridView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 60
+    .line 61
     return-void
 .end method
 
@@ -62,20 +62,20 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 63
+    .line 64
     invoke-direct {p0, p1, p2, p3}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 65
+    .line 66
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/widget/ChartGridView;->setWillNotDraw(Z)V
 
-    .line 67
+    .line 68
     sget-object v1, Lcom/android/OriginalSettings/R$styleable;->ChartGridView:[I
 
     invoke-virtual {p1, p2, v1, p3, v2}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 70
+    .line 71
     .local v0, a:Landroid/content/res/TypedArray;
     const/4 v1, 0x1
 
@@ -85,7 +85,7 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/widget/ChartGridView;->mPrimary:Landroid/graphics/drawable/Drawable;
 
-    .line 71
+    .line 72
     const/4 v1, 0x2
 
     invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -94,7 +94,7 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/widget/ChartGridView;->mSecondary:Landroid/graphics/drawable/Drawable;
 
-    .line 72
+    .line 73
     const/4 v1, 0x3
 
     invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -103,7 +103,7 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/widget/ChartGridView;->mBorder:Landroid/graphics/drawable/Drawable;
 
-    .line 73
+    .line 74
     const/high16 v1, -0x1
 
     invoke-virtual {v0, v2, v1}, Landroid/content/res/TypedArray;->getColor(II)I
@@ -112,10 +112,10 @@
 
     iput v1, p0, Lcom/android/OriginalSettings/widget/ChartGridView;->mLabelColor:I
 
-    .line 75
+    .line 76
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 76
+    .line 77
     return-void
 .end method
 
@@ -126,18 +126,18 @@
     .prologue
     const/4 v7, 0x1
 
-    .line 139
+    .line 140
     invoke-virtual {p0}, Lcom/android/OriginalSettings/widget/ChartGridView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v8
 
-    .line 140
+    .line 141
     .local v8, res:Landroid/content/res/Resources;
     new-instance v2, Landroid/text/TextPaint;
 
     invoke-direct {v2, v7}, Landroid/text/TextPaint;-><init>(I)V
 
-    .line 141
+    .line 142
     .local v2, paint:Landroid/text/TextPaint;
     invoke-virtual {v8}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
@@ -147,7 +147,7 @@
 
     iput v0, v2, Landroid/text/TextPaint;->density:F
 
-    .line 142
+    .line 143
     invoke-virtual {v8}, Landroid/content/res/Resources;->getCompatibilityInfo()Landroid/content/res/CompatibilityInfo;
 
     move-result-object v0
@@ -156,12 +156,12 @@
 
     invoke-virtual {v2, v0}, Landroid/text/TextPaint;->setCompatibilityScaling(F)V
 
-    .line 143
+    .line 144
     iget v0, p0, Lcom/android/OriginalSettings/widget/ChartGridView;->mLabelColor:I
 
     invoke-virtual {v2, v0}, Landroid/text/TextPaint;->setColor(I)V
 
-    .line 144
+    .line 145
     const/4 v0, 0x2
 
     const/high16 v1, 0x4120
@@ -176,7 +176,7 @@
 
     invoke-virtual {v2, v0}, Landroid/text/TextPaint;->setTextSize(F)V
 
-    .line 147
+    .line 148
     new-instance v0, Landroid/text/StaticLayout;
 
     invoke-static {p1, v2}, Landroid/text/Layout;->getDesiredWidth(Ljava/lang/CharSequence;Landroid/text/TextPaint;)F
@@ -212,7 +212,7 @@
     .parameter "vert"
 
     .prologue
-    .line 79
+    .line 80
     const-string v0, "missing horiz"
 
     invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -223,7 +223,7 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/widget/ChartGridView;->mHoriz:Lcom/android/OriginalSettings/widget/ChartAxis;
 
-    .line 80
+    .line 81
     const-string v0, "missing vert"
 
     invoke-static {p2, v0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -234,7 +234,7 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/widget/ChartGridView;->mVert:Lcom/android/OriginalSettings/widget/ChartAxis;
 
-    .line 81
+    .line 82
     return-void
 .end method
 
@@ -243,18 +243,18 @@
     .parameter "canvas"
 
     .prologue
-    .line 92
+    .line 93
     invoke-virtual/range {p0 .. p0}, Lcom/android/OriginalSettings/widget/ChartGridView;->getWidth()I
 
     move-result v20
 
-    .line 93
+    .line 94
     .local v20, width:I
     invoke-virtual/range {p0 .. p0}, Lcom/android/OriginalSettings/widget/ChartGridView;->getHeight()I
 
     move-result v7
 
-    .line 95
+    .line 96
     .local v7, height:I
     move-object/from16 v0, p0
 
@@ -262,7 +262,7 @@
 
     move-object/from16 v16, v0
 
-    .line 96
+    .line 97
     .local v16, secondary:Landroid/graphics/drawable/Drawable;
     move-object/from16 v0, p0
 
@@ -274,7 +274,7 @@
 
     move-result v17
 
-    .line 98
+    .line 99
     .local v17, secondaryHeight:I
     move-object/from16 v0, p0
 
@@ -286,7 +286,7 @@
 
     move-result-object v19
 
-    .line 99
+    .line 100
     .local v19, vertTicks:[F
     move-object/from16 v4, v19
 
@@ -302,7 +302,7 @@
 
     aget v22, v4, v9
 
-    .line 100
+    .line 101
     .local v22, y:F
     move/from16 v0, v17
 
@@ -324,7 +324,7 @@
 
     float-to-int v5, v0
 
-    .line 101
+    .line 102
     .local v5, bottom:I
     const/16 v23, 0x0
 
@@ -344,19 +344,19 @@
 
     invoke-virtual {v0, v1, v2, v3, v5}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 102
+    .line 103
     move-object/from16 v0, v16
 
     move-object/from16 v1, p1
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 99
+    .line 100
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_0
 
-    .line 105
+    .line 106
     .end local v5           #bottom:I
     .end local v22           #y:F
     :cond_0
@@ -364,7 +364,7 @@
 
     iget-object v12, v0, Lcom/android/OriginalSettings/widget/ChartGridView;->mPrimary:Landroid/graphics/drawable/Drawable;
 
-    .line 106
+    .line 107
     .local v12, primary:Landroid/graphics/drawable/Drawable;
     move-object/from16 v0, p0
 
@@ -376,7 +376,7 @@
 
     move-result v14
 
-    .line 107
+    .line 108
     .local v14, primaryWidth:I
     move-object/from16 v0, p0
 
@@ -388,7 +388,7 @@
 
     move-result v13
 
-    .line 109
+    .line 110
     .local v13, primaryHeight:I
     move-object/from16 v0, p0
 
@@ -400,7 +400,7 @@
 
     move-result-object v8
 
-    .line 110
+    .line 111
     .local v8, horizTicks:[F
     move-object v4, v8
 
@@ -413,7 +413,7 @@
 
     aget v21, v4, v9
 
-    .line 111
+    .line 112
     .local v21, x:F
     int-to-float v0, v14
 
@@ -435,7 +435,7 @@
 
     float-to-int v15, v0
 
-    .line 112
+    .line 113
     .local v15, right:I
     move/from16 v0, v21
 
@@ -451,17 +451,17 @@
 
     invoke-virtual {v12, v0, v1, v15, v7}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 113
+    .line 114
     move-object/from16 v0, p1
 
     invoke-virtual {v12, v0}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 110
+    .line 111
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_1
 
-    .line 116
+    .line 117
     .end local v15           #right:I
     .end local v21           #x:F
     :cond_1
@@ -485,7 +485,7 @@
 
     invoke-virtual {v0, v1, v2, v3, v7}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 117
+    .line 118
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/OriginalSettings/widget/ChartGridView;->mBorder:Landroid/graphics/drawable/Drawable;
@@ -498,7 +498,7 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 119
+    .line 120
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/OriginalSettings/widget/ChartGridView;->mLayoutStart:Landroid/text/Layout;
@@ -519,7 +519,7 @@
 
     div-int/lit8 v11, v23, 0x8
 
-    .line 121
+    .line 122
     .local v11, padding:I
     :goto_2
     move-object/from16 v0, p0
@@ -528,14 +528,14 @@
 
     move-object/from16 v18, v0
 
-    .line 122
+    .line 123
     .local v18, start:Landroid/text/Layout;
     if-eqz v18, :cond_2
 
-    .line 123
+    .line 124
     invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->save()I
 
-    .line 124
+    .line 125
     const/16 v23, 0x0
 
     add-int v24, v7, v11
@@ -554,30 +554,30 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 125
+    .line 126
     move-object/from16 v0, v18
 
     move-object/from16 v1, p1
 
     invoke-virtual {v0, v1}, Landroid/text/Layout;->draw(Landroid/graphics/Canvas;)V
 
-    .line 126
+    .line 127
     invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->restore()V
 
-    .line 129
+    .line 130
     :cond_2
     move-object/from16 v0, p0
 
     iget-object v6, v0, Lcom/android/OriginalSettings/widget/ChartGridView;->mLayoutEnd:Landroid/text/Layout;
 
-    .line 130
+    .line 131
     .local v6, end:Landroid/text/Layout;
     if-eqz v6, :cond_3
 
-    .line 131
+    .line 132
     invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->save()I
 
-    .line 132
+    .line 133
     invoke-virtual {v6}, Landroid/text/Layout;->getWidth()I
 
     move-result v23
@@ -606,19 +606,19 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 133
+    .line 134
     move-object/from16 v0, p1
 
     invoke-virtual {v6, v0}, Landroid/text/Layout;->draw(Landroid/graphics/Canvas;)V
 
-    .line 134
+    .line 135
     invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->restore()V
 
-    .line 136
+    .line 137
     :cond_3
     return-void
 
-    .line 119
+    .line 120
     .end local v6           #end:Landroid/text/Layout;
     .end local v11           #padding:I
     .end local v18           #start:Landroid/text/Layout;
@@ -629,25 +629,19 @@
 .end method
 
 .method setBounds(JJ)V
-    .locals 6
+    .locals 2
     .parameter "start"
     .parameter "end"
 
     .prologue
-    const/4 v5, 0x1
-
-    .line 84
+    .line 85
     invoke-virtual {p0}, Lcom/android/OriginalSettings/widget/ChartGridView;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
+    .line 86
     .local v0, context:Landroid/content/Context;
-    move-wide v1, p1
-
-    move-wide v3, p1
-
-    .line 85
-    invoke-static/range {v0 .. v5}, Lcom/android/OriginalSettings/DataUsageSummary;->formatDateRange(Landroid/content/Context;JJZ)Ljava/lang/String;
+    invoke-static {v0, p1, p2, p1, p2}, Lcom/android/OriginalSettings/DataUsageSummary;->formatDateRange(Landroid/content/Context;JJ)Ljava/lang/String;
 
     move-result-object v1
 
@@ -657,12 +651,8 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/widget/ChartGridView;->mLayoutStart:Landroid/text/Layout;
 
-    move-wide v1, p3
-
-    move-wide v3, p3
-
-    .line 86
-    invoke-static/range {v0 .. v5}, Lcom/android/OriginalSettings/DataUsageSummary;->formatDateRange(Landroid/content/Context;JJZ)Ljava/lang/String;
+    .line 87
+    invoke-static {v0, p3, p4, p3, p4}, Lcom/android/OriginalSettings/DataUsageSummary;->formatDateRange(Landroid/content/Context;JJ)Ljava/lang/String;
 
     move-result-object v1
 
@@ -672,9 +662,9 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/widget/ChartGridView;->mLayoutEnd:Landroid/text/Layout;
 
-    .line 87
+    .line 88
     invoke-virtual {p0}, Lcom/android/OriginalSettings/widget/ChartGridView;->invalidate()V
 
-    .line 88
+    .line 89
     return-void
 .end method

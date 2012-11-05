@@ -146,152 +146,152 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 74
+    .line 76
     invoke-direct {p0}, Lcom/android/OriginalSettings/BaseActivity;-><init>()V
 
-    .line 75
+    .line 77
     const-string v0, "phone"
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->TAG:Ljava/lang/String;
 
-    .line 132
+    .line 134
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->phone:Lcom/android/internal/telephony/Phone;
 
-    .line 138
+    .line 140
     iput-boolean v2, p0, Lcom/android/OriginalSettings/RadioInfo;->mMwiValue:Z
 
-    .line 139
+    .line 141
     iput-boolean v2, p0, Lcom/android/OriginalSettings/RadioInfo;->mCfiValue:Z
 
-    .line 141
+    .line 143
     new-instance v0, Lcom/android/OriginalSettings/RadioInfo$1;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/RadioInfo$1;-><init>(Lcom/android/OriginalSettings/RadioInfo;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
 
-    .line 173
+    .line 175
     new-instance v0, Lcom/android/OriginalSettings/RadioInfo$2;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/RadioInfo$2;-><init>(Lcom/android/OriginalSettings/RadioInfo;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mHandler:Landroid/os/Handler;
 
-    .line 801
+    .line 804
     new-instance v0, Lcom/android/OriginalSettings/RadioInfo$7;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/RadioInfo$7;-><init>(Lcom/android/OriginalSettings/RadioInfo;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mViewADNCallback:Landroid/view/MenuItem$OnMenuItemClickListener;
 
-    .line 816
+    .line 819
     new-instance v0, Lcom/android/OriginalSettings/RadioInfo$8;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/RadioInfo$8;-><init>(Lcom/android/OriginalSettings/RadioInfo;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mViewFDNCallback:Landroid/view/MenuItem$OnMenuItemClickListener;
 
-    .line 831
+    .line 834
     new-instance v0, Lcom/android/OriginalSettings/RadioInfo$9;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/RadioInfo$9;-><init>(Lcom/android/OriginalSettings/RadioInfo;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mViewSDNCallback:Landroid/view/MenuItem$OnMenuItemClickListener;
 
-    .line 847
+    .line 850
     new-instance v0, Lcom/android/OriginalSettings/RadioInfo$10;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/RadioInfo$10;-><init>(Lcom/android/OriginalSettings/RadioInfo;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mGetPdpList:Landroid/view/MenuItem$OnMenuItemClickListener;
 
-    .line 854
+    .line 857
     new-instance v0, Lcom/android/OriginalSettings/RadioInfo$11;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/RadioInfo$11;-><init>(Lcom/android/OriginalSettings/RadioInfo;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mSelectBandCallback:Landroid/view/MenuItem$OnMenuItemClickListener;
 
-    .line 863
+    .line 866
     new-instance v0, Lcom/android/OriginalSettings/RadioInfo$12;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/RadioInfo$12;-><init>(Lcom/android/OriginalSettings/RadioInfo;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mToggleData:Landroid/view/MenuItem$OnMenuItemClickListener;
 
-    .line 883
+    .line 886
     new-instance v0, Lcom/android/OriginalSettings/RadioInfo$13;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/RadioInfo$13;-><init>(Lcom/android/OriginalSettings/RadioInfo;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPowerButtonHandler:Landroid/view/View$OnClickListener;
 
-    .line 892
+    .line 895
     new-instance v0, Lcom/android/OriginalSettings/RadioInfo$14;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/RadioInfo$14;-><init>(Lcom/android/OriginalSettings/RadioInfo;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mImsRegRequiredHandler:Landroid/view/View$OnClickListener;
 
-    .line 918
+    .line 921
     new-instance v0, Lcom/android/OriginalSettings/RadioInfo$15;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/RadioInfo$15;-><init>(Lcom/android/OriginalSettings/RadioInfo;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mSmsOverImsHandler:Landroid/view/View$OnClickListener;
 
-    .line 943
+    .line 946
     new-instance v0, Lcom/android/OriginalSettings/RadioInfo$16;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/RadioInfo$16;-><init>(Lcom/android/OriginalSettings/RadioInfo;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mLteRamDumpHandler:Landroid/view/View$OnClickListener;
 
-    .line 966
+    .line 969
     new-instance v0, Lcom/android/OriginalSettings/RadioInfo$17;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/RadioInfo$17;-><init>(Lcom/android/OriginalSettings/RadioInfo;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mDnsCheckButtonHandler:Landroid/view/View$OnClickListener;
 
-    .line 973
+    .line 976
     new-instance v0, Lcom/android/OriginalSettings/RadioInfo$18;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/RadioInfo$18;-><init>(Lcom/android/OriginalSettings/RadioInfo;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mOemInfoButtonHandler:Landroid/view/View$OnClickListener;
 
-    .line 986
+    .line 989
     new-instance v0, Lcom/android/OriginalSettings/RadioInfo$19;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/RadioInfo$19;-><init>(Lcom/android/OriginalSettings/RadioInfo;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPingButtonHandler:Landroid/view/View$OnClickListener;
 
-    .line 992
+    .line 995
     new-instance v0, Lcom/android/OriginalSettings/RadioInfo$20;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/RadioInfo$20;-><init>(Lcom/android/OriginalSettings/RadioInfo;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mUpdateSmscButtonHandler:Landroid/view/View$OnClickListener;
 
-    .line 1000
+    .line 1003
     new-instance v0, Lcom/android/OriginalSettings/RadioInfo$21;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/RadioInfo$21;-><init>(Lcom/android/OriginalSettings/RadioInfo;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mRefreshSmscButtonHandler:Landroid/view/View$OnClickListener;
 
-    .line 1006
+    .line 1009
     new-instance v0, Lcom/android/OriginalSettings/RadioInfo$22;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/RadioInfo$22;-><init>(Lcom/android/OriginalSettings/RadioInfo;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPreferredNetworkHandler:Landroid/widget/AdapterView$OnItemSelectedListener;
 
-    .line 1019
+    .line 1022
     const/16 v0, 0xe
 
     new-array v0, v0, [Ljava/lang/String;
@@ -356,7 +356,7 @@
 
     const/16 v1, 0xa
 
-    const-string v2, "LTE/CDMA/EvDo/GSM/WCDMA"
+    const-string v2, "Global"
 
     aput-object v2, v0, v1
 
@@ -388,7 +388,7 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateDataState()V
 
     return-void
@@ -399,7 +399,7 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateDataStats()V
 
     return-void
@@ -410,7 +410,7 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updatePhoneState()V
 
     return-void
@@ -421,7 +421,7 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateSignalStrength()V
 
     return-void
@@ -432,7 +432,7 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateServiceState()V
 
     return-void
@@ -443,7 +443,7 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updatePowerState()V
 
     return-void
@@ -454,64 +454,64 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->preferredNetworkType:Landroid/widget/Spinner;
 
     return-object v0
 .end method
 
-.method static synthetic access$1500(Lcom/android/OriginalSettings/RadioInfo;)Lcom/android/internal/telephony/Phone;
+.method static synthetic access$1500(Lcom/android/OriginalSettings/RadioInfo;)[Ljava/lang/String;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
+    iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPreferredNetworkLabels:[Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1600(Lcom/android/OriginalSettings/RadioInfo;)Lcom/android/internal/telephony/Phone;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 76
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->phone:Lcom/android/internal/telephony/Phone;
 
     return-object v0
 .end method
 
-.method static synthetic access$1600(Lcom/android/OriginalSettings/RadioInfo;Ljava/util/ArrayList;)V
+.method static synthetic access$1700(Lcom/android/OriginalSettings/RadioInfo;Ljava/util/ArrayList;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 74
+    .line 76
     invoke-direct {p0, p1}, Lcom/android/OriginalSettings/RadioInfo;->updateNeighboringCids(Ljava/util/ArrayList;)V
 
     return-void
 .end method
 
-.method static synthetic access$1700(Lcom/android/OriginalSettings/RadioInfo;)Landroid/widget/TextView;
+.method static synthetic access$1800(Lcom/android/OriginalSettings/RadioInfo;)Landroid/widget/TextView;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mNeighboringCids:Landroid/widget/TextView;
 
     return-object v0
 .end method
 
-.method static synthetic access$1800(Lcom/android/OriginalSettings/RadioInfo;)Landroid/widget/EditText;
+.method static synthetic access$1900(Lcom/android/OriginalSettings/RadioInfo;)Landroid/widget/EditText;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->smsc:Landroid/widget/EditText;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1900(Lcom/android/OriginalSettings/RadioInfo;)Landroid/widget/Button;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 74
-    iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->updateSmscButton:Landroid/widget/Button;
 
     return-object v0
 .end method
@@ -521,87 +521,87 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updatePdpList()V
 
     return-void
 .end method
 
-.method static synthetic access$2000(Lcom/android/OriginalSettings/RadioInfo;)Ljava/lang/String;
+.method static synthetic access$2000(Lcom/android/OriginalSettings/RadioInfo;)Landroid/widget/Button;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
+    iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->updateSmscButton:Landroid/widget/Button;
+
+    return-object v0
+.end method
+
+.method static synthetic access$2100(Lcom/android/OriginalSettings/RadioInfo;)Ljava/lang/String;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 76
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPingIpAddrResult:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method static synthetic access$2100(Lcom/android/OriginalSettings/RadioInfo;)Landroid/widget/TextView;
+.method static synthetic access$2200(Lcom/android/OriginalSettings/RadioInfo;)Landroid/widget/TextView;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPingIpAddr:Landroid/widget/TextView;
 
     return-object v0
 .end method
 
-.method static synthetic access$2200(Lcom/android/OriginalSettings/RadioInfo;)Ljava/lang/String;
+.method static synthetic access$2300(Lcom/android/OriginalSettings/RadioInfo;)Ljava/lang/String;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPingHostnameResult:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method static synthetic access$2300(Lcom/android/OriginalSettings/RadioInfo;)Landroid/widget/TextView;
+.method static synthetic access$2400(Lcom/android/OriginalSettings/RadioInfo;)Landroid/widget/TextView;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPingHostname:Landroid/widget/TextView;
 
     return-object v0
 .end method
 
-.method static synthetic access$2400(Lcom/android/OriginalSettings/RadioInfo;)Ljava/lang/String;
+.method static synthetic access$2500(Lcom/android/OriginalSettings/RadioInfo;)Ljava/lang/String;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mHttpClientTestResult:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method static synthetic access$2500(Lcom/android/OriginalSettings/RadioInfo;)Landroid/widget/TextView;
+.method static synthetic access$2600(Lcom/android/OriginalSettings/RadioInfo;)Landroid/widget/TextView;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mHttpClientTest:Landroid/widget/TextView;
 
     return-object v0
-.end method
-
-.method static synthetic access$2600(Lcom/android/OriginalSettings/RadioInfo;)V
-    .locals 0
-    .parameter "x0"
-
-    .prologue
-    .line 74
-    invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->pingIpAddr()V
-
-    return-void
 .end method
 
 .method static synthetic access$2700(Lcom/android/OriginalSettings/RadioInfo;)V
@@ -609,8 +609,8 @@
     .parameter "x0"
 
     .prologue
-    .line 74
-    invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->pingHostname()V
+    .line 76
+    invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->pingIpAddr()V
 
     return-void
 .end method
@@ -620,21 +620,21 @@
     .parameter "x0"
 
     .prologue
-    .line 74
-    invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->httpClientTest()V
+    .line 76
+    invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->pingHostname()V
 
     return-void
 .end method
 
-.method static synthetic access$2900(Lcom/android/OriginalSettings/RadioInfo;)Landroid/telephony/TelephonyManager;
-    .locals 1
+.method static synthetic access$2900(Lcom/android/OriginalSettings/RadioInfo;)V
+    .locals 0
     .parameter "x0"
 
     .prologue
-    .line 74
-    iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+    .line 76
+    invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->httpClientTest()V
 
-    return-object v0
+    return-void
 .end method
 
 .method static synthetic access$300(Lcom/android/OriginalSettings/RadioInfo;)V
@@ -642,23 +642,21 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateNetworkType()V
 
     return-void
 .end method
 
-.method static synthetic access$3000(Lcom/android/OriginalSettings/RadioInfo;)Z
+.method static synthetic access$3000(Lcom/android/OriginalSettings/RadioInfo;)Landroid/telephony/TelephonyManager;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 74
-    invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->isRadioOn()Z
+    .line 76
+    iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    move-result v0
-
-    return v0
+    return-object v0
 .end method
 
 .method static synthetic access$3100(Lcom/android/OriginalSettings/RadioInfo;)Z
@@ -666,7 +664,20 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
+    invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->isRadioOn()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$3200(Lcom/android/OriginalSettings/RadioInfo;)Z
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 76
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->isImsRegRequired()Z
 
     move-result v0
@@ -674,23 +685,23 @@
     return v0
 .end method
 
-.method static synthetic access$3200(Lcom/android/OriginalSettings/RadioInfo;)V
+.method static synthetic access$3300(Lcom/android/OriginalSettings/RadioInfo;)V
     .locals 0
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateImsRegRequiredState()V
 
     return-void
 .end method
 
-.method static synthetic access$3300(Lcom/android/OriginalSettings/RadioInfo;)Z
+.method static synthetic access$3400(Lcom/android/OriginalSettings/RadioInfo;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->isSmsOverImsEnabled()Z
 
     move-result v0
@@ -698,23 +709,23 @@
     return v0
 .end method
 
-.method static synthetic access$3400(Lcom/android/OriginalSettings/RadioInfo;)V
+.method static synthetic access$3500(Lcom/android/OriginalSettings/RadioInfo;)V
     .locals 0
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateSmsOverImsState()V
 
     return-void
 .end method
 
-.method static synthetic access$3500(Lcom/android/OriginalSettings/RadioInfo;)Z
+.method static synthetic access$3600(Lcom/android/OriginalSettings/RadioInfo;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->isLteRamDumpEnabled()Z
 
     move-result v0
@@ -722,24 +733,13 @@
     return v0
 .end method
 
-.method static synthetic access$3600(Lcom/android/OriginalSettings/RadioInfo;)V
-    .locals 0
-    .parameter "x0"
-
-    .prologue
-    .line 74
-    invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateLteRamDumpState()V
-
-    return-void
-.end method
-
 .method static synthetic access$3700(Lcom/android/OriginalSettings/RadioInfo;)V
     .locals 0
     .parameter "x0"
 
     .prologue
-    .line 74
-    invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateDnsCheckState()V
+    .line 76
+    invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateLteRamDumpState()V
 
     return-void
 .end method
@@ -749,21 +749,21 @@
     .parameter "x0"
 
     .prologue
-    .line 74
-    invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updatePingState()V
+    .line 76
+    invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateDnsCheckState()V
 
     return-void
 .end method
 
-.method static synthetic access$3900(Lcom/android/OriginalSettings/RadioInfo;)Landroid/os/Handler;
-    .locals 1
+.method static synthetic access$3900(Lcom/android/OriginalSettings/RadioInfo;)V
+    .locals 0
     .parameter "x0"
 
     .prologue
-    .line 74
-    iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mHandler:Landroid/os/Handler;
+    .line 76
+    invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updatePingState()V
 
-    return-object v0
+    return-void
 .end method
 
 .method static synthetic access$400(Lcom/android/OriginalSettings/RadioInfo;)V
@@ -771,18 +771,29 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateDataStats2()V
 
     return-void
 .end method
 
-.method static synthetic access$4000(Lcom/android/OriginalSettings/RadioInfo;)V
+.method static synthetic access$4000(Lcom/android/OriginalSettings/RadioInfo;)Landroid/os/Handler;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 76
+    iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mHandler:Landroid/os/Handler;
+
+    return-object v0
+.end method
+
+.method static synthetic access$4100(Lcom/android/OriginalSettings/RadioInfo;)V
     .locals 0
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->refreshSmsc()V
 
     return-void
@@ -794,7 +805,7 @@
     .parameter "x1"
 
     .prologue
-    .line 74
+    .line 76
     invoke-direct {p0, p1}, Lcom/android/OriginalSettings/RadioInfo;->updateLocation(Landroid/telephony/CellLocation;)V
 
     return-void
@@ -806,7 +817,7 @@
     .parameter "x1"
 
     .prologue
-    .line 74
+    .line 76
     iput-boolean p1, p0, Lcom/android/OriginalSettings/RadioInfo;->mMwiValue:Z
 
     return p1
@@ -817,7 +828,7 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateMessageWaiting()V
 
     return-void
@@ -829,7 +840,7 @@
     .parameter "x1"
 
     .prologue
-    .line 74
+    .line 76
     iput-boolean p1, p0, Lcom/android/OriginalSettings/RadioInfo;->mCfiValue:Z
 
     return p1
@@ -840,7 +851,7 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 76
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateCallRedirect()V
 
     return-void
@@ -850,12 +861,12 @@
     .locals 4
 
     .prologue
-    .line 694
+    .line 697
     new-instance v0, Lorg/apache/http/impl/client/DefaultHttpClient;
 
     invoke-direct {v0}, Lorg/apache/http/impl/client/DefaultHttpClient;-><init>()V
 
-    .line 696
+    .line 699
     :try_start_0
     new-instance v1, Lorg/apache/http/client/methods/HttpGet;
 
@@ -863,12 +874,12 @@
 
     invoke-direct {v1, v2}, Lorg/apache/http/client/methods/HttpGet;-><init>(Ljava/lang/String;)V
 
-    .line 697
+    .line 700
     invoke-interface {v0, v1}, Lorg/apache/http/client/HttpClient;->execute(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse;
 
     move-result-object v0
 
-    .line 698
+    .line 701
     invoke-interface {v0}, Lorg/apache/http/HttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
 
     move-result-object v2
@@ -881,20 +892,20 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 699
+    .line 702
     const-string v0, "Pass"
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mHttpClientTestResult:Ljava/lang/String;
 
-    .line 703
+    .line 706
     :goto_0
     invoke-virtual {v1}, Lorg/apache/http/client/methods/HttpGet;->abort()V
 
-    .line 707
+    .line 710
     :goto_1
     return-void
 
-    .line 701
+    .line 704
     :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -924,11 +935,11 @@
 
     goto :goto_0
 
-    .line 704
+    .line 707
     :catch_0
     move-exception v0
 
-    .line 705
+    .line 708
     const-string v0, "Fail: IOException"
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mHttpClientTestResult:Ljava/lang/String;
@@ -940,7 +951,7 @@
     .locals 2
 
     .prologue
-    .line 905
+    .line 908
     const-string v0, "persist.radio.imsregrequired"
 
     const/4 v1, 0x0
@@ -956,7 +967,7 @@
     .locals 2
 
     .prologue
-    .line 955
+    .line 958
     const-string v0, "persist.radio.ramdump"
 
     const/4 v1, 0x0
@@ -972,7 +983,7 @@
     .locals 2
 
     .prologue
-    .line 406
+    .line 409
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->phone:Lcom/android/internal/telephony/Phone;
 
     invoke-interface {v0}, Lcom/android/internal/telephony/Phone;->getServiceState()Landroid/telephony/ServiceState;
@@ -1002,7 +1013,7 @@
     .locals 2
 
     .prologue
-    .line 930
+    .line 933
     const-string v0, "persist.radio.imsallowmtsms"
 
     const/4 v1, 0x0
@@ -1018,7 +1029,7 @@
     .locals 2
 
     .prologue
-    .line 674
+    .line 677
     :try_start_0
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
@@ -1030,24 +1041,24 @@
 
     move-result-object v0
 
-    .line 675
+    .line 678
     invoke-virtual {v0}, Ljava/lang/Process;->waitFor()I
 
     move-result v0
 
-    .line 676
+    .line 679
     if-nez v0, :cond_0
 
-    .line 677
+    .line 680
     const-string v0, "Pass"
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPingHostnameResult:Ljava/lang/String;
 
-    .line 688
+    .line 691
     :goto_0
     return-void
 
-    .line 679
+    .line 682
     :cond_0
     const-string v0, "Fail: Host unreachable"
 
@@ -1059,33 +1070,33 @@
 
     goto :goto_0
 
-    .line 681
+    .line 684
     :catch_0
     move-exception v0
 
-    .line 682
+    .line 685
     const-string v0, "Fail: Unknown Host"
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPingHostnameResult:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 683
+    .line 686
     :catch_1
     move-exception v0
 
-    .line 684
+    .line 687
     const-string v0, "Fail: IOException"
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPingHostnameResult:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 685
+    .line 688
     :catch_2
     move-exception v0
 
-    .line 686
+    .line 689
     const-string v0, "Fail: InterruptedException"
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPingHostnameResult:Ljava/lang/String;
@@ -1097,11 +1108,11 @@
     .locals 4
 
     .prologue
-    .line 654
+    .line 657
     :try_start_0
     const-string v0, "74.125.47.104"
 
-    .line 655
+    .line 658
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
     move-result-object v1
@@ -1128,24 +1139,24 @@
 
     move-result-object v0
 
-    .line 656
+    .line 659
     invoke-virtual {v0}, Ljava/lang/Process;->waitFor()I
 
     move-result v0
 
-    .line 657
+    .line 660
     if-nez v0, :cond_0
 
-    .line 658
+    .line 661
     const-string v0, "Pass"
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPingIpAddrResult:Ljava/lang/String;
 
-    .line 667
+    .line 670
     :goto_0
     return-void
 
-    .line 660
+    .line 663
     :cond_0
     const-string v0, "Fail: IP addr not reachable"
 
@@ -1156,22 +1167,22 @@
 
     goto :goto_0
 
-    .line 662
+    .line 665
     :catch_0
     move-exception v0
 
-    .line 663
+    .line 666
     const-string v0, "Fail: IOException"
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPingIpAddrResult:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 664
+    .line 667
     :catch_1
     move-exception v0
 
-    .line 665
+    .line 668
     const-string v0, "Fail: InterruptedException"
 
     iput-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPingIpAddrResult:Ljava/lang/String;
@@ -1183,7 +1194,7 @@
     .locals 3
 
     .prologue
-    .line 710
+    .line 713
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->phone:Lcom/android/internal/telephony/Phone;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->mHandler:Landroid/os/Handler;
@@ -1196,7 +1207,7 @@
 
     invoke-interface {v0, v1}, Lcom/android/internal/telephony/Phone;->getSmscAddress(Landroid/os/Message;)V
 
-    .line 711
+    .line 714
     return-void
 .end method
 
@@ -1204,7 +1215,7 @@
     .locals 2
 
     .prologue
-    .line 510
+    .line 513
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mCfi:Landroid/widget/TextView;
 
     iget-boolean v1, p0, Lcom/android/OriginalSettings/RadioInfo;->mCfiValue:Z
@@ -1215,7 +1226,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 511
+    .line 514
     return-void
 .end method
 
@@ -1223,50 +1234,40 @@
     .locals 3
 
     .prologue
-    .line 568
+    .line 571
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
     invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getDataState()I
 
     move-result v1
 
-    .line 569
+    .line 572
     invoke-virtual {p0}, Lcom/android/OriginalSettings/RadioInfo;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 570
-    const v0, 0x7f0d0044
+    .line 573
+    const v0, 0x7f090056
 
     invoke-virtual {v2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 572
+    .line 575
     packed-switch v1, :pswitch_data_0
 
-    .line 587
+    .line 590
     :goto_0
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->gprsState:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 588
+    .line 591
     return-void
 
-    .line 574
-    :pswitch_0
-    const v0, 0x7f0d0042
-
-    invoke-virtual {v2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
     .line 577
-    :pswitch_1
-    const v0, 0x7f0d0041
+    :pswitch_0
+    const v0, 0x7f090054
 
     invoke-virtual {v2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1275,8 +1276,8 @@
     goto :goto_0
 
     .line 580
-    :pswitch_2
-    const v0, 0x7f0d0040
+    :pswitch_1
+    const v0, 0x7f090053
 
     invoke-virtual {v2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1285,8 +1286,8 @@
     goto :goto_0
 
     .line 583
-    :pswitch_3
-    const v0, 0x7f0d0043
+    :pswitch_2
+    const v0, 0x7f090052
 
     invoke-virtual {v2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1294,7 +1295,17 @@
 
     goto :goto_0
 
-    .line 572
+    .line 586
+    :pswitch_3
+    const v0, 0x7f090055
+
+    invoke-virtual {v2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    .line 575
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_2
@@ -1308,7 +1319,7 @@
     .locals 2
 
     .prologue
-    .line 616
+    .line 619
     const-string v0, "net.gsm.radio-reset"
 
     const-string v1, "0"
@@ -1317,12 +1328,12 @@
 
     move-result-object v0
 
-    .line 617
+    .line 620
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->resets:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 619
+    .line 622
     const-string v0, "net.gsm.attempt-gprs"
 
     const-string v1, "0"
@@ -1331,12 +1342,12 @@
 
     move-result-object v0
 
-    .line 620
+    .line 623
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->attempts:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 622
+    .line 625
     const-string v0, "net.gsm.succeed-gprs"
 
     const-string v1, "0"
@@ -1345,12 +1356,12 @@
 
     move-result-object v0
 
-    .line 623
+    .line 626
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->successes:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 628
+    .line 631
     const-string v0, "net.ppp.reset-by-timeout"
 
     const-string v1, "0"
@@ -1359,12 +1370,12 @@
 
     move-result-object v0
 
-    .line 629
+    .line 632
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->sentSinceReceived:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 630
+    .line 633
     return-void
 .end method
 
@@ -1372,46 +1383,46 @@
     .locals 12
 
     .prologue
-    .line 633
+    .line 636
     invoke-virtual {p0}, Lcom/android/OriginalSettings/RadioInfo;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 635
+    .line 638
     invoke-static {}, Landroid/net/TrafficStats;->getMobileTxPackets()J
 
     move-result-wide v1
 
-    .line 636
+    .line 639
     invoke-static {}, Landroid/net/TrafficStats;->getMobileRxPackets()J
 
     move-result-wide v3
 
-    .line 637
+    .line 640
     invoke-static {}, Landroid/net/TrafficStats;->getMobileTxBytes()J
 
     move-result-wide v5
 
-    .line 638
+    .line 641
     invoke-static {}, Landroid/net/TrafficStats;->getMobileRxBytes()J
 
     move-result-wide v7
 
-    .line 640
-    const v9, 0x7f0d0045
+    .line 643
+    const v9, 0x7f090057
 
     invoke-virtual {v0, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v9
 
-    .line 641
-    const v10, 0x7f0d0046
+    .line 644
+    const v10, 0x7f090058
 
     invoke-virtual {v0, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 643
+    .line 646
     iget-object v10, p0, Lcom/android/OriginalSettings/RadioInfo;->sent:Landroid/widget/TextView;
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -1458,7 +1469,7 @@
 
     invoke-virtual {v10, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 644
+    .line 647
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->received:Landroid/widget/TextView;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1505,7 +1516,7 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 645
+    .line 648
     return-void
 .end method
 
@@ -1513,7 +1524,7 @@
     .locals 2
 
     .prologue
-    .line 417
+    .line 420
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->dnsCheckState:Landroid/widget/TextView;
 
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->phone:Lcom/android/internal/telephony/Phone;
@@ -1529,10 +1540,10 @@
     :goto_0
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 419
+    .line 422
     return-void
 
-    .line 417
+    .line 420
     :cond_0
     const-string v0, "0.0.0.0 not allowed"
 
@@ -1543,7 +1554,7 @@
     .locals 3
 
     .prologue
-    .line 909
+    .line 912
     const-string v0, "phone"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1570,31 +1581,31 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 910
+    .line 913
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->isImsRegRequired()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0d002f
+    const v0, 0x7f090041
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/RadioInfo;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 913
+    .line 916
     :goto_0
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->imsRegRequiredButton:Landroid/widget/Button;
 
     invoke-virtual {v1, v0}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 914
+    .line 917
     return-void
 
-    .line 910
+    .line 913
     :cond_0
-    const v0, 0x7f0d002e
+    const v0, 0x7f090040
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/RadioInfo;->getString(I)Ljava/lang/String;
 
@@ -1610,37 +1621,37 @@
     .prologue
     const/4 v8, -0x1
 
-    .line 448
+    .line 451
     invoke-virtual {p0}, Lcom/android/OriginalSettings/RadioInfo;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 449
+    .line 452
     instance-of v0, p1, Landroid/telephony/gsm/GsmCellLocation;
 
     if-eqz v0, :cond_2
 
-    .line 450
+    .line 453
     check-cast p1, Landroid/telephony/gsm/GsmCellLocation;
 
-    .line 451
+    .line 454
     invoke-virtual {p1}, Landroid/telephony/gsm/GsmCellLocation;->getLac()I
 
     move-result v0
 
-    .line 452
+    .line 455
     invoke-virtual {p1}, Landroid/telephony/gsm/GsmCellLocation;->getCid()I
 
     move-result v2
 
-    .line 453
+    .line 456
     iget-object v3, p0, Lcom/android/OriginalSettings/RadioInfo;->mLocation:Landroid/widget/TextView;
 
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v5, 0x7f0d0049
+    const v5, 0x7f09005b
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1671,7 +1682,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f0d004a
+    const v4, 0x7f09005c
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1702,11 +1713,11 @@
 
     invoke-virtual {v3, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 484
+    .line 487
     :goto_2
     return-void
 
-    .line 453
+    .line 456
     :cond_0
     invoke-static {v0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
@@ -1721,41 +1732,41 @@
 
     goto :goto_1
 
-    .line 458
+    .line 461
     :cond_2
     instance-of v0, p1, Landroid/telephony/cdma/CdmaCellLocation;
 
     if-eqz v0, :cond_8
 
-    .line 459
+    .line 462
     check-cast p1, Landroid/telephony/cdma/CdmaCellLocation;
 
-    .line 460
+    .line 463
     invoke-virtual {p1}, Landroid/telephony/cdma/CdmaCellLocation;->getBaseStationId()I
 
     move-result v0
 
-    .line 461
+    .line 464
     invoke-virtual {p1}, Landroid/telephony/cdma/CdmaCellLocation;->getSystemId()I
 
     move-result v1
 
-    .line 462
+    .line 465
     invoke-virtual {p1}, Landroid/telephony/cdma/CdmaCellLocation;->getNetworkId()I
 
     move-result v2
 
-    .line 463
+    .line 466
     invoke-virtual {p1}, Landroid/telephony/cdma/CdmaCellLocation;->getBaseStationLatitude()I
 
     move-result v3
 
-    .line 464
+    .line 467
     invoke-virtual {p1}, Landroid/telephony/cdma/CdmaCellLocation;->getBaseStationLongitude()I
 
     move-result v4
 
-    .line 465
+    .line 468
     iget-object v5, p0, Lcom/android/OriginalSettings/RadioInfo;->mLocation:Landroid/widget/TextView;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1904,7 +1915,7 @@
 
     goto :goto_7
 
-    .line 480
+    .line 483
     :cond_8
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mLocation:Landroid/widget/TextView;
 
@@ -1919,7 +1930,7 @@
     .locals 3
 
     .prologue
-    .line 959
+    .line 962
     const-string v0, "phone"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1946,31 +1957,31 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 960
+    .line 963
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->isLteRamDumpEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0d0031
+    const v0, 0x7f090043
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/RadioInfo;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 963
+    .line 966
     :goto_0
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->lteRamDumpButton:Landroid/widget/Button;
 
     invoke-virtual {v1, v0}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 964
+    .line 967
     return-void
 
-    .line 960
+    .line 963
     :cond_0
-    const v0, 0x7f0d0030
+    const v0, 0x7f090042
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/RadioInfo;->getString(I)Ljava/lang/String;
 
@@ -1983,7 +1994,7 @@
     .locals 2
 
     .prologue
-    .line 505
+    .line 508
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mMwi:Landroid/widget/TextView;
 
     iget-boolean v1, p0, Lcom/android/OriginalSettings/RadioInfo;->mMwiValue:Z
@@ -1994,7 +2005,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 506
+    .line 509
     return-void
 .end method
 
@@ -2012,27 +2023,27 @@
     .end annotation
 
     .prologue
-    .line 487
+    .line 490
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 489
+    .line 492
     if-eqz p1, :cond_2
 
-    .line 490
+    .line 493
     invoke-virtual {p1}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 491
+    .line 494
     const-string v0, "no neighboring cells"
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 500
+    .line 503
     :cond_0
     :goto_0
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mNeighboringCids:Landroid/widget/TextView;
@@ -2043,10 +2054,10 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 501
+    .line 504
     return-void
 
-    .line 493
+    .line 496
     :cond_1
     invoke-virtual {p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
@@ -2065,7 +2076,7 @@
 
     check-cast v0, Landroid/telephony/NeighboringCellInfo;
 
-    .line 494
+    .line 497
     invoke-virtual {v0}, Landroid/telephony/NeighboringCellInfo;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -2080,7 +2091,7 @@
 
     goto :goto_1
 
-    .line 498
+    .line 501
     :cond_2
     const-string v0, "unknown"
 
@@ -2093,15 +2104,15 @@
     .locals 3
 
     .prologue
-    .line 591
+    .line 594
     invoke-virtual {p0}, Lcom/android/OriginalSettings/RadioInfo;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 592
+    .line 595
     const-string v1, "gsm.network.type"
 
-    const v2, 0x7f0d0044
+    const v2, 0x7f090056
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2111,12 +2122,12 @@
 
     move-result-object v0
 
-    .line 595
+    .line 598
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->network:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 596
+    .line 599
     return-void
 .end method
 
@@ -2124,14 +2135,14 @@
     .locals 2
 
     .prologue
-    .line 760
+    .line 763
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "========DATA=======\n"
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 798
+    .line 801
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->disconnects:Landroid/widget/TextView;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -2140,7 +2151,7 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 799
+    .line 802
     return-void
 .end method
 
@@ -2148,26 +2159,26 @@
     .locals 4
 
     .prologue
-    .line 547
+    .line 550
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/PhoneStateIntentReceiver;->getPhoneState()Lcom/android/internal/telephony/Phone$State;
 
     move-result-object v1
 
-    .line 548
+    .line 551
     invoke-virtual {p0}, Lcom/android/OriginalSettings/RadioInfo;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 549
-    const v0, 0x7f0d0044
+    .line 552
+    const v0, 0x7f090056
 
     invoke-virtual {v2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 551
+    .line 554
     sget-object v3, Lcom/android/OriginalSettings/RadioInfo$23;->$SwitchMap$com$android$internal$telephony$Phone$State:[I
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/Phone$State;->ordinal()I
@@ -2178,28 +2189,18 @@
 
     packed-switch v1, :pswitch_data_0
 
-    .line 563
+    .line 566
     :goto_0
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->callState:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 564
+    .line 567
     return-void
 
-    .line 553
-    :pswitch_0
-    const v0, 0x7f0d003d
-
-    invoke-virtual {v2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
     .line 556
-    :pswitch_1
-    const v0, 0x7f0d003e
+    :pswitch_0
+    const v0, 0x7f09004f
 
     invoke-virtual {v2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2208,8 +2209,8 @@
     goto :goto_0
 
     .line 559
-    :pswitch_2
-    const v0, 0x7f0d003f
+    :pswitch_1
+    const v0, 0x7f090050
 
     invoke-virtual {v2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2217,7 +2218,17 @@
 
     goto :goto_0
 
-    .line 551
+    .line 562
+    :pswitch_2
+    const v0, 0x7f090051
+
+    invoke-virtual {v2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    .line 554
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -2230,14 +2241,14 @@
     .locals 3
 
     .prologue
-    const v2, 0x7f0d0044
+    const v2, 0x7f090056
 
-    .line 714
+    .line 717
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
-    .line 716
+    .line 719
     invoke-virtual {p0}, Lcom/android/OriginalSettings/RadioInfo;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -2248,7 +2259,7 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->mPingIpAddrResult:Ljava/lang/String;
 
-    .line 717
+    .line 720
     invoke-virtual {p0}, Lcom/android/OriginalSettings/RadioInfo;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -2259,7 +2270,7 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->mPingHostnameResult:Ljava/lang/String;
 
-    .line 718
+    .line 721
     invoke-virtual {p0}, Lcom/android/OriginalSettings/RadioInfo;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -2270,57 +2281,57 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->mHttpClientTestResult:Ljava/lang/String;
 
-    .line 720
+    .line 723
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->mPingIpAddr:Landroid/widget/TextView;
 
     iget-object v2, p0, Lcom/android/OriginalSettings/RadioInfo;->mPingIpAddrResult:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 721
+    .line 724
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->mPingHostname:Landroid/widget/TextView;
 
     iget-object v2, p0, Lcom/android/OriginalSettings/RadioInfo;->mPingHostnameResult:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 722
+    .line 725
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->mHttpClientTest:Landroid/widget/TextView;
 
     iget-object v2, p0, Lcom/android/OriginalSettings/RadioInfo;->mHttpClientTestResult:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 724
+    .line 727
     new-instance v1, Lcom/android/OriginalSettings/RadioInfo$3;
 
     invoke-direct {v1, p0}, Lcom/android/OriginalSettings/RadioInfo$3;-><init>(Lcom/android/OriginalSettings/RadioInfo;)V
 
-    .line 731
+    .line 734
     new-instance v2, Lcom/android/OriginalSettings/RadioInfo$4;
 
     invoke-direct {v2, p0, v0, v1}, Lcom/android/OriginalSettings/RadioInfo$4;-><init>(Lcom/android/OriginalSettings/RadioInfo;Landroid/os/Handler;Ljava/lang/Runnable;)V
 
-    .line 738
+    .line 741
     invoke-virtual {v2}, Ljava/lang/Thread;->start()V
 
-    .line 740
+    .line 743
     new-instance v2, Lcom/android/OriginalSettings/RadioInfo$5;
 
     invoke-direct {v2, p0, v0, v1}, Lcom/android/OriginalSettings/RadioInfo$5;-><init>(Lcom/android/OriginalSettings/RadioInfo;Landroid/os/Handler;Ljava/lang/Runnable;)V
 
-    .line 747
+    .line 750
     invoke-virtual {v2}, Ljava/lang/Thread;->start()V
 
-    .line 749
+    .line 752
     new-instance v2, Lcom/android/OriginalSettings/RadioInfo$6;
 
     invoke-direct {v2, p0, v0, v1}, Lcom/android/OriginalSettings/RadioInfo$6;-><init>(Lcom/android/OriginalSettings/RadioInfo;Landroid/os/Handler;Ljava/lang/Runnable;)V
 
-    .line 756
+    .line 759
     invoke-virtual {v2}, Ljava/lang/Thread;->start()V
 
-    .line 757
+    .line 760
     return-void
 .end method
 
@@ -2328,33 +2339,33 @@
     .locals 2
 
     .prologue
-    .line 410
+    .line 413
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->isRadioOn()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f0d002b
+    const v1, 0x7f09003d
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/RadioInfo;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 413
+    .line 416
     .local v0, buttonText:Ljava/lang/String;
     :goto_0
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->radioPowerButton:Landroid/widget/Button;
 
     invoke-virtual {v1, v0}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 414
+    .line 417
     return-void
 
-    .line 410
+    .line 413
     .end local v0           #buttonText:Ljava/lang/String;
     :cond_0
-    const v1, 0x7f0d002a
+    const v1, 0x7f09003c
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/RadioInfo;->getString(I)Ljava/lang/String;
 
@@ -2367,54 +2378,54 @@
     .locals 4
 
     .prologue
-    const v3, 0x7f0d0044
+    const v3, 0x7f090056
 
-    .line 601
+    .line 604
     invoke-virtual {p0}, Lcom/android/OriginalSettings/RadioInfo;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 603
+    .line 606
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->phone:Lcom/android/internal/telephony/Phone;
 
     invoke-interface {v0}, Lcom/android/internal/telephony/Phone;->getDeviceId()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 604
+    .line 607
     if-nez v0, :cond_0
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 605
+    .line 608
     :cond_0
     iget-object v2, p0, Lcom/android/OriginalSettings/RadioInfo;->mDeviceId:Landroid/widget/TextView;
 
     invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 608
+    .line 611
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->phone:Lcom/android/internal/telephony/Phone;
 
     invoke-interface {v0}, Lcom/android/internal/telephony/Phone;->getLine1Number()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 609
+    .line 612
     if-nez v0, :cond_1
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 610
+    .line 613
     :cond_1
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->number:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 611
+    .line 614
     return-void
 .end method
 
@@ -2422,54 +2433,54 @@
     .locals 4
 
     .prologue
-    .line 516
+    .line 519
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/PhoneStateIntentReceiver;->getServiceState()Landroid/telephony/ServiceState;
 
     move-result-object v1
 
-    .line 517
+    .line 520
     invoke-virtual {v1}, Landroid/telephony/ServiceState;->getState()I
 
     move-result v2
 
-    .line 518
+    .line 521
     invoke-virtual {p0}, Lcom/android/OriginalSettings/RadioInfo;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    .line 519
-    const v0, 0x7f0d0044
+    .line 522
+    const v0, 0x7f090056
 
     invoke-virtual {v3, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 521
+    .line 524
     packed-switch v2, :pswitch_data_0
 
-    .line 534
+    .line 537
     :goto_0
     iget-object v2, p0, Lcom/android/OriginalSettings/RadioInfo;->gsmState:Landroid/widget/TextView;
 
     invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 536
+    .line 539
     invoke-virtual {v1}, Landroid/telephony/ServiceState;->getRoaming()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 537
+    .line 540
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->roamingState:Landroid/widget/TextView;
 
-    const v2, 0x7f0d003b
+    const v2, 0x7f09004d
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(I)V
 
-    .line 542
+    .line 545
     :goto_1
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->operatorName:Landroid/widget/TextView;
 
@@ -2479,22 +2490,12 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 543
+    .line 546
     return-void
 
-    .line 523
+    .line 526
     :pswitch_0
-    const v0, 0x7f0d0036
-
-    invoke-virtual {v3, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    .line 527
-    :pswitch_1
-    const v0, 0x7f0d0038
+    const v0, 0x7f090048
 
     invoke-virtual {v3, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2503,8 +2504,8 @@
     goto :goto_0
 
     .line 530
-    :pswitch_2
-    const v0, 0x7f0d0039
+    :pswitch_1
+    const v0, 0x7f09004a
 
     invoke-virtual {v3, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2512,17 +2513,27 @@
 
     goto :goto_0
 
-    .line 539
+    .line 533
+    :pswitch_2
+    const v0, 0x7f09004b
+
+    invoke-virtual {v3, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    .line 542
     :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->roamingState:Landroid/widget/TextView;
 
-    const v2, 0x7f0d003c
+    const v2, 0x7f09004e
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(I)V
 
     goto :goto_1
 
-    .line 521
+    .line 524
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -2540,7 +2551,7 @@
 
     const/4 v4, -0x1
 
-    .line 425
+    .line 428
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/PhoneStateIntentReceiver;->getServiceState()Landroid/telephony/ServiceState;
@@ -2551,12 +2562,12 @@
 
     move-result v0
 
-    .line 426
+    .line 429
     invoke-virtual {p0}, Lcom/android/OriginalSettings/RadioInfo;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    .line 428
+    .line 431
     const/4 v2, 0x1
 
     if-eq v2, v0, :cond_0
@@ -2565,7 +2576,7 @@
 
     if-ne v2, v0, :cond_1
 
-    .line 430
+    .line 433
     :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->dBm:Landroid/widget/TextView;
 
@@ -2573,7 +2584,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 433
+    .line 436
     :cond_1
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
 
@@ -2581,12 +2592,12 @@
 
     move-result v0
 
-    .line 435
+    .line 438
     if-ne v4, v0, :cond_2
 
     move v0, v1
 
-    .line 437
+    .line 440
     :cond_2
     iget-object v2, p0, Lcom/android/OriginalSettings/RadioInfo;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
 
@@ -2594,10 +2605,10 @@
 
     move-result v2
 
-    .line 439
+    .line 442
     if-ne v4, v2, :cond_3
 
-    .line 441
+    .line 444
     :goto_0
     iget-object v2, p0, Lcom/android/OriginalSettings/RadioInfo;->dBm:Landroid/widget/TextView;
 
@@ -2619,7 +2630,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f0d0047
+    const v4, 0x7f090059
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2649,7 +2660,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0048
+    const v1, 0x7f09005a
 
     invoke-virtual {v3, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2665,7 +2676,7 @@
 
     invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 445
+    .line 448
     return-void
 
     :cond_3
@@ -2678,7 +2689,7 @@
     .locals 3
 
     .prologue
-    .line 934
+    .line 937
     const-string v0, "phone"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2705,31 +2716,31 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 935
+    .line 938
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->isSmsOverImsEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0d002d
+    const v0, 0x7f09003f
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/RadioInfo;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 938
+    .line 941
     :goto_0
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->smsOverImsButton:Landroid/widget/Button;
 
     invoke-virtual {v1, v0}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 939
+    .line 942
     return-void
 
-    .line 935
+    .line 938
     :cond_0
-    const v0, 0x7f0d002c
+    const v0, 0x7f09003e
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/RadioInfo;->getString(I)Ljava/lang/String;
 
@@ -2747,15 +2758,15 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 238
+    .line 241
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/BaseActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 240
-    const v4, 0x7f0400a0
+    .line 243
+    const v4, 0x7f0400bf
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->setContentView(I)V
 
-    .line 242
+    .line 245
     const-string v4, "phone"
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -2766,15 +2777,15 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    .line 243
+    .line 246
     invoke-static {}, Lcom/android/internal/telephony/PhoneFactory;->getDefaultPhone()Lcom/android/internal/telephony/Phone;
 
     move-result-object v4
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->phone:Lcom/android/internal/telephony/Phone;
 
-    .line 245
-    const v4, 0x7f0a01b1
+    .line 248
+    const v4, 0x7f0b0209
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -2784,8 +2795,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->mDeviceId:Landroid/widget/TextView;
 
-    .line 246
-    const v4, 0x7f0a01b2
+    .line 249
+    const v4, 0x7f0b020a
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -2795,8 +2806,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->number:Landroid/widget/TextView;
 
-    .line 247
-    const v4, 0x7f0a01c1
+    .line 250
+    const v4, 0x7f0b0219
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -2806,8 +2817,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->callState:Landroid/widget/TextView;
 
-    .line 248
-    const v4, 0x7f0a01b3
+    .line 251
+    const v4, 0x7f0b020b
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -2817,8 +2828,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->operatorName:Landroid/widget/TextView;
 
-    .line 249
-    const v4, 0x7f0a01bb
+    .line 252
+    const v4, 0x7f0b0213
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -2828,8 +2839,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->roamingState:Landroid/widget/TextView;
 
-    .line 250
-    const v4, 0x7f0a01bc
+    .line 253
+    const v4, 0x7f0b0214
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -2839,8 +2850,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->gsmState:Landroid/widget/TextView;
 
-    .line 251
-    const v4, 0x7f0a01bd
+    .line 254
+    const v4, 0x7f0b0215
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -2850,8 +2861,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->gprsState:Landroid/widget/TextView;
 
-    .line 252
-    const v4, 0x7f0a01be
+    .line 255
+    const v4, 0x7f0b0216
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -2861,8 +2872,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->network:Landroid/widget/TextView;
 
-    .line 253
-    const v4, 0x7f0a01b8
+    .line 256
+    const v4, 0x7f0b0210
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -2872,8 +2883,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->dBm:Landroid/widget/TextView;
 
-    .line 254
-    const v4, 0x7f0a01bf
+    .line 257
+    const v4, 0x7f0b0217
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -2883,8 +2894,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->mMwi:Landroid/widget/TextView;
 
-    .line 255
-    const v4, 0x7f0a01c0
+    .line 258
+    const v4, 0x7f0b0218
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -2894,8 +2905,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->mCfi:Landroid/widget/TextView;
 
-    .line 256
-    const v4, 0x7f0a01b9
+    .line 259
+    const v4, 0x7f0b0211
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -2905,8 +2916,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->mLocation:Landroid/widget/TextView;
 
-    .line 257
-    const v4, 0x7f0a01ba
+    .line 260
+    const v4, 0x7f0b0212
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -2916,8 +2927,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->mNeighboringCids:Landroid/widget/TextView;
 
-    .line 259
-    const v4, 0x7f0a01c2
+    .line 262
+    const v4, 0x7f0b021a
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -2927,8 +2938,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->resets:Landroid/widget/TextView;
 
-    .line 260
-    const v4, 0x7f0a01c3
+    .line 263
+    const v4, 0x7f0b021b
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -2938,8 +2949,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->attempts:Landroid/widget/TextView;
 
-    .line 261
-    const v4, 0x7f0a01c4
+    .line 264
+    const v4, 0x7f0b021c
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -2949,8 +2960,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->successes:Landroid/widget/TextView;
 
-    .line 262
-    const v4, 0x7f0a01c5
+    .line 265
+    const v4, 0x7f0b021d
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -2960,8 +2971,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->disconnects:Landroid/widget/TextView;
 
-    .line 263
-    const v4, 0x7f0a01c8
+    .line 266
+    const v4, 0x7f0b0220
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -2971,8 +2982,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->sentSinceReceived:Landroid/widget/TextView;
 
-    .line 264
-    const v4, 0x7f0a01c6
+    .line 267
+    const v4, 0x7f0b021e
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -2982,8 +2993,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->sent:Landroid/widget/TextView;
 
-    .line 265
-    const v4, 0x7f0a01c7
+    .line 268
+    const v4, 0x7f0b021f
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -2993,8 +3004,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->received:Landroid/widget/TextView;
 
-    .line 266
-    const v4, 0x7f0a01d1
+    .line 269
+    const v4, 0x7f0b0229
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -3004,8 +3015,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->smsc:Landroid/widget/EditText;
 
-    .line 267
-    const v4, 0x7f0a01d3
+    .line 270
+    const v4, 0x7f0b022b
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -3015,8 +3026,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->dnsCheckState:Landroid/widget/TextView;
 
-    .line 269
-    const v4, 0x7f0a01b5
+    .line 272
+    const v4, 0x7f0b020d
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -3026,8 +3037,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->mPingIpAddr:Landroid/widget/TextView;
 
-    .line 270
-    const v4, 0x7f0a01b6
+    .line 273
+    const v4, 0x7f0b020e
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -3037,8 +3048,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->mPingHostname:Landroid/widget/TextView;
 
-    .line 271
-    const v4, 0x7f0a01b7
+    .line 274
+    const v4, 0x7f0b020f
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -3048,8 +3059,8 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->mHttpClientTest:Landroid/widget/TextView;
 
-    .line 273
-    const v4, 0x7f0a01c9
+    .line 276
+    const v4, 0x7f0b0221
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -3059,7 +3070,7 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->preferredNetworkType:Landroid/widget/Spinner;
 
-    .line 274
+    .line 277
     new-instance v0, Landroid/widget/ArrayAdapter;
 
     const v4, 0x1090008
@@ -3068,26 +3079,26 @@
 
     invoke-direct {v0, p0, v4, v5}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
 
-    .line 276
+    .line 279
     .local v0, adapter:Landroid/widget/ArrayAdapter;,"Landroid/widget/ArrayAdapter<Ljava/lang/String;>;"
     const v4, 0x1090009
 
     invoke-virtual {v0, v4}, Landroid/widget/ArrayAdapter;->setDropDownViewResource(I)V
 
-    .line 277
+    .line 280
     iget-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->preferredNetworkType:Landroid/widget/Spinner;
 
     invoke-virtual {v4, v0}, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
 
-    .line 278
+    .line 281
     iget-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->preferredNetworkType:Landroid/widget/Spinner;
 
     iget-object v5, p0, Lcom/android/OriginalSettings/RadioInfo;->mPreferredNetworkHandler:Landroid/widget/AdapterView$OnItemSelectedListener;
 
     invoke-virtual {v4, v5}, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
 
-    .line 280
-    const v4, 0x7f0a01ca
+    .line 283
+    const v4, 0x7f0b0222
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -3097,15 +3108,15 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->radioPowerButton:Landroid/widget/Button;
 
-    .line 281
+    .line 284
     iget-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->radioPowerButton:Landroid/widget/Button;
 
     iget-object v5, p0, Lcom/android/OriginalSettings/RadioInfo;->mPowerButtonHandler:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v4, v5}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 283
-    const v4, 0x7f0a01cb
+    .line 286
+    const v4, 0x7f0b0223
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -3115,15 +3126,15 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->imsRegRequiredButton:Landroid/widget/Button;
 
-    .line 284
+    .line 287
     iget-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->imsRegRequiredButton:Landroid/widget/Button;
 
     iget-object v5, p0, Lcom/android/OriginalSettings/RadioInfo;->mImsRegRequiredHandler:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v4, v5}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 286
-    const v4, 0x7f0a01cc
+    .line 289
+    const v4, 0x7f0b0224
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -3133,15 +3144,15 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->smsOverImsButton:Landroid/widget/Button;
 
-    .line 287
+    .line 290
     iget-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->smsOverImsButton:Landroid/widget/Button;
 
     iget-object v5, p0, Lcom/android/OriginalSettings/RadioInfo;->mSmsOverImsHandler:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v4, v5}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 289
-    const v4, 0x7f0a01cd
+    .line 292
+    const v4, 0x7f0b0225
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -3151,15 +3162,15 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->lteRamDumpButton:Landroid/widget/Button;
 
-    .line 290
+    .line 293
     iget-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->lteRamDumpButton:Landroid/widget/Button;
 
     iget-object v5, p0, Lcom/android/OriginalSettings/RadioInfo;->mLteRamDumpHandler:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v4, v5}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 292
-    const v4, 0x7f0a01b4
+    .line 295
+    const v4, 0x7f0b020c
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -3169,15 +3180,15 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->pingTestButton:Landroid/widget/Button;
 
-    .line 293
+    .line 296
     iget-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->pingTestButton:Landroid/widget/Button;
 
     iget-object v5, p0, Lcom/android/OriginalSettings/RadioInfo;->mPingButtonHandler:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v4, v5}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 294
-    const v4, 0x7f0a01cf
+    .line 297
+    const v4, 0x7f0b0227
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -3187,15 +3198,15 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->updateSmscButton:Landroid/widget/Button;
 
-    .line 295
+    .line 298
     iget-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->updateSmscButton:Landroid/widget/Button;
 
     iget-object v5, p0, Lcom/android/OriginalSettings/RadioInfo;->mUpdateSmscButtonHandler:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v4, v5}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 296
-    const v4, 0x7f0a01d0
+    .line 299
+    const v4, 0x7f0b0228
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -3205,15 +3216,15 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->refreshSmscButton:Landroid/widget/Button;
 
-    .line 297
+    .line 300
     iget-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->refreshSmscButton:Landroid/widget/Button;
 
     iget-object v5, p0, Lcom/android/OriginalSettings/RadioInfo;->mRefreshSmscButtonHandler:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v4, v5}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 298
-    const v4, 0x7f0a01d2
+    .line 301
+    const v4, 0x7f0b022a
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -3223,15 +3234,15 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->dnsCheckToggleButton:Landroid/widget/Button;
 
-    .line 299
+    .line 302
     iget-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->dnsCheckToggleButton:Landroid/widget/Button;
 
     iget-object v5, p0, Lcom/android/OriginalSettings/RadioInfo;->mDnsCheckButtonHandler:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v4, v5}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 301
-    const v4, 0x7f0a01d4
+    .line 304
+    const v4, 0x7f0b022c
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/RadioInfo;->findViewById(I)Landroid/view/View;
 
@@ -3241,19 +3252,19 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->oemInfoButton:Landroid/widget/Button;
 
-    .line 302
+    .line 305
     iget-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->oemInfoButton:Landroid/widget/Button;
 
     iget-object v5, p0, Lcom/android/OriginalSettings/RadioInfo;->mOemInfoButtonHandler:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v4, v5}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 303
+    .line 306
     invoke-virtual {p0}, Lcom/android/OriginalSettings/RadioInfo;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v3
 
-    .line 304
+    .line 307
     .local v3, pm:Landroid/content/pm/PackageManager;
     new-instance v1, Landroid/content/Intent;
 
@@ -3261,13 +3272,13 @@
 
     invoke-direct {v1, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 305
+    .line 308
     .local v1, oemInfoIntent:Landroid/content/Intent;
     invoke-virtual {v3, v1, v6}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;
 
     move-result-object v2
 
-    .line 306
+    .line 309
     .local v2, oemInfoIntentList:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     invoke-interface {v2}, Ljava/util/List;->size()I
 
@@ -3275,12 +3286,12 @@
 
     if-nez v4, :cond_0
 
-    .line 307
+    .line 310
     iget-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->oemInfoButton:Landroid/widget/Button;
 
     invoke-virtual {v4, v6}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 310
+    .line 313
     :cond_0
     new-instance v4, Lcom/android/internal/telephony/PhoneStateIntentReceiver;
 
@@ -3290,28 +3301,28 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
 
-    .line 311
+    .line 314
     iget-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
 
     const/16 v5, 0xc8
 
     invoke-virtual {v4, v5}, Lcom/android/internal/telephony/PhoneStateIntentReceiver;->notifySignalStrength(I)V
 
-    .line 312
+    .line 315
     iget-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
 
     const/16 v5, 0x12c
 
     invoke-virtual {v4, v5}, Lcom/android/internal/telephony/PhoneStateIntentReceiver;->notifyServiceState(I)V
 
-    .line 313
+    .line 316
     iget-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
 
     const/16 v5, 0x64
 
     invoke-virtual {v4, v5}, Lcom/android/internal/telephony/PhoneStateIntentReceiver;->notifyPhoneCallState(I)V
 
-    .line 315
+    .line 318
     iget-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->phone:Lcom/android/internal/telephony/Phone;
 
     iget-object v5, p0, Lcom/android/OriginalSettings/RadioInfo;->mHandler:Landroid/os/Handler;
@@ -3324,7 +3335,7 @@
 
     invoke-interface {v4, v5}, Lcom/android/internal/telephony/Phone;->getPreferredNetworkType(Landroid/os/Message;)V
 
-    .line 317
+    .line 320
     iget-object v4, p0, Lcom/android/OriginalSettings/RadioInfo;->phone:Lcom/android/internal/telephony/Phone;
 
     iget-object v5, p0, Lcom/android/OriginalSettings/RadioInfo;->mHandler:Landroid/os/Handler;
@@ -3337,10 +3348,10 @@
 
     invoke-interface {v4, v5}, Lcom/android/internal/telephony/Phone;->getNeighboringCids(Landroid/os/Message;)V
 
-    .line 320
+    .line 323
     invoke-static {}, Landroid/telephony/CellLocation;->requestLocationUpdate()V
 
-    .line 321
+    .line 324
     return-void
 .end method
 
@@ -3353,8 +3364,8 @@
 
     const/4 v2, 0x0
 
-    .line 366
-    const v0, 0x7f0d00e2
+    .line 369
+    const v0, 0x7f0900f9
 
     invoke-interface {p1, v2, v2, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -3370,8 +3381,8 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setAlphabeticShortcut(C)Landroid/view/MenuItem;
 
-    .line 369
-    const v0, 0x7f0d0032
+    .line 372
+    const v0, 0x7f090044
 
     invoke-interface {p1, v3, v3, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -3381,10 +3392,10 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
-    .line 371
+    .line 374
     const/4 v0, 0x2
 
-    const v1, 0x7f0d0033
+    const v1, 0x7f090045
 
     invoke-interface {p1, v3, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -3394,10 +3405,10 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
-    .line 373
+    .line 376
     const/4 v0, 0x3
 
-    const v1, 0x7f0d0034
+    const v1, 0x7f090046
 
     invoke-interface {p1, v3, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -3407,10 +3418,10 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
-    .line 375
+    .line 378
     const/4 v0, 0x4
 
-    const v1, 0x7f0d0035
+    const v1, 0x7f090047
 
     invoke-interface {p1, v3, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -3420,7 +3431,7 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
-    .line 377
+    .line 380
     const/4 v0, 0x5
 
     const-string v1, "Disable data connection"
@@ -3433,7 +3444,7 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
-    .line 379
+    .line 382
     return v3
 .end method
 
@@ -3441,22 +3452,22 @@
     .locals 3
 
     .prologue
-    .line 356
+    .line 359
     invoke-super {p0}, Lcom/android/OriginalSettings/BaseActivity;->onPause()V
 
-    .line 358
+    .line 361
     const-string v0, "phone"
 
     const-string v1, "[RadioInfo] onPause: unregister phone & data intents"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 360
+    .line 363
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/PhoneStateIntentReceiver;->unregisterIntent()V
 
-    .line 361
+    .line 364
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
@@ -3465,7 +3476,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
 
-    .line 362
+    .line 365
     return-void
 .end method
 
@@ -3474,14 +3485,14 @@
     .parameter "menu"
 
     .prologue
-    .line 385
+    .line 388
     const/4 v3, 0x5
 
     invoke-interface {p1, v3}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    .line 386
+    .line 389
     .local v0, item:Landroid/view/MenuItem;
     iget-object v3, p0, Lcom/android/OriginalSettings/RadioInfo;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
@@ -3489,28 +3500,28 @@
 
     move-result v1
 
-    .line 387
+    .line 390
     .local v1, state:I
     const/4 v2, 0x1
 
-    .line 389
+    .line 392
     .local v2, visible:Z
     packed-switch v1, :pswitch_data_0
 
-    .line 398
+    .line 401
     :pswitch_0
     const/4 v2, 0x0
 
-    .line 401
+    .line 404
     :goto_0
     invoke-interface {v0, v2}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
-    .line 402
+    .line 405
     const/4 v3, 0x1
 
     return v3
 
-    .line 392
+    .line 395
     :pswitch_1
     const-string v3, "Disable data connection"
 
@@ -3518,7 +3529,7 @@
 
     goto :goto_0
 
-    .line 395
+    .line 398
     :pswitch_2
     const-string v3, "Enable data connection"
 
@@ -3526,7 +3537,7 @@
 
     goto :goto_0
 
-    .line 389
+    .line 392
     nop
 
     :pswitch_data_0
@@ -3542,25 +3553,25 @@
     .locals 3
 
     .prologue
-    .line 325
+    .line 328
     invoke-super {p0}, Lcom/android/OriginalSettings/BaseActivity;->onResume()V
 
-    .line 327
+    .line 330
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updatePhoneState()V
 
-    .line 328
+    .line 331
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateSignalStrength()V
 
-    .line 329
+    .line 332
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateMessageWaiting()V
 
-    .line 330
+    .line 333
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateCallRedirect()V
 
-    .line 331
+    .line 334
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateServiceState()V
 
-    .line 332
+    .line 335
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
     invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getCellLocation()Landroid/telephony/CellLocation;
@@ -3569,46 +3580,46 @@
 
     invoke-direct {p0, v0}, Lcom/android/OriginalSettings/RadioInfo;->updateLocation(Landroid/telephony/CellLocation;)V
 
-    .line 333
+    .line 336
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateDataState()V
 
-    .line 334
+    .line 337
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateDataStats()V
 
-    .line 335
+    .line 338
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateDataStats2()V
 
-    .line 336
+    .line 339
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updatePowerState()V
 
-    .line 337
+    .line 340
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateImsRegRequiredState()V
 
-    .line 338
+    .line 341
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateSmsOverImsState()V
 
-    .line 339
+    .line 342
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateLteRamDumpState()V
 
-    .line 340
+    .line 343
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateProperties()V
 
-    .line 341
+    .line 344
     invoke-direct {p0}, Lcom/android/OriginalSettings/RadioInfo;->updateDnsCheckState()V
 
-    .line 343
+    .line 346
     const-string v0, "phone"
 
     const-string v1, "[RadioInfo] onResume: register phone & data intents"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 345
+    .line 348
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/PhoneStateIntentReceiver;->registerIntent()V
 
-    .line 346
+    .line 349
     iget-object v0, p0, Lcom/android/OriginalSettings/RadioInfo;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/RadioInfo;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
@@ -3617,6 +3628,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
 
-    .line 352
+    .line 355
     return-void
 .end method

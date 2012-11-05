@@ -111,7 +111,7 @@
     .local v5, appList:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     new-instance v0, Lcom/android/OriginalSettings/customizablekey/AppList$AppListAdapter;
 
-    const v3, 0x7f040061
+    const v3, 0x7f040074
 
     move-object v1, p0
 

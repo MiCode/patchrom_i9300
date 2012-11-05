@@ -7,6 +7,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/OriginalSettings/DataUsageSummary$UidDetailTask;,
+        Lcom/android/OriginalSettings/DataUsageSummary$ConfirmAutoSyncChangeFragment;,
         Lcom/android/OriginalSettings/DataUsageSummary$ConfirmAppRestrictFragment;,
         Lcom/android/OriginalSettings/DataUsageSummary$DeniedRestrictFragment;,
         Lcom/android/OriginalSettings/DataUsageSummary$ConfirmRestrictFragment;,
@@ -16,10 +17,11 @@
         Lcom/android/OriginalSettings/DataUsageSummary$LimitEditorFragment;,
         Lcom/android/OriginalSettings/DataUsageSummary$WarningEditorFragment;,
         Lcom/android/OriginalSettings/DataUsageSummary$CycleEditorFragment;,
+        Lcom/android/OriginalSettings/DataUsageSummary$ConfirmWarningFragment;,
         Lcom/android/OriginalSettings/DataUsageSummary$ConfirmLimitFragment;,
         Lcom/android/OriginalSettings/DataUsageSummary$AppDetailsFragment;,
         Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;,
-        Lcom/android/OriginalSettings/DataUsageSummary$AppUsageItem;,
+        Lcom/android/OriginalSettings/DataUsageSummary$AppItem;,
         Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;,
         Lcom/android/OriginalSettings/DataUsageSummary$CycleChangeItem;,
         Lcom/android/OriginalSettings/DataUsageSummary$CycleItem;
@@ -28,6 +30,10 @@
 
 
 # static fields
+.field private static isSPR:Z
+
+.field private static isVZW:Z
+
 .field private static final sBuilder:Ljava/lang/StringBuilder;
 
 .field private static final sFormatter:Ljava/util/Formatter;
@@ -36,11 +42,15 @@
 # instance fields
 .field private mAdapter:Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;
 
+.field private mAlertAtWarning:Landroid/widget/CheckBox;
+
+.field private mAlertAtWarningListener:Landroid/view/View$OnClickListener;
+
+.field private mAlertAtWarningView:Landroid/view/View;
+
 .field private mAppBackground:Landroid/widget/TextView;
 
 .field private mAppDetail:Landroid/view/View;
-
-.field private mAppDetailUids:[I
 
 .field private mAppForeground:Landroid/widget/TextView;
 
@@ -91,6 +101,8 @@
 
 .field private mConnService:Landroid/net/ConnectivityManager;
 
+.field private mCurrentApp:Lcom/android/OriginalSettings/DataUsageSummary$AppItem;
+
 .field private mCurrentTab:Ljava/lang/String;
 
 .field private mCycleAdapter:Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;
@@ -101,9 +113,9 @@
 
 .field private mCycleView:Landroid/view/View;
 
-.field private mDataEnabled:Landroid/widget/Switch;
+.field private mDataEnabled:Landroid/widget/CheckBox;
 
-.field private mDataEnabledListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
+.field private mDataEnabledListener:Landroid/view/View$OnClickListener;
 
 .field private mDataEnabledView:Landroid/view/View;
 
@@ -121,8 +133,6 @@
 
 .field private mEmptyTabContent:Landroid/widget/TabHost$TabContentFactory;
 
-.field private mFirstLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
-
 .field private mHeader:Landroid/view/ViewGroup;
 
 .field private mInsetSide:I
@@ -132,6 +142,8 @@
 .field private mListListener:Landroid/widget/AdapterView$OnItemClickListener;
 
 .field private mListView:Landroid/widget/ListView;
+
+.field private mMenuAutoSync:Landroid/view/MenuItem;
 
 .field private mMenuDataRoaming:Landroid/view/MenuItem;
 
@@ -147,17 +159,17 @@
 
 .field private mPolicyEditor:Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
 
-.field private mPolicyService:Landroid/net/INetworkPolicyManager;
+.field private mPolicyManager:Landroid/net/NetworkPolicyManager;
 
 .field private mPrefs:Landroid/content/SharedPreferences;
-
-.field private mReceiver:Landroid/content/BroadcastReceiver;
 
 .field private mShowEthernet:Z
 
 .field private mShowWifi:Z
 
 .field private mStatsService:Landroid/net/INetworkStatsService;
+
+.field private mStatsSession:Landroid/net/INetworkStatsSession;
 
 .field private final mSummaryCallbacks:Landroid/app/LoaderManager$LoaderCallbacks;
     .annotation system Ldalvik/annotation/Signature;
@@ -182,6 +194,8 @@
 
 .field private mUidDetailProvider:Lcom/android/OriginalSettings/net/UidDetailProvider;
 
+.field private mUsageDisclaimer:Landroid/widget/TextView;
+
 .field private mUsageSummary:Landroid/widget/TextView;
 
 
@@ -190,7 +204,15 @@
     .locals 3
 
     .prologue
-    .line 1512
+    const/4 v0, 0x0
+
+    .line 295
+    sput-boolean v0, Lcom/android/OriginalSettings/DataUsageSummary;->isVZW:Z
+
+    .line 298
+    sput-boolean v0, Lcom/android/OriginalSettings/DataUsageSummary;->isSPR:Z
+
+    .line 1588
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x32
@@ -199,7 +221,7 @@
 
     sput-object v0, Lcom/android/OriginalSettings/DataUsageSummary;->sBuilder:Ljava/lang/StringBuilder;
 
-    .line 1513
+    .line 1589
     new-instance v0, Ljava/util/Formatter;
 
     sget-object v1, Lcom/android/OriginalSettings/DataUsageSummary;->sBuilder:Ljava/lang/StringBuilder;
@@ -223,223 +245,205 @@
 
     const/4 v0, 0x0
 
-    .line 157
+    .line 166
     invoke-direct {p0}, Landroid/app/Fragment;-><init>()V
 
-    .line 213
+    .line 225
     iput v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mInsetSide:I
 
-    .line 246
+    .line 263
     iput-boolean v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowWifi:Z
 
-    .line 247
+    .line 264
     iput-boolean v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowEthernet:Z
 
-    .line 252
-    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetailUids:[I
+    .line 269
+    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCurrentApp:Lcom/android/OriginalSettings/DataUsageSummary$AppItem;
 
-    .line 258
+    .line 275
     iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCurrentTab:Ljava/lang/String;
 
-    .line 259
+    .line 276
     iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mIntentTab:Ljava/lang/String;
 
-    .line 270
+    .line 288
     iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
-    .line 274
+    .line 292
     iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
 
-    .line 277
-    new-instance v0, Lcom/android/OriginalSettings/DataUsageSummary$1;
-
-    invoke-direct {v0, p0}, Lcom/android/OriginalSettings/DataUsageSummary$1;-><init>(Lcom/android/OriginalSettings/DataUsageSummary;)V
-
-    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mReceiver:Landroid/content/BroadcastReceiver;
-
-    .line 667
+    .line 811
     new-instance v0, Lcom/android/OriginalSettings/DataUsageSummary$3;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/DataUsageSummary$3;-><init>(Lcom/android/OriginalSettings/DataUsageSummary;)V
 
-    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mFirstLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEmptyTabContent:Landroid/widget/TabHost$TabContentFactory;
 
-    .line 735
+    .line 826
     new-instance v0, Lcom/android/OriginalSettings/DataUsageSummary$4;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/DataUsageSummary$4;-><init>(Lcom/android/OriginalSettings/DataUsageSummary;)V
 
-    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEmptyTabContent:Landroid/widget/TabHost$TabContentFactory;
+    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabListener:Landroid/widget/TabHost$OnTabChangeListener;
 
-    .line 750
+    .line 1217
     new-instance v0, Lcom/android/OriginalSettings/DataUsageSummary$5;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/DataUsageSummary$5;-><init>(Lcom/android/OriginalSettings/DataUsageSummary;)V
 
-    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabListener:Landroid/widget/TabHost$OnTabChangeListener;
+    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabledListener:Landroid/view/View$OnClickListener;
 
-    .line 1149
+    .line 1256
     new-instance v0, Lcom/android/OriginalSettings/DataUsageSummary$6;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/DataUsageSummary$6;-><init>(Lcom/android/OriginalSettings/DataUsageSummary;)V
 
-    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabledListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
+    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBootListener:Landroid/view/View$OnClickListener;
 
-    .line 1191
+    .line 1270
     new-instance v0, Lcom/android/OriginalSettings/DataUsageSummary$7;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/DataUsageSummary$7;-><init>(Lcom/android/OriginalSettings/DataUsageSummary;)V
 
-    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBootListener:Landroid/view/View$OnClickListener;
+    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitListener:Landroid/view/View$OnClickListener;
 
-    .line 1201
+    .line 1285
     new-instance v0, Lcom/android/OriginalSettings/DataUsageSummary$8;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/DataUsageSummary$8;-><init>(Lcom/android/OriginalSettings/DataUsageSummary;)V
 
-    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitListener:Landroid/view/View$OnClickListener;
+    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarningListener:Landroid/view/View$OnClickListener;
 
-    .line 1220
+    .line 1304
     new-instance v0, Lcom/android/OriginalSettings/DataUsageSummary$9;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/DataUsageSummary$9;-><init>(Lcom/android/OriginalSettings/DataUsageSummary;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrictListener:Landroid/view/View$OnClickListener;
 
-    .line 1248
+    .line 1320
     new-instance v0, Lcom/android/OriginalSettings/DataUsageSummary$10;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/DataUsageSummary$10;-><init>(Lcom/android/OriginalSettings/DataUsageSummary;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSettingsListener:Landroid/view/View$OnClickListener;
 
-    .line 1261
+    .line 1330
     new-instance v0, Lcom/android/OriginalSettings/DataUsageSummary$11;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/DataUsageSummary$11;-><init>(Lcom/android/OriginalSettings/DataUsageSummary;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListListener:Landroid/widget/AdapterView$OnItemClickListener;
 
-    .line 1271
+    .line 1344
     new-instance v0, Lcom/android/OriginalSettings/DataUsageSummary$12;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/DataUsageSummary$12;-><init>(Lcom/android/OriginalSettings/DataUsageSummary;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleListener:Landroid/widget/AdapterView$OnItemSelectedListener;
 
-    .line 1363
+    .line 1438
     new-instance v0, Lcom/android/OriginalSettings/DataUsageSummary$13;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/DataUsageSummary$13;-><init>(Lcom/android/OriginalSettings/DataUsageSummary;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChartDataCallbacks:Landroid/app/LoaderManager$LoaderCallbacks;
 
-    .line 1394
+    .line 1469
     new-instance v0, Lcom/android/OriginalSettings/DataUsageSummary$14;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/DataUsageSummary$14;-><init>(Lcom/android/OriginalSettings/DataUsageSummary;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mSummaryCallbacks:Landroid/app/LoaderManager$LoaderCallbacks;
 
-    .line 1440
+    .line 1522
     new-instance v0, Lcom/android/OriginalSettings/DataUsageSummary$15;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/DataUsageSummary$15;-><init>(Lcom/android/OriginalSettings/DataUsageSummary;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChartListener:Lcom/android/OriginalSettings/widget/ChartDataUsageView$DataUsageChartListener;
 
-    .line 2325
+    .line 2558
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/Switch;
+.method static synthetic access$000(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/net/INetworkStatsService;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 157
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabled:Landroid/widget/Switch;
-
-    return-object v0
-.end method
-
-.method static synthetic access$100(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/net/INetworkStatsService;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 157
+    .line 166
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mStatsService:Landroid/net/INetworkStatsService;
 
     return-object v0
 .end method
 
-.method static synthetic access$1000(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/TabHost;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 157
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabHost:Landroid/widget/TabHost;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1100(Lcom/android/OriginalSettings/DataUsageSummary;)Z
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 157
-    iget-boolean v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mBinding:Z
-
-    return v0
-.end method
-
-.method static synthetic access$1200(Lcom/android/OriginalSettings/DataUsageSummary;)Ljava/lang/String;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 157
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCurrentTab:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1300(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 157
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1302(Lcom/android/OriginalSettings/DataUsageSummary;Landroid/app/DialogFragment;)Landroid/app/DialogFragment;
+.method static synthetic access$100(Lcom/android/OriginalSettings/DataUsageSummary;)V
     .locals 0
     .parameter "x0"
-    .parameter "x1"
 
     .prologue
-    .line 157
-    iput-object p1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-
-    return-object p1
-.end method
-
-.method static synthetic access$1400(Lcom/android/OriginalSettings/DataUsageSummary;Z)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 157
-    invoke-direct {p0, p1}, Lcom/android/OriginalSettings/DataUsageSummary;->setMobileDataEnabled(Z)V
+    .line 166
+    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->updateBody()V
 
     return-void
+.end method
+
+.method static synthetic access$1000(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/CheckBox;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 166
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimit:Landroid/widget/CheckBox;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1100(Lcom/android/OriginalSettings/DataUsageSummary;J)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 166
+    invoke-direct {p0, p1, p2}, Lcom/android/OriginalSettings/DataUsageSummary;->setPolicyLimitBytes(J)V
+
+    return-void
+.end method
+
+.method static synthetic access$1200(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/CheckBox;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 166
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarning:Landroid/widget/CheckBox;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1300(Lcom/android/OriginalSettings/DataUsageSummary;J)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 166
+    invoke-direct {p0, p1, p2}, Lcom/android/OriginalSettings/DataUsageSummary;->setPolicyWarningBytes(J)V
+
+    return-void
+.end method
+
+.method static synthetic access$1400(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/CheckBox;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 166
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrict:Landroid/widget/CheckBox;
+
+    return-object v0
 .end method
 
 .method static synthetic access$1500(Lcom/android/OriginalSettings/DataUsageSummary;Z)V
@@ -448,188 +452,162 @@
     .parameter "x1"
 
     .prologue
-    .line 157
-    invoke-direct {p0, p1}, Lcom/android/OriginalSettings/DataUsageSummary;->updatePolicy(Z)V
-
-    return-void
-.end method
-
-.method static synthetic access$1600(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/CheckBox;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 157
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBoot:Landroid/widget/CheckBox;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1700(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/CheckBox;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 157
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimit:Landroid/widget/CheckBox;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1800(Lcom/android/OriginalSettings/DataUsageSummary;J)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 157
-    invoke-direct {p0, p1, p2}, Lcom/android/OriginalSettings/DataUsageSummary;->setPolicyLimitBytes(J)V
-
-    return-void
-.end method
-
-.method static synthetic access$1900(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/CheckBox;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 157
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrict:Landroid/widget/CheckBox;
-
-    return-object v0
-.end method
-
-.method static synthetic access$200(Lcom/android/OriginalSettings/DataUsageSummary;)V
-    .locals 0
-    .parameter "x0"
-
-    .prologue
-    .line 157
-    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->updateBody()V
-
-    return-void
-.end method
-
-.method static synthetic access$2000(Lcom/android/OriginalSettings/DataUsageSummary;)Z
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 157
-    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->hasLimitedNetworks()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic access$2100(Lcom/android/OriginalSettings/DataUsageSummary;Z)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 157
+    .line 166
     invoke-direct {p0, p1}, Lcom/android/OriginalSettings/DataUsageSummary;->setAppRestrictBackground(Z)V
 
     return-void
 .end method
 
-.method static synthetic access$2200(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/content/Intent;
+.method static synthetic access$1600(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/content/Intent;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 157
+    .line 166
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSettingsIntent:Landroid/content/Intent;
 
     return-object v0
 .end method
 
-.method static synthetic access$2300(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/net/UidDetailProvider;
+.method static synthetic access$1700(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/net/UidDetailProvider;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 157
+    .line 166
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mUidDetailProvider:Lcom/android/OriginalSettings/net/UidDetailProvider;
 
     return-object v0
 .end method
 
-.method static synthetic access$2400(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/Spinner;
+.method static synthetic access$1800(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/Spinner;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 157
+    .line 166
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleSpinner:Landroid/widget/Spinner;
 
     return-object v0
 .end method
 
-.method static synthetic access$2500(Lcom/android/OriginalSettings/DataUsageSummary;)V
+.method static synthetic access$1900(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/widget/ChartDataUsageView;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 166
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
+
+    return-object v0
+.end method
+
+.method static synthetic access$200(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/TabHost;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 166
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabHost:Landroid/widget/TabHost;
+
+    return-object v0
+.end method
+
+.method static synthetic access$2000(Lcom/android/OriginalSettings/DataUsageSummary;)V
     .locals 0
     .parameter "x0"
 
     .prologue
-    .line 157
+    .line 166
     invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->updateDetailData()V
 
     return-void
 .end method
 
-.method static synthetic access$2600(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/net/ChartData;
+.method static synthetic access$2100(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/net/INetworkStatsSession;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 157
+    .line 166
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mStatsSession:Landroid/net/INetworkStatsSession;
+
+    return-object v0
+.end method
+
+.method static synthetic access$2200(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/net/ChartData;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 166
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChartData:Lcom/android/OriginalSettings/net/ChartData;
 
     return-object v0
 .end method
 
-.method static synthetic access$2602(Lcom/android/OriginalSettings/DataUsageSummary;Lcom/android/OriginalSettings/net/ChartData;)Lcom/android/OriginalSettings/net/ChartData;
+.method static synthetic access$2202(Lcom/android/OriginalSettings/DataUsageSummary;Lcom/android/OriginalSettings/net/ChartData;)Lcom/android/OriginalSettings/net/ChartData;
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 157
+    .line 166
     iput-object p1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChartData:Lcom/android/OriginalSettings/net/ChartData;
 
     return-object p1
 .end method
 
-.method static synthetic access$2700(Lcom/android/OriginalSettings/DataUsageSummary;)V
+.method static synthetic access$2300(Lcom/android/OriginalSettings/DataUsageSummary;)V
     .locals 0
     .parameter "x0"
 
     .prologue
-    .line 157
+    .line 166
     invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->updateAppDetail()V
 
     return-void
 .end method
 
-.method static synthetic access$2800(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;
+.method static synthetic access$2400(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/ListView;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 157
+    .line 166
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
+
+    return-object v0
+.end method
+
+.method static synthetic access$2500(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/net/NetworkPolicyManager;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 166
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyManager:Landroid/net/NetworkPolicyManager;
+
+    return-object v0
+.end method
+
+.method static synthetic access$2600(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 166
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAdapter:Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;
 
     return-object v0
 .end method
 
-.method static synthetic access$2900(Lcom/android/OriginalSettings/DataUsageSummary;)Z
+.method static synthetic access$2700(Lcom/android/OriginalSettings/DataUsageSummary;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 157
+    .line 166
     invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->isAppDetailMode()Z
 
     move-result v0
@@ -637,175 +615,170 @@
     return v0
 .end method
 
-.method static synthetic access$300(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+.method static synthetic access$2800(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/TextView;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 157
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mFirstLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
-
-    return-object v0
-.end method
-
-.method static synthetic access$3000(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/TextView;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 157
+    .line 166
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEmpty:Landroid/widget/TextView;
 
     return-object v0
 .end method
 
-.method static synthetic access$3100(Lcom/android/OriginalSettings/DataUsageSummary;J)V
+.method static synthetic access$2902(Lcom/android/OriginalSettings/DataUsageSummary;Lcom/android/OriginalSettings/DataUsageSummary$AppItem;)Lcom/android/OriginalSettings/DataUsageSummary$AppItem;
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 157
-    invoke-direct {p0, p1, p2}, Lcom/android/OriginalSettings/DataUsageSummary;->setPolicyWarningBytes(J)V
-
-    return-void
-.end method
-
-.method static synthetic access$3200([II)Z
-    .locals 1
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 157
-    invoke-static {p0, p1}, Lcom/android/OriginalSettings/DataUsageSummary;->contains([II)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic access$3302(Lcom/android/OriginalSettings/DataUsageSummary;[I)[I
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 157
-    iput-object p1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetailUids:[I
+    .line 166
+    iput-object p1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCurrentApp:Lcom/android/OriginalSettings/DataUsageSummary$AppItem;
 
     return-object p1
 .end method
 
-.method static synthetic access$3400(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/net/NetworkTemplate;
+.method static synthetic access$300(Lcom/android/OriginalSettings/DataUsageSummary;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 157
+    .line 166
+    iget-boolean v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mBinding:Z
+
+    return v0
+.end method
+
+.method static synthetic access$3000(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/net/NetworkTemplate;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 166
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTemplate:Landroid/net/NetworkTemplate;
 
     return-object v0
 .end method
 
-.method static synthetic access$3500(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
+.method static synthetic access$3100(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 157
+    .line 166
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyEditor:Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
 
     return-object v0
 .end method
 
-.method static synthetic access$3600(Lcom/android/OriginalSettings/DataUsageSummary;Z)V
+.method static synthetic access$3200()Z
+    .locals 1
+
+    .prologue
+    .line 166
+    sget-boolean v0, Lcom/android/OriginalSettings/DataUsageSummary;->isSPR:Z
+
+    return v0
+.end method
+
+.method static synthetic access$3300()Z
+    .locals 1
+
+    .prologue
+    .line 166
+    sget-boolean v0, Lcom/android/OriginalSettings/DataUsageSummary;->isVZW:Z
+
+    return v0
+.end method
+
+.method static synthetic access$3400(Lcom/android/OriginalSettings/DataUsageSummary;Z)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 157
+    .line 166
     invoke-direct {p0, p1}, Lcom/android/OriginalSettings/DataUsageSummary;->setDataRoaming(Z)V
 
     return-void
 .end method
 
-.method static synthetic access$3700(Lcom/android/OriginalSettings/DataUsageSummary;Z)V
+.method static synthetic access$400(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/CheckBox;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 166
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabled:Landroid/widget/CheckBox;
+
+    return-object v0
+.end method
+
+.method static synthetic access$500(Lcom/android/OriginalSettings/DataUsageSummary;)Ljava/lang/String;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 166
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCurrentTab:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic access$600(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 166
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
+
+    return-object v0
+.end method
+
+.method static synthetic access$602(Lcom/android/OriginalSettings/DataUsageSummary;Landroid/app/DialogFragment;)Landroid/app/DialogFragment;
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 157
-    invoke-direct {p0, p1}, Lcom/android/OriginalSettings/DataUsageSummary;->setRestrictBackground(Z)V
+    .line 166
+    iput-object p1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
+
+    return-object p1
+.end method
+
+.method static synthetic access$700(Lcom/android/OriginalSettings/DataUsageSummary;Z)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 166
+    invoke-direct {p0, p1}, Lcom/android/OriginalSettings/DataUsageSummary;->setMobileDataEnabled(Z)V
 
     return-void
 .end method
 
-.method static synthetic access$400(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/ListView;
+.method static synthetic access$800(Lcom/android/OriginalSettings/DataUsageSummary;Z)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 166
+    invoke-direct {p0, p1}, Lcom/android/OriginalSettings/DataUsageSummary;->updatePolicy(Z)V
+
+    return-void
+.end method
+
+.method static synthetic access$900(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/CheckBox;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 157
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
-
-    return-object v0
-.end method
-
-.method static synthetic access$500()Landroid/animation/LayoutTransition;
-    .locals 1
-
-    .prologue
-    .line 157
-    invoke-static {}, Lcom/android/OriginalSettings/DataUsageSummary;->buildLayoutTransition()Landroid/animation/LayoutTransition;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$600(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/view/ViewGroup;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 157
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabsContainer:Landroid/view/ViewGroup;
-
-    return-object v0
-.end method
-
-.method static synthetic access$700(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/view/ViewGroup;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 157
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
-
-    return-object v0
-.end method
-
-.method static synthetic access$800(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/view/ViewGroup;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 157
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitchesContainer:Landroid/view/ViewGroup;
-
-    return-object v0
-.end method
-
-.method static synthetic access$900(Lcom/android/OriginalSettings/DataUsageSummary;)Lcom/android/OriginalSettings/widget/ChartDataUsageView;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 157
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
+    .line 166
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBoot:Landroid/widget/CheckBox;
 
     return-object v0
 .end method
@@ -814,166 +787,19 @@
     .locals 2
 
     .prologue
-    .line 686
+    .line 758
     new-instance v0, Landroid/animation/LayoutTransition;
 
     invoke-direct {v0}, Landroid/animation/LayoutTransition;-><init>()V
 
-    .line 690
+    .line 762
     .local v0, transition:Landroid/animation/LayoutTransition;
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/animation/LayoutTransition;->setAnimateParentHierarchy(Z)V
 
-    .line 691
+    .line 763
     return-object v0
-.end method
-
-.method private buildLimitedNetworksList()Ljava/util/List;
-    .locals 4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/CharSequence;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    .line 2491
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
-
-    move-result-object v0
-
-    .line 2492
-    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActiveSubscriberId(Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 2495
-    invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
-
-    move-result-object v1
-
-    .line 2496
-    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyEditor:Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
-
-    invoke-static {v0}, Landroid/net/NetworkTemplate;->buildTemplateMobileAll(Ljava/lang/String;)Landroid/net/NetworkTemplate;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;->hasLimitedPolicy(Landroid/net/NetworkTemplate;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    .line 2497
-    const v2, 0x7f0d06d5
-
-    invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 2499
-    :cond_0
-    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyEditor:Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
-
-    invoke-static {v0}, Landroid/net/NetworkTemplate;->buildTemplateMobile3gLower(Ljava/lang/String;)Landroid/net/NetworkTemplate;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;->hasLimitedPolicy(Landroid/net/NetworkTemplate;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    .line 2500
-    const v2, 0x7f0d06d4
-
-    invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 2502
-    :cond_1
-    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyEditor:Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
-
-    invoke-static {v0}, Landroid/net/NetworkTemplate;->buildTemplateMobile4g(Ljava/lang/String;)Landroid/net/NetworkTemplate;
-
-    move-result-object v0
-
-    invoke-virtual {v2, v0}, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;->hasLimitedPolicy(Landroid/net/NetworkTemplate;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    .line 2503
-    const v0, 0x7f0d06d3
-
-    invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/DataUsageSummary;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 2505
-    :cond_2
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyEditor:Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
-
-    invoke-static {}, Landroid/net/NetworkTemplate;->buildTemplateWifi()Landroid/net/NetworkTemplate;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;->hasLimitedPolicy(Landroid/net/NetworkTemplate;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    .line 2506
-    const v0, 0x7f0d06d0
-
-    invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/DataUsageSummary;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 2508
-    :cond_3
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyEditor:Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
-
-    invoke-static {}, Landroid/net/NetworkTemplate;->buildTemplateEthernet()Landroid/net/NetworkTemplate;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;->hasLimitedPolicy(Landroid/net/NetworkTemplate;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    .line 2509
-    const v0, 0x7f0d06d1
-
-    invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/DataUsageSummary;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 2512
-    :cond_4
-    return-object v1
 .end method
 
 .method private buildTabSpec(Ljava/lang/String;I)Landroid/widget/TabHost$TabSpec;
@@ -982,7 +808,7 @@
     .parameter "titleRes"
 
     .prologue
-    .line 746
+    .line 822
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabHost:Landroid/widget/TabHost;
 
     invoke-virtual {v0, p1}, Landroid/widget/TabHost;->newTabSpec(Ljava/lang/String;)Landroid/widget/TabHost$TabSpec;
@@ -1013,7 +839,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 2304
+    .line 2537
     const-string v0, "android.net.NETWORK_TEMPLATE"
 
     invoke-virtual {p0, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -1022,16 +848,16 @@
 
     check-cast v0, Landroid/net/NetworkTemplate;
 
-    .line 2305
+    .line 2538
     if-nez v0, :cond_0
 
     move-object v0, v1
 
-    .line 2317
+    .line 2550
     :goto_0
     return-object v0
 
-    .line 2307
+    .line 2540
     :cond_0
     invoke-virtual {v0}, Landroid/net/NetworkTemplate;->getMatchRule()I
 
@@ -1041,34 +867,34 @@
 
     move-object v0, v1
 
-    .line 2317
+    .line 2550
     goto :goto_0
 
-    .line 2309
+    .line 2542
     :pswitch_0
     const-string v0, "3g"
 
     goto :goto_0
 
-    .line 2311
+    .line 2544
     :pswitch_1
     const-string v0, "4g"
 
     goto :goto_0
 
-    .line 2313
+    .line 2546
     :pswitch_2
     const-string v0, "mobile"
 
     goto :goto_0
 
-    .line 2315
+    .line 2548
     :pswitch_3
     const-string v0, "wifi"
 
     goto :goto_0
 
-    .line 2307
+    .line 2540
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_2
@@ -1078,75 +904,89 @@
     .end packed-switch
 .end method
 
-.method private static contains([II)Z
-    .locals 5
-    .parameter "haystack"
-    .parameter "needle"
+.method private ensureLayoutTransitions()V
+    .locals 3
 
     .prologue
-    .line 2553
-    move-object v0, p0
+    .line 745
+    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
 
-    .local v0, arr$:[I
-    array-length v2, v0
+    invoke-virtual {v1}, Lcom/android/OriginalSettings/widget/ChartDataUsageView;->getLayoutTransition()Landroid/animation/LayoutTransition;
 
-    .local v2, len$:I
-    const/4 v1, 0x0
+    move-result-object v1
 
-    .local v1, i$:I
+    if-eqz v1, :cond_0
+
+    .line 755
     :goto_0
-    if-ge v1, v2, :cond_1
+    return-void
 
-    aget v3, v0, v1
-
-    .line 2554
-    .local v3, value:I
-    if-ne v3, p1, :cond_0
-
-    .line 2555
-    const/4 v4, 0x1
-
-    .line 2558
-    .end local v3           #value:I
-    :goto_1
-    return v4
-
-    .line 2553
-    .restart local v3       #value:I
+    .line 747
     :cond_0
-    add-int/lit8 v1, v1, 0x1
+    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabsContainer:Landroid/view/ViewGroup;
+
+    invoke-static {}, Lcom/android/OriginalSettings/DataUsageSummary;->buildLayoutTransition()Landroid/animation/LayoutTransition;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->setLayoutTransition(Landroid/animation/LayoutTransition;)V
+
+    .line 748
+    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
+
+    invoke-static {}, Lcom/android/OriginalSettings/DataUsageSummary;->buildLayoutTransition()Landroid/animation/LayoutTransition;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->setLayoutTransition(Landroid/animation/LayoutTransition;)V
+
+    .line 749
+    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitchesContainer:Landroid/view/ViewGroup;
+
+    invoke-static {}, Lcom/android/OriginalSettings/DataUsageSummary;->buildLayoutTransition()Landroid/animation/LayoutTransition;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->setLayoutTransition(Landroid/animation/LayoutTransition;)V
+
+    .line 751
+    invoke-static {}, Lcom/android/OriginalSettings/DataUsageSummary;->buildLayoutTransition()Landroid/animation/LayoutTransition;
+
+    move-result-object v0
+
+    .line 752
+    .local v0, chartTransition:Landroid/animation/LayoutTransition;
+    const/4 v1, 0x2
+
+    invoke-virtual {v0, v1}, Landroid/animation/LayoutTransition;->disableTransitionType(I)V
+
+    .line 753
+    const/4 v1, 0x3
+
+    invoke-virtual {v0, v1}, Landroid/animation/LayoutTransition;->disableTransitionType(I)V
+
+    .line 754
+    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
+
+    invoke-virtual {v1, v0}, Lcom/android/OriginalSettings/widget/ChartDataUsageView;->setLayoutTransition(Landroid/animation/LayoutTransition;)V
 
     goto :goto_0
-
-    .line 2558
-    .end local v3           #value:I
-    :cond_1
-    const/4 v4, 0x0
-
-    goto :goto_1
 .end method
 
-.method public static formatDateRange(Landroid/content/Context;JJZ)Ljava/lang/String;
+.method public static formatDateRange(Landroid/content/Context;JJ)Ljava/lang/String;
     .locals 9
     .parameter
     .parameter
     .parameter
-    .parameter
 
     .prologue
-    .line 1517
-    .line 1518
-    if-eqz p5, :cond_0
-
-    const-string v7, "UTC"
-
-    .line 1520
-    :goto_0
+    .line 1593
+    .line 1595
     sget-object v8, Lcom/android/OriginalSettings/DataUsageSummary;->sBuilder:Ljava/lang/StringBuilder;
 
     monitor-enter v8
 
-    .line 1521
+    .line 1596
     :try_start_0
     sget-object v0, Lcom/android/OriginalSettings/DataUsageSummary;->sBuilder:Ljava/lang/StringBuilder;
 
@@ -1154,10 +994,12 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->setLength(I)V
 
-    .line 1522
+    .line 1597
     sget-object v1, Lcom/android/OriginalSettings/DataUsageSummary;->sFormatter:Ljava/util/Formatter;
 
     const v6, 0x10010
+
+    const/4 v7, 0x0
 
     move-object v0, p0
 
@@ -1177,13 +1019,7 @@
 
     return-object v0
 
-    .line 1518
-    :cond_0
-    const/4 v7, 0x0
-
-    goto :goto_0
-
-    .line 1524
+    .line 1599
     :catchall_0
     move-exception v0
 
@@ -1195,86 +1031,60 @@
 .end method
 
 .method private static getActiveSubscriberId(Landroid/content/Context;)Ljava/lang/String;
-    .locals 1
+    .locals 2
     .parameter
 
     .prologue
-    .line 1435
-    const-string v0, "phone"
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    .line 1517
+    invoke-static {p0}, Landroid/telephony/TelephonyManager;->from(Landroid/content/Context;)Landroid/telephony/TelephonyManager;
 
     move-result-object v0
 
-    check-cast v0, Landroid/telephony/TelephonyManager;
-
-    .line 1437
+    .line 1518
     invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getSubscriberId()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 1519
+    const-string v1, "test.subscriberid"
+
+    invoke-static {v1, v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method private getAppDetailPrimaryUid()I
-    .locals 2
-
-    .prologue
-    .line 840
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetailUids:[I
-
-    const/4 v1, 0x0
-
-    aget v0, v0, v1
-
-    return v0
-.end method
-
 .method private getAppRestrictBackground()Z
     .locals 3
 
     .prologue
-    .line 999
-    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getAppDetailPrimaryUid()I
+    .line 1075
+    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCurrentApp:Lcom/android/OriginalSettings/DataUsageSummary$AppItem;
 
-    move-result v0
+    iget v0, v2, Lcom/android/OriginalSettings/DataUsageSummary$AppItem;->appId:I
 
-    .line 1002
-    :try_start_0
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyService:Landroid/net/INetworkPolicyManager;
+    .line 1076
+    .local v0, appId:I
+    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyManager:Landroid/net/NetworkPolicyManager;
 
-    invoke-interface {v1, v0}, Landroid/net/INetworkPolicyManager;->getUidPolicy(I)I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {v2, v0}, Landroid/net/NetworkPolicyManager;->getAppPolicy(I)I
 
-    move-result v0
+    move-result v1
 
-    .line 1008
-    and-int/lit8 v0, v0, 0x1
+    .line 1077
+    .local v1, uidPolicy:I
+    and-int/lit8 v2, v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
     :goto_0
-    return v0
+    return v2
 
-    .line 1003
-    :catch_0
-    move-exception v0
-
-    .line 1005
-    new-instance v1, Ljava/lang/RuntimeException;
-
-    const-string v2, "problem reading network policy"
-
-    invoke-direct {v1, v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    throw v1
-
-    .line 1008
     :cond_0
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
     goto :goto_0
 .end method
@@ -1285,7 +1095,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 967
+    .line 1051
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
@@ -1294,7 +1104,7 @@
 
     move-result-object v1
 
-    .line 968
+    .line 1052
     const-string v2, "data_roaming"
 
     invoke-static {v1, v2, v0}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -1309,159 +1119,68 @@
     return v0
 .end method
 
-.method private getRestrictBackground()Z
-    .locals 4
-
-    .prologue
-    .line 981
-    :try_start_0
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyService:Landroid/net/INetworkPolicyManager;
-
-    invoke-interface {v0}, Landroid/net/INetworkPolicyManager;->getRestrictBackground()Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v0
-
-    .line 984
-    :goto_0
-    return v0
-
-    .line 982
-    :catch_0
-    move-exception v0
-
-    .line 983
-    const-string v1, "DataUsage"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "problem talking with policy service: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 984
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method private static hasEthernet(Landroid/content/Context;)Z
-    .locals 2
+.method public static hasReadyMobile4gRadio(Landroid/content/Context;)Z
+    .locals 1
     .parameter "context"
 
     .prologue
-    .line 2436
-    const-string v1, "connectivity"
+    .line 2634
+    const/4 v0, 0x0
 
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/net/ConnectivityManager;
-
-    .line 2438
-    .local v0, conn:Landroid/net/ConnectivityManager;
-    const/16 v1, 0x9
-
-    invoke-virtual {v0, v1}, Landroid/net/ConnectivityManager;->isNetworkSupported(I)Z
-
-    move-result v1
-
-    return v1
+    return v0
 .end method
 
-.method private hasLimitedNetworks()Z
-    .locals 1
+.method public static hasReadyMobileRadio(Landroid/content/Context;)Z
+    .locals 5
+    .parameter "context"
 
     .prologue
-    .line 2468
-    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->buildLimitedNetworksList()Ljava/util/List;
+    const/4 v2, 0x0
+
+    .line 2622
+    invoke-static {p0}, Landroid/net/ConnectivityManager;->from(Landroid/content/Context;)Landroid/net/ConnectivityManager;
 
     move-result-object v0
 
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+    .line 2623
+    .local v0, conn:Landroid/net/ConnectivityManager;
+    invoke-static {p0}, Landroid/telephony/TelephonyManager;->from(Landroid/content/Context;)Landroid/telephony/TelephonyManager;
 
-    move-result v0
+    move-result-object v1
 
-    if-nez v0, :cond_0
+    .line 2626
+    .local v1, tele:Landroid/telephony/TelephonyManager;
+    invoke-virtual {v0, v2}, Landroid/net/ConnectivityManager;->isNetworkSupported(I)Z
 
-    const/4 v0, 0x1
+    move-result v3
 
-    :goto_0
-    return v0
+    if-eqz v3, :cond_0
+
+    invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getSimState()I
+
+    move-result v3
+
+    const/4 v4, 0x5
+
+    if-ne v3, v4, :cond_0
+
+    const/4 v2, 0x1
 
     :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
+    return v2
 .end method
 
-.method private static hasMobile4gRadio(Landroid/content/Context;)Z
-    .locals 1
-    .parameter "context"
-
-    .prologue
-    .line 2399
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method private static hasMobileRadio(Landroid/content/Context;)Z
+.method public static hasWifiRadio(Landroid/content/Context;)Z
     .locals 2
     .parameter "context"
 
     .prologue
-    .line 2389
-    const-string v1, "connectivity"
-
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    .line 2657
+    invoke-static {p0}, Landroid/net/ConnectivityManager;->from(Landroid/content/Context;)Landroid/net/ConnectivityManager;
 
     move-result-object v0
 
-    check-cast v0, Landroid/net/ConnectivityManager;
-
-    .line 2391
-    .local v0, conn:Landroid/net/ConnectivityManager;
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/net/ConnectivityManager;->isNetworkSupported(I)Z
-
-    move-result v1
-
-    return v1
-.end method
-
-.method private static hasWifiRadio(Landroid/content/Context;)Z
-    .locals 2
-    .parameter "context"
-
-    .prologue
-    .line 2423
-    const-string v1, "connectivity"
-
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/net/ConnectivityManager;
-
-    .line 2425
+    .line 2658
     .local v0, conn:Landroid/net/ConnectivityManager;
     const/4 v1, 0x1
 
@@ -1479,8 +1198,8 @@
     .parameter
 
     .prologue
-    .line 2458
-    const v0, 0x7f04003c
+    .line 2703
+    const v0, 0x7f04003a
 
     const/4 v1, 0x0
 
@@ -1490,10 +1209,10 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 2460
+    .line 2705
     invoke-virtual {v0, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 2461
+    .line 2706
     return-object v0
 .end method
 
@@ -1506,8 +1225,8 @@
     .prologue
     const/4 v3, -0x2
 
-    .line 2446
-    const v0, 0x7f04007c
+    .line 2694
+    const v0, 0x7f04009a
 
     const/4 v1, 0x0
 
@@ -1515,7 +1234,7 @@
 
     move-result-object v1
 
-    .line 2447
+    .line 2695
     const v0, 0x1020018
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -1524,19 +1243,14 @@
 
     check-cast v0, Landroid/widget/LinearLayout;
 
-    .line 2450
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setDuplicateParentStateEnabled(Z)V
-
-    .line 2452
+    .line 2697
     new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v2, v3, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
     invoke-virtual {v0, p2, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 2453
+    .line 2698
     return-object v1
 .end method
 
@@ -1546,18 +1260,18 @@
     .parameter "insetSide"
 
     .prologue
-    .line 2520
+    .line 2772
     invoke-virtual {p0}, Landroid/widget/ListView;->getSelector()Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    .line 2521
+    .line 2773
     .local v1, selector:Landroid/graphics/drawable/Drawable;
     invoke-virtual {p0}, Landroid/widget/ListView;->getDivider()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 2525
+    .line 2777
     .local v0, divider:Landroid/graphics/drawable/Drawable;
     new-instance v2, Landroid/graphics/drawable/ColorDrawable;
 
@@ -1565,66 +1279,37 @@
 
     invoke-direct {v2, v3}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
 
-    .line 2526
+    .line 2778
     .local v2, stub:Landroid/graphics/drawable/Drawable;
     invoke-virtual {p0, v2}, Landroid/widget/ListView;->setSelector(Landroid/graphics/drawable/Drawable;)V
 
-    .line 2527
+    .line 2779
     invoke-virtual {p0, v2}, Landroid/widget/ListView;->setDivider(Landroid/graphics/drawable/Drawable;)V
 
-    .line 2529
+    .line 2781
     new-instance v3, Lcom/android/OriginalSettings/drawable/InsetBoundsDrawable;
 
     invoke-direct {v3, v1, p1}, Lcom/android/OriginalSettings/drawable/InsetBoundsDrawable;-><init>(Landroid/graphics/drawable/Drawable;I)V
 
     invoke-virtual {p0, v3}, Landroid/widget/ListView;->setSelector(Landroid/graphics/drawable/Drawable;)V
 
-    .line 2530
+    .line 2782
     new-instance v3, Lcom/android/OriginalSettings/drawable/InsetBoundsDrawable;
 
     invoke-direct {v3, v0, p1}, Lcom/android/OriginalSettings/drawable/InsetBoundsDrawable;-><init>(Landroid/graphics/drawable/Drawable;I)V
 
     invoke-virtual {p0, v3}, Landroid/widget/ListView;->setDivider(Landroid/graphics/drawable/Drawable;)V
 
-    .line 2531
+    .line 2783
     return-void
-.end method
-
-.method private isAirplaneModeOn()Z
-    .locals 3
-
-    .prologue
-    const/4 v0, 0x0
-
-    .line 2572
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string v2, "airplane_mode_on"
-
-    invoke-static {v1, v2, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
-    return v0
 .end method
 
 .method private isAppDetailMode()Z
     .locals 1
 
     .prologue
-    .line 836
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetailUids:[I
+    .line 929
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCurrentApp:Lcom/android/OriginalSettings/DataUsageSummary$AppItem;
 
     if-eqz v0, :cond_0
 
@@ -1643,7 +1328,7 @@
     .locals 4
 
     .prologue
-    .line 959
+    .line 1043
     :try_start_0
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkService:Landroid/os/INetworkManagementService;
 
@@ -1653,15 +1338,15 @@
 
     move-result v0
 
-    .line 962
+    .line 1046
     :goto_0
     return v0
 
-    .line 960
+    .line 1044
     :catch_0
     move-exception v0
 
-    .line 961
+    .line 1045
     const-string v1, "DataUsage"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1682,9 +1367,9 @@
 
     move-result-object v0
 
-    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/secutil/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 962
+    .line 1046
     const/4 v0, 0x0
 
     goto :goto_0
@@ -1694,19 +1379,19 @@
     .locals 1
 
     .prologue
-    .line 938
+    .line 1022
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMobileDataEnabled:Ljava/lang/Boolean;
 
     if-eqz v0, :cond_0
 
-    .line 940
+    .line 1024
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMobileDataEnabled:Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
-    .line 942
+    .line 1026
     :goto_0
     return v0
 
@@ -1721,37 +1406,43 @@
 .end method
 
 .method private isMobilePolicySplit()Z
-    .locals 3
+    .locals 4
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     .prologue
-    .line 1420
+    .line 1498
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 1421
+    .line 1499
     .local v0, context:Landroid/content/Context;
-    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->hasMobileRadio(Landroid/content/Context;)Z
+    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->hasReadyMobileRadio(Landroid/content/Context;)Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 1422
-    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActiveSubscriberId(Landroid/content/Context;)Ljava/lang/String;
+    .line 1500
+    invoke-static {v0}, Landroid/telephony/TelephonyManager;->from(Landroid/content/Context;)Landroid/telephony/TelephonyManager;
 
     move-result-object v1
 
-    .line 1423
-    .local v1, subscriberId:Ljava/lang/String;
+    .line 1501
+    .local v1, tele:Landroid/telephony/TelephonyManager;
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyEditor:Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
 
-    invoke-virtual {v2, v1}, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;->isMobilePolicySplit(Ljava/lang/String;)Z
+    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActiveSubscriberId(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;->isMobilePolicySplit(Ljava/lang/String;)Z
 
     move-result v2
 
-    .line 1425
-    .end local v1           #subscriberId:Ljava/lang/String;
+    .line 1503
+    .end local v1           #tele:Landroid/telephony/TelephonyManager;
     :goto_0
     return v2
 
@@ -1766,7 +1457,7 @@
     .parameter "policy"
 
     .prologue
-    .line 954
+    .line 1038
     if-eqz p1, :cond_0
 
     invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->isBandwidthControlEnabled()Z
@@ -1775,9 +1466,9 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabled:Landroid/widget/Switch;
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabled:Landroid/widget/CheckBox;
 
-    invoke-virtual {v0}, Landroid/widget/Switch;->isChecked()Z
+    invoke-virtual {v0}, Landroid/widget/CheckBox;->isChecked()Z
 
     move-result v0
 
@@ -1796,60 +1487,38 @@
 
 .method private setAppRestrictBackground(Z)V
     .locals 3
-    .parameter
+    .parameter "restrictBackground"
 
     .prologue
-    .line 1012
-    const-string v0, "DataUsage"
+    .line 1082
+    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCurrentApp:Lcom/android/OriginalSettings/DataUsageSummary$AppItem;
 
-    const-string v1, "setAppRestrictBackground()"
+    iget v0, v1, Lcom/android/OriginalSettings/DataUsageSummary$AppItem;->appId:I
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1013
-    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getAppDetailPrimaryUid()I
-
-    move-result v1
-
-    .line 1015
-    :try_start_0
-    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyService:Landroid/net/INetworkPolicyManager;
+    .line 1083
+    .local v0, appId:I
+    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyManager:Landroid/net/NetworkPolicyManager;
 
     if-eqz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
     :goto_0
-    invoke-interface {v2, v1, v0}, Landroid/net/INetworkPolicyManager;->setUidPolicy(II)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {v2, v0, v1}, Landroid/net/NetworkPolicyManager;->setAppPolicy(II)V
 
-    .line 1021
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrict:Landroid/widget/CheckBox;
+    .line 1085
+    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrict:Landroid/widget/CheckBox;
 
-    invoke-virtual {v0, p1}, Landroid/widget/CheckBox;->setChecked(Z)V
+    invoke-virtual {v1, p1}, Landroid/widget/CheckBox;->setChecked(Z)V
 
-    .line 1022
+    .line 1086
     return-void
 
-    .line 1015
+    .line 1083
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     goto :goto_0
-
-    .line 1017
-    :catch_0
-    move-exception v0
-
-    .line 1018
-    new-instance v1, Ljava/lang/RuntimeException;
-
-    const-string v2, "unable to save policy"
-
-    invoke-direct {v1, v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    throw v1
 .end method
 
 .method private setDataRoaming(Z)V
@@ -1857,7 +1526,7 @@
     .parameter
 
     .prologue
-    .line 974
+    .line 1058
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
@@ -1866,7 +1535,7 @@
 
     move-result-object v1
 
-    .line 975
+    .line 1059
     const-string v2, "data_roaming"
 
     if-eqz p1, :cond_0
@@ -1876,15 +1545,15 @@
     :goto_0
     invoke-static {v1, v2, v0}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 976
+    .line 1060
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuDataRoaming:Landroid/view/MenuItem;
 
     invoke-interface {v0, p1}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
 
-    .line 977
+    .line 1061
     return-void
 
-    .line 975
+    .line 1059
     :cond_0
     const/4 v0, 0x0
 
@@ -1892,115 +1561,111 @@
 .end method
 
 .method private setMobileDataEnabled(Z)V
-    .locals 2
-    .parameter
+    .locals 1
+    .parameter "enabled"
 
     .prologue
-    .line 947
-    const-string v0, "DataUsage"
-
-    const-string v1, "setMobileDataEnabled()"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 948
+    .line 1032
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConnService:Landroid/net/ConnectivityManager;
 
     invoke-virtual {v0, p1}, Landroid/net/ConnectivityManager;->setMobileDataEnabled(Z)V
 
-    .line 949
+    .line 1033
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMobileDataEnabled:Ljava/lang/Boolean;
 
-    .line 950
+    .line 1034
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/OriginalSettings/DataUsageSummary;->updatePolicy(Z)V
 
-    .line 951
+    .line 1035
     return-void
 .end method
 
 .method private setMobilePolicySplit(Z)V
-    .locals 2
+    .locals 4
     .parameter "split"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     .prologue
-    .line 1430
+    .line 1509
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->getActiveSubscriberId(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1431
-    .local v0, subscriberId:Ljava/lang/String;
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyEditor:Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
+    .line 1510
+    .local v0, context:Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->hasReadyMobileRadio(Landroid/content/Context;)Z
 
-    invoke-virtual {v1, v0, p1}, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;->setMobilePolicySplit(Ljava/lang/String;Z)V
+    move-result v2
 
-    .line 1432
+    if-eqz v2, :cond_0
+
+    .line 1511
+    invoke-static {v0}, Landroid/telephony/TelephonyManager;->from(Landroid/content/Context;)Landroid/telephony/TelephonyManager;
+
+    move-result-object v1
+
+    .line 1512
+    .local v1, tele:Landroid/telephony/TelephonyManager;
+    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyEditor:Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
+
+    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActiveSubscriberId(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3, p1}, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;->setMobilePolicySplit(Ljava/lang/String;Z)V
+
+    .line 1514
+    .end local v1           #tele:Landroid/telephony/TelephonyManager;
+    :cond_0
     return-void
 .end method
 
 .method private setPolicyLimitBytes(J)V
     .locals 2
-    .parameter
+    .parameter "limitBytes"
 
     .prologue
-    .line 926
-    const-string v0, "DataUsage"
-
-    const-string v1, "setPolicyLimitBytes()"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 927
+    .line 1011
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyEditor:Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTemplate:Landroid/net/NetworkTemplate;
 
     invoke-virtual {v0, v1, p1, p2}, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;->setPolicyLimitBytes(Landroid/net/NetworkTemplate;J)V
 
-    .line 928
+    .line 1012
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/OriginalSettings/DataUsageSummary;->updatePolicy(Z)V
 
-    .line 929
+    .line 1013
     return-void
 .end method
 
 .method private setPolicyWarningBytes(J)V
     .locals 2
-    .parameter
+    .parameter "warningBytes"
 
     .prologue
-    .line 920
-    const-string v0, "DataUsage"
-
-    const-string v1, "setPolicyWarningBytes()"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 921
+    .line 1005
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyEditor:Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTemplate:Landroid/net/NetworkTemplate;
 
     invoke-virtual {v0, v1, p1, p2}, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;->setPolicyWarningBytes(Landroid/net/NetworkTemplate;J)V
 
-    .line 922
+    .line 1006
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/OriginalSettings/DataUsageSummary;->updatePolicy(Z)V
 
-    .line 923
+    .line 1007
     return-void
 .end method
 
@@ -2010,7 +1675,7 @@
     .parameter
 
     .prologue
-    .line 2547
+    .line 2799
     const v0, 0x1020010
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -2019,15 +1684,15 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 2548
+    .line 2800
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 2549
+    .line 2801
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 2550
+    .line 2802
     return-void
 .end method
 
@@ -2037,7 +1702,7 @@
     .parameter
 
     .prologue
-    .line 2538
+    .line 2790
     const v0, 0x1020016
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -2046,95 +1711,36 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 2539
+    .line 2791
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 2540
+    .line 2792
     return-void
-.end method
-
-.method private setRestrictBackground(Z)V
-    .locals 4
-    .parameter
-
-    .prologue
-    .line 989
-    const-string v0, "DataUsage"
-
-    const-string v1, "setRestrictBackground()"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 991
-    :try_start_0
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyService:Landroid/net/INetworkPolicyManager;
-
-    invoke-interface {v0, p1}, Landroid/net/INetworkPolicyManager;->setRestrictBackground(Z)V
-
-    .line 992
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuRestrictBackground:Landroid/view/MenuItem;
-
-    invoke-interface {v0, p1}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 996
-    :goto_0
-    return-void
-
-    .line 993
-    :catch_0
-    move-exception v0
-
-    .line 994
-    const-string v1, "DataUsage"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "problem talking with policy service: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
 .end method
 
 .method private updateAppDetail()V
     .locals 14
 
     .prologue
-    const/16 v13, 0x8
+    const/4 v13, 0x0
 
-    const/4 v12, 0x0
+    const/16 v12, 0x8
 
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
-    .line 848
+    .line 937
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
-    .line 849
+    .line 938
     invoke-virtual {v3}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v4
 
-    .line 850
+    .line 939
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -2143,58 +1749,58 @@
 
     move-result-object v5
 
-    .line 852
+    .line 941
     invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->isAppDetailMode()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 853
+    .line 942
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetail:Landroid/view/View;
 
     invoke-virtual {v2, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 854
+    .line 943
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleAdapter:Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;
 
     invoke-virtual {v2, v1}, Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;->setChangeVisible(Z)V
 
-    .line 865
+    .line 954
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
 
-    invoke-virtual {v2, v12}, Lcom/android/OriginalSettings/widget/ChartDataUsageView;->bindNetworkPolicy(Landroid/net/NetworkPolicy;)V
+    invoke-virtual {v2, v13}, Lcom/android/OriginalSettings/widget/ChartDataUsageView;->bindNetworkPolicy(Landroid/net/NetworkPolicy;)V
 
-    .line 868
-    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getAppDetailPrimaryUid()I
+    .line 957
+    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCurrentApp:Lcom/android/OriginalSettings/DataUsageSummary$AppItem;
 
-    move-result v6
+    iget v6, v2, Lcom/android/OriginalSettings/DataUsageSummary$AppItem;->appId:I
 
-    .line 869
+    .line 958
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mUidDetailProvider:Lcom/android/OriginalSettings/net/UidDetailProvider;
 
     invoke-virtual {v2, v6, v0}, Lcom/android/OriginalSettings/net/UidDetailProvider;->getUidDetail(IZ)Lcom/android/OriginalSettings/net/UidDetail;
 
     move-result-object v2
 
-    .line 870
+    .line 959
     iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppIcon:Landroid/widget/ImageView;
 
     iget-object v8, v2, Lcom/android/OriginalSettings/net/UidDetail;->icon:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v7, v8}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 872
+    .line 961
     iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppTitles:Landroid/view/ViewGroup;
 
     invoke-virtual {v7}, Landroid/view/ViewGroup;->removeAllViews()V
 
-    .line 873
+    .line 962
     iget-object v7, v2, Lcom/android/OriginalSettings/net/UidDetail;->detailLabels:[Ljava/lang/CharSequence;
 
     if-eqz v7, :cond_1
 
-    .line 874
+    .line 963
     iget-object v7, v2, Lcom/android/OriginalSettings/net/UidDetail;->detailLabels:[Ljava/lang/CharSequence;
 
     array-length v8, v7
@@ -2206,7 +1812,7 @@
 
     aget-object v9, v7, v2
 
-    .line 875
+    .line 964
     iget-object v10, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppTitles:Landroid/view/ViewGroup;
 
     iget-object v11, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppTitles:Landroid/view/ViewGroup;
@@ -2217,32 +1823,32 @@
 
     invoke-virtual {v10, v9}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 874
+    .line 963
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 856
+    .line 945
     :cond_0
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetail:Landroid/view/View;
 
-    invoke-virtual {v1, v13}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v1, v12}, Landroid/view/View;->setVisibility(I)V
 
-    .line 857
+    .line 946
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleAdapter:Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;
 
     invoke-virtual {v1, v0}, Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;->setChangeVisible(Z)V
 
-    .line 860
+    .line 949
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
 
-    invoke-virtual {v0, v12}, Lcom/android/OriginalSettings/widget/ChartDataUsageView;->bindDetailNetworkStats(Landroid/net/NetworkStatsHistory;)V
+    invoke-virtual {v0, v13}, Lcom/android/OriginalSettings/widget/ChartDataUsageView;->bindDetailNetworkStats(Landroid/net/NetworkStatsHistory;)V
 
-    .line 917
+    .line 1001
     :goto_1
     return-void
 
-    .line 878
+    .line 967
     :cond_1
     iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppTitles:Landroid/view/ViewGroup;
 
@@ -2256,20 +1862,20 @@
 
     invoke-virtual {v7, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 883
+    .line 972
     :cond_2
     invoke-virtual {v4, v6}, Landroid/content/pm/PackageManager;->getPackagesForUid(I)[Ljava/lang/String;
 
     move-result-object v2
 
-    .line 884
+    .line 973
     if-eqz v2, :cond_4
 
     array-length v5, v2
 
     if-lez v5, :cond_4
 
-    .line 885
+    .line 974
     new-instance v5, Landroid/content/Intent;
 
     const-string v7, "android.intent.action.MANAGE_NETWORK_USAGE"
@@ -2278,21 +1884,21 @@
 
     iput-object v5, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSettingsIntent:Landroid/content/Intent;
 
-    .line 886
+    .line 975
     iget-object v5, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSettingsIntent:Landroid/content/Intent;
 
     aget-object v2, v2, v1
 
     invoke-virtual {v5, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 887
+    .line 976
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSettingsIntent:Landroid/content/Intent;
 
     const-string v5, "android.intent.category.DEFAULT"
 
     invoke-virtual {v2, v5}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 889
+    .line 978
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSettingsIntent:Landroid/content/Intent;
 
     invoke-virtual {v4, v2, v1}, Landroid/content/pm/PackageManager;->resolveActivity(Landroid/content/Intent;I)Landroid/content/pm/ResolveInfo;
@@ -2301,59 +1907,59 @@
 
     if-eqz v2, :cond_3
 
-    .line 890
+    .line 979
     :goto_2
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSettings:Landroid/widget/Button;
 
     invoke-virtual {v2, v0}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 897
+    .line 980
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSettings:Landroid/widget/Button;
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
+
+    .line 987
     :goto_3
     invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->updateDetailData()V
 
-    .line 899
-    invoke-static {v3, v6}, Landroid/net/NetworkPolicyManager;->isUidValidForPolicy(Landroid/content/Context;I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_6
-
-    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getRestrictBackground()Z
-
-    move-result v0
-
-    if-nez v0, :cond_6
-
-    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->isBandwidthControlEnabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_6
-
-    invoke-static {v3}, Lcom/android/OriginalSettings/DataUsageSummary;->hasMobileRadio(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_6
-
-    .line 902
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrictView:Landroid/view/View;
-
-    const v2, 0x7f0d06db
-
-    invoke-static {v0, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->setPreferenceTitle(Landroid/view/View;I)V
-
-    .line 903
-    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->hasLimitedNetworks()Z
+    .line 989
+    invoke-static {v6}, Landroid/os/UserId;->isApp(I)Z
 
     move-result v0
 
     if-eqz v0, :cond_5
 
-    .line 904
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyManager:Landroid/net/NetworkPolicyManager;
+
+    invoke-virtual {v0}, Landroid/net/NetworkPolicyManager;->getRestrictBackground()Z
+
+    move-result v0
+
+    if-nez v0, :cond_5
+
+    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->isBandwidthControlEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    invoke-static {v3}, Lcom/android/OriginalSettings/DataUsageSummary;->hasReadyMobileRadio(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    .line 991
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrictView:Landroid/view/View;
 
-    const v2, 0x7f0d06dc
+    const v2, 0x7f0907fa
+
+    invoke-static {v0, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->setPreferenceTitle(Landroid/view/View;I)V
+
+    .line 992
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrictView:Landroid/view/View;
+
+    const v2, 0x7f0907fb
 
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->getString(I)Ljava/lang/String;
 
@@ -2361,13 +1967,12 @@
 
     invoke-static {v0, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->setPreferenceSummary(Landroid/view/View;Ljava/lang/CharSequence;)V
 
-    .line 911
-    :goto_4
+    .line 995
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrictView:Landroid/view/View;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 912
+    .line 996
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrict:Landroid/widget/CheckBox;
 
     invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getAppRestrictBackground()Z
@@ -2381,106 +1986,92 @@
     :cond_3
     move v0, v1
 
-    .line 889
+    .line 978
     goto :goto_2
 
-    .line 893
+    .line 983
     :cond_4
-    iput-object v12, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSettingsIntent:Landroid/content/Intent;
+    iput-object v13, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSettingsIntent:Landroid/content/Intent;
 
-    .line 894
+    .line 984
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSettings:Landroid/widget/Button;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v0, v12}, Landroid/widget/Button;->setVisibility(I)V
 
     goto :goto_3
 
-    .line 907
+    .line 999
     :cond_5
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrictView:Landroid/view/View;
 
-    const v2, 0x7f0d06dd
-
-    invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v0, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->setPreferenceSummary(Landroid/view/View;Ljava/lang/CharSequence;)V
-
-    goto :goto_4
-
-    .line 915
-    :cond_6
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrictView:Landroid/view/View;
-
-    invoke-virtual {v0, v13}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v12}, Landroid/view/View;->setVisibility(I)V
 
     goto/16 :goto_1
 .end method
 
 .method private updateBody()V
-    .locals 8
+    .locals 6
 
     .prologue
-    const v7, 0x7f0d06cb
+    const v5, 0x7f0907ea
 
-    const/4 v6, 0x0
+    const/4 v4, 0x0
 
-    const/16 v5, 0x8
+    const/16 v3, 0x8
 
-    .line 764
+    .line 840
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mBinding:Z
 
-    .line 765
+    .line 841
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->isAdded()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 833
+    .line 926
     :goto_0
     return-void
 
-    .line 767
+    .line 843
     :cond_0
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 768
+    .line 844
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabHost:Landroid/widget/TabHost;
 
     invoke-virtual {v1}, Landroid/widget/TabHost;->getCurrentTabTag()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 770
+    .line 846
     if-nez v1, :cond_1
 
-    .line 771
+    .line 847
     const-string v0, "DataUsage"
 
     const-string v1, "no tab selected; hiding body"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 772
+    .line 848
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v0, v5}, Landroid/widget/ListView;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/ListView;->setVisibility(I)V
 
     goto :goto_0
 
-    .line 775
+    .line 851
     :cond_1
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v2, v6}, Landroid/widget/ListView;->setVisibility(I)V
+    invoke-virtual {v2, v4}, Landroid/widget/ListView;->setVisibility(I)V
 
-    .line 778
+    .line 854
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCurrentTab:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -2489,67 +2080,65 @@
 
     if-nez v2, :cond_2
 
-    .line 779
+    .line 855
     :cond_2
     iput-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCurrentTab:Ljava/lang/String;
 
-    .line 781
-    const-string v2, "DataUsage"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "updateBody() with currentTab="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 783
+    .line 859
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabledView:Landroid/view/View;
 
-    invoke-virtual {v2, v6}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v2, v4}, Landroid/view/View;->setVisibility(I)V
 
-    .line 785
+    .line 862
+    invoke-static {v0}, Landroid/telephony/TelephonyManager;->from(Landroid/content/Context;)Landroid/telephony/TelephonyManager;
+
+    .line 864
     const-string v2, "mobile"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_5
 
-    .line 786
+    .line 865
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabledView:Landroid/view/View;
 
-    const v2, 0x7f0d06d7
+    const v2, 0x7f0907f6
 
     invoke-static {v1, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->setPreferenceTitle(Landroid/view/View;I)V
 
-    .line 787
+    .line 866
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBootView:Landroid/view/View;
 
-    invoke-static {v1, v7}, Lcom/android/OriginalSettings/DataUsageSummary;->setPreferenceTitle(Landroid/view/View;I)V
+    invoke-static {v1, v5}, Lcom/android/OriginalSettings/DataUsageSummary;->setPreferenceTitle(Landroid/view/View;I)V
 
-    .line 788
+    .line 868
+    sget-boolean v1, Lcom/android/OriginalSettings/DataUsageSummary;->isVZW:Z
+
+    if-nez v1, :cond_3
+
+    sget-boolean v1, Lcom/android/OriginalSettings/DataUsageSummary;->isSPR:Z
+
+    if-eqz v1, :cond_4
+
+    .line 869
+    :cond_3
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
 
-    const v2, 0x7f0d06c4
+    const v2, 0x7f090d2e
 
     invoke-static {v1, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->setPreferenceTitle(Landroid/view/View;I)V
 
-    .line 789
+    .line 873
+    :goto_1
+    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarningView:Landroid/view/View;
+
+    const v2, 0x7f090d2b
+
+    invoke-static {v1, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->setPreferenceTitle(Landroid/view/View;I)V
+
+    .line 876
     invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActiveSubscriberId(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0
@@ -2560,8 +2149,8 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTemplate:Landroid/net/NetworkTemplate;
 
-    .line 826
-    :goto_1
+    .line 919
+    :goto_2
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getLoaderManager()Landroid/app/LoaderManager;
 
     move-result-object v0
@@ -2570,9 +2159,9 @@
 
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTemplate:Landroid/net/NetworkTemplate;
 
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetailUids:[I
+    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCurrentApp:Lcom/android/OriginalSettings/DataUsageSummary$AppItem;
 
-    invoke-static {v2, v3}, Lcom/android/OriginalSettings/net/ChartDataLoader;->buildArgs(Landroid/net/NetworkTemplate;[I)Landroid/os/Bundle;
+    invoke-static {v2, v3}, Lcom/android/OriginalSettings/net/ChartDataLoader;->buildArgs(Landroid/net/NetworkTemplate;Lcom/android/OriginalSettings/DataUsageSummary$AppItem;)Landroid/os/Bundle;
 
     move-result-object v2
 
@@ -2580,48 +2169,58 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/app/LoaderManager;->restartLoader(ILandroid/os/Bundle;Landroid/app/LoaderManager$LoaderCallbacks;)Landroid/content/Loader;
 
-    .line 830
+    .line 923
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/app/Activity;->invalidateOptionsMenu()V
 
-    .line 832
-    iput-boolean v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mBinding:Z
+    .line 925
+    iput-boolean v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mBinding:Z
 
     goto/16 :goto_0
 
-    .line 791
-    :cond_3
+    .line 871
+    :cond_4
+    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
+
+    const v2, 0x7f0907e3
+
+    invoke-static {v1, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->setPreferenceTitle(Landroid/view/View;I)V
+
+    goto :goto_1
+
+    .line 878
+    :cond_5
     const-string v2, "3g"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_6
 
-    .line 792
+    .line 879
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabledView:Landroid/view/View;
 
-    const v2, 0x7f0d06d8
+    const v2, 0x7f0907f7
 
     invoke-static {v1, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->setPreferenceTitle(Landroid/view/View;I)V
 
-    .line 793
+    .line 880
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBootView:Landroid/view/View;
 
-    invoke-static {v1, v7}, Lcom/android/OriginalSettings/DataUsageSummary;->setPreferenceTitle(Landroid/view/View;I)V
+    invoke-static {v1, v5}, Lcom/android/OriginalSettings/DataUsageSummary;->setPreferenceTitle(Landroid/view/View;I)V
 
-    .line 794
+    .line 881
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
 
-    const v2, 0x7f0d06c6
+    const v2, 0x7f0907e5
 
     invoke-static {v1, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->setPreferenceTitle(Landroid/view/View;I)V
 
-    .line 796
+    .line 883
     invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActiveSubscriberId(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0
@@ -2632,38 +2231,38 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTemplate:Landroid/net/NetworkTemplate;
 
-    goto :goto_1
+    goto :goto_2
 
-    .line 798
-    :cond_4
+    .line 885
+    :cond_6
     const-string v2, "4g"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_7
 
-    .line 799
+    .line 886
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabledView:Landroid/view/View;
 
-    const v2, 0x7f0d06d9
+    const v2, 0x7f0907f8
 
     invoke-static {v1, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->setPreferenceTitle(Landroid/view/View;I)V
 
-    .line 800
+    .line 887
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBootView:Landroid/view/View;
 
-    invoke-static {v1, v7}, Lcom/android/OriginalSettings/DataUsageSummary;->setPreferenceTitle(Landroid/view/View;I)V
+    invoke-static {v1, v5}, Lcom/android/OriginalSettings/DataUsageSummary;->setPreferenceTitle(Landroid/view/View;I)V
 
-    .line 801
+    .line 888
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
 
-    const v2, 0x7f0d06c5
+    const v2, 0x7f0907e4
 
     invoke-static {v1, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->setPreferenceTitle(Landroid/view/View;I)V
 
-    .line 803
+    .line 890
     invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActiveSubscriberId(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0
@@ -2674,78 +2273,88 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTemplate:Landroid/net/NetworkTemplate;
 
-    goto :goto_1
+    goto :goto_2
 
-    .line 805
-    :cond_5
+    .line 892
+    :cond_7
     const-string v0, "wifi"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_8
 
-    .line 807
+    .line 894
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabledView:Landroid/view/View;
 
-    invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
-    .line 808
+    .line 895
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBootView:Landroid/view/View;
 
-    invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
-    .line 809
+    .line 896
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
 
-    invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
-    .line 810
-    invoke-static {}, Landroid/net/NetworkTemplate;->buildTemplateWifi()Landroid/net/NetworkTemplate;
+    .line 898
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarningView:Landroid/view/View;
+
+    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
+
+    .line 900
+    invoke-static {}, Landroid/net/NetworkTemplate;->buildTemplateWifiWildcard()Landroid/net/NetworkTemplate;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTemplate:Landroid/net/NetworkTemplate;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 812
-    :cond_6
+    .line 902
+    :cond_8
     const-string v0, "ethernet"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_9
 
-    .line 814
+    .line 904
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabledView:Landroid/view/View;
 
-    invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
-    .line 815
+    .line 905
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBootView:Landroid/view/View;
 
-    invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
-    .line 816
+    .line 906
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
 
-    invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
-    .line 817
+    .line 908
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarningView:Landroid/view/View;
+
+    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
+
+    .line 910
     invoke-static {}, Landroid/net/NetworkTemplate;->buildTemplateEthernet()Landroid/net/NetworkTemplate;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTemplate:Landroid/net/NetworkTemplate;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 820
-    :cond_7
+    .line 913
+    :cond_9
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2782,7 +2391,7 @@
 
     const/4 v11, 0x0
 
-    .line 1083
+    .line 1151
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleSpinner:Landroid/widget/Spinner;
 
     invoke-virtual {v0}, Landroid/widget/Spinner;->getSelectedItem()Ljava/lang/Object;
@@ -2793,24 +2402,24 @@
 
     check-cast v6, Lcom/android/OriginalSettings/DataUsageSummary$CycleItem;
 
-    .line 1084
+    .line 1152
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleAdapter:Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;->clear()V
 
-    .line 1086
+    .line 1154
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleSpinner:Landroid/widget/Spinner;
 
     invoke-virtual {v0}, Landroid/widget/Spinner;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    .line 1090
+    .line 1158
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChartData:Lcom/android/OriginalSettings/net/ChartData;
 
     if-eqz v0, :cond_8
 
-    .line 1091
+    .line 1159
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChartData:Lcom/android/OriginalSettings/net/ChartData;
 
     iget-object v0, v0, Lcom/android/OriginalSettings/net/ChartData;->network:Landroid/net/NetworkStatsHistory;
@@ -2819,7 +2428,7 @@
 
     move-result-wide v7
 
-    .line 1092
+    .line 1160
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChartData:Lcom/android/OriginalSettings/net/ChartData;
 
     iget-object v0, v0, Lcom/android/OriginalSettings/net/ChartData;->network:Landroid/net/NetworkStatsHistory;
@@ -2828,20 +2437,20 @@
 
     move-result-wide v2
 
-    .line 1095
+    .line 1163
     :goto_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v12
 
-    .line 1096
+    .line 1164
     cmp-long v0, v7, v9
 
     if-nez v0, :cond_7
 
     move-wide v9, v12
 
-    .line 1097
+    .line 1165
     :goto_1
     cmp-long v0, v2, v4
 
@@ -2851,29 +2460,29 @@
 
     add-long v7, v12, v2
 
-    .line 1100
+    .line 1168
     :goto_2
     if-eqz p1, :cond_5
 
-    .line 1102
+    .line 1170
     invoke-static {v7, v8, p1}, Landroid/net/NetworkPolicyManager;->computeNextCycleBoundary(JLandroid/net/NetworkPolicy;)J
 
     move-result-wide v4
 
     move v0, v11
 
-    .line 1105
+    .line 1173
     :goto_3
     cmp-long v2, v4, v9
 
     if-lez v2, :cond_0
 
-    .line 1106
+    .line 1174
     invoke-static {v4, v5, p1}, Landroid/net/NetworkPolicyManager;->computeLastCycleBoundary(JLandroid/net/NetworkPolicy;)J
 
     move-result-wide v2
 
-    .line 1107
+    .line 1175
     const-string v0, "DataUsage"
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -2914,9 +2523,9 @@
 
     move-result-object v12
 
-    invoke-static {v0, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v12}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1109
+    .line 1177
     iget-object v12, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleAdapter:Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;
 
     new-instance v0, Lcom/android/OriginalSettings/DataUsageSummary$CycleItem;
@@ -2925,15 +2534,15 @@
 
     invoke-virtual {v12, v0}, Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;->add(Ljava/lang/Object;)V
 
-    .line 1111
+    .line 1179
     const/4 v0, 0x1
 
     move-wide v4, v2
 
-    .line 1112
+    .line 1180
     goto :goto_3
 
-    .line 1115
+    .line 1183
     :cond_0
     iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleAdapter:Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;
 
@@ -2943,24 +2552,24 @@
 
     invoke-virtual {v2, v3}, Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;->setChangePossible(Z)V
 
-    .line 1118
+    .line 1186
     :goto_4
     if-nez v0, :cond_2
 
     move-wide v4, v7
 
-    .line 1121
+    .line 1189
     :goto_5
     cmp-long v0, v4, v9
 
     if-lez v0, :cond_1
 
-    .line 1122
+    .line 1190
     const-wide v2, 0x90321000L
 
     sub-long v2, v4, v2
 
-    .line 1123
+    .line 1191
     iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleAdapter:Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;
 
     new-instance v0, Lcom/android/OriginalSettings/DataUsageSummary$CycleItem;
@@ -2971,16 +2580,16 @@
 
     move-wide v4, v2
 
-    .line 1125
+    .line 1193
     goto :goto_5
 
-    .line 1127
+    .line 1195
     :cond_1
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleAdapter:Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;
 
     invoke-virtual {v0, v11}, Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;->setChangePossible(Z)V
 
-    .line 1131
+    .line 1199
     :cond_2
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleAdapter:Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;
 
@@ -2990,19 +2599,19 @@
 
     if-lez v0, :cond_4
 
-    .line 1132
+    .line 1200
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleAdapter:Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;
 
     invoke-virtual {v0, v6}, Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;->findNearestPosition(Lcom/android/OriginalSettings/DataUsageSummary$CycleItem;)I
 
     move-result v3
 
-    .line 1133
+    .line 1201
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleSpinner:Landroid/widget/Spinner;
 
     invoke-virtual {v0, v3}, Landroid/widget/Spinner;->setSelection(I)V
 
-    .line 1137
+    .line 1205
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleAdapter:Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;
 
     invoke-virtual {v0, v3}, Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;->getItem(I)Ljava/lang/Object;
@@ -3011,14 +2620,14 @@
 
     check-cast v0, Lcom/android/OriginalSettings/DataUsageSummary$CycleItem;
 
-    .line 1138
+    .line 1206
     invoke-static {v0, v6}, Llibcore/util/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
     if-nez v0, :cond_3
 
-    .line 1139
+    .line 1207
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleListener:Landroid/widget/AdapterView$OnItemSelectedListener;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleSpinner:Landroid/widget/Spinner;
@@ -3029,17 +2638,17 @@
 
     invoke-interface/range {v0 .. v5}, Landroid/widget/AdapterView$OnItemSelectedListener;->onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
 
-    .line 1147
+    .line 1215
     :goto_6
     return-void
 
-    .line 1142
+    .line 1210
     :cond_3
     invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->updateDetailData()V
 
     goto :goto_6
 
-    .line 1145
+    .line 1213
     :cond_4
     invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->updateDetailData()V
 
@@ -3072,41 +2681,34 @@
     .locals 15
 
     .prologue
-    .line 1313
-    const-string v0, "DataUsage"
-
-    const-string v1, "updateDetailData()"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1315
+    .line 1385
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/widget/ChartDataUsageView;->getInspectStart()J
 
     move-result-wide v1
 
-    .line 1316
+    .line 1386
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/widget/ChartDataUsageView;->getInspectEnd()J
 
     move-result-wide v3
 
-    .line 1317
+    .line 1387
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v5
 
-    .line 1319
+    .line 1389
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
 
     move-result-object v8
 
-    .line 1321
+    .line 1391
     const/4 v7, 0x0
 
-    .line 1322
+    .line 1392
     invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->isAppDetailMode()Z
 
     move-result v0
@@ -3123,7 +2725,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1324
+    .line 1394
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChartData:Lcom/android/OriginalSettings/net/ChartData;
 
     iget-object v0, v0, Lcom/android/OriginalSettings/net/ChartData;->detailDefault:Landroid/net/NetworkStatsHistory;
@@ -3132,14 +2734,14 @@
 
     move-result-object v7
 
-    .line 1325
+    .line 1395
     iget-wide v9, v7, Landroid/net/NetworkStatsHistory$Entry;->rxBytes:J
 
     iget-wide v11, v7, Landroid/net/NetworkStatsHistory$Entry;->txBytes:J
 
     add-long/2addr v9, v11
 
-    .line 1326
+    .line 1396
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChartData:Lcom/android/OriginalSettings/net/ChartData;
 
     iget-object v0, v0, Lcom/android/OriginalSettings/net/ChartData;->detailForeground:Landroid/net/NetworkStatsHistory;
@@ -3148,26 +2750,26 @@
 
     move-result-object v0
 
-    .line 1327
+    .line 1397
     iget-wide v11, v0, Landroid/net/NetworkStatsHistory$Entry;->rxBytes:J
 
     iget-wide v13, v0, Landroid/net/NetworkStatsHistory$Entry;->txBytes:J
 
     add-long/2addr v11, v13
 
-    .line 1329
+    .line 1399
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppPieChart:Lcom/android/OriginalSettings/widget/PieChartView;
 
     const/16 v7, 0xaf
 
     invoke-virtual {v0, v7}, Lcom/android/OriginalSettings/widget/PieChartView;->setOriginAngle(I)V
 
-    .line 1331
+    .line 1401
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppPieChart:Lcom/android/OriginalSettings/widget/PieChartView;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/widget/PieChartView;->removeAllSlices()V
 
-    .line 1332
+    .line 1402
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppPieChart:Lcom/android/OriginalSettings/widget/PieChartView;
 
     const-string v7, "#d88d3a"
@@ -3178,7 +2780,7 @@
 
     invoke-virtual {v0, v11, v12, v7}, Lcom/android/OriginalSettings/widget/PieChartView;->addSlice(JI)V
 
-    .line 1333
+    .line 1403
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppPieChart:Lcom/android/OriginalSettings/widget/PieChartView;
 
     const-string v7, "#666666"
@@ -3189,12 +2791,12 @@
 
     invoke-virtual {v0, v9, v10, v7}, Lcom/android/OriginalSettings/widget/PieChartView;->addSlice(JI)V
 
-    .line 1335
+    .line 1405
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppPieChart:Lcom/android/OriginalSettings/widget/PieChartView;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/widget/PieChartView;->generatePath()V
 
-    .line 1337
+    .line 1407
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppBackground:Landroid/widget/TextView;
 
     invoke-static {v8, v9, v10}, Landroid/text/format/Formatter;->formatFileSize(Landroid/content/Context;J)Ljava/lang/String;
@@ -3203,7 +2805,7 @@
 
     invoke-virtual {v0, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1338
+    .line 1408
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppForeground:Landroid/widget/TextView;
 
     invoke-static {v8, v11, v12}, Landroid/text/format/Formatter;->formatFileSize(Landroid/content/Context;J)Ljava/lang/String;
@@ -3212,7 +2814,7 @@
 
     invoke-virtual {v0, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1341
+    .line 1411
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChartData:Lcom/android/OriginalSettings/net/ChartData;
 
     iget-object v0, v0, Lcom/android/OriginalSettings/net/ChartData;->detail:Landroid/net/NetworkStatsHistory;
@@ -3223,7 +2825,7 @@
 
     move-result-object v7
 
-    .line 1343
+    .line 1413
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getLoaderManager()Landroid/app/LoaderManager;
 
     move-result-object v0
@@ -3232,7 +2834,7 @@
 
     invoke-virtual {v0, v5}, Landroid/app/LoaderManager;->destroyLoader(I)V
 
-    .line 1355
+    .line 1425
     :goto_0
     if-eqz v7, :cond_2
 
@@ -3242,54 +2844,54 @@
 
     add-long/2addr v5, v9
 
-    .line 1356
+    .line 1426
     :goto_1
     invoke-static {v8, v5, v6}, Landroid/text/format/Formatter;->formatFileSize(Landroid/content/Context;J)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v0
 
-    .line 1357
+    .line 1427
+    invoke-static {v8, v1, v2, v3, v4}, Lcom/android/OriginalSettings/DataUsageSummary;->formatDateRange(Landroid/content/Context;JJ)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 1430
+    const v2, 0x7f090812
+
+    .line 1432
+    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mUsageSummary:Landroid/widget/TextView;
+
+    const/4 v4, 0x2
+
+    new-array v4, v4, [Ljava/lang/Object;
+
     const/4 v5, 0x0
 
-    move-object v0, v8
+    aput-object v0, v4, v5
 
-    invoke-static/range {v0 .. v5}, Lcom/android/OriginalSettings/DataUsageSummary;->formatDateRange(Landroid/content/Context;JJZ)Ljava/lang/String;
+    const/4 v0, 0x1
 
-    move-result-object v0
+    aput-object v1, v4, v0
 
-    .line 1359
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mUsageSummary:Landroid/widget/TextView;
-
-    const v2, 0x7f0d06ee
-
-    const/4 v3, 0x2
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    const/4 v4, 0x0
-
-    aput-object v6, v3, v4
-
-    const/4 v4, 0x1
-
-    aput-object v0, v3, v4
-
-    invoke-virtual {p0, v2, v3}, Lcom/android/OriginalSettings/DataUsageSummary;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v2, v4}, Lcom/android/OriginalSettings/DataUsageSummary;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v3, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1361
+    .line 1435
+    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->ensureLayoutTransitions()V
+
+    .line 1436
     return-void
 
-    .line 1346
+    .line 1416
     :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChartData:Lcom/android/OriginalSettings/net/ChartData;
 
     if-eqz v0, :cond_1
 
-    .line 1347
+    .line 1417
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChartData:Lcom/android/OriginalSettings/net/ChartData;
 
     iget-object v0, v0, Lcom/android/OriginalSettings/net/ChartData;->network:Landroid/net/NetworkStatsHistory;
@@ -3300,7 +2902,7 @@
 
     move-result-object v7
 
-    .line 1351
+    .line 1421
     :cond_1
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getLoaderManager()Landroid/app/LoaderManager;
 
@@ -3320,7 +2922,7 @@
 
     goto :goto_0
 
-    .line 1355
+    .line 1425
     :cond_2
     const-wide/16 v5, 0x0
 
@@ -3328,213 +2930,238 @@
 .end method
 
 .method private updatePolicy(Z)V
-    .locals 8
+    .locals 9
     .parameter
 
     .prologue
-    const/4 v0, 0x1
+    const-wide/16 v7, -0x1
 
     const/16 v4, 0x8
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
-    .line 1029
+    const/4 v2, 0x0
+
+    .line 1093
     invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->isAppDetailMode()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_4
+    if-eqz v0, :cond_4
 
-    .line 1030
-    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitches:Landroid/widget/LinearLayout;
+    .line 1094
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitches:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v2, v4}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v4}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 1039
+    .line 1100
     :goto_0
-    const-string v2, "mobile"
+    const-string v0, "mobile"
 
     iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCurrentTab:Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 1040
-    iput-boolean v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mBinding:Z
+    .line 1101
+    iput-boolean v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mBinding:Z
 
-    .line 1041
-    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabled:Landroid/widget/Switch;
+    .line 1102
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabled:Landroid/widget/CheckBox;
 
     invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->isMobileDataEnabled()Z
 
     move-result v3
 
-    invoke-virtual {v2, v3}, Landroid/widget/Switch;->setChecked(Z)V
+    invoke-virtual {v0, v3}, Landroid/widget/CheckBox;->setChecked(Z)V
 
-    .line 1042
-    iput-boolean v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mBinding:Z
+    .line 1103
+    iput-boolean v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mBinding:Z
 
-    .line 1052
+    .line 1113
     :cond_0
-    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyEditor:Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyEditor:Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
 
     iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTemplate:Landroid/net/NetworkTemplate;
 
-    invoke-virtual {v2, v3}, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;->getPolicy(Landroid/net/NetworkTemplate;)Landroid/net/NetworkPolicy;
+    invoke-virtual {v0, v3}, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;->getPolicy(Landroid/net/NetworkTemplate;)Landroid/net/NetworkPolicy;
 
-    move-result-object v2
+    move-result-object v3
 
-    .line 1053
-    invoke-direct {p0, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->isNetworkPolicyModifiable(Landroid/net/NetworkPolicy;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_7
-
-    .line 1054
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
-
-    invoke-virtual {v3, v1}, Landroid/view/View;->setVisibility(I)V
-
-    .line 1055
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimit:Landroid/widget/CheckBox;
-
-    if-eqz v2, :cond_6
-
-    iget-wide v4, v2, Landroid/net/NetworkPolicy;->limitBytes:J
-
-    const-wide/16 v6, -0x1
-
-    cmp-long v4, v4, v6
-
-    if-eqz v4, :cond_6
-
-    :goto_1
-    invoke-virtual {v3, v0}, Landroid/widget/CheckBox;->setChecked(Z)V
-
-    .line 1057
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimit:Landroid/widget/CheckBox;
-
-    invoke-virtual {v0}, Landroid/widget/CheckBox;->isChecked()Z
+    .line 1114
+    invoke-direct {p0, v3}, Lcom/android/OriginalSettings/DataUsageSummary;->isNetworkPolicyModifiable(Landroid/net/NetworkPolicy;)Z
 
     move-result v0
 
+    if-eqz v0, :cond_8
+
+    .line 1115
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
+
+    .line 1116
+    iget-object v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimit:Landroid/widget/CheckBox;
+
+    if-eqz v3, :cond_5
+
+    iget-wide v5, v3, Landroid/net/NetworkPolicy;->limitBytes:J
+
+    cmp-long v0, v5, v7
+
+    if-eqz v0, :cond_5
+
+    move v0, v1
+
+    :goto_1
+    invoke-virtual {v4, v0}, Landroid/widget/CheckBox;->setChecked(Z)V
+
+    .line 1118
+    sget-boolean v0, Lcom/android/OriginalSettings/DataUsageSummary;->isVZW:Z
+
     if-nez v0, :cond_1
 
-    .line 1058
-    invoke-direct {p0, v1}, Lcom/android/OriginalSettings/DataUsageSummary;->setRestrictBackground(Z)V
+    sget-boolean v0, Lcom/android/OriginalSettings/DataUsageSummary;->isSPR:Z
 
-    .line 1060
+    if-eqz v0, :cond_6
+
+    .line 1119
     :cond_1
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarningView:Landroid/view/View;
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
+
+    .line 1123
+    :goto_2
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarning:Landroid/widget/CheckBox;
+
+    if-eqz v3, :cond_7
+
+    iget-wide v4, v3, Landroid/net/NetworkPolicy;->warningBytes:J
+
+    cmp-long v4, v4, v7
+
+    if-eqz v4, :cond_7
+
+    :goto_3
+    invoke-virtual {v0, v1}, Landroid/widget/CheckBox;->setChecked(Z)V
+
+    .line 1125
     invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->isAppDetailMode()Z
 
     move-result v0
 
     if-nez v0, :cond_2
 
-    .line 1061
+    .line 1126
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
 
-    invoke-virtual {v0, v2}, Lcom/android/OriginalSettings/widget/ChartDataUsageView;->bindNetworkPolicy(Landroid/net/NetworkPolicy;)V
+    invoke-virtual {v0, v3}, Lcom/android/OriginalSettings/widget/ChartDataUsageView;->bindNetworkPolicy(Landroid/net/NetworkPolicy;)V
 
-    .line 1070
+    .line 1138
     :cond_2
-    :goto_2
+    :goto_4
     if-eqz p1, :cond_3
 
-    .line 1072
-    invoke-direct {p0, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->updateCycleList(Landroid/net/NetworkPolicy;)V
+    .line 1140
+    invoke-direct {p0, v3}, Lcom/android/OriginalSettings/DataUsageSummary;->updateCycleList(Landroid/net/NetworkPolicy;)V
 
-    .line 1074
+    .line 1142
     :cond_3
     return-void
 
-    .line 1032
+    .line 1096
     :cond_4
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->isRoamingArea()Z
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitches:Landroid/widget/LinearLayout;
 
-    move-result v2
-
-    if-eqz v2, :cond_5
-
-    .line 1033
-    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitches:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v2, v4}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     goto :goto_0
 
-    .line 1035
     :cond_5
-    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitches:Landroid/widget/LinearLayout;
+    move v0, v2
 
-    invoke-virtual {v2, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    goto :goto_0
-
-    :cond_6
-    move v0, v1
-
-    .line 1055
+    .line 1116
     goto :goto_1
 
-    .line 1066
+    .line 1121
+    :cond_6
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarningView:Landroid/view/View;
+
+    const/4 v4, 0x4
+
+    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
+
+    goto :goto_2
+
     :cond_7
+    move v1, v2
+
+    .line 1123
+    goto :goto_3
+
+    .line 1131
+    :cond_8
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
 
     invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1067
+    .line 1133
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarningView:Landroid/view/View;
+
+    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
+
+    .line 1135
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/widget/ChartDataUsageView;->bindNetworkPolicy(Landroid/net/NetworkPolicy;)V
 
-    goto :goto_2
+    goto :goto_4
 .end method
 
 .method private updateTabs()V
     .locals 6
 
     .prologue
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    .line 700
+    .line 772
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
 
-    move-result-object v2
+    move-result-object v0
 
-    .line 701
+    .line 773
     iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabHost:Landroid/widget/TabHost;
 
     invoke-virtual {v3}, Landroid/widget/TabHost;->clearAllTabs()V
 
-    .line 703
+    .line 775
     invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->isMobilePolicySplit()Z
 
     move-result v3
 
-    .line 704
+    .line 776
     if-eqz v3, :cond_4
 
-    invoke-static {v2}, Lcom/android/OriginalSettings/DataUsageSummary;->hasMobile4gRadio(Landroid/content/Context;)Z
+    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->hasReadyMobile4gRadio(Landroid/content/Context;)Z
 
     move-result v3
 
     if-eqz v3, :cond_4
 
-    .line 705
+    .line 777
     iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabHost:Landroid/widget/TabHost;
 
     const-string v4, "3g"
 
-    const v5, 0x7f0d06d4
+    const v5, 0x7f0907f3
 
     invoke-direct {p0, v4, v5}, Lcom/android/OriginalSettings/DataUsageSummary;->buildTabSpec(Ljava/lang/String;I)Landroid/widget/TabHost$TabSpec;
 
@@ -3542,12 +3169,12 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TabHost;->addTab(Landroid/widget/TabHost$TabSpec;)V
 
-    .line 706
+    .line 778
     iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabHost:Landroid/widget/TabHost;
 
     const-string v4, "4g"
 
-    const v5, 0x7f0d06d3
+    const v5, 0x7f0907f2
 
     invoke-direct {p0, v4, v5}, Lcom/android/OriginalSettings/DataUsageSummary;->buildTabSpec(Ljava/lang/String;I)Landroid/widget/TabHost$TabSpec;
 
@@ -3555,25 +3182,25 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TabHost;->addTab(Landroid/widget/TabHost$TabSpec;)V
 
-    .line 710
+    .line 782
     :cond_0
     :goto_0
     iget-boolean v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowWifi:Z
 
     if-eqz v3, :cond_1
 
-    invoke-static {v2}, Lcom/android/OriginalSettings/DataUsageSummary;->hasWifiRadio(Landroid/content/Context;)Z
+    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->hasWifiRadio(Landroid/content/Context;)Z
 
     move-result v3
 
     if-eqz v3, :cond_1
 
-    .line 711
+    .line 783
     iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabHost:Landroid/widget/TabHost;
 
     const-string v4, "wifi"
 
-    const v5, 0x7f0d06d0
+    const v5, 0x7f0907ef
 
     invoke-direct {p0, v4, v5}, Lcom/android/OriginalSettings/DataUsageSummary;->buildTabSpec(Ljava/lang/String;I)Landroid/widget/TabHost$TabSpec;
 
@@ -3581,56 +3208,68 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TabHost;->addTab(Landroid/widget/TabHost$TabSpec;)V
 
-    .line 713
+    .line 785
     :cond_1
     iget-boolean v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowEthernet:Z
 
     if-eqz v3, :cond_2
 
-    invoke-static {v2}, Lcom/android/OriginalSettings/DataUsageSummary;->hasEthernet(Landroid/content/Context;)Z
+    invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/DataUsageSummary;->hasEthernet(Landroid/content/Context;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_2
 
-    .line 714
-    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabHost:Landroid/widget/TabHost;
+    .line 786
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabHost:Landroid/widget/TabHost;
 
     const-string v3, "ethernet"
 
-    const v4, 0x7f0d06d1
+    const v4, 0x7f0907f0
 
     invoke-direct {p0, v3, v4}, Lcom/android/OriginalSettings/DataUsageSummary;->buildTabSpec(Ljava/lang/String;I)Landroid/widget/TabHost$TabSpec;
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Landroid/widget/TabHost;->addTab(Landroid/widget/TabHost$TabSpec;)V
+    invoke-virtual {v0, v3}, Landroid/widget/TabHost;->addTab(Landroid/widget/TabHost$TabSpec;)V
 
-    .line 717
+    .line 789
     :cond_2
-    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabWidget:Landroid/widget/TabWidget;
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabWidget:Landroid/widget/TabWidget;
 
-    invoke-virtual {v2}, Landroid/widget/TabWidget;->getTabCount()I
+    invoke-virtual {v0}, Landroid/widget/TabWidget;->getTabCount()I
 
-    move-result v2
+    move-result v0
 
-    if-le v2, v0, :cond_5
+    if-nez v0, :cond_5
 
-    .line 718
+    move v0, v1
+
+    .line 790
     :goto_1
-    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabWidget:Landroid/widget/TabWidget;
+    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabWidget:Landroid/widget/TabWidget;
 
-    if-eqz v0, :cond_6
+    invoke-virtual {v3}, Landroid/widget/TabWidget;->getTabCount()I
 
+    move-result v3
+
+    if-le v3, v1, :cond_6
+
+    .line 791
     :goto_2
-    invoke-virtual {v2, v1}, Landroid/widget/TabWidget;->setVisibility(I)V
+    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabWidget:Landroid/widget/TabWidget;
 
-    .line 719
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mIntentTab:Ljava/lang/String;
+    if-eqz v1, :cond_7
 
-    if-eqz v0, :cond_3
+    :goto_3
+    invoke-virtual {v3, v2}, Landroid/widget/TabWidget;->setVisibility(I)V
 
-    .line 720
+    .line 792
+    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mIntentTab:Ljava/lang/String;
+
+    if-eqz v1, :cond_9
+
+    .line 793
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mIntentTab:Ljava/lang/String;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabHost:Landroid/widget/TabHost;
@@ -3643,35 +3282,36 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
-    .line 722
+    .line 795
     invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->updateBody()V
 
-    .line 726
-    :goto_3
+    .line 799
+    :goto_4
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mIntentTab:Ljava/lang/String;
 
-    .line 730
+    .line 806
     :cond_3
+    :goto_5
     return-void
 
-    .line 707
+    .line 779
     :cond_4
-    invoke-static {v2}, Lcom/android/OriginalSettings/DataUsageSummary;->hasMobileRadio(Landroid/content/Context;)Z
+    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->hasReadyMobileRadio(Landroid/content/Context;)Z
 
     move-result v3
 
     if-eqz v3, :cond_0
 
-    .line 708
+    .line 780
     iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabHost:Landroid/widget/TabHost;
 
     const-string v4, "mobile"
 
-    const v5, 0x7f0d06d2
+    const v5, 0x7f0907f1
 
     invoke-direct {p0, v4, v5}, Lcom/android/OriginalSettings/DataUsageSummary;->buildTabSpec(Ljava/lang/String;I)Landroid/widget/TabHost$TabSpec;
 
@@ -3682,183 +3322,332 @@
     goto :goto_0
 
     :cond_5
-    move v0, v1
+    move v0, v2
 
-    .line 717
+    .line 789
     goto :goto_1
 
-    .line 718
     :cond_6
-    const/16 v1, 0x8
+    move v1, v2
 
+    .line 790
     goto :goto_2
 
-    .line 724
+    .line 791
     :cond_7
+    const/16 v2, 0x8
+
+    goto :goto_3
+
+    .line 797
+    :cond_8
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabHost:Landroid/widget/TabHost;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mIntentTab:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/widget/TabHost;->setCurrentTabByTag(Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_4
+
+    .line 800
+    :cond_9
+    if-eqz v0, :cond_3
+
+    .line 802
+    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->updateBody()V
+
+    goto :goto_5
 .end method
 
 
 # virtual methods
-.method public isRoamingArea()Z
-    .locals 2
+.method public hasEthernet(Landroid/content/Context;)Z
+    .locals 11
+    .parameter "context"
 
     .prologue
-    .line 2565
-    invoke-static {}, Lcom/android/OriginalSettings/Utils;->isDomesticModel()Z
+    .line 2669
+    invoke-static {p1}, Landroid/net/ConnectivityManager;->from(Landroid/content/Context;)Landroid/net/ConnectivityManager;
 
-    move-result v0
+    move-result-object v6
+
+    .line 2670
+    .local v6, conn:Landroid/net/ConnectivityManager;
+    const/16 v0, 0x9
+
+    invoke-virtual {v6, v0}, Landroid/net/ConnectivityManager;->isNetworkSupported(I)Z
+
+    move-result v10
+
+    .line 2673
+    .local v10, hasEthernet:Z
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mStatsSession:Landroid/net/INetworkStatsSession;
 
     if-eqz v0, :cond_0
 
-    .line 2566
-    const-string v0, "oversea"
+    .line 2675
+    :try_start_0
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mStatsSession:Landroid/net/INetworkStatsSession;
 
-    const-string v1, "ril.currentplmn"
-
-    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {}, Landroid/net/NetworkTemplate;->buildTemplateEthernet()Landroid/net/NetworkTemplate;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-wide/high16 v2, -0x8000
 
-    move-result v0
+    const-wide v4, 0x7fffffffffffffffL
 
-    .line 2568
+    invoke-interface/range {v0 .. v5}, Landroid/net/INetworkStatsSession;->getSummaryForNetwork(Landroid/net/NetworkTemplate;JJ)Landroid/net/NetworkStats;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/net/NetworkStats;->getTotalBytes()J
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-wide v8
+
+    .line 2686
+    .local v8, ethernetBytes:J
     :goto_0
+    if-eqz v10, :cond_1
+
+    const-wide/16 v0, 0x0
+
+    cmp-long v0, v8, v0
+
+    if-lez v0, :cond_1
+
+    const/4 v0, 0x1
+
+    :goto_1
     return v0
 
+    .line 2678
+    .end local v8           #ethernetBytes:J
+    :catch_0
+    move-exception v7
+
+    .line 2679
+    .local v7, e:Landroid/os/RemoteException;
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    invoke-direct {v0, v7}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v0
+
+    .line 2682
+    .end local v7           #e:Landroid/os/RemoteException;
     :cond_0
+    const-wide/16 v8, 0x0
+
+    .restart local v8       #ethernetBytes:J
+    goto :goto_0
+
+    .line 2686
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 3
+    .locals 6
     .parameter "savedInstanceState"
 
     .prologue
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    .line 294
-    invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
-
-    .line 296
-    const-string v0, "network_management"
-
-    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/os/INetworkManagementService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/INetworkManagementService;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkService:Landroid/os/INetworkManagementService;
-
-    .line 298
-    const-string v0, "netstats"
-
-    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/net/INetworkStatsService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/INetworkStatsService;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mStatsService:Landroid/net/INetworkStatsService;
-
-    .line 300
-    const-string v0, "netpolicy"
-
-    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/net/INetworkPolicyManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/INetworkPolicyManager;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyService:Landroid/net/INetworkPolicyManager;
+    const/4 v5, 0x1
 
     .line 302
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
+
+    .line 303
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    const-string v1, "connectivity"
+    .line 306
+    .local v0, context:Landroid/content/Context;
+    const-string v2, "ro.csc.sales_code"
 
-    invoke-virtual {v0, v1}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
-
-    check-cast v0, Landroid/net/ConnectivityManager;
-
-    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConnService:Landroid/net/ConnectivityManager;
-
-    .line 305
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
-
-    move-result-object v0
-
-    const-string v1, "data_usage"
-
-    invoke-virtual {v0, v1, v2}, Landroid/app/Activity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPrefs:Landroid/content/SharedPreferences;
+    move-result-object v1
 
     .line 307
-    new-instance v0, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
+    .local v1, sSalesCode:Ljava/lang/String;
+    const-string v2, "VZW"
 
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyService:Landroid/net/INetworkPolicyManager;
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-direct {v0, v1}, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;-><init>(Landroid/net/INetworkPolicyManager;)V
+    move-result v2
 
-    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyEditor:Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
+    if-eqz v2, :cond_0
 
-    .line 308
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyEditor:Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
-
-    invoke-virtual {v0}, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;->read()V
+    sput-boolean v5, Lcom/android/OriginalSettings/DataUsageSummary;->isVZW:Z
 
     .line 310
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPrefs:Landroid/content/SharedPreferences;
+    :cond_0
+    const-string v2, "SPR"
 
-    const-string v1, "show_wifi"
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    move-result v2
 
-    move-result v0
+    if-eqz v2, :cond_1
 
-    iput-boolean v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowWifi:Z
-
-    .line 311
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPrefs:Landroid/content/SharedPreferences;
-
-    const-string v1, "show_ethernet"
-
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowEthernet:Z
+    sput-boolean v5, Lcom/android/OriginalSettings/DataUsageSummary;->isSPR:Z
 
     .line 313
-    const/4 v0, 0x1
+    :cond_1
+    const-string v2, "network_management"
 
-    invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/DataUsageSummary;->setHasOptionsMenu(Z)V
+    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    .line 314
+    move-result-object v2
+
+    invoke-static {v2}, Landroid/os/INetworkManagementService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/INetworkManagementService;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkService:Landroid/os/INetworkManagementService;
+
+    .line 315
+    const-string v2, "netstats"
+
+    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v2
+
+    invoke-static {v2}, Landroid/net/INetworkStatsService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/INetworkStatsService;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mStatsService:Landroid/net/INetworkStatsService;
+
+    .line 317
+    invoke-static {v0}, Landroid/net/NetworkPolicyManager;->from(Landroid/content/Context;)Landroid/net/NetworkPolicyManager;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyManager:Landroid/net/NetworkPolicyManager;
+
+    .line 318
+    invoke-static {v0}, Landroid/net/ConnectivityManager;->from(Landroid/content/Context;)Landroid/net/ConnectivityManager;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConnService:Landroid/net/ConnectivityManager;
+
+    .line 320
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
+
+    move-result-object v2
+
+    const-string v3, "data_usage"
+
+    invoke-virtual {v2, v3, v4}, Landroid/app/Activity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPrefs:Landroid/content/SharedPreferences;
+
+    .line 322
+    new-instance v2, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
+
+    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyManager:Landroid/net/NetworkPolicyManager;
+
+    invoke-direct {v2, v3}, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;-><init>(Landroid/net/NetworkPolicyManager;)V
+
+    iput-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyEditor:Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
+
+    .line 323
+    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyEditor:Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
+
+    invoke-virtual {v2}, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;->read()V
+
+    .line 325
+    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPrefs:Landroid/content/SharedPreferences;
+
+    const-string v3, "show_wifi"
+
+    invoke-interface {v2, v3, v4}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowWifi:Z
+
+    .line 326
+    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPrefs:Landroid/content/SharedPreferences;
+
+    const-string v3, "show_ethernet"
+
+    invoke-interface {v2, v3, v4}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowEthernet:Z
+
+    .line 329
+    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->hasReadyMobileRadio(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    .line 330
+    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->hasWifiRadio(Landroid/content/Context;)Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowWifi:Z
+
+    .line 331
+    invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/DataUsageSummary;->hasEthernet(Landroid/content/Context;)Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowEthernet:Z
+
+    .line 335
+    :cond_2
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/OriginalSettings/Utils;->isWifiOnly(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    .line 336
+    iput-boolean v5, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowWifi:Z
+
+    .line 337
+    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPrefs:Landroid/content/SharedPreferences;
+
+    invoke-interface {v2}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v2
+
+    const-string v3, "show_wifi"
+
+    iget-boolean v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowWifi:Z
+
+    invoke-interface {v2, v3, v4}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->apply()V
+
+    .line 341
+    :cond_3
+    invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/DataUsageSummary;->setHasOptionsMenu(Z)V
+
+    .line 342
     return-void
 .end method
 
@@ -3868,720 +3657,1010 @@
     .parameter "inflater"
 
     .prologue
-    .line 509
-    const/high16 v0, 0x7f11
+    .line 575
+    const v0, 0x7f120001
 
     invoke-virtual {p2, v0, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    .line 510
+    .line 576
     return-void
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 10
+    .locals 11
     .parameter "inflater"
     .parameter "container"
     .parameter "savedInstanceState"
 
     .prologue
-    const/4 v8, 0x0
-
-    const/4 v4, 0x1
-
-    const/4 v5, 0x0
-
-    .line 320
+    .line 348
     invoke-virtual {p1}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 321
+    .line 349
     .local v0, context:Landroid/content/Context;
-    const v3, 0x7f040044
+    const v6, 0x7f040042
 
-    invoke-virtual {p1, v3, p2, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    const/4 v7, 0x0
 
-    move-result-object v2
+    invoke-virtual {p1, v6, p2, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    .line 323
-    .local v2, view:Landroid/view/View;
-    new-instance v3, Lcom/android/OriginalSettings/net/UidDetailProvider;
-
-    invoke-direct {v3, v0}, Lcom/android/OriginalSettings/net/UidDetailProvider;-><init>(Landroid/content/Context;)V
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mUidDetailProvider:Lcom/android/OriginalSettings/net/UidDetailProvider;
-
-    .line 325
-    const v3, 0x1020012
-
-    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/widget/TabHost;
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabHost:Landroid/widget/TabHost;
-
-    .line 326
-    const v3, 0x7f0a008a
-
-    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/view/ViewGroup;
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabsContainer:Landroid/view/ViewGroup;
-
-    .line 327
-    const v3, 0x1020013
-
-    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/widget/TabWidget;
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabWidget:Landroid/widget/TabWidget;
-
-    .line 328
-    const v3, 0x102000a
-
-    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/widget/ListView;
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
-
-    .line 332
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
-
-    invoke-virtual {v3}, Landroid/widget/ListView;->getScrollBarStyle()I
-
-    move-result v3
-
-    const/high16 v6, 0x200
-
-    if-ne v3, v6, :cond_2
-
-    move v1, v4
-
-    .line 334
-    .local v1, shouldInset:Z
-    :goto_0
-    if-eqz v1, :cond_3
-
-    .line 335
-    invoke-virtual {v2}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const v6, 0x1050025
-
-    invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
-
-    move-result v3
-
-    iput v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mInsetSide:I
-
-    .line 342
-    :goto_1
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
-
-    invoke-static {p2, v2, v3, v4}, Lcom/android/OriginalSettings/Utils;->prepareCustomPreferencesList(Landroid/view/ViewGroup;Landroid/view/View;Landroid/widget/ListView;Z)V
-
-    .line 344
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabHost:Landroid/widget/TabHost;
-
-    invoke-virtual {v3}, Landroid/widget/TabHost;->setup()V
-
-    .line 345
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabHost:Landroid/widget/TabHost;
-
-    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabListener:Landroid/widget/TabHost$OnTabChangeListener;
-
-    invoke-virtual {v3, v6}, Landroid/widget/TabHost;->setOnTabChangedListener(Landroid/widget/TabHost$OnTabChangeListener;)V
-
-    .line 347
-    const v3, 0x7f040042
-
-    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
-
-    invoke-virtual {p1, v3, v6, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/view/ViewGroup;
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
-
-    .line 348
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
-
-    invoke-virtual {v3, v4}, Landroid/view/ViewGroup;->setClickable(Z)V
-
-    .line 350
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
-
-    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
-
-    invoke-virtual {v3, v6, v8, v4}, Landroid/widget/ListView;->addHeaderView(Landroid/view/View;Ljava/lang/Object;Z)V
+    move-result-object v5
 
     .line 351
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
+    .local v5, view:Landroid/view/View;
+    new-instance v6, Lcom/android/OriginalSettings/net/UidDetailProvider;
 
-    invoke-virtual {v3, v4}, Landroid/widget/ListView;->setItemsCanFocus(Z)V
+    invoke-direct {v6, v0}, Lcom/android/OriginalSettings/net/UidDetailProvider;-><init>(Landroid/content/Context;)V
 
-    .line 353
-    iget v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mInsetSide:I
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mUidDetailProvider:Lcom/android/OriginalSettings/net/UidDetailProvider;
 
-    if-lez v3, :cond_0
+    .line 354
+    :try_start_0
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mStatsService:Landroid/net/INetworkStatsService;
 
-    .line 355
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
+    invoke-interface {v6}, Landroid/net/INetworkStatsService;->openSession()Landroid/net/INetworkStatsSession;
 
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mStatsSession:Landroid/net/INetworkStatsSession;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 359
+    const v6, 0x1020012
+
+    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/TabHost;
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabHost:Landroid/widget/TabHost;
+
+    .line 360
+    const v6, 0x7f0b008a
+
+    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/view/ViewGroup;
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabsContainer:Landroid/view/ViewGroup;
+
+    .line 361
+    const v6, 0x1020013
+
+    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/TabWidget;
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabWidget:Landroid/widget/TabWidget;
+
+    .line 362
+    const v6, 0x102000a
+
+    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/ListView;
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
+
+    .line 366
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
+
+    invoke-virtual {v6}, Landroid/widget/ListView;->getScrollBarStyle()I
+
+    move-result v6
+
+    const/high16 v7, 0x200
+
+    if-ne v6, v7, :cond_3
+
+    const/4 v4, 0x1
+
+    .line 368
+    .local v4, shouldInset:Z
+    :goto_0
+    if-eqz v4, :cond_4
+
+    .line 369
+    invoke-virtual {v5}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    const v7, 0x7f0f0030
+
+    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
+
+    move-result v6
+
+    iput v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mInsetSide:I
+
+    .line 376
+    :goto_1
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
+
+    const/4 v7, 0x1
+
+    invoke-static {p2, v5, v6, v7}, Lcom/android/OriginalSettings/Utils;->prepareCustomPreferencesList(Landroid/view/ViewGroup;Landroid/view/View;Landroid/widget/ListView;Z)V
+
+    .line 378
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabHost:Landroid/widget/TabHost;
+
+    invoke-virtual {v6}, Landroid/widget/TabHost;->setup()V
+
+    .line 379
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabHost:Landroid/widget/TabHost;
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mTabListener:Landroid/widget/TabHost$OnTabChangeListener;
+
+    invoke-virtual {v6, v7}, Landroid/widget/TabHost;->setOnTabChangedListener(Landroid/widget/TabHost$OnTabChangeListener;)V
+
+    .line 381
+    const v6, 0x7f040040
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
+
+    const/4 v8, 0x0
+
+    invoke-virtual {p1, v6, v7, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/view/ViewGroup;
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
+
+    .line 382
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
+
+    const/4 v7, 0x1
+
+    invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->setClickable(Z)V
+
+    .line 384
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
+
+    const/4 v8, 0x0
+
+    const/4 v9, 0x0
+
+    invoke-virtual {v6, v7, v8, v9}, Landroid/widget/ListView;->addHeaderView(Landroid/view/View;Ljava/lang/Object;Z)V
+
+    .line 385
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
+
+    const/4 v7, 0x1
+
+    invoke-virtual {v6, v7}, Landroid/widget/ListView;->setItemsCanFocus(Z)V
+
+    .line 387
     iget v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mInsetSide:I
 
-    invoke-static {v3, v6}, Lcom/android/OriginalSettings/DataUsageSummary;->insetListViewDrawables(Landroid/widget/ListView;I)V
+    if-lez v6, :cond_0
 
-    .line 356
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
-
-    iget v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mInsetSide:I
+    .line 389
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
 
     iget v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mInsetSide:I
 
-    invoke-virtual {v3, v6, v5, v7, v5}, Landroid/view/ViewGroup;->setPadding(IIII)V
-
-    .line 361
-    :cond_0
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
-
-    const v6, 0x7f0a0087
-
-    invoke-virtual {v3, v6}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/view/ViewGroup;
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitchesContainer:Landroid/view/ViewGroup;
-
-    .line 363
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
-
-    const v6, 0x7f0a0088
-
-    invoke-virtual {v3, v6}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/widget/LinearLayout;
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitches:Landroid/widget/LinearLayout;
-
-    .line 365
-    new-instance v3, Landroid/widget/Switch;
-
-    invoke-virtual {p1}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
-
-    move-result-object v6
-
-    invoke-direct {v3, v6}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabled:Landroid/widget/Switch;
-
-    .line 366
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitches:Landroid/widget/LinearLayout;
-
-    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabled:Landroid/widget/Switch;
-
-    invoke-static {p1, v3, v6}, Lcom/android/OriginalSettings/DataUsageSummary;->inflatePreference(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/view/View;)Landroid/view/View;
-
-    move-result-object v3
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabledView:Landroid/view/View;
-
-    .line 367
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabled:Landroid/widget/Switch;
-
-    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabledListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
-
-    invoke-virtual {v3, v6}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
-
-    .line 368
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitches:Landroid/widget/LinearLayout;
-
-    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabledView:Landroid/view/View;
-
-    invoke-virtual {v3, v6}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
-
-    .line 369
-    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->isAirplaneModeOn()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    .line 370
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabled:Landroid/widget/Switch;
-
-    invoke-virtual {v3, v5}, Landroid/widget/Switch;->setClickable(Z)V
-
-    .line 372
-    :cond_1
-    new-instance v3, Landroid/widget/CheckBox;
-
-    invoke-virtual {p1}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
-
-    move-result-object v6
-
-    invoke-direct {v3, v6}, Landroid/widget/CheckBox;-><init>(Landroid/content/Context;)V
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBoot:Landroid/widget/CheckBox;
-
-    .line 373
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBoot:Landroid/widget/CheckBox;
-
-    invoke-virtual {v3, v5}, Landroid/widget/CheckBox;->setClickable(Z)V
-
-    .line 374
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBoot:Landroid/widget/CheckBox;
-
-    invoke-virtual {v3, v5}, Landroid/widget/CheckBox;->setFocusable(Z)V
-
-    .line 375
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitches:Landroid/widget/LinearLayout;
-
-    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBoot:Landroid/widget/CheckBox;
-
-    invoke-static {p1, v3, v6}, Lcom/android/OriginalSettings/DataUsageSummary;->inflatePreference(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/view/View;)Landroid/view/View;
-
-    move-result-object v3
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBootView:Landroid/view/View;
-
-    .line 376
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBootView:Landroid/view/View;
-
-    invoke-virtual {v3, v4}, Landroid/view/View;->setClickable(Z)V
-
-    .line 377
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBootView:Landroid/view/View;
-
-    invoke-virtual {v3, v4}, Landroid/view/View;->setFocusable(Z)V
-
-    .line 378
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBootView:Landroid/view/View;
-
-    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBootListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v3, v6}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 383
-    new-instance v3, Landroid/widget/CheckBox;
-
-    invoke-virtual {p1}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
-
-    move-result-object v6
-
-    invoke-direct {v3, v6}, Landroid/widget/CheckBox;-><init>(Landroid/content/Context;)V
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimit:Landroid/widget/CheckBox;
-
-    .line 384
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimit:Landroid/widget/CheckBox;
-
-    invoke-virtual {v3, v5}, Landroid/widget/CheckBox;->setClickable(Z)V
-
-    .line 385
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimit:Landroid/widget/CheckBox;
-
-    invoke-virtual {v3, v5}, Landroid/widget/CheckBox;->setFocusable(Z)V
-
-    .line 387
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimit:Landroid/widget/CheckBox;
-
-    invoke-virtual {v3, v4}, Landroid/widget/CheckBox;->setDuplicateParentStateEnabled(Z)V
-
-    .line 389
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitches:Landroid/widget/LinearLayout;
-
-    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimit:Landroid/widget/CheckBox;
-
-    invoke-static {p1, v3, v6}, Lcom/android/OriginalSettings/DataUsageSummary;->inflatePreference(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/view/View;)Landroid/view/View;
-
-    move-result-object v3
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
+    invoke-static {v6, v7}, Lcom/android/OriginalSettings/DataUsageSummary;->insetListViewDrawables(Landroid/widget/ListView;I)V
 
     .line 390
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
 
-    invoke-virtual {v3, v4}, Landroid/view/View;->setClickable(Z)V
+    iget v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mInsetSide:I
 
-    .line 391
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
+    const/4 v8, 0x0
 
-    invoke-virtual {v3, v4}, Landroid/view/View;->setFocusable(Z)V
+    iget v9, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mInsetSide:I
 
-    .line 392
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
+    const/4 v10, 0x0
 
-    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitListener:Landroid/view/View$OnClickListener;
+    invoke-virtual {v6, v7, v8, v9, v10}, Landroid/view/ViewGroup;->setPadding(IIII)V
 
-    invoke-virtual {v3, v6}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    .line 395
+    :cond_0
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
 
-    .line 393
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitches:Landroid/widget/LinearLayout;
+    const v7, 0x7f0b0085
 
-    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
-
-    invoke-virtual {v3, v6}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
-
-    .line 397
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
-
-    const v6, 0x7f0a007e
-
-    invoke-virtual {v3, v6}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleView:Landroid/view/View;
-
-    .line 398
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleView:Landroid/view/View;
-
-    const v6, 0x7f0a007f
-
-    invoke-virtual {v3, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/widget/Spinner;
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleSpinner:Landroid/widget/Spinner;
-
-    .line 399
-    new-instance v3, Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;
-
-    invoke-direct {v3, v0}, Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;-><init>(Landroid/content/Context;)V
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleAdapter:Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;
-
-    .line 400
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleSpinner:Landroid/widget/Spinner;
-
-    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleAdapter:Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;
-
-    invoke-virtual {v3, v6}, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
-
-    .line 401
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleSpinner:Landroid/widget/Spinner;
-
-    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleListener:Landroid/widget/AdapterView$OnItemSelectedListener;
-
-    invoke-virtual {v3, v6}, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
-
-    .line 403
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
-
-    const v6, 0x7f0a0074
-
-    invoke-virtual {v3, v6}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/OriginalSettings/widget/ChartDataUsageView;
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
-
-    .line 404
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
-
-    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChartListener:Lcom/android/OriginalSettings/widget/ChartDataUsageView$DataUsageChartListener;
-
-    invoke-virtual {v3, v6}, Lcom/android/OriginalSettings/widget/ChartDataUsageView;->setListener(Lcom/android/OriginalSettings/widget/ChartDataUsageView$DataUsageChartListener;)V
-
-    .line 405
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
-
-    invoke-virtual {v3, v8}, Lcom/android/OriginalSettings/widget/ChartDataUsageView;->bindNetworkPolicy(Landroid/net/NetworkPolicy;)V
-
-    .line 407
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
-
-    const-wide v6, 0x18fff00000L
-
-    const-wide v8, 0x1900000000L
-
-    invoke-virtual {v3, v6, v7, v8, v9}, Lcom/android/OriginalSettings/widget/ChartDataUsageView;->setMaximumSetableValue(JJ)V
-
-    .line 412
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
-
-    const v6, 0x7f0a0080
-
-    invoke-virtual {v3, v6}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetail:Landroid/view/View;
-
-    .line 413
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetail:Landroid/view/View;
-
-    const v6, 0x7f0a0006
-
-    invoke-virtual {v3, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/widget/ImageView;
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppIcon:Landroid/widget/ImageView;
-
-    .line 414
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetail:Landroid/view/View;
-
-    const v6, 0x7f0a0081
-
-    invoke-virtual {v3, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/view/ViewGroup;
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppTitles:Landroid/view/ViewGroup;
-
-    .line 415
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetail:Landroid/view/View;
-
-    const v6, 0x7f0a0084
-
-    invoke-virtual {v3, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/OriginalSettings/widget/PieChartView;
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppPieChart:Lcom/android/OriginalSettings/widget/PieChartView;
-
-    .line 416
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetail:Landroid/view/View;
-
-    const v6, 0x7f0a0082
-
-    invoke-virtual {v3, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/widget/TextView;
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppForeground:Landroid/widget/TextView;
-
-    .line 417
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetail:Landroid/view/View;
-
-    const v6, 0x7f0a0083
-
-    invoke-virtual {v3, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/widget/TextView;
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppBackground:Landroid/widget/TextView;
-
-    .line 418
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetail:Landroid/view/View;
-
-    const v6, 0x7f0a0086
-
-    invoke-virtual {v3, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/widget/LinearLayout;
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSwitches:Landroid/widget/LinearLayout;
-
-    .line 420
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetail:Landroid/view/View;
-
-    const v6, 0x7f0a0085
-
-    invoke-virtual {v3, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/widget/Button;
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSettings:Landroid/widget/Button;
-
-    .line 421
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSettings:Landroid/widget/Button;
-
-    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSettingsListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v3, v6}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 423
-    new-instance v3, Landroid/widget/CheckBox;
-
-    invoke-virtual {p1}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
+    invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
     move-result-object v6
 
-    invoke-direct {v3, v6}, Landroid/widget/CheckBox;-><init>(Landroid/content/Context;)V
+    check-cast v6, Landroid/view/ViewGroup;
 
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrict:Landroid/widget/CheckBox;
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitchesContainer:Landroid/view/ViewGroup;
+
+    .line 397
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
+
+    const v7, 0x7f0b0086
+
+    invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/LinearLayout;
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitches:Landroid/widget/LinearLayout;
+
+    .line 399
+    new-instance v6, Landroid/widget/CheckBox;
+
+    invoke-virtual {p1}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
+
+    move-result-object v7
+
+    invoke-direct {v6, v7}, Landroid/widget/CheckBox;-><init>(Landroid/content/Context;)V
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabled:Landroid/widget/CheckBox;
+
+    .line 400
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabled:Landroid/widget/CheckBox;
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v6, v7}, Landroid/widget/CheckBox;->setClickable(Z)V
+
+    .line 401
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabled:Landroid/widget/CheckBox;
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v6, v7}, Landroid/widget/CheckBox;->setFocusable(Z)V
+
+    .line 402
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabled:Landroid/widget/CheckBox;
+
+    const/4 v7, 0x1
+
+    invoke-virtual {v6, v7}, Landroid/widget/CheckBox;->setDuplicateParentStateEnabled(Z)V
+
+    .line 403
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitches:Landroid/widget/LinearLayout;
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabled:Landroid/widget/CheckBox;
+
+    invoke-static {p1, v6, v7}, Lcom/android/OriginalSettings/DataUsageSummary;->inflatePreference(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/view/View;)Landroid/view/View;
+
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabledView:Landroid/view/View;
+
+    .line 404
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabledView:Landroid/view/View;
+
+    const/4 v7, 0x1
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->setClickable(Z)V
+
+    .line 405
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabledView:Landroid/view/View;
+
+    const/4 v7, 0x1
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->setFocusable(Z)V
+
+    .line 406
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabledView:Landroid/view/View;
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabledListener:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 407
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitches:Landroid/widget/LinearLayout;
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabledView:Landroid/view/View;
+
+    invoke-virtual {v6, v7}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    .line 409
+    new-instance v6, Landroid/widget/CheckBox;
+
+    invoke-virtual {p1}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
+
+    move-result-object v7
+
+    invoke-direct {v6, v7}, Landroid/widget/CheckBox;-><init>(Landroid/content/Context;)V
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBoot:Landroid/widget/CheckBox;
+
+    .line 410
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBoot:Landroid/widget/CheckBox;
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v6, v7}, Landroid/widget/CheckBox;->setClickable(Z)V
+
+    .line 411
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBoot:Landroid/widget/CheckBox;
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v6, v7}, Landroid/widget/CheckBox;->setFocusable(Z)V
+
+    .line 412
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitches:Landroid/widget/LinearLayout;
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBoot:Landroid/widget/CheckBox;
+
+    invoke-static {p1, v6, v7}, Lcom/android/OriginalSettings/DataUsageSummary;->inflatePreference(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/view/View;)Landroid/view/View;
+
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBootView:Landroid/view/View;
+
+    .line 413
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBootView:Landroid/view/View;
+
+    const/4 v7, 0x1
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->setClickable(Z)V
+
+    .line 414
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBootView:Landroid/view/View;
+
+    const/4 v7, 0x1
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->setFocusable(Z)V
+
+    .line 415
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBootView:Landroid/view/View;
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBootListener:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 420
+    new-instance v6, Landroid/widget/CheckBox;
+
+    invoke-virtual {p1}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
+
+    move-result-object v7
+
+    invoke-direct {v6, v7}, Landroid/widget/CheckBox;-><init>(Landroid/content/Context;)V
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimit:Landroid/widget/CheckBox;
+
+    .line 421
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimit:Landroid/widget/CheckBox;
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v6, v7}, Landroid/widget/CheckBox;->setClickable(Z)V
+
+    .line 422
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimit:Landroid/widget/CheckBox;
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v6, v7}, Landroid/widget/CheckBox;->setFocusable(Z)V
+
+    .line 423
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitches:Landroid/widget/LinearLayout;
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimit:Landroid/widget/CheckBox;
+
+    invoke-static {p1, v6, v7}, Lcom/android/OriginalSettings/DataUsageSummary;->inflatePreference(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/view/View;)Landroid/view/View;
+
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
 
     .line 424
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrict:Landroid/widget/CheckBox;
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
 
-    invoke-virtual {v3, v5}, Landroid/widget/CheckBox;->setClickable(Z)V
+    const/4 v7, 0x1
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->setClickable(Z)V
 
     .line 425
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrict:Landroid/widget/CheckBox;
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
 
-    invoke-virtual {v3, v5}, Landroid/widget/CheckBox;->setFocusable(Z)V
+    const/4 v7, 0x1
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->setFocusable(Z)V
+
+    .line 426
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitListener:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 427
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrict:Landroid/widget/CheckBox;
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitches:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v3, v4}, Landroid/widget/CheckBox;->setDuplicateParentStateEnabled(Z)V
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
 
-    .line 429
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSwitches:Landroid/widget/LinearLayout;
-
-    iget-object v5, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrict:Landroid/widget/CheckBox;
-
-    invoke-static {p1, v3, v5}, Lcom/android/OriginalSettings/DataUsageSummary;->inflatePreference(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/view/View;)Landroid/view/View;
-
-    move-result-object v3
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrictView:Landroid/view/View;
+    invoke-virtual {v6, v7}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     .line 430
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrictView:Landroid/view/View;
+    new-instance v6, Landroid/widget/CheckBox;
 
-    invoke-virtual {v3, v4}, Landroid/view/View;->setClickable(Z)V
+    invoke-virtual {p1}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
+
+    move-result-object v7
+
+    invoke-direct {v6, v7}, Landroid/widget/CheckBox;-><init>(Landroid/content/Context;)V
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarning:Landroid/widget/CheckBox;
 
     .line 431
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrictView:Landroid/view/View;
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarning:Landroid/widget/CheckBox;
 
-    invoke-virtual {v3, v4}, Landroid/view/View;->setFocusable(Z)V
+    const/4 v7, 0x0
+
+    invoke-virtual {v6, v7}, Landroid/widget/CheckBox;->setClickable(Z)V
 
     .line 432
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrictView:Landroid/view/View;
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarning:Landroid/widget/CheckBox;
 
-    iget-object v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrictListener:Landroid/view/View$OnClickListener;
+    const/4 v7, 0x0
 
-    invoke-virtual {v3, v4}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v6, v7}, Landroid/widget/CheckBox;->setFocusable(Z)V
 
     .line 433
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSwitches:Landroid/widget/LinearLayout;
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarning:Landroid/widget/CheckBox;
 
-    iget-object v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrictView:Landroid/view/View;
+    const/4 v7, 0x1
 
-    invoke-virtual {v3, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v7}, Landroid/widget/CheckBox;->setDuplicateParentStateEnabled(Z)V
+
+    .line 434
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitches:Landroid/widget/LinearLayout;
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarning:Landroid/widget/CheckBox;
+
+    invoke-static {p1, v6, v7}, Lcom/android/OriginalSettings/DataUsageSummary;->inflatePreference(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/view/View;)Landroid/view/View;
+
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarningView:Landroid/view/View;
+
+    .line 435
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarningView:Landroid/view/View;
+
+    const/4 v7, 0x1
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->setClickable(Z)V
 
     .line 436
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarningView:Landroid/view/View;
 
-    const v4, 0x7f0a0089
+    const/4 v7, 0x1
 
-    invoke-virtual {v3, v4}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/widget/TextView;
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mUsageSummary:Landroid/widget/TextView;
+    invoke-virtual {v6, v7}, Landroid/view/View;->setFocusable(Z)V
 
     .line 437
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarningView:Landroid/view/View;
 
-    const v4, 0x1020004
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarningListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v3, v4}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v6, v7}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    move-result-object v3
+    .line 438
+    sget-boolean v6, Lcom/android/OriginalSettings/DataUsageSummary;->isVZW:Z
 
-    check-cast v3, Landroid/widget/TextView;
+    if-nez v6, :cond_1
 
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEmpty:Landroid/widget/TextView;
+    sget-boolean v6, Lcom/android/OriginalSettings/DataUsageSummary;->isSPR:Z
 
-    .line 440
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
+    if-eqz v6, :cond_2
 
-    invoke-virtual {v3}, Landroid/widget/ListView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    .line 439
+    :cond_1
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mNetworkSwitches:Landroid/widget/LinearLayout;
 
-    move-result-object v3
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarningView:Landroid/view/View;
 
-    iget-object v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mFirstLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+    invoke-virtual {v6, v7}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    invoke-virtual {v3, v4}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
+    .line 445
+    :cond_2
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
 
-    .line 442
-    new-instance v3, Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;
+    const v7, 0x7f0b007b
 
-    iget-object v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mUidDetailProvider:Lcom/android/OriginalSettings/net/UidDetailProvider;
+    invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
-    iget v5, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mInsetSide:I
+    move-result-object v6
 
-    invoke-direct {v3, v4, v5}, Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;-><init>(Lcom/android/OriginalSettings/net/UidDetailProvider;I)V
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAdapter:Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;
-
-    .line 443
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
-
-    iget-object v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListListener:Landroid/widget/AdapterView$OnItemClickListener;
-
-    invoke-virtual {v3, v4}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
-
-    .line 444
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
-
-    iget-object v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAdapter:Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;
-
-    invoke-virtual {v3, v4}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleView:Landroid/view/View;
 
     .line 446
-    return-object v2
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleView:Landroid/view/View;
 
-    .end local v1           #shouldInset:Z
-    :cond_2
-    move v1, v5
+    const v7, 0x7f0b007c
 
-    .line 332
+    invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/Spinner;
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleSpinner:Landroid/widget/Spinner;
+
+    .line 447
+    new-instance v6, Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;
+
+    invoke-direct {v6, v0}, Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;-><init>(Landroid/content/Context;)V
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleAdapter:Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;
+
+    .line 448
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleSpinner:Landroid/widget/Spinner;
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleAdapter:Lcom/android/OriginalSettings/DataUsageSummary$CycleAdapter;
+
+    invoke-virtual {v6, v7}, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
+
+    .line 449
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleSpinner:Landroid/widget/Spinner;
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mCycleListener:Landroid/widget/AdapterView$OnItemSelectedListener;
+
+    invoke-virtual {v6, v7}, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
+
+    .line 451
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
+
+    const v7, 0x7f0b0071
+
+    invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/OriginalSettings/widget/ChartDataUsageView;
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
+
+    .line 452
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChartListener:Lcom/android/OriginalSettings/widget/ChartDataUsageView$DataUsageChartListener;
+
+    invoke-virtual {v6, v7}, Lcom/android/OriginalSettings/widget/ChartDataUsageView;->setListener(Lcom/android/OriginalSettings/widget/ChartDataUsageView$DataUsageChartListener;)V
+
+    .line 453
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v6, v7}, Lcom/android/OriginalSettings/widget/ChartDataUsageView;->bindNetworkPolicy(Landroid/net/NetworkPolicy;)V
+
+    .line 455
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mChart:Lcom/android/OriginalSettings/widget/ChartDataUsageView;
+
+    const-wide v7, 0x18fff00000L
+
+    const-wide v9, 0x1900000000L
+
+    invoke-virtual {v6, v7, v8, v9, v10}, Lcom/android/OriginalSettings/widget/ChartDataUsageView;->setMaximumSetableValue(JJ)V
+
+    .line 460
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
+
+    const v7, 0x7f0b007d
+
+    invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetail:Landroid/view/View;
+
+    .line 461
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetail:Landroid/view/View;
+
+    const v7, 0x7f0b007e
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/ImageView;
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppIcon:Landroid/widget/ImageView;
+
+    .line 462
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetail:Landroid/view/View;
+
+    const v7, 0x7f0b007f
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/view/ViewGroup;
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppTitles:Landroid/view/ViewGroup;
+
+    .line 463
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetail:Landroid/view/View;
+
+    const v7, 0x7f0b0082
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/OriginalSettings/widget/PieChartView;
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppPieChart:Lcom/android/OriginalSettings/widget/PieChartView;
+
+    .line 464
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetail:Landroid/view/View;
+
+    const v7, 0x7f0b0080
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/TextView;
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppForeground:Landroid/widget/TextView;
+
+    .line 465
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetail:Landroid/view/View;
+
+    const v7, 0x7f0b0081
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/TextView;
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppBackground:Landroid/widget/TextView;
+
+    .line 466
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetail:Landroid/view/View;
+
+    const v7, 0x7f0b0084
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/LinearLayout;
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSwitches:Landroid/widget/LinearLayout;
+
+    .line 468
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppDetail:Landroid/view/View;
+
+    const v7, 0x7f0b0083
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/Button;
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSettings:Landroid/widget/Button;
+
+    .line 469
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSettings:Landroid/widget/Button;
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSettingsListener:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v6, v7}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 471
+    new-instance v6, Landroid/widget/CheckBox;
+
+    invoke-virtual {p1}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
+
+    move-result-object v7
+
+    invoke-direct {v6, v7}, Landroid/widget/CheckBox;-><init>(Landroid/content/Context;)V
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrict:Landroid/widget/CheckBox;
+
+    .line 472
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrict:Landroid/widget/CheckBox;
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v6, v7}, Landroid/widget/CheckBox;->setClickable(Z)V
+
+    .line 473
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrict:Landroid/widget/CheckBox;
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v6, v7}, Landroid/widget/CheckBox;->setFocusable(Z)V
+
+    .line 474
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSwitches:Landroid/widget/LinearLayout;
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrict:Landroid/widget/CheckBox;
+
+    invoke-static {p1, v6, v7}, Lcom/android/OriginalSettings/DataUsageSummary;->inflatePreference(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/view/View;)Landroid/view/View;
+
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrictView:Landroid/view/View;
+
+    .line 475
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrictView:Landroid/view/View;
+
+    const/4 v7, 0x1
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->setClickable(Z)V
+
+    .line 476
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrictView:Landroid/view/View;
+
+    const/4 v7, 0x1
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->setFocusable(Z)V
+
+    .line 477
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrictView:Landroid/view/View;
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrictListener:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 478
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppSwitches:Landroid/widget/LinearLayout;
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAppRestrictView:Landroid/view/View;
+
+    invoke-virtual {v6, v7}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    .line 481
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
+
+    const v7, 0x7f0b0087
+
+    invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/TextView;
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mUsageSummary:Landroid/widget/TextView;
+
+    .line 482
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
+
+    const v7, 0x7f0b0088
+
+    invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/TextView;
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mUsageDisclaimer:Landroid/widget/TextView;
+
+    .line 483
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
+
+    move-result-object v6
+
+    invoke-static {v6}, Lcom/android/OriginalSettings/Utils;->isWifiOnly(Landroid/content/Context;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_5
+
+    .line 484
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mUsageDisclaimer:Landroid/widget/TextView;
+
+    const/16 v7, 0x8
+
+    invoke-virtual {v6, v7}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 490
+    :goto_2
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
+
+    const v7, 0x1020004
+
+    invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/TextView;
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEmpty:Landroid/widget/TextView;
+
+    .line 491
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
+
+    const v7, 0x7f0b0089
+
+    invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/Button;
+
+    .line 492
+    .local v2, mUpgBtn:Landroid/widget/Button;
+    new-instance v6, Lcom/android/OriginalSettings/DataUsageSummary$1;
+
+    invoke-direct {v6, p0}, Lcom/android/OriginalSettings/DataUsageSummary$1;-><init>(Lcom/android/OriginalSettings/DataUsageSummary;)V
+
+    invoke-virtual {v2, v6}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 504
+    const-string v6, "ro.csc.sales_code"
+
+    invoke-static {v6}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    .line 505
+    .local v3, sSalesCode:Ljava/lang/String;
+    const-string v6, "TMB"
+
+    invoke-virtual {v6, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_6
+
+    .line 506
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
+
+    const v7, 0x7f0b0088
+
+    invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/TextView;
+
+    const v7, 0x7f0907e1
+
+    invoke-virtual {p0, v7}, Lcom/android/OriginalSettings/DataUsageSummary;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 512
+    :goto_3
+    new-instance v6, Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mUidDetailProvider:Lcom/android/OriginalSettings/net/UidDetailProvider;
+
+    iget v8, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mInsetSide:I
+
+    invoke-direct {v6, v7, v8}, Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;-><init>(Lcom/android/OriginalSettings/net/UidDetailProvider;I)V
+
+    iput-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAdapter:Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;
+
+    .line 513
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListListener:Landroid/widget/AdapterView$OnItemClickListener;
+
+    invoke-virtual {v6, v7}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+
+    .line 514
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mListView:Landroid/widget/ListView;
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mAdapter:Lcom/android/OriginalSettings/DataUsageSummary$DataUsageAdapter;
+
+    invoke-virtual {v6, v7}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
+
+    .line 516
+    return-object v5
+
+    .line 355
+    .end local v2           #mUpgBtn:Landroid/widget/Button;
+    .end local v3           #sSalesCode:Ljava/lang/String;
+    .end local v4           #shouldInset:Z
+    :catch_0
+    move-exception v1
+
+    .line 356
+    .local v1, e:Landroid/os/RemoteException;
+    new-instance v6, Ljava/lang/RuntimeException;
+
+    invoke-direct {v6, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v6
+
+    .line 366
+    .end local v1           #e:Landroid/os/RemoteException;
+    :cond_3
+    const/4 v4, 0x0
+
     goto/16 :goto_0
 
-    .line 338
-    .restart local v1       #shouldInset:Z
-    :cond_3
-    iput v5, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mInsetSide:I
+    .line 372
+    .restart local v4       #shouldInset:Z
+    :cond_4
+    const/4 v6, 0x0
+
+    iput v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mInsetSide:I
 
     goto/16 :goto_1
+
+    .line 487
+    :cond_5
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mUsageDisclaimer:Landroid/widget/TextView;
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v6, v7}, Landroid/widget/TextView;->setVisibility(I)V
+
+    goto :goto_2
+
+    .line 508
+    .restart local v2       #mUpgBtn:Landroid/widget/Button;
+    .restart local v3       #sSalesCode:Ljava/lang/String;
+    :cond_6
+    iget-object v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mHeader:Landroid/view/ViewGroup;
+
+    const v8, 0x7f0b0089
+
+    invoke-virtual {v7, v8}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
+
+    goto :goto_3
 .end method
 
 .method public onDestroy()V
     .locals 3
 
     .prologue
-    .line 646
+    const/4 v1, 0x0
+
+    .line 722
+    iput-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabledView:Landroid/view/View;
+
+    .line 723
+    iput-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBootView:Landroid/view/View;
+
+    .line 724
+    iput-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
+
+    .line 726
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mUidDetailProvider:Lcom/android/OriginalSettings/net/UidDetailProvider;
+
+    invoke-virtual {v0}, Lcom/android/OriginalSettings/net/UidDetailProvider;->clearCache()V
+
+    .line 727
+    iput-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mUidDetailProvider:Lcom/android/OriginalSettings/net/UidDetailProvider;
+
+    .line 729
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mStatsSession:Landroid/net/INetworkStatsSession;
+
+    invoke-static {v0}, Landroid/net/TrafficStats;->closeQuietly(Landroid/net/INetworkStatsSession;)V
+
+    .line 731
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->isRemoving()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 647
+    .line 732
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v0
@@ -4592,800 +4671,856 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/FragmentManager;->popBackStack(Ljava/lang/String;I)V
 
-    .line 650
+    .line 736
     :cond_0
     invoke-super {p0}, Landroid/app/Fragment;->onDestroy()V
 
-    .line 651
-    return-void
-.end method
-
-.method public onDestroyView()V
-    .locals 2
-
-    .prologue
-    const/4 v1, 0x0
-
-    .line 634
-    invoke-super {p0}, Landroid/app/Fragment;->onDestroyView()V
-
-    .line 636
-    iput-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabledView:Landroid/view/View;
-
-    .line 637
-    iput-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mConfirmAtBootView:Landroid/view/View;
-
-    .line 638
-    iput-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
-
-    .line 640
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mUidDetailProvider:Lcom/android/OriginalSettings/net/UidDetailProvider;
-
-    invoke-virtual {v0}, Lcom/android/OriginalSettings/net/UidDetailProvider;->clearCache()V
-
-    .line 641
-    iput-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mUidDetailProvider:Lcom/android/OriginalSettings/net/UidDetailProvider;
-
-    .line 642
-    return-void
-.end method
-
-.method public onDetach()V
-    .locals 1
-
-    .prologue
-    .line 657
-    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-
-    if-eqz v0, :cond_0
-
-    .line 660
-    :cond_0
-    invoke-super {p0}, Landroid/app/Fragment;->onDetach()V
-
-    .line 661
+    .line 737
     return-void
 .end method
 
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
-    .locals 7
-    .parameter "item"
+    .locals 8
+    .parameter
 
     .prologue
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    const/4 v3, 0x1
+    const/4 v6, 0x0
 
-    .line 573
+    const/4 v7, 0x1
+
+    .line 664
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
-    move-result v4
+    move-result v0
 
-    packed-switch v4, :pswitch_data_0
+    packed-switch v0, :pswitch_data_0
 
-    move v3, v1
+    move v7, v6
 
-    .line 629
+    .line 717
     :goto_0
-    return v3
+    return v7
 
-    .line 575
+    .line 666
     :pswitch_0
     invoke-interface {p1}, Landroid/view/MenuItem;->isChecked()Z
 
-    move-result v4
+    move-result v0
 
-    if-nez v4, :cond_1
+    if-nez v0, :cond_0
 
-    move v0, v3
+    move v0, v7
 
-    .line 576
-    .local v0, dataRoaming:Z
+    .line 667
     :goto_1
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
-    .line 577
-    iget-object v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-
-    if-eqz v4, :cond_0
-
-    .line 578
-    iget-object v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-
-    invoke-virtual {v4}, Landroid/app/DialogFragment;->dismiss()V
-
-    .line 580
-    :cond_0
-    invoke-static {p0}, Lcom/android/OriginalSettings/DataUsageSummary$ConfirmDataRoamingFragment;->show(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
-
-    move-result-object v4
-
-    iput-object v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
+    .line 668
+    invoke-static {p0}, Lcom/android/OriginalSettings/DataUsageSummary$ConfirmDataRoamingFragment;->show(Lcom/android/OriginalSettings/DataUsageSummary;)V
 
     goto :goto_0
 
-    .end local v0           #dataRoaming:Z
-    :cond_1
-    move v0, v1
+    :cond_0
+    move v0, v6
 
-    .line 575
+    .line 666
     goto :goto_1
 
-    .line 583
-    .restart local v0       #dataRoaming:Z
-    :cond_2
-    invoke-direct {p0, v1}, Lcom/android/OriginalSettings/DataUsageSummary;->setDataRoaming(Z)V
+    .line 671
+    :cond_1
+    invoke-direct {p0, v6}, Lcom/android/OriginalSettings/DataUsageSummary;->setDataRoaming(Z)V
 
     goto :goto_0
 
-    .line 588
-    .end local v0           #dataRoaming:Z
+    .line 676
     :pswitch_1
     invoke-interface {p1}, Landroid/view/MenuItem;->isChecked()Z
 
-    move-result v4
+    move-result v0
 
-    if-nez v4, :cond_4
+    if-nez v0, :cond_2
 
-    move v2, v3
+    move v0, v7
 
-    .line 589
-    .local v2, restrictBackground:Z
+    .line 677
     :goto_2
-    if-eqz v2, :cond_7
+    if-eqz v0, :cond_3
 
-    .line 590
-    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->hasLimitedNetworks()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_5
-
-    .line 591
-    iget-object v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-
-    if-eqz v4, :cond_3
-
-    .line 592
-    iget-object v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-
-    invoke-virtual {v4}, Landroid/app/DialogFragment;->dismiss()V
-
-    .line 594
-    :cond_3
-    invoke-static {p0}, Lcom/android/OriginalSettings/DataUsageSummary$ConfirmRestrictFragment;->show(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
-
-    move-result-object v4
-
-    iput-object v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
+    .line 678
+    invoke-static {p0}, Lcom/android/OriginalSettings/DataUsageSummary$ConfirmRestrictFragment;->show(Lcom/android/OriginalSettings/DataUsageSummary;)V
 
     goto :goto_0
 
-    .end local v2           #restrictBackground:Z
-    :cond_4
-    move v2, v1
+    :cond_2
+    move v0, v6
 
-    .line 588
+    .line 676
     goto :goto_2
 
-    .line 596
-    .restart local v2       #restrictBackground:Z
-    :cond_5
-    iget-object v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-
-    if-eqz v4, :cond_6
-
-    .line 597
-    iget-object v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-
-    invoke-virtual {v4}, Landroid/app/DialogFragment;->dismiss()V
-
-    .line 599
-    :cond_6
-    invoke-static {p0}, Lcom/android/OriginalSettings/DataUsageSummary$DeniedRestrictFragment;->show(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
-
-    move-result-object v4
-
-    iput-object v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
+    .line 681
+    :cond_3
+    invoke-virtual {p0, v6}, Lcom/android/OriginalSettings/DataUsageSummary;->setRestrictBackground(Z)V
 
     goto :goto_0
 
-    .line 603
-    :cond_7
-    invoke-direct {p0, v1}, Lcom/android/OriginalSettings/DataUsageSummary;->setRestrictBackground(Z)V
-
-    goto :goto_0
-
-    .line 608
-    .end local v2           #restrictBackground:Z
+    .line 686
     :pswitch_2
     invoke-interface {p1}, Landroid/view/MenuItem;->isChecked()Z
 
-    move-result v4
+    move-result v0
 
-    if-nez v4, :cond_8
+    if-nez v0, :cond_4
 
-    move v1, v3
+    move v6, v7
 
-    .line 609
-    .local v1, mobileSplit:Z
-    :cond_8
-    invoke-direct {p0, v1}, Lcom/android/OriginalSettings/DataUsageSummary;->setMobilePolicySplit(Z)V
+    .line 687
+    :cond_4
+    invoke-direct {p0, v6}, Lcom/android/OriginalSettings/DataUsageSummary;->setMobilePolicySplit(Z)V
 
-    .line 610
+    .line 688
     invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->isMobilePolicySplit()Z
 
-    move-result v4
+    move-result v0
 
-    invoke-interface {p1, v4}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
+    invoke-interface {p1, v0}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
 
-    .line 611
+    .line 689
     invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->updateTabs()V
 
     goto :goto_0
 
-    .line 615
-    .end local v1           #mobileSplit:Z
+    .line 693
     :pswitch_3
     invoke-interface {p1}, Landroid/view/MenuItem;->isChecked()Z
 
-    move-result v4
+    move-result v0
 
-    if-nez v4, :cond_9
+    if-nez v0, :cond_5
 
-    move v1, v3
+    move v6, v7
 
-    :cond_9
-    iput-boolean v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowWifi:Z
+    :cond_5
+    iput-boolean v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowWifi:Z
 
-    .line 616
-    iget-object v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPrefs:Landroid/content/SharedPreferences;
+    .line 694
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPrefs:Landroid/content/SharedPreferences;
 
-    invoke-interface {v4}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    move-result-object v4
+    move-result-object v0
 
-    const-string v5, "show_wifi"
+    const-string v1, "show_wifi"
 
-    iget-boolean v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowWifi:Z
+    iget-boolean v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowWifi:Z
 
-    invoke-interface {v4, v5, v6}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-interface {v4}, Landroid/content/SharedPreferences$Editor;->apply()V
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 617
-    iget-boolean v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowWifi:Z
+    .line 695
+    iget-boolean v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowWifi:Z
 
-    invoke-interface {p1, v4}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
+    invoke-interface {p1, v0}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
 
-    .line 618
+    .line 696
     invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->updateTabs()V
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    .line 622
+    .line 700
     :pswitch_4
     invoke-interface {p1}, Landroid/view/MenuItem;->isChecked()Z
 
-    move-result v4
+    move-result v0
 
-    if-nez v4, :cond_a
+    if-nez v0, :cond_6
 
-    move v1, v3
+    move v6, v7
 
-    :cond_a
-    iput-boolean v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowEthernet:Z
+    :cond_6
+    iput-boolean v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowEthernet:Z
 
-    .line 623
-    iget-object v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPrefs:Landroid/content/SharedPreferences;
+    .line 701
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPrefs:Landroid/content/SharedPreferences;
 
-    invoke-interface {v4}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    move-result-object v4
+    move-result-object v0
 
-    const-string v5, "show_ethernet"
+    const-string v1, "show_ethernet"
 
-    iget-boolean v6, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowEthernet:Z
+    iget-boolean v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowEthernet:Z
 
-    invoke-interface {v4, v5, v6}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-interface {v4}, Landroid/content/SharedPreferences$Editor;->apply()V
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 624
-    iget-boolean v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowEthernet:Z
+    .line 702
+    iget-boolean v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowEthernet:Z
 
-    invoke-interface {p1, v4}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
+    invoke-interface {p1, v0}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
 
-    .line 625
+    .line 703
     invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->updateTabs()V
 
     goto/16 :goto_0
 
-    .line 573
-    :pswitch_data_0
-    .packed-switch 0x7f0a0339
-        :pswitch_0
-        :pswitch_1
-        :pswitch_2
-        :pswitch_3
-        :pswitch_4
-    .end packed-switch
-.end method
-
-.method public onPause()V
-    .locals 2
-
-    .prologue
-    .line 502
-    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
-
-    .line 504
+    .line 707
+    :pswitch_5
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mReceiver:Landroid/content/BroadcastReceiver;
+    check-cast v0, Lmiui/preference/BasePreferenceActivity;
 
-    invoke-virtual {v0, v1}, Landroid/app/Activity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    .line 708
+    const-class v1, Lcom/android/OriginalSettings/net/DataUsageMeteredSettings;
 
-    .line 505
-    return-void
-.end method
-
-.method public onPrepareOptionsMenu(Landroid/view/Menu;)V
-    .locals 11
-    .parameter "menu"
-
-    .prologue
-    const/4 v9, 0x0
-
-    const/4 v8, 0x1
-
-    .line 514
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v1}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 515
-    .local v1, context:Landroid/content/Context;
-    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->isAppDetailMode()Z
+    const v3, 0x7f090814
+
+    move-object v4, v2
+
+    move-object v5, p0
+
+    invoke-virtual/range {v0 .. v6}, Lmiui/preference/BasePreferenceActivity;->startPreferencePanel(Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/CharSequence;Landroid/app/Fragment;I)V
+
+    goto/16 :goto_0
+
+    .line 713
+    :pswitch_6
+    invoke-interface {p1}, Landroid/view/MenuItem;->isChecked()Z
 
     move-result v0
 
-    .line 517
-    .local v0, appDetailMode:Z
-    const v7, 0x7f0a0339
+    if-nez v0, :cond_7
 
-    invoke-interface {p1, v7}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
+    move v6, v7
 
-    move-result-object v7
+    :cond_7
+    invoke-static {p0, v6}, Lcom/android/OriginalSettings/DataUsageSummary$ConfirmAutoSyncChangeFragment;->show(Lcom/android/OriginalSettings/DataUsageSummary;Z)V
 
-    iput-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuDataRoaming:Landroid/view/MenuItem;
+    goto/16 :goto_0
 
-    .line 518
-    iget-object v10, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuDataRoaming:Landroid/view/MenuItem;
+    .line 664
+    :pswitch_data_0
+    .packed-switch 0x7f0b03a4
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_6
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+    .end packed-switch
+.end method
 
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->hasMobileRadio(Landroid/content/Context;)Z
+.method public onPrepareOptionsMenu(Landroid/view/Menu;)V
+    .locals 6
+    .parameter
 
-    move-result v7
+    .prologue
+    const/4 v1, 0x1
 
-    if-eqz v7, :cond_3
+    const/4 v2, 0x0
 
-    if-nez v0, :cond_3
-
-    move v7, v8
-
-    :goto_0
-    invoke-interface {v10, v7}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
-
-    .line 519
-    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuDataRoaming:Landroid/view/MenuItem;
-
-    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getDataRoaming()Z
-
-    move-result v10
-
-    invoke-interface {v7, v10}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
-
-    .line 521
-    const v7, 0x7f0a033a
-
-    invoke-interface {p1, v7}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
-
-    move-result-object v7
-
-    iput-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuRestrictBackground:Landroid/view/MenuItem;
-
-    .line 522
-    iget-object v10, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuRestrictBackground:Landroid/view/MenuItem;
-
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->hasMobileRadio(Landroid/content/Context;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_4
-
-    if-nez v0, :cond_4
-
-    move v7, v8
-
-    :goto_1
-    invoke-interface {v10, v7}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
-
-    .line 523
-    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimit:Landroid/widget/CheckBox;
-
-    if-eqz v7, :cond_0
-
-    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimit:Landroid/widget/CheckBox;
-
-    invoke-virtual {v7}, Landroid/widget/CheckBox;->isChecked()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_0
-
-    .line 524
-    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuRestrictBackground:Landroid/view/MenuItem;
-
-    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getRestrictBackground()Z
-
-    move-result v10
-
-    invoke-interface {v7, v10}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
-
-    .line 528
-    :cond_0
-    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
-
-    if-nez v7, :cond_1
-
-    .line 529
+    .line 580
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
-
-    move-result-object v7
-
-    const-string v10, "enterprise_policy"
-
-    invoke-virtual {v7, v10}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Landroid/app/enterprise/EnterpriseDeviceManager;
-
-    iput-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
-
-    .line 532
-    :cond_1
-    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
-
-    if-eqz v7, :cond_2
-
-    .line 533
-    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
-
-    invoke-virtual {v7}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/app/enterprise/RestrictionPolicy;
 
     move-result-object v3
 
-    .line 534
-    .local v3, rp:Landroid/app/enterprise/RestrictionPolicy;
-    if-eqz v3, :cond_5
+    .line 581
+    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->isAppDetailMode()Z
 
-    invoke-virtual {v3}, Landroid/app/enterprise/RestrictionPolicy;->isBackgroundDataEnabled()Z
+    move-result v4
 
-    move-result v7
+    .line 583
+    const v0, 0x7f0b03a4
 
-    if-nez v7, :cond_5
+    invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
-    .line 535
-    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuRestrictBackground:Landroid/view/MenuItem;
+    move-result-object v0
 
-    invoke-interface {v7, v8}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
+    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuDataRoaming:Landroid/view/MenuItem;
 
-    .line 536
-    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuRestrictBackground:Landroid/view/MenuItem;
+    .line 584
+    iget-object v5, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuDataRoaming:Landroid/view/MenuItem;
 
-    invoke-interface {v7, v9}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
+    invoke-static {v3}, Lcom/android/OriginalSettings/DataUsageSummary;->hasReadyMobileRadio(Landroid/content/Context;)Z
 
-    .line 541
-    :goto_2
-    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
+    move-result v0
 
-    invoke-virtual {v7}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRoamingPolicy()Landroid/app/enterprise/RoamingPolicy;
+    if-eqz v0, :cond_4
 
-    move-result-object v2
+    if-nez v4, :cond_4
 
-    .line 542
-    .local v2, rom:Landroid/app/enterprise/RoamingPolicy;
-    if-eqz v2, :cond_2
+    move v0, v1
 
-    .line 543
-    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuDataRoaming:Landroid/view/MenuItem;
+    :goto_0
+    invoke-interface {v5, v0}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
-    invoke-virtual {v2}, Landroid/app/enterprise/RoamingPolicy;->isRoamingDataEnabled()Z
+    .line 585
+    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
-    move-result v10
+    move-result-object v0
 
-    invoke-interface {v7, v10}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
+    const-string v5, "CscFeature_Common_UseChameleon"
 
-    .line 548
-    .end local v2           #rom:Landroid/app/enterprise/RoamingPolicy;
-    .end local v3           #rp:Landroid/app/enterprise/RestrictionPolicy;
-    :cond_2
-    const v7, 0x7f0a033b
+    invoke-virtual {v0, v5}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
 
-    invoke-interface {p1, v7}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
+    move-result v0
 
-    move-result-object v6
+    if-eqz v0, :cond_0
 
-    .line 549
-    .local v6, split4g:Landroid/view/MenuItem;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->hasMobile4gRadio(Landroid/content/Context;)Z
+    .line 586
+    const-string v0, "persist.sys.roaming_menu"
 
-    move-result v7
+    invoke-static {v0, v2}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
 
-    if-eqz v7, :cond_6
+    move-result v0
+
+    if-eq v0, v1, :cond_0
+
+    .line 587
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuDataRoaming:Landroid/view/MenuItem;
+
+    invoke-interface {v0, v2}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
+
+    .line 592
+    :cond_0
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuDataRoaming:Landroid/view/MenuItem;
+
+    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getDataRoaming()Z
+
+    move-result v5
+
+    invoke-interface {v0, v5}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
+
+    .line 594
+    const v0, 0x7f0b03a5
+
+    invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuRestrictBackground:Landroid/view/MenuItem;
+
+    .line 595
+    iget-object v5, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuRestrictBackground:Landroid/view/MenuItem;
+
+    invoke-static {v3}, Lcom/android/OriginalSettings/DataUsageSummary;->hasReadyMobileRadio(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    if-nez v4, :cond_5
+
+    move v0, v1
+
+    :goto_1
+    invoke-interface {v5, v0}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
+
+    .line 596
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuRestrictBackground:Landroid/view/MenuItem;
+
+    iget-object v5, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyManager:Landroid/net/NetworkPolicyManager;
+
+    invoke-virtual {v5}, Landroid/net/NetworkPolicyManager;->getRestrictBackground()Z
+
+    move-result v5
+
+    invoke-interface {v0, v5}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
+
+    .line 598
+    const v0, 0x7f0b03a7
+
+    invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuAutoSync:Landroid/view/MenuItem;
+
+    .line 599
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuAutoSync:Landroid/view/MenuItem;
+
+    invoke-static {}, Landroid/content/ContentResolver;->getMasterSyncAutomatically()Z
+
+    move-result v5
+
+    invoke-interface {v0, v5}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
+
+    .line 602
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
+
+    if-nez v0, :cond_1
+
+    .line 603
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    const-string v5, "enterprise_policy"
+
+    invoke-virtual {v0, v5}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/enterprise/EnterpriseDeviceManager;
+
+    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
+
+    .line 606
+    :cond_1
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
+
+    if-eqz v0, :cond_2
+
+    .line 607
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
+
+    invoke-virtual {v0}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/app/enterprise/RestrictionPolicy;
+
+    move-result-object v0
+
+    .line 608
+    if-eqz v0, :cond_6
+
+    invoke-virtual {v0}, Landroid/app/enterprise/RestrictionPolicy;->isBackgroundDataEnabled()Z
+
+    move-result v0
 
     if-nez v0, :cond_6
 
-    move v7, v8
+    .line 609
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuRestrictBackground:Landroid/view/MenuItem;
 
-    :goto_3
-    invoke-interface {v6, v7}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
 
-    .line 550
-    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->isMobilePolicySplit()Z
+    .line 610
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuRestrictBackground:Landroid/view/MenuItem;
 
-    move-result v7
+    invoke-interface {v0, v2}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
-    invoke-interface {v6, v7}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
+    .line 615
+    :goto_2
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
-    .line 552
-    const v7, 0x7f0a033c
+    invoke-virtual {v0}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRoamingPolicy()Landroid/app/enterprise/RoamingPolicy;
 
-    invoke-interface {p1, v7}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
+    move-result-object v0
+
+    .line 616
+    if-eqz v0, :cond_2
+
+    .line 617
+    iget-object v5, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuDataRoaming:Landroid/view/MenuItem;
+
+    invoke-virtual {v0}, Landroid/app/enterprise/RoamingPolicy;->isRoamingDataEnabled()Z
+
+    move-result v0
+
+    invoke-interface {v5, v0}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
+
+    .line 622
+    :cond_2
+    const v0, 0x7f0b03a6
+
+    invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v5
 
-    .line 553
-    .local v5, showWifi:Landroid/view/MenuItem;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->hasWifiRadio(Landroid/content/Context;)Z
+    .line 623
+    invoke-static {v3}, Lcom/android/OriginalSettings/DataUsageSummary;->hasReadyMobile4gRadio(Landroid/content/Context;)Z
 
-    move-result v7
+    move-result v0
 
-    if-eqz v7, :cond_8
+    if-eqz v0, :cond_7
 
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->hasMobileRadio(Landroid/content/Context;)Z
+    if-nez v4, :cond_7
 
-    move-result v7
+    move v0, v1
 
-    if-eqz v7, :cond_8
+    :goto_3
+    invoke-interface {v5, v0}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
-    .line 554
-    if-nez v0, :cond_7
+    .line 624
+    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->isMobilePolicySplit()Z
 
-    move v7, v8
+    move-result v0
+
+    invoke-interface {v5, v0}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
+
+    .line 626
+    const v0, 0x7f0b03a8
+
+    invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
+
+    move-result-object v5
+
+    .line 627
+    invoke-static {v3}, Lcom/android/OriginalSettings/DataUsageSummary;->hasWifiRadio(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    invoke-static {v3}, Lcom/android/OriginalSettings/DataUsageSummary;->hasReadyMobileRadio(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    .line 628
+    if-nez v4, :cond_8
+
+    move v0, v1
 
     :goto_4
-    invoke-interface {v5, v7}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
+    invoke-interface {v5, v0}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
-    .line 555
-    iget-boolean v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowWifi:Z
+    .line 629
+    iget-boolean v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowWifi:Z
 
-    invoke-interface {v5, v7}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
+    invoke-interface {v5, v0}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
 
-    .line 561
+    .line 634
     :goto_5
-    const v7, 0x7f0a033d
+    const v0, 0x7f0b03a9
 
-    invoke-interface {p1, v7}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
+    invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
-    move-result-object v4
+    move-result-object v5
 
-    .line 562
-    .local v4, showEthernet:Landroid/view/MenuItem;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->hasEthernet(Landroid/content/Context;)Z
+    .line 635
+    invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/DataUsageSummary;->hasEthernet(Landroid/content/Context;)Z
 
-    move-result v7
+    move-result v0
 
-    if-eqz v7, :cond_a
+    if-eqz v0, :cond_b
 
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->hasMobileRadio(Landroid/content/Context;)Z
+    invoke-static {v3}, Lcom/android/OriginalSettings/DataUsageSummary;->hasReadyMobileRadio(Landroid/content/Context;)Z
 
-    move-result v7
+    move-result v0
 
-    if-eqz v7, :cond_a
+    if-eqz v0, :cond_b
 
-    .line 563
-    if-nez v0, :cond_9
+    .line 636
+    if-nez v4, :cond_a
+
+    move v0, v1
 
     :goto_6
-    invoke-interface {v4, v8}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
+    invoke-interface {v5, v0}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
-    .line 564
-    iget-boolean v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowEthernet:Z
+    .line 637
+    iget-boolean v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowEthernet:Z
 
-    invoke-interface {v4, v7}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
+    invoke-interface {v5, v0}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
 
-    .line 569
+    .line 642
     :goto_7
+    const v0, 0x7f0b03aa
+
+    invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    .line 643
+    invoke-static {v3}, Lcom/android/OriginalSettings/DataUsageSummary;->hasReadyMobileRadio(Landroid/content/Context;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_3
+
+    invoke-static {v3}, Lcom/android/OriginalSettings/DataUsageSummary;->hasWifiRadio(Landroid/content/Context;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_d
+
+    .line 644
+    :cond_3
+    if-nez v4, :cond_c
+
+    :goto_8
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
+
+    .line 649
+    :goto_9
+    const v0, 0x7f0b03ab
+
+    invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    .line 651
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v3, 0x7f0908c7
+
+    invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_e
+
+    .line 652
+    new-instance v3, Landroid/content/Intent;
+
+    const-string v4, "android.intent.action.VIEW"
+
+    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-direct {v3, v4, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+
+    .line 653
+    const/high16 v1, 0x1080
+
+    invoke-virtual {v3, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    .line 655
+    invoke-interface {v0, v3}, Landroid/view/MenuItem;->setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
+
+    .line 656
+    invoke-interface {v0, v2}, Landroid/view/MenuItem;->setShowAsAction(I)V
+
+    .line 660
+    :goto_a
     return-void
 
-    .end local v4           #showEthernet:Landroid/view/MenuItem;
-    .end local v5           #showWifi:Landroid/view/MenuItem;
-    .end local v6           #split4g:Landroid/view/MenuItem;
-    :cond_3
-    move v7, v9
+    :cond_4
+    move v0, v2
 
-    .line 518
+    .line 584
     goto/16 :goto_0
 
-    :cond_4
-    move v7, v9
+    :cond_5
+    move v0, v2
 
-    .line 522
+    .line 595
     goto/16 :goto_1
 
-    .line 539
-    .restart local v3       #rp:Landroid/app/enterprise/RestrictionPolicy;
-    :cond_5
-    iget-object v7, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuRestrictBackground:Landroid/view/MenuItem;
-
-    invoke-interface {v7, v8}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
-
-    goto :goto_2
-
-    .end local v3           #rp:Landroid/app/enterprise/RestrictionPolicy;
-    .restart local v6       #split4g:Landroid/view/MenuItem;
+    .line 613
     :cond_6
-    move v7, v9
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuRestrictBackground:Landroid/view/MenuItem;
 
-    .line 549
-    goto :goto_3
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
-    .restart local v5       #showWifi:Landroid/view/MenuItem;
+    goto/16 :goto_2
+
     :cond_7
-    move v7, v9
+    move v0, v2
 
-    .line 554
+    .line 623
+    goto/16 :goto_3
+
+    :cond_8
+    move v0, v2
+
+    .line 628
     goto :goto_4
 
-    .line 557
-    :cond_8
-    invoke-interface {v5, v9}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
-
-    .line 558
-    iput-boolean v8, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowWifi:Z
+    .line 631
+    :cond_9
+    invoke-interface {v5, v2}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
     goto :goto_5
 
-    .restart local v4       #showEthernet:Landroid/view/MenuItem;
-    :cond_9
-    move v8, v9
+    :cond_a
+    move v0, v2
 
-    .line 563
+    .line 636
     goto :goto_6
 
-    .line 566
-    :cond_a
-    invoke-interface {v4, v9}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
-
-    .line 567
-    iput-boolean v8, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mShowEthernet:Z
+    .line 639
+    :cond_b
+    invoke-interface {v5, v2}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
     goto :goto_7
+
+    :cond_c
+    move v1, v2
+
+    .line 644
+    goto :goto_8
+
+    .line 646
+    :cond_d
+    invoke-interface {v0, v2}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
+
+    goto :goto_9
+
+    .line 658
+    :cond_e
+    invoke-interface {v0, v2}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
+
+    goto :goto_a
 .end method
 
 .method public onResume()V
     .locals 6
 
     .prologue
-    .line 451
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
+
+    .line 521
     invoke-super {p0}, Landroid/app/Fragment;->onResume()V
 
-    .line 454
+    .line 524
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
-
-    move-result-object v1
-
-    .line 455
-    .local v1, intent:Landroid/content/Intent;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->computeTabFromIntent(Landroid/content/Intent;)Ljava/lang/String;
-
-    move-result-object v3
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mIntentTab:Ljava/lang/String;
-
-    .line 459
-    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->updateTabs()V
-
-    .line 462
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
-
-    if-nez v3, :cond_0
-
-    .line 463
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
-
-    move-result-object v3
-
-    const-string v4, "enterprise_policy"
-
-    invoke-virtual {v3, v4}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/app/enterprise/EnterpriseDeviceManager;
-
-    iput-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
-
-    .line 466
-    :cond_0
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
-
-    if-eqz v3, :cond_1
-
-    .line 467
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
-
-    invoke-virtual {v3}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/app/enterprise/RestrictionPolicy;
 
     move-result-object v2
 
-    .line 468
-    .local v2, rp:Landroid/app/enterprise/RestrictionPolicy;
-    if-eqz v2, :cond_1
+    invoke-virtual {v2}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
-    .line 469
-    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabled:Landroid/widget/Switch;
+    move-result-object v0
 
-    invoke-virtual {v2}, Landroid/app/enterprise/RestrictionPolicy;->isCellularDataAllowed()Z
+    .line 525
+    .local v0, intent:Landroid/content/Intent;
+    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->computeTabFromIntent(Landroid/content/Intent;)Ljava/lang/String;
 
-    move-result v4
+    move-result-object v2
 
-    invoke-virtual {v3, v4}, Landroid/widget/Switch;->setEnabled(Z)V
+    iput-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mIntentTab:Ljava/lang/String;
 
-    .line 475
-    .end local v2           #rp:Landroid/app/enterprise/RestrictionPolicy;
-    :cond_1
-    new-instance v3, Lcom/android/OriginalSettings/DataUsageSummary$2;
+    .line 529
+    invoke-direct {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->updateTabs()V
 
-    invoke-direct {v3, p0}, Lcom/android/OriginalSettings/DataUsageSummary$2;-><init>(Lcom/android/OriginalSettings/DataUsageSummary;)V
+    .line 532
+    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
-    sget-object v4, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
+    if-nez v2, :cond_0
 
-    const/4 v5, 0x0
-
-    new-array v5, v5, [Ljava/lang/Void;
-
-    invoke-virtual {v3, v4, v5}, Lcom/android/OriginalSettings/DataUsageSummary$2;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
-
-    .line 496
-    new-instance v0, Landroid/content/IntentFilter;
-
-    const-string v3, "android.intent.action.AIRPLANE_MODE"
-
-    invoke-direct {v0, v3}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
-
-    .line 497
-    .local v0, filter:Landroid/content/IntentFilter;
+    .line 533
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DataUsageSummary;->getActivity()Landroid/app/Activity;
 
-    move-result-object v3
+    move-result-object v2
 
-    iget-object v4, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mReceiver:Landroid/content/BroadcastReceiver;
+    const-string v3, "enterprise_policy"
 
-    invoke-virtual {v3, v4, v0}, Landroid/app/Activity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {v2, v3}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 498
+    move-result-object v2
+
+    check-cast v2, Landroid/app/enterprise/EnterpriseDeviceManager;
+
+    iput-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
+
+    .line 536
+    :cond_0
+    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
+
+    if-eqz v2, :cond_1
+
+    .line 537
+    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
+
+    invoke-virtual {v2}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/app/enterprise/RestrictionPolicy;
+
+    move-result-object v1
+
+    .line 538
+    .local v1, rp:Landroid/app/enterprise/RestrictionPolicy;
+    if-eqz v1, :cond_1
+
+    .line 539
+    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDataEnabled:Landroid/widget/CheckBox;
+
+    invoke-virtual {v1}, Landroid/app/enterprise/RestrictionPolicy;->isCellularDataAllowed()Z
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Landroid/widget/CheckBox;->setEnabled(Z)V
+
+    .line 540
+    invoke-virtual {v1}, Landroid/app/enterprise/RestrictionPolicy;->isBackgroundDataEnabled()Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    .line 541
+    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimit:Landroid/widget/CheckBox;
+
+    invoke-virtual {v2, v5}, Landroid/widget/CheckBox;->setChecked(Z)V
+
+    .line 542
+    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
+
+    invoke-virtual {v2, v4}, Landroid/view/View;->setEnabled(Z)V
+
+    .line 551
+    .end local v1           #rp:Landroid/app/enterprise/RestrictionPolicy;
+    :cond_1
+    :goto_0
+    new-instance v2, Lcom/android/OriginalSettings/DataUsageSummary$2;
+
+    invoke-direct {v2, p0}, Lcom/android/OriginalSettings/DataUsageSummary$2;-><init>(Lcom/android/OriginalSettings/DataUsageSummary;)V
+
+    sget-object v3, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
+
+    new-array v4, v4, [Ljava/lang/Void;
+
+    invoke-virtual {v2, v3, v4}, Lcom/android/OriginalSettings/DataUsageSummary$2;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
+
+    .line 571
+    return-void
+
+    .line 544
+    .restart local v1       #rp:Landroid/app/enterprise/RestrictionPolicy;
+    :cond_2
+    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimitView:Landroid/view/View;
+
+    invoke-virtual {v2, v5}, Landroid/view/View;->setEnabled(Z)V
+
+    goto :goto_0
+.end method
+
+.method public setRestrictBackground(Z)V
+    .locals 1
+    .parameter "restrictBackground"
+
+    .prologue
+    .line 1064
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mPolicyManager:Landroid/net/NetworkPolicyManager;
+
+    invoke-virtual {v0, p1}, Landroid/net/NetworkPolicyManager;->setRestrictBackground(Z)V
+
+    .line 1068
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuRestrictBackground:Landroid/view/MenuItem;
+
+    invoke-interface {v0}, Landroid/view/MenuItem;->isEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 1069
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary;->mMenuRestrictBackground:Landroid/view/MenuItem;
+
+    invoke-interface {v0, p1}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
+
+    .line 1072
+    :cond_0
     return-void
 .end method

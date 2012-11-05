@@ -27,36 +27,36 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 23
+    .line 27
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 17
+    .line 18
     iput-object v0, p0, Lcom/android/OriginalSettings/nearby/DeleteButtonListener;->mListener:Lcom/android/OriginalSettings/nearby/ListItemListener;
 
-    .line 18
+    .line 20
     iput-object v0, p0, Lcom/android/OriginalSettings/nearby/DeleteButtonListener;->mParent:Landroid/app/Dialog;
 
-    .line 19
+    .line 22
     iput-object v0, p0, Lcom/android/OriginalSettings/nearby/DeleteButtonListener;->mContext:Landroid/content/Context;
 
-    .line 20
+    .line 24
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/OriginalSettings/nearby/DeleteButtonListener;->bAcceptList:Z
 
-    .line 24
+    .line 28
     iput-object p2, p0, Lcom/android/OriginalSettings/nearby/DeleteButtonListener;->mParent:Landroid/app/Dialog;
 
-    .line 25
+    .line 29
     iput-object p1, p0, Lcom/android/OriginalSettings/nearby/DeleteButtonListener;->mListener:Lcom/android/OriginalSettings/nearby/ListItemListener;
 
-    .line 26
+    .line 30
     iput-object p3, p0, Lcom/android/OriginalSettings/nearby/DeleteButtonListener;->mContext:Landroid/content/Context;
 
-    .line 27
+    .line 31
     iput-boolean p4, p0, Lcom/android/OriginalSettings/nearby/DeleteButtonListener;->bAcceptList:Z
 
-    .line 28
+    .line 32
     return-void
 .end method
 
@@ -67,7 +67,7 @@
     .parameter "view"
 
     .prologue
-    .line 33
+    .line 36
     const-string v5, "AllshareSetting"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -100,24 +100,24 @@
 
     invoke-static {v5, v6}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 35
+    .line 38
     iget-object v5, p0, Lcom/android/OriginalSettings/nearby/DeleteButtonListener;->mListener:Lcom/android/OriginalSettings/nearby/ListItemListener;
 
     invoke-virtual {v5}, Lcom/android/OriginalSettings/nearby/ListItemListener;->getCheckedItems()Ljava/util/LinkedHashMap;
 
     move-result-object v2
 
-    .line 36
+    .line 39
     .local v2, list:Ljava/util/LinkedHashMap;,"Ljava/util/LinkedHashMap<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-virtual {v2}, Ljava/util/LinkedHashMap;->size()I
 
     move-result v3
 
-    .line 37
+    .line 40
     .local v3, size:I
     new-array v4, v3, [I
 
-    .line 39
+    .line 42
     .local v4, value:[I
     const/4 v0, 0x0
 
@@ -125,7 +125,7 @@
     :goto_0
     if-ge v0, v3, :cond_0
 
-    .line 41
+    .line 43
     invoke-virtual {v2}, Ljava/util/LinkedHashMap;->eldest()Ljava/util/Map$Entry;
 
     move-result-object v5
@@ -142,7 +142,7 @@
 
     aput v5, v4, v0
 
-    .line 42
+    .line 44
     invoke-virtual {v2}, Ljava/util/LinkedHashMap;->eldest()Ljava/util/Map$Entry;
 
     move-result-object v5
@@ -153,12 +153,12 @@
 
     invoke-virtual {v2, v5}, Ljava/util/LinkedHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 39
+    .line 42
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 45
+    .line 47
     :cond_0
     new-instance v1, Landroid/content/Intent;
 
@@ -166,7 +166,7 @@
 
     invoke-direct {v1, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 46
+    .line 48
     .local v1, intent:Landroid/content/Intent;
     const-string v5, "ACCEPTLIST"
 
@@ -174,21 +174,21 @@
 
     invoke-virtual {v1, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 47
+    .line 49
     const-string v5, "INDEX"
 
     invoke-virtual {v1, v5, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[I)Landroid/content/Intent;
 
-    .line 49
+    .line 51
     iget-object v5, p0, Lcom/android/OriginalSettings/nearby/DeleteButtonListener;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 51
+    .line 53
     iget-object v5, p0, Lcom/android/OriginalSettings/nearby/DeleteButtonListener;->mParent:Landroid/app/Dialog;
 
     invoke-virtual {v5}, Landroid/app/Dialog;->dismiss()V
 
-    .line 52
+    .line 54
     return-void
 .end method

@@ -371,7 +371,7 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 155
     move-object/from16 v0, v17
@@ -490,7 +490,7 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v10}, Landroid/util/secutil/Log;->secW(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
@@ -566,7 +566,7 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v10}, Landroid/util/secutil/Log;->secW(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_1
 
@@ -657,7 +657,7 @@
     .local v10, e:Landroid/content/IntentSender$SendIntentException;
     const-string v2, "RunningServicesDetails"
 
-    invoke-static {v2, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v10}, Landroid/util/secutil/Log;->secW(Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto/16 :goto_4
 
@@ -670,7 +670,7 @@
     .local v10, e:Ljava/lang/IllegalArgumentException;
     const-string v2, "RunningServicesDetails"
 
-    invoke-static {v2, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v10}, Landroid/util/secutil/Log;->secW(Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto/16 :goto_4
 
@@ -683,7 +683,7 @@
     .local v10, e:Landroid/content/ActivityNotFoundException;
     const-string v2, "RunningServicesDetails"
 
-    invoke-static {v2, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v10}, Landroid/util/secutil/Log;->secW(Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto/16 :goto_4
 

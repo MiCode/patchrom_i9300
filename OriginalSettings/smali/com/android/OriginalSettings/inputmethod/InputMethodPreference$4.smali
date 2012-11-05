@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 136
+    .line 143
     iput-object p1, p0, Lcom/android/OriginalSettings/inputmethod/InputMethodPreference$4;->this$0:Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;
 
     iput-object p2, p0, Lcom/android/OriginalSettings/inputmethod/InputMethodPreference$4;->val$imiId:Ljava/lang/String;
@@ -47,19 +47,19 @@
     .parameter
 
     .prologue
-    .line 139
+    .line 146
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 140
+    .line 147
     const-string v1, "input_method_id"
 
     iget-object v2, p0, Lcom/android/OriginalSettings/inputmethod/InputMethodPreference$4;->val$imiId:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 141
+    .line 148
     iget-object v1, p0, Lcom/android/OriginalSettings/inputmethod/InputMethodPreference$4;->this$0:Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;
 
     #getter for: Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;->mFragment:Lcom/android/OriginalSettings/SettingsPreferenceFragment;
@@ -77,7 +77,7 @@
 
     invoke-static {v1, v2, v3, v0}, Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;->startFragment(Landroid/app/Fragment;Ljava/lang/String;ILandroid/os/Bundle;)Z
 
-    .line 143
+    .line 150
     const/4 v0, 0x1
 
     return v0

@@ -65,7 +65,7 @@
 
     .prologue
     .line 66
-    const v1, 0x7f0a0104
+    const v1, 0x7f0b011f
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->findViewById(I)Landroid/view/View;
 
@@ -109,7 +109,7 @@
     iput-boolean v1, p0, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->VisibleView:Z
 
     .line 46
-    const v1, 0x7f0a0124
+    const v1, 0x7f0b0131
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->findViewById(I)Landroid/view/View;
 
@@ -120,7 +120,7 @@
     iput-object v1, p0, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->CurrentView:Landroid/widget/LinearLayout;
 
     .line 48
-    const v1, 0x7f0a0127
+    const v1, 0x7f0b0134
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->findViewById(I)Landroid/view/View;
 
@@ -145,7 +145,7 @@
 
     .prologue
     .line 76
-    const v1, 0x7f0a0104
+    const v1, 0x7f0b011f
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->findViewById(I)Landroid/view/View;
 
@@ -172,7 +172,7 @@
 
     .prologue
     .line 71
-    const v1, 0x7f0a0104
+    const v1, 0x7f0b011f
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->findViewById(I)Landroid/view/View;
 

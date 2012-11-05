@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1201
+    .line 1285
     iput-object p1, p0, Lcom/android/OriginalSettings/DataUsageSummary$8;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,100 +38,97 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 4
+    .locals 3
     .parameter "v"
 
     .prologue
-    .line 1204
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$8;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
+    .line 1288
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$8;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDisableAtLimit:Landroid/widget/CheckBox;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1700(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/CheckBox;
+    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarning:Landroid/widget/CheckBox;
+    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1200(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/CheckBox;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/widget/CheckBox;->isChecked()Z
+    invoke-virtual {v0}, Landroid/widget/CheckBox;->isChecked()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_2
+    if-eqz v0, :cond_1
 
-    const/4 v0, 0x1
+    .line 1289
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$8;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
-    .line 1205
-    .local v0, disableAtLimit:Z
-    :goto_0
-    if-eqz v0, :cond_3
+    const-wide/16 v1, -0x1
 
-    .line 1208
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$8;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
+    #calls: Lcom/android/OriginalSettings/DataUsageSummary;->setPolicyWarningBytes(J)V
+    invoke-static {v0, v1, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1300(Lcom/android/OriginalSettings/DataUsageSummary;J)V
 
-    invoke-virtual {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->getFragmentManager()Landroid/app/FragmentManager;
+    .line 1290
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$8;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
-    move-result-object v1
+    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mAlertAtWarning:Landroid/widget/CheckBox;
+    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1200(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/widget/CheckBox;
 
-    const-string v2, "confirmLimit"
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Landroid/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/app/Fragment;
+    const/4 v1, 0x0
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Landroid/widget/CheckBox;->setChecked(Z)V
 
-    if-nez v1, :cond_1
-
-    .line 1209
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$8;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1300(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    .line 1210
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$8;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1300(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/app/DialogFragment;->dismiss()V
-
-    .line 1212
+    .line 1300
     :cond_0
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$8;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary$8;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
-
-    invoke-static {v2}, Lcom/android/OriginalSettings/DataUsageSummary$ConfirmLimitFragment;->show(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
-
-    move-result-object v2
-
-    #setter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-    invoke-static {v1, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1302(Lcom/android/OriginalSettings/DataUsageSummary;Landroid/app/DialogFragment;)Landroid/app/DialogFragment;
-
-    .line 1217
-    :cond_1
-    :goto_1
+    :goto_0
     return-void
 
-    .line 1204
-    .end local v0           #disableAtLimit:Z
+    .line 1293
+    :cond_1
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$8;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
+
+    invoke-virtual {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->getFragmentManager()Landroid/app/FragmentManager;
+
+    move-result-object v0
+
+    const-string v1, "confirmWarning"
+
+    invoke-virtual {v0, v1}, Landroid/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/app/Fragment;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    .line 1294
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$8;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
+
+    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
+    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->access$600(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_2
+
+    .line 1295
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$8;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
+
+    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
+    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->access$600(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/DialogFragment;->dismiss()V
+
+    .line 1297
     :cond_2
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$8;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
-    goto :goto_0
-
-    .line 1215
-    .restart local v0       #disableAtLimit:Z
-    :cond_3
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$8;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
-    const-wide/16 v2, -0x1
+    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary$ConfirmWarningFragment;->show(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/app/DialogFragment;
 
-    #calls: Lcom/android/OriginalSettings/DataUsageSummary;->setPolicyLimitBytes(J)V
-    invoke-static {v1, v2, v3}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1800(Lcom/android/OriginalSettings/DataUsageSummary;J)V
+    move-result-object v1
 
-    goto :goto_1
+    #setter for: Lcom/android/OriginalSettings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
+    invoke-static {v0, v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$602(Lcom/android/OriginalSettings/DataUsageSummary;Landroid/app/DialogFragment;)Landroid/app/DialogFragment;
+
+    goto :goto_0
 .end method

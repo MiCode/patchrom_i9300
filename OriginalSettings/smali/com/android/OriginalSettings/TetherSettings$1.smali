@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 293
+    .line 292
     iput-object p1, p0, Lcom/android/OriginalSettings/TetherSettings$1;->this$0:Lcom/android/OriginalSettings/TetherSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .parameter "proxy"
 
     .prologue
-    .line 295
+    .line 294
     iget-object v0, p0, Lcom/android/OriginalSettings/TetherSettings$1;->this$0:Lcom/android/OriginalSettings/TetherSettings;
 
     check-cast p2, Landroid/bluetooth/BluetoothPan;
@@ -52,7 +52,7 @@
     #setter for: Lcom/android/OriginalSettings/TetherSettings;->mBluetoothPan:Landroid/bluetooth/BluetoothPan;
     invoke-static {v0, p2}, Lcom/android/OriginalSettings/TetherSettings;->access$002(Lcom/android/OriginalSettings/TetherSettings;Landroid/bluetooth/BluetoothPan;)Landroid/bluetooth/BluetoothPan;
 
-    .line 296
+    .line 295
     return-void
 .end method
 
@@ -61,7 +61,7 @@
     .parameter "profile"
 
     .prologue
-    .line 298
+    .line 297
     iget-object v0, p0, Lcom/android/OriginalSettings/TetherSettings$1;->this$0:Lcom/android/OriginalSettings/TetherSettings;
 
     const/4 v1, 0x0
@@ -69,6 +69,6 @@
     #setter for: Lcom/android/OriginalSettings/TetherSettings;->mBluetoothPan:Landroid/bluetooth/BluetoothPan;
     invoke-static {v0, v1}, Lcom/android/OriginalSettings/TetherSettings;->access$002(Lcom/android/OriginalSettings/TetherSettings;Landroid/bluetooth/BluetoothPan;)Landroid/bluetooth/BluetoothPan;
 
-    .line 299
+    .line 298
     return-void
 .end method

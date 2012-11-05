@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 466
+    .line 556
     iput-object p1, p0, Lcom/android/OriginalSettings/AccessibilitySettings$5;->this$0:Lcom/android/OriginalSettings/AccessibilitySettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,14 +38,12 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 4
+    .locals 3
     .parameter "dialog"
     .parameter "arg1"
 
     .prologue
-    const/4 v3, 0x1
-
-    .line 468
+    .line 558
     iget-object v0, p0, Lcom/android/OriginalSettings/AccessibilitySettings$5;->this$0:Lcom/android/OriginalSettings/AccessibilitySettings;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/AccessibilitySettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -54,44 +52,35 @@
 
     const-string v1, "incall_power_button_behavior"
 
-    const/4 v2, 0x2
+    const/4 v2, 0x1
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 471
+    .line 561
     iget-object v0, p0, Lcom/android/OriginalSettings/AccessibilitySettings$5;->this$0:Lcom/android/OriginalSettings/AccessibilitySettings;
 
-    invoke-virtual {v0}, Lcom/android/OriginalSettings/AccessibilitySettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "proximity_sensor"
-
-    invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 472
-    iget-object v0, p0, Lcom/android/OriginalSettings/AccessibilitySettings$5;->this$0:Lcom/android/OriginalSettings/AccessibilitySettings;
+    const/4 v1, 0x0
 
     #setter for: Lcom/android/OriginalSettings/AccessibilitySettings;->endPowerKeyEndChecked:Z
-    invoke-static {v0, v3}, Lcom/android/OriginalSettings/AccessibilitySettings;->access$402(Lcom/android/OriginalSettings/AccessibilitySettings;Z)Z
+    invoke-static {v0, v1}, Lcom/android/OriginalSettings/AccessibilitySettings;->access$502(Lcom/android/OriginalSettings/AccessibilitySettings;Z)Z
 
-    .line 473
+    .line 562
     iget-object v0, p0, Lcom/android/OriginalSettings/AccessibilitySettings$5;->this$0:Lcom/android/OriginalSettings/AccessibilitySettings;
 
     #getter for: Lcom/android/OriginalSettings/AccessibilitySettings;->mTogglePowerButtonEndsCallPreference:Landroid/preference/CheckBoxPreference;
-    invoke-static {v0}, Lcom/android/OriginalSettings/AccessibilitySettings;->access$500(Lcom/android/OriginalSettings/AccessibilitySettings;)Landroid/preference/CheckBoxPreference;
+    invoke-static {v0}, Lcom/android/OriginalSettings/AccessibilitySettings;->access$600(Lcom/android/OriginalSettings/AccessibilitySettings;)Landroid/preference/CheckBoxPreference;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/OriginalSettings/AccessibilitySettings$5;->this$0:Lcom/android/OriginalSettings/AccessibilitySettings;
 
     #getter for: Lcom/android/OriginalSettings/AccessibilitySettings;->endPowerKeyEndChecked:Z
-    invoke-static {v1}, Lcom/android/OriginalSettings/AccessibilitySettings;->access$400(Lcom/android/OriginalSettings/AccessibilitySettings;)Z
+    invoke-static {v1}, Lcom/android/OriginalSettings/AccessibilitySettings;->access$500(Lcom/android/OriginalSettings/AccessibilitySettings;)Z
 
     move-result v1
 
     invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 474
+    .line 563
     return-void
 .end method

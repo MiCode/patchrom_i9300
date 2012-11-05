@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 370
+    .line 422
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler$10;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,18 +38,17 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
+    .locals 1
     .parameter "arg0"
     .parameter "arg1"
 
     .prologue
-    .line 372
+    .line 424
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler$10;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;
 
-    const/4 v1, 0x0
+    #calls: Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;->afterDisconnectDialog()V
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;->access$400(Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;)V
 
-    invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;->setSoftapEnabled(Z)Z
-
-    .line 373
+    .line 425
     return-void
 .end method

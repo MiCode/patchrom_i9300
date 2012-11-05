@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 235
+    .line 216
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$1$1;->this$1:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$1;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,9 +42,9 @@
     .parameter "group"
 
     .prologue
-    .line 237
-    invoke-static {p1}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$702(Landroid/net/wifi/p2p/WifiP2pGroup;)Landroid/net/wifi/p2p/WifiP2pGroup;
+    .line 218
+    invoke-static {p1}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$502(Landroid/net/wifi/p2p/WifiP2pGroup;)Landroid/net/wifi/p2p/WifiP2pGroup;
 
-    .line 238
+    .line 219
     return-void
 .end method

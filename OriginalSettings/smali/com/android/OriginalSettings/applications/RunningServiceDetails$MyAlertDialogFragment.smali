@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 499
+    .line 497
     invoke-direct {p0}, Landroid/app/DialogFragment;-><init>()V
 
     return-void
@@ -31,32 +31,32 @@
     .parameter "comp"
 
     .prologue
-    .line 502
+    .line 500
     new-instance v1, Lcom/android/OriginalSettings/applications/RunningServiceDetails$MyAlertDialogFragment;
 
     invoke-direct {v1}, Lcom/android/OriginalSettings/applications/RunningServiceDetails$MyAlertDialogFragment;-><init>()V
 
-    .line 503
+    .line 501
     .local v1, frag:Lcom/android/OriginalSettings/applications/RunningServiceDetails$MyAlertDialogFragment;
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 504
+    .line 502
     .local v0, args:Landroid/os/Bundle;
     const-string v2, "id"
 
     invoke-virtual {v0, v2, p0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 505
+    .line 503
     const-string v2, "comp"
 
     invoke-virtual {v0, v2, p1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 506
+    .line 504
     invoke-virtual {v1, v0}, Lcom/android/OriginalSettings/applications/RunningServiceDetails$MyAlertDialogFragment;->setArguments(Landroid/os/Bundle;)V
 
-    .line 507
+    .line 505
     return-object v1
 .end method
 
@@ -66,7 +66,7 @@
     .locals 1
 
     .prologue
-    .line 511
+    .line 509
     invoke-virtual {p0}, Lcom/android/OriginalSettings/applications/RunningServiceDetails$MyAlertDialogFragment;->getTargetFragment()Landroid/app/Fragment;
 
     move-result-object v0
@@ -83,7 +83,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 516
+    .line 514
     invoke-virtual {p0}, Lcom/android/OriginalSettings/applications/RunningServiceDetails$MyAlertDialogFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v3
@@ -94,11 +94,11 @@
 
     move-result v1
 
-    .line 517
+    .line 515
     .local v1, id:I
     packed-switch v1, :pswitch_data_0
 
-    .line 541
+    .line 539
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -123,7 +123,7 @@
 
     throw v2
 
-    .line 519
+    .line 517
     :pswitch_0
     invoke-virtual {p0}, Lcom/android/OriginalSettings/applications/RunningServiceDetails$MyAlertDialogFragment;->getArguments()Landroid/os/Bundle;
 
@@ -137,7 +137,7 @@
 
     check-cast v0, Landroid/content/ComponentName;
 
-    .line 520
+    .line 518
     .local v0, comp:Landroid/content/ComponentName;
     invoke-virtual {p0}, Lcom/android/OriginalSettings/applications/RunningServiceDetails$MyAlertDialogFragment;->getOwner()Lcom/android/OriginalSettings/applications/RunningServiceDetails;
 
@@ -149,7 +149,7 @@
 
     if-nez v3, :cond_0
 
-    .line 524
+    .line 522
     :goto_0
     return-object v2
 
@@ -166,7 +166,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d052b
+    const v5, 0x7f0905fc
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -186,7 +186,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d052c
+    const v5, 0x7f0905fd
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -196,7 +196,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d04ee
+    const v4, 0x7f0905b8
 
     new-instance v5, Lcom/android/OriginalSettings/applications/RunningServiceDetails$MyAlertDialogFragment$1;
 
@@ -206,7 +206,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d04ef
+    const v4, 0x7f0905b9
 
     invoke-virtual {v3, v4, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -218,7 +218,7 @@
 
     goto :goto_0
 
-    .line 517
+    .line 515
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

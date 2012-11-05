@@ -309,7 +309,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/ConfirmLockPattern$ConfirmLockPatternFragment;->mHeaderTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f0d0499
+    const v1, 0x7f09055d
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -319,7 +319,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/OriginalSettings/ConfirmLockPattern$ConfirmLockPatternFragment;->mFooterTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f0d049a
+    const v1, 0x7f09055e
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -375,7 +375,7 @@
     :cond_2
     iget-object v0, p0, Lcom/android/OriginalSettings/ConfirmLockPattern$ConfirmLockPatternFragment;->mHeaderTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f0d049b
+    const v1, 0x7f09055f
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -385,7 +385,7 @@
     :cond_3
     iget-object v0, p0, Lcom/android/OriginalSettings/ConfirmLockPattern$ConfirmLockPatternFragment;->mFooterTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f0d049c
+    const v1, 0x7f090560
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -448,7 +448,7 @@
 
     .prologue
     .line 114
-    const v3, 0x7f040025
+    const v3, 0x7f040026
 
     const/4 v4, 0x0
 
@@ -458,7 +458,7 @@
 
     .line 115
     .local v2, view:Landroid/view/View;
-    const v3, 0x7f0a003d
+    const v3, 0x7f0b0038
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -469,7 +469,7 @@
     iput-object v3, p0, Lcom/android/OriginalSettings/ConfirmLockPattern$ConfirmLockPatternFragment;->mHeaderTextView:Landroid/widget/TextView;
 
     .line 116
-    const v3, 0x7f0a0048
+    const v3, 0x7f0b0046
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -480,7 +480,7 @@
     iput-object v3, p0, Lcom/android/OriginalSettings/ConfirmLockPattern$ConfirmLockPatternFragment;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
     .line 117
-    const v3, 0x7f0a0049
+    const v3, 0x7f0b0047
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -491,7 +491,7 @@
     iput-object v3, p0, Lcom/android/OriginalSettings/ConfirmLockPattern$ConfirmLockPatternFragment;->mFooterTextView:Landroid/widget/TextView;
 
     .line 121
-    const v3, 0x7f0a0045
+    const v3, 0x7f0b0044
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

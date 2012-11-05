@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 71
+    .line 78
     iput-object p1, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings$1;->this$0:Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -40,27 +40,27 @@
     .parameter "selfChange"
 
     .prologue
-    .line 74
+    .line 81
     const-string v1, "MenuPowerSavingModeSettings"
 
     const-string v2, "onChange() "
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 75
+    .line 82
     iget-object v1, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings$1;->this$0:Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;
 
     #calls: Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->updateUIPowerSaving()V
     invoke-static {v1}, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;->access$000(Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;)V
 
-    .line 76
+    .line 83
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.settings.POWERSAVING_SWITCH_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 77
+    .line 84
     .local v0, intent:Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings$1;->this$0:Lcom/android/OriginalSettings/powersavingmode/MenuPowerSavingModeSettings;
 
@@ -70,6 +70,6 @@
 
     invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 78
+    .line 85
     return-void
 .end method

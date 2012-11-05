@@ -18,12 +18,15 @@
         <item>10분</item>
         <item>30분</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15초</item>
         <item>30초</item>
         <item>1분</item>
-        <item>2분</item>
+        <item>3분</item>
         <item>5분</item>
+        <item>10분</item>
+        <item>15분</item>
+        <item>30분</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>안 함</item>
@@ -34,6 +37,18 @@
         <item>5분</item>
         <item>10분</item>
         <item>30분</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15초</item>
+        <item>30초</item>
+        <item>1분</item>
+        <item>3분</item>
+        <item>5분</item>
+        <item>10분</item>
+        <item>15분</item>
+        <item>30분</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>즉시</item>
@@ -91,19 +106,9 @@
         <item>중지됨</item>
         <item>연결을 끊는 중...</item>
         <item>연결 끊김</item>
-        <item>실패</item>
+        <item>실패함</item>
         <item>연결되었습니다</item>
-        <item>CW 끊어짐</item>
-        <item>CW 등록 중</item>
-        <item>CW 등록 완료</item>
-        <item>CW 등록 실패</item>
-        <item>CW PPP 설정 중</item>
-        <item>CW PPP 실패</item>
-        <item>CW 초기화 중</item>
-        <item>CW 동작 중</item>
-        <item>CW WLAN 중지 중</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>연결 불량 일시적으로 방지</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -115,19 +120,9 @@
         <item>중지됨</item>
         <item>%s와(과) 연결을 끊는 중...</item>
         <item>연결 끊김</item>
-        <item>실패</item>
+        <item>실패함</item>
         <item>연결되었습니다</item>
-        <item>CW 끊어짐</item>
-        <item>CW 등록 중</item>
-        <item>CW 등록 완료</item>
-        <item>CW 등록 실패</item>
-        <item>CW PPP 설정 중</item>
-        <item>CW PPP 실패</item>
-        <item>CW 초기화 중</item>
-        <item>CW 동작 중</item>
-        <item>CW WLAN 중지 중</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>연결 상태 불량 일시적으로 방지</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>공개</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>버튼을 누르세요</item>
+        <item>피어 기기에서 PIN</item>
+        <item>이 기기에서 PIN</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>연결되었습니다</item>
+        <item>초대되었습니다</item>
+        <item>연결하지 못하였습니다</item>
+        <item>연결하려면 누르세요</item>
+        <item>계산 범위를 벗어났습니다</item>
+        <item>다른 기기 연결됨</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>항상 켜짐</item>
@@ -152,6 +155,10 @@
         <item>20분</item>
         <item>30분</item>
         <item>60분</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>모든 기기 허용</item>
+        <item>허용된 기기만</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>자동</item>
@@ -179,19 +186,6 @@
         <item>9</item>
         <item>10</item>
     </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>버튼을 누르세요</item>
-        <item>피어 기기에서 PIN</item>
-        <item>이 기기에서 PIN</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>연결되었습니다</item>
-        <item>초대되었습니다</item>
-        <item>연결하지 못하였습니다</item>
-        <item>연결하려면 누르세요</item>
-        <item>계산 범위를 벗어났습니다</item>
-        <item>다른 기기 연결됨</item>
-    </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2분</item>
         <item>5분</item>
@@ -208,7 +202,7 @@
     <string-array name="wifi_sleep_policy_entries">
         <item>항상</item>
         <item>충전 시에만</item>
-        <item>사용 안 함(데이터 사용량 증가)</item>
+        <item>사용 안함 (데이터 사용량 증가)</item>
     </string-array>
     <string-array name="wifi_sleep_policy_entries_wifi_only">
         <item>항상</item>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -268,9 +263,9 @@
         <item>수동</item>
     </string-array>
     <string-array name="wifi_connection_settings">
-        <item>보통</item>
-        <item>Downtown</item>
-        <item>집</item>
+        <item>일반</item>
+        <item>도심</item>
+        <item>가정</item>
     </string-array>
     <string-array name="wifi_connection_settings_summary">
         <item>Wi-Fi의 가장 일반적인 연결 설정입니다</item>
@@ -308,11 +303,6 @@
         <item>이동식 SD 카드</item>
         <item>기본값</item>
     </string-array>
-    <string-array name="silent_mode_entries">
-        <item>끄기</item>
-        <item>진동</item>
-        <item>음소거</item>
-    </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>짧게</item>
         <item>보통</item>
@@ -330,21 +320,30 @@
     </string-array>
     <string-array name="window_animation_scale_entries">
         <item>애니메이션이 꺼져 있습니다</item>
-        <item>애니메이션 크기 조정 0.5x</item>
-        <item>애니메이션 크기 조정 1x</item>
-        <item>애니메이션 크기 조정 1.5x</item>
-        <item>애니메이션 크기 조정 2x</item>
-        <item>애니메이션 크기 조정 5x</item>
-        <item>애니메이션 크기 조정 10x</item>
+        <item>애니메이션 배율 0.5x</item>
+        <item>애니메이션 배율 1x</item>
+        <item>애니메이션 배율1.5x</item>
+        <item>애니메이션 배율 2x</item>
+        <item>애니메이션 배율 5x</item>
+        <item>애니메이션 배율 10x</item>
     </string-array>
     <string-array name="transition_animation_scale_entries">
         <item>애니메이션이 꺼져 있습니다</item>
-        <item>애니메이션 크기 조정 0.5x</item>
-        <item>애니메이션 크기 조정 1x</item>
-        <item>애니메이션 크기 조정 1.5x</item>
-        <item>애니메이션 크기 조정 2x</item>
-        <item>애니메이션 크기 조정 5x</item>
-        <item>애니메이션 크기 조정 10x</item>
+        <item>애니메이션 배율 0.5x</item>
+        <item>애니메이션 배율 1x</item>
+        <item>애니메이션 배율1.5x</item>
+        <item>애니메이션 배율 2x</item>
+        <item>애니메이션 배율 5x</item>
+        <item>애니메이션 배율 10x</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>애니메이션이 꺼져 있습니다</item>
+        <item>애니메이션 배율 0.5x</item>
+        <item>애니메이션 배율 1x</item>
+        <item>애니메이션 배율1.5x</item>
+        <item>애니메이션 배율 2x</item>
+        <item>애니메이션 배율 5x</item>
+        <item>애니메이션 배율 10x</item>
     </string-array>
     <string-array name="app_process_limit_entries">
         <item>표준 제한</item>
@@ -368,24 +367,10 @@
         <item>연결 중...</item>
         <item>연결되었습니다</item>
         <item>시간이 초과되었습니다</item>
-        <item>실패</item>
-    </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
+        <item>실패함</item>
     </string-array>
     <string-array name="allshare_download_to">
-        <item>내장 메모리</item>
+        <item>디바이스</item>
         <item>SD 카드</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -415,15 +400,28 @@
         <item>사진</item>
         <item>음악</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>높음</item>
-        <item>보통</item>
-        <item>낮음</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>자동</item>
         <item>수동</item>
         <item>항상 묻기</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>항상 끄기</item>
+        <item>3초</item>
+        <item>5초</item>
+        <item>10초</item>
+        <item>15초</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>없음</item>
+        <item>모든 연락처</item>
+        <item>즐겨찾기</item>
+        <item>사용자 설정</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>높음</item>
+        <item>보통</item>
+        <item>낮음</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1.5초</item>
@@ -439,17 +437,34 @@
     <string-array name="contents_type_entries">
         <item>뉴스</item>
         <item>주식</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>뉴스</item>
+        <item>주식</item>
+        <item>웨이보</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>느리게</item>
         <item>보통</item>
         <item>빠르게</item>
     </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>없음</item>
+        <item>30분마다</item>
+        <item>1시간마다</item>
+        <item>2시간마다</item>
+        <item>4시간마다</item>
+    </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>헤드셋</item>
         <item>PC</item>
-        <item>휴대폰</item>
+        <item>전화</item>
         <item>HID(키보드, 마우스 등)</item>
         <item>모든 기기</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>스테레오</item>
+        <item>서라운드</item>
     </string-array>
 </resources>

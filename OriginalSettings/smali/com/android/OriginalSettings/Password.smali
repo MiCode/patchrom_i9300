@@ -86,7 +86,7 @@
     .parameter "aPassword"
 
     .prologue
-    const v3, 0x7f0d0009
+    const v3, 0x7f09001a
 
     const/4 v0, 0x0
 
@@ -122,7 +122,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0769
+    const v2, 0x7f090899
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -243,7 +243,7 @@
     .parameter "aPassword"
 
     .prologue
-    const v3, 0x7f0d0009
+    const v3, 0x7f09001a
 
     const/4 v0, 0x0
 
@@ -270,7 +270,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d000a
+    const v2, 0x7f09001b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -331,7 +331,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d000b
+    const v2, 0x7f09001c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -366,10 +366,10 @@
     .locals 3
 
     .prologue
-    const v2, 0x7f0a00af
+    const v2, 0x7f0b00bd
 
     .line 106
-    const v1, 0x7f0a00b1
+    const v1, 0x7f0b00bf
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/Password;->findViewById(I)Landroid/view/View;
 
@@ -383,7 +383,7 @@
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
     .line 109
-    const v1, 0x7f0a00b2
+    const v1, 0x7f0b00c0
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/Password;->findViewById(I)Landroid/view/View;
 
@@ -392,7 +392,7 @@
     invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 110
-    const v1, 0x7f0a00b3
+    const v1, 0x7f0b00c1
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/Password;->findViewById(I)Landroid/view/View;
 
@@ -401,7 +401,7 @@
     invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 111
-    const v1, 0x7f0a00b4
+    const v1, 0x7f0b00c2
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/Password;->findViewById(I)Landroid/view/View;
 
@@ -410,7 +410,7 @@
     invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 112
-    const v1, 0x7f0a00b5
+    const v1, 0x7f0b00c3
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/Password;->findViewById(I)Landroid/view/View;
 
@@ -419,7 +419,7 @@
     invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 113
-    const v1, 0x7f0a00b6
+    const v1, 0x7f0b00c4
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/Password;->findViewById(I)Landroid/view/View;
 
@@ -428,7 +428,7 @@
     invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 114
-    const v1, 0x7f0a00b7
+    const v1, 0x7f0b00c5
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/Password;->findViewById(I)Landroid/view/View;
 
@@ -437,7 +437,7 @@
     invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 115
-    const v1, 0x7f0a00b8
+    const v1, 0x7f0b00c6
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/Password;->findViewById(I)Landroid/view/View;
 
@@ -446,7 +446,7 @@
     invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 116
-    const v1, 0x7f0a00b9
+    const v1, 0x7f0b00c7
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/Password;->findViewById(I)Landroid/view/View;
 
@@ -455,7 +455,7 @@
     invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 117
-    const v1, 0x7f0a00ba
+    const v1, 0x7f0b00c8
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/Password;->findViewById(I)Landroid/view/View;
 
@@ -464,7 +464,7 @@
     invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 118
-    const v1, 0x7f0a00bc
+    const v1, 0x7f0b00ca
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/Password;->findViewById(I)Landroid/view/View;
 
@@ -487,7 +487,7 @@
     invoke-virtual {v1, p0}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
     .line 121
-    const v1, 0x7f0a00bb
+    const v1, 0x7f0b00c9
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/Password;->findViewById(I)Landroid/view/View;
 
@@ -529,7 +529,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d077d
+    const v2, 0x7f0908b0
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -692,7 +692,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f0a00af
+    .packed-switch 0x7f0b00bd
         :pswitch_b
         :pswitch_0
         :pswitch_1
@@ -721,7 +721,7 @@
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/BaseActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 71
-    const v2, 0x7f040050
+    const v2, 0x7f04004f
 
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/Password;->setContentView(I)V
 
@@ -767,7 +767,7 @@
 
     .line 78
     :cond_0
-    const v2, 0x7f0a003d
+    const v2, 0x7f0b0038
 
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/Password;->findViewById(I)Landroid/view/View;
 
@@ -785,7 +785,7 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 86
-    const v2, 0x7f0a00ae
+    const v2, 0x7f0b00bc
 
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/Password;->findViewById(I)Landroid/view/View;
 
@@ -825,7 +825,7 @@
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setLongClickable(Z)V
 
     .line 95
-    const v2, 0x7f0a00b1
+    const v2, 0x7f0b00bf
 
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/Password;->findViewById(I)Landroid/view/View;
 
@@ -888,7 +888,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f0a00af
+    .packed-switch 0x7f0b00bd
         :pswitch_0
     .end packed-switch
 .end method

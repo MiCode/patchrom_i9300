@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 83
+    .line 85
     iput-object p1, p0, Lcom/android/OriginalSettings/inputmethod/SingleSpellCheckerPreference$1;->this$0:Lcom/android/OriginalSettings/inputmethod/SingleSpellCheckerPreference;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,12 +42,12 @@
     .parameter "arg0"
 
     .prologue
-    .line 86
+    .line 88
     iget-object v0, p0, Lcom/android/OriginalSettings/inputmethod/SingleSpellCheckerPreference$1;->this$0:Lcom/android/OriginalSettings/inputmethod/SingleSpellCheckerPreference;
 
     #calls: Lcom/android/OriginalSettings/inputmethod/SingleSpellCheckerPreference;->onLeftButtonClicked(Landroid/view/View;)V
     invoke-static {v0, p1}, Lcom/android/OriginalSettings/inputmethod/SingleSpellCheckerPreference;->access$000(Lcom/android/OriginalSettings/inputmethod/SingleSpellCheckerPreference;Landroid/view/View;)V
 
-    .line 87
+    .line 89
     return-void
 .end method

@@ -217,7 +217,7 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secW(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 251
     invoke-direct {p0, p1}, Lcom/android/OriginalSettings/quicklaunch/QuickLaunchSettings;->createPreference(C)Lcom/android/OriginalSettings/quicklaunch/ShortcutPreference;
@@ -346,7 +346,7 @@
 
     const-string v14, "Could not requery cursor when refreshing shortcuts."
 
-    invoke-static {v13, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v13, v14}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -477,7 +477,7 @@
     invoke-virtual {v10, v12}, Lcom/android/OriginalSettings/quicklaunch/ShortcutPreference;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 327
-    const v13, 0x7f0d0553
+    const v13, 0x7f090637
 
     const/4 v14, 0x1
 
@@ -708,7 +708,7 @@
 
     const-string v2, "Result from bookmark picker does not have an intent."
 
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secW(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
@@ -782,7 +782,7 @@
     invoke-super {p0, p1}, Lmiui/preference/BasePreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 97
-    const v0, 0x7f070038
+    const v0, 0x7f070045
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/quicklaunch/QuickLaunchSettings;->addPreferencesFromResource(I)V
 
@@ -860,7 +860,7 @@
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0d0554
+    const v1, 0x7f090638
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/quicklaunch/QuickLaunchSettings;->getString(I)Ljava/lang/String;
 
@@ -876,7 +876,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0555
+    const v1, 0x7f090639
 
     const/4 v2, 0x2
 
@@ -906,13 +906,13 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0556
+    const v1, 0x7f09063a
 
     invoke-virtual {v0, v1, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0d0557
+    const v1, 0x7f09063b
 
     invoke-virtual {v0, v1, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1077,7 +1077,7 @@
 
     .line 165
     .local v0, alertDialog:Landroid/app/AlertDialog;
-    const v1, 0x7f0d0555
+    const v1, 0x7f090639
 
     const/4 v2, 0x2
 

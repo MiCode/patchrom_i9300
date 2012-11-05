@@ -2,6 +2,9 @@
 <resources>
     <color name="black">#ff000000</color>
     <color name="red">#ffff0000</color>
+    <color name="wifi_connected_toast">#ff59d0f3</color>
+    <color name="wifi_ap_connected">#ff2fa6c9</color>
+    <color name="wifi_ap_connecting">#ffa3c1de</color>
     <color name="memory_used">#ffff0000</color>
     <color name="memory_avail">#ff333333</color>
     <color name="memory_apps_usage">#ff77831a</color>
@@ -14,11 +17,9 @@
     <color name="crypt_keeper_clock_am_pm">#ff9a9a9a</color>
     <color name="divider_color">#20ffffff</color>
     <color name="title_color">@android:color/holo_blue_light</color>
-    <color name="panel_on">#ffffffff</color>
-    <color name="panel_off">#ffb6b1a8</color>
-    <color name="p2p_scanning">#ff0099ff</color>
-    <color name="scan_progress_summary">#ff6e9cba</color>
+    <color name="setup_divider_color">#ff333333</color>
     <color name="action_bar_button_text_color">#ffffffff</color>
-    <color name="sleeping_mode_repeat_days">#ff113757</color>
-    <color name="sleeping_mode_repeat_days_set">@android:color/holo_blue_light</color>
+    <color name="setupwizard_divider_color">#ff000000</color>
+    <color name="guide_arrow_bubble_text_color">#ffebebeb</color>
+    <color name="empty_text_color">#ffd7d7d7</color>
 </resources>

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 67
+    .line 66
     iput-object p1, p0, Lcom/android/OriginalSettings/CryptKeeperConfirm$Blank$1;->this$0:Lcom/android/OriginalSettings/CryptKeeperConfirm$Blank;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,40 +41,40 @@
     .locals 6
 
     .prologue
-    .line 69
+    .line 68
     const-string v4, "mount"
 
     invoke-static {v4}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v3
 
-    .line 70
+    .line 69
     .local v3, service:Landroid/os/IBinder;
     if-nez v3, :cond_0
 
-    .line 71
+    .line 70
     const-string v4, "CryptKeeper"
 
     const-string v5, "Failed to find the mount service"
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 72
+    .line 71
     iget-object v4, p0, Lcom/android/OriginalSettings/CryptKeeperConfirm$Blank$1;->this$0:Lcom/android/OriginalSettings/CryptKeeperConfirm$Blank;
 
     invoke-virtual {v4}, Lcom/android/OriginalSettings/CryptKeeperConfirm$Blank;->finish()V
 
-    .line 87
+    .line 82
     :goto_0
     return-void
 
-    .line 76
+    .line 75
     :cond_0
     invoke-static {v3}, Landroid/os/storage/IMountService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/storage/IMountService;
 
     move-result-object v2
 
-    .line 78
+    .line 77
     .local v2, mountService:Landroid/os/storage/IMountService;
     :try_start_0
     iget-object v4, p0, Lcom/android/OriginalSettings/CryptKeeperConfirm$Blank$1;->this$0:Lcom/android/OriginalSettings/CryptKeeperConfirm$Blank;
@@ -87,29 +87,11 @@
 
     move-result-object v0
 
-    .line 82
+    .line 78
     .local v0, args:Landroid/os/Bundle;
-    new-instance v4, Ljava/lang/StringBuilder;
+    const-string v4, "password"
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "password"
-
-    invoke-virtual {v0, v5}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string v5, " inplace"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -119,12 +101,12 @@
 
     goto :goto_0
 
-    .line 84
+    .line 79
     .end local v0           #args:Landroid/os/Bundle;
     :catch_0
     move-exception v1
 
-    .line 85
+    .line 80
     .local v1, e:Ljava/lang/Exception;
     const-string v4, "CryptKeeper"
 

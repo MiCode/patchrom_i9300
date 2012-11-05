@@ -39,13 +39,13 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 1
-    .parameter "arg0"
+    .parameter "clickedView"
 
     .prologue
     .line 65
     iget-object v0, p0, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference$2;->this$0:Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;
 
-    invoke-virtual {v0, p1}, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->onSettingsButtonClicked(Landroid/view/View;)V
+    invoke-virtual {v0}, Lcom/android/OriginalSettings/inputmethod/CheckBoxAndSettingsPreference;->onSettingsButtonClicked()V
 
     .line 66
     return-void

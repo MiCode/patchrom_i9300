@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 62
+    .line 64
     iput-object p1, p0, Lcom/android/OriginalSettings/inputmethod/InputMethodPreference$1;->this$0:Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,9 @@
     .parameter "arg0"
 
     .prologue
-    .line 65
+    const/4 v2, 0x1
+
+    .line 67
     iget-object v0, p0, Lcom/android/OriginalSettings/inputmethod/InputMethodPreference$1;->this$0:Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;->isEnabled()Z
@@ -51,11 +53,11 @@
 
     if-nez v0, :cond_0
 
-    .line 77
+    .line 79
     :goto_0
     return-void
 
-    .line 68
+    .line 70
     :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/inputmethod/InputMethodPreference$1;->this$0:Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;
 
@@ -65,16 +67,16 @@
 
     if-eqz v0, :cond_1
 
-    .line 69
+    .line 71
     iget-object v0, p0, Lcom/android/OriginalSettings/inputmethod/InputMethodPreference$1;->this$0:Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;->setChecked(ZZ)V
 
     goto :goto_0
 
-    .line 71
+    .line 73
     :cond_1
     iget-object v0, p0, Lcom/android/OriginalSettings/inputmethod/InputMethodPreference$1;->this$0:Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;
 
@@ -85,16 +87,14 @@
 
     if-eqz v0, :cond_2
 
-    .line 72
+    .line 74
     iget-object v0, p0, Lcom/android/OriginalSettings/inputmethod/InputMethodPreference$1;->this$0:Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;
 
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;->setChecked(Z)V
+    invoke-virtual {v0, v2, v2}, Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;->setChecked(ZZ)V
 
     goto :goto_0
 
-    .line 74
+    .line 76
     :cond_2
     iget-object v0, p0, Lcom/android/OriginalSettings/inputmethod/InputMethodPreference$1;->this$0:Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;
 
@@ -107,8 +107,8 @@
 
     iget-object v2, p0, Lcom/android/OriginalSettings/inputmethod/InputMethodPreference$1;->this$0:Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;
 
-    #calls: Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;->showSecurityWarnDialog(Landroid/view/inputmethod/InputMethodInfo;Landroid/preference/CheckBoxPreference;)V
-    invoke-static {v0, v1, v2}, Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;->access$200(Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;Landroid/view/inputmethod/InputMethodInfo;Landroid/preference/CheckBoxPreference;)V
+    #calls: Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;->showSecurityWarnDialog(Landroid/view/inputmethod/InputMethodInfo;Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;)V
+    invoke-static {v0, v1, v2}, Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;->access$200(Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;Landroid/view/inputmethod/InputMethodInfo;Lcom/android/OriginalSettings/inputmethod/InputMethodPreference;)V
 
     goto :goto_0
 .end method

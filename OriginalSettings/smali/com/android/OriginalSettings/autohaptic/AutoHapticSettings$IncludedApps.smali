@@ -39,26 +39,26 @@
     .parameter "p"
 
     .prologue
-    .line 390
+    .line 391
     iput-object p1, p0, Lcom/android/OriginalSettings/autohaptic/AutoHapticSettings$IncludedApps;->this$0:Lcom/android/OriginalSettings/autohaptic/AutoHapticSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 391
+    .line 392
     iput-object p2, p0, Lcom/android/OriginalSettings/autohaptic/AutoHapticSettings$IncludedApps;->mName:Ljava/lang/String;
 
-    .line 392
+    .line 393
     iput-object p3, p0, Lcom/android/OriginalSettings/autohaptic/AutoHapticSettings$IncludedApps;->mPackageName:Ljava/lang/String;
 
-    .line 393
+    .line 394
     iput-object p4, p0, Lcom/android/OriginalSettings/autohaptic/AutoHapticSettings$IncludedApps;->mIcon:Landroid/graphics/drawable/Drawable;
 
-    .line 394
+    .line 395
     iput-boolean p5, p0, Lcom/android/OriginalSettings/autohaptic/AutoHapticSettings$IncludedApps;->mHasVibPerm:Z
 
-    .line 395
+    .line 396
     iput-object p6, p0, Lcom/android/OriginalSettings/autohaptic/AutoHapticSettings$IncludedApps;->mPackageInfo:Landroid/content/pm/PackageInfo;
 
-    .line 396
+    .line 397
     return-void
 .end method

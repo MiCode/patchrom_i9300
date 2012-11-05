@@ -8,7 +8,7 @@
     .locals 0
 
     .prologue
-    .line 31
+    .line 34
     invoke-direct {p0}, Landroid/app/LauncherActivity;-><init>()V
 
     return-void
@@ -20,7 +20,7 @@
     .locals 3
 
     .prologue
-    .line 36
+    .line 39
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.MAIN"
@@ -29,18 +29,18 @@
 
     invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 37
+    .line 40
     .local v0, targetIntent:Landroid/content/Intent;
     const-string v1, "com.android.settings.SHORTCUT"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 38
+    .line 41
     const/high16 v1, 0x1000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 39
+    .line 42
     return-object v0
 .end method
 
@@ -48,7 +48,7 @@
     .locals 1
 
     .prologue
-    .line 87
+    .line 132
     const/4 v0, 0x1
 
     return v0
@@ -62,23 +62,23 @@
     .parameter "id"
 
     .prologue
-    .line 74
+    .line 119
     invoke-virtual {p0, p3}, Lcom/android/OriginalSettings/CreateShortcut;->intentForPosition(I)Landroid/content/Intent;
 
     move-result-object v1
 
-    .line 75
+    .line 120
     .local v1, shortcutIntent:Landroid/content/Intent;
     const/high16 v2, 0x20
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 76
+    .line 121
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 77
+    .line 122
     .local v0, intent:Landroid/content/Intent;
     const-string v2, "android.intent.extra.shortcut.ICON_RESOURCE"
 
@@ -98,12 +98,12 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 79
+    .line 124
     const-string v2, "android.intent.extra.shortcut.INTENT"
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 80
+    .line 125
     const-string v2, "android.intent.extra.shortcut.NAME"
 
     invoke-virtual {p0, p3}, Lcom/android/OriginalSettings/CreateShortcut;->itemForPosition(I)Landroid/app/LauncherActivity$ListItem;
@@ -114,20 +114,20 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;
 
-    .line 81
+    .line 126
     const/4 v2, -0x1
 
     invoke-virtual {p0, v2, v0}, Lcom/android/OriginalSettings/CreateShortcut;->setResult(ILandroid/content/Intent;)V
 
-    .line 82
+    .line 127
     invoke-virtual {p0}, Lcom/android/OriginalSettings/CreateShortcut;->finish()V
 
-    .line 83
+    .line 128
     return-void
 .end method
 
 .method protected onQueryPackageManager(Landroid/content/Intent;)Ljava/util/List;
-    .locals 5
+    .locals 6
     .parameter "queryIntent"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -142,131 +142,251 @@
     .end annotation
 
     .prologue
-    .line 45
+    .line 48
     invoke-super {p0, p1}, Landroid/app/LauncherActivity;->onQueryPackageManager(Landroid/content/Intent;)Ljava/util/List;
 
-    move-result-object v1
-
-    .line 46
-    .local v1, list:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    const/4 v2, -0x1
-
-    .line 48
-    .local v2, pos:I
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/CreateShortcut;->getApplicationContext()Landroid/content/Context;
-
-    move-result-object v3
-
-    invoke-static {v3}, Lcom/android/OriginalSettings/Utils;->isWifiOnly(Landroid/content/Context;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
+    move-result-object v2
 
     .line 49
-    const-string v3, "CreateShortcut"
-
-    const-string v4, "remove TetherSettings shortcut"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 50
-    const/4 v0, 0x0
-
-    .local v0, i:I
-    :goto_0
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result v3
-
-    if-ge v0, v3, :cond_1
-
-    .line 52
-    const-string v4, "com.android.settings.Settings$TetherSettingsActivity"
-
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/content/pm/ResolveInfo;
-
-    iget-object v3, v3, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
-
-    iget-object v3, v3, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
-
-    invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    .line 53
-    move v2, v0
-
-    .line 50
-    :cond_0
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    .line 56
-    :cond_1
+    .local v2, list:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_2
+    .line 52
+    .local v3, pos:I
+    const-string v4, "connectivity"
+
+    invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/CreateShortcut;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/net/ConnectivityManager;
+
+    .line 53
+    .local v0, cm:Landroid/net/ConnectivityManager;
+    invoke-virtual {v0}, Landroid/net/ConnectivityManager;->isTetheringSupported()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/CreateShortcut;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/OriginalSettings/Utils;->isWifiOnly(Landroid/content/Context;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    const/4 v4, 0x0
+
+    invoke-static {v4}, Lcom/android/OriginalSettings/Utils;->isTablet(Landroid/content/Context;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    const-string v4, "ATT"
+
+    invoke-static {}, Lcom/android/OriginalSettings/Utils;->readSalesCode()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    .line 54
+    :cond_0
+    const-string v4, "CreateShortcut"
+
+    const-string v5, "remove TetherSettings shortcut"
+
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 55
+    const/4 v1, 0x0
+
+    .local v1, i:I
+    :goto_0
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    if-ge v1, v4, :cond_1
 
     .line 57
-    invoke-interface {v1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    const-string v5, "com.android.settings.Settings$TetherSettingsActivity"
 
-    .line 62
-    .end local v0           #i:I
-    :cond_2
-    const-string v3, "CreateShortcut"
+    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    const-string v4, "remove HomeSettings shortcut"
+    move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    check-cast v4, Landroid/content/pm/ResolveInfo;
 
-    .line 63
-    const/4 v0, 0x0
+    iget-object v4, v4, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    .restart local v0       #i:I
+    iget-object v4, v4, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_5
+
+    .line 58
+    invoke-interface {v2, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    .line 77
+    .end local v1           #i:I
+    :cond_1
+    const-string v4, "CreateShortcut"
+
+    const-string v5, "remove Backup Assistant Plus shortcut"
+
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 78
+    const/4 v1, 0x0
+
+    .restart local v1       #i:I
     :goto_1
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-interface {v2}, Ljava/util/List;->size()I
 
-    move-result v3
+    move-result v4
 
-    if-ge v0, v3, :cond_3
+    if-ge v1, v4, :cond_2
 
-    .line 64
-    const-string v4, "com.android.settings.Settings$HomeSettingsActivity"
+    .line 79
+    const-string v5, "com.android.settings.Settings$BackupAssistantPlusSettingsActivity"
 
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Landroid/content/pm/ResolveInfo;
+    check-cast v4, Landroid/content/pm/ResolveInfo;
 
-    iget-object v3, v3, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    iget-object v4, v4, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v3, v3, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v4, v4, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
 
-    invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_4
+    if-eqz v4, :cond_6
 
-    .line 65
-    invoke-interface {v1, v0}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 80
+    invoke-interface {v2, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    .line 70
+    .line 92
+    :cond_2
+    const-string v4, "CreateShortcut"
+
+    const-string v5, "remove S Cloud shortcut"
+
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 93
+    const/4 v1, 0x0
+
+    :goto_2
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    if-ge v1, v4, :cond_3
+
+    .line 94
+    const-string v5, "com.android.settings.Settings$CloudSettingsActivity"
+
+    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/content/pm/ResolveInfo;
+
+    iget-object v4, v4, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v4, v4, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_7
+
+    .line 95
+    invoke-interface {v2, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    .line 106
     :cond_3
-    return-object v1
+    const-string v4, "CreateShortcut"
 
-    .line 63
+    const-string v5, "remove Samsung Cloud shortcut"
+
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 107
+    const/4 v1, 0x0
+
+    :goto_3
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    if-ge v1, v4, :cond_4
+
+    .line 108
+    const-string v5, "com.android.settings.Settings$SamsungCloudSettingsActivity"
+
+    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/content/pm/ResolveInfo;
+
+    iget-object v4, v4, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v4, v4, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_8
+
+    .line 109
+    invoke-interface {v2, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    .line 115
     :cond_4
-    add-int/lit8 v0, v0, 0x1
+    return-object v2
+
+    .line 55
+    :cond_5
+    add-int/lit8 v1, v1, 0x1
+
+    goto/16 :goto_0
+
+    .line 78
+    :cond_6
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
+
+    .line 93
+    :cond_7
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_2
+
+    .line 107
+    :cond_8
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_3
 .end method

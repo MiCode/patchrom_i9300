@@ -3,12 +3,12 @@
 .source "WifiSettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnDismissListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/OriginalSettings/wifi/WifiSettings;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/OriginalSettings/wifi/WifiSettings;->getErrorAnimationView(II)Landroid/view/View;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 2428
+    .line 1389
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$17;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,30 +37,31 @@
 
 
 # virtual methods
-.method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 2
-    .parameter "dialog"
+.method public run()V
+    .locals 1
 
     .prologue
-    .line 2430
+    .line 1391
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$17;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
 
-    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mNewDialog:Lcom/android/OriginalSettings/wifi/WifiNewDialog;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$2300(Lcom/android/OriginalSettings/wifi/WifiSettings;)Lcom/android/OriginalSettings/wifi/WifiNewDialog;
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mErrorDialogAni:Landroid/graphics/drawable/AnimationDrawable;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$1500(Lcom/android/OriginalSettings/wifi/WifiSettings;)Landroid/graphics/drawable/AnimationDrawable;
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 2431
+    .line 1392
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$17;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
 
-    const/4 v1, 0x0
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mErrorDialogAni:Landroid/graphics/drawable/AnimationDrawable;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$1500(Lcom/android/OriginalSettings/wifi/WifiSettings;)Landroid/graphics/drawable/AnimationDrawable;
 
-    #setter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mNewDialog:Lcom/android/OriginalSettings/wifi/WifiNewDialog;
-    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$2302(Lcom/android/OriginalSettings/wifi/WifiSettings;Lcom/android/OriginalSettings/wifi/WifiNewDialog;)Lcom/android/OriginalSettings/wifi/WifiNewDialog;
+    move-result-object v0
 
-    .line 2433
+    invoke-virtual {v0}, Landroid/graphics/drawable/AnimationDrawable;->start()V
+
+    .line 1393
     :cond_0
     return-void
 .end method

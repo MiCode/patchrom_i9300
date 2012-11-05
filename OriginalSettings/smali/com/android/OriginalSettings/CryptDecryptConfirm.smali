@@ -44,7 +44,7 @@
     .line 97
     iget-object v0, p0, Lcom/android/OriginalSettings/CryptDecryptConfirm;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0a0052
+    const v1, 0x7f0b0052
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -75,7 +75,7 @@
 
     .prologue
     .line 104
-    const v0, 0x7f040028
+    const v0, 0x7f040029
 
     const/4 v1, 0x0
 

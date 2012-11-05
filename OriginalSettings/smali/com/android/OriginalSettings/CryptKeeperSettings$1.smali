@@ -59,7 +59,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_1
+    if-eqz v12, :cond_2
 
     .line 76
     const-string v12, "level"
@@ -88,7 +88,7 @@
     .local v2, invalidCharger:I
     const/16 v12, 0x50
 
-    if-lt v3, v12, :cond_2
+    if-lt v3, v12, :cond_3
 
     move v4, v10
 
@@ -99,10 +99,10 @@
 
     const/4 v12, 0x2
 
-    if-ne v5, v12, :cond_3
+    if-ne v5, v12, :cond_4
 
     :cond_0
-    if-nez v2, :cond_3
+    if-nez v2, :cond_4
 
     move v6, v10
 
@@ -120,13 +120,18 @@
 
     move-result v8
 
-    .line 87
+    .line 88
     .local v8, status:I
-    if-nez v8, :cond_4
+    if-gt v10, v8, :cond_1
 
+    const/4 v12, 0x3
+
+    if-ge v12, v8, :cond_5
+
+    :cond_1
     move v7, v10
 
-    .line 90
+    .line 91
     .local v7, sdCardOK:Z
     :goto_2
     iget-object v12, p0, Lcom/android/OriginalSettings/CryptKeeperSettings$1;->this$0:Lcom/android/OriginalSettings/CryptKeeperSettings;
@@ -136,16 +141,16 @@
 
     move-result-object v12
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_6
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_6
 
     :goto_3
     invoke-virtual {v12, v10}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 91
+    .line 92
     iget-object v10, p0, Lcom/android/OriginalSettings/CryptKeeperSettings$1;->this$0:Lcom/android/OriginalSettings/CryptKeeperSettings;
 
     #getter for: Lcom/android/OriginalSettings/CryptKeeperSettings;->mPowerWarning:Landroid/view/View;
@@ -153,14 +158,14 @@
 
     move-result-object v12
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_7
 
     move v10, v11
 
     :goto_4
     invoke-virtual {v12, v10}, Landroid/view/View;->setVisibility(I)V
 
-    .line 92
+    .line 93
     iget-object v10, p0, Lcom/android/OriginalSettings/CryptKeeperSettings$1;->this$0:Lcom/android/OriginalSettings/CryptKeeperSettings;
 
     #getter for: Lcom/android/OriginalSettings/CryptKeeperSettings;->mBatteryWarning:Landroid/view/View;
@@ -168,14 +173,14 @@
 
     move-result-object v12
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_8
 
     move v10, v11
 
     :goto_5
     invoke-virtual {v12, v10}, Landroid/view/View;->setVisibility(I)V
 
-    .line 93
+    .line 94
     iget-object v10, p0, Lcom/android/OriginalSettings/CryptKeeperSettings$1;->this$0:Lcom/android/OriginalSettings/CryptKeeperSettings;
 
     #getter for: Lcom/android/OriginalSettings/CryptKeeperSettings;->mSDcardOngoingWarning:Landroid/view/View;
@@ -183,14 +188,14 @@
 
     move-result-object v12
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_9
 
     move v10, v11
 
     :goto_6
     invoke-virtual {v12, v10}, Landroid/view/View;->setVisibility(I)V
 
-    .line 96
+    .line 97
     iget-object v10, p0, Lcom/android/OriginalSettings/CryptKeeperSettings$1;->this$0:Lcom/android/OriginalSettings/CryptKeeperSettings;
 
     #getter for: Lcom/android/OriginalSettings/CryptKeeperSettings;->mPasswordWarning:Landroid/widget/TextView;
@@ -200,7 +205,7 @@
 
     invoke-virtual {v10, v9}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 97
+    .line 98
     iget-object v10, p0, Lcom/android/OriginalSettings/CryptKeeperSettings$1;->this$0:Lcom/android/OriginalSettings/CryptKeeperSettings;
 
     invoke-virtual {v10}, Lcom/android/OriginalSettings/CryptKeeperSettings;->getActivity()Landroid/app/Activity;
@@ -215,18 +220,18 @@
 
     check-cast v1, Landroid/app/admin/DevicePolicyManager;
 
-    .line 99
-    .local v1, dpm:Landroid/app/admin/DevicePolicyManager;
-    if-eqz v1, :cond_1
-
     .line 100
+    .local v1, dpm:Landroid/app/admin/DevicePolicyManager;
+    if-eqz v1, :cond_2
+
+    .line 101
     invoke-virtual {v1}, Landroid/app/admin/DevicePolicyManager;->satisfyFIPSPassword()Z
 
     move-result v10
 
-    if-eqz v10, :cond_9
+    if-eqz v10, :cond_a
 
-    .line 101
+    .line 102
     iget-object v9, p0, Lcom/android/OriginalSettings/CryptKeeperSettings$1;->this$0:Lcom/android/OriginalSettings/CryptKeeperSettings;
 
     #getter for: Lcom/android/OriginalSettings/CryptKeeperSettings;->mPasswordWarning:Landroid/widget/TextView;
@@ -236,7 +241,7 @@
 
     invoke-virtual {v9, v11}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 108
+    .line 109
     .end local v1           #dpm:Landroid/app/admin/DevicePolicyManager;
     .end local v2           #invalidCharger:I
     .end local v3           #level:I
@@ -245,21 +250,21 @@
     .end local v6           #pluggedOk:Z
     .end local v7           #sdCardOK:Z
     .end local v8           #status:I
-    :cond_1
+    :cond_2
     :goto_7
     return-void
 
     .restart local v2       #invalidCharger:I
     .restart local v3       #level:I
     .restart local v5       #plugged:I
-    :cond_2
+    :cond_3
     move v4, v9
 
     .line 80
     goto :goto_0
 
     .restart local v4       #levelOk:Z
-    :cond_3
+    :cond_4
     move v6, v9
 
     .line 81
@@ -267,40 +272,40 @@
 
     .restart local v6       #pluggedOk:Z
     .restart local v8       #status:I
-    :cond_4
+    :cond_5
     move v7, v9
 
-    .line 87
+    .line 88
     goto :goto_2
 
     .restart local v7       #sdCardOK:Z
-    :cond_5
-    move v10, v9
-
-    .line 90
-    goto :goto_3
-
     :cond_6
     move v10, v9
 
     .line 91
-    goto :goto_4
+    goto :goto_3
 
     :cond_7
     move v10, v9
 
     .line 92
-    goto :goto_5
+    goto :goto_4
 
     :cond_8
     move v10, v9
 
     .line 93
+    goto :goto_5
+
+    :cond_9
+    move v10, v9
+
+    .line 94
     goto :goto_6
 
-    .line 103
+    .line 104
     .restart local v1       #dpm:Landroid/app/admin/DevicePolicyManager;
-    :cond_9
+    :cond_a
     iget-object v10, p0, Lcom/android/OriginalSettings/CryptKeeperSettings$1;->this$0:Lcom/android/OriginalSettings/CryptKeeperSettings;
 
     #getter for: Lcom/android/OriginalSettings/CryptKeeperSettings;->mInitiateButton:Landroid/widget/Button;

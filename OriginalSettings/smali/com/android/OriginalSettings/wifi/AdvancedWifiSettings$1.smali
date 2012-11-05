@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 191
+    .line 132
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/OriginalSettings/wifi/AdvancedWifiSettings;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,49 +35,74 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .locals 4
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    .line 194
+    .line 135
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 195
+    .line 136
     .local v0, action:Ljava/lang/String;
-    const-string v1, "android.net.wifi.SEC_PICK_WIFI_NETWORK"
+    const-string v2, "android.net.wifi.SEC_PICK_WIFI_NETWORK"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
-    const-string v1, "android.net.wifi.SEC_PICK_WIFI_NETWORK_WITH_ON"
+    const-string v2, "android.net.wifi.SEC_PICK_WIFI_NETWORK_WITH_ON"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_0
+    if-eqz v2, :cond_2
 
-    const-string v1, "android.net.wifi.SEC_PICK_WIFI_NETWORK_WITH_DIALOG"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    .line 198
+    .line 138
     :cond_0
-    iget-object v1, p0, Lcom/android/OriginalSettings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/OriginalSettings/wifi/AdvancedWifiSettings;
+    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/OriginalSettings/wifi/AdvancedWifiSettings;
 
-    invoke-virtual {v1}, Lcom/android/OriginalSettings/wifi/AdvancedWifiSettings;->finish()V
+    invoke-virtual {v2}, Lcom/android/OriginalSettings/wifi/AdvancedWifiSettings;->finish()V
 
-    .line 200
+    .line 145
     :cond_1
+    :goto_0
     return-void
+
+    .line 139
+    :cond_2
+    const-string v2, "android.net.wifi.SEC_PICK_WIFI_NETWORK_WITH_DIALOG"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    .line 140
+    const-string v2, "launch_with"
+
+    const/4 v3, 0x0
+
+    invoke-virtual {p2, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v1
+
+    .line 141
+    .local v1, launchWith:I
+    const/4 v2, 0x3
+
+    if-eq v1, v2, :cond_1
+
+    .line 142
+    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/AdvancedWifiSettings$1;->this$0:Lcom/android/OriginalSettings/wifi/AdvancedWifiSettings;
+
+    invoke-virtual {v2}, Lcom/android/OriginalSettings/wifi/AdvancedWifiSettings;->finish()V
+
+    goto :goto_0
 .end method

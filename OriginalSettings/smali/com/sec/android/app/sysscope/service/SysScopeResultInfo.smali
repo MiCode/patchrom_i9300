@@ -42,14 +42,14 @@
     .locals 1
 
     .prologue
-    .line 461
+    .line 236
     new-instance v0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo$1;
 
     invoke-direct {v0}, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo$1;-><init>()V
 
     sput-object v0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 59
+    .line 30
     return-void
 .end method
 
@@ -57,24 +57,24 @@
     .locals 1
 
     .prologue
-    .line 93
+    .line 52
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 87
+    .line 49
     new-instance v0, Ljava/util/Date;
 
     invoke-direct {v0}, Ljava/util/Date;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->mTime:Ljava/util/Date;
 
-    .line 89
+    .line 50
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->mResultCodes:Ljava/util/ArrayList;
 
-    .line 97
+    .line 54
     return-void
 .end method
 
@@ -83,27 +83,27 @@
     .parameter "in"
 
     .prologue
-    .line 109
+    .line 60
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 87
+    .line 49
     new-instance v0, Ljava/util/Date;
 
     invoke-direct {v0}, Ljava/util/Date;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->mTime:Ljava/util/Date;
 
-    .line 89
+    .line 50
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->mResultCodes:Ljava/util/ArrayList;
 
-    .line 111
+    .line 61
     invoke-virtual {p0, p1}, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 113
+    .line 62
     return-void
 .end method
 
@@ -113,7 +113,7 @@
     .locals 1
 
     .prologue
-    .line 393
+    .line 202
     const/4 v0, 0x0
 
     return v0
@@ -125,17 +125,17 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 185
+    .line 98
     iget-object v2, p0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->mResultCodes:Ljava/util/ArrayList;
 
     if-nez v2, :cond_1
 
-    .line 203
+    .line 107
     :cond_0
     :goto_0
     return v1
 
-    .line 193
+    .line 102
     :cond_1
     iget-object v2, p0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->mResultCodes:Ljava/util/ArrayList;
 
@@ -156,7 +156,7 @@
 
     check-cast v0, Lcom/sec/android/app/sysscope/service/ResultCode;
 
-    .line 195
+    .line 103
     .local v0, r:Lcom/sec/android/app/sysscope/service/ResultCode;
     sget-object v3, Lcom/sec/android/app/sysscope/service/ResultCode;->OK:Lcom/sec/android/app/sysscope/service/ResultCode;
 
@@ -166,7 +166,7 @@
 
     if-nez v3, :cond_2
 
-    .line 197
+    .line 104
     const/4 v1, 0x2
 
     goto :goto_0
@@ -177,19 +177,19 @@
     .parameter "in"
 
     .prologue
-    .line 433
+    .line 222
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v3
 
     invoke-virtual {p0, v3, v4}, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->setDate(J)V
 
-    .line 435
+    .line 223
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    .line 439
+    .line 225
     .local v0, count:I
     new-instance v3, Ljava/util/ArrayList;
 
@@ -197,17 +197,17 @@
 
     iput-object v3, p0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->mResultCodes:Ljava/util/ArrayList;
 
-    .line 441
+    .line 226
     const/4 v1, 0x0
 
     .local v1, i:I
     :goto_0
     if-lt v1, v0, :cond_0
 
-    .line 451
+    .line 231
     return-void
 
-    .line 443
+    .line 227
     :cond_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -217,7 +217,7 @@
 
     move-result-object v2
 
-    .line 445
+    .line 228
     .local v2, r:Lcom/sec/android/app/sysscope/service/ResultCode;
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -225,12 +225,12 @@
 
     invoke-virtual {v2, v3}, Lcom/sec/android/app/sysscope/service/ResultCode;->setDescription(Ljava/lang/String;)V
 
-    .line 447
+    .line 229
     iget-object v3, p0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->mResultCodes:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 441
+    .line 226
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
@@ -241,14 +241,14 @@
     .parameter "time"
 
     .prologue
-    .line 235
+    .line 123
     new-instance v0, Ljava/util/Date;
 
     invoke-direct {v0, p1, p2}, Ljava/util/Date;-><init>(J)V
 
     iput-object v0, p0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->mTime:Ljava/util/Date;
 
-    .line 237
+    .line 124
     return-void
 .end method
 
@@ -256,25 +256,25 @@
     .locals 5
 
     .prologue
-    .line 335
+    .line 173
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 339
+    .line 175
     .local v0, b:Ljava/lang/StringBuilder;
     iget-object v3, p0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->mTime:Ljava/util/Date;
 
     if-nez v3, :cond_0
 
-    .line 341
+    .line 176
     const-string v3, ""
 
-    .line 377
+    .line 194
     :goto_0
     return-object v3
 
-    .line 347
+    .line 179
     :cond_0
     iget-object v3, p0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->mTime:Ljava/util/Date;
 
@@ -284,12 +284,12 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 349
+    .line 180
     const-string v3, "\n"
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 353
+    .line 182
     iget-object v3, p0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->mResultCodes:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -303,14 +303,14 @@
 
     if-nez v4, :cond_1
 
-    .line 377
+    .line 194
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
     goto :goto_0
 
-    .line 353
+    .line 182
     :cond_1
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -318,7 +318,7 @@
 
     check-cast v2, Lcom/sec/android/app/sysscope/service/ResultCode;
 
-    .line 355
+    .line 183
     .local v2, r:Lcom/sec/android/app/sysscope/service/ResultCode;
     invoke-virtual {v2}, Lcom/sec/android/app/sysscope/service/ResultCode;->name()Ljava/lang/String;
 
@@ -326,12 +326,12 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 359
+    .line 185
     invoke-virtual {v2}, Lcom/sec/android/app/sysscope/service/ResultCode;->getDescription()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 361
+    .line 186
     .local v1, desc:Ljava/lang/String;
     if-eqz v1, :cond_2
 
@@ -343,15 +343,15 @@
 
     if-nez v4, :cond_2
 
-    .line 363
+    .line 187
     const-string v4, ": "
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 365
+    .line 188
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 371
+    .line 191
     :cond_2
     const-string v4, "\n"
 
@@ -366,7 +366,7 @@
     .parameter "flags"
 
     .prologue
-    .line 409
+    .line 210
     iget-object v1, p0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->mTime:Ljava/util/Date;
 
     invoke-virtual {v1}, Ljava/util/Date;->getTime()J
@@ -375,7 +375,7 @@
 
     invoke-virtual {p1, v1, v2}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 411
+    .line 211
     iget-object v1, p0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->mResultCodes:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
@@ -384,7 +384,7 @@
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 413
+    .line 212
     iget-object v1, p0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->mResultCodes:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -398,10 +398,10 @@
 
     if-nez v2, :cond_0
 
-    .line 421
+    .line 216
     return-void
 
-    .line 413
+    .line 212
     :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -409,7 +409,7 @@
 
     check-cast v0, Lcom/sec/android/app/sysscope/service/ResultCode;
 
-    .line 415
+    .line 213
     .local v0, r:Lcom/sec/android/app/sysscope/service/ResultCode;
     invoke-virtual {v0}, Lcom/sec/android/app/sysscope/service/ResultCode;->value()I
 
@@ -417,7 +417,7 @@
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 417
+    .line 214
     invoke-virtual {v0}, Lcom/sec/android/app/sysscope/service/ResultCode;->getDescription()Ljava/lang/String;
 
     move-result-object v2

@@ -73,13 +73,27 @@
 
     move-result-object v4
 
-    const-string v5, "level"
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, v5, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v5
+    const-string v6, ""
 
-    invoke-static {v5}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, "level"
+
+    invoke-virtual {p2, v6, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
@@ -93,13 +107,27 @@
 
     move-result-object v4
 
-    const-string v5, "scale"
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, v5, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v5
+    const-string v6, ""
 
-    invoke-static {v5}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, "scale"
+
+    invoke-virtual {p2, v6, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
@@ -117,17 +145,19 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
+    const-string v6, ""
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
     const-string v6, "voltage"
 
     invoke-virtual {p2, v6, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v6
 
-    invoke-static {v6}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
@@ -139,7 +169,7 @@
 
     iget-object v6, p0, Lcom/android/OriginalSettings/BatteryInfo$2;->this$0:Lcom/android/OriginalSettings/BatteryInfo;
 
-    const v7, 0x7f0d005a
+    const v7, 0x7f09006c
 
     invoke-virtual {v6, v7}, Lcom/android/OriginalSettings/BatteryInfo;->getString(I)Ljava/lang/String;
 
@@ -167,6 +197,12 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
+    const-string v6, ""
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
     iget-object v6, p0, Lcom/android/OriginalSettings/BatteryInfo$2;->this$0:Lcom/android/OriginalSettings/BatteryInfo;
 
     const-string v7, "temperature"
@@ -186,7 +222,7 @@
 
     iget-object v6, p0, Lcom/android/OriginalSettings/BatteryInfo$2;->this$0:Lcom/android/OriginalSettings/BatteryInfo;
 
-    const v7, 0x7f0d005c
+    const v7, 0x7f09006e
 
     invoke-virtual {v6, v7}, Lcom/android/OriginalSettings/BatteryInfo;->getString(I)Ljava/lang/String;
 
@@ -210,9 +246,27 @@
 
     move-result-object v4
 
-    const-string v5, "technology"
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, v5}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, ""
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, "technology"
+
+    invoke-virtual {p2, v6}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
@@ -251,7 +305,7 @@
 
     iget-object v5, p0, Lcom/android/OriginalSettings/BatteryInfo$2;->this$0:Lcom/android/OriginalSettings/BatteryInfo;
 
-    const v6, 0x7f0d006c
+    const v6, 0x7f09007e
 
     invoke-virtual {v5, v6}, Lcom/android/OriginalSettings/BatteryInfo;->getString(I)Ljava/lang/String;
 
@@ -278,7 +332,7 @@
     .line 116
     iget-object v4, p0, Lcom/android/OriginalSettings/BatteryInfo$2;->this$0:Lcom/android/OriginalSettings/BatteryInfo;
 
-    const v5, 0x7f0d006e
+    const v5, 0x7f090080
 
     invoke-virtual {v4, v5}, Lcom/android/OriginalSettings/BatteryInfo;->getString(I)Ljava/lang/String;
 
@@ -315,7 +369,7 @@
 
     iget-object v5, p0, Lcom/android/OriginalSettings/BatteryInfo$2;->this$0:Lcom/android/OriginalSettings/BatteryInfo;
 
-    const v6, 0x7f0d0068
+    const v6, 0x7f09007a
 
     invoke-virtual {v5, v6}, Lcom/android/OriginalSettings/BatteryInfo;->getString(I)Ljava/lang/String;
 
@@ -336,7 +390,7 @@
 
     iget-object v5, p0, Lcom/android/OriginalSettings/BatteryInfo$2;->this$0:Lcom/android/OriginalSettings/BatteryInfo;
 
-    const v6, 0x7f0d0069
+    const v6, 0x7f09007b
 
     invoke-virtual {v5, v6}, Lcom/android/OriginalSettings/BatteryInfo;->getString(I)Ljava/lang/String;
 
@@ -357,7 +411,7 @@
 
     iget-object v5, p0, Lcom/android/OriginalSettings/BatteryInfo$2;->this$0:Lcom/android/OriginalSettings/BatteryInfo;
 
-    const v6, 0x7f0d006a
+    const v6, 0x7f09007c
 
     invoke-virtual {v5, v6}, Lcom/android/OriginalSettings/BatteryInfo;->getString(I)Ljava/lang/String;
 
@@ -378,7 +432,7 @@
 
     iget-object v5, p0, Lcom/android/OriginalSettings/BatteryInfo$2;->this$0:Lcom/android/OriginalSettings/BatteryInfo;
 
-    const v6, 0x7f0d006b
+    const v6, 0x7f09007d
 
     invoke-virtual {v5, v6}, Lcom/android/OriginalSettings/BatteryInfo;->getString(I)Ljava/lang/String;
 
@@ -398,7 +452,7 @@
     .line 118
     iget-object v4, p0, Lcom/android/OriginalSettings/BatteryInfo$2;->this$0:Lcom/android/OriginalSettings/BatteryInfo;
 
-    const v5, 0x7f0d006f
+    const v5, 0x7f090081
 
     invoke-virtual {v4, v5}, Lcom/android/OriginalSettings/BatteryInfo;->getString(I)Ljava/lang/String;
 
@@ -417,7 +471,7 @@
     .line 120
     iget-object v4, p0, Lcom/android/OriginalSettings/BatteryInfo$2;->this$0:Lcom/android/OriginalSettings/BatteryInfo;
 
-    const v5, 0x7f0d0070
+    const v5, 0x7f090082
 
     invoke-virtual {v4, v5}, Lcom/android/OriginalSettings/BatteryInfo;->getString(I)Ljava/lang/String;
 
@@ -436,7 +490,7 @@
     .line 122
     iget-object v4, p0, Lcom/android/OriginalSettings/BatteryInfo$2;->this$0:Lcom/android/OriginalSettings/BatteryInfo;
 
-    const v5, 0x7f0d0071
+    const v5, 0x7f090083
 
     invoke-virtual {v4, v5}, Lcom/android/OriginalSettings/BatteryInfo;->getString(I)Ljava/lang/String;
 
@@ -455,7 +509,7 @@
     .line 124
     iget-object v4, p0, Lcom/android/OriginalSettings/BatteryInfo$2;->this$0:Lcom/android/OriginalSettings/BatteryInfo;
 
-    const v5, 0x7f0d0072
+    const v5, 0x7f090084
 
     invoke-virtual {v4, v5}, Lcom/android/OriginalSettings/BatteryInfo;->getString(I)Ljava/lang/String;
 
@@ -474,7 +528,7 @@
     .line 126
     iget-object v4, p0, Lcom/android/OriginalSettings/BatteryInfo$2;->this$0:Lcom/android/OriginalSettings/BatteryInfo;
 
-    const v5, 0x7f0d0073
+    const v5, 0x7f090085
 
     invoke-virtual {v4, v5}, Lcom/android/OriginalSettings/BatteryInfo;->getString(I)Ljava/lang/String;
 
@@ -488,7 +542,7 @@
     :cond_6
     iget-object v4, p0, Lcom/android/OriginalSettings/BatteryInfo$2;->this$0:Lcom/android/OriginalSettings/BatteryInfo;
 
-    const v5, 0x7f0d006d
+    const v5, 0x7f09007f
 
     invoke-virtual {v4, v5}, Lcom/android/OriginalSettings/BatteryInfo;->getString(I)Ljava/lang/String;
 
@@ -498,8 +552,6 @@
     goto/16 :goto_1
 
     .line 95
-    nop
-
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

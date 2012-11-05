@@ -192,7 +192,7 @@
 
     .line 339
     .local v1, builder:Landroid/app/AlertDialog$Builder;
-    const v6, 0x10405bb
+    const v6, 0x1040633
 
     invoke-virtual {v1, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -215,7 +215,7 @@
 
     .line 348
     .local v2, certDialog:Landroid/app/Dialog;
-    const v6, 0x10203a9
+    const v6, 0x10203dc
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -235,7 +235,7 @@
 
     .line 350
     .local v3, inflater:Landroid/view/LayoutInflater;
-    const v6, 0x7f0400be
+    const v6, 0x7f0400db
 
     const/4 v7, 0x0
 
@@ -286,7 +286,7 @@
 
     .prologue
     .line 146
-    const v0, 0x7f0400bf
+    const v0, 0x7f0400dc
 
     const/4 v1, 0x0
 

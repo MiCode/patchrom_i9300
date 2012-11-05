@@ -3,7 +3,7 @@
 .source "WifiSettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnDismissListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1320
+    .line 1285
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$9;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,24 +37,12 @@
 
 
 # virtual methods
-.method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 2
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 0
     .parameter "dialog"
+    .parameter "which"
 
     .prologue
-    .line 1322
-    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$9;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
-
-    iget-object v1, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$9;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
-
-    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mWatchdogDialogRunnable:Ljava/lang/Runnable;
-    invoke-static {v1}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$1200(Lcom/android/OriginalSettings/wifi/WifiSettings;)Ljava/lang/Runnable;
-
-    move-result-object v1
-
-    #calls: Lcom/android/OriginalSettings/wifi/WifiSettings;->removeDialogTimer(Ljava/lang/Runnable;)V
-    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$1300(Lcom/android/OriginalSettings/wifi/WifiSettings;Ljava/lang/Runnable;)V
-
-    .line 1323
+    .line 1288
     return-void
 .end method

@@ -54,7 +54,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f070053
+    const v7, 0x7f070060
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
@@ -159,7 +159,7 @@
 
     const-string v7, "Ill-formatted timezones.xml file"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_2
 
@@ -194,7 +194,7 @@
 
     const-string v7, "Unable to read timezones.xml file"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_2
 
@@ -514,7 +514,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0e0002
+    const v4, 0x7f0f0002
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -590,7 +590,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 160
     invoke-virtual {p0}, Lcom/android/OriginalSettings/dualclock/DualClockSetting;->getContentResolver()Landroid/content/ContentResolver;
@@ -630,7 +630,7 @@
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 68
-    const v0, 0x7f070020
+    const v0, 0x7f070029
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/dualclock/DualClockSetting;->addPreferencesFromResource(I)V
 
@@ -648,7 +648,7 @@
 
     const-string v1, "onCreate"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 73
     return-void
@@ -666,7 +666,7 @@
 
     const-string v1, "onPause"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 155
     return-void
@@ -707,7 +707,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 171
     const-string v0, "homecity_timezone"
@@ -718,23 +718,20 @@
 
     if-eqz v0, :cond_0
 
-    .line 172
     new-instance v4, Landroid/os/Bundle;
 
     invoke-direct {v4}, Landroid/os/Bundle;-><init>()V
 
-    .line 173
     .local v4, bundle:Landroid/os/Bundle;
     const-string v0, "ishomecity"
 
     invoke-virtual {v4, v0, v7}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 174
     const-string v2, "com.android.OriginalSettings.ZonePicker"
 
     const/4 v3, 0x0
 
-    const v5, 0x7f0d0898
+    const v5, 0x7f090a78
 
     move-object v0, p0
 
@@ -770,7 +767,7 @@
 
     const-string v1, "onResume"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 113
     invoke-direct {p0}, Lcom/android/OriginalSettings/dualclock/DualClockSetting;->updateCheckedUI()V
@@ -878,7 +875,7 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secW(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 196
     const/4 v1, 0x0

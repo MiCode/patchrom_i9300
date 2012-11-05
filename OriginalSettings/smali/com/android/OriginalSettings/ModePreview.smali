@@ -53,7 +53,7 @@
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/BaseActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 48
-    const v3, 0x7f04006d
+    const v3, 0x7f040084
 
     invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/ModePreview;->setContentView(I)V
 
@@ -71,7 +71,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d07ad
+    const v5, 0x7f090903
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -86,7 +86,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d07ae
+    const v5, 0x7f090904
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -101,7 +101,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d07b0
+    const v5, 0x7f090906
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -118,7 +118,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d07af
+    const v6, 0x7f090905
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -127,7 +127,7 @@
     aput-object v5, v3, v4
 
     .line 63
-    const v3, 0x7f0a00aa
+    const v3, 0x7f0b00b8
 
     invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/ModePreview;->findViewById(I)Landroid/view/View;
 
@@ -142,7 +142,7 @@
 
     new-instance v4, Landroid/widget/ArrayAdapter;
 
-    const v5, 0x7f04006e
+    const v5, 0x7f040085
 
     sget-object v6, Lcom/android/OriginalSettings/ModePreview;->mModeItem:[Ljava/lang/String;
 
@@ -181,7 +181,7 @@
     invoke-virtual {v3, v9}, Landroid/widget/ListView;->setOverScrollMode(I)V
 
     .line 70
-    const v3, 0x7f0a012c
+    const v3, 0x7f0b0158
 
     invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/ModePreview;->findViewById(I)Landroid/view/View;
 
@@ -198,7 +198,7 @@
     invoke-virtual {v1, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 78
-    const v3, 0x7f0a012d
+    const v3, 0x7f0b0157
 
     invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/ModePreview;->findViewById(I)Landroid/view/View;
 
@@ -222,7 +222,7 @@
     if-eqz v3, :cond_0
 
     .line 91
-    const v3, 0x7f0a014b
+    const v3, 0x7f0b0156
 
     invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/ModePreview;->findViewById(I)Landroid/view/View;
 
@@ -252,7 +252,7 @@
 
     .line 122
     .local v0, inflater:Landroid/view/MenuInflater;
-    const v1, 0x7f110002
+    const v1, 0x7f120004
 
     invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
@@ -263,7 +263,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d010e
+    const v2, 0x7f090125
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
@@ -274,7 +274,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d042c
+    const v2, 0x7f0904ed
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
@@ -324,7 +324,7 @@
 
     const-string v2, "could not persist mode setting"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v2, v0}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
@@ -377,7 +377,7 @@
 
     const-string v2, "could not change mode setting"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v2, v0}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
@@ -439,7 +439,7 @@
 
     const-string v3, "could not change mode setting"
 
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v0}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_1
 
@@ -469,7 +469,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f0a0340
+    .packed-switch 0x7f0b03a2
         :pswitch_0
         :pswitch_1
     .end packed-switch

@@ -37,7 +37,7 @@
     .parameter
 
     .prologue
-    .line 299
+    .line 300
     iput-object p1, p0, Lcom/android/OriginalSettings/autohaptic/AutoHapticSettings$1;->this$0:Lcom/android/OriginalSettings/autohaptic/AutoHapticSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -53,7 +53,7 @@
     .parameter "arg1"
 
     .prologue
-    .line 301
+    .line 302
     iget-object v0, p1, Lcom/android/OriginalSettings/autohaptic/AutoHapticSettings$IncludedApps;->mName:Ljava/lang/String;
 
     iget-object v1, p2, Lcom/android/OriginalSettings/autohaptic/AutoHapticSettings$IncludedApps;->mName:Ljava/lang/String;
@@ -71,7 +71,7 @@
     .parameter "x1"
 
     .prologue
-    .line 299
+    .line 300
     check-cast p1, Lcom/android/OriginalSettings/autohaptic/AutoHapticSettings$IncludedApps;
 
     .end local p1

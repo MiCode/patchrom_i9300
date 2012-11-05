@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 86
+    .line 112
     iput-object p1, p0, Lcom/android/OriginalSettings/BrightnessPreference$1;->this$0:Lcom/android/OriginalSettings/BrightnessPreference;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -36,16 +36,24 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 1
+    .locals 2
     .parameter "selfChange"
 
     .prologue
-    .line 89
+    .line 115
+    iget-object v0, p0, Lcom/android/OriginalSettings/BrightnessPreference$1;->this$0:Lcom/android/OriginalSettings/BrightnessPreference;
+
+    const/4 v1, -0x1
+
+    #setter for: Lcom/android/OriginalSettings/BrightnessPreference;->mCurBrightness:I
+    invoke-static {v0, v1}, Lcom/android/OriginalSettings/BrightnessPreference;->access$002(Lcom/android/OriginalSettings/BrightnessPreference;I)I
+
+    .line 116
     iget-object v0, p0, Lcom/android/OriginalSettings/BrightnessPreference$1;->this$0:Lcom/android/OriginalSettings/BrightnessPreference;
 
     #calls: Lcom/android/OriginalSettings/BrightnessPreference;->onBrightnessChanged()V
-    invoke-static {v0}, Lcom/android/OriginalSettings/BrightnessPreference;->access$000(Lcom/android/OriginalSettings/BrightnessPreference;)V
+    invoke-static {v0}, Lcom/android/OriginalSettings/BrightnessPreference;->access$100(Lcom/android/OriginalSettings/BrightnessPreference;)V
 
-    .line 90
+    .line 117
     return-void
 .end method

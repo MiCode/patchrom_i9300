@@ -18,12 +18,15 @@
         <item>10 минут</item>
         <item>30 минут</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 секунд</item>
         <item>30 секунд</item>
         <item>1 минут</item>
-        <item>2 минут</item>
+        <item>3 минут</item>
         <item>5 минут</item>
+        <item>10 минут</item>
+        <item>15 минут</item>
+        <item>30 минут</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Ешқашан</item>
@@ -34,6 +37,18 @@
         <item>5 минут</item>
         <item>10 минут</item>
         <item>30 минут</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 секунд</item>
+        <item>30 секунд</item>
+        <item>1 минут</item>
+        <item>3 минут</item>
+        <item>5 минут</item>
+        <item>10 минут</item>
+        <item>15 минут</item>
+        <item>30 минут</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>Дереу</item>
@@ -93,17 +108,7 @@
         <item>Ажыратылды</item>
         <item>Сәтсіз</item>
         <item>Қосылды</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Temporarily avoiding poor connection</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>Ажыратылды</item>
         <item>Сәтсіз</item>
         <item>Қосылды</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Temporarily avoiding poor connection</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>Ашу</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Баспалы түйме</item>
+        <item>Тең құрылғыдан алынған PIN</item>
+        <item>Осы құрылғыдан алынған PIN</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Қосылды</item>
+        <item>Шақырылған</item>
+        <item>Қосылу үзіліп кетті</item>
+        <item>Қосылу үшін түртіңіз</item>
+        <item>Диапазоннан тыс</item>
+        <item>Басқа құрылғымен қосылды</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>Ешқашан уақытын өткізбеңіз</item>
@@ -152,6 +155,10 @@
         <item>20 минут</item>
         <item>30 минут</item>
         <item>60 минут</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Барл құрыл. рұқ. ету</item>
+        <item>Тек рұқсат етілген құрылғылар</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>Авто</item>
@@ -178,19 +185,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-    </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Баспалы түйме</item>
-        <item>Тең құрылғыдан алынған PIN</item>
-        <item>Осы құрылғыдан алынған PIN</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Қосылды</item>
-        <item>Шақырылған</item>
-        <item>Қосылу үзіліп кетті</item>
-        <item>Қосылу үшін түртіңіз</item>
-        <item>Диапазоннан тыс</item>
-        <item>Басқа құрылғымен қосылды</item>
     </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 мин</item>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -267,16 +262,6 @@
         <item>Жоқ</item>
         <item>Қолмен</item>
     </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Әдеттегі</item>
-        <item>Downtown</item>
-        <item>Үй парағы</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>Бұл ең негізгі Wi-Fi қосылу параметрі болып табылады</item>
-        <item>Егер сіз көп Wi-Fi желілері бар аумақта болсаңыз, Wi-Fi жақсы сигнал күші үшін жиі қайта қосылады</item>
-        <item>Егер сіз біраз Wi-Fi желілері бар аумақта болсаңыз, Wi-Fi байланысы мүмкіндігінше көп ұсталады</item>
-    </string-array>
     <string-array name="emergency_tone_entries">
         <item>Өшірілген</item>
         <item>Қоңырау</item>
@@ -302,11 +287,6 @@
         <item>Ішкі құрылғыға сақтау</item>
         <item>Алынбалы SD картасы</item>
         <item>Әдепкі</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>Өшірілген</item>
-        <item>Дірілдеу</item>
-        <item>Дыбысын өшіру</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Қысқа</item>
@@ -341,6 +321,15 @@
         <item>Анимациялық шкала 5x</item>
         <item>Анимациялық шкала 10x</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Анимация өшірулі</item>
+        <item>Анимациялық шкала 0.5x</item>
+        <item>Анимациялық шкала 1x</item>
+        <item>Анимациялық шкала 1.5x</item>
+        <item>Анимациялық шкала 2x</item>
+        <item>Анимациялық шкала 5x</item>
+        <item>Анимациялық шкала 10x</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>Стандартты шек</item>
         <item>Фондық процестер жоқ</item>
@@ -365,22 +354,8 @@
         <item>Уақыты аяқталды</item>
         <item>Сәтсіз</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>USB сақтау құралы</item>
+        <item>Құрылғы</item>
         <item>SD карта</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -410,15 +385,28 @@
         <item>Фотосуреттер</item>
         <item>Музыка</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>Жоғары</item>
-        <item>Орташа</item>
-        <item>Төмен</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Автоматты түрде</item>
         <item>Қолдан</item>
         <item>Әрқашан сұрау</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Әрқашан өшірілген</item>
+        <item>3 секунд</item>
+        <item>5 секунд</item>
+        <item>10 секунд</item>
+        <item>15 секунд</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Жоқ</item>
+        <item>Барлық контактілер</item>
+        <item>Таңдаулылар</item>
+        <item>Әдеттегі</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>Жоғары</item>
+        <item>Орташа</item>
+        <item>Төмен</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1.5 секунд</item>
@@ -434,11 +422,24 @@
     <string-array name="contents_type_entries">
         <item>Жаңалықтар</item>
         <item>Қор</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Жаңалықтар</item>
+        <item>Қор</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>Баяу</item>
         <item>Қалыпты</item>
         <item>Жылдам</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Жоқ</item>
+        <item>30 минут сайын</item>
+        <item>1 сағат сайын</item>
+        <item>Әр 2 сағат сайын</item>
+        <item>4 сағат сайын</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>Гарнитура</item>
@@ -446,5 +447,9 @@
         <item>Телефон</item>
         <item>HID (пернетақта, тінтуір, т.б.)</item>
         <item>Барлық құрылғылар</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Стерео</item>
+        <item>Көлемді дыбыс</item>
     </string-array>
 </resources>

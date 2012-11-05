@@ -25,7 +25,7 @@
     invoke-super {p0, p1}, Lmiui/preference/BasePreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 28
-    const v0, 0x7f070050
+    const v0, 0x7f07005d
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/TestingSettings;->addPreferencesFromResource(I)V
 

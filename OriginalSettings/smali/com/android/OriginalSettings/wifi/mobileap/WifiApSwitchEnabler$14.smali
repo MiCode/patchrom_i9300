@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 427
+    .line 479
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler$14;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,25 +38,17 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
+    .locals 1
     .parameter "dialog"
     .parameter "whichButton"
 
     .prologue
-    .line 429
+    .line 481
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler$14;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;
 
-    const/4 v1, 0x1
+    #calls: Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;->afterAttentionDialog()V
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;->access$500(Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;)V
 
-    invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;->setEnabled(Z)V
-
-    .line 430
-    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler$14;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApSwitchEnabler;->setChecked(Z)V
-
-    .line 431
+    .line 482
     return-void
 .end method

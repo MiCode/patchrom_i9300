@@ -18,12 +18,15 @@
         <item>10 minute</item>
         <item>30 minute</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 secunde</item>
         <item>30 secunde</item>
         <item>1 minut</item>
-        <item>2 minute</item>
+        <item>3 minute</item>
         <item>5 minute</item>
+        <item>10 minute</item>
+        <item>15 minute</item>
+        <item>30 minute</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Niciodată</item>
@@ -34,6 +37,18 @@
         <item>5 minute</item>
         <item>10 minute</item>
         <item>30 minute</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 secunde</item>
+        <item>30 secunde</item>
+        <item>1 minut</item>
+        <item>3 minute</item>
+        <item>5 minute</item>
+        <item>10 minute</item>
+        <item>15 minute</item>
+        <item>30 minute</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>Imediat</item>
@@ -93,17 +108,7 @@
         <item>Deconectat</item>
         <item>Eşuat</item>
         <item>Conectat</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Evitarea temporară a conexiunii slabe</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>Deconectat</item>
         <item>Eşuat</item>
         <item>Conectat</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Evitarea temporară a conexiunii slabe</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>Deschidere</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Buton de comandă</item>
+        <item>PIN de la dispozitiv pereche</item>
+        <item>PIN de la acest dispozitiv</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Conectat</item>
+        <item>Invitat</item>
+        <item>Conexiune nereuşită</item>
+        <item>Atingeţi pentru conectare</item>
+        <item>În afara limitelor</item>
+        <item>Conectat la un alt dispozitiv</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>Fără perioadă de expirare</item>
@@ -152,6 +155,10 @@
         <item>20 de min.</item>
         <item>30 minute</item>
         <item>60 de minute</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Permitere dispoz.</item>
+        <item>Numai dispozitive permise</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>Automat</item>
@@ -178,19 +185,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-    </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Buton de comandă</item>
-        <item>PIN de la dispozitiv pereche</item>
-        <item>PIN de la acest dispozitiv</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Conectat</item>
-        <item>Invitat</item>
-        <item>Conexiune nereuşită</item>
-        <item>Atingeţi pentru conectare</item>
-        <item>În afara limitelor</item>
-        <item>Conectat la un alt dispozitiv</item>
     </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 min.</item>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -266,16 +261,6 @@
     <string-array name="wifi_proxy_settings">
         <item>Niciuna</item>
         <item>Manual</item>
-    </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Normal</item>
-        <item>Downtown</item>
-        <item>Acasă</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>Aceasta este cea mai generală setare de conexiune Wi-Fi</item>
-        <item>Dacă vă aflaţi într-o zonă cu numeroase reţele Wi-Fi, Wi-Fi se va reconecta frecvent, pentru o mai bună putere a semnalului</item>
-        <item>Dacă vă aflaţi într-o zonă cu puţine reţele Wi-Fi, conexiunea Wi-Fi este menţinută cât mai mult timp posibil</item>
     </string-array>
     <string-array name="emergency_tone_entries">
         <item>Oprit</item>
@@ -307,11 +292,6 @@
         <item>Stocare internă dispozitiv</item>
         <item>Cartelă SD detaşabilă</item>
         <item>Implicită</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>Oprit</item>
-        <item>Vibraţie</item>
-        <item>Silenţios</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Scurt</item>
@@ -346,6 +326,15 @@
         <item>Scalare animaţie 5x</item>
         <item>Scalare animaţie 10x</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Animaţia este dezactivată</item>
+        <item>Scalare animaţie 0,5x</item>
+        <item>Scalare animaţie 1x</item>
+        <item>Scalare animaţie 1,5x</item>
+        <item>Scalare animaţie 2x</item>
+        <item>Scalare animaţie 5x</item>
+        <item>Scalare animaţie 10x</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>Limită standard</item>
         <item>Nu sunt procese în fundal</item>
@@ -370,22 +359,8 @@
         <item>Timp expirat</item>
         <item>Eşuat</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>Spaţiu de stocare USB</item>
+        <item>Dispozitiv</item>
         <item>Cartelă SD</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -415,15 +390,28 @@
         <item>Fotografii</item>
         <item>Muzică</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>Ridicată</item>
-        <item>Mediu</item>
-        <item>Scăzută</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Automat</item>
         <item>Manual</item>
         <item>Se întreabă întotdeauna</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Întotdeauna dezactivat</item>
+        <item>3 secunde</item>
+        <item>5 secunde</item>
+        <item>10 secunde</item>
+        <item>15 secunde</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Niciuna</item>
+        <item>Toate contactele</item>
+        <item>Favorite</item>
+        <item>Particularizat</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>Ridicată</item>
+        <item>Mediu</item>
+        <item>Scăzută</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1.5 secunde</item>
@@ -439,11 +427,24 @@
     <string-array name="contents_type_entries">
         <item>Ştiri</item>
         <item>Acţiuni</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Ştiri</item>
+        <item>Acţiuni</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>Încet</item>
         <item>Normal</item>
         <item>Rapid</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Niciuna</item>
+        <item>La fiecare 30 de minut</item>
+        <item>Din oră în oră</item>
+        <item>La fiecare 2 ore</item>
+        <item>La fiecare 4 ore</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>Căşti</item>
@@ -451,5 +452,9 @@
         <item>Telefon</item>
         <item>HID (tastatură, mouse etc.)</item>
         <item>Toate dispozitivele</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Stereo</item>
+        <item>Surround</item>
     </string-array>
 </resources>

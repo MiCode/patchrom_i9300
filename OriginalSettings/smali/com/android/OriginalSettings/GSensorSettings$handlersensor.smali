@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 208
+    .line 206
     iput-object p1, p0, Lcom/android/OriginalSettings/GSensorSettings$handlersensor;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .parameter "x1"
 
     .prologue
-    .line 208
+    .line 206
     invoke-direct {p0, p1}, Lcom/android/OriginalSettings/GSensorSettings$handlersensor;-><init>(Lcom/android/OriginalSettings/GSensorSettings;)V
 
     return-void
@@ -55,7 +55,7 @@
     .parameter "accuracy"
 
     .prologue
-    .line 210
+    .line 208
     invoke-virtual {p1}, Landroid/hardware/Sensor;->getType()I
 
     move-result v0
@@ -64,7 +64,7 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 214
+    .line 212
     :cond_0
     return-void
 .end method
@@ -74,7 +74,7 @@
     .parameter "event"
 
     .prologue
-    .line 217
+    .line 215
     iget-object v0, p1, Landroid/hardware/SensorEvent;->sensor:Landroid/hardware/Sensor;
 
     invoke-virtual {v0}, Landroid/hardware/Sensor;->getType()I
@@ -83,11 +83,11 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 226
+    .line 224
     :pswitch_0
     return-void
 
-    .line 217
+    .line 215
     :pswitch_data_0
     .packed-switch 0x4
         :pswitch_0

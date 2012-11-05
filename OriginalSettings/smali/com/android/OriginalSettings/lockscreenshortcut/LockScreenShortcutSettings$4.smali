@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 569
+    .line 770
     iput-object p1, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$4;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,67 +38,45 @@
 
 # virtual methods
 .method public onDrag(Landroid/view/View;Landroid/view/DragEvent;)Z
-    .locals 3
+    .locals 2
     .parameter "v"
     .parameter "event"
 
     .prologue
-    const v2, 0x7f020296
+    const/4 v1, 0x0
 
-    .line 572
-    move-object v0, p1
-
-    check-cast v0, Landroid/widget/ImageView;
-
-    .line 573
-    .local v0, iv:Landroid/widget/ImageView;
+    .line 774
     invoke-virtual {p2}, Landroid/view/DragEvent;->getAction()I
 
-    move-result v1
+    move-result v0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v0, :pswitch_data_0
 
-    .line 590
+    .line 783
     :goto_0
     :pswitch_0
-    const/4 v1, 0x1
-
     return v1
 
-    .line 575
+    .line 779
     :pswitch_1
-    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setImageResource(I)V
+    const/high16 v0, 0x3f80
 
-    .line 576
-    iget-object v1, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$4;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
+    invoke-virtual {p1, v0}, Landroid/view/View;->setAlpha(F)V
 
-    #calls: Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->changeShortCut(Landroid/widget/ImageView;)V
-    invoke-static {v1, v0}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->access$900(Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;Landroid/widget/ImageView;)V
+    .line 780
+    iget-object v0, p0, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings$4;->this$0:Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;
 
-    goto :goto_0
-
-    .line 580
-    :pswitch_2
-    const v1, 0x7f0201eb
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
+    #setter for: Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->mIsOnDragging:Z
+    invoke-static {v0, v1}, Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;->access$402(Lcom/android/OriginalSettings/lockscreenshortcut/LockScreenShortcutSettings;Z)Z
 
     goto :goto_0
 
-    .line 584
-    :pswitch_3
-    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setImageResource(I)V
-
-    goto :goto_0
-
-    .line 573
-    nop
-
+    .line 774
     :pswitch_data_0
-    .packed-switch 0x3
-        :pswitch_1
+    .packed-switch 0x1
         :pswitch_0
-        :pswitch_2
-        :pswitch_3
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method

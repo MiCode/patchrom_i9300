@@ -26,10 +26,10 @@
     .locals 1
 
     .prologue
-    .line 211
+    .line 221
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 212
+    .line 222
     new-instance v0, Lcom/android/OriginalSettings/applications/CanBeOnSdCardChecker;
 
     invoke-direct {v0}, Lcom/android/OriginalSettings/applications/CanBeOnSdCardChecker;-><init>()V
@@ -46,7 +46,7 @@
     .parameter "info"
 
     .prologue
-    .line 221
+    .line 231
     iget-object v0, p0, Lcom/android/OriginalSettings/applications/ApplicationsState$6;->mCanBeOnSdCardChecker:Lcom/android/OriginalSettings/applications/CanBeOnSdCardChecker;
 
     invoke-virtual {v0, p1}, Lcom/android/OriginalSettings/applications/CanBeOnSdCardChecker;->check(Landroid/content/pm/ApplicationInfo;)Z
@@ -60,11 +60,11 @@
     .locals 1
 
     .prologue
-    .line 216
+    .line 226
     iget-object v0, p0, Lcom/android/OriginalSettings/applications/ApplicationsState$6;->mCanBeOnSdCardChecker:Lcom/android/OriginalSettings/applications/CanBeOnSdCardChecker;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/applications/CanBeOnSdCardChecker;->init()V
 
-    .line 217
+    .line 227
     return-void
 .end method

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 416
+    .line 420
     iput-object p1, p0, Lcom/android/OriginalSettings/SecuritySettings$3;->this$0:Lcom/android/OriginalSettings/SecuritySettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -44,12 +44,12 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 418
+    .line 422
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 419
+    .line 423
     .local v0, mIntent:Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/OriginalSettings/SecuritySettings$3;->this$0:Lcom/android/OriginalSettings/SecuritySettings;
 
@@ -67,14 +67,14 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 420
+    .line 424
     const-string v1, "com.osp.app.signin"
 
     const-string v2, "com.osp.app.signin.UserValidateCheck"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 423
+    .line 427
     :goto_0
     const-string v1, "MODE"
 
@@ -82,17 +82,17 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 424
+    .line 428
     iget-object v1, p0, Lcom/android/OriginalSettings/SecuritySettings$3;->this$0:Lcom/android/OriginalSettings/SecuritySettings;
 
     const/16 v2, 0x3e9
 
     invoke-virtual {v1, v0, v2}, Lcom/android/OriginalSettings/SecuritySettings;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 425
+    .line 429
     return v3
 
-    .line 422
+    .line 426
     :cond_0
     const-string v1, "com.osp.app.signin"
 

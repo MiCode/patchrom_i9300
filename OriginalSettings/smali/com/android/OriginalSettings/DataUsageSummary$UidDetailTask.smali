@@ -26,7 +26,7 @@
 
 
 # instance fields
-.field private final mItem:Lcom/android/OriginalSettings/DataUsageSummary$AppUsageItem;
+.field private final mItem:Lcom/android/OriginalSettings/DataUsageSummary$AppItem;
 
 .field private final mProvider:Lcom/android/OriginalSettings/net/UidDetailProvider;
 
@@ -34,17 +34,17 @@
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/OriginalSettings/net/UidDetailProvider;Lcom/android/OriginalSettings/DataUsageSummary$AppUsageItem;Landroid/view/View;)V
+.method private constructor <init>(Lcom/android/OriginalSettings/net/UidDetailProvider;Lcom/android/OriginalSettings/DataUsageSummary$AppItem;Landroid/view/View;)V
     .locals 1
     .parameter "provider"
     .parameter "item"
     .parameter "target"
 
     .prologue
-    .line 2330
+    .line 2563
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
-    .line 2331
+    .line 2564
     invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -53,16 +53,16 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$UidDetailTask;->mProvider:Lcom/android/OriginalSettings/net/UidDetailProvider;
 
-    .line 2332
+    .line 2565
     invoke-static {p2}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/OriginalSettings/DataUsageSummary$AppUsageItem;
+    check-cast v0, Lcom/android/OriginalSettings/DataUsageSummary$AppItem;
 
-    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$UidDetailTask;->mItem:Lcom/android/OriginalSettings/DataUsageSummary$AppUsageItem;
+    iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$UidDetailTask;->mItem:Lcom/android/OriginalSettings/DataUsageSummary$AppItem;
 
-    .line 2333
+    .line 2566
     invoke-static {p3}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -71,7 +71,7 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$UidDetailTask;->mTarget:Landroid/view/View;
 
-    .line 2334
+    .line 2567
     return-void
 .end method
 
@@ -83,7 +83,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 2353
+    .line 2586
     const v2, 0x1020006
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -92,7 +92,7 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    .line 2354
+    .line 2587
     .local v0, icon:Landroid/widget/ImageView;
     const v2, 0x1020016
 
@@ -102,35 +102,35 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    .line 2356
+    .line 2589
     .local v1, title:Landroid/widget/TextView;
     if-eqz p0, :cond_0
 
-    .line 2357
+    .line 2590
     iget-object v2, p0, Lcom/android/OriginalSettings/net/UidDetail;->icon:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 2358
+    .line 2591
     iget-object v2, p0, Lcom/android/OriginalSettings/net/UidDetail;->label:Ljava/lang/CharSequence;
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 2363
+    .line 2596
     :goto_0
     return-void
 
-    .line 2360
+    .line 2593
     :cond_0
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 2361
+    .line 2594
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 .end method
 
-.method public static bindView(Lcom/android/OriginalSettings/net/UidDetailProvider;Lcom/android/OriginalSettings/DataUsageSummary$AppUsageItem;Landroid/view/View;)V
+.method public static bindView(Lcom/android/OriginalSettings/net/UidDetailProvider;Lcom/android/OriginalSettings/DataUsageSummary$AppItem;Landroid/view/View;)V
     .locals 5
     .parameter "provider"
     .parameter "item"
@@ -139,46 +139,44 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 2338
+    .line 2571
     invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Lcom/android/OriginalSettings/DataUsageSummary$UidDetailTask;
 
-    .line 2339
+    .line 2572
     .local v1, existing:Lcom/android/OriginalSettings/DataUsageSummary$UidDetailTask;
     if-eqz v1, :cond_0
 
-    .line 2340
+    .line 2573
     invoke-virtual {v1, v4}, Lcom/android/OriginalSettings/DataUsageSummary$UidDetailTask;->cancel(Z)Z
 
-    .line 2343
+    .line 2576
     :cond_0
-    iget-object v2, p1, Lcom/android/OriginalSettings/DataUsageSummary$AppUsageItem;->uids:[I
-
-    aget v2, v2, v4
+    iget v2, p1, Lcom/android/OriginalSettings/DataUsageSummary$AppItem;->appId:I
 
     invoke-virtual {p0, v2, v4}, Lcom/android/OriginalSettings/net/UidDetailProvider;->getUidDetail(IZ)Lcom/android/OriginalSettings/net/UidDetail;
 
     move-result-object v0
 
-    .line 2344
+    .line 2577
     .local v0, cachedDetail:Lcom/android/OriginalSettings/net/UidDetail;
     if-eqz v0, :cond_1
 
-    .line 2345
+    .line 2578
     invoke-static {v0, p2}, Lcom/android/OriginalSettings/DataUsageSummary$UidDetailTask;->bindView(Lcom/android/OriginalSettings/net/UidDetail;Landroid/view/View;)V
 
-    .line 2350
+    .line 2583
     :goto_0
     return-void
 
-    .line 2347
+    .line 2580
     :cond_1
     new-instance v2, Lcom/android/OriginalSettings/DataUsageSummary$UidDetailTask;
 
-    invoke-direct {v2, p0, p1, p2}, Lcom/android/OriginalSettings/DataUsageSummary$UidDetailTask;-><init>(Lcom/android/OriginalSettings/net/UidDetailProvider;Lcom/android/OriginalSettings/DataUsageSummary$AppUsageItem;Landroid/view/View;)V
+    invoke-direct {v2, p0, p1, p2}, Lcom/android/OriginalSettings/DataUsageSummary$UidDetailTask;-><init>(Lcom/android/OriginalSettings/net/UidDetailProvider;Lcom/android/OriginalSettings/DataUsageSummary$AppItem;Landroid/view/View;)V
 
     sget-object v3, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
@@ -200,16 +198,12 @@
     .parameter "params"
 
     .prologue
-    .line 2372
+    .line 2605
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$UidDetailTask;->mProvider:Lcom/android/OriginalSettings/net/UidDetailProvider;
 
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$UidDetailTask;->mItem:Lcom/android/OriginalSettings/DataUsageSummary$AppUsageItem;
+    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$UidDetailTask;->mItem:Lcom/android/OriginalSettings/DataUsageSummary$AppItem;
 
-    iget-object v1, v1, Lcom/android/OriginalSettings/DataUsageSummary$AppUsageItem;->uids:[I
-
-    const/4 v2, 0x0
-
-    aget v1, v1, v2
+    iget v1, v1, Lcom/android/OriginalSettings/DataUsageSummary$AppItem;->appId:I
 
     const/4 v2, 0x1
 
@@ -225,7 +219,7 @@
     .parameter "x0"
 
     .prologue
-    .line 2325
+    .line 2558
     check-cast p1, [Ljava/lang/Void;
 
     .end local p1
@@ -241,12 +235,12 @@
     .parameter "result"
 
     .prologue
-    .line 2377
+    .line 2610
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$UidDetailTask;->mTarget:Landroid/view/View;
 
     invoke-static {p1, v0}, Lcom/android/OriginalSettings/DataUsageSummary$UidDetailTask;->bindView(Lcom/android/OriginalSettings/net/UidDetail;Landroid/view/View;)V
 
-    .line 2378
+    .line 2611
     return-void
 .end method
 
@@ -255,7 +249,7 @@
     .parameter "x0"
 
     .prologue
-    .line 2325
+    .line 2558
     check-cast p1, Lcom/android/OriginalSettings/net/UidDetail;
 
     .end local p1
@@ -268,13 +262,13 @@
     .locals 2
 
     .prologue
-    .line 2367
+    .line 2600
     const/4 v0, 0x0
 
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$UidDetailTask;->mTarget:Landroid/view/View;
 
     invoke-static {v0, v1}, Lcom/android/OriginalSettings/DataUsageSummary$UidDetailTask;->bindView(Lcom/android/OriginalSettings/net/UidDetail;Landroid/view/View;)V
 
-    .line 2368
+    .line 2601
     return-void
 .end method

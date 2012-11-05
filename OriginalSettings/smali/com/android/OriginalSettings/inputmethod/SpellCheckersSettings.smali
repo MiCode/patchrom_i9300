@@ -231,7 +231,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d053d
+    const v2, 0x7f09060e
 
     new-array v3, v3, [Ljava/lang/Object;
 
@@ -447,7 +447,7 @@
     iput-object v0, p0, Lcom/android/OriginalSettings/inputmethod/SpellCheckersSettings;->mTsm:Landroid/view/textservice/TextServicesManager;
 
     .line 52
-    const v0, 0x7f07004f
+    const v0, 0x7f07005a
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/inputmethod/SpellCheckersSettings;->addPreferencesFromResource(I)V
 

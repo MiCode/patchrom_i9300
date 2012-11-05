@@ -41,27 +41,27 @@
     .locals 1
 
     .prologue
-    .line 64
+    .line 63
     invoke-direct {p0}, Lmiui/preference/BasePreferenceActivity;-><init>()V
 
-    .line 96
+    .line 95
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mDialogState:I
 
-    .line 118
+    .line 117
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->num_of_retry:I
 
-    .line 123
+    .line 122
     new-instance v0, Lcom/android/OriginalSettings/IccLockSettings$1;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/IccLockSettings$1;-><init>(Lcom/android/OriginalSettings/IccLockSettings;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mHandler:Landroid/os/Handler;
 
-    .line 174
+    .line 173
     new-instance v0, Lcom/android/OriginalSettings/IccLockSettings$2;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/IccLockSettings$2;-><init>(Lcom/android/OriginalSettings/IccLockSettings;)V
@@ -76,7 +76,7 @@
     .parameter "x0"
 
     .prologue
-    .line 64
+    .line 63
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->iccLockNotAllowed()V
 
     return-void
@@ -88,7 +88,7 @@
     .parameter "x1"
 
     .prologue
-    .line 64
+    .line 63
     invoke-direct {p0, p1}, Lcom/android/OriginalSettings/IccLockSettings;->iccLockChanged(Z)V
 
     return-void
@@ -100,7 +100,7 @@
     .parameter "x1"
 
     .prologue
-    .line 64
+    .line 63
     invoke-direct {p0, p1}, Lcom/android/OriginalSettings/IccLockSettings;->iccPinChanged(Z)V
 
     return-void
@@ -111,40 +111,73 @@
     .parameter "x0"
 
     .prologue
-    .line 64
+    .line 63
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->updatePreferences()V
 
     return-void
 .end method
 
-.method static synthetic access$400(Lcom/android/OriginalSettings/IccLockSettings;)I
+.method static synthetic access$400(Lcom/android/OriginalSettings/IccLockSettings;)Lcom/android/internal/telephony/Phone;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 64
+    .line 63
+    iget-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPhone:Lcom/android/internal/telephony/Phone;
+
+    return-object v0
+.end method
+
+.method static synthetic access$500(Lcom/android/OriginalSettings/IccLockSettings;)Landroid/preference/CheckBoxPreference;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 63
+    iget-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinToggle:Landroid/preference/CheckBoxPreference;
+
+    return-object v0
+.end method
+
+.method static synthetic access$600(Lcom/android/OriginalSettings/IccLockSettings;)Lcom/android/OriginalSettings/EditPinPreference;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 63
+    iget-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinDialog:Lcom/android/OriginalSettings/EditPinPreference;
+
+    return-object v0
+.end method
+
+.method static synthetic access$700(Lcom/android/OriginalSettings/IccLockSettings;)I
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 63
     iget v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mDialogState:I
 
     return v0
 .end method
 
-.method static synthetic access$500(Lcom/android/OriginalSettings/IccLockSettings;)V
+.method static synthetic access$800(Lcom/android/OriginalSettings/IccLockSettings;)V
     .locals 0
     .parameter "x0"
 
     .prologue
-    .line 64
+    .line 63
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->showPinDialog()V
 
     return-void
 .end method
 
-.method static synthetic access$600(Lcom/android/OriginalSettings/IccLockSettings;)V
+.method static synthetic access$900(Lcom/android/OriginalSettings/IccLockSettings;)V
     .locals 0
     .parameter "x0"
 
     .prologue
-    .line 64
+    .line 63
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->resetDialogState()V
 
     return-void
@@ -155,7 +188,7 @@
     .parameter "strId"
 
     .prologue
-    .line 476
+    .line 484
     invoke-virtual {p0, p1}, Lcom/android/OriginalSettings/IccLockSettings;->getString(I)Ljava/lang/String;
 
     move-result-object v0
@@ -168,7 +201,7 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 477
+    .line 485
     return-void
 .end method
 
@@ -178,14 +211,14 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 481
+    .line 489
     const-string v1, "IccLockSettings"
 
     const-string v2, "getSimLockInfoResult()"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 484
+    .line 492
     iget-object v1, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPhone:Lcom/android/internal/telephony/Phone;
 
     invoke-interface {v1}, Lcom/android/internal/telephony/Phone;->getIccCard()Lcom/android/internal/telephony/IccCard;
@@ -198,10 +231,10 @@
 
     if-nez v1, :cond_0
 
-    .line 485
+    .line 493
     iget-object v1, p0, Lcom/android/OriginalSettings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v2, 0x7f0d0996
+    const v2, 0x7f090ba1
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -213,10 +246,10 @@
 
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
-    .line 486
+    .line 494
     invoke-virtual {p0}, Lcom/android/OriginalSettings/IccLockSettings;->finish()V
 
-    .line 490
+    .line 498
     :goto_0
     return v0
 
@@ -243,22 +276,20 @@
     .parameter "success"
 
     .prologue
-    .line 502
+    .line 510
     if-eqz p1, :cond_1
 
-    .line 503
+    .line 511
     iget-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinToggle:Landroid/preference/CheckBoxPreference;
 
     iget-boolean v1, p0, Lcom/android/OriginalSettings/IccLockSettings;->mToState:Z
 
     invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 506
+    .line 514
     const-string v0, "ATT"
 
-    const-string v1, "ro.csc.sales_code"
-
-    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {}, Lcom/android/OriginalSettings/Utils;->readSalesCode()Ljava/lang/String;
 
     move-result-object v1
 
@@ -268,12 +299,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 507
+    .line 515
     iget-boolean v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mToState:Z
 
     invoke-direct {p0, v0}, Lcom/android/OriginalSettings/IccLockSettings;->toggleSimPin(Z)V
 
-    .line 513
+    .line 521
     :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinDialog:Lcom/android/OriginalSettings/EditPinPreference;
 
@@ -285,18 +316,18 @@
 
     invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/EditPinPreference;->setEnabled(Z)V
 
-    .line 518
+    .line 526
     :goto_0
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->resetDialogState()V
 
-    .line 519
+    .line 527
     return-void
 
-    .line 515
+    .line 523
     :cond_1
     iget-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v1, 0x7f0d03c4
+    const v1, 0x7f090450
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -317,10 +348,10 @@
     .locals 2
 
     .prologue
-    .line 497
+    .line 505
     iget-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v1, 0x7f0d0997
+    const v1, 0x7f090ba2
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -334,7 +365,7 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 498
+    .line 506
     return-void
 .end method
 
@@ -345,13 +376,13 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 522
+    .line 530
     if-nez p1, :cond_0
 
-    .line 523
+    .line 531
     iget-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v1, 0x7f0d03c2
+    const v1, 0x7f09044e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -363,18 +394,18 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 532
+    .line 540
     :goto_0
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->resetDialogState()V
 
-    .line 533
+    .line 541
     return-void
 
-    .line 527
+    .line 535
     :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v1, 0x7f0d03c3
+    const v1, 0x7f09044f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -394,7 +425,7 @@
     .parameter "pin"
 
     .prologue
-    .line 546
+    .line 554
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -413,11 +444,11 @@
 
     if-le v0, v1, :cond_1
 
-    .line 547
+    .line 555
     :cond_0
     const/4 v0, 0x0
 
-    .line 549
+    .line 557
     :goto_0
     return v0
 
@@ -431,30 +462,30 @@
     .locals 1
 
     .prologue
-    .line 554
+    .line 562
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mError:Ljava/lang/String;
 
-    .line 555
+    .line 563
     const/4 v0, 0x2
 
     iput v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mDialogState:I
 
-    .line 556
+    .line 564
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPin:Ljava/lang/String;
 
-    .line 557
+    .line 565
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->setDialogValues()V
 
-    .line 558
+    .line 566
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mDialogState:I
 
-    .line 559
+    .line 567
     return-void
 .end method
 
@@ -462,23 +493,23 @@
     .locals 8
 
     .prologue
-    const v7, 0x7f0d03bf
+    const v7, 0x7f09044b
 
     const/4 v6, 0x1
 
     const/4 v5, 0x0
 
-    .line 331
+    .line 338
     iget-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinDialog:Lcom/android/OriginalSettings/EditPinPreference;
 
     iget-object v3, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPin:Ljava/lang/String;
 
     invoke-virtual {v2, v3}, Lcom/android/OriginalSettings/EditPinPreference;->setText(Ljava/lang/String;)V
 
-    .line 332
+    .line 339
     const-string v1, ""
 
-    .line 335
+    .line 342
     .local v1, message:Ljava/lang/String;
     const-string v2, "gsm.sim.state"
 
@@ -488,7 +519,7 @@
 
     iput-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mSimState:Ljava/lang/String;
 
-    .line 336
+    .line 343
     const-string v2, "IccLockSettings"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -523,9 +554,9 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 338
+    .line 345
     const-string v2, "ABSENT"
 
     iget-object v3, p0, Lcom/android/OriginalSettings/IccLockSettings;->mSimState:Ljava/lang/String;
@@ -546,11 +577,11 @@
 
     if-eqz v2, :cond_3
 
-    .line 339
+    .line 346
     :cond_0
     iput v5, p0, Lcom/android/OriginalSettings/IccLockSettings;->num_of_retry:I
 
-    .line 345
+    .line 352
     :goto_0
     const-string v2, "IccLockSettings"
 
@@ -574,9 +605,9 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 349
+    .line 356
     iget v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->num_of_retry:I
 
     if-gt v2, v6, :cond_1
@@ -585,9 +616,9 @@
 
     if-nez v2, :cond_4
 
-    .line 350
+    .line 357
     :cond_1
-    const v2, 0x7f0d0995
+    const v2, 0x7f090ba0
 
     new-array v3, v6, [Ljava/lang/Object;
 
@@ -603,20 +634,20 @@
 
     move-result-object v0
 
-    .line 358
+    .line 365
     .local v0, Remain_Unblock_Count:Ljava/lang/String;
     :goto_1
     iget v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mDialogState:I
 
     packed-switch v2, :pswitch_data_0
 
-    .line 378
+    .line 385
     :goto_2
     iget-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mError:Ljava/lang/String;
 
     if-eqz v2, :cond_2
 
-    .line 379
+    .line 386
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -641,21 +672,21 @@
 
     move-result-object v1
 
-    .line 380
+    .line 387
     const/4 v2, 0x0
 
     iput-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mError:Ljava/lang/String;
 
-    .line 382
+    .line 389
     :cond_2
     iget-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinDialog:Lcom/android/OriginalSettings/EditPinPreference;
 
     invoke-virtual {v2, v1}, Lcom/android/OriginalSettings/EditPinPreference;->setDialogMessage(Ljava/lang/CharSequence;)V
 
-    .line 383
+    .line 390
     return-void
 
-    .line 342
+    .line 349
     .end local v0           #Remain_Unblock_Count:Ljava/lang/String;
     :cond_3
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->getSimLockInfoResult()I
@@ -666,9 +697,9 @@
 
     goto :goto_0
 
-    .line 353
+    .line 360
     :cond_4
-    const v2, 0x7f0d0994
+    const v2, 0x7f090b9f
 
     new-array v3, v6, [Ljava/lang/Object;
 
@@ -687,7 +718,7 @@
     .restart local v0       #Remain_Unblock_Count:Ljava/lang/String;
     goto :goto_1
 
-    .line 360
+    .line 367
     :pswitch_0
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -695,7 +726,7 @@
 
     iget-object v3, p0, Lcom/android/OriginalSettings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0d03b9
+    const v4, 0x7f090445
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -719,7 +750,7 @@
 
     move-result-object v1
 
-    .line 361
+    .line 368
     iget-object v3, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinDialog:Lcom/android/OriginalSettings/EditPinPreference;
 
     iget-boolean v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mToState:Z
@@ -728,7 +759,7 @@
 
     iget-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0d03ba
+    const v4, 0x7f090446
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -742,7 +773,7 @@
     :cond_5
     iget-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0d03bb
+    const v4, 0x7f090447
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -750,7 +781,7 @@
 
     goto :goto_3
 
-    .line 366
+    .line 373
     :pswitch_1
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -758,7 +789,7 @@
 
     iget-object v3, p0, Lcom/android/OriginalSettings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0d03bc
+    const v4, 0x7f090448
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -782,7 +813,7 @@
 
     move-result-object v1
 
-    .line 367
+    .line 374
     iget-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinDialog:Lcom/android/OriginalSettings/EditPinPreference;
 
     iget-object v3, p0, Lcom/android/OriginalSettings/IccLockSettings;->mRes:Landroid/content/res/Resources;
@@ -795,7 +826,7 @@
 
     goto/16 :goto_2
 
-    .line 370
+    .line 377
     :pswitch_2
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -803,7 +834,7 @@
 
     iget-object v3, p0, Lcom/android/OriginalSettings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0d03bd
+    const v4, 0x7f090449
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -827,7 +858,7 @@
 
     move-result-object v1
 
-    .line 371
+    .line 378
     iget-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinDialog:Lcom/android/OriginalSettings/EditPinPreference;
 
     iget-object v3, p0, Lcom/android/OriginalSettings/IccLockSettings;->mRes:Landroid/content/res/Resources;
@@ -840,7 +871,7 @@
 
     goto/16 :goto_2
 
-    .line 374
+    .line 381
     :pswitch_3
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -848,7 +879,7 @@
 
     iget-object v3, p0, Lcom/android/OriginalSettings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0d03be
+    const v4, 0x7f09044a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -872,7 +903,7 @@
 
     move-result-object v1
 
-    .line 375
+    .line 382
     iget-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinDialog:Lcom/android/OriginalSettings/EditPinPreference;
 
     iget-object v3, p0, Lcom/android/OriginalSettings/IccLockSettings;->mRes:Landroid/content/res/Resources;
@@ -885,7 +916,7 @@
 
     goto/16 :goto_2
 
-    .line 358
+    .line 365
     nop
 
     :pswitch_data_0
@@ -901,20 +932,20 @@
     .locals 1
 
     .prologue
-    .line 322
+    .line 329
     iget v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mDialogState:I
 
     if-nez v0, :cond_0
 
-    .line 328
+    .line 335
     :goto_0
     return-void
 
-    .line 325
+    .line 332
     :cond_0
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->setDialogValues()V
 
-    .line 327
+    .line 334
     iget-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinDialog:Lcom/android/OriginalSettings/EditPinPreference;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/EditPinPreference;->showPinDialog()V
@@ -927,21 +958,21 @@
     .parameter "isEnabled"
 
     .prologue
-    .line 465
+    .line 473
     if-eqz p1, :cond_0
 
-    .line 466
-    const v0, 0x7f0d0021
+    .line 474
+    const v0, 0x7f090032
 
     invoke-direct {p0, v0}, Lcom/android/OriginalSettings/IccLockSettings;->displayMessage(I)V
 
-    .line 470
+    .line 478
     :goto_0
     return-void
 
-    .line 468
+    .line 476
     :cond_0
-    const v0, 0x7f0d0022
+    const v0, 0x7f090033
 
     invoke-direct {p0, v0}, Lcom/android/OriginalSettings/IccLockSettings;->displayMessage(I)V
 
@@ -952,7 +983,7 @@
     .locals 4
 
     .prologue
-    .line 452
+    .line 460
     iget-object v1, p0, Lcom/android/OriginalSettings/IccLockSettings;->mHandler:Landroid/os/Handler;
 
     const/16 v2, 0x64
@@ -961,7 +992,7 @@
 
     move-result-object v0
 
-    .line 453
+    .line 461
     .local v0, callback:Landroid/os/Message;
     iget-object v1, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPhone:Lcom/android/internal/telephony/Phone;
 
@@ -975,10 +1006,10 @@
 
     invoke-virtual {v1, v2, v3, v0}, Lcom/android/internal/telephony/IccCard;->setIccLockEnabled(ZLjava/lang/String;Landroid/os/Message;)V
 
-    .line 457
+    .line 465
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->resetDialogState()V
 
-    .line 458
+    .line 466
     return-void
 .end method
 
@@ -986,7 +1017,7 @@
     .locals 4
 
     .prologue
-    .line 536
+    .line 544
     iget-object v1, p0, Lcom/android/OriginalSettings/IccLockSettings;->mHandler:Landroid/os/Handler;
 
     const/16 v2, 0x65
@@ -995,7 +1026,7 @@
 
     move-result-object v0
 
-    .line 537
+    .line 545
     .local v0, callback:Landroid/os/Message;
     iget-object v1, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPhone:Lcom/android/internal/telephony/Phone;
 
@@ -1009,10 +1040,10 @@
 
     invoke-virtual {v1, v2, v3, v0}, Lcom/android/internal/telephony/IccCard;->changeIccLockPassword(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
 
-    .line 542
+    .line 550
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->resetDialogState()V
 
-    .line 543
+    .line 551
     return-void
 .end method
 
@@ -1020,7 +1051,7 @@
     .locals 2
 
     .prologue
-    .line 250
+    .line 257
     iget-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinToggle:Landroid/preference/CheckBoxPreference;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPhone:Lcom/android/internal/telephony/Phone;
@@ -1035,7 +1066,7 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 251
+    .line 258
     return-void
 .end method
 
@@ -1046,17 +1077,17 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 203
+    .line 210
     invoke-super {p0, p1}, Lmiui/preference/BasePreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 205
+    .line 212
     invoke-static {}, Lcom/android/OriginalSettings/Utils;->isMonkeyRunning()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 206
+    .line 213
     const-string v0, "Monkey test is enabled"
 
     const/4 v1, 0x1
@@ -1067,20 +1098,20 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 207
+    .line 214
     invoke-virtual {p0}, Lcom/android/OriginalSettings/IccLockSettings;->finish()V
 
-    .line 247
+    .line 254
     :goto_0
     return-void
 
-    .line 211
+    .line 218
     :cond_0
-    const v0, 0x7f07004b
+    const v0, 0x7f070057
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/IccLockSettings;->addPreferencesFromResource(I)V
 
-    .line 213
+    .line 220
     const-string v0, "sim_pin"
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/IccLockSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -1091,7 +1122,7 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinDialog:Lcom/android/OriginalSettings/EditPinPreference;
 
-    .line 214
+    .line 221
     const-string v0, "sim_toggle"
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/IccLockSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -1102,7 +1133,7 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinToggle:Landroid/preference/CheckBoxPreference;
 
-    .line 215
+    .line 222
     if-eqz p1, :cond_1
 
     const-string v0, "dialogState"
@@ -1113,7 +1144,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 216
+    .line 223
     const-string v0, "dialogState"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -1122,7 +1153,7 @@
 
     iput v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mDialogState:I
 
-    .line 217
+    .line 224
     const-string v0, "dialogPin"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -1131,7 +1162,7 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPin:Ljava/lang/String;
 
-    .line 218
+    .line 225
     const-string v0, "dialogError"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -1140,7 +1171,7 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mError:Ljava/lang/String;
 
-    .line 219
+    .line 226
     const-string v0, "enableState"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
@@ -1149,19 +1180,19 @@
 
     iput-boolean v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mToState:Z
 
-    .line 222
+    .line 229
     iget v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mDialogState:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 239
+    .line 246
     :cond_1
     :goto_1
     iget-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinDialog:Lcom/android/OriginalSettings/EditPinPreference;
 
     invoke-virtual {v0, p0}, Lcom/android/OriginalSettings/EditPinPreference;->setOnPinEnteredListener(Lcom/android/OriginalSettings/EditPinPreference$OnPinEnteredListener;)V
 
-    .line 242
+    .line 249
     invoke-virtual {p0}, Lcom/android/OriginalSettings/IccLockSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
@@ -1170,26 +1201,26 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setPersistent(Z)V
 
-    .line 244
+    .line 251
     invoke-static {}, Lcom/android/internal/telephony/PhoneFactory;->getDefaultPhone()Lcom/android/internal/telephony/Phone;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPhone:Lcom/android/internal/telephony/Phone;
 
-    .line 245
+    .line 252
     invoke-virtual {p0}, Lcom/android/OriginalSettings/IccLockSettings;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    .line 246
+    .line 253
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->updatePreferences()V
 
     goto :goto_0
 
-    .line 224
+    .line 231
     :pswitch_0
     const-string v0, "oldPinCode"
 
@@ -1201,7 +1232,7 @@
 
     goto :goto_1
 
-    .line 228
+    .line 235
     :pswitch_1
     const-string v0, "oldPinCode"
 
@@ -1211,7 +1242,7 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mOldPin:Ljava/lang/String;
 
-    .line 229
+    .line 236
     const-string v0, "newPinCode"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -1222,7 +1253,7 @@
 
     goto :goto_1
 
-    .line 222
+    .line 229
     nop
 
     :pswitch_data_0
@@ -1236,15 +1267,15 @@
     .locals 1
 
     .prologue
-    .line 283
+    .line 290
     invoke-super {p0}, Lmiui/preference/BasePreferenceActivity;->onPause()V
 
-    .line 284
+    .line 291
     iget-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/IccLockSettings;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 285
+    .line 292
     return-void
 .end method
 
@@ -1258,32 +1289,32 @@
 
     const/4 v2, 0x0
 
-    .line 386
+    .line 393
     if-nez p2, :cond_0
 
-    .line 387
+    .line 394
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->resetDialogState()V
 
-    .line 428
+    .line 436
     :goto_0
     return-void
 
-    .line 390
+    .line 397
     :cond_0
     const-string v0, "IccLockSettings"
 
     const-string v1, "onPinEntered"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 392
+    .line 399
     invoke-virtual {p1}, Lcom/android/OriginalSettings/EditPinPreference;->getText()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPin:Ljava/lang/String;
 
-    .line 393
+    .line 400
     iget-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPin:Ljava/lang/String;
 
     invoke-direct {p0, v0}, Lcom/android/OriginalSettings/IccLockSettings;->reasonablePin(Ljava/lang/String;)Z
@@ -1292,10 +1323,10 @@
 
     if-nez v0, :cond_1
 
-    .line 395
+    .line 402
     iget-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v1, 0x7f0d0998
+    const v1, 0x7f090ba3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1303,12 +1334,15 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mError:Ljava/lang/String;
 
-    .line 396
+    .line 403
+    iput-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPin:Ljava/lang/String;
+
+    .line 404
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->showPinDialog()V
 
     goto :goto_0
 
-    .line 399
+    .line 407
     :cond_1
     iget v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mDialogState:I
 
@@ -1316,52 +1350,52 @@
 
     goto :goto_0
 
-    .line 401
+    .line 409
     :pswitch_0
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->tryChangeIccLockState()V
 
     goto :goto_0
 
-    .line 404
+    .line 412
     :pswitch_1
     iget-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPin:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mOldPin:Ljava/lang/String;
 
-    .line 405
+    .line 413
     iput v3, p0, Lcom/android/OriginalSettings/IccLockSettings;->mDialogState:I
 
-    .line 406
+    .line 414
     iput-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mError:Ljava/lang/String;
 
-    .line 407
+    .line 415
     iput-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPin:Ljava/lang/String;
 
-    .line 408
+    .line 416
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->showPinDialog()V
 
     goto :goto_0
 
-    .line 411
+    .line 419
     :pswitch_2
     iget-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPin:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mNewPin:Ljava/lang/String;
 
-    .line 412
+    .line 420
     const/4 v0, 0x4
 
     iput v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mDialogState:I
 
-    .line 413
+    .line 421
     iput-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPin:Ljava/lang/String;
 
-    .line 414
+    .line 422
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->showPinDialog()V
 
     goto :goto_0
 
-    .line 417
+    .line 425
     :pswitch_3
     iget-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPin:Ljava/lang/String;
 
@@ -1373,10 +1407,10 @@
 
     if-nez v0, :cond_2
 
-    .line 418
+    .line 426
     iget-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v1, 0x7f0d03c1
+    const v1, 0x7f09044d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1384,27 +1418,27 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mError:Ljava/lang/String;
 
-    .line 419
+    .line 427
     iput v3, p0, Lcom/android/OriginalSettings/IccLockSettings;->mDialogState:I
 
-    .line 420
+    .line 428
     iput-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPin:Ljava/lang/String;
 
-    .line 421
+    .line 429
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->showPinDialog()V
 
     goto :goto_0
 
-    .line 423
+    .line 431
     :cond_2
     iput-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mError:Ljava/lang/String;
 
-    .line 424
+    .line 432
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->tryChangePin()V
 
     goto :goto_0
 
-    .line 399
+    .line 407
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1424,19 +1458,19 @@
 
     const/4 v1, 0x1
 
-    .line 431
+    .line 439
     iget-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinToggle:Landroid/preference/CheckBoxPreference;
 
     if-ne p2, v2, :cond_2
 
-    .line 432
+    .line 440
     const-string v2, "IccLockSettings"
 
     const-string v3, "onPreferenceTreeClick"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 434
+    .line 442
     iget-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinToggle:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v2}, Landroid/preference/CheckBoxPreference;->isChecked()Z
@@ -1445,7 +1479,7 @@
 
     iput-boolean v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mToState:Z
 
-    .line 436
+    .line 444
     iget-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinToggle:Landroid/preference/CheckBoxPreference;
 
     iget-boolean v3, p0, Lcom/android/OriginalSettings/IccLockSettings;->mToState:Z
@@ -1457,7 +1491,7 @@
     :cond_0
     invoke-virtual {v2, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 439
+    .line 447
     iget-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinDialog:Lcom/android/OriginalSettings/EditPinPreference;
 
     iget-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinToggle:Landroid/preference/CheckBoxPreference;
@@ -1468,26 +1502,26 @@
 
     invoke-virtual {v0, v2}, Lcom/android/OriginalSettings/EditPinPreference;->setEnabled(Z)V
 
-    .line 440
+    .line 448
     iput v1, p0, Lcom/android/OriginalSettings/IccLockSettings;->mDialogState:I
 
-    .line 441
+    .line 449
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->showPinDialog()V
 
     :cond_1
     move v0, v1
 
-    .line 446
+    .line 454
     :goto_0
     return v0
 
-    .line 442
+    .line 450
     :cond_2
     iget-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinDialog:Lcom/android/OriginalSettings/EditPinPreference;
 
     if-ne p2, v2, :cond_1
 
-    .line 443
+    .line 451
     const/4 v1, 0x2
 
     iput v1, p0, Lcom/android/OriginalSettings/IccLockSettings;->mDialogState:I
@@ -1501,31 +1535,31 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 255
+    .line 262
     invoke-super {p0}, Lmiui/preference/BasePreferenceActivity;->onResume()V
 
-    .line 263
+    .line 270
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 264
+    .line 271
     .local v0, filter:Landroid/content/IntentFilter;
     const-string v1, "android.intent.action.AIRPLANE_MODE"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 265
+    .line 272
     const-string v1, "android.intent.action.SIM_STATE_CHANGED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 266
+    .line 273
     iget-object v1, p0, Lcom/android/OriginalSettings/IccLockSettings;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p0, v1, v0, v2, v2}, Lcom/android/OriginalSettings/IccLockSettings;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
-    .line 268
+    .line 275
     iget-object v1, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinToggle:Landroid/preference/CheckBoxPreference;
 
     iget-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPhone:Lcom/android/internal/telephony/Phone;
@@ -1540,7 +1574,7 @@
 
     invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 272
+    .line 279
     iget-object v1, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinDialog:Lcom/android/OriginalSettings/EditPinPreference;
 
     iget-object v2, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinToggle:Landroid/preference/CheckBoxPreference;
@@ -1551,19 +1585,19 @@
 
     invoke-virtual {v1, v2}, Lcom/android/OriginalSettings/EditPinPreference;->setEnabled(Z)V
 
-    .line 273
+    .line 280
     iget v1, p0, Lcom/android/OriginalSettings/IccLockSettings;->mDialogState:I
 
     if-eqz v1, :cond_0
 
-    .line 274
+    .line 281
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->showPinDialog()V
 
-    .line 279
+    .line 286
     :goto_0
     return-void
 
-    .line 277
+    .line 284
     :cond_0
     invoke-direct {p0}, Lcom/android/OriginalSettings/IccLockSettings;->resetDialogState()V
 
@@ -1575,7 +1609,7 @@
     .parameter "out"
 
     .prologue
-    .line 294
+    .line 301
     iget-object v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinDialog:Lcom/android/OriginalSettings/EditPinPreference;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/EditPinPreference;->isDialogOpen()Z
@@ -1584,14 +1618,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 295
+    .line 302
     const-string v0, "dialogState"
 
     iget v1, p0, Lcom/android/OriginalSettings/IccLockSettings;->mDialogState:I
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 296
+    .line 303
     const-string v0, "dialogPin"
 
     iget-object v1, p0, Lcom/android/OriginalSettings/IccLockSettings;->mPinDialog:Lcom/android/OriginalSettings/EditPinPreference;
@@ -1610,30 +1644,30 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 297
+    .line 304
     const-string v0, "dialogError"
 
     iget-object v1, p0, Lcom/android/OriginalSettings/IccLockSettings;->mError:Ljava/lang/String;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 298
+    .line 305
     const-string v0, "enableState"
 
     iget-boolean v1, p0, Lcom/android/OriginalSettings/IccLockSettings;->mToState:Z
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 301
+    .line 308
     iget v0, p0, Lcom/android/OriginalSettings/IccLockSettings;->mDialogState:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 319
+    .line 326
     :goto_0
     return-void
 
-    .line 303
+    .line 310
     :pswitch_0
     const-string v0, "oldPinCode"
 
@@ -1643,7 +1677,7 @@
 
     goto :goto_0
 
-    .line 307
+    .line 314
     :pswitch_1
     const-string v0, "oldPinCode"
 
@@ -1651,7 +1685,7 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 308
+    .line 315
     const-string v0, "newPinCode"
 
     iget-object v1, p0, Lcom/android/OriginalSettings/IccLockSettings;->mNewPin:Ljava/lang/String;
@@ -1660,13 +1694,13 @@
 
     goto :goto_0
 
-    .line 317
+    .line 324
     :cond_0
     invoke-super {p0, p1}, Lmiui/preference/BasePreferenceActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
     goto :goto_0
 
-    .line 301
+    .line 308
     nop
 
     :pswitch_data_0

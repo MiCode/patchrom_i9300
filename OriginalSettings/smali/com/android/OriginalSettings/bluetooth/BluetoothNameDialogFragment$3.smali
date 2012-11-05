@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 136
+    .line 157
     iput-object p1, p0, Lcom/android/OriginalSettings/bluetooth/BluetoothNameDialogFragment$3;->this$0:Lcom/android/OriginalSettings/bluetooth/BluetoothNameDialogFragment;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 3
 
     .prologue
-    .line 138
+    .line 159
     iget-object v1, p0, Lcom/android/OriginalSettings/bluetooth/BluetoothNameDialogFragment$3;->this$0:Lcom/android/OriginalSettings/bluetooth/BluetoothNameDialogFragment;
 
     iget-object v1, v1, Lcom/android/OriginalSettings/bluetooth/BluetoothNameDialogFragment;->mDeviceNameView:Landroid/widget/EditText;
@@ -58,7 +58,7 @@
 
     check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
-    .line 139
+    .line 160
     .local v0, inputManager:Landroid/view/inputmethod/InputMethodManager;
     iget-object v1, p0, Lcom/android/OriginalSettings/bluetooth/BluetoothNameDialogFragment$3;->this$0:Lcom/android/OriginalSettings/bluetooth/BluetoothNameDialogFragment;
 
@@ -68,6 +68,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->showSoftInput(Landroid/view/View;I)Z
 
-    .line 140
+    .line 161
     return-void
 .end method

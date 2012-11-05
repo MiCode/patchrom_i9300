@@ -25,13 +25,13 @@
     .parameter "context"
 
     .prologue
-    .line 229
+    .line 221
     invoke-direct {p0, p1}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 230
+    .line 222
     iput-object p2, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderMonoAudio$SettingsObserver;->mContext:Landroid/content/Context;
 
-    .line 231
+    .line 223
     return-void
 .end method
 
@@ -42,12 +42,12 @@
     .parameter "selfChange"
 
     .prologue
-    .line 245
+    .line 237
     iget-object v0, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderMonoAudio$SettingsObserver;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderMonoAudio;->updateWidget(Landroid/content/Context;)V
 
-    .line 246
+    .line 238
     return-void
 .end method
 
@@ -55,14 +55,14 @@
     .locals 3
 
     .prologue
-    .line 234
+    .line 226
     iget-object v1, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderMonoAudio$SettingsObserver;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 235
+    .line 227
     .local v0, resolver:Landroid/content/ContentResolver;
     const-string v1, "mono_audio_db"
 
@@ -74,7 +74,7 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 237
+    .line 229
     return-void
 .end method
 
@@ -82,7 +82,7 @@
     .locals 1
 
     .prologue
-    .line 240
+    .line 232
     iget-object v0, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderMonoAudio$SettingsObserver;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -91,6 +91,6 @@
 
     invoke-virtual {v0, p0}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 241
+    .line 233
     return-void
 .end method

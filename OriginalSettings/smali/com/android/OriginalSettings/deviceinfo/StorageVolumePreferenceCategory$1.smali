@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 149
+    .line 153
     iput-object p1, p0, Lcom/android/OriginalSettings/deviceinfo/StorageVolumePreferenceCategory$1;->this$0:Lcom/android/OriginalSettings/deviceinfo/StorageVolumePreferenceCategory;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,22 +39,22 @@
     .parameter "msg"
 
     .prologue
-    .line 152
+    .line 156
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 173
+    .line 177
     :goto_0
     return-void
 
-    .line 154
+    .line 158
     :pswitch_0
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v12
 
-    .line 155
+    .line 159
     .local v12, bundle:Landroid/os/Bundle;
     const-string v0, "total_size"
 
@@ -62,7 +62,7 @@
 
     move-result-wide v1
 
-    .line 156
+    .line 160
     .local v1, totalSize:J
     const-string v0, "avail_size"
 
@@ -70,7 +70,7 @@
 
     move-result-wide v3
 
-    .line 157
+    .line 161
     .local v3, availSize:J
     iget-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/StorageVolumePreferenceCategory$1;->this$0:Lcom/android/OriginalSettings/deviceinfo/StorageVolumePreferenceCategory;
 
@@ -78,7 +78,7 @@
 
     goto :goto_0
 
-    .line 161
+    .line 165
     .end local v1           #totalSize:J
     .end local v3           #availSize:J
     .end local v12           #bundle:Landroid/os/Bundle;
@@ -87,7 +87,7 @@
 
     move-result-object v12
 
-    .line 162
+    .line 166
     .restart local v12       #bundle:Landroid/os/Bundle;
     const-string v0, "total_size"
 
@@ -95,7 +95,7 @@
 
     move-result-wide v1
 
-    .line 163
+    .line 167
     .restart local v1       #totalSize:J
     const-string v0, "avail_size"
 
@@ -103,7 +103,7 @@
 
     move-result-wide v3
 
-    .line 164
+    .line 168
     .restart local v3       #availSize:J
     const-string v0, "apps_used"
 
@@ -111,7 +111,7 @@
 
     move-result-wide v5
 
-    .line 165
+    .line 169
     .local v5, appsUsed:J
     const-string v0, "downloads_size"
 
@@ -119,7 +119,7 @@
 
     move-result-wide v7
 
-    .line 166
+    .line 170
     .local v7, downloadsSize:J
     const-string v0, "misc_size"
 
@@ -127,7 +127,7 @@
 
     move-result-wide v9
 
-    .line 167
+    .line 171
     .local v9, miscSize:J
     const-string v0, "media_sizes"
 
@@ -135,7 +135,7 @@
 
     move-result-object v11
 
-    .line 168
+    .line 172
     .local v11, mediaSizes:[J
     iget-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/StorageVolumePreferenceCategory$1;->this$0:Lcom/android/OriginalSettings/deviceinfo/StorageVolumePreferenceCategory;
 
@@ -143,7 +143,7 @@
 
     goto :goto_0
 
-    .line 152
+    .line 156
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

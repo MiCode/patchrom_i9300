@@ -3,12 +3,12 @@
 .source "NearbySettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/nearby/NearbySettings;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
+    value = Lcom/android/OriginalSettings/nearby/NearbySettings;->requestWelcomePopup()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,7 +20,7 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
 
-.field final synthetic val$welcomCheck:Landroid/widget/CheckBox;
+.field final synthetic val$welcomeCheck:Landroid/widget/CheckBox;
 
 
 # direct methods
@@ -30,10 +30,10 @@
     .parameter
 
     .prologue
-    .line 1153
+    .line 795
     iput-object p1, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$7;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
 
-    iput-object p2, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$7;->val$welcomCheck:Landroid/widget/CheckBox;
+    iput-object p2, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$7;->val$welcomeCheck:Landroid/widget/CheckBox;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,74 +42,42 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 5
-    .parameter "dialog"
-    .parameter "which"
+.method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
+    .locals 3
+    .parameter "button"
+    .parameter "value"
 
     .prologue
-    .line 1156
-    iget-object v2, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$7;->val$welcomCheck:Landroid/widget/CheckBox;
+    .line 798
+    const-string v0, "AllshareSetting"
 
-    invoke-virtual {v2}, Landroid/widget/CheckBox;->isChecked()Z
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    move-result v2
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-eqz v2, :cond_0
+    const-string v2, "AllshareSetting: WelcomeCheck - onCheckedChanged: "
 
-    .line 1158
-    iget-object v2, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$7;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
-
-    #getter for: Lcom/android/OriginalSettings/nearby/NearbySettings;->mContext:Landroid/content/Context;
-    invoke-static {v2}, Lcom/android/OriginalSettings/nearby/NearbySettings;->access$1400(Lcom/android/OriginalSettings/nearby/NearbySettings;)Landroid/content/Context;
-
-    move-result-object v2
-
-    const-string v3, "pref_allshare"
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 1159
-    .local v1, preference:Landroid/content/SharedPreferences;
-    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v1
 
-    .line 1160
-    .local v0, edit:Landroid/content/SharedPreferences$Editor;
-    const-string v2, "allshare_welcome_popup"
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const/4 v3, 0x1
+    move-result-object v1
 
-    invoke-interface {v0, v2, v3}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1161
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    .line 799
+    iget-object v0, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$7;->val$welcomeCheck:Landroid/widget/CheckBox;
 
-    .line 1162
-    const-string v2, "AllshareSetting"
+    const/4 v1, 0x0
 
-    const-string v3, "AllshareSetting: Startup Dialog: Do not show again"
+    invoke-virtual {v0, v1}, Landroid/widget/CheckBox;->playSoundEffect(I)V
 
-    invoke-static {v2, v3}, Landroid/util/secutil/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1169
-    .end local v0           #edit:Landroid/content/SharedPreferences$Editor;
-    .end local v1           #preference:Landroid/content/SharedPreferences;
-    :goto_0
+    .line 800
     return-void
-
-    .line 1166
-    :cond_0
-    const-string v2, "AllshareSetting"
-
-    const-string v3, "AllshareSetting: Startup Dialog: show again next time"
-
-    invoke-static {v2, v3}, Landroid/util/secutil/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
 .end method

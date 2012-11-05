@@ -15,8 +15,6 @@
 
 
 # static fields
-.field public static final AutoPowerOnOffButtonPreference:[I
-
 .field public static final BatteryHistoryChart:[I
 
 .field public static final ChartGridView:[I
@@ -31,7 +29,7 @@
 
 .field public static final PercentageBarChart:[I
 
-.field public static final ProfileDefaultRingtonePreference:[I
+.field public static final TwTouchPunchView:[I
 
 .field public static final WifiEncryptionState:[I
 
@@ -40,23 +38,17 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    const/4 v4, 0x2
+    const/4 v4, 0x1
 
-    const/4 v3, 0x1
+    const/4 v3, 0x0
 
-    const/4 v2, 0x0
-
-    new-array v0, v4, [I
-
-    fill-array-data v0, :array_0
-
-    sput-object v0, Lcom/android/OriginalSettings/R$styleable;->AutoPowerOnOffButtonPreference:[I
+    const/4 v2, 0x2
 
     const/16 v0, 0x9
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1
+    fill-array-data v0, :array_0
 
     sput-object v0, Lcom/android/OriginalSettings/R$styleable;->BatteryHistoryChart:[I
 
@@ -64,7 +56,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_2
+    fill-array-data v0, :array_1
 
     sput-object v0, Lcom/android/OriginalSettings/R$styleable;->ChartGridView:[I
 
@@ -72,7 +64,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_3
+    fill-array-data v0, :array_2
 
     sput-object v0, Lcom/android/OriginalSettings/R$styleable;->ChartNetworkSeriesView:[I
 
@@ -80,55 +72,49 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_4
+    fill-array-data v0, :array_3
 
     sput-object v0, Lcom/android/OriginalSettings/R$styleable;->ChartSweepView:[I
 
-    new-array v0, v4, [I
+    new-array v0, v2, [I
 
-    fill-array-data v0, :array_5
+    fill-array-data v0, :array_4
 
     sput-object v0, Lcom/android/OriginalSettings/R$styleable;->ChartView:[I
 
-    new-array v0, v3, [I
+    new-array v0, v4, [I
 
     const v1, 0x7f010001
 
-    aput v1, v0, v2
+    aput v1, v0, v3
 
     sput-object v0, Lcom/android/OriginalSettings/R$styleable;->IconPreferenceScreen:[I
 
-    new-array v0, v4, [I
+    new-array v0, v2, [I
 
-    fill-array-data v0, :array_6
+    fill-array-data v0, :array_5
 
     sput-object v0, Lcom/android/OriginalSettings/R$styleable;->PercentageBarChart:[I
 
-    new-array v0, v3, [I
+    new-array v0, v2, [I
 
-    const v1, 0x7f010012
+    fill-array-data v0, :array_6
 
-    aput v1, v0, v2
+    sput-object v0, Lcom/android/OriginalSettings/R$styleable;->TwTouchPunchView:[I
 
-    sput-object v0, Lcom/android/OriginalSettings/R$styleable;->ProfileDefaultRingtonePreference:[I
-
-    new-array v0, v3, [I
+    new-array v0, v4, [I
 
     const/high16 v1, 0x7f01
 
-    aput v1, v0, v2
+    aput v1, v0, v3
 
     sput-object v0, Lcom/android/OriginalSettings/R$styleable;->WifiEncryptionState:[I
 
     return-void
 
-    :array_0
-    .array-data 0x4
-        0x13t 0x0t 0x1t 0x7ft
-        0x14t 0x0t 0x1t 0x7ft
-    .end array-data
+    nop
 
-    :array_1
+    :array_0
     .array-data 0x4
         0x34t 0x0t 0x1t 0x1t
         0x95t 0x0t 0x1t 0x1t
@@ -141,7 +127,7 @@
         0x64t 0x1t 0x1t 0x1t
     .end array-data
 
-    :array_2
+    :array_1
     .array-data 0x4
         0xbt 0x0t 0x1t 0x7ft
         0xct 0x0t 0x1t 0x7ft
@@ -149,14 +135,14 @@
         0xet 0x0t 0x1t 0x7ft
     .end array-data
 
-    :array_3
+    :array_2
     .array-data 0x4
         0xft 0x0t 0x1t 0x7ft
         0x10t 0x0t 0x1t 0x7ft
         0x11t 0x0t 0x1t 0x7ft
     .end array-data
 
-    :array_4
+    :array_3
     .array-data 0x4
         0x6t 0x0t 0x1t 0x7ft
         0x7t 0x0t 0x1t 0x7ft
@@ -166,16 +152,22 @@
         0xbt 0x0t 0x1t 0x7ft
     .end array-data
 
-    :array_5
+    :array_4
     .array-data 0x4
         0x4t 0x0t 0x1t 0x7ft
         0x5t 0x0t 0x1t 0x7ft
     .end array-data
 
-    :array_6
+    :array_5
     .array-data 0x4
         0x2t 0x0t 0x1t 0x7ft
         0x3t 0x0t 0x1t 0x7ft
+    .end array-data
+
+    :array_6
+    .array-data 0x4
+        0x12t 0x0t 0x1t 0x7ft
+        0x13t 0x0t 0x1t 0x7ft
     .end array-data
 .end method
 

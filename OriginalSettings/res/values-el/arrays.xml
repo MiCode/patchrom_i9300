@@ -18,12 +18,15 @@
         <item>10 λεπτά</item>
         <item>30 λεπτά</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 δευτερόλεπτα</item>
         <item>30 δευτερόλεπτα</item>
         <item>1 λεπτό</item>
-        <item>2 λεπτά</item>
+        <item>3 λεπτά</item>
         <item>5 λεπτά</item>
+        <item>10 λεπτά</item>
+        <item>15 λεπτά</item>
+        <item>30 λεπτά</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Ποτέ</item>
@@ -34,6 +37,18 @@
         <item>5 λεπτά</item>
         <item>10 λεπτά</item>
         <item>30 λεπτά</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 δευτερόλεπτα</item>
+        <item>30 δευτερόλεπτα</item>
+        <item>1 λεπτό</item>
+        <item>3 λεπτά</item>
+        <item>5 λεπτά</item>
+        <item>10 λεπτά</item>
+        <item>15 λεπτά</item>
+        <item>30 λεπτά</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>Άμμεσα</item>
@@ -55,8 +70,8 @@
     </string-array>
     <string-array name="tts_rate_entries">
         <item>Πολύ αργά</item>
-        <item>Αργό</item>
-        <item>Κανονικό</item>
+        <item>Αργή</item>
+        <item>Κανονική</item>
         <item>Γρήγορη</item>
         <item>Πολύ γρήγορα</item>
     </string-array>
@@ -93,17 +108,7 @@
         <item>Αποσυνδέθηκε</item>
         <item>Ανεπιτυχής</item>
         <item>Συνδέθηκε</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Προσωρινή αποφυγή αδύναμης σύνδεσης</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>Αποσυνδέθηκε</item>
         <item>Ανεπιτυχής</item>
         <item>Συνδέθηκε</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Προσωρινή αποφυγή αδύναμης σύνδεσης</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>Άνοιγμα</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Κουμπί προώθησης</item>
+        <item>PIN από ομότιμη συσκευή</item>
+        <item>PIN από αυτήν τη συσκευή</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Συνδέθηκε</item>
+        <item>Εστάλη πρόσκληση</item>
+        <item>Αποτυχία σύνδεσης. Επανάληψη;</item>
+        <item>Πατήστε για σύνδεση</item>
+        <item>Εκτός εμβέλειας</item>
+        <item>Έχει συνδεθεί με άλλη συσκευή</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>Χωρίς χρονικό όριο</item>
@@ -152,6 +155,10 @@
         <item>20 λεπτά</item>
         <item>30 λεπτά</item>
         <item>60 λεπτά</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Επιτρ. όλες οι συσ.</item>
+        <item>Μόνο επιτρεπόμενες συσκευές</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>Αυτόματο</item>
@@ -178,19 +185,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-    </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Κουμπί προώθησης</item>
-        <item>PIN από ομότιμη συσκευή</item>
-        <item>PIN από αυτήν τη συσκευή</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Συνδέθηκε</item>
-        <item>Εστάλη πρόσκληση</item>
-        <item>Αποτυχία σύνδεσης. Επανάληψη;</item>
-        <item>Πατήστε για σύνδεση</item>
-        <item>Εκτός εμβέλειας</item>
-        <item>Έχει συνδεθεί με άλλη συσκευή</item>
     </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 λεπτά</item>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -266,16 +261,6 @@
     <string-array name="wifi_proxy_settings">
         <item>Κανένα</item>
         <item>Χειροκίνητα</item>
-    </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Κανονικό</item>
-        <item>Downtown</item>
-        <item>Σπίτι</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>Αυτή είναι η πιο γενική ρύθμιση σύνδεσης Wi-Fi</item>
-        <item>Εάν βρίσκεστε σε περιοχή με πολλά δίκτυα Wi-Fi, η σύνδεση Wi-Fi επανασυνδέεται συχνά για καλύτερη ισχύ σήματος</item>
-        <item>Εάν βρίσκεστε σε περιοχή με λίγα δίκτυα Wi-Fi, η σύνδεση Wi-Fi διατηρείται όσο το δυνατόν περισσότερο</item>
     </string-array>
     <string-array name="emergency_tone_entries">
         <item>Ανενεργό</item>
@@ -307,11 +292,6 @@
         <item>Εσωτερικός χώρος αποθήκευσης συσκευής</item>
         <item>Κάρτα SD με δυνατότητα κατάργησης</item>
         <item>Προεπιλεγμένος</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>Ανενεργό</item>
-        <item>Δόνηση</item>
-        <item>Σίγαση</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Σύντομος</item>
@@ -346,6 +326,15 @@
         <item>Κλίμακα κινούμενων γραφικών 5x</item>
         <item>Κλίμακα κινούμενων γραφικών 10x</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Απενεργοποιημένο κινούμενο στοιχείο</item>
+        <item>Κλίμακα κινούμενων γραφικών 0,5x</item>
+        <item>Κλίμακα κινούμενων γραφικών 1x</item>
+        <item>Κλίμακα κινούμενων γραφικών 1,5x</item>
+        <item>Κλίμακα κινούμενων γραφικών 2x</item>
+        <item>Κλίμακα κινούμενων γραφικών 5x</item>
+        <item>Κλίμακα κινούμενων γραφικών 10x</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>Τυπικό όριο</item>
         <item>Χωρίς διεργασίες στο παρασκήνιο</item>
@@ -370,22 +359,8 @@
         <item>Χρονικό όριο</item>
         <item>Ανεπιτυχής</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>Συσκευή αποθήκευσης USB</item>
+        <item>Συσκευή</item>
         <item>Κάρτα SD</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -415,15 +390,28 @@
         <item>Φωτογραφίες</item>
         <item>Μουσική</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>Υψηλή</item>
-        <item>Μεσαία</item>
-        <item>Χαμηλή</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Αυτόματα</item>
         <item>Μη αυτόματα</item>
         <item>Να γίνεται πάντα ερώτηση</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Πάντα απενεργ/μένο</item>
+        <item>3 δευτερόλεπτα</item>
+        <item>5 δευτερόλεπτα</item>
+        <item>10 δευτερόλεπτα</item>
+        <item>15 δευτερόλεπτα</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Κανένα</item>
+        <item>Όλες οι επαφές</item>
+        <item>Αγαπημένα</item>
+        <item>Προσαρμοσμένη</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>Υψηλή</item>
+        <item>Μεσαίο</item>
+        <item>Χαμηλή</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1.5 δευτερόλεπτα</item>
@@ -439,11 +427,24 @@
     <string-array name="contents_type_entries">
         <item>Ειδήσεις</item>
         <item>Μετοχή</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Νέα</item>
+        <item>Μετοχή</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>Αργή</item>
         <item>Κανονική</item>
         <item>Γρήγορη</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Κανένα</item>
+        <item>Κάθε 30 λεπτά</item>
+        <item>Κάθε 1 ώρα</item>
+        <item>Κάθε 2 ώρες</item>
+        <item>Κάθε 4 ώρες</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>Ακουστικά</item>
@@ -451,5 +452,9 @@
         <item>Τηλέφωνο</item>
         <item>HID (πληκτρολόγιο, ποντίκι κτλ)</item>
         <item>Όλες οι συσκευές</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Στερεοφωνικός</item>
+        <item>Surround</item>
     </string-array>
 </resources>

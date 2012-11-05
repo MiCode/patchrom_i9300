@@ -4,12 +4,19 @@
 
 # interfaces
 .implements Landroid/preference/Preference$OnPreferenceChangeListener;
+.implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;
+    }
+.end annotation
 
 
 # instance fields
-.field private final mAndroidBeam:Landroid/preference/PreferenceScreen;
-
-.field private final mCheckbox:Landroid/preference/CheckBoxPreference;
+.field private final mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
 
 .field private final mContext:Landroid/content/Context;
 
@@ -17,217 +24,75 @@
 
 .field private final mNfcAdapter:Landroid/nfc/NfcAdapter;
 
-.field private final mReaderCheckbox:Landroid/preference/CheckBoxPreference;
+.field private final mNfcSwitch:Landroid/widget/Switch;
+
+.field private final mNfcSwitchPref:Landroid/preference/SwitchPreferenceScreen;
 
 .field private final mReaderIntentFilter:Landroid/content/IntentFilter;
+
+.field private final mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
 
 .field private final mReceiver:Landroid/content/BroadcastReceiver;
 
 .field private mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
 
-.field private final mSBeam:Landroid/preference/PreferenceScreen;
-
-.field private mSBeamEnabled:Z
-
-.field private mSBeamSharedPrefEditor:Landroid/content/SharedPreferences$Editor;
-
-.field private mSBeamSharedPreference:Landroid/content/SharedPreferences;
+.field private final mSBeamEnabler:Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Landroid/preference/CheckBoxPreference;Landroid/preference/CheckBoxPreference;Landroid/preference/PreferenceScreen;Landroid/preference/PreferenceScreen;)V
-    .locals 7
+.method public constructor <init>(Landroid/content/Context;Landroid/preference/SwitchPreferenceScreen;Landroid/preference/SwitchPreferenceScreen;)V
+    .locals 4
     .parameter "context"
-    .parameter "nfcCheckBox"
-    .parameter "readerCheckBox"
-    .parameter "androidBeam"
+    .parameter "nfcSwitch"
     .parameter "sBeam"
 
     .prologue
-    const/4 v6, 0x0
+    const/4 v3, 0x0
 
-    const/4 v5, 0x1
-
-    const/4 v4, 0x0
-
-    .line 185
+    .line 115
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 56
-    iput-boolean v4, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabled:Z
-
-    .line 61
+    .line 67
     new-instance v1, Lcom/android/OriginalSettings/nfc/NfcEnabler$1;
 
     invoke-direct {v1, p0}, Lcom/android/OriginalSettings/nfc/NfcEnabler$1;-><init>(Lcom/android/OriginalSettings/nfc/NfcEnabler;)V
 
     iput-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 186
+    .line 116
     iput-object p1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mContext:Landroid/content/Context;
 
-    .line 187
-    iput-object p2, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
+    .line 117
+    iput-object p2, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitchPref:Landroid/preference/SwitchPreferenceScreen;
 
-    .line 188
-    iput-object p3, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
+    .line 118
+    iput-object v3, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitch:Landroid/widget/Switch;
 
-    .line 189
-    iput-object p4, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/PreferenceScreen;
+    .line 119
+    iput-object v3, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
 
-    .line 190
+    .line 120
+    iput-object v3, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
+
+    .line 122
     invoke-static {p1}, Landroid/nfc/NfcAdapter;->getDefaultAdapter(Landroid/content/Context;)Landroid/nfc/NfcAdapter;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
-    .line 191
-    iput-object p5, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
+    .line 124
+    if-eqz p3, :cond_0
 
-    .line 192
-    iput-boolean v5, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabled:Z
+    .line 125
+    new-instance v1, Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;
 
-    .line 193
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
+    invoke-direct {v1, p0, p3}, Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;-><init>(Lcom/android/OriginalSettings/nfc/NfcEnabler;Landroid/preference/SwitchPreferenceScreen;)V
 
-    if-nez v1, :cond_0
+    iput-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabler:Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;
 
-    .line 194
-    iput-boolean v4, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabled:Z
-
-    .line 196
-    :cond_0
-    iget-boolean v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabled:Z
-
-    if-eqz v1, :cond_2
-
-    .line 198
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mContext:Landroid/content/Context;
-
-    const-string v2, "pref_sbeam"
-
-    const/4 v3, 0x5
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPreference:Landroid/content/SharedPreferences;
-
-    .line 199
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPreference:Landroid/content/SharedPreferences;
-
-    const-string v2, "SBeam_on_off"
-
-    invoke-interface {v1, v2}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    .line 201
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPreference:Landroid/content/SharedPreferences;
-
-    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPrefEditor:Landroid/content/SharedPreferences$Editor;
-
-    .line 202
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
-
-    invoke-virtual {v1}, Landroid/nfc/NfcAdapter;->getAdapterState()I
-
-    move-result v1
-
-    const/4 v2, 0x3
-
-    if-eq v1, v2, :cond_1
-
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
-
-    invoke-virtual {v1}, Landroid/nfc/NfcAdapter;->getAdapterState()I
-
-    move-result v1
-
-    const/4 v2, 0x2
-
-    if-ne v1, v2, :cond_4
-
-    .line 203
-    :cond_1
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPrefEditor:Landroid/content/SharedPreferences$Editor;
-
-    const-string v2, "SBeam_on_off"
-
-    invoke-interface {v1, v2, v5}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
-
-    .line 208
+    .line 130
     :goto_0
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPrefEditor:Landroid/content/SharedPreferences$Editor;
-
-    invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
-
-    .line 212
-    :cond_2
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
-
-    if-nez v1, :cond_5
-
-    .line 214
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
-
-    .line 215
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
-
-    .line 216
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v1, v4}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
-
-    .line 217
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
-
-    if-eqz v1, :cond_3
-
-    iget-boolean v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabled:Z
-
-    if-eqz v1, :cond_3
-
-    .line 218
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v1, v4}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
-
-    .line 220
-    :cond_3
-    iput-object v6, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mIntentFilter:Landroid/content/IntentFilter;
-
-    .line 221
-    iput-object v6, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderIntentFilter:Landroid/content/IntentFilter;
-
-    .line 231
-    :goto_1
-    return-void
-
-    .line 206
-    :cond_4
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPrefEditor:Landroid/content/SharedPreferences$Editor;
-
-    const-string v2, "SBeam_on_off"
-
-    invoke-interface {v1, v2, v4}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
-
-    goto :goto_0
-
-    .line 224
-    :cond_5
     new-instance v1, Landroid/content/IntentFilter;
 
     const-string v2, "android.nfc.action.ADAPTER_STATE_CHANGED"
@@ -236,7 +101,12 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mIntentFilter:Landroid/content/IntentFilter;
 
-    .line 225
+    .line 132
+    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
+
+    if-eqz v1, :cond_1
+
+    .line 133
     new-instance v1, Landroid/content/IntentFilter;
 
     const-string v2, "android.nfc.action.ADAPTER_STATE_CHANGE_READER"
@@ -245,7 +115,8 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderIntentFilter:Landroid/content/IntentFilter;
 
-    .line 227
+    .line 139
+    :goto_1
     iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mContext:Landroid/content/Context;
 
     const-string v2, "enterprise_policy"
@@ -256,7 +127,7 @@
 
     check-cast v0, Landroid/app/enterprise/EnterpriseDeviceManager;
 
-    .line 229
+    .line 141
     .local v0, edm:Landroid/app/enterprise/EnterpriseDeviceManager;
     invoke-virtual {v0}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/app/enterprise/RestrictionPolicy;
 
@@ -264,196 +135,69 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
 
+    .line 143
+    return-void
+
+    .line 127
+    .end local v0           #edm:Landroid/app/enterprise/EnterpriseDeviceManager;
+    :cond_0
+    iput-object v3, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabler:Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;
+
+    goto :goto_0
+
+    .line 135
+    :cond_1
+    iput-object v3, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderIntentFilter:Landroid/content/IntentFilter;
+
     goto :goto_1
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Landroid/preference/CheckBoxPreference;Landroid/preference/PreferenceScreen;Landroid/preference/PreferenceScreen;)V
-    .locals 7
+.method public constructor <init>(Landroid/content/Context;Landroid/widget/Switch;Landroid/preference/SwitchPreferenceScreen;Landroid/preference/SwitchPreferenceScreen;)V
+    .locals 4
     .parameter "context"
-    .parameter "checkBoxPreference"
+    .parameter "nfcSwitch"
     .parameter "androidBeam"
-    .parameter "sBeam"
+    .parameter "readerSwitch"
 
     .prologue
-    const/4 v6, 0x1
+    const/4 v3, 0x0
 
-    const/4 v5, 0x0
-
-    const/4 v4, 0x0
-
-    .line 134
+    .line 87
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 56
-    iput-boolean v4, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabled:Z
-
-    .line 61
+    .line 67
     new-instance v1, Lcom/android/OriginalSettings/nfc/NfcEnabler$1;
 
     invoke-direct {v1, p0}, Lcom/android/OriginalSettings/nfc/NfcEnabler$1;-><init>(Lcom/android/OriginalSettings/nfc/NfcEnabler;)V
 
     iput-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 135
+    .line 88
+    iput-object v3, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitchPref:Landroid/preference/SwitchPreferenceScreen;
+
+    .line 89
+    iput-object p2, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitch:Landroid/widget/Switch;
+
+    .line 90
+    iput-object p4, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
+
+    .line 91
+    iput-object p3, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
+
+    .line 92
+    iput-object v3, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabler:Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;
+
+    .line 93
     iput-object p1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mContext:Landroid/content/Context;
 
-    .line 136
-    iput-object p2, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
-
-    .line 137
-    iput-object p3, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/PreferenceScreen;
-
-    .line 138
+    .line 95
     invoke-static {p1}, Landroid/nfc/NfcAdapter;->getDefaultAdapter(Landroid/content/Context;)Landroid/nfc/NfcAdapter;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
-    .line 139
-    iput-object p4, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
-
-    .line 140
-    iput-boolean v6, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabled:Z
-
-    .line 141
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
-
-    if-nez v1, :cond_0
-
-    .line 142
-    iput-boolean v4, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabled:Z
-
-    .line 144
-    :cond_0
-    iget-boolean v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabled:Z
-
-    if-eqz v1, :cond_2
-
-    .line 146
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mContext:Landroid/content/Context;
-
-    const-string v2, "pref_sbeam"
-
-    const/4 v3, 0x5
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPreference:Landroid/content/SharedPreferences;
-
-    .line 147
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPreference:Landroid/content/SharedPreferences;
-
-    const-string v2, "SBeam_on_off"
-
-    invoke-interface {v1, v2}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    .line 149
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPreference:Landroid/content/SharedPreferences;
-
-    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPrefEditor:Landroid/content/SharedPreferences$Editor;
-
-    .line 150
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
-
-    invoke-virtual {v1}, Landroid/nfc/NfcAdapter;->getAdapterState()I
-
-    move-result v1
-
-    const/4 v2, 0x3
-
-    if-eq v1, v2, :cond_1
-
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
-
-    invoke-virtual {v1}, Landroid/nfc/NfcAdapter;->getAdapterState()I
-
-    move-result v1
-
-    const/4 v2, 0x2
-
-    if-ne v1, v2, :cond_4
-
-    .line 151
-    :cond_1
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPrefEditor:Landroid/content/SharedPreferences$Editor;
-
-    const-string v2, "SBeam_on_off"
-
-    invoke-interface {v1, v2, v6}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
-
-    .line 156
-    :goto_0
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPrefEditor:Landroid/content/SharedPreferences$Editor;
-
-    invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
-
-    .line 163
-    :cond_2
-    iput-object v5, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
-
-    .line 164
-    iput-object v5, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderIntentFilter:Landroid/content/IntentFilter;
-
-    .line 166
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
-
-    if-nez v1, :cond_5
-
-    .line 168
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
-
-    .line 169
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v1, v4}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
-
-    .line 170
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
-
-    if-eqz v1, :cond_3
-
-    iget-boolean v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabled:Z
-
-    if-eqz v1, :cond_3
-
-    .line 171
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v1, v4}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
-
-    .line 173
-    :cond_3
-    iput-object v5, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mIntentFilter:Landroid/content/IntentFilter;
-
-    .line 182
-    :goto_1
-    return-void
-
-    .line 154
-    :cond_4
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPrefEditor:Landroid/content/SharedPreferences$Editor;
-
-    const-string v2, "SBeam_on_off"
-
-    invoke-interface {v1, v2, v4}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
-
-    goto :goto_0
-
-    .line 176
-    :cond_5
+    .line 97
     new-instance v1, Landroid/content/IntentFilter;
 
     const-string v2, "android.nfc.action.ADAPTER_STATE_CHANGED"
@@ -462,7 +206,22 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mIntentFilter:Landroid/content/IntentFilter;
 
-    .line 178
+    .line 98
+    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
+
+    if-eqz v1, :cond_0
+
+    .line 99
+    new-instance v1, Landroid/content/IntentFilter;
+
+    const-string v2, "android.nfc.action.ADAPTER_STATE_CHANGE_READER"
+
+    invoke-direct {v1, v2}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    iput-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderIntentFilter:Landroid/content/IntentFilter;
+
+    .line 105
+    :goto_0
     iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mContext:Landroid/content/Context;
 
     const-string v2, "enterprise_policy"
@@ -473,7 +232,7 @@
 
     check-cast v0, Landroid/app/enterprise/EnterpriseDeviceManager;
 
-    .line 180
+    .line 107
     .local v0, edm:Landroid/app/enterprise/EnterpriseDeviceManager;
     invoke-virtual {v0}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/app/enterprise/RestrictionPolicy;
 
@@ -481,7 +240,15 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
 
-    goto :goto_1
+    .line 109
+    return-void
+
+    .line 101
+    .end local v0           #edm:Landroid/app/enterprise/EnterpriseDeviceManager;
+    :cond_0
+    iput-object v3, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderIntentFilter:Landroid/content/IntentFilter;
+
+    goto :goto_0
 .end method
 
 .method static synthetic access$000(Lcom/android/OriginalSettings/nfc/NfcEnabler;I)V
@@ -490,7 +257,7 @@
     .parameter "x1"
 
     .prologue
-    .line 41
+    .line 46
     invoke-direct {p0, p1}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->handleNfcStateChanged(I)V
 
     return-void
@@ -502,10 +269,32 @@
     .parameter "x1"
 
     .prologue
-    .line 41
+    .line 46
     invoke-direct {p0, p1}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->handleNfcReaderStateChanged(I)V
 
     return-void
+.end method
+
+.method static synthetic access$200(Lcom/android/OriginalSettings/nfc/NfcEnabler;)Landroid/content/Context;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 46
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic access$300(Lcom/android/OriginalSettings/nfc/NfcEnabler;)Landroid/nfc/NfcAdapter;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 46
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
+
+    return-object v0
 .end method
 
 .method private handleNfcReaderStateChanged(I)V
@@ -517,54 +306,54 @@
 
     const/4 v1, 0x0
 
-    .line 407
+    .line 352
     packed-switch p1, :pswitch_data_0
 
-    .line 421
+    .line 366
     :goto_0
     :pswitch_0
     return-void
 
-    .line 409
+    .line 354
     :pswitch_1
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
 
-    .line 410
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
+    .line 355
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
 
     goto :goto_0
 
-    .line 413
+    .line 358
     :pswitch_2
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
 
-    .line 414
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
+    .line 359
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
 
     goto :goto_0
 
-    .line 417
+    .line 362
     :pswitch_3
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
 
-    .line 418
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
+    .line 363
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
 
     goto :goto_0
 
-    .line 407
+    .line 352
     nop
 
     :pswitch_data_0
@@ -578,445 +367,195 @@
 .end method
 
 .method private handleNfcStateChanged(I)V
-    .locals 7
+    .locals 5
     .parameter "newState"
 
     .prologue
-    const v6, 0x7f0d01dd
-
-    const v5, 0x7f0d01e3
-
     const/4 v4, 0x1
 
     const/4 v3, 0x0
 
-    .line 302
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPreference:Landroid/content/SharedPreferences;
+    .line 297
+    const-string v0, "NFC_ENABLER"
 
-    if-nez v0, :cond_0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    .line 303
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mContext:Landroid/content/Context;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "pref_sbeam"
+    const-string v2, "handleNfcStateChanged : "
 
-    const/4 v2, 0x5
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    move-result-object v1
 
-    move-result-object v0
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    iput-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPreference:Landroid/content/SharedPreferences;
+    move-result-object v1
 
-    .line 305
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 300
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabler:Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;
+
+    if-eqz v0, :cond_0
+
+    .line 301
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabler:Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;
+
+    invoke-virtual {v0, p1}, Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;->changeState(I)V
+
+    .line 304
     :cond_0
     packed-switch p1, :pswitch_data_0
 
-    .line 404
-    :cond_1
+    .line 349
     :goto_0
     return-void
 
-    .line 307
+    .line 306
     :pswitch_0
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
+    invoke-direct {p0, v4, v3}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setNfcSwitch(ZZ)V
 
-    invoke-virtual {v0, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    .line 307
+    invoke-direct {p0, v4, v3}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setNfcSwitchPref(ZZ)V
 
     .line 308
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    if-eqz v0, :cond_1
 
     .line 309
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v0, :cond_2
+    invoke-virtual {v0}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
 
-    .line 310
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
+    move-result v0
 
-    invoke-virtual {v0, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-direct {p0, v3, v0, v3}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setAndroidBeamSwitch(ZZZ)V
 
     .line 311
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v0, v3}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
-
-    .line 313
-    :cond_2
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v3}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
-
-    .line 314
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v6}, Landroid/preference/PreferenceScreen;->setSummary(I)V
-
-    .line 315
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
-
-    if-eqz v0, :cond_1
-
-    iget-boolean v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabled:Z
-
-    if-eqz v0, :cond_1
-
-    .line 316
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v4}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
-
-    .line 318
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v5}, Landroid/preference/PreferenceScreen;->setSummary(I)V
-
-    .line 319
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPreference:Landroid/content/SharedPreferences;
-
-    if-eqz v0, :cond_1
-
-    .line 320
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPreference:Landroid/content/SharedPreferences;
-
-    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPrefEditor:Landroid/content/SharedPreferences$Editor;
-
-    .line 321
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPrefEditor:Landroid/content/SharedPreferences$Editor;
-
-    const-string v1, "SBeam_on_off"
-
-    invoke-interface {v0, v1, v3}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
-
-    .line 322
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPrefEditor:Landroid/content/SharedPreferences$Editor;
-
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    :cond_1
+    invoke-direct {p0, v4, v3}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setReaderSwitch(ZZ)V
 
     goto :goto_0
 
-    .line 329
+    .line 314
     :pswitch_1
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
+    invoke-direct {p0, v4, v4}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setNfcSwitch(ZZ)V
 
-    invoke-virtual {v0, v4}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    .line 315
+    invoke-direct {p0, v4, v4}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setNfcSwitchPref(ZZ)V
 
-    .line 330
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v0, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
-
-    .line 331
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
-
-    if-eqz v0, :cond_3
-
-    .line 332
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v0, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
-
-    .line 333
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v0, v4}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
-
-    .line 335
-    :cond_3
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v4}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
-
-    .line 336
+    .line 317
     iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
     invoke-virtual {v0}, Landroid/nfc/NfcAdapter;->isNdefPushEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_2
 
-    .line 337
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/PreferenceScreen;
+    .line 318
+    invoke-direct {p0, v4, v4, v4}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setAndroidBeamSwitch(ZZZ)V
 
-    const v1, 0x7f0d01db
+    .line 323
+    :goto_1
+    invoke-direct {p0, v4, v4}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setReaderSwitch(ZZ)V
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setSummary(I)V
+    goto :goto_0
 
-    .line 338
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
+    .line 320
+    :cond_2
+    invoke-direct {p0, v4, v3, v3}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setAndroidBeamSwitch(ZZZ)V
 
-    if-eqz v0, :cond_1
+    goto :goto_1
 
-    iget-boolean v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabled:Z
+    .line 326
+    :pswitch_2
+    invoke-direct {p0, v3, v4}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setNfcSwitch(ZZ)V
 
-    if-eqz v0, :cond_1
+    .line 327
+    invoke-direct {p0, v3, v4}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setNfcSwitchPref(ZZ)V
 
-    .line 339
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
+    .line 328
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, v4}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    if-eqz v0, :cond_3
 
-    .line 340
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPreference:Landroid/content/SharedPreferences;
+    .line 329
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
 
-    const-string v1, "SBeam_on_off"
-
-    invoke-interface {v0, v1, v3}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v0}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
 
     move-result v0
 
+    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v1}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
+
+    move-result v1
+
+    invoke-direct {p0, v3, v0, v1}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setAndroidBeamSwitch(ZZZ)V
+
+    .line 331
+    :cond_3
+    invoke-direct {p0, v3, v3}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setReaderSwitch(ZZ)V
+
+    goto :goto_0
+
+    .line 334
+    :pswitch_3
+    invoke-direct {p0, v3, v3}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setNfcSwitch(ZZ)V
+
+    .line 335
+    invoke-direct {p0, v3, v3}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setNfcSwitchPref(ZZ)V
+
+    .line 336
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
+
     if-eqz v0, :cond_4
 
-    .line 342
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
+    .line 337
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
 
-    const v1, 0x7f0d01e2
+    invoke-virtual {v0}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setSummary(I)V
+    move-result v0
 
-    goto/16 :goto_0
+    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v1}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
+
+    move-result v1
+
+    invoke-direct {p0, v3, v0, v1}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setAndroidBeamSwitch(ZZZ)V
+
+    .line 339
+    :cond_4
+    invoke-direct {p0, v3, v3}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setReaderSwitch(ZZ)V
+
+    goto :goto_0
+
+    .line 343
+    :pswitch_4
+    invoke-direct {p0, v4, v4}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setNfcSwitch(ZZ)V
 
     .line 344
-    :cond_4
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
+    invoke-direct {p0, v4, v4}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setNfcSwitchPref(ZZ)V
 
-    invoke-virtual {v0, v5}, Landroid/preference/PreferenceScreen;->setSummary(I)V
+    .line 345
+    invoke-direct {p0, v3, v3, v3}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setAndroidBeamSwitch(ZZZ)V
 
-    goto/16 :goto_0
+    .line 346
+    invoke-direct {p0, v4, v3}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setReaderSwitch(ZZ)V
 
-    .line 348
-    :cond_5
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/PreferenceScreen;
+    goto :goto_0
 
-    const v1, 0x7f0d01dc
-
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setSummary(I)V
-
-    .line 349
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
-
-    if-eqz v0, :cond_1
-
-    iget-boolean v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabled:Z
-
-    if-eqz v0, :cond_1
-
-    .line 350
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v4}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
-
-    .line 352
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v5}, Landroid/preference/PreferenceScreen;->setSummary(I)V
-
-    .line 353
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPreference:Landroid/content/SharedPreferences;
-
-    if-eqz v0, :cond_1
-
-    .line 354
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPreference:Landroid/content/SharedPreferences;
-
-    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPrefEditor:Landroid/content/SharedPreferences$Editor;
-
-    .line 355
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPrefEditor:Landroid/content/SharedPreferences$Editor;
-
-    const-string v1, "SBeam_on_off"
-
-    invoke-interface {v0, v1, v3}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
-
-    .line 356
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPrefEditor:Landroid/content/SharedPreferences$Editor;
-
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
-
-    goto/16 :goto_0
-
-    .line 364
-    :pswitch_2
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v0, v4}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
-
-    .line 365
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v0, v3}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
-
-    .line 366
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
-
-    if-eqz v0, :cond_6
-
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v0, v3}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
-
-    .line 367
-    :cond_6
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v3}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
-
-    .line 368
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
-
-    if-eqz v0, :cond_1
-
-    iget-boolean v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabled:Z
-
-    if-eqz v0, :cond_1
-
-    .line 369
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v3}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
-
-    goto/16 :goto_0
-
-    .line 373
-    :pswitch_3
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v0, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
-
-    .line 374
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v0, v3}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
-
-    .line 375
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
-
-    if-eqz v0, :cond_7
-
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v0, v3}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
-
-    .line 376
-    :cond_7
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v3}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
-
-    .line 377
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
-
-    if-eqz v0, :cond_1
-
-    iget-boolean v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabled:Z
-
-    if-eqz v0, :cond_1
-
-    .line 378
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v3}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
-
-    goto/16 :goto_0
-
-    .line 383
-    :pswitch_4
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v0, v4}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
-
-    .line 384
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v0, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
-
-    .line 385
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
-
-    if-eqz v0, :cond_8
-
-    .line 386
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v0, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
-
-    .line 387
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v0, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
-
-    .line 389
-    :cond_8
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v3}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
-
-    .line 390
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v6}, Landroid/preference/PreferenceScreen;->setSummary(I)V
-
-    .line 391
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
-
-    if-eqz v0, :cond_1
-
-    iget-boolean v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabled:Z
-
-    if-eqz v0, :cond_1
-
-    .line 392
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v4}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
-
-    .line 393
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v5}, Landroid/preference/PreferenceScreen;->setSummary(I)V
-
-    .line 394
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPreference:Landroid/content/SharedPreferences;
-
-    if-eqz v0, :cond_1
-
-    .line 395
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPreference:Landroid/content/SharedPreferences;
-
-    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPrefEditor:Landroid/content/SharedPreferences$Editor;
-
-    .line 396
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPrefEditor:Landroid/content/SharedPreferences$Editor;
-
-    const-string v1, "SBeam_on_off"
-
-    invoke-interface {v0, v1, v3}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
-
-    .line 397
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamSharedPrefEditor:Landroid/content/SharedPreferences$Editor;
-
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
-
-    goto/16 :goto_0
-
-    .line 305
-    nop
-
+    .line 304
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1027,17 +566,495 @@
     .end packed-switch
 .end method
 
+.method private setAndroidBeamSwitch(ZZZ)V
+    .locals 3
+    .parameter "bEnable"
+    .parameter "bCheck"
+    .parameter "bSummary"
+
+    .prologue
+    .line 390
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
+
+    if-nez v0, :cond_0
+
+    .line 407
+    :goto_0
+    return-void
+
+    .line 392
+    :cond_0
+    const-string v0, "NFC_ENABLER"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "setAndroidBeamSwitch : Enable["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "] ["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v2}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "]=>["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "] summary["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "]"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 393
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v0, p1}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+
+    .line 394
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v0}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
+
+    move-result v0
+
+    if-eq p2, v0, :cond_1
+
+    .line 395
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v0, p2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+
+    .line 398
+    :cond_1
+    if-eqz p3, :cond_2
+
+    .line 399
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
+
+    const v1, 0x7f090201
+
+    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setSummary(I)V
+
+    goto :goto_0
+
+    .line 402
+    :cond_2
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
+
+    invoke-virtual {v0}, Landroid/nfc/NfcAdapter;->isEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    .line 403
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
+
+    const v1, 0x7f090202
+
+    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setSummary(I)V
+
+    goto :goto_0
+
+    .line 405
+    :cond_3
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
+
+    const v1, 0x7f090203
+
+    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setSummary(I)V
+
+    goto :goto_0
+.end method
+
+.method private setNfcSwitch(ZZ)V
+    .locals 3
+    .parameter "bEnable"
+    .parameter "bCheck"
+
+    .prologue
+    .line 369
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitch:Landroid/widget/Switch;
+
+    if-nez v0, :cond_1
+
+    .line 377
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 372
+    :cond_1
+    const-string v0, "NFC_ENABLER"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "setNfcSwitch : Enable["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "] ["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v2}, Landroid/widget/Switch;->isChecked()Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "]=>["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "]"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 373
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v0, p1}, Landroid/widget/Switch;->setEnabled(Z)V
+
+    .line 375
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v0}, Landroid/widget/Switch;->isChecked()Z
+
+    move-result v0
+
+    if-eq p2, v0, :cond_0
+
+    .line 376
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v0, p2}, Landroid/widget/Switch;->setChecked(Z)V
+
+    goto :goto_0
+.end method
+
+.method private setNfcSwitchPref(ZZ)V
+    .locals 3
+    .parameter "bEnable"
+    .parameter "bCheck"
+
+    .prologue
+    .line 380
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitchPref:Landroid/preference/SwitchPreferenceScreen;
+
+    if-nez v0, :cond_1
+
+    .line 387
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 382
+    :cond_1
+    const-string v0, "NFC_ENABLER"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "setNfcSwitchPref : Enable["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "] ["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitchPref:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v2}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "]=>["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "]"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 383
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitchPref:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v0, p1}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+
+    .line 385
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitchPref:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v0}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
+
+    move-result v0
+
+    if-eq p2, v0, :cond_0
+
+    .line 386
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitchPref:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v0, p2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+
+    goto :goto_0
+.end method
+
+.method private setReaderSwitch(ZZ)V
+    .locals 3
+    .parameter "bEnable"
+    .parameter "bCheck"
+
+    .prologue
+    .line 410
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
+
+    if-nez v0, :cond_1
+
+    .line 418
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 413
+    :cond_1
+    const-string v0, "NFC_ENABLER"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "setReaderSwitch : Enable["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "] ["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v2}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "]=>["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "]"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 414
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v0, p1}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+
+    .line 416
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v0}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
+
+    move-result v0
+
+    if-eq p2, v0, :cond_0
+
+    .line 417
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v0, p2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+
+    goto :goto_0
+.end method
+
 
 # virtual methods
-.method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
+.method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
     .locals 3
+    .parameter "buttonView"
+    .parameter "isChecked"
+
+    .prologue
+    .line 287
+    const-string v0, "NFC_ENABLER"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "onCheckedChanged : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 288
+    if-eqz p2, :cond_0
+
+    .line 289
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
+
+    invoke-virtual {v0}, Landroid/nfc/NfcAdapter;->enable()Z
+
+    .line 293
+    :goto_0
+    return-void
+
+    .line 291
+    :cond_0
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
+
+    invoke-virtual {v0}, Landroid/nfc/NfcAdapter;->disable()Z
+
+    goto :goto_0
+.end method
+
+.method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
+    .locals 6
     .parameter "preference"
     .parameter "value"
 
     .prologue
     const/4 v2, 0x0
 
-    .line 281
+    const/4 v1, 0x1
+
+    .line 230
     check-cast p2, Ljava/lang/Boolean;
 
     .end local p2
@@ -1045,55 +1062,190 @@
 
     move-result v0
 
-    .line 282
+    .line 232
     .local v0, desiredState:Z
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
+    const-string v3, "NFC_ENABLER"
 
-    invoke-virtual {p1, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    move-result v1
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-eqz v1, :cond_3
+    const-string v5, "onPreferenceChange : desiredState >"
 
-    .line 283
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    move-result-object v4
 
-    .line 284
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    if-eqz v1, :cond_0
+    move-result-object v4
 
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    move-result-object v4
 
-    .line 285
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 234
+    iget-object v3, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitchPref:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {p1, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    .line 236
+    iget-object v3, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitchPref:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v3}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
+
+    move-result v3
+
+    if-ne v3, v0, :cond_0
+
+    .line 237
+    const-string v2, "NFC_ENABLER"
+
+    const-string v3, "onPreferenceChange : mNfcSwitchPref same state"
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 279
+    :goto_0
+    return v1
+
+    .line 241
     :cond_0
     if-eqz v0, :cond_2
 
-    .line 286
+    .line 242
     iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
     invoke-virtual {v1}, Landroid/nfc/NfcAdapter;->enable()Z
 
-    .line 298
     :cond_1
-    :goto_0
-    return v2
+    :goto_1
+    move v1, v2
 
-    .line 288
+    .line 279
+    goto :goto_0
+
+    .line 244
     :cond_2
     iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
     invoke-virtual {v1}, Landroid/nfc/NfcAdapter;->disable()Z
 
+    goto :goto_1
+
+    .line 247
+    :cond_3
+    iget-object v3, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {p1, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_6
+
+    .line 248
+    iget-object v3, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v3}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
+
+    move-result v3
+
+    if-ne v3, v0, :cond_4
+
+    .line 249
+    const-string v2, "NFC_ENABLER"
+
+    const-string v3, "onPreferenceChange : mReaderSwitch same state"
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     goto :goto_0
 
-    .line 290
-    :cond_3
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
+    .line 253
+    :cond_4
+    if-eqz v0, :cond_5
+
+    .line 254
+    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
+
+    invoke-virtual {v1}, Landroid/nfc/NfcAdapter;->readerEnable()Z
+
+    goto :goto_1
+
+    .line 256
+    :cond_5
+    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
+
+    invoke-virtual {v1}, Landroid/nfc/NfcAdapter;->readerDisable()Z
+
+    goto :goto_1
+
+    .line 259
+    :cond_6
+    iget-object v3, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {p1, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_9
+
+    .line 260
+    iget-object v3, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v3}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
+
+    move-result v3
+
+    if-ne v3, v0, :cond_7
+
+    .line 261
+    const-string v2, "NFC_ENABLER"
+
+    const-string v3, "onPreferenceChange : mAndroidBeam same state"
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 265
+    :cond_7
+    if-eqz v0, :cond_8
+
+    .line 266
+    iget-object v2, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
+
+    invoke-virtual {v2}, Landroid/nfc/NfcAdapter;->enableNdefPush()Z
+
+    .line 267
+    invoke-direct {p0, v1, v1, v1}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setAndroidBeamSwitch(ZZZ)V
+
+    goto :goto_0
+
+    .line 269
+    :cond_8
+    iget-object v3, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
+
+    invoke-virtual {v3}, Landroid/nfc/NfcAdapter;->disableNdefPush()Z
+
+    .line 270
+    invoke-direct {p0, v1, v2, v2}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setAndroidBeamSwitch(ZZZ)V
+
+    goto :goto_0
+
+    .line 275
+    :cond_9
+    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabler:Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;
+
+    invoke-virtual {v1}, Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;->getSwitch()Landroid/preference/SwitchPreferenceScreen;
+
+    move-result-object v1
 
     invoke-virtual {p1, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -1101,26 +1253,12 @@
 
     if-eqz v1, :cond_1
 
-    .line 291
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
+    .line 276
+    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabler:Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;
 
-    invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v0}, Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;->onPrefChange(Z)Z
 
-    .line 292
-    if-eqz v0, :cond_4
-
-    .line 293
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
-
-    invoke-virtual {v1}, Landroid/nfc/NfcAdapter;->readerEnable()Z
-
-    goto :goto_0
-
-    .line 295
-    :cond_4
-    iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
-
-    invoke-virtual {v1}, Landroid/nfc/NfcAdapter;->readerDisable()Z
+    move-result v1
 
     goto :goto_0
 .end method
@@ -1131,17 +1269,17 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 265
+    .line 194
     iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
     if-nez v0, :cond_1
 
-    .line 276
+    .line 223
     :cond_0
     :goto_0
     return-void
 
-    .line 269
+    .line 198
     :cond_1
     iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
 
@@ -1151,26 +1289,66 @@
 
     if-eqz v0, :cond_0
 
-    .line 273
+    .line 202
     iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 274
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
+    .line 204
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    if-eqz v0, :cond_2
 
-    .line 275
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
+    .line 205
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v0, v2}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+
+    .line 208
+    :cond_2
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitchPref:Landroid/preference/SwitchPreferenceScreen;
+
+    if-eqz v0, :cond_3
+
+    .line 209
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitchPref:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v0, v2}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    .line 212
+    :cond_3
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
+
+    if-eqz v0, :cond_4
+
+    .line 213
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v0, v2}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    .line 216
+    :cond_4
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
+
+    if-eqz v0, :cond_5
+
+    .line 217
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v0, v2}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    .line 220
+    :cond_5
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabler:Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
+    .line 221
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabler:Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;
 
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v0, v2}, Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;->setOnPrefChangeCallback(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     goto :goto_0
 .end method
@@ -1179,91 +1357,55 @@
     .locals 3
 
     .prologue
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    .line 234
+    .line 147
     iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
-    .line 262
-    :cond_0
+    .line 191
     :goto_0
     return-void
 
-    .line 238
-    :cond_1
+    .line 151
+    :cond_0
+    const-string v0, "NFC_ENABLER"
+
+    const-string v1, "resume"
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 154
     iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
 
     invoke-virtual {v0}, Landroid/app/enterprise/RestrictionPolicy;->isNFCEnabled()Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_1
 
-    .line 239
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
+    .line 156
+    invoke-direct {p0, v2, v2}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setNfcSwitch(ZZ)V
 
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    .line 157
+    invoke-direct {p0, v2, v2}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setNfcSwitchPref(ZZ)V
 
-    .line 240
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
+    .line 158
+    invoke-direct {p0, v2, v2, v2}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setAndroidBeamSwitch(ZZZ)V
 
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
-
-    .line 241
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
-
-    .line 242
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
-
-    if-eqz v0, :cond_2
-
-    iget-boolean v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabled:Z
-
-    if-eqz v0, :cond_2
-
-    .line 243
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeam:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
-
-    .line 245
-    :cond_2
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
-
-    if-eqz v0, :cond_0
-
-    .line 246
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
-
-    .line 247
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    .line 159
+    invoke-direct {p0, v2, v2}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->setReaderSwitch(ZZ)V
 
     goto :goto_0
 
-    .line 254
-    :cond_3
+    .line 164
+    :cond_1
     iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
     invoke-virtual {v0}, Landroid/nfc/NfcAdapter;->getAdapterState()I
 
-    .line 255
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
-
-    invoke-virtual {v0}, Landroid/nfc/NfcAdapter;->getAdapterState()I
-
-    move-result v0
-
-    invoke-direct {p0, v0}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->handleNfcStateChanged(I)V
-
-    .line 256
+    .line 166
     iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReceiver:Landroid/content/BroadcastReceiver;
@@ -1272,22 +1414,50 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 257
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
+    .line 168
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabler:Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;
 
-    invoke-virtual {v0, p0}, Landroid/preference/CheckBoxPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    if-eqz v0, :cond_2
 
-    .line 258
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
+    .line 169
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabler:Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v0}, Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;->updateLastState()V
 
-    .line 259
-    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderCheckbox:Landroid/preference/CheckBoxPreference;
+    .line 170
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mSBeamEnabler:Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;
 
-    invoke-virtual {v0, p0}, Landroid/preference/CheckBoxPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v0, p0}, Lcom/android/OriginalSettings/nfc/NfcEnabler$SBeamEnabler;->setOnPrefChangeCallback(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 260
+    .line 173
+    :cond_2
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitch:Landroid/widget/Switch;
+
+    if-eqz v0, :cond_3
+
+    .line 174
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v0, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+
+    .line 177
+    :cond_3
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitchPref:Landroid/preference/SwitchPreferenceScreen;
+
+    if-eqz v0, :cond_4
+
+    .line 178
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcSwitchPref:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v0, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    .line 181
+    :cond_4
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
+
+    if-eqz v0, :cond_5
+
+    .line 182
     iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReceiver:Landroid/content/BroadcastReceiver;
@@ -1295,6 +1465,32 @@
     iget-object v2, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderIntentFilter:Landroid/content/IntentFilter;
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    .line 183
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mReaderSwitch:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v0, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    .line 186
+    :cond_5
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
+
+    if-eqz v0, :cond_6
+
+    .line 187
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v0, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    .line 190
+    :cond_6
+    iget-object v0, p0, Lcom/android/OriginalSettings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
+
+    invoke-virtual {v0}, Landroid/nfc/NfcAdapter;->getAdapterState()I
+
+    move-result v0
+
+    invoke-direct {p0, v0}, Lcom/android/OriginalSettings/nfc/NfcEnabler;->handleNfcStateChanged(I)V
 
     goto :goto_0
 .end method

@@ -23,7 +23,7 @@
     .locals 3
 
     .prologue
-    .line 505
+    .line 510
     invoke-static {}, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;->values()[Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;
 
     move-result-object v0

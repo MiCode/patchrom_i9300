@@ -19,6 +19,12 @@
 
 .field private mInformationTicker:Landroid/preference/SwitchPreferenceScreen;
 
+.field private mInkEffect:Landroid/preference/PreferenceScreen;
+
+.field mInkEffectSummary:[I
+
+.field private mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
 .field private mLockScreenShortcut:Landroid/preference/SwitchPreferenceScreen;
 
 .field private mMotionDialog:Landroid/app/AlertDialog;
@@ -35,15 +41,36 @@
     .locals 1
 
     .prologue
-    .line 50
+    .line 52
     invoke-direct {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;-><init>()V
 
-    .line 91
+    .line 93
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mMotionDialog:Landroid/app/AlertDialog;
 
+    .line 116
+    const/16 v0, 0x8
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_0
+
+    iput-object v0, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInkEffectSummary:[I
+
     return-void
+
+    :array_0
+    .array-data 0x4
+        0xbet 0xct 0x9t 0x7ft
+        0xbft 0xct 0x9t 0x7ft
+        0xc0t 0xct 0x9t 0x7ft
+        0xc1t 0xct 0x9t 0x7ft
+        0xc2t 0xct 0x9t 0x7ft
+        0xc3t 0xct 0x9t 0x7ft
+        0xc4t 0xct 0x9t 0x7ft
+        0xc5t 0xct 0x9t 0x7ft
+    .end array-data
 .end method
 
 .method private static AppServiceOff(I)I
@@ -51,10 +78,10 @@
     .parameter "value"
 
     .prologue
-    .line 473
+    .line 549
     xor-int/lit8 p0, p0, 0x1
 
-    .line 474
+    .line 550
     return p0
 .end method
 
@@ -63,10 +90,10 @@
     .parameter "value"
 
     .prologue
-    .line 468
+    .line 544
     or-int/lit8 p0, p0, 0x1
 
-    .line 469
+    .line 545
     return p0
 .end method
 
@@ -76,7 +103,7 @@
     .parameter "x1"
 
     .prologue
-    .line 50
+    .line 52
     invoke-direct {p0, p1}, Lcom/android/OriginalSettings/LockScreenSettings;->broadcastMotionChanged(Z)V
 
     return-void
@@ -87,7 +114,7 @@
     .parameter "x0"
 
     .prologue
-    .line 50
+    .line 52
     iget-object v0, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mCameraShortCut:Landroid/preference/SwitchPreferenceScreen;
 
     return-object v0
@@ -98,356 +125,421 @@
     .parameter "isEnable"
 
     .prologue
-    .line 438
+    .line 514
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.sec.motions.MOTIONS_SETTINGS_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 439
+    .line 515
     .local v0, motion_changed:Landroid/content/Intent;
     const-string v1, "isEnable"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 440
+    .line 516
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 441
+    .line 517
     return-void
 .end method
 
 .method private updateState()V
-    .locals 7
+    .locals 8
 
     .prologue
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    .line 198
-    iget-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mClock:Landroid/preference/CheckBoxPreference;
+    .line 254
+    iget-object v6, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mClock:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v6, "show_clock"
+    const-string v7, "show_clock"
 
-    invoke-static {v2, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v3, v7, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_6
+    if-eqz v3, :cond_6
 
-    move v2, v3
+    move v3, v4
 
     :goto_0
-    invoke-virtual {v5, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v6, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 200
+    .line 256
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v5, "aw_daemon_service_key_app_service_status"
+    const-string v6, "aw_daemon_service_key_app_service_status"
 
-    invoke-static {v2, v5, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v3, v6, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    and-int/lit8 v1, v3, 0x1
+
+    .line 258
+    .local v1, mAppLockScreen:I
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string v6, "pen_hovering_ink_effect"
+
+    invoke-static {v3, v6, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v2
 
-    and-int/lit8 v1, v2, 0x1
+    .line 260
+    .local v2, mInkEffectColor:I
+    const-string v3, "LockScreenSettings"
 
-    .line 203
-    .local v1, mAppLockScreen:I
-    iget-object v2, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mWeather:Landroid/preference/SwitchPreferenceScreen;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    if-eqz v2, :cond_0
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 204
-    if-ne v1, v3, :cond_7
+    const-string v7, "mInkEffectColor : "
 
-    .line 205
-    iget-object v2, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mWeather:Landroid/preference/SwitchPreferenceScreen;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    move-result-object v6
 
-    .line 210
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v3, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 262
+    iget-object v3, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mWeather:Landroid/preference/SwitchPreferenceScreen;
+
+    if-eqz v3, :cond_0
+
+    .line 263
+    if-ne v1, v4, :cond_7
+
+    .line 264
+    iget-object v3, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mWeather:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v3, v4}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+
+    .line 269
     :cond_0
     :goto_1
-    iget-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
+    iget-object v6, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v6, "dualclock_menu_settings"
+    const-string v7, "dualclock_menu_settings"
 
-    invoke-static {v2, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v3, v7, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_8
+    if-eqz v3, :cond_8
 
-    move v2, v3
+    move v3, v4
 
     :goto_2
-    invoke-virtual {v5, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v6, v3}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
 
-    .line 211
-    iget-object v2, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInformationTicker:Landroid/preference/SwitchPreferenceScreen;
+    .line 270
+    iget-object v3, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInformationTicker:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_1
 
-    .line 212
-    iget-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInformationTicker:Landroid/preference/SwitchPreferenceScreen;
+    .line 271
+    iget-object v6, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInformationTicker:Landroid/preference/SwitchPreferenceScreen;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v6, "information_ticker"
+    const-string v7, "information_ticker"
 
-    invoke-static {v2, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v3, v7, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_9
+    if-eqz v3, :cond_9
 
-    move v2, v3
+    move v3, v4
 
     :goto_3
-    invoke-virtual {v5, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v6, v3}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
 
-    .line 214
+    .line 273
     :cond_1
-    iget-object v2, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mCameraShortCut:Landroid/preference/SwitchPreferenceScreen;
+    iget-object v3, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mCameraShortCut:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_2
+    if-eqz v3, :cond_2
 
-    .line 215
-    iget-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mCameraShortCut:Landroid/preference/SwitchPreferenceScreen;
+    .line 274
+    iget-object v6, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mCameraShortCut:Landroid/preference/SwitchPreferenceScreen;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v6, "motion_unlock_camera_short_cut"
+    const-string v7, "motion_unlock_camera_short_cut"
 
-    invoke-static {v2, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v3, v7, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_a
+    if-eqz v3, :cond_a
 
-    move v2, v3
+    move v3, v4
 
     :goto_4
-    invoke-virtual {v5, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v6, v3}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
 
-    .line 218
+    .line 277
     :cond_2
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v5, "lockscreen_wallpaper"
+    const-string v6, "lockscreen_wallpaper"
 
-    invoke-static {v2, v5, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v3, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v2
+    move-result v3
 
-    if-ne v2, v3, :cond_b
+    if-ne v3, v4, :cond_b
 
-    move v0, v4
+    move v0, v5
 
-    .line 219
+    .line 278
     .local v0, isLiveWallpaper:Z
     :goto_5
     if-eqz v0, :cond_c
 
-    .line 220
-    iget-object v2, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mRippleEffect:Landroid/preference/CheckBoxPreference;
+    .line 279
+    iget-object v3, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mRippleEffect:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v2, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v3, v5}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
 
-    .line 223
+    .line 282
     :goto_6
-    iget-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mRippleEffect:Landroid/preference/CheckBoxPreference;
+    iget-object v6, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mRippleEffect:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v6, "lockscreen_ripple_effect"
+    const-string v7, "lockscreen_ripple_effect"
 
-    invoke-static {v2, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v3, v7, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_d
+    if-eqz v3, :cond_d
 
-    move v2, v3
+    move v3, v4
 
     :goto_7
-    invoke-virtual {v5, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v6, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 225
-    iget-object v2, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
+    .line 283
+    iget-object v3, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
 
-    if-eqz v2, :cond_3
+    iget-object v6, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mRippleEffect:Landroid/preference/CheckBoxPreference;
 
-    .line 226
-    iget-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
+    invoke-virtual {v6}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+
+    move-result v6
+
+    invoke-virtual {v3, v6}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+
+    .line 284
+    iget-object v3, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
+
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    iget-object v7, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInkEffectSummary:[I
+
+    aget v7, v7, v2
+
+    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v3, v6}, Landroid/preference/PreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
+
+    .line 286
+    iget-object v3, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
+
+    if-eqz v3, :cond_3
+
+    .line 287
+    iget-object v6, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v6, "unlock_text"
+    const-string v7, "unlock_text"
 
-    invoke-static {v2, v6, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v3, v7, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_e
+    if-eqz v3, :cond_e
 
-    move v2, v3
+    move v3, v4
 
     :goto_8
-    invoke-virtual {v5, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v6, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 228
+    .line 289
     :cond_3
-    iget-object v2, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
+    iget-object v3, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_4
+    if-eqz v3, :cond_4
 
-    .line 229
-    iget-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
+    .line 290
+    iget-object v6, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v6, "wake_up_lock_screen"
+    const-string v7, "wake_up_lock_screen"
 
-    invoke-static {v2, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v3, v7, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_f
+    if-eqz v3, :cond_f
 
-    move v2, v3
+    move v3, v4
 
     :goto_9
-    invoke-virtual {v5, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v6, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 232
+    .line 293
     :cond_4
-    iget-object v2, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mLockScreenShortcut:Landroid/preference/SwitchPreferenceScreen;
+    iget-object v3, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mLockScreenShortcut:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_5
+    if-eqz v3, :cond_5
 
-    .line 233
-    iget-object v2, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mLockScreenShortcut:Landroid/preference/SwitchPreferenceScreen;
+    .line 294
+    iget-object v3, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mLockScreenShortcut:Landroid/preference/SwitchPreferenceScreen;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v5
+    move-result-object v6
 
-    const-string v6, "lock_screen_shortcut"
+    const-string v7, "lock_screen_shortcut"
 
-    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v6, v7, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v5
+    move-result v6
 
-    if-ne v5, v3, :cond_10
+    if-ne v6, v4, :cond_10
 
     :goto_a
-    invoke-virtual {v2, v3}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v3, v4}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
 
-    .line 236
+    .line 297
     :cond_5
     return-void
 
     .end local v0           #isLiveWallpaper:Z
     .end local v1           #mAppLockScreen:I
+    .end local v2           #mInkEffectColor:I
     :cond_6
-    move v2, v4
+    move v3, v5
 
-    .line 198
+    .line 254
     goto/16 :goto_0
 
-    .line 207
+    .line 266
     .restart local v1       #mAppLockScreen:I
+    .restart local v2       #mInkEffectColor:I
     :cond_7
-    iget-object v2, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mWeather:Landroid/preference/SwitchPreferenceScreen;
+    iget-object v3, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mWeather:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v2, v4}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v3, v5}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
 
     goto/16 :goto_1
 
     :cond_8
-    move v2, v4
+    move v3, v5
 
-    .line 210
+    .line 269
     goto/16 :goto_2
 
     :cond_9
-    move v2, v4
+    move v3, v5
 
-    .line 212
+    .line 271
     goto/16 :goto_3
 
     :cond_a
-    move v2, v4
+    move v3, v5
 
-    .line 215
-    goto :goto_4
+    .line 274
+    goto/16 :goto_4
 
     :cond_b
-    move v0, v3
+    move v0, v4
 
-    .line 218
-    goto :goto_5
+    .line 277
+    goto/16 :goto_5
 
-    .line 222
+    .line 281
     .restart local v0       #isLiveWallpaper:Z
     :cond_c
-    iget-object v2, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mRippleEffect:Landroid/preference/CheckBoxPreference;
+    iget-object v3, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mRippleEffect:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v2, v3}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v3, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
 
-    goto :goto_6
+    goto/16 :goto_6
 
     :cond_d
-    move v2, v4
+    move v3, v5
 
-    .line 223
+    .line 282
     goto :goto_7
 
     :cond_e
-    move v2, v4
+    move v3, v5
 
-    .line 226
+    .line 287
     goto :goto_8
 
     :cond_f
-    move v2, v4
+    move v3, v5
 
-    .line 229
+    .line 290
     goto :goto_9
 
     :cond_10
-    move v3, v4
+    move v4, v5
 
-    .line 233
+    .line 294
     goto :goto_a
 .end method
 
@@ -461,7 +553,7 @@
 
     const/4 v4, 0x0
 
-    .line 446
+    .line 522
     const-string v6, "connectivity"
 
     invoke-virtual {p0, v6}, Lcom/android/OriginalSettings/LockScreenSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -470,52 +562,44 @@
 
     check-cast v0, Landroid/net/ConnectivityManager;
 
-    .line 447
+    .line 523
     .local v0, cm:Landroid/net/ConnectivityManager;
     invoke-virtual {v0, v5}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
 
     move-result-object v3
 
-    .line 448
+    .line 524
     .local v3, ni:Landroid/net/NetworkInfo;
     if-nez v3, :cond_1
 
-    .line 449
-    sget-boolean v5, Lcom/android/OriginalSettings/Utils;->DBG:Z
-
-    if-eqz v5, :cond_0
-
+    .line 525
     const-string v5, "LockScreenSettings"
 
     const-string v6, "checkNetwork() : NetworkInfo is null. return false"
 
-    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 464
+    .line 540
     :cond_0
     :goto_0
     return v4
 
-    .line 452
+    .line 528
     :cond_1
     invoke-virtual {v3}, Landroid/net/NetworkInfo;->isConnected()Z
 
     move-result v2
 
-    .line 453
+    .line 529
     .local v2, isWifiAvail:Z
     invoke-virtual {v0, v4}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
 
     move-result-object v3
 
-    .line 455
-    if-nez v3, :cond_3
+    .line 531
+    if-nez v3, :cond_2
 
-    .line 456
-    sget-boolean v4, Lcom/android/OriginalSettings/Utils;->DBG:Z
-
-    if-eqz v4, :cond_2
-
+    .line 532
     const-string v4, "LockScreenSettings"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -536,26 +620,21 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
     move v4, v2
 
-    .line 457
+    .line 533
     goto :goto_0
 
-    .line 460
-    :cond_3
+    .line 536
+    :cond_2
     invoke-virtual {v3}, Landroid/net/NetworkInfo;->isConnected()Z
 
     move-result v1
 
-    .line 462
+    .line 538
     .local v1, isMobileAvail:Z
-    sget-boolean v6, Lcom/android/OriginalSettings/Utils;->DBG:Z
-
-    if-eqz v6, :cond_4
-
     const-string v6, "LockScreenSettings"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -586,1403 +665,1743 @@
 
     move-result-object v7
 
-    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 464
-    :cond_4
-    if-nez v2, :cond_5
+    .line 540
+    if-nez v2, :cond_3
 
     if-eqz v1, :cond_0
 
-    :cond_5
+    :cond_3
     move v4, v5
 
     goto :goto_0
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 9
+    .locals 14
     .parameter "savedInstanceState"
 
     .prologue
-    const/4 v6, 0x1
+    const/4 v9, 0x1
 
-    const/4 v7, 0x0
-
-    .line 111
-    invoke-super {p0, p1}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
-
-    .line 112
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    .line 114
-    .local v2, resolver:Landroid/content/ContentResolver;
-    const v5, 0x7f07002d
-
-    invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/LockScreenSettings;->addPreferencesFromResource(I)V
-
-    .line 117
-    const-string v5, "lock_screen_shortcut"
-
-    invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/preference/SwitchPreferenceScreen;
-
-    iput-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mLockScreenShortcut:Landroid/preference/SwitchPreferenceScreen;
-
-    .line 118
-    iget-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mLockScreenShortcut:Landroid/preference/SwitchPreferenceScreen;
-
-    invoke-virtual {v5, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
-
-    .line 119
-    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mLockScreenShortcut:Landroid/preference/SwitchPreferenceScreen;
-
-    const-string v5, "lock_screen_shortcut"
-
-    invoke-static {v2, v5, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v5
-
-    if-ne v5, v6, :cond_8
-
-    move v5, v6
-
-    :goto_0
-    invoke-virtual {v8, v5}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
-
-    .line 120
-    iget-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mLockScreenShortcut:Landroid/preference/SwitchPreferenceScreen;
-
-    if-eqz v5, :cond_0
-
-    .line 127
-    :cond_0
-    const-string v5, "clock"
-
-    invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/preference/CheckBoxPreference;
-
-    iput-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mClock:Landroid/preference/CheckBoxPreference;
-
-    .line 128
-    iget-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mClock:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v5, v7}, Landroid/preference/CheckBoxPreference;->setPersistent(Z)V
+    const/4 v10, 0x0
 
     .line 130
-    const-string v5, "weather"
-
-    invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/preference/SwitchPreferenceScreen;
-
-    iput-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mWeather:Landroid/preference/SwitchPreferenceScreen;
+    invoke-super {p0, p1}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 131
-    iget-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mWeather:Landroid/preference/SwitchPreferenceScreen;
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
 
-    invoke-virtual {v5, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    move-result-object v8
 
-    .line 132
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v8}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
-
-    const v8, 0x1110046
-
-    invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getBoolean(I)Z
-
-    move-result v5
-
-    iput-boolean v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->isWeatherEnabled:Z
 
     .line 133
-    iget-boolean v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->isWeatherEnabled:Z
+    .local v5, resolver:Landroid/content/ContentResolver;
+    new-instance v8, Lcom/android/internal/widget/LockPatternUtils;
 
-    if-nez v5, :cond_1
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
 
-    .line 134
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    move-result-object v11
 
-    move-result-object v5
+    invoke-direct {v8, v11}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
 
-    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mWeather:Landroid/preference/SwitchPreferenceScreen;
+    iput-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    invoke-virtual {v5, v8}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    .line 135
+    const v8, 0x7f070034
+
+    invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/LockScreenSettings;->addPreferencesFromResource(I)V
 
     .line 138
-    :cond_1
-    const-string v5, "dualclock_settings"
+    const-string v8, "lock_screen_shortcut"
 
-    invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v5
+    move-result-object v8
 
-    check-cast v5, Landroid/preference/SwitchPreferenceScreen;
+    check-cast v8, Landroid/preference/SwitchPreferenceScreen;
 
-    iput-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
+    iput-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mLockScreenShortcut:Landroid/preference/SwitchPreferenceScreen;
 
     .line 139
-    iget-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
+    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mLockScreenShortcut:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v5, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v8, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    .line 140
+    iget-object v11, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mLockScreenShortcut:Landroid/preference/SwitchPreferenceScreen;
+
+    const-string v8, "lock_screen_shortcut"
+
+    invoke-static {v5, v8, v10}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v8
+
+    if-ne v8, v9, :cond_10
+
+    move v8, v9
+
+    :goto_0
+    invoke-virtual {v11, v8}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
 
     .line 141
-    const-string v5, "information_ticker"
+    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mLockScreenShortcut:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v5
-
-    #start 
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/DisplaySettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-    move-result-object v8
-    invoke-virtual {v8, v5}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-    #end
-
-    check-cast v5, Landroid/preference/SwitchPreferenceScreen;
-
-    iput-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInformationTicker:Landroid/preference/SwitchPreferenceScreen;
+    if-eqz v8, :cond_0
 
     .line 142
-    iget-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInformationTicker:Landroid/preference/SwitchPreferenceScreen;
+    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    invoke-virtual {v5, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v8}, Lcom/android/internal/widget/LockPatternUtils;->usingSignatureUnlock()Z
 
-    .line 143
-    iget-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInformationTicker:Landroid/preference/SwitchPreferenceScreen;
+    move-result v8
 
-    if-eqz v5, :cond_2
+    if-eqz v8, :cond_0
+
+    .line 144
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v8
+
+    iget-object v11, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mLockScreenShortcut:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v8, v11}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+
+    .line 149
+    :cond_0
+    const-string v8, "clock"
+
+    invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/preference/CheckBoxPreference;
+
+    iput-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mClock:Landroid/preference/CheckBoxPreference;
+
+    .line 150
+    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mClock:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v8, v10}, Landroid/preference/CheckBoxPreference;->setPersistent(Z)V
+
+    .line 152
+    const-string v8, "weather"
+
+    invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/preference/SwitchPreferenceScreen;
+
+    iput-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mWeather:Landroid/preference/SwitchPreferenceScreen;
+
+    .line 153
+    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mWeather:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v8, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    .line 154
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v8
+
+    const v11, 0x1110046
+
+    invoke-virtual {v8, v11}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v8
+
+    iput-boolean v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->isWeatherEnabled:Z
+
+    .line 155
+    iget-boolean v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->isWeatherEnabled:Z
+
+    if-nez v8, :cond_1
+
+    .line 156
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v8
+
+    iget-object v11, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mWeather:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v8, v11}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+
+    .line 160
+    :cond_1
+    const-string v8, "dualclock_settings"
+
+    invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/preference/SwitchPreferenceScreen;
+
+    iput-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
+
+    .line 161
+    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v8, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    .line 163
+    const-string v8, "information_ticker"
+
+    invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/preference/SwitchPreferenceScreen;
+
+    iput-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInformationTicker:Landroid/preference/SwitchPreferenceScreen;
+
+    .line 164
+    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInformationTicker:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v8, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    .line 173
+    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInformationTicker:Landroid/preference/SwitchPreferenceScreen;
+
+    if-eqz v8, :cond_2
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v5
+    move-result-object v8
 
-    const v8, 0x1110044
+    const v11, 0x1110044
 
-    invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getBoolean(I)Z
+    invoke-virtual {v8, v11}, Landroid/content/res/Resources;->getBoolean(I)Z
 
-    move-result v5
+    move-result v8
 
-    if-eqz v5, :cond_9
+    if-eqz v8, :cond_3
 
-    .line 149
     :cond_2
-    :goto_1
-    const-string v5, "camera_short_cut"
+    invoke-static {}, Lcom/android/OriginalSettings/Utils;->isDomesticModel()Z
 
-    invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    move-result v8
 
-    move-result-object v5
+    if-nez v8, :cond_3
 
-    check-cast v5, Landroid/preference/SwitchPreferenceScreen;
+    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    iput-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mCameraShortCut:Landroid/preference/SwitchPreferenceScreen;
+    invoke-virtual {v8}, Lcom/android/internal/widget/LockPatternUtils;->usingSignatureUnlock()Z
 
-    .line 150
-    iget-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mCameraShortCut:Landroid/preference/SwitchPreferenceScreen;
+    move-result v8
 
-    if-eqz v5, :cond_3
-
-    .line 151
-    iget-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mCameraShortCut:Landroid/preference/SwitchPreferenceScreen;
-
-    invoke-virtual {v5, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
-
-    .line 152
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lcom/android/OriginalSettings/Utils;->isTablet(Landroid/content/Context;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3
-
-    .line 153
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v5
-
-    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mCameraShortCut:Landroid/preference/SwitchPreferenceScreen;
-
-    invoke-virtual {v5, v8}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    .line 159
-    :cond_3
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lcom/android/OriginalSettings/Utils;->isWifiOnly(Landroid/content/Context;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_4
-
-    .line 160
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v5
-
-    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
-
-    invoke-virtual {v5, v8}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    .line 161
-    const-string v5, "LockScreenSettings"
-
-    const-string v8, " remove Dualclock menu"
-
-    invoke-static {v5, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 164
-    :cond_4
-    const-string v5, "ripple_effect"
-
-    invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/preference/CheckBoxPreference;
-
-    iput-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mRippleEffect:Landroid/preference/CheckBoxPreference;
-
-    .line 165
-    const-string v5, "help_text"
-
-    invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/preference/CheckBoxPreference;
-
-    iput-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
-
-    .line 166
-    const-string v5, "say_your_wakeup"
-
-    invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/preference/CheckBoxPreference;
-
-    iput-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
-
-    .line 169
-    iget-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mRippleEffect:Landroid/preference/CheckBoxPreference;
-
-    if-eqz v5, :cond_5
-
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lcom/android/OriginalSettings/Utils;->isTablet(Landroid/content/Context;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_5
-
-    .line 170
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v5
-
-    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mRippleEffect:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v5, v8}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    .line 174
-    :cond_5
-    const-string v5, "set_wakeup_command"
-
-    invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/preference/PreferenceScreen;
-
-    .line 175
-    .local v3, setWakeupCommand:Landroid/preference/PreferenceScreen;
-    invoke-virtual {v3}, Landroid/preference/PreferenceScreen;->getIntent()Landroid/content/Intent;
-
-    move-result-object v4
-
-    .line 176
-    .local v4, set_wakeup_commant_intent:Landroid/content/Intent;
-    if-eqz v4, :cond_7
+    if-eqz v8, :cond_4
 
     .line 177
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+    :cond_3
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
-    move-result-object v5
+    move-result-object v8
 
-    invoke-virtual {v5}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    iget-object v11, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInformationTicker:Landroid/preference/SwitchPreferenceScreen;
 
-    move-result-object v1
-
-    .line 178
-    .local v1, pm:Landroid/content/pm/PackageManager;
-    invoke-virtual {v1, v4, v7}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;
-
-    move-result-object v0
-
-    .line 179
-    .local v0, list:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v5
-
-    if-ge v5, v6, :cond_7
-
-    .line 180
-    iget-object v5, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
-
-    if-eqz v5, :cond_6
+    invoke-virtual {v8, v11}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 181
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    :cond_4
+    const-string v8, "camera_short_cut"
 
-    move-result-object v5
+    invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    iget-object v6, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
+    move-result-object v8
 
-    invoke-virtual {v5, v6}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    check-cast v8, Landroid/preference/SwitchPreferenceScreen;
+
+    iput-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mCameraShortCut:Landroid/preference/SwitchPreferenceScreen;
 
     .line 182
-    :cond_6
-    if-eqz v3, :cond_7
+    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mCameraShortCut:Landroid/preference/SwitchPreferenceScreen;
+
+    if-eqz v8, :cond_6
 
     .line 183
+    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mCameraShortCut:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v8, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    .line 184
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v8
+
+    invoke-static {v8}, Lcom/android/OriginalSettings/Utils;->isTablet(Landroid/content/Context;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_5
+
+    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v8}, Lcom/android/internal/widget/LockPatternUtils;->usingSignatureUnlock()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_6
+
+    .line 186
+    :cond_5
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
-    move-result-object v5
+    move-result-object v8
 
-    invoke-virtual {v5, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    iget-object v11, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mCameraShortCut:Landroid/preference/SwitchPreferenceScreen;
 
-    .line 188
-    .end local v0           #list:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    .end local v1           #pm:Landroid/content/pm/PackageManager;
+    invoke-virtual {v8, v11}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+
+    .line 192
+    :cond_6
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v8
+
+    invoke-static {v8}, Lcom/android/OriginalSettings/Utils;->isWifiOnly(Landroid/content/Context;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_7
+
+    .line 193
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v8
+
+    iget-object v11, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v8, v11}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+
+    .line 194
+    const-string v8, "LockScreenSettings"
+
+    const-string v11, " remove Dualclock menu"
+
+    invoke-static {v8, v11}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 197
     :cond_7
-    return-void
+    const-string v8, "ripple_effect"
 
-    .end local v3           #setWakeupCommand:Landroid/preference/PreferenceScreen;
-    .end local v4           #set_wakeup_commant_intent:Landroid/content/Intent;
+    invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/preference/CheckBoxPreference;
+
+    iput-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mRippleEffect:Landroid/preference/CheckBoxPreference;
+
+    .line 198
+    const-string v8, "ja"
+
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v11
+
+    iget-object v11, v11, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+
+    invoke-virtual {v11}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v8, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_11
+
+    const-string v0, ""
+
+    .line 199
+    .local v0, dot:Ljava/lang/String;
+    :goto_1
+    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mRippleEffect:Landroid/preference/CheckBoxPreference;
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v12
+
+    const v13, 0x7f090cbc
+
+    invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v12
+
+    const v13, 0x7f090d04
+
+    invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v8, v11}, Landroid/preference/CheckBoxPreference;->setSummary(Ljava/lang/CharSequence;)V
+
+    .line 201
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v8
+
+    const-string v11, "pen_hovering_ink_effect"
+
+    invoke-static {v8, v11, v10}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    .line 202
+    .local v2, mInkEffectColor:I
+    const-string v8, "ink_effect"
+
+    invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/preference/PreferenceScreen;
+
+    iput-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
+
+    .line 203
+    const-string v8, "help_text"
+
+    invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/preference/CheckBoxPreference;
+
+    iput-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
+
+    .line 204
+    const-string v8, "say_your_wakeup"
+
+    invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/preference/CheckBoxPreference;
+
+    iput-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
+
+    .line 207
+    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mRippleEffect:Landroid/preference/CheckBoxPreference;
+
+    if-eqz v8, :cond_8
+
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v8
+
+    invoke-static {v8}, Lcom/android/OriginalSettings/Utils;->isTablet(Landroid/content/Context;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_9
+
     :cond_8
-    move v5, v7
+    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    .line 119
-    goto/16 :goto_0
+    invoke-virtual {v8}, Lcom/android/internal/widget/LockPatternUtils;->usingSignatureUnlock()Z
 
-    .line 145
+    move-result v8
+
+    if-eqz v8, :cond_a
+
+    .line 209
     :cond_9
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
-    move-result-object v5
+    move-result-object v8
 
-    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInformationTicker:Landroid/preference/SwitchPreferenceScreen;
+    iget-object v11, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mRippleEffect:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v5, v8}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v8, v11}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+
+    .line 213
+    :cond_a
+    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
+
+    if-eqz v8, :cond_b
+
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v8
+
+    invoke-static {v8}, Lcom/android/OriginalSettings/Utils;->isTablet(Landroid/content/Context;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_c
+
+    :cond_b
+    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v8}, Lcom/android/internal/widget/LockPatternUtils;->usingSignatureUnlock()Z
+
+    move-result v8
+
+    if-nez v8, :cond_c
+
+    .line 216
+    :cond_c
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v4
+
+    .line 217
+    .local v4, ps:Landroid/preference/PreferenceScreen;
+    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
+
+    invoke-virtual {v4, v8}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+
+    .line 221
+    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
+
+    if-eqz v8, :cond_d
+
+    .line 223
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v4
+
+    .line 224
+    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
+
+    invoke-virtual {v4, v8}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+
+    .line 228
+    :cond_d
+    const-string v8, "set_wakeup_command"
+
+    invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/preference/PreferenceScreen;
+
+    .line 229
+    .local v6, setWakeupCommand:Landroid/preference/PreferenceScreen;
+    if-eqz v6, :cond_f
+
+    .line 230
+    invoke-virtual {v6}, Landroid/preference/PreferenceScreen;->getIntent()Landroid/content/Intent;
+
+    move-result-object v7
+
+    .line 231
+    .local v7, set_wakeup_commant_intent:Landroid/content/Intent;
+    if-eqz v7, :cond_f
+
+    .line 232
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v3
+
+    .line 233
+    .local v3, pm:Landroid/content/pm/PackageManager;
+    invoke-virtual {v3, v7, v10}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;
+
+    move-result-object v1
+
+    .line 234
+    .local v1, list:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v8
+
+    if-ge v8, v9, :cond_f
+
+    .line 235
+    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
+
+    if-eqz v8, :cond_e
+
+    .line 236
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v8
+
+    iget-object v9, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v8, v9}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+
+    .line 237
+    :cond_e
+    if-eqz v6, :cond_f
+
+    .line 238
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v6}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+
+    .line 244
+    .end local v1           #list:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
+    .end local v3           #pm:Landroid/content/pm/PackageManager;
+    .end local v7           #set_wakeup_commant_intent:Landroid/content/Intent;
+    :cond_f
+    return-void
+
+    .end local v0           #dot:Ljava/lang/String;
+    .end local v2           #mInkEffectColor:I
+    .end local v4           #ps:Landroid/preference/PreferenceScreen;
+    .end local v6           #setWakeupCommand:Landroid/preference/PreferenceScreen;
+    :cond_10
+    move v8, v10
+
+    .line 140
+    goto/16 :goto_0
+
+    .line 198
+    :cond_11
+    const-string v0, ". "
 
     goto/16 :goto_1
 .end method
 
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
-    .locals 12
+    .locals 13
     .parameter "preference"
     .parameter "objValue"
 
     .prologue
-    const/4 v8, 0x0
-
-    const/4 v7, 0x1
-
-    .line 268
+    .line 331
     invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 269
+    .line 332
     .local v4, key:Ljava/lang/String;
-    const-string v9, "dualclock_settings"
+    const-string v10, "dualclock_settings"
 
-    invoke-virtual {v9, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v10, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_2
+    if-eqz v10, :cond_2
 
-    .line 270
+    .line 333
     check-cast p2, Ljava/lang/Boolean;
 
     .end local p2
     invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_1
+    if-eqz v10, :cond_1
 
-    move v6, v7
+    const/4 v9, 0x1
 
-    .line 271
-    .local v6, value:I
+    .line 334
+    .local v9, value:I
     :goto_0
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v8
+    move-result-object v10
 
-    const-string v9, "dualclock_menu_settings"
+    const-string v11, "dualclock_menu_settings"
 
-    invoke-static {v8, v9, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v10, v11, v9}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 398
-    .end local v6           #value:I
+    .line 474
+    .end local v9           #value:I
     :cond_0
     :goto_1
-    return v7
+    const/4 v10, 0x1
 
+    :goto_2
+    return v10
+
+    .line 333
     :cond_1
-    move v6, v8
+    const/4 v9, 0x0
 
-    .line 270
     goto :goto_0
 
-    .line 272
+    .line 335
     .restart local p2
     :cond_2
-    const-string v9, "information_ticker"
+    const-string v10, "information_ticker"
 
-    invoke-virtual {v9, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v10, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_d
+    if-eqz v10, :cond_e
 
-    move-object v6, p2
+    move-object v9, p2
 
-    .line 273
-    check-cast v6, Ljava/lang/Boolean;
+    .line 336
+    check-cast v9, Ljava/lang/Boolean;
 
-    .line 279
-    .local v6, value:Ljava/lang/Boolean;
-    const-string v9, "CHN"
+    .line 342
+    .local v9, value:Ljava/lang/Boolean;
+    const-string v10, "CHN"
 
-    const-string v10, "ro.csc.sales_code"
+    const-string v11, "ro.csc.sales_code"
 
-    invoke-static {v10}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v11}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v10
 
-    if-nez v9, :cond_3
+    if-nez v10, :cond_3
 
-    const-string v9, "CHM"
+    const-string v10, "CHM"
 
-    const-string v10, "ro.csc.sales_code"
+    const-string v11, "ro.csc.sales_code"
 
-    invoke-static {v10}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v11}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v10
 
-    if-nez v9, :cond_3
+    if-nez v10, :cond_3
 
-    const-string v9, "CHU"
+    const-string v10, "CHU"
 
-    const-string v10, "ro.csc.sales_code"
+    const-string v11, "ro.csc.sales_code"
 
-    invoke-static {v10}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v11}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v10
 
-    if-nez v9, :cond_3
+    if-nez v10, :cond_3
 
-    const-string v9, "CTC"
+    const-string v10, "CTC"
 
-    const-string v10, "ro.csc.sales_code"
+    const-string v11, "ro.csc.sales_code"
 
-    invoke-static {v10}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v11}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_7
+    if-eqz v10, :cond_6
 
-    .line 283
+    .line 346
     :cond_3
-    invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {v9}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_5
+    if-eqz v10, :cond_4
 
-    .line 284
+    .line 347
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string v10, "sn_daemon_service_key_app_service_status"
+    const-string v11, "sn_daemon_service_key_app_service_status"
 
-    invoke-static {v9, v10, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    const/4 v12, 0x1
 
-    move-result v9
+    invoke-static {v10, v11, v12}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    invoke-static {v9}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOn(I)I
+    move-result v10
+
+    invoke-static {v10}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOn(I)I
 
     move-result v5
 
-    .line 288
+    .line 351
     .local v5, mAppServiceStatus:I
-    :goto_2
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v9
-
-    const-string v10, "sn_daemon_service_key_app_service_status"
-
-    invoke-static {v9, v10, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 290
-    invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v9
-
-    if-eqz v9, :cond_6
-
-    .line 291
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v9
-
-    const-string v10, "stockclock_daemon_service_key_app_service_status"
-
-    invoke-static {v9, v10, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v9
-
-    invoke-static {v9}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOn(I)I
-
-    move-result v5
-
-    .line 295
     :goto_3
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string v10, "stockclock_daemon_service_key_app_service_status"
+    const-string v11, "sn_daemon_service_key_app_service_status"
 
-    invoke-static {v9, v10, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v10, v11, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 297
-    new-instance v2, Landroid/content/Intent;
+    .line 353
+    invoke-virtual {v9}, Ljava/lang/Boolean;->booleanValue()Z
 
-    const-string v9, "com.sec.android.daemonapp.ap.sinanews.intent.action.SERVICE_ON_OFF"
+    move-result v10
 
-    invoke-direct {v2, v9}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    if-eqz v10, :cond_5
 
-    .line 298
-    .local v2, intent_nw:Landroid/content/Intent;
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+    .line 354
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9, v2}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    const-string v11, "stockclock_daemon_service_key_app_service_status"
 
-    .line 299
-    new-instance v3, Landroid/content/Intent;
+    const/4 v12, 0x1
 
-    const-string v9, "com.sec.android.daemonapp.stockclock.action.CURRENT_STOCK_DATA"
+    invoke-static {v10, v11, v12}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    invoke-direct {v3, v9}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    move-result v10
 
-    .line 300
-    .local v3, intent_st:Landroid/content/Intent;
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+    invoke-static {v10}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOn(I)I
 
-    move-result-object v9
+    move-result v5
 
-    invoke-virtual {v9, v3}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
-
-    .line 345
+    .line 358
     :goto_4
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string v10, "information_ticker"
+    const-string v11, "stockclock_daemon_service_key_app_service_status"
 
-    invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-static {v10, v11, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    move-result v11
+    .line 360
+    new-instance v2, Landroid/content/Intent;
 
-    if-eqz v11, :cond_4
+    const-string v10, "com.sec.android.daemonapp.ap.sinanews.intent.action.SERVICE_ON_OFF"
 
-    move v8, v7
+    invoke-direct {v2, v10}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    :cond_4
-    invoke-static {v9, v10, v8}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    .line 361
+    .local v2, intent_nw:Landroid/content/Intent;
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
 
-    .line 346
+    move-result-object v10
+
+    invoke-virtual {v10, v2}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+
+    .line 362
+    new-instance v3, Landroid/content/Intent;
+
+    const-string v10, "com.sec.android.daemonapp.stockclock.action.CURRENT_STOCK_DATA"
+
+    invoke-direct {v3, v10}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 363
+    .local v3, intent_st:Landroid/content/Intent;
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v3}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+
+    .line 414
+    :goto_5
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v11
+
+    const-string v12, "information_ticker"
+
+    invoke-virtual {v9}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_d
+
+    const/4 v10, 0x1
+
+    :goto_6
+    invoke-static {v11, v12, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 415
     invoke-direct {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->updateState()V
 
     goto/16 :goto_1
 
-    .line 286
+    .line 349
     .end local v2           #intent_nw:Landroid/content/Intent;
     .end local v3           #intent_st:Landroid/content/Intent;
     .end local v5           #mAppServiceStatus:I
+    :cond_4
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v10
+
+    const-string v11, "sn_daemon_service_key_app_service_status"
+
+    const/4 v12, 0x1
+
+    invoke-static {v10, v11, v12}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v10
+
+    invoke-static {v10}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOff(I)I
+
+    move-result v5
+
+    .restart local v5       #mAppServiceStatus:I
+    goto :goto_3
+
+    .line 356
     :cond_5
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string v10, "sn_daemon_service_key_app_service_status"
+    const-string v11, "stockclock_daemon_service_key_app_service_status"
 
-    invoke-static {v9, v10, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    const/4 v12, 0x1
 
-    move-result v9
+    invoke-static {v10, v11, v12}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    invoke-static {v9}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOff(I)I
+    move-result v10
 
-    move-result v5
-
-    .restart local v5       #mAppServiceStatus:I
-    goto :goto_2
-
-    .line 293
-    :cond_6
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v9
-
-    const-string v10, "stockclock_daemon_service_key_app_service_status"
-
-    invoke-static {v9, v10, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v9
-
-    invoke-static {v9}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOff(I)I
+    invoke-static {v10}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOff(I)I
 
     move-result v5
 
-    goto :goto_3
+    goto :goto_4
 
-    .line 301
+    .line 364
     .end local v5           #mAppServiceStatus:I
-    :cond_7
+    :cond_6
     invoke-static {}, Lcom/android/OriginalSettings/Utils;->isDomesticModel()Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_a
+    if-eqz v10, :cond_9
 
-    .line 302
-    invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
+    .line 365
+    invoke-virtual {v9}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_8
+    if-eqz v10, :cond_7
 
-    .line 303
+    .line 366
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string v10, "yonhap_daemon_service_key_app_service_status"
+    const-string v11, "yonhap_daemon_service_key_app_service_status"
 
-    invoke-static {v9, v10, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    const/4 v12, 0x1
 
-    move-result v9
+    invoke-static {v10, v11, v12}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    invoke-static {v9}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOn(I)I
+    move-result v10
+
+    invoke-static {v10}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOn(I)I
 
     move-result v5
 
-    .line 307
-    .restart local v5       #mAppServiceStatus:I
-    :goto_5
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v9
-
-    const-string v10, "yonhap_daemon_service_key_app_service_status"
-
-    invoke-static {v9, v10, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 309
-    invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v9
-
-    if-eqz v9, :cond_9
-
-    .line 310
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v9
-
-    const-string v10, "stockclock_daemon_service_key_app_service_status"
-
-    invoke-static {v9, v10, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v9
-
-    invoke-static {v9}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOn(I)I
-
-    move-result v5
-
-    .line 314
-    :goto_6
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v9
-
-    const-string v10, "stockclock_daemon_service_key_app_service_status"
-
-    invoke-static {v9, v10, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 316
-    new-instance v2, Landroid/content/Intent;
-
-    const-string v9, "com.sec.android.daemonapp.ap.yonhapnews.intent.action.SERVICE_ON_OFF"
-
-    invoke-direct {v2, v9}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 317
-    .restart local v2       #intent_nw:Landroid/content/Intent;
-    new-instance v0, Landroid/content/ComponentName;
-
-    const-string v9, "com.sec.android.daemonapp.ap.yonhapnews"
-
-    const-string v10, "com.sec.android.daemonapp.ap.yonhapnews.DaemonReceiver"
-
-    invoke-direct {v0, v9, v10}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 319
-    .local v0, component:Landroid/content/ComponentName;
-    invoke-virtual {v2, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
-
-    .line 320
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v2}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
-
-    .line 322
-    new-instance v3, Landroid/content/Intent;
-
-    const-string v9, "com.sec.android.daemonapp.stockclock.action.CURRENT_STOCK_DATA"
-
-    invoke-direct {v3, v9}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 323
-    .restart local v3       #intent_st:Landroid/content/Intent;
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v3}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
-
-    goto/16 :goto_4
-
-    .line 305
-    .end local v0           #component:Landroid/content/ComponentName;
-    .end local v2           #intent_nw:Landroid/content/Intent;
-    .end local v3           #intent_st:Landroid/content/Intent;
-    .end local v5           #mAppServiceStatus:I
-    :cond_8
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v9
-
-    const-string v10, "yonhap_daemon_service_key_app_service_status"
-
-    invoke-static {v9, v10, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v9
-
-    invoke-static {v9}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOff(I)I
-
-    move-result v5
-
-    .restart local v5       #mAppServiceStatus:I
-    goto :goto_5
-
-    .line 312
-    :cond_9
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v9
-
-    const-string v10, "stockclock_daemon_service_key_app_service_status"
-
-    invoke-static {v9, v10, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v9
-
-    invoke-static {v9}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOff(I)I
-
-    move-result v5
-
-    goto :goto_6
-
-    .line 325
-    .end local v5           #mAppServiceStatus:I
-    :cond_a
-    invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v9
-
-    if-eqz v9, :cond_b
-
-    .line 326
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v9
-
-    const-string v10, "yh_daemon_service_key_app_service_status"
-
-    invoke-static {v9, v10, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v9
-
-    invoke-static {v9}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOn(I)I
-
-    move-result v5
-
-    .line 330
+    .line 370
     .restart local v5       #mAppServiceStatus:I
     :goto_7
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string v10, "yh_daemon_service_key_app_service_status"
+    const-string v11, "yonhap_daemon_service_key_app_service_status"
 
-    invoke-static {v9, v10, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v10, v11, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 332
-    invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
+    .line 372
+    invoke-virtual {v9}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_c
+    if-eqz v10, :cond_8
 
-    .line 333
+    .line 373
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string v10, "stockclock_daemon_service_key_app_service_status"
+    const-string v11, "stockclock_daemon_service_key_app_service_status"
 
-    invoke-static {v9, v10, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    const/4 v12, 0x1
 
-    move-result v9
+    invoke-static {v10, v11, v12}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    invoke-static {v9}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOn(I)I
+    move-result v10
+
+    invoke-static {v10}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOn(I)I
 
     move-result v5
 
-    .line 337
+    .line 377
     :goto_8
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string v10, "stockclock_daemon_service_key_app_service_status"
+    const-string v11, "stockclock_daemon_service_key_app_service_status"
 
-    invoke-static {v9, v10, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v10, v11, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 339
+    .line 379
     new-instance v2, Landroid/content/Intent;
 
-    const-string v9, "com.sec.android.daemonapp.ap.yahoonews.intent.action.SERVICE_ON_OFF"
+    const-string v10, "com.sec.android.daemonapp.ap.yonhapnews.intent.action.SERVICE_ON_OFF"
 
-    invoke-direct {v2, v9}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v10}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 340
+    .line 380
     .restart local v2       #intent_nw:Landroid/content/Intent;
+    new-instance v0, Landroid/content/ComponentName;
+
+    const-string v10, "com.sec.android.daemonapp.ap.yonhapnews"
+
+    const-string v11, "com.sec.android.daemonapp.ap.yonhapnews.DaemonReceiver"
+
+    invoke-direct {v0, v10, v11}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 382
+    .local v0, component:Landroid/content/ComponentName;
+    invoke-virtual {v2, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    .line 383
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9, v2}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v10, v2}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 341
+    .line 385
     new-instance v3, Landroid/content/Intent;
 
-    const-string v9, "com.sec.android.daemonapp.stockclock.action.CURRENT_STOCK_DATA"
+    const-string v10, "com.sec.android.daemonapp.stockclock.action.CURRENT_STOCK_DATA"
 
-    invoke-direct {v3, v9}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v10}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 342
+    .line 386
     .restart local v3       #intent_st:Landroid/content/Intent;
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9, v3}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v10, v3}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
-    goto/16 :goto_4
+    goto/16 :goto_5
 
-    .line 328
+    .line 368
+    .end local v0           #component:Landroid/content/ComponentName;
     .end local v2           #intent_nw:Landroid/content/Intent;
     .end local v3           #intent_st:Landroid/content/Intent;
     .end local v5           #mAppServiceStatus:I
-    :cond_b
+    :cond_7
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string v10, "yh_daemon_service_key_app_service_status"
+    const-string v11, "yonhap_daemon_service_key_app_service_status"
 
-    invoke-static {v9, v10, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    const/4 v12, 0x1
 
-    move-result v9
+    invoke-static {v10, v11, v12}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    invoke-static {v9}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOff(I)I
+    move-result v10
+
+    invoke-static {v10}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOff(I)I
 
     move-result v5
 
     .restart local v5       #mAppServiceStatus:I
     goto :goto_7
 
-    .line 335
-    :cond_c
+    .line 375
+    :cond_8
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string v10, "stockclock_daemon_service_key_app_service_status"
+    const-string v11, "stockclock_daemon_service_key_app_service_status"
 
-    invoke-static {v9, v10, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    const/4 v12, 0x1
 
-    move-result v9
+    invoke-static {v10, v11, v12}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    invoke-static {v9}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOff(I)I
+    move-result v10
+
+    invoke-static {v10}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOff(I)I
 
     move-result v5
 
     goto :goto_8
 
-    .line 348
+    .line 388
     .end local v5           #mAppServiceStatus:I
-    .end local v6           #value:Ljava/lang/Boolean;
-    :cond_d
-    const-string v9, "weather"
+    :cond_9
+    invoke-virtual {v9}, Ljava/lang/Boolean;->booleanValue()Z
 
-    invoke-virtual {v9, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v10
 
-    move-result v9
+    if-eqz v10, :cond_b
 
-    if-eqz v9, :cond_14
-
-    move-object v6, p2
-
-    .line 349
-    check-cast v6, Ljava/lang/Boolean;
-
-    .line 350
-    .restart local v6       #value:Ljava/lang/Boolean;
-    invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v9
-
-    if-eqz v9, :cond_e
-
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->checkNetwork()Z
-
-    move-result v9
-
-    if-nez v9, :cond_e
-
-    .line 351
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v9
-
-    const v10, 0x7f0d07b5
-
-    invoke-static {v9, v10, v7}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Landroid/widget/Toast;->show()V
-
-    .line 353
-    :cond_e
-    const-string v9, "CHN"
-
-    const-string v10, "ro.csc.sales_code"
-
-    invoke-static {v10}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-nez v9, :cond_f
-
-    const-string v9, "CHM"
-
-    const-string v10, "ro.csc.sales_code"
-
-    invoke-static {v10}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-nez v9, :cond_f
-
-    const-string v9, "CHU"
-
-    const-string v10, "ro.csc.sales_code"
-
-    invoke-static {v10}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-nez v9, :cond_f
-
-    const-string v9, "CTC"
-
-    const-string v10, "ro.csc.sales_code"
-
-    invoke-static {v10}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-nez v9, :cond_f
-
-    .line 357
-    invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v9
-
-    if-eqz v9, :cond_f
-
+    .line 389
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string v10, "network"
+    const-string v11, "yh_daemon_service_key_app_service_status"
 
-    invoke-static {v9, v10}, Landroid/provider/Settings$Secure;->isLocationProviderEnabled(Landroid/content/ContentResolver;Ljava/lang/String;)Z
+    const/4 v12, 0x1
 
-    move-result v9
+    invoke-static {v10, v11, v12}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    if-nez v9, :cond_f
+    move-result v10
 
-    .line 358
-    iget-object v9, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mWeather:Landroid/preference/SwitchPreferenceScreen;
-
-    invoke-virtual {v9, v8}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
-
-    .line 359
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v8
-
-    const-string v9, "network"
-
-    invoke-static {v8, v9, v7}, Landroid/provider/Settings$Secure;->setLocationProviderEnabled(Landroid/content/ContentResolver;Ljava/lang/String;Z)V
-
-    .line 360
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v8, "android.settings.LOCATION_SOURCE_SETTINGS"
-
-    invoke-direct {v1, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 361
-    .local v1, gpsOptionIntent:Landroid/content/Intent;
-    invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/LockScreenSettings;->startActivity(Landroid/content/Intent;)V
-
-    goto/16 :goto_1
-
-    .line 367
-    .end local v1           #gpsOptionIntent:Landroid/content/Intent;
-    :cond_f
-    invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v8
-
-    if-eqz v8, :cond_11
-
-    .line 368
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v8
-
-    const-string v9, "aw_daemon_service_key_app_service_status"
-
-    invoke-static {v8, v9, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v8
-
-    invoke-static {v8}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOn(I)I
+    invoke-static {v10}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOn(I)I
 
     move-result v5
 
-    .line 372
+    .line 393
     .restart local v5       #mAppServiceStatus:I
     :goto_9
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v8
+    move-result-object v10
 
-    const-string v9, "aw_daemon_service_key_app_service_status"
+    const-string v11, "yh_daemon_service_key_app_service_status"
 
-    invoke-static {v8, v9, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v10, v11, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 374
-    const-string v8, "CHN"
+    .line 395
+    invoke-virtual {v9}, Ljava/lang/Boolean;->booleanValue()Z
 
-    const-string v9, "ro.csc.sales_code"
+    move-result v10
 
-    invoke-static {v9}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    if-eqz v10, :cond_c
 
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_10
-
-    const-string v8, "CHM"
-
-    const-string v9, "ro.csc.sales_code"
-
-    invoke-static {v9}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_10
-
-    const-string v8, "CHU"
-
-    const-string v9, "ro.csc.sales_code"
-
-    invoke-static {v9}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_10
-
-    const-string v8, "CTC"
-
-    const-string v9, "ro.csc.sales_code"
-
-    invoke-static {v9}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_12
-
-    .line 378
-    :cond_10
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v8
-
-    new-instance v9, Landroid/content/Intent;
-
-    const-string v10, "com.sec.android.widgetapp.ap.sinaweatherdaemon.action.SYNC_DATA_WITH_DAEMON"
-
-    invoke-direct {v9, v10}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v8, v9}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
-
-    .line 384
-    :goto_a
-    invoke-direct {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->updateState()V
-
-    goto/16 :goto_1
-
-    .line 370
-    .end local v5           #mAppServiceStatus:I
-    :cond_11
+    .line 396
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
+    move-result-object v10
+
+    const-string v11, "stockclock_daemon_service_key_app_service_status"
+
+    const/4 v12, 0x1
+
+    invoke-static {v10, v11, v12}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v10
+
+    invoke-static {v10}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOn(I)I
+
+    move-result v5
+
+    .line 400
+    :goto_a
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v10
+
+    const-string v11, "stockclock_daemon_service_key_app_service_status"
+
+    invoke-static {v10, v11, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 402
+    new-instance v2, Landroid/content/Intent;
+
+    const-string v10, "com.sec.android.daemonapp.ap.yahoonews.intent.action.SERVICE_ON_OFF"
+
+    invoke-direct {v2, v10}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 403
+    .restart local v2       #intent_nw:Landroid/content/Intent;
+    const-string v10, "ro.csc.sales_code"
+
+    invoke-static {v10}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
     move-result-object v8
 
-    const-string v9, "aw_daemon_service_key_app_service_status"
+    .line 404
+    .local v8, salesCode:Ljava/lang/String;
+    const-string v10, "DCM"
 
-    invoke-static {v8, v9, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-virtual {v10, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v10
 
-    invoke-static {v8}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOff(I)I
+    if-eqz v10, :cond_a
+
+    .line 405
+    new-instance v0, Landroid/content/ComponentName;
+
+    const-string v10, "com.sec.android.daemonapp.ap.camobile"
+
+    const-string v11, "com.sec.android.daemonapp.ap.camobile.DaemonReceiver"
+
+    invoke-direct {v0, v10, v11}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 407
+    .restart local v0       #component:Landroid/content/ComponentName;
+    invoke-virtual {v2, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    .line 409
+    .end local v0           #component:Landroid/content/ComponentName;
+    :cond_a
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v2}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+
+    .line 410
+    new-instance v3, Landroid/content/Intent;
+
+    const-string v10, "com.sec.android.daemonapp.stockclock.action.CURRENT_STOCK_DATA"
+
+    invoke-direct {v3, v10}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 411
+    .restart local v3       #intent_st:Landroid/content/Intent;
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v3}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+
+    goto/16 :goto_5
+
+    .line 391
+    .end local v2           #intent_nw:Landroid/content/Intent;
+    .end local v3           #intent_st:Landroid/content/Intent;
+    .end local v5           #mAppServiceStatus:I
+    .end local v8           #salesCode:Ljava/lang/String;
+    :cond_b
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v10
+
+    const-string v11, "yh_daemon_service_key_app_service_status"
+
+    const/4 v12, 0x1
+
+    invoke-static {v10, v11, v12}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v10
+
+    invoke-static {v10}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOff(I)I
 
     move-result v5
 
     .restart local v5       #mAppServiceStatus:I
     goto :goto_9
 
-    .line 379
-    :cond_12
-    invoke-static {}, Lcom/android/OriginalSettings/Utils;->isDomesticModel()Z
+    .line 398
+    :cond_c
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result v8
+    move-result-object v10
 
-    if-eqz v8, :cond_13
+    const-string v11, "stockclock_daemon_service_key_app_service_status"
 
-    .line 380
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+    const/4 v12, 0x1
 
-    move-result-object v8
+    invoke-static {v10, v11, v12}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    new-instance v9, Landroid/content/Intent;
+    move-result v10
 
-    const-string v10, "com.sec.android.widgetapp.ap.kweatherdaemon.action.CURRENT_LOCATION_WEATHER_DATA"
+    invoke-static {v10}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOff(I)I
 
-    invoke-direct {v9, v10}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v8, v9}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    move-result v5
 
     goto :goto_a
 
-    .line 382
+    .line 414
+    .restart local v2       #intent_nw:Landroid/content/Intent;
+    .restart local v3       #intent_st:Landroid/content/Intent;
+    :cond_d
+    const/4 v10, 0x0
+
+    goto/16 :goto_6
+
+    .line 417
+    .end local v2           #intent_nw:Landroid/content/Intent;
+    .end local v3           #intent_st:Landroid/content/Intent;
+    .end local v5           #mAppServiceStatus:I
+    .end local v9           #value:Ljava/lang/Boolean;
+    :cond_e
+    const-string v10, "weather"
+
+    invoke-virtual {v10, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_16
+
+    move-object v9, p2
+
+    .line 418
+    check-cast v9, Ljava/lang/Boolean;
+
+    .line 419
+    .restart local v9       #value:Ljava/lang/Boolean;
+    invoke-virtual {v9}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_f
+
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->checkNetwork()Z
+
+    move-result v10
+
+    if-nez v10, :cond_f
+
+    .line 420
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v10
+
+    const v11, 0x7f09090b
+
+    const/4 v12, 0x1
+
+    invoke-static {v10, v11, v12}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Landroid/widget/Toast;->show()V
+
+    .line 422
+    :cond_f
+    const-string v10, "CHN"
+
+    const-string v11, "ro.csc.sales_code"
+
+    invoke-static {v11}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-nez v10, :cond_10
+
+    const-string v10, "CHM"
+
+    const-string v11, "ro.csc.sales_code"
+
+    invoke-static {v11}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-nez v10, :cond_10
+
+    const-string v10, "CHU"
+
+    const-string v11, "ro.csc.sales_code"
+
+    invoke-static {v11}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-nez v10, :cond_10
+
+    const-string v10, "CTC"
+
+    const-string v11, "ro.csc.sales_code"
+
+    invoke-static {v11}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-nez v10, :cond_10
+
+    .line 426
+    invoke-virtual {v9}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_10
+
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v10
+
+    const-string v11, "network"
+
+    invoke-static {v10, v11}, Landroid/provider/Settings$Secure;->isLocationProviderEnabled(Landroid/content/ContentResolver;Ljava/lang/String;)Z
+
+    move-result v10
+
+    if-nez v10, :cond_10
+
+    .line 427
+    iget-object v10, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mWeather:Landroid/preference/SwitchPreferenceScreen;
+
+    const/4 v11, 0x0
+
+    invoke-virtual {v10, v11}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+
+    .line 428
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v10
+
+    const-string v11, "network"
+
+    const/4 v12, 0x1
+
+    invoke-static {v10, v11, v12}, Landroid/provider/Settings$Secure;->setLocationProviderEnabled(Landroid/content/ContentResolver;Ljava/lang/String;Z)V
+
+    .line 429
+    new-instance v1, Landroid/content/Intent;
+
+    const-string v10, "android.settings.LOCATION_SOURCE_SETTINGS"
+
+    invoke-direct {v1, v10}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 430
+    .local v1, gpsOptionIntent:Landroid/content/Intent;
+    invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/LockScreenSettings;->startActivity(Landroid/content/Intent;)V
+
+    .line 431
+    const/4 v10, 0x1
+
+    goto/16 :goto_2
+
+    .line 436
+    .end local v1           #gpsOptionIntent:Landroid/content/Intent;
+    :cond_10
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v10
+
+    const-string v11, "aw_daemon_service_key_app_service_status"
+
+    const/4 v12, 0x0
+
+    invoke-static {v10, v11, v12}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v6
+
+    .line 437
+    .local v6, mCurrentAppServiceStatus:I
+    invoke-virtual {v9}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_11
+
+    .line 438
+    invoke-static {v6}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOn(I)I
+
+    move-result v5
+
+    .line 439
+    .restart local v5       #mAppServiceStatus:I
+    const/4 v7, 0x1
+
+    .line 444
+    .local v7, mNewValue:I
+    :goto_b
+    if-ne v6, v7, :cond_12
+
+    .line 445
+    const-string v10, "LockScreenSettings"
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v12, "onPreferenceChange, mCurrentAppServiceStatus:"
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    const-string v12, "/mNewValue:"
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    const-string v12, " same"
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 446
+    const/4 v10, 0x1
+
+    goto/16 :goto_2
+
+    .line 441
+    .end local v5           #mAppServiceStatus:I
+    .end local v7           #mNewValue:I
+    :cond_11
+    invoke-static {v6}, Lcom/android/OriginalSettings/LockScreenSettings;->AppServiceOff(I)I
+
+    move-result v5
+
+    .line 442
+    .restart local v5       #mAppServiceStatus:I
+    const/4 v7, 0x0
+
+    .restart local v7       #mNewValue:I
+    goto :goto_b
+
+    .line 448
+    :cond_12
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v10
+
+    const-string v11, "aw_daemon_service_key_app_service_status"
+
+    invoke-static {v10, v11, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 450
+    const-string v10, "CHN"
+
+    const-string v11, "ro.csc.sales_code"
+
+    invoke-static {v11}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-nez v10, :cond_13
+
+    const-string v10, "CHM"
+
+    const-string v11, "ro.csc.sales_code"
+
+    invoke-static {v11}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-nez v10, :cond_13
+
+    const-string v10, "CHU"
+
+    const-string v11, "ro.csc.sales_code"
+
+    invoke-static {v11}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-nez v10, :cond_13
+
+    const-string v10, "CTC"
+
+    const-string v11, "ro.csc.sales_code"
+
+    invoke-static {v11}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_14
+
+    .line 454
     :cond_13
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v8
+    move-result-object v10
 
-    new-instance v9, Landroid/content/Intent;
+    new-instance v11, Landroid/content/Intent;
 
-    const-string v10, "com.sec.android.widgetapp.ap.accuweatherdaemon.action.CURRENT_LOCATION_WEATHER_DATA"
+    const-string v12, "com.sec.android.widgetapp.ap.sinaweatherdaemon.action.SYNC_DATA_WITH_DAEMON"
 
-    invoke-direct {v9, v10}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v11, v12}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v8, v9}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v10, v11}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
-    goto :goto_a
-
-    .line 387
-    .end local v5           #mAppServiceStatus:I
-    .end local v6           #value:Ljava/lang/Boolean;
-    :cond_14
-    const-string v9, "lock_screen_shortcut"
-
-    invoke-virtual {v9, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_16
-
-    .line 388
-    check-cast p2, Ljava/lang/Boolean;
-
-    .end local p2
-    invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v9
-
-    if-eqz v9, :cond_15
-
-    move v6, v7
-
-    .line 389
-    .local v6, value:I
-    :goto_b
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v8
-
-    const-string v9, "lock_screen_shortcut"
-
-    invoke-static {v8, v9, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    .line 460
+    :goto_c
+    invoke-direct {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->updateState()V
 
     goto/16 :goto_1
 
-    .end local v6           #value:I
+    .line 455
+    :cond_14
+    invoke-static {}, Lcom/android/OriginalSettings/Utils;->isDomesticModel()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_15
+
+    .line 456
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v10
+
+    new-instance v11, Landroid/content/Intent;
+
+    const-string v12, "com.sec.android.widgetapp.ap.kweatherdaemon.action.CURRENT_LOCATION_WEATHER_DATA"
+
+    invoke-direct {v11, v12}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v10, v11}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+
+    goto :goto_c
+
+    .line 458
     :cond_15
-    move v6, v8
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getActivity()Landroid/app/Activity;
 
-    .line 388
-    goto :goto_b
+    move-result-object v10
 
-    .line 393
-    .restart local p2
+    new-instance v11, Landroid/content/Intent;
+
+    const-string v12, "com.sec.android.widgetapp.ap.accuweatherdaemon.action.CURRENT_LOCATION_WEATHER_DATA"
+
+    invoke-direct {v11, v12}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v10, v11}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+
+    goto :goto_c
+
+    .line 463
+    .end local v5           #mAppServiceStatus:I
+    .end local v6           #mCurrentAppServiceStatus:I
+    .end local v7           #mNewValue:I
+    .end local v9           #value:Ljava/lang/Boolean;
     :cond_16
-    iget-object v8, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mCameraShortCut:Landroid/preference/SwitchPreferenceScreen;
+    const-string v10, "lock_screen_shortcut"
 
-    if-ne p1, v8, :cond_0
+    invoke-virtual {v10, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    .line 394
-    const-string v8, "LockScreenSettings"
+    move-result v10
 
-    const-string v9, "onPreferenceChange, mCameraShortCut"
+    if-eqz v10, :cond_18
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 395
+    .line 464
     check-cast p2, Ljava/lang/Boolean;
 
     .end local p2
     invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v8
+    move-result v10
 
-    invoke-virtual {p0, v8}, Lcom/android/OriginalSettings/LockScreenSettings;->setCameraShortCut(Z)V
+    if-eqz v10, :cond_17
+
+    const/4 v9, 0x1
+
+    .line 465
+    .local v9, value:I
+    :goto_d
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v10
+
+    const-string v11, "lock_screen_shortcut"
+
+    invoke-static {v10, v11, v9}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    goto/16 :goto_1
+
+    .line 464
+    .end local v9           #value:I
+    :cond_17
+    const/4 v9, 0x0
+
+    goto :goto_d
+
+    .line 469
+    .restart local p2
+    :cond_18
+    iget-object v10, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mCameraShortCut:Landroid/preference/SwitchPreferenceScreen;
+
+    if-ne p1, v10, :cond_0
+
+    .line 470
+    const-string v10, "LockScreenSettings"
+
+    const-string v11, "onPreferenceChange, mCameraShortCut"
+
+    invoke-static {v10, v11}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 471
+    check-cast p2, Ljava/lang/Boolean;
+
+    .end local p2
+    invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v10
+
+    invoke-virtual {p0, v10}, Lcom/android/OriginalSettings/LockScreenSettings;->setCameraShortCut(Z)V
 
     goto/16 :goto_1
 .end method
@@ -1997,7 +2416,7 @@
 
     const/4 v2, 0x1
 
-    .line 240
+    .line 301
     iget-object v4, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mClock:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -2006,7 +2425,7 @@
 
     if-eqz v4, :cond_2
 
-    .line 241
+    .line 302
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
@@ -2024,10 +2443,10 @@
     :goto_0
     invoke-static {v4, v5, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 242
+    .line 303
     invoke-direct {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->updateState()V
 
-    .line 264
+    .line 327
     :cond_0
     :goto_1
     invoke-super {p0, p1, p2}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
@@ -2039,10 +2458,10 @@
     :cond_1
     move v2, v3
 
-    .line 241
+    .line 302
     goto :goto_0
 
-    .line 243
+    .line 304
     :cond_2
     iget-object v4, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mWeather:Landroid/preference/SwitchPreferenceScreen;
 
@@ -2052,7 +2471,7 @@
 
     if-eqz v4, :cond_5
 
-    .line 244
+    .line 305
     new-instance v1, Landroid/content/Intent;
 
     const-string v3, "android.intent.action.MAIN"
@@ -2061,25 +2480,25 @@
 
     invoke-direct {v1, v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 245
+    .line 306
     .local v1, intent:Landroid/content/Intent;
     const-string v3, "android.intent.category.LAUNCHER"
 
     invoke-virtual {v1, v3}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 246
+    .line 307
     const-string v3, "SETTING_MODE"
 
     invoke-virtual {v1, v3, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 248
+    .line 309
     invoke-static {}, Lcom/android/OriginalSettings/Utils;->isChinaModel()Z
 
     move-result v2
 
     if-eqz v2, :cond_3
 
-    .line 249
+    .line 310
     new-instance v0, Landroid/content/ComponentName;
 
     const-string v2, "com.sec.android.daemonapp.ap.sinaweather"
@@ -2088,17 +2507,17 @@
 
     invoke-direct {v0, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 255
+    .line 316
     .local v0, cn:Landroid/content/ComponentName;
     :goto_2
     invoke-virtual {v1, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 256
+    .line 317
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/LockScreenSettings;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_1
 
-    .line 250
+    .line 311
     .end local v0           #cn:Landroid/content/ComponentName;
     :cond_3
     invoke-static {}, Lcom/android/OriginalSettings/Utils;->isDomesticModel()Z
@@ -2107,7 +2526,7 @@
 
     if-eqz v2, :cond_4
 
-    .line 251
+    .line 312
     new-instance v0, Landroid/content/ComponentName;
 
     const-string v2, "com.sec.android.daemonapp.ap.kweather"
@@ -2119,7 +2538,7 @@
     .restart local v0       #cn:Landroid/content/ComponentName;
     goto :goto_2
 
-    .line 253
+    .line 314
     .end local v0           #cn:Landroid/content/ComponentName;
     :cond_4
     new-instance v0, Landroid/content/ComponentName;
@@ -2133,7 +2552,7 @@
     .restart local v0       #cn:Landroid/content/ComponentName;
     goto :goto_2
 
-    .line 257
+    .line 318
     .end local v0           #cn:Landroid/content/ComponentName;
     .end local v1           #intent:Landroid/content/Intent;
     :cond_5
@@ -2145,7 +2564,7 @@
 
     if-eqz v4, :cond_7
 
-    .line 258
+    .line 319
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
@@ -2163,14 +2582,26 @@
     :goto_3
     invoke-static {v4, v5, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
+    .line 321
+    iget-object v2, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
+
+    iget-object v3, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mRippleEffect:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v3}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+
     goto :goto_1
 
     :cond_6
     move v2, v3
 
+    .line 319
     goto :goto_3
 
-    .line 259
+    .line 322
     :cond_7
     iget-object v4, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
 
@@ -2180,7 +2611,7 @@
 
     if-eqz v4, :cond_9
 
-    .line 260
+    .line 323
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
@@ -2205,7 +2636,7 @@
 
     goto :goto_4
 
-    .line 261
+    .line 324
     :cond_9
     iget-object v4, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
 
@@ -2215,7 +2646,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 262
+    .line 325
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
@@ -2245,13 +2676,13 @@
     .locals 0
 
     .prologue
-    .line 192
+    .line 248
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onResume()V
 
-    .line 193
+    .line 249
     invoke-direct {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->updateState()V
 
-    .line 194
+    .line 250
     return-void
 .end method
 
@@ -2264,17 +2695,17 @@
 
     const/4 v1, 0x0
 
-    .line 403
+    .line 479
     if-eqz p1, :cond_0
 
     const/4 v0, 0x1
 
-    .line 404
+    .line 480
     .local v0, int_value:I
     :goto_0
     if-eqz p1, :cond_3
 
-    .line 405
+    .line 481
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -2287,7 +2718,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 406
+    .line 482
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
@@ -2296,7 +2727,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 435
+    .line 511
     :goto_1
     return-void
 
@@ -2304,25 +2735,25 @@
     :cond_0
     move v0, v1
 
-    .line 403
+    .line 479
     goto :goto_0
 
-    .line 408
+    .line 484
     .restart local v0       #int_value:I
     :cond_1
     iget-object v1, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mMotionDialog:Landroid/app/AlertDialog;
 
     if-eqz v1, :cond_2
 
-    .line 409
+    .line 485
     iget-object v1, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mMotionDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v1}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 410
+    .line 486
     iput-object v4, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mMotionDialog:Landroid/app/AlertDialog;
 
-    .line 413
+    .line 489
     :cond_2
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
@@ -2332,13 +2763,13 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0d0890
+    const v2, 0x7f090a73
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f0d0849
+    const v2, 0x7f090a20
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2350,7 +2781,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d04ee
+    const v2, 0x7f0905b8
 
     new-instance v3, Lcom/android/OriginalSettings/LockScreenSettings$1;
 
@@ -2360,7 +2791,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d010e
+    const v2, 0x7f090125
 
     invoke-virtual {v1, v2, v4}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2372,7 +2803,7 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mMotionDialog:Landroid/app/AlertDialog;
 
-    .line 426
+    .line 502
     iget-object v1, p0, Lcom/android/OriginalSettings/LockScreenSettings;->mMotionDialog:Landroid/app/AlertDialog;
 
     new-instance v2, Lcom/android/OriginalSettings/LockScreenSettings$2;
@@ -2383,7 +2814,7 @@
 
     goto :goto_1
 
-    .line 433
+    .line 509
     :cond_3
     invoke-virtual {p0}, Lcom/android/OriginalSettings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 

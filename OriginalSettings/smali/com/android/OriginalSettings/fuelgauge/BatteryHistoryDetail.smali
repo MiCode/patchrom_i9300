@@ -79,7 +79,7 @@
 
     .prologue
     .line 47
-    const v2, 0x7f04007e
+    const v2, 0x7f04009b
 
     const/4 v3, 0x0
 
@@ -89,7 +89,7 @@
 
     .line 48
     .local v1, view:Landroid/view/View;
-    const v2, 0x1010004
+    const v2, 0x1010002
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 732
+    .line 911
     invoke-direct {p0}, Landroid/app/DialogFragment;-><init>()V
 
     return-void
@@ -31,32 +31,32 @@
     .parameter "moveErrorCode"
 
     .prologue
-    .line 735
+    .line 914
     new-instance v1, Lcom/android/OriginalSettings/applications/InstalledAppDetails$MyAlertDialogFragment;
 
     invoke-direct {v1}, Lcom/android/OriginalSettings/applications/InstalledAppDetails$MyAlertDialogFragment;-><init>()V
 
-    .line 736
+    .line 915
     .local v1, frag:Lcom/android/OriginalSettings/applications/InstalledAppDetails$MyAlertDialogFragment;
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 737
+    .line 916
     .local v0, args:Landroid/os/Bundle;
     const-string v2, "id"
 
     invoke-virtual {v0, v2, p0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 738
+    .line 917
     const-string v2, "moveError"
 
     invoke-virtual {v0, v2, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 739
+    .line 918
     invoke-virtual {v1, v0}, Lcom/android/OriginalSettings/applications/InstalledAppDetails$MyAlertDialogFragment;->setArguments(Landroid/os/Bundle;)V
 
-    .line 740
+    .line 919
     return-object v1
 .end method
 
@@ -66,7 +66,7 @@
     .locals 1
 
     .prologue
-    .line 744
+    .line 923
     invoke-virtual {p0}, Lcom/android/OriginalSettings/applications/InstalledAppDetails$MyAlertDialogFragment;->getTargetFragment()Landroid/app/Fragment;
 
     move-result-object v0
@@ -81,17 +81,17 @@
     .parameter "savedInstanceState"
 
     .prologue
-    const v5, 0x7f0d04f0
-
-    const v6, 0x7f0d04ef
+    const v5, 0x7f0905ba
 
     const/4 v10, 0x0
 
-    const v9, 0x7f0d04ee
+    const v6, 0x7f0905b9
+
+    const v9, 0x7f0905b8
 
     const v8, 0x1010355
 
-    .line 749
+    .line 928
     invoke-virtual {p0}, Lcom/android/OriginalSettings/applications/InstalledAppDetails$MyAlertDialogFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v3
@@ -102,7 +102,7 @@
 
     move-result v0
 
-    .line 750
+    .line 929
     .local v0, id:I
     invoke-virtual {p0}, Lcom/android/OriginalSettings/applications/InstalledAppDetails$MyAlertDialogFragment;->getArguments()Landroid/os/Bundle;
 
@@ -114,11 +114,11 @@
 
     move-result v1
 
-    .line 751
+    .line 930
     .local v1, moveErrorCode:I
     packed-switch v0, :pswitch_data_0
 
-    .line 847
+    .line 1046
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -143,7 +143,7 @@
 
     throw v3
 
-    .line 753
+    .line 932
     :pswitch_0
     new-instance v3, Landroid/app/AlertDialog$Builder;
 
@@ -157,7 +157,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d04ec
+    const v5, 0x7f0905b6
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -175,7 +175,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d04ed
+    const v5, 0x7f0905b7
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -201,11 +201,11 @@
 
     move-result-object v3
 
-    .line 831
+    .line 1026
     :goto_0
     return-object v3
 
-    .line 767
+    .line 946
     :pswitch_1
     new-instance v3, Landroid/app/AlertDialog$Builder;
 
@@ -219,7 +219,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d04f3
+    const v5, 0x7f0905bd
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -237,7 +237,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d04f4
+    const v5, 0x7f0905be
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -265,7 +265,7 @@
 
     goto :goto_0
 
-    .line 781
+    .line 960
     :pswitch_2
     new-instance v3, Landroid/app/AlertDialog$Builder;
 
@@ -325,7 +325,7 @@
 
     goto :goto_0
 
-    .line 794
+    .line 973
     :pswitch_3
     new-instance v3, Landroid/app/AlertDialog$Builder;
 
@@ -339,7 +339,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d04f5
+    const v5, 0x7f0905bf
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -357,7 +357,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d04f6
+    const v5, 0x7f0905c0
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -381,7 +381,7 @@
 
     goto/16 :goto_0
 
-    .line 808
+    .line 987
     :pswitch_4
     new-instance v3, Landroid/app/AlertDialog$Builder;
 
@@ -395,7 +395,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d0505
+    const v5, 0x7f0905d4
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -413,7 +413,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d0506
+    const v5, 0x7f0905d5
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -441,13 +441,13 @@
 
     goto/16 :goto_0
 
-    .line 822
+    .line 1001
     :pswitch_5
     invoke-virtual {p0}, Lcom/android/OriginalSettings/applications/InstalledAppDetails$MyAlertDialogFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
-    const v4, 0x7f0d0508
+    const v4, 0x7f0905d7
 
     const/4 v5, 0x1
 
@@ -470,7 +470,7 @@
 
     move-result-object v2
 
-    .line 824
+    .line 1003
     .local v2, msg:Ljava/lang/CharSequence;
     new-instance v3, Landroid/app/AlertDialog$Builder;
 
@@ -484,7 +484,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d0507
+    const v5, 0x7f0905d6
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -512,7 +512,7 @@
 
     goto/16 :goto_0
 
-    .line 831
+    .line 1010
     .end local v2           #msg:Ljava/lang/CharSequence;
     :pswitch_6
     new-instance v3, Landroid/app/AlertDialog$Builder;
@@ -527,7 +527,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d050b
+    const v5, 0x7f0905da
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -545,7 +545,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d050c
+    const v5, 0x7f0905db
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -573,9 +573,71 @@
 
     goto/16 :goto_0
 
-    .line 751
-    nop
+    .line 1026
+    :pswitch_7
+    new-instance v3, Landroid/app/AlertDialog$Builder;
 
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/applications/InstalledAppDetails$MyAlertDialogFragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/applications/InstalledAppDetails$MyAlertDialogFragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v4
+
+    const v5, 0x7f0905dc
+
+    invoke-virtual {v4, v5}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v8}, Landroid/app/AlertDialog$Builder;->setIconAttribute(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v3
+
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/applications/InstalledAppDetails$MyAlertDialogFragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v4
+
+    const v5, 0x7f0905dd
+
+    invoke-virtual {v4, v5}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v3
+
+    new-instance v4, Lcom/android/OriginalSettings/applications/InstalledAppDetails$MyAlertDialogFragment$8;
+
+    invoke-direct {v4, p0}, Lcom/android/OriginalSettings/applications/InstalledAppDetails$MyAlertDialogFragment$8;-><init>(Lcom/android/OriginalSettings/applications/InstalledAppDetails$MyAlertDialogFragment;)V
+
+    invoke-virtual {v3, v9, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v3
+
+    new-instance v4, Lcom/android/OriginalSettings/applications/InstalledAppDetails$MyAlertDialogFragment$7;
+
+    invoke-direct {v4, p0}, Lcom/android/OriginalSettings/applications/InstalledAppDetails$MyAlertDialogFragment$7;-><init>(Lcom/android/OriginalSettings/applications/InstalledAppDetails$MyAlertDialogFragment;)V
+
+    invoke-virtual {v3, v6, v4}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+
+    move-result-object v3
+
+    goto/16 :goto_0
+
+    .line 930
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -585,5 +647,6 @@
         :pswitch_4
         :pswitch_5
         :pswitch_6
+        :pswitch_7
     .end packed-switch
 .end method

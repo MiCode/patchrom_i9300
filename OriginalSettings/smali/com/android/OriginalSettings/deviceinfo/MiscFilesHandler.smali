@@ -27,10 +27,10 @@
     .locals 0
 
     .prologue
-    .line 57
+    .line 60
     invoke-direct {p0}, Landroid/app/ListActivity;-><init>()V
 
-    .line 197
+    .line 205
     return-void
 .end method
 
@@ -39,7 +39,7 @@
     .parameter "x0"
 
     .prologue
-    .line 57
+    .line 60
     iget-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->mAdapter:Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$MemoryMearurementAdapter;
 
     return-object v0
@@ -50,7 +50,7 @@
     .parameter "x0"
 
     .prologue
-    .line 57
+    .line 60
     iget-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->mNumSelectedFormat:Ljava/lang/String;
 
     return-object v0
@@ -61,7 +61,7 @@
     .parameter "x0"
 
     .prologue
-    .line 57
+    .line 60
     iget-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->mNumBytesSelectedFormat:Ljava/lang/String;
 
     return-object v0
@@ -72,7 +72,7 @@
     .parameter "x0"
 
     .prologue
-    .line 57
+    .line 60
     iget-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->mInflater:Landroid/view/LayoutInflater;
 
     return-object v0
@@ -87,19 +87,19 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 66
+    .line 69
     invoke-super {p0, p1}, Landroid/app/ListActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 67
+    .line 70
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->setFinishOnTouchOutside(Z)V
 
-    .line 68
-    const v1, 0x7f0d069b
+    .line 71
+    const v1, 0x7f09079d
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->setTitle(I)V
 
-    .line 69
-    const v1, 0x7f0d069c
+    .line 72
+    const v1, 0x7f09079e
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->getString(I)Ljava/lang/String;
 
@@ -107,8 +107,8 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->mNumSelectedFormat:Ljava/lang/String;
 
-    .line 70
-    const v1, 0x7f0d069d
+    .line 73
+    const v1, 0x7f09079f
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->getString(I)Ljava/lang/String;
 
@@ -116,14 +116,14 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->mNumBytesSelectedFormat:Ljava/lang/String;
 
-    .line 71
+    .line 74
     new-instance v1, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$MemoryMearurementAdapter;
 
     invoke-direct {v1, p0, p0}, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$MemoryMearurementAdapter;-><init>(Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;Landroid/app/Activity;)V
 
     iput-object v1, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->mAdapter:Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$MemoryMearurementAdapter;
 
-    .line 72
+    .line 75
     const-string v1, "layout_inflater"
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -134,37 +134,37 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 73
-    const v1, 0x7f0400b1
+    .line 76
+    const v1, 0x7f0400d0
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->setContentView(I)V
 
-    .line 74
+    .line 77
     invoke-virtual {p0}, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->getListView()Landroid/widget/ListView;
 
     move-result-object v0
 
-    .line 75
+    .line 78
     .local v0, lv:Landroid/widget/ListView;
     invoke-virtual {v0, v2}, Landroid/widget/ListView;->setItemsCanFocus(Z)V
 
-    .line 76
+    .line 79
     const/4 v1, 0x3
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setChoiceMode(I)V
 
-    .line 77
+    .line 80
     new-instance v1, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;
 
     invoke-direct {v1, p0, p0}, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$ModeCallback;-><init>(Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;Landroid/content/Context;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setMultiChoiceModeListener(Landroid/widget/AbsListView$MultiChoiceModeListener;)V
 
-    .line 78
+    .line 81
     iget-object v1, p0, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->mAdapter:Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler$MemoryMearurementAdapter;
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/deviceinfo/MiscFilesHandler;->setListAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 79
+    .line 82
     return-void
 .end method

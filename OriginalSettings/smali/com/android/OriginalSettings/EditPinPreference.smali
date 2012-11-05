@@ -22,10 +22,10 @@
     .parameter "attrs"
 
     .prologue
-    .line 42
+    .line 39
     invoke-direct {p0, p1, p2}, Landroid/preference/EditTextPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 43
+    .line 40
     return-void
 .end method
 
@@ -36,10 +36,10 @@
     .parameter "defStyle"
 
     .prologue
-    .line 46
+    .line 43
     invoke-direct {p0, p1, p2, p3}, Landroid/preference/EditTextPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 47
+    .line 44
     return-void
 .end method
 
@@ -49,12 +49,12 @@
     .locals 2
 
     .prologue
-    .line 73
+    .line 63
     invoke-virtual {p0}, Lcom/android/OriginalSettings/EditPinPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v0
 
-    .line 74
+    .line 64
     .local v0, dialog:Landroid/app/Dialog;
     if-eqz v0, :cond_0
 
@@ -80,51 +80,24 @@
     .parameter "view"
 
     .prologue
-    .line 55
+    .line 52
     invoke-super {p0, p1}, Landroid/preference/EditTextPreference;->onBindDialogView(Landroid/view/View;)V
 
-    .line 57
-    const v1, 0x1020003
-
-    invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    .line 54
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/EditPinPreference;->getEditText()Landroid/widget/EditText;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/EditText;
-
-    .line 59
+    .line 56
     .local v0, editText:Landroid/widget/EditText;
     if-eqz v0, :cond_0
 
-    .line 60
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setSingleLine(Z)V
-
-    .line 61
-    invoke-static {}, Landroid/text/method/PasswordTransformationMethod;->getInstance()Landroid/text/method/PasswordTransformationMethod;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setTransformationMethod(Landroid/text/method/TransformationMethod;)V
-
-    .line 62
-    invoke-static {}, Landroid/text/method/DigitsKeyListener;->getInstance()Landroid/text/method/DigitsKeyListener;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setKeyListener(Landroid/text/method/KeyListener;)V
-
-    .line 66
-    invoke-virtual {v0}, Landroid/widget/EditText;->getInputType()I
-
-    move-result v1
-
-    or-int/lit8 v1, v1, 0x10
+    .line 57
+    const/16 v1, 0x12
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setInputType(I)V
 
-    .line 70
+    .line 60
     :cond_0
     return-void
 .end method
@@ -134,20 +107,20 @@
     .parameter "positiveResult"
 
     .prologue
-    .line 79
+    .line 69
     invoke-super {p0, p1}, Landroid/preference/EditTextPreference;->onDialogClosed(Z)V
 
-    .line 80
+    .line 70
     iget-object v0, p0, Lcom/android/OriginalSettings/EditPinPreference;->mPinListener:Lcom/android/OriginalSettings/EditPinPreference$OnPinEnteredListener;
 
     if-eqz v0, :cond_0
 
-    .line 81
+    .line 71
     iget-object v0, p0, Lcom/android/OriginalSettings/EditPinPreference;->mPinListener:Lcom/android/OriginalSettings/EditPinPreference$OnPinEnteredListener;
 
     invoke-interface {v0, p0, p1}, Lcom/android/OriginalSettings/EditPinPreference$OnPinEnteredListener;->onPinEntered(Lcom/android/OriginalSettings/EditPinPreference;Z)V
 
-    .line 83
+    .line 73
     :cond_0
     return-void
 .end method
@@ -157,10 +130,10 @@
     .parameter "listener"
 
     .prologue
-    .line 50
+    .line 47
     iput-object p1, p0, Lcom/android/OriginalSettings/EditPinPreference;->mPinListener:Lcom/android/OriginalSettings/EditPinPreference$OnPinEnteredListener;
 
-    .line 51
+    .line 48
     return-void
 .end method
 
@@ -168,12 +141,12 @@
     .locals 2
 
     .prologue
-    .line 86
+    .line 76
     invoke-virtual {p0}, Lcom/android/OriginalSettings/EditPinPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v0
 
-    .line 87
+    .line 77
     .local v0, dialog:Landroid/app/Dialog;
     if-eqz v0, :cond_0
 
@@ -183,13 +156,13 @@
 
     if-nez v1, :cond_1
 
-    .line 88
+    .line 78
     :cond_0
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/EditPinPreference;->showDialog(Landroid/os/Bundle;)V
 
-    .line 90
+    .line 80
     :cond_1
     return-void
 .end method

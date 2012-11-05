@@ -3,7 +3,6 @@
 .source "UserDictionarySettings.java"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
 .implements Landroid/widget/SectionIndexer;
 
 
@@ -21,8 +20,6 @@
 # instance fields
 .field private mIndexer:Landroid/widget/AlphabetIndexer;
 
-.field private mSettings:Lcom/android/OriginalSettings/UserDictionarySettings;
-
 .field private mViewBinder:Landroid/widget/SimpleCursorAdapter$ViewBinder;
 
 
@@ -37,30 +34,27 @@
     .parameter "settings"
 
     .prologue
-    .line 333
+    .line 265
     invoke-direct/range {p0 .. p5}, Landroid/widget/SimpleCursorAdapter;-><init>(Landroid/content/Context;ILandroid/database/Cursor;[Ljava/lang/String;[I)V
 
-    .line 318
+    .line 244
     new-instance v2, Lcom/android/OriginalSettings/UserDictionarySettings$MyAdapter$1;
 
     invoke-direct {v2, p0}, Lcom/android/OriginalSettings/UserDictionarySettings$MyAdapter$1;-><init>(Lcom/android/OriginalSettings/UserDictionarySettings$MyAdapter;)V
 
     iput-object v2, p0, Lcom/android/OriginalSettings/UserDictionarySettings$MyAdapter;->mViewBinder:Landroid/widget/SimpleCursorAdapter$ViewBinder;
 
-    .line 335
-    iput-object p6, p0, Lcom/android/OriginalSettings/UserDictionarySettings$MyAdapter;->mSettings:Lcom/android/OriginalSettings/UserDictionarySettings;
-
-    .line 336
+    .line 267
     if-eqz p3, :cond_0
 
-    .line 337
-    const v2, 0x10404fd
+    .line 268
+    const v2, 0x1040573
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 339
+    .line 270
     .local v0, alphabet:Ljava/lang/String;
     const-string v2, "word"
 
@@ -68,7 +62,7 @@
 
     move-result v1
 
-    .line 340
+    .line 271
     .local v1, wordColIndex:I
     new-instance v2, Landroid/widget/AlphabetIndexer;
 
@@ -76,7 +70,7 @@
 
     iput-object v2, p0, Lcom/android/OriginalSettings/UserDictionarySettings$MyAdapter;->mIndexer:Landroid/widget/AlphabetIndexer;
 
-    .line 342
+    .line 273
     .end local v0           #alphabet:Ljava/lang/String;
     .end local v1           #wordColIndex:I
     :cond_0
@@ -84,7 +78,7 @@
 
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/UserDictionarySettings$MyAdapter;->setViewBinder(Landroid/widget/SimpleCursorAdapter$ViewBinder;)V
 
-    .line 343
+    .line 274
     return-void
 .end method
 
@@ -95,7 +89,7 @@
     .parameter "section"
 
     .prologue
-    .line 346
+    .line 277
     iget-object v0, p0, Lcom/android/OriginalSettings/UserDictionarySettings$MyAdapter;->mIndexer:Landroid/widget/AlphabetIndexer;
 
     if-nez v0, :cond_0
@@ -120,7 +114,7 @@
     .parameter "position"
 
     .prologue
-    .line 350
+    .line 281
     iget-object v0, p0, Lcom/android/OriginalSettings/UserDictionarySettings$MyAdapter;->mIndexer:Landroid/widget/AlphabetIndexer;
 
     if-nez v0, :cond_0
@@ -144,7 +138,7 @@
     .locals 1
 
     .prologue
-    .line 354
+    .line 285
     iget-object v0, p0, Lcom/android/OriginalSettings/UserDictionarySettings$MyAdapter;->mIndexer:Landroid/widget/AlphabetIndexer;
 
     if-nez v0, :cond_0
@@ -162,25 +156,4 @@
     move-result-object v0
 
     goto :goto_0
-.end method
-
-.method public onClick(Landroid/view/View;)V
-    .locals 2
-    .parameter "v"
-
-    .prologue
-    .line 358
-    iget-object v1, p0, Lcom/android/OriginalSettings/UserDictionarySettings$MyAdapter;->mSettings:Lcom/android/OriginalSettings/UserDictionarySettings;
-
-    invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    #calls: Lcom/android/OriginalSettings/UserDictionarySettings;->deleteWord(Ljava/lang/String;)V
-    invoke-static {v1, v0}, Lcom/android/OriginalSettings/UserDictionarySettings;->access$200(Lcom/android/OriginalSettings/UserDictionarySettings;Ljava/lang/String;)V
-
-    .line 359
-    return-void
 .end method

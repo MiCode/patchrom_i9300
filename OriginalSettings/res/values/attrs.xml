@@ -21,10 +21,6 @@
     <attr name="strokeColor" format="color" />
     <attr name="fillColor" format="color" />
     <attr name="fillColorSecondary" format="color" />
-    <attr name="soundType">
-        <flag name="ringtone" value="0x00000001" />
-        <flag name="notification" value="0x00000002" />
-    </attr>
-    <attr name="autotext" format="string" />
-    <attr name="autobutton" format="string" />
+    <attr name="punchshape" format="string" />
+    <attr name="punchshow" format="boolean" />
 </resources>

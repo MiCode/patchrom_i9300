@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1248
+    .line 1320
     iput-object p1, p0, Lcom/android/OriginalSettings/DataUsageSummary$10;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,39 +42,31 @@
     .parameter "v"
 
     .prologue
-    .line 1252
+    .line 1323
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$10;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
-    #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mAppSettingsIntent:Landroid/content/Intent;
-    invoke-static {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->access$2200(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/content/Intent;
+    invoke-virtual {v0}, Lcom/android/OriginalSettings/DataUsageSummary;->isAdded()Z
 
-    move-result-object v0
+    move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
-    .line 1254
+    .line 1327
+    :goto_0
+    return-void
+
+    .line 1326
+    :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/DataUsageSummary$10;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$10;->this$0:Lcom/android/OriginalSettings/DataUsageSummary;
 
     #getter for: Lcom/android/OriginalSettings/DataUsageSummary;->mAppSettingsIntent:Landroid/content/Intent;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$2200(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/content/Intent;
+    invoke-static {v1}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1600(Lcom/android/OriginalSettings/DataUsageSummary;)Landroid/content/Intent;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/android/OriginalSettings/DataUsageSummary;->startActivity(Landroid/content/Intent;)V
-
-    .line 1258
-    :goto_0
-    return-void
-
-    .line 1256
-    :cond_0
-    const-string v0, "DataUsage"
-
-    const-string v1, "onClick() : mAppSettingsIntent is null"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

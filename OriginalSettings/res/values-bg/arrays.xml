@@ -18,12 +18,15 @@
         <item>10 минути</item>
         <item>30 минути</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 секунди</item>
         <item>30 секунди</item>
         <item>1 минута</item>
-        <item>2 минути</item>
+        <item>3 минути</item>
         <item>5 минути</item>
+        <item>10 минути</item>
+        <item>15 минути</item>
+        <item>30 минути</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Никога</item>
@@ -34,6 +37,18 @@
         <item>5 минути</item>
         <item>10 минути</item>
         <item>30 минути</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 секунди</item>
+        <item>30 секунди</item>
+        <item>1 минута</item>
+        <item>3 минути</item>
+        <item>5 минути</item>
+        <item>10 минути</item>
+        <item>15 минути</item>
+        <item>30 минути</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>Веднага</item>
@@ -93,17 +108,7 @@
         <item>Изключен</item>
         <item>Неуспешно</item>
         <item>Свързан</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Временно се избягва лоша връзка</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>Изключен</item>
         <item>Неуспешно</item>
         <item>Свързан</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Временно се избягва лоша връзка</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>Отваряне</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>ПАРОЛА</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Бутон за натискане</item>
+        <item>PIN от друго устройство</item>
+        <item>PIN от това устройство</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Свързан</item>
+        <item>Поканени</item>
+        <item>Неуспешно свързване</item>
+        <item>Чукнете, за да се свържете</item>
+        <item>Извън обхват</item>
+        <item>Свързано с друго устройство</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>Безкрайно време за изчакване</item>
@@ -152,6 +155,10 @@
         <item>20 минути</item>
         <item>30 минути</item>
         <item>60 минути</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Разр. всички устр.</item>
+        <item>Само разрешени устройства</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>Авто</item>
@@ -178,19 +185,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-    </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Бутон за натискане</item>
-        <item>PIN от друго устройство</item>
-        <item>PIN от това устройство</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Свързан</item>
-        <item>Поканени</item>
-        <item>Неуспешно свързване</item>
-        <item>Чукнете, за да се свържете</item>
-        <item>Извън обхват</item>
-        <item>Свързано с друго устройство</item>
     </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 мин</item>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>ПАРОЛА</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -266,16 +261,6 @@
     <string-array name="wifi_proxy_settings">
         <item>Няма</item>
         <item>Ръчно</item>
-    </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Нормален</item>
-        <item>Downtown</item>
-        <item>Дом</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>Това е най-общата настройка за Wi-Fi връзка</item>
-        <item>Ако сте в област с много Wi-Fi мрежи, Wi-Fi ще се свързва често за по-добра сила на сигнала</item>
-        <item>Ако сте в област с малко Wi-Fi мрежи, Wi-Fi връзката се поддържа възможно най-дълго</item>
     </string-array>
     <string-array name="emergency_tone_entries">
         <item>Изключено</item>
@@ -307,11 +292,6 @@
         <item>Вътрешно съхраняване в устройството</item>
         <item>Преносима SD карта</item>
         <item>По подразбиране</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>Изключи</item>
-        <item>Вибрация</item>
-        <item>Изкл. микрофон</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Кратък</item>
@@ -346,6 +326,15 @@
         <item>Мащаб на анимацията 5x</item>
         <item>Мащаб на анимацията 10x</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Анимацията е изключена</item>
+        <item>Мащаб на анимацията 0,5x</item>
+        <item>Мащаб на анимацията 1x</item>
+        <item>Мащаб на анимацията 1,5x</item>
+        <item>Мащаб на анимацията 2x</item>
+        <item>Мащаб на анимацията 5x</item>
+        <item>Мащаб на анимацията 10x</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>Стандартно ограничение</item>
         <item>Без фонови процеси</item>
@@ -370,22 +359,8 @@
         <item>Времето изтече</item>
         <item>Неуспешно</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>USB памет</item>
+        <item>Устройство</item>
         <item>SD карта</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -415,15 +390,28 @@
         <item>Снимки</item>
         <item>Музика</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>Висок</item>
-        <item>Среден</item>
-        <item>Hисък</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Автоматично</item>
         <item>Ръчно</item>
         <item>Винаги питай</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Винаги изкл.</item>
+        <item>3 секунди</item>
+        <item>5 секунди</item>
+        <item>10 секунди</item>
+        <item>15 секунди</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Няма</item>
+        <item>Всички записи</item>
+        <item>Предпочитани</item>
+        <item>По избор</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>Висок</item>
+        <item>Среден</item>
+        <item>Hисък</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1.5 секунди</item>
@@ -439,11 +427,24 @@
     <string-array name="contents_type_entries">
         <item>Новини</item>
         <item>Акции</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Новини</item>
+        <item>Акции</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>Бавно</item>
         <item>Нормален</item>
         <item>Бърз</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Няма</item>
+        <item>Всеки 30 минути</item>
+        <item>През 1 час</item>
+        <item>На всеки 2 часа</item>
+        <item>През 4 часа</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>Слушалка</item>
@@ -451,5 +452,9 @@
         <item>Телефон</item>
         <item>HID (клавиатура, мишка и т.н.)</item>
         <item>Всички устройства</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Стерео</item>
+        <item>Съраунд</item>
     </string-array>
 </resources>

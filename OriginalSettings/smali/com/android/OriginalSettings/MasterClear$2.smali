@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 170
+    .line 168
     iput-object p1, p0, Lcom/android/OriginalSettings/MasterClear$2;->this$0:Lcom/android/OriginalSettings/MasterClear;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "v"
 
     .prologue
-    .line 174
+    .line 172
     iget-object v0, p0, Lcom/android/OriginalSettings/MasterClear$2;->this$0:Lcom/android/OriginalSettings/MasterClear;
 
     #getter for: Lcom/android/OriginalSettings/MasterClear;->mExternalStorage:Landroid/widget/CheckBox;
@@ -52,6 +52,6 @@
 
     invoke-virtual {v0}, Landroid/widget/CheckBox;->toggle()V
 
-    .line 175
+    .line 173
     return-void
 .end method

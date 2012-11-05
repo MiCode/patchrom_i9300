@@ -214,7 +214,7 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secV(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
@@ -243,7 +243,7 @@
 
     move-result-object v13
 
-    const v14, 0x7f0d073e
+    const v14, 0x7f09086c
 
     invoke-virtual {v13, v14}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -544,7 +544,7 @@
 
     move-result-object v14
 
-    invoke-static {v13, v14}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v13, v14}, Landroid/util/secutil/Log;->secV(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 161
     invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
@@ -660,7 +660,7 @@
 
     move-result-object v7
 
-    invoke-static {v6, v7}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/secutil/Log;->secV(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

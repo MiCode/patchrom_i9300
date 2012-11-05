@@ -3,12 +3,12 @@
 .source "WifiApAllowedList.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;->onCreateDialog(I)Landroid/app/Dialog;
+    value = Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;->onActivityCreated(Landroid/os/Bundle;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 236
+    .line 173
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList$4;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,57 +37,17 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 3
+.method public onClick(Landroid/view/View;)V
+    .locals 1
     .parameter "arg0"
-    .parameter "arg1"
 
     .prologue
-    .line 239
-    invoke-static {}, Landroid/net/wifi/WifiApWhiteList;->getInstance()Landroid/net/wifi/WifiApWhiteList;
+    .line 176
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList$4;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;
 
-    move-result-object v0
+    #calls: Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;->startDeletePreference()V
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;->access$400(Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;)V
 
-    .line 240
-    .local v0, whiteList:Landroid/net/wifi/WifiApWhiteList;
-    iget-object v1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList$4;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;
-
-    #getter for: Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;->mCurrentSelected:Landroid/preference/Preference;
-    invoke-static {v1}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;->access$300(Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;)Landroid/preference/Preference;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;
-
-    invoke-virtual {v1}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;->getMac()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/net/wifi/WifiApWhiteList;->removeWhiteList(Ljava/lang/String;)I
-
-    .line 241
-    iget-object v1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList$4;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;
-
-    #getter for: Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;->mDeviceList:Landroid/preference/PreferenceScreen;
-    invoke-static {v1}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;->access$000(Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;)Landroid/preference/PreferenceScreen;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList$4;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;
-
-    #getter for: Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;->mCurrentSelected:Landroid/preference/Preference;
-    invoke-static {v2}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;->access$300(Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;)Landroid/preference/Preference;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    .line 242
-    iget-object v1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList$4;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;
-
-    #calls: Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;->reloadWhiteList()V
-    invoke-static {v1}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;->access$400(Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedList;)V
-
-    .line 243
+    .line 177
     return-void
 .end method

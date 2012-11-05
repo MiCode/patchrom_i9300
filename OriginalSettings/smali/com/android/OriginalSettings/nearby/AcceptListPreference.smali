@@ -14,6 +14,8 @@
 
 .field private mDialog:Landroid/app/AlertDialog;
 
+.field private mHandler:Landroid/os/Handler;
+
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -24,54 +26,61 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 41
+    .line 44
     invoke-direct {p0, p1, p2}, Landroid/preference/MultiSelectListPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 30
+    .line 31
     iput-object v1, p0, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->context:Landroid/content/Context;
 
-    .line 32
+    .line 33
     const-string v0, "AllshareSetting"
 
     iput-object v0, p0, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->TAG:Ljava/lang/String;
 
-    .line 33
+    .line 35
     const-string v0, "AcceptListPreference: "
 
     iput-object v0, p0, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->TAGClass:Ljava/lang/String;
 
-    .line 35
+    .line 39
     iput-object v1, p0, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->mAccessDevice:Lcom/android/OriginalSettings/nearby/AccessDeviceList;
 
-    .line 37
+    .line 41
     iput-object v1, p0, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->mDialog:Landroid/app/AlertDialog;
 
-    .line 43
+    .line 111
+    new-instance v0, Lcom/android/OriginalSettings/nearby/AcceptListPreference$2;
+
+    invoke-direct {v0, p0}, Lcom/android/OriginalSettings/nearby/AcceptListPreference$2;-><init>(Lcom/android/OriginalSettings/nearby/AcceptListPreference;)V
+
+    iput-object v0, p0, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->mHandler:Landroid/os/Handler;
+
+    .line 46
     iput-object p1, p0, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->context:Landroid/content/Context;
 
-    .line 44
-    const v0, 0x7f0d093d
+    .line 47
+    const v0, 0x7f090b43
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->setPositiveButtonText(I)V
 
-    .line 45
-    const v0, 0x7f0d0936
+    .line 48
+    const v0, 0x7f090b3c
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->setNegativeButtonText(I)V
 
-    .line 47
+    .line 50
     new-instance v0, Lcom/android/OriginalSettings/nearby/AccessDeviceList;
 
     invoke-direct {v0, p1}, Lcom/android/OriginalSettings/nearby/AccessDeviceList;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->mAccessDevice:Lcom/android/OriginalSettings/nearby/AccessDeviceList;
 
-    .line 48
+    .line 51
     iget-object v0, p0, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->mAccessDevice:Lcom/android/OriginalSettings/nearby/AccessDeviceList;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/nearby/AccessDeviceList;->loadPreference()V
 
-    .line 50
+    .line 53
     return-void
 .end method
 
@@ -82,17 +91,17 @@
     .parameter "builder"
 
     .prologue
-    .line 55
+    .line 57
     const-string v0, "AllshareSetting"
 
     const-string v1, "AcceptListPreference: onPrepareDialogBuilder"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 56
+    .line 58
     invoke-super {p0, p1}, Landroid/preference/MultiSelectListPreference;->onPrepareDialogBuilder(Landroid/app/AlertDialog$Builder;)V
 
-    .line 57
+    .line 59
     return-void
 .end method
 
@@ -101,16 +110,16 @@
     .parameter "state"
 
     .prologue
-    const v3, 0x7f0d0942
+    const v3, 0x7f090b48
 
-    .line 62
+    .line 63
     const-string v1, "AllshareSetting"
 
     const-string v2, "AcceptListPreference: showDialog"
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 64
+    .line 65
     iget-object v1, p0, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->mAccessDevice:Lcom/android/OriginalSettings/nearby/AccessDeviceList;
 
     if-nez v1, :cond_0
@@ -139,7 +148,7 @@
 
     if-nez v1, :cond_1
 
-    .line 73
+    .line 72
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
     iget-object v2, p0, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->context:Landroid/content/Context;
@@ -158,7 +167,7 @@
 
     iget-object v2, p0, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->context:Landroid/content/Context;
 
-    const v3, 0x7f0d0946
+    const v3, 0x7f090b4c
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -168,7 +177,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0935
+    const v2, 0x7f090b3b
 
     new-instance v3, Lcom/android/OriginalSettings/nearby/AcceptListPreference$1;
 
@@ -188,7 +197,7 @@
     :goto_0
     return-void
 
-    .line 83
+    .line 82
     :cond_1
     iget-object v1, p0, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->mAccessDevice:Lcom/android/OriginalSettings/nearby/AccessDeviceList;
 
@@ -198,7 +207,7 @@
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->setEntries([Ljava/lang/CharSequence;)V
 
-    .line 84
+    .line 83
     iget-object v1, p0, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->mAccessDevice:Lcom/android/OriginalSettings/nearby/AccessDeviceList;
 
     invoke-virtual {v1}, Lcom/android/OriginalSettings/nearby/AccessDeviceList;->getAcceptEntryValues()[Ljava/lang/CharSequence;
@@ -207,21 +216,21 @@
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->setEntryValues([Ljava/lang/CharSequence;)V
 
-    .line 86
+    .line 85
     invoke-super {p0, p1}, Landroid/preference/MultiSelectListPreference;->showDialog(Landroid/os/Bundle;)V
 
-    .line 88
+    .line 87
     invoke-virtual {p0}, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v0
 
     check-cast v0, Landroid/app/AlertDialog;
 
-    .line 89
+    .line 88
     .local v0, dialog:Landroid/app/AlertDialog;
     iput-object v0, p0, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->mDialog:Landroid/app/AlertDialog;
 
-    .line 91
+    .line 90
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -270,22 +279,22 @@
 .end method
 
 .method public updateDialog()Z
-    .locals 2
+    .locals 4
 
     .prologue
-    .line 97
+    .line 96
     const-string v0, "AllshareSetting"
 
     const-string v1, "AcceptListPreference: updateDialog"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 99
+    .line 98
     iget-object v0, p0, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->mDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
-    .line 101
+    .line 99
     iget-object v0, p0, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->mDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->isShowing()Z
@@ -294,27 +303,31 @@
 
     if-eqz v0, :cond_0
 
-    .line 103
+    .line 100
     const-string v0, "AllshareSetting"
 
     const-string v1, "AcceptListPreference: refresh popup"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 104
+    .line 101
     iget-object v0, p0, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->mDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 106
-    const/4 v0, 0x0
+    .line 103
+    iget-object v0, p0, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/nearby/AcceptListPreference;->showDialog(Landroid/os/Bundle;)V
+    const/16 v1, 0xbb9
 
-    .line 107
+    const-wide/16 v2, 0x32
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+
+    .line 105
     const/4 v0, 0x1
 
-    .line 110
+    .line 108
     :goto_0
     return v0
 

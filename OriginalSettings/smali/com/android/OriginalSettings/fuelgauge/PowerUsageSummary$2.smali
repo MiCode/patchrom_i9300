@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 787
+    .line 794
     iput-object p1, p0, Lcom/android/OriginalSettings/fuelgauge/PowerUsageSummary$2;->this$0:Lcom/android/OriginalSettings/fuelgauge/PowerUsageSummary;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,26 +39,26 @@
     .parameter "msg"
 
     .prologue
-    .line 791
+    .line 798
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
-    .line 803
+    .line 810
     :cond_0
     :goto_0
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    .line 804
+    .line 811
     return-void
 
-    .line 793
+    .line 800
     :pswitch_0
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/OriginalSettings/fuelgauge/BatterySipper;
 
-    .line 794
+    .line 801
     .local v0, bs:Lcom/android/OriginalSettings/fuelgauge/BatterySipper;
     iget-object v2, p0, Lcom/android/OriginalSettings/fuelgauge/PowerUsageSummary$2;->this$0:Lcom/android/OriginalSettings/fuelgauge/PowerUsageSummary;
 
@@ -78,23 +78,23 @@
 
     check-cast v1, Lcom/android/OriginalSettings/fuelgauge/PowerGaugePreference;
 
-    .line 797
+    .line 804
     .local v1, pgp:Lcom/android/OriginalSettings/fuelgauge/PowerGaugePreference;
     if-eqz v1, :cond_0
 
-    .line 798
+    .line 805
     iget-object v2, v0, Lcom/android/OriginalSettings/fuelgauge/BatterySipper;->icon:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v1, v2}, Lcom/android/OriginalSettings/fuelgauge/PowerGaugePreference;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    .line 799
+    .line 806
     iget-object v2, v0, Lcom/android/OriginalSettings/fuelgauge/BatterySipper;->name:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Lcom/android/OriginalSettings/fuelgauge/PowerGaugePreference;->setTitle(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 
-    .line 791
+    .line 798
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

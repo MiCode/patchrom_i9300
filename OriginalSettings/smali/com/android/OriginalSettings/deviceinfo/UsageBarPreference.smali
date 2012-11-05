@@ -40,7 +40,7 @@
     iput-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/UsageBarPreference;->mEntries:Ljava/util/Collection;
 
     .line 44
-    const v0, 0x7f04008d
+    const v0, 0x7f0400ae
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/deviceinfo/UsageBarPreference;->setLayoutResource(I)V
 
@@ -70,7 +70,7 @@
     iput-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/UsageBarPreference;->mEntries:Ljava/util/Collection;
 
     .line 49
-    const v0, 0x7f04008d
+    const v0, 0x7f0400ae
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/deviceinfo/UsageBarPreference;->setLayoutResource(I)V
 
@@ -101,7 +101,7 @@
     iput-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/UsageBarPreference;->mEntries:Ljava/util/Collection;
 
     .line 39
-    const v0, 0x7f04008d
+    const v0, 0x7f0400ae
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/deviceinfo/UsageBarPreference;->setLayoutResource(I)V
 
@@ -171,7 +171,7 @@
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
     .line 60
-    const v0, 0x7f0a018b
+    const v0, 0x7f0b01e5
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

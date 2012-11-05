@@ -117,7 +117,7 @@
     .parameter "password"
 
     .prologue
-    .line 150
+    .line 152
     iget-object v0, p0, Lcom/android/OriginalSettings/encryption/CryptSDCardConfirm;->mDem:Landroid/dirEncryption/DirEncryptionManager;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/encryption/CryptSDCardConfirm;->mUserPolicies:Landroid/dirEncryption/SDCardEncryptionPolicies;
@@ -134,7 +134,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/dirEncryption/DirEncryptionManager;->setStorageCardEncryptionPolicy(III)I
 
-    .line 151
+    .line 153
     iget-object v0, p0, Lcom/android/OriginalSettings/encryption/CryptSDCardConfirm;->mDem:Landroid/dirEncryption/DirEncryptionManager;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/encryption/CryptSDCardConfirm;->mDem:Landroid/dirEncryption/DirEncryptionManager;
@@ -145,24 +145,24 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/dirEncryption/DirEncryptionManager;->encryptStorage(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 153
+    .line 155
     iget-object v0, p0, Lcom/android/OriginalSettings/encryption/CryptSDCardConfirm;->mParent:Landroid/app/Activity;
 
     if-eqz v0, :cond_0
 
-    .line 154
+    .line 156
     iget-object v0, p0, Lcom/android/OriginalSettings/encryption/CryptSDCardConfirm;->mParent:Landroid/app/Activity;
 
     const/4 v1, -0x1
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setResult(I)V
 
-    .line 155
+    .line 157
     iget-object v0, p0, Lcom/android/OriginalSettings/encryption/CryptSDCardConfirm;->mParent:Landroid/app/Activity;
 
-    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
+    invoke-virtual {v0}, Landroid/app/Activity;->onBackPressed()V
 
-    .line 157
+    .line 159
     :cond_0
     return-void
 .end method
@@ -195,7 +195,7 @@
     .line 114
     iget-object v2, p0, Lcom/android/OriginalSettings/encryption/CryptSDCardConfirm;->mSdCardEncMessageTitle:Landroid/widget/TextView;
 
-    const v3, 0x7f0d07eb
+    const v3, 0x7f09094e
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -204,13 +204,13 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "\u00f8\t"
+    const-string v3, "\u2022\t"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    const v3, 0x7f0d07ed
+    const v3, 0x7f090950
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -247,13 +247,13 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "\u00f8\t"
+    const-string v3, "\u2022\t"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    const v3, 0x7f0d07f1
+    const v3, 0x7f090954
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -290,13 +290,13 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "\u00f8\t"
+    const-string v3, "\u2022\t"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    const v3, 0x7f0d07ef
+    const v3, 0x7f090952
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -324,13 +324,13 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "\u00f8\t"
+    const-string v4, "\u2022\t"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    const v4, 0x7f0d07f4
+    const v4, 0x7f090958
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -359,13 +359,13 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "\u00f8\t"
+    const-string v3, "\u2022\t"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    const v3, 0x7f0d07f2
+    const v3, 0x7f090955
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -393,13 +393,13 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "\u00f8\t"
+    const-string v4, "\u2022\t"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    const v4, 0x7f0d07f3
+    const v4, 0x7f090956
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -421,7 +421,41 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 146
+    move-result-object v2
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "\u2022\t"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const v4, 0x7f090957
+
+    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, "\n\n"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 148
     iget-object v2, p0, Lcom/android/OriginalSettings/encryption/CryptSDCardConfirm;->mSdCardEncMessages:Landroid/widget/TextView;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -430,14 +464,14 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 147
+    .line 149
     return-void
 
     .line 118
     :cond_2
     iget-object v2, p0, Lcom/android/OriginalSettings/encryption/CryptSDCardConfirm;->mSdCardEncMessageTitle:Landroid/widget/TextView;
 
-    const v3, 0x7f0d07ec
+    const v3, 0x7f09094f
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -446,13 +480,13 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "\u00f8\t"
+    const-string v3, "\u2022\t"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    const v3, 0x7f0d07ee
+    const v3, 0x7f090951
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -501,13 +535,13 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "\u00f8\t"
+    const-string v3, "\u2022\t"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    const v3, 0x7f0d07f0
+    const v3, 0x7f090953
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -535,13 +569,13 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "\u00f8\t"
+    const-string v4, "\u2022\t"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    const v4, 0x7f0d07f5
+    const v4, 0x7f090959
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -598,7 +632,7 @@
 
     .prologue
     .line 82
-    const v0, 0x7f040032
+    const v0, 0x7f040033
 
     const/4 v1, 0x0
 
@@ -622,7 +656,7 @@
     .line 86
     iget-object v0, p0, Lcom/android/OriginalSettings/encryption/CryptSDCardConfirm;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0a0064
+    const v1, 0x7f0b0065
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -635,7 +669,7 @@
     .line 87
     iget-object v0, p0, Lcom/android/OriginalSettings/encryption/CryptSDCardConfirm;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0a0065
+    const v1, 0x7f0b0066
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -648,7 +682,7 @@
     .line 88
     iget-object v0, p0, Lcom/android/OriginalSettings/encryption/CryptSDCardConfirm;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0a0066
+    const v1, 0x7f0b0067
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

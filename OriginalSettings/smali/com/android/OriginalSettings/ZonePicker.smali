@@ -30,7 +30,7 @@
     .line 58
     invoke-direct {p0}, Landroid/app/ListFragment;-><init>()V
 
-    .line 351
+    .line 350
     return-void
 .end method
 
@@ -463,7 +463,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f070054
+    const v9, 0x7f070061
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
@@ -516,7 +516,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f070053
+    const v9, 0x7f070060
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
@@ -545,7 +545,7 @@
 
     const-string v9, "Ill-formatted timezones.xml file"
 
-    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_3
 
@@ -613,7 +613,7 @@
 
     const-string v9, "Unable to read timezones.xml file"
 
-    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_3
 
@@ -805,26 +805,26 @@
     .line 170
     const/4 v0, 0x1
 
-    const v1, 0x7f0d0130
+    const v1, 0x7f090147
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f0200df
+    const v1, 0x7f020122
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
     .line 172
     const/4 v0, 0x2
 
-    const v1, 0x7f0d0131
+    const v1, 0x7f090148
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f0200ca
+    const v1, 0x7f02010e
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -914,7 +914,7 @@
 
     invoke-virtual {v7}, Landroid/app/Activity;->onBackPressed()V
 
-    .line 349
+    .line 348
     :goto_0
     return-void
 

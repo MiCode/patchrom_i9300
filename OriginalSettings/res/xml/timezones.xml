@@ -85,6 +85,5 @@
     <timezone id="Pacific/Auckland">Auckland</timezone>
     <timezone id="Pacific/Fiji">Fiji</timezone>
     <timezone id="Pacific/Tongatapu">Tonga</timezone>
-    <timezone id="Europe/Zagreb">Zagreb</timezone>
     <timezone id="Asia/Singapore">Singapore</timezone>
 </timezones>

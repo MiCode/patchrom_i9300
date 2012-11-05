@@ -30,10 +30,10 @@
     .parameter "context"
 
     .prologue
-    .line 1349
+    .line 1539
     invoke-direct {p0, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    .line 1350
+    .line 1540
     return-void
 .end method
 
@@ -44,7 +44,7 @@
     .parameter "checked"
 
     .prologue
-    .line 1358
+    .line 1548
     iget-object v0, p0, Lcom/android/OriginalSettings/AccessibilitySettings$ToggleSwitch;->mOnBeforeListener:Lcom/android/OriginalSettings/AccessibilitySettings$ToggleSwitch$OnBeforeCheckedChangeListener;
 
     if-eqz v0, :cond_0
@@ -57,11 +57,11 @@
 
     if-eqz v0, :cond_0
 
-    .line 1363
+    .line 1553
     :goto_0
     return-void
 
-    .line 1362
+    .line 1552
     :cond_0
     invoke-super {p0, p1}, Landroid/widget/Switch;->setChecked(Z)V
 
@@ -73,10 +73,10 @@
     .parameter "checked"
 
     .prologue
-    .line 1366
+    .line 1556
     invoke-super {p0, p1}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 1367
+    .line 1557
     return-void
 .end method
 
@@ -85,9 +85,9 @@
     .parameter "listener"
 
     .prologue
-    .line 1353
+    .line 1543
     iput-object p1, p0, Lcom/android/OriginalSettings/AccessibilitySettings$ToggleSwitch;->mOnBeforeListener:Lcom/android/OriginalSettings/AccessibilitySettings$ToggleSwitch$OnBeforeCheckedChangeListener;
 
-    .line 1354
+    .line 1544
     return-void
 .end method

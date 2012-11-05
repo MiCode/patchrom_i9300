@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 45
+    .line 46
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice$1;->this$0:Lcom/android/OriginalSettings/wifi/mobileap/WifiApAllowedDevice;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V

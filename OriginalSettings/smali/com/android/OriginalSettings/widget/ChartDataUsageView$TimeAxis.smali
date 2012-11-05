@@ -17,6 +17,10 @@
 .end annotation
 
 
+# static fields
+.field private static final FIRST_DAY_OF_WEEK:I
+
+
 # instance fields
 .field private mMax:J
 
@@ -26,19 +30,39 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    .prologue
+    .line 481
+    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/Calendar;->getFirstDayOfWeek()I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, -0x1
+
+    sput v0, Lcom/android/OriginalSettings/widget/ChartDataUsageView$TimeAxis;->FIRST_DAY_OF_WEEK:I
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 4
 
     .prologue
-    .line 470
+    .line 487
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 471
+    .line 488
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
-    .line 472
+    .line 489
     .local v0, currentTime:J
     const-wide v2, 0x9a7ec800L
 
@@ -46,7 +70,7 @@
 
     invoke-virtual {p0, v2, v3, v0, v1}, Lcom/android/OriginalSettings/widget/ChartDataUsageView$TimeAxis;->setBounds(JJ)Z
 
-    .line 473
+    .line 490
     return-void
 .end method
 
@@ -59,7 +83,7 @@
     .parameter "value"
 
     .prologue
-    .line 514
+    .line 531
     const/4 v0, 0x0
 
     invoke-virtual {p2}, Landroid/text/SpannableStringBuilder;->length()I
@@ -72,7 +96,7 @@
 
     invoke-virtual {p2, v0, v1, v2}, Landroid/text/SpannableStringBuilder;->replace(IILjava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
 
-    .line 515
+    .line 532
     return-wide p3
 .end method
 
@@ -81,7 +105,7 @@
     .parameter "value"
 
     .prologue
-    .line 503
+    .line 520
     iget v0, p0, Lcom/android/OriginalSettings/widget/ChartDataUsageView$TimeAxis;->mSize:F
 
     iget-wide v1, p0, Lcom/android/OriginalSettings/widget/ChartDataUsageView$TimeAxis;->mMin:J
@@ -110,7 +134,7 @@
     .parameter "point"
 
     .prologue
-    .line 508
+    .line 525
     iget-wide v0, p0, Lcom/android/OriginalSettings/widget/ChartDataUsageView$TimeAxis;->mMin:J
 
     long-to-float v0, v0
@@ -137,66 +161,125 @@
 .end method
 
 .method public getTickPoints()[F
-    .locals 9
+    .locals 10
 
     .prologue
-    const-wide/32 v7, 0x240c8400
+    const/4 v9, 0x1
 
-    .line 521
-    iget-wide v3, p0, Lcom/android/OriginalSettings/widget/ChartDataUsageView$TimeAxis;->mMax:J
+    .line 537
+    const/16 v6, 0x20
 
-    iget-wide v5, p0, Lcom/android/OriginalSettings/widget/ChartDataUsageView$TimeAxis;->mMin:J
+    new-array v2, v6, [F
 
-    sub-long/2addr v3, v5
-
-    div-long/2addr v3, v7
-
-    long-to-int v1, v3
-
-    .line 522
-    .local v1, tickCount:I
-    new-array v2, v1, [F
-
-    .line 523
-    .local v2, tickPoints:[F
+    .line 538
+    .local v2, ticks:[F
     const/4 v0, 0x0
 
+    .line 541
     .local v0, i:I
+    new-instance v3, Landroid/text/format/Time;
+
+    invoke-direct {v3}, Landroid/text/format/Time;-><init>()V
+
+    .line 542
+    .local v3, time:Landroid/text/format/Time;
+    iget-wide v6, p0, Lcom/android/OriginalSettings/widget/ChartDataUsageView$TimeAxis;->mMax:J
+
+    invoke-virtual {v3, v6, v7}, Landroid/text/format/Time;->set(J)V
+
+    .line 543
+    iget v6, v3, Landroid/text/format/Time;->monthDay:I
+
+    iget v7, v3, Landroid/text/format/Time;->weekDay:I
+
+    sget v8, Lcom/android/OriginalSettings/widget/ChartDataUsageView$TimeAxis;->FIRST_DAY_OF_WEEK:I
+
+    sub-int/2addr v7, v8
+
+    sub-int/2addr v6, v7
+
+    iput v6, v3, Landroid/text/format/Time;->monthDay:I
+
+    .line 544
+    const/4 v6, 0x0
+
+    iput v6, v3, Landroid/text/format/Time;->second:I
+
+    iput v6, v3, Landroid/text/format/Time;->minute:I
+
+    iput v6, v3, Landroid/text/format/Time;->hour:I
+
+    .line 546
+    invoke-virtual {v3, v9}, Landroid/text/format/Time;->normalize(Z)J
+
+    .line 547
+    invoke-virtual {v3, v9}, Landroid/text/format/Time;->toMillis(Z)J
+
+    move-result-wide v4
+
+    .line 548
+    .local v4, timeMillis:J
     :goto_0
-    if-ge v0, v1, :cond_0
+    iget-wide v6, p0, Lcom/android/OriginalSettings/widget/ChartDataUsageView$TimeAxis;->mMin:J
 
-    .line 524
-    iget-wide v3, p0, Lcom/android/OriginalSettings/widget/ChartDataUsageView$TimeAxis;->mMax:J
+    cmp-long v6, v4, v6
 
-    add-int/lit8 v5, v0, 0x1
+    if-lez v6, :cond_1
 
-    int-to-long v5, v5
+    .line 549
+    iget-wide v6, p0, Lcom/android/OriginalSettings/widget/ChartDataUsageView$TimeAxis;->mMax:J
 
-    mul-long/2addr v5, v7
+    cmp-long v6, v4, v6
 
-    sub-long/2addr v3, v5
+    if-gtz v6, :cond_0
 
-    invoke-virtual {p0, v3, v4}, Lcom/android/OriginalSettings/widget/ChartDataUsageView$TimeAxis;->convertToPoint(J)F
+    .line 550
+    add-int/lit8 v1, v0, 0x1
 
-    move-result v3
+    .end local v0           #i:I
+    .local v1, i:I
+    invoke-virtual {p0, v4, v5}, Lcom/android/OriginalSettings/widget/ChartDataUsageView$TimeAxis;->convertToPoint(J)F
 
-    aput v3, v2, v0
+    move-result v6
 
-    .line 523
-    add-int/lit8 v0, v0, 0x1
+    aput v6, v2, v0
+
+    move v0, v1
+
+    .line 552
+    .end local v1           #i:I
+    .restart local v0       #i:I
+    :cond_0
+    iget v6, v3, Landroid/text/format/Time;->monthDay:I
+
+    add-int/lit8 v6, v6, -0x7
+
+    iput v6, v3, Landroid/text/format/Time;->monthDay:I
+
+    .line 553
+    invoke-virtual {v3, v9}, Landroid/text/format/Time;->normalize(Z)J
+
+    .line 554
+    invoke-virtual {v3, v9}, Landroid/text/format/Time;->toMillis(Z)J
+
+    move-result-wide v4
 
     goto :goto_0
 
-    .line 526
-    :cond_0
-    return-object v2
+    .line 557
+    :cond_1
+    invoke-static {v2, v0}, Ljava/util/Arrays;->copyOf([FI)[F
+
+    move-result-object v6
+
+    return-object v6
 .end method
 
 .method public hashCode()I
     .locals 4
 
     .prologue
-    .line 477
+    .line 494
     const/4 v0, 0x3
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -244,7 +327,7 @@
     .parameter "max"
 
     .prologue
-    .line 482
+    .line 499
     iget-wide v0, p0, Lcom/android/OriginalSettings/widget/ChartDataUsageView$TimeAxis;->mMin:J
 
     cmp-long v0, v0, p1
@@ -257,17 +340,17 @@
 
     if-eqz v0, :cond_1
 
-    .line 483
+    .line 500
     :cond_0
     iput-wide p1, p0, Lcom/android/OriginalSettings/widget/ChartDataUsageView$TimeAxis;->mMin:J
 
-    .line 484
+    .line 501
     iput-wide p3, p0, Lcom/android/OriginalSettings/widget/ChartDataUsageView$TimeAxis;->mMax:J
 
-    .line 485
+    .line 502
     const/4 v0, 0x1
 
-    .line 487
+    .line 504
     :goto_0
     return v0
 
@@ -282,20 +365,20 @@
     .parameter "size"
 
     .prologue
-    .line 493
+    .line 510
     iget v0, p0, Lcom/android/OriginalSettings/widget/ChartDataUsageView$TimeAxis;->mSize:F
 
     cmpl-float v0, v0, p1
 
     if-eqz v0, :cond_0
 
-    .line 494
+    .line 511
     iput p1, p0, Lcom/android/OriginalSettings/widget/ChartDataUsageView$TimeAxis;->mSize:F
 
-    .line 495
+    .line 512
     const/4 v0, 0x1
 
-    .line 497
+    .line 514
     :goto_0
     return v0
 
@@ -310,7 +393,7 @@
     .parameter "value"
 
     .prologue
-    .line 532
+    .line 563
     const/4 v0, 0x0
 
     return v0

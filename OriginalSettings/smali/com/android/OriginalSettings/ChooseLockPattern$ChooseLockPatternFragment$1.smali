@@ -46,7 +46,7 @@
 
     iget-object v0, v0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mHeaderText:Landroid/widget/TextView;
 
-    const v1, 0x7f0d049f
+    const v1, 0x7f090563
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

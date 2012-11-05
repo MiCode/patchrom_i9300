@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1280
+    .line 1554
     iput-object p1, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleSetUploadPath;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .parameter "x1"
 
     .prologue
-    .line 1280
+    .line 1554
     invoke-direct {p0, p1}, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleSetUploadPath;-><init>(Lcom/android/OriginalSettings/nearby/NearbySettings;)V
 
     return-void
@@ -59,7 +59,8 @@
 
     const/4 v2, 0x0
 
-    .line 1286
+    .line 1558
+    :try_start_0
     iget-object v4, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleSetUploadPath;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
 
     #getter for: Lcom/android/OriginalSettings/nearby/NearbySettings;->mIMediaServer:Lcom/android/OriginalSettings/nearby/IMediaServer;
@@ -75,18 +76,17 @@
 
     if-nez v4, :cond_1
 
-    .line 1320
+    .line 1588
     :cond_0
     :goto_0
     return v2
 
-    .line 1291
+    .line 1562
     :cond_1
     const/4 v1, 0x0
 
-    .line 1293
+    .line 1564
     .local v1, path:Ljava/lang/String;
-    :try_start_0
     invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
@@ -97,13 +97,54 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_2
 
-    .line 1295
-    const-string v1, "/sdcard/Nearby"
+    .line 1566
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    .line 1312
-    :cond_2
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    sget-object v5, Lcom/android/OriginalSettings/nearby/NearbySettings;->mStorageVolumes:[Landroid/os/storage/StorageVolume;
+
+    const/4 v6, 0x0
+
+    aget-object v5, v5, v6
+
+    invoke-virtual {v5}, Landroid/os/storage/StorageVolume;->getPath()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, "/Nearby"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 1567
+    iget-object v4, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleSetUploadPath;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
+
+    #getter for: Lcom/android/OriginalSettings/nearby/NearbySettings;->mContext:Landroid/content/Context;
+    invoke-static {v4}, Lcom/android/OriginalSettings/nearby/NearbySettings;->access$400(Lcom/android/OriginalSettings/nearby/NearbySettings;)Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string v5, "NearbyDownloadTo"
+
+    invoke-static {v4, v5, v1}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
+
+    .line 1582
     :goto_1
     iget-object v4, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleSetUploadPath;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
 
@@ -116,11 +157,11 @@
 
     move v2, v3
 
-    .line 1320
+    .line 1588
     goto :goto_0
 
-    .line 1297
-    :cond_3
+    .line 1569
+    :cond_2
     invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
@@ -133,7 +174,7 @@
 
     if-eqz v4, :cond_4
 
-    .line 1300
+    .line 1571
     sget-object v4, Lcom/android/OriginalSettings/nearby/NearbySettings;->mStorageManager:Landroid/os/storage/StorageManager;
 
     sget-object v5, Lcom/android/OriginalSettings/nearby/NearbySettings;->mStorageVolumes:[Landroid/os/storage/StorageVolume;
@@ -156,9 +197,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3
 
-    .line 1302
+    .line 1573
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -187,25 +228,33 @@
 
     move-result-object v1
 
-    goto :goto_1
+    .line 1575
+    :cond_3
+    iget-object v4, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$HandleSetUploadPath;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
 
-    .line 1308
-    :cond_4
-    const-string v3, "AllshareSetting"
+    #getter for: Lcom/android/OriginalSettings/nearby/NearbySettings;->mContext:Landroid/content/Context;
+    invoke-static {v4}, Lcom/android/OriginalSettings/nearby/NearbySettings;->access$400(Lcom/android/OriginalSettings/nearby/NearbySettings;)Landroid/content/Context;
 
-    const-string v4, "AllshareSetting: HandleSetUploadPath has incorrect value"
+    move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string v5, "NearbyDownloadTo"
+
+    invoke-static {v4, v5, v1}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    goto :goto_1
 
-    .line 1315
+    .line 1584
+    .end local v1           #path:Ljava/lang/String;
     :catch_0
     move-exception v0
 
-    .line 1317
+    .line 1585
     .local v0, e:Landroid/os/RemoteException;
     const-string v3, "AllshareSetting"
 
@@ -229,5 +278,20 @@
 
     invoke-static {v3, v4}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto/16 :goto_0
+
+    .line 1578
+    .end local v0           #e:Landroid/os/RemoteException;
+    .restart local v1       #path:Ljava/lang/String;
+    :cond_4
+    :try_start_1
+    const-string v3, "AllshareSetting"
+
+    const-string v4, "AllshareSetting: HandleSetUploadPath has incorrect value"
+
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto/16 :goto_0
 .end method

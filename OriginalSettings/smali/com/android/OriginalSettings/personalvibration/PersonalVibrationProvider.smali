@@ -322,7 +322,7 @@
 
     const-string v2, "query with REGISTERINFO_ID"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 144
     iget-object v1, p0, Lcom/android/OriginalSettings/personalvibration/PersonalVibrationProvider;->mDB:Landroid/database/sqlite/SQLiteDatabase;
@@ -443,7 +443,7 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 212
     iget-object v1, p0, Lcom/android/OriginalSettings/personalvibration/PersonalVibrationProvider;->mDB:Landroid/database/sqlite/SQLiteDatabase;
@@ -454,7 +454,7 @@
 
     move-result v0
 
-    .line 228
+    .line 214
     invoke-virtual {p0}, Lcom/android/OriginalSettings/personalvibration/PersonalVibrationProvider;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -467,6 +467,6 @@
 
     invoke-virtual {v1, p1, v2}, Landroid/content/ContentResolver;->notifyChange(Landroid/net/Uri;Landroid/database/ContentObserver;)V
 
-    .line 229
+    .line 215
     return v0
 .end method

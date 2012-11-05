@@ -18,12 +18,15 @@
         <item>10 minutu</item>
         <item>30 minutu</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 segundo</item>
         <item>30 segundo</item>
         <item>Minutu 1</item>
-        <item>2 minutu</item>
+        <item>3 minutu</item>
         <item>5 minutu</item>
+        <item>10 minutu</item>
+        <item>15 minutu</item>
+        <item>30 minutu</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Inoiz ez</item>
@@ -34,6 +37,18 @@
         <item>5 minutu</item>
         <item>10 minutu</item>
         <item>30 minutu</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 segundo</item>
+        <item>30 segundo</item>
+        <item>Minutu 1</item>
+        <item>3 minutu</item>
+        <item>5 minutu</item>
+        <item>10 minutu</item>
+        <item>15 minutu</item>
+        <item>30 minutu</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>Berehala</item>
@@ -93,17 +108,7 @@
         <item>Deskonketatuta</item>
         <item>Okerra</item>
         <item>Konektatuta</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Temporarily avoiding poor connection</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>Deskonketatuta</item>
         <item>Okerra</item>
         <item>Konektatuta</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Temporarily avoiding poor connection</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>Ireki</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Sakatu botoia</item>
+        <item>Parekatutako gailuaren PINa</item>
+        <item>Gailu honetako PINa</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Konektatuta</item>
+        <item>Gonbidatuta</item>
+        <item>Konektatzerakoan errorea</item>
+        <item>Ukitu konektatzeko</item>
+        <item>Tartetik kanpo</item>
+        <item>Beste gailua batekin konektatuta</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>Inoiz ez denboraz kanpo</item>
@@ -152,6 +155,10 @@
         <item>20 minutu</item>
         <item>30 minutu</item>
         <item>60 minutu</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Baimendu gailu denak</item>
+        <item>Baimendutako gailuak soilik</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>Auto</item>
@@ -178,19 +185,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-    </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Sakatu botoia</item>
-        <item>Parekatutako gailuaren PINa</item>
-        <item>Gailu honetako PINa</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Konektatuta</item>
-        <item>Gonbidatuta</item>
-        <item>Konektatzerakoan errorea</item>
-        <item>Ukitu konektatzeko</item>
-        <item>Tartetik kanpo</item>
-        <item>Beste gailua batekin konektatuta</item>
     </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 min</item>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -254,7 +249,7 @@
         <item>GTC</item>
     </string-array>
     <string-array name="wifi_network_setup">
-        <item>Desaktibatu</item>
+        <item>Desaktibatuta</item>
         <item>Sakatu botoia</item>
         <item>Sarbide puntuko PINa</item>
         <item>Gailu honetako PINa</item>
@@ -266,16 +261,6 @@
     <string-array name="wifi_proxy_settings">
         <item>Bat ere ez</item>
         <item>Eskuzkoa</item>
-    </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Arrunta</item>
-        <item>Downtown</item>
-        <item>Etxea</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>Hau da Wi-Fi konexio ezarpen orokorrena</item>
-        <item>Wi-Fi konexio ugariko eremu batean bazaude, Wi-Fi konexioari maiz berrituko da seinale indar onena hartzeko</item>
-        <item>Wi-Fi konexio gutxiko eremu batean bazaude, Wi-Fi konexioari eutsiko zaio ahal den heinean</item>
     </string-array>
     <string-array name="emergency_tone_entries">
         <item>Desaktibatu</item>
@@ -302,11 +287,6 @@
         <item>Gailuaren barne biltegiratzea</item>
         <item>SD txartel kengarria</item>
         <item>Lehenetsia</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>Desaktibatu</item>
-        <item>Bibratu</item>
-        <item>Isilarazi</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Motza</item>
@@ -341,6 +321,15 @@
         <item>5x animazio eskala</item>
         <item>10x animazio eskala</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Animazioa itzalita dago</item>
+        <item>0.5x animazio eskala</item>
+        <item>1x animazio eskala</item>
+        <item>1.5x animazio eskala</item>
+        <item>2x animazio eskala</item>
+        <item>5x animazio eskala</item>
+        <item>10x animazio eskala</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>Muga estandarra</item>
         <item>Hondoko prozesurik ez</item>
@@ -365,22 +354,8 @@
         <item>Itxarote denbora igaro da</item>
         <item>Okerra</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>% 10</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>USB memoria</item>
+        <item>Gailua</item>
         <item>SD txar.</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -410,15 +385,28 @@
         <item>Argazkiak</item>
         <item>Musika</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>Altua</item>
-        <item>Ertaina</item>
-        <item>Txikia</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Automatikoa</item>
         <item>Eskuz</item>
         <item>Beti galdetu</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Beti desaktibatuta</item>
+        <item>3 segundo</item>
+        <item>5 segundo</item>
+        <item>10 segundo</item>
+        <item>15 segundo</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Bat ere ez</item>
+        <item>Kontaktu guztiak</item>
+        <item>Gogokoenak</item>
+        <item>Pertsonalizatua</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>Altua</item>
+        <item>Ertaina</item>
+        <item>Txikia</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1,5 segundo</item>
@@ -434,11 +422,24 @@
     <string-array name="contents_type_entries">
         <item>Berriak</item>
         <item>Baloreak</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Berriak</item>
+        <item>Baloreak</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>Motel</item>
         <item>Arrunta</item>
         <item>Azkar</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Bat ere ez</item>
+        <item>30 minuturo</item>
+        <item>Ordubetero</item>
+        <item>2 orduro</item>
+        <item>4 orduro</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>Entzung</item>
@@ -446,5 +447,9 @@
         <item>Telefonoa</item>
         <item>HID (teklatua, sagua, etab.)</item>
         <item>Gailu guztiak</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Estereoa</item>
+        <item>Soinu inguratzailea</item>
     </string-array>
 </resources>

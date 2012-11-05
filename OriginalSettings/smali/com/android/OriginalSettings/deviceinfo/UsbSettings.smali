@@ -18,10 +18,10 @@
     .locals 1
 
     .prologue
-    .line 42
+    .line 45
     invoke-direct {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;-><init>()V
 
-    .line 53
+    .line 56
     new-instance v0, Lcom/android/OriginalSettings/deviceinfo/UsbSettings$1;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/deviceinfo/UsbSettings$1;-><init>(Lcom/android/OriginalSettings/deviceinfo/UsbSettings;)V
@@ -36,7 +36,7 @@
     .parameter "x0"
 
     .prologue
-    .line 42
+    .line 45
     iget-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->mUsbManager:Landroid/hardware/usb/UsbManager;
 
     return-object v0
@@ -48,7 +48,7 @@
     .parameter "x1"
 
     .prologue
-    .line 42
+    .line 45
     invoke-direct {p0, p1}, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->updateToggles(Ljava/lang/String;)V
 
     return-void
@@ -58,30 +58,30 @@
     .locals 2
 
     .prologue
-    .line 60
+    .line 71
     invoke-virtual {p0}, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
-    .line 61
+    .line 72
     .local v0, root:Landroid/preference/PreferenceScreen;
     if-eqz v0, :cond_0
 
-    .line 62
+    .line 73
     invoke-virtual {v0}, Landroid/preference/PreferenceScreen;->removeAll()V
 
-    .line 64
+    .line 75
     :cond_0
-    const v1, 0x7f070057
+    const v1, 0x7f070064
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->addPreferencesFromResource(I)V
 
-    .line 65
+    .line 76
     invoke-virtual {p0}, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
-    .line 67
+    .line 78
     const-string v1, "usb_mtp"
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -92,7 +92,7 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->mMtp:Landroid/preference/CheckBoxPreference;
 
-    .line 68
+    .line 79
     const-string v1, "usb_ptp"
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -103,7 +103,7 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->mPtp:Landroid/preference/CheckBoxPreference;
 
-    .line 70
+    .line 81
     return-object v0
 .end method
 
@@ -116,7 +116,7 @@
 
     const/4 v1, 0x0
 
-    .line 99
+    .line 110
     const-string v0, "mtp"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -125,21 +125,21 @@
 
     if-eqz v0, :cond_0
 
-    .line 100
+    .line 111
     iget-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->mMtp:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 101
+    .line 112
     iget-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->mPtp:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 109
+    .line 120
     :goto_0
     return-void
 
-    .line 102
+    .line 113
     :cond_0
     const-string v0, "ptp"
 
@@ -149,25 +149,25 @@
 
     if-eqz v0, :cond_1
 
-    .line 103
+    .line 114
     iget-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->mMtp:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 104
+    .line 115
     iget-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->mPtp:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
     goto :goto_0
 
-    .line 106
+    .line 117
     :cond_1
     iget-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->mMtp:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 107
+    .line 118
     iget-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->mPtp:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
@@ -182,10 +182,10 @@
     .parameter "icicle"
 
     .prologue
-    .line 75
+    .line 86
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 76
+    .line 87
     const-string v0, "usb"
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -196,7 +196,7 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->mUsbManager:Landroid/hardware/usb/UsbManager;
 
-    .line 77
+    .line 88
     return-void
 .end method
 
@@ -204,10 +204,10 @@
     .locals 2
 
     .prologue
-    .line 81
+    .line 92
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onPause()V
 
-    .line 82
+    .line 93
     invoke-virtual {p0}, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
@@ -216,7 +216,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 83
+    .line 94
     return-void
 .end method
 
@@ -228,19 +228,19 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 116
+    .line 136
     invoke-static {}, Lcom/android/OriginalSettings/Utils;->isMonkeyRunning()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 135
+    .line 159
     :cond_0
     :goto_0
     return v3
 
-    .line 121
+    .line 141
     :cond_1
     instance-of v1, p2, Landroid/preference/CheckBoxPreference;
 
@@ -248,10 +248,10 @@
 
     move-object v0, p2
 
-    .line 122
+    .line 142
     check-cast v0, Landroid/preference/CheckBoxPreference;
 
-    .line 123
+    .line 143
     .local v0, checkBox:Landroid/preference/CheckBoxPreference;
     invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isChecked()Z
 
@@ -259,46 +259,70 @@
 
     if-nez v1, :cond_2
 
-    .line 124
+    .line 144
     invoke-virtual {v0, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
     goto :goto_0
 
-    .line 128
+    .line 148
     .end local v0           #checkBox:Landroid/preference/CheckBoxPreference;
     :cond_2
     iget-object v1, p0, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->mMtp:Landroid/preference/CheckBoxPreference;
 
-    if-ne p2, v1, :cond_3
+    if-ne p2, v1, :cond_4
 
-    .line 129
+    .line 149
+    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
+
+    move-result-object v1
+
+    const-string v2, "CscFeature_Common_EnableSUA"
+
+    invoke-virtual {v1, v2}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-ne v1, v3, :cond_3
+
+    .line 150
     iget-object v1, p0, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->mUsbManager:Landroid/hardware/usb/UsbManager;
 
-    const-string v2, "mtp"
+    const-string v2, "mass_storage,acm,mtp"
 
     invoke-virtual {v1, v2, v3}, Landroid/hardware/usb/UsbManager;->setCurrentFunction(Ljava/lang/String;Z)V
 
-    .line 130
+    .line 154
+    :goto_1
     const-string v1, "mtp"
 
     invoke-direct {p0, v1}, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->updateToggles(Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 131
+    .line 152
     :cond_3
+    iget-object v1, p0, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->mUsbManager:Landroid/hardware/usb/UsbManager;
+
+    const-string v2, "mtp"
+
+    invoke-virtual {v1, v2, v3}, Landroid/hardware/usb/UsbManager;->setCurrentFunction(Ljava/lang/String;Z)V
+
+    goto :goto_1
+
+    .line 155
+    :cond_4
     iget-object v1, p0, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->mPtp:Landroid/preference/CheckBoxPreference;
 
     if-ne p2, v1, :cond_0
 
-    .line 132
+    .line 156
     iget-object v1, p0, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->mUsbManager:Landroid/hardware/usb/UsbManager;
 
     const-string v2, "ptp"
 
     invoke-virtual {v1, v2, v3}, Landroid/hardware/usb/UsbManager;->setCurrentFunction(Ljava/lang/String;Z)V
 
-    .line 133
+    .line 157
     const-string v1, "ptp"
 
     invoke-direct {p0, v1}, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->updateToggles(Ljava/lang/String;)V
@@ -310,13 +334,13 @@
     .locals 4
 
     .prologue
-    .line 87
+    .line 98
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onResume()V
 
-    .line 91
+    .line 102
     invoke-direct {p0}, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->createPreferenceHierarchy()Landroid/preference/PreferenceScreen;
 
-    .line 94
+    .line 105
     invoke-virtual {p0}, Lcom/android/OriginalSettings/deviceinfo/UsbSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
@@ -331,6 +355,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/Activity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 96
+    .line 107
     return-void
 .end method

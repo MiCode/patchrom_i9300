@@ -45,10 +45,10 @@
     .locals 0
 
     .prologue
-    .line 68
+    .line 69
     invoke-direct {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;-><init>()V
 
-    .line 270
+    .line 277
     return-void
 .end method
 
@@ -57,7 +57,7 @@
     .parameter "x0"
 
     .prologue
-    .line 68
+    .line 69
     iget-object v0, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mDialogLayout:Landroid/view/View;
 
     return-object v0
@@ -69,7 +69,7 @@
     .parameter "x1"
 
     .prologue
-    .line 68
+    .line 69
     iput-object p1, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mDialogLayout:Landroid/view/View;
 
     return-object p1
@@ -80,7 +80,7 @@
     .parameter "x0"
 
     .prologue
-    .line 68
+    .line 69
     iget-object v0, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mText:Landroid/widget/EditText;
 
     return-object v0
@@ -92,7 +92,7 @@
     .parameter "x1"
 
     .prologue
-    .line 68
+    .line 69
     iput-object p1, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mText:Landroid/widget/EditText;
 
     return-object p1
@@ -103,7 +103,7 @@
     .parameter "x0"
 
     .prologue
-    .line 68
+    .line 69
     iget-object v0, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
 
     return-object v0
@@ -114,7 +114,7 @@
     .parameter "x0"
 
     .prologue
-    .line 68
+    .line 69
     iget-object v0, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mInflater:Landroid/view/LayoutInflater;
 
     return-object v0
@@ -125,7 +125,7 @@
     .parameter "x0"
 
     .prologue
-    .line 68
+    .line 69
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -138,7 +138,7 @@
     .parameter "x0"
 
     .prologue
-    .line 68
+    .line 69
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -151,7 +151,7 @@
     .parameter "x0"
 
     .prologue
-    .line 68
+    .line 69
     iget-object v0, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mActionBarSwitch:Landroid/widget/Switch;
 
     return-object v0
@@ -161,7 +161,7 @@
     .locals 1
 
     .prologue
-    .line 68
+    .line 69
     sget-object v0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mMessage:Landroid/preference/EditTextPreference;
 
     return-object v0
@@ -172,7 +172,7 @@
     .parameter "x0"
 
     .prologue
-    .line 68
+    .line 69
     sput-object p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mMessage:Landroid/preference/EditTextPreference;
 
     return-object p0
@@ -181,519 +181,535 @@
 
 # virtual methods
 .method public DoSave()Z
-    .locals 15
+    .locals 17
 
     .prologue
-    const/4 v12, 0x0
+    .line 400
+    new-instance v10, Lcom/android/internal/util/NVStore;
 
-    .line 393
-    new-instance v8, Lcom/android/internal/util/NVStore;
+    invoke-direct {v10}, Lcom/android/internal/util/NVStore;-><init>()V
 
-    invoke-direct {v8}, Lcom/android/internal/util/NVStore;-><init>()V
+    .line 401
+    .local v10, filenv:Lcom/android/internal/util/NVStore;
+    const-string v12, ""
 
-    .line 394
-    .local v8, filenv:Lcom/android/internal/util/NVStore;
-    const-string v10, ""
+    .line 402
+    .local v12, nvData:Ljava/lang/String;
+    invoke-virtual {v10}, Lcom/android/internal/util/NVStore;->GetPhPWD()Ljava/lang/String;
 
-    .line 395
-    .local v10, nvData:Ljava/lang/String;
-    invoke-virtual {v8}, Lcom/android/internal/util/NVStore;->GetPhPWD()Ljava/lang/String;
+    move-result-object v7
 
-    move-result-object v6
+    .line 403
+    .local v7, MTpwd:Ljava/lang/String;
+    invoke-virtual {v10}, Lcom/android/internal/util/NVStore;->GetMTStatus()Z
 
-    .line 396
-    .local v6, MTpwd:Ljava/lang/String;
-    invoke-virtual {v8}, Lcom/android/internal/util/NVStore;->GetMTStatus()Z
+    move-result v14
 
-    move-result v13
+    if-eqz v14, :cond_1
 
-    if-eqz v13, :cond_0
+    const-string v6, "1"
 
-    const-string v5, "1"
-
-    .line 397
-    .local v5, MTStatus:Ljava/lang/String;
+    .line 404
+    .local v6, MTStatus:Ljava/lang/String;
     :goto_0
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->getResources()Landroid/content/res/Resources;
+    invoke-virtual/range {p0 .. p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v13
+    move-result-object v14
 
-    const v14, 0x7f0d078e
+    const v15, 0x7f0908e5
 
-    invoke-virtual {v13, v14}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    .line 405
+    .local v5, MTSender:Ljava/lang/String;
+    sget-object v14, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mMessage:Landroid/preference/EditTextPreference;
+
+    invoke-virtual {v14}, Landroid/preference/EditTextPreference;->getText()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/String;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 398
-    .local v4, MTSender:Ljava/lang/String;
-    sget-object v13, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mMessage:Landroid/preference/EditTextPreference;
+    .line 406
+    .local v4, MTMsg:Ljava/lang/String;
+    invoke-virtual {v10}, Lcom/android/internal/util/NVStore;->GetStoredIMSI()Ljava/lang/String;
 
-    invoke-virtual {v13}, Landroid/preference/EditTextPreference;->getText()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v13
+    .line 407
+    .local v2, Imsi:Ljava/lang/String;
+    invoke-virtual {v10}, Lcom/android/internal/util/NVStore;->IsPhLockeEnabled()Z
 
-    invoke-virtual {v13}, Ljava/lang/String;->toString()Ljava/lang/String;
+    move-result v14
 
-    move-result-object v3
+    if-eqz v14, :cond_2
 
-    .line 399
-    .local v3, MTMsg:Ljava/lang/String;
-    invoke-virtual {v8}, Lcom/android/internal/util/NVStore;->GetStoredIMSI()Ljava/lang/String;
+    const-string v3, "1"
+
+    .line 409
+    .local v3, MTEnabled:Ljava/lang/String;
+    :goto_1
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v14, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    const-string v15, ";"
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    const-string v15, ";"
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    const-string v15, ";"
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    .line 412
+    const/4 v9, 0x0
+
+    .line 413
+    .local v9, count:I
+    const/4 v11, 0x0
+
+    .local v11, i:I
+    :goto_2
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v14}, Landroid/widget/LinearLayout;->getChildCount()I
+
+    move-result v14
+
+    if-ge v11, v14, :cond_6
+
+    .line 414
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v14, v11}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
-    .line 400
-    .local v1, Imsi:Ljava/lang/String;
-    invoke-virtual {v8}, Lcom/android/internal/util/NVStore;->IsPhLockeEnabled()Z
+    check-cast v1, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
 
-    move-result v13
+    .line 415
+    .local v1, ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
+    invoke-virtual {v1}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->isExist()Z
 
-    if-eqz v13, :cond_1
+    move-result v14
 
-    const-string v2, "1"
+    if-eqz v14, :cond_4
 
-    .line 402
-    .local v2, MTEnabled:Ljava/lang/String;
-    :goto_1
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v13, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    const-string v14, ";"
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    const-string v14, ";"
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    const-string v14, ";"
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    .line 405
-    const/4 v7, 0x0
-
-    .line 406
-    .local v7, count:I
-    const/4 v9, 0x0
-
-    .local v9, i:I
-    :goto_2
-    iget-object v13, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v13}, Landroid/widget/LinearLayout;->getChildCount()I
-
-    move-result v13
-
-    if-ge v9, v13, :cond_5
-
-    .line 407
-    iget-object v13, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v13, v9}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
-
-    .line 408
-    .local v0, ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
-    invoke-virtual {v0}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->isExist()Z
-
-    move-result v13
-
-    if-eqz v13, :cond_3
-
-    .line 409
-    const-string v13, "CHN"
-
+    .line 416
     const-string v14, "ro.csc.sales_code"
 
     invoke-static {v14}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v8
 
-    invoke-virtual {v13, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .line 417
+    .local v8, SalesCode:Ljava/lang/String;
+    const-string v14, "CHN"
 
-    move-result v13
+    invoke-virtual {v14, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-nez v13, :cond_2
+    move-result v14
 
-    const-string v13, "CHM"
+    if-nez v14, :cond_0
 
-    const-string v14, "ro.csc.sales_code"
+    const-string v14, "CHM"
 
-    invoke-static {v14}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v14, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v14
+    move-result v14
 
-    invoke-virtual {v13, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-nez v14, :cond_0
 
-    move-result v13
+    const-string v14, "CHU"
 
-    if-nez v13, :cond_2
+    invoke-virtual {v14, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string v13, "CHU"
+    move-result v14
 
-    const-string v14, "ro.csc.sales_code"
+    if-nez v14, :cond_0
 
-    invoke-static {v14}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    const-string v14, "LGT"
 
-    move-result-object v14
+    invoke-virtual {v14, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v13, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v14
 
-    move-result v13
+    if-nez v14, :cond_3
 
-    if-nez v13, :cond_2
-
-    .line 412
-    invoke-virtual {v0}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->getPhoneNumber()Ljava/lang/String;
-
-    move-result-object v13
-
-    const-string v14, "+"
-
-    invoke-virtual {v13, v14}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v13
-
-    if-nez v13, :cond_2
-
-    invoke-virtual {v0}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->getPhoneNumber()Ljava/lang/String;
-
-    move-result-object v13
-
-    const-string v14, "00"
-
-    invoke-virtual {v13, v14}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v13
-
-    if-nez v13, :cond_2
-
-    .line 413
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->getActivity()Landroid/app/Activity;
-
-    move-result-object v13
-
-    const v14, 0x7f0d07a6
-
-    invoke-static {v13, v14, v12}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/widget/Toast;->show()V
-
-    .line 414
-    invoke-virtual {v0}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->setFocus()V
-
-    .line 450
-    .end local v0           #ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
-    :goto_3
-    return v12
-
-    .line 396
-    .end local v1           #Imsi:Ljava/lang/String;
-    .end local v2           #MTEnabled:Ljava/lang/String;
-    .end local v3           #MTMsg:Ljava/lang/String;
-    .end local v4           #MTSender:Ljava/lang/String;
-    .end local v5           #MTStatus:Ljava/lang/String;
-    .end local v7           #count:I
-    .end local v9           #i:I
+    .line 419
     :cond_0
-    const-string v5, "0"
+    invoke-virtual {v1}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->getPhoneNumber()Ljava/lang/String;
+
+    move-result-object v14
+
+    const-string v15, "+"
+
+    invoke-virtual {v14, v15}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v14
+
+    if-nez v14, :cond_3
+
+    invoke-virtual {v1}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->getPhoneNumber()Ljava/lang/String;
+
+    move-result-object v14
+
+    const-string v15, "00"
+
+    invoke-virtual {v14, v15}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v14
+
+    if-nez v14, :cond_3
+
+    .line 420
+    invoke-virtual/range {p0 .. p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->getActivity()Landroid/app/Activity;
+
+    move-result-object v14
+
+    const v15, 0x7f0908fc
+
+    const/16 v16, 0x0
+
+    invoke-static/range {v14 .. v16}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Landroid/widget/Toast;->show()V
+
+    .line 421
+    invoke-virtual {v1}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->setFocus()V
+
+    .line 422
+    const/4 v14, 0x0
+
+    .line 457
+    .end local v1           #ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
+    .end local v8           #SalesCode:Ljava/lang/String;
+    :goto_3
+    return v14
+
+    .line 403
+    .end local v2           #Imsi:Ljava/lang/String;
+    .end local v3           #MTEnabled:Ljava/lang/String;
+    .end local v4           #MTMsg:Ljava/lang/String;
+    .end local v5           #MTSender:Ljava/lang/String;
+    .end local v6           #MTStatus:Ljava/lang/String;
+    .end local v9           #count:I
+    .end local v11           #i:I
+    :cond_1
+    const-string v6, "0"
 
     goto/16 :goto_0
 
-    .line 400
-    .restart local v1       #Imsi:Ljava/lang/String;
-    .restart local v3       #MTMsg:Ljava/lang/String;
-    .restart local v4       #MTSender:Ljava/lang/String;
-    .restart local v5       #MTStatus:Ljava/lang/String;
-    :cond_1
-    const-string v2, "0"
+    .line 407
+    .restart local v2       #Imsi:Ljava/lang/String;
+    .restart local v4       #MTMsg:Ljava/lang/String;
+    .restart local v5       #MTSender:Ljava/lang/String;
+    .restart local v6       #MTStatus:Ljava/lang/String;
+    :cond_2
+    const-string v3, "0"
 
     goto/16 :goto_1
 
-    .line 419
-    .restart local v0       #ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
-    .restart local v2       #MTEnabled:Ljava/lang/String;
-    .restart local v7       #count:I
-    .restart local v9       #i:I
-    :cond_2
-    add-int/lit8 v7, v7, 0x1
+    .line 426
+    .restart local v1       #ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
+    .restart local v3       #MTEnabled:Ljava/lang/String;
+    .restart local v8       #SalesCode:Ljava/lang/String;
+    .restart local v9       #count:I
+    .restart local v11       #i:I
+    :cond_3
+    add-int/lit8 v9, v9, 0x1
 
-    .line 421
-    invoke-virtual {v0}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->getPhoneNumber()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/String;->length()I
-
-    move-result v13
-
-    if-lez v13, :cond_4
-
-    .line 422
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v13, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v0}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->getPhoneNumber()Ljava/lang/String;
+    .line 428
+    invoke-virtual {v1}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->getPhoneNumber()Ljava/lang/String;
 
     move-result-object v14
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14}, Ljava/lang/String;->length()I
 
-    move-result-object v13
+    move-result v14
 
-    const-string v14, ";"
+    if-lez v14, :cond_5
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 429
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v14, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v14
 
-    .line 406
-    :cond_3
+    invoke-virtual {v1}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->getPhoneNumber()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    const-string v15, ";"
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    .line 413
+    .end local v8           #SalesCode:Ljava/lang/String;
+    :cond_4
     :goto_4
-    add-int/lit8 v9, v9, 0x1
+    add-int/lit8 v11, v11, 0x1
 
     goto/16 :goto_2
 
-    .line 424
-    :cond_4
-    new-instance v13, Ljava/lang/StringBuilder;
+    .line 431
+    .restart local v8       #SalesCode:Ljava/lang/String;
+    :cond_5
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v13, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v14
 
-    const-string v14, "none;"
+    const-string v15, "none;"
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v14
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v12
 
     goto :goto_4
 
-    .line 428
-    .end local v0           #ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
-    :cond_5
+    .line 435
+    .end local v1           #ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
+    .end local v8           #SalesCode:Ljava/lang/String;
+    :cond_6
     :goto_5
-    const/4 v13, 0x5
+    const/4 v14, 0x5
 
-    if-eq v7, v13, :cond_6
+    if-eq v9, v14, :cond_7
 
-    .line 429
-    new-instance v13, Ljava/lang/StringBuilder;
+    .line 436
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v13, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v14
 
-    const-string v14, "none;"
+    const-string v15, "none;"
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v14
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v12
 
-    .line 430
-    add-int/lit8 v7, v7, 0x1
+    .line 437
+    add-int/lit8 v9, v9, 0x1
 
     goto :goto_5
 
-    .line 434
-    :cond_6
-    if-eqz v3, :cond_7
-
-    if-eqz v3, :cond_8
-
-    const-string v13, ""
-
-    invoke-virtual {v3, v13}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
-
-    move-result v13
-
-    if-nez v13, :cond_8
-
-    .line 435
+    .line 441
     :cond_7
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->getActivity()Landroid/app/Activity;
+    if-eqz v4, :cond_8
 
-    move-result-object v13
+    if-eqz v4, :cond_9
 
-    const v14, 0x7f0d07a7
+    const-string v14, ""
 
-    invoke-static {v13, v14, v12}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    invoke-virtual {v4, v14}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
-    move-result-object v13
+    move-result v14
 
-    invoke-virtual {v13}, Landroid/widget/Toast;->show()V
+    if-nez v14, :cond_9
+
+    .line 442
+    :cond_8
+    invoke-virtual/range {p0 .. p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->getActivity()Landroid/app/Activity;
+
+    move-result-object v14
+
+    const v15, 0x7f0908fd
+
+    const/16 v16, 0x0
+
+    invoke-static/range {v14 .. v16}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Landroid/widget/Toast;->show()V
+
+    .line 443
+    const/4 v14, 0x0
 
     goto :goto_3
 
-    .line 440
-    :cond_8
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->getActivity()Landroid/app/Activity;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
-
-    move-result-object v12
-
-    const-string v13, "phone"
-
-    invoke-virtual {v12, v13}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v11
-
-    check-cast v11, Landroid/telephony/TelephonyManager;
-
-    .line 441
-    .local v11, telephonyManager:Landroid/telephony/TelephonyManager;
-    invoke-virtual {v11}, Landroid/telephony/TelephonyManager;->getSubscriberId()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 442
-    if-eqz v1, :cond_9
-
-    if-eqz v1, :cond_a
-
-    const-string v12, ""
-
-    invoke-virtual {v1, v12}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
-
-    move-result v12
-
-    if-nez v12, :cond_a
-
+    .line 447
     :cond_9
-    const-string v1, "0000"
+    invoke-virtual/range {p0 .. p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->getActivity()Landroid/app/Activity;
 
-    .line 445
-    :cond_a
-    new-instance v12, Ljava/lang/StringBuilder;
+    move-result-object v14
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v14}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
 
-    invoke-virtual {v12, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v14
 
-    move-result-object v12
+    const-string v15, "phone"
 
-    invoke-virtual {v12, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string v13, ";"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string v13, ";"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string v13, ";"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    .line 446
-    const-string v12, "SimChangeAlert"
-
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v14, "data formed for writing = "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v13
 
-    invoke-virtual {v13, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-static {v12, v13}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    check-cast v13, Landroid/telephony/TelephonyManager;
 
     .line 448
-    sget-object v12, Lcom/android/internal/util/NVStore$datatype;->All:Lcom/android/internal/util/NVStore$datatype;
+    .local v13, telephonyManager:Landroid/telephony/TelephonyManager;
+    invoke-virtual {v13}, Landroid/telephony/TelephonyManager;->getSubscriberId()Ljava/lang/String;
 
-    invoke-virtual {v8, v10, v12}, Lcom/android/internal/util/NVStore;->writedata(Ljava/lang/String;Lcom/android/internal/util/NVStore$datatype;)V
+    move-result-object v2
 
-    .line 450
-    const/4 v12, 0x1
+    .line 449
+    if-eqz v2, :cond_a
+
+    if-eqz v2, :cond_b
+
+    const-string v14, ""
+
+    invoke-virtual {v2, v14}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+
+    move-result v14
+
+    if-nez v14, :cond_b
+
+    :cond_a
+    const-string v2, "0000"
+
+    .line 452
+    :cond_b
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v14, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    const-string v15, ";"
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    const-string v15, ";"
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    const-string v15, ";"
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    .line 453
+    const-string v14, "SimChangeAlert"
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v16, "data formed for writing = "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v14, v15}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 455
+    sget-object v14, Lcom/android/internal/util/NVStore$datatype;->All:Lcom/android/internal/util/NVStore$datatype;
+
+    invoke-virtual {v10, v12, v14}, Lcom/android/internal/util/NVStore;->writedata(Ljava/lang/String;Lcom/android/internal/util/NVStore$datatype;)V
+
+    .line 457
+    const/4 v14, 0x1
 
     goto/16 :goto_3
 .end method
@@ -715,10 +731,10 @@
     .local p1, selectedContacts:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     const/16 v13, 0x3b
 
-    .line 468
+    .line 475
     const/4 v2, 0x0
 
-    .line 470
+    .line 477
     .local v2, count:I
     const/4 v4, 0x0
 
@@ -732,7 +748,7 @@
 
     if-ge v4, v9, :cond_1
 
-    .line 471
+    .line 478
     iget-object v9, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
 
     invoke-virtual {v9, v4}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
@@ -741,7 +757,7 @@
 
     check-cast v0, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
 
-    .line 472
+    .line 479
     .local v0, ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
     invoke-virtual {v0}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->isExist()Z
 
@@ -749,7 +765,7 @@
 
     if-eqz v9, :cond_0
 
-    .line 473
+    .line 480
     invoke-virtual {v0}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->getPhoneNumber()Ljava/lang/String;
 
     move-result-object v9
@@ -760,14 +776,14 @@
 
     if-nez v9, :cond_0
 
-    .line 474
+    .line 481
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
     move-result v9
 
     if-le v9, v2, :cond_1
 
-    .line 475
+    .line 482
     add-int/lit8 v3, v2, 0x1
 
     .end local v2           #count:I
@@ -778,7 +794,7 @@
 
     check-cast v8, Ljava/lang/String;
 
-    .line 476
+    .line 483
     .local v8, result:Ljava/lang/String;
     invoke-virtual {v8, v13}, Ljava/lang/String;->indexOf(I)I
 
@@ -790,13 +806,13 @@
 
     move-result-object v7
 
-    .line 477
+    .line 484
     .local v7, phNum:Ljava/lang/String;
     invoke-virtual {v0, v7}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->setPhoneNumber(Ljava/lang/String;)V
 
     move v2, v3
 
-    .line 470
+    .line 477
     .end local v3           #count:I
     .end local v7           #phNum:Ljava/lang/String;
     .end local v8           #result:Ljava/lang/String;
@@ -806,7 +822,7 @@
 
     goto :goto_0
 
-    .line 484
+    .line 491
     .end local v0           #ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
     :cond_1
     iget-object v9, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
@@ -815,7 +831,7 @@
 
     move-result v5
 
-    .line 486
+    .line 493
     .local v5, mViewIndex:I
     :goto_1
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
@@ -824,10 +840,10 @@
 
     if-le v9, v2, :cond_2
 
-    .line 487
+    .line 494
     iget-object v9, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mInflater:Landroid/view/LayoutInflater;
 
-    const v10, 0x7f04005d
+    const v10, 0x7f040071
 
     iget-object v11, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
 
@@ -839,13 +855,13 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    .line 488
+    .line 495
     .local v1, MinusLayout:Landroid/widget/LinearLayout;
     iget-object v9, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
 
     invoke-virtual {v9, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 489
+    .line 496
     iget-object v9, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
 
     add-int/lit8 v6, v5, 0x1
@@ -858,7 +874,7 @@
 
     check-cast v0, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
 
-    .line 491
+    .line 498
     .restart local v0       #ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
     add-int/lit8 v3, v2, 0x1
 
@@ -870,7 +886,7 @@
 
     check-cast v8, Ljava/lang/String;
 
-    .line 492
+    .line 499
     .restart local v8       #result:Ljava/lang/String;
     invoke-virtual {v8, v13}, Ljava/lang/String;->indexOf(I)I
 
@@ -882,7 +898,7 @@
 
     move-result-object v7
 
-    .line 493
+    .line 500
     .restart local v7       #phNum:Ljava/lang/String;
     invoke-virtual {v0, v7}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->setPhoneNumber(Ljava/lang/String;)V
 
@@ -892,12 +908,12 @@
     .restart local v5       #mViewIndex:I
     move v2, v3
 
-    .line 494
+    .line 501
     .end local v3           #count:I
     .restart local v2       #count:I
     goto :goto_1
 
-    .line 495
+    .line 502
     .end local v0           #ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
     .end local v1           #MinusLayout:Landroid/widget/LinearLayout;
     .end local v7           #phNum:Ljava/lang/String;
@@ -910,10 +926,10 @@
     .locals 4
 
     .prologue
-    .line 454
+    .line 461
     const/4 v1, 0x0
 
-    .line 455
+    .line 462
     .local v1, count:I
     const/4 v2, 0x0
 
@@ -927,7 +943,7 @@
 
     if-ge v2, v3, :cond_1
 
-    .line 456
+    .line 463
     iget-object v3, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
 
     invoke-virtual {v3, v2}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
@@ -936,7 +952,7 @@
 
     check-cast v0, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
 
-    .line 457
+    .line 464
     .local v0, ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
     invoke-virtual {v0}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->isExist()Z
 
@@ -944,7 +960,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 458
+    .line 465
     invoke-virtual {v0}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->getPhoneNumber()Ljava/lang/String;
 
     move-result-object v3
@@ -955,16 +971,16 @@
 
     if-lez v3, :cond_0
 
-    .line 459
+    .line 466
     add-int/lit8 v1, v1, 0x1
 
-    .line 455
+    .line 462
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 463
+    .line 470
     .end local v0           #ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
     :cond_1
     return v1
@@ -974,26 +990,26 @@
     .locals 15
 
     .prologue
-    const v14, 0x7f04005d
+    const v14, 0x7f040071
 
     const/4 v13, 0x0
 
-    .line 324
+    .line 331
     const/4 v3, 0x0
 
-    .line 325
+    .line 332
     .local v3, index:I
     new-instance v2, Lcom/android/internal/util/NVStore;
 
     invoke-direct {v2}, Lcom/android/internal/util/NVStore;-><init>()V
 
-    .line 328
+    .line 335
     .local v2, filenv:Lcom/android/internal/util/NVStore;
     invoke-virtual {v2}, Lcom/android/internal/util/NVStore;->GetRec1()Ljava/lang/String;
 
     move-result-object v6
 
-    .line 329
+    .line 336
     .local v6, rec1:Ljava/lang/String;
     invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1009,17 +1025,17 @@
 
     if-nez v11, :cond_7
 
-    .line 330
+    .line 337
     :cond_0
     const-string v6, ""
 
-    .line 339
+    .line 346
     :goto_0
     invoke-virtual {v2}, Lcom/android/internal/util/NVStore;->GetRec2()Ljava/lang/String;
 
     move-result-object v7
 
-    .line 340
+    .line 347
     .local v7, rec2:Ljava/lang/String;
     invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1035,17 +1051,17 @@
 
     if-nez v11, :cond_8
 
-    .line 341
+    .line 348
     :cond_1
     const-string v7, ""
 
-    .line 350
+    .line 357
     :goto_1
     invoke-virtual {v2}, Lcom/android/internal/util/NVStore;->GetRec3()Ljava/lang/String;
 
     move-result-object v8
 
-    .line 351
+    .line 358
     .local v8, rec3:Ljava/lang/String;
     invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1061,17 +1077,17 @@
 
     if-nez v11, :cond_9
 
-    .line 352
+    .line 359
     :cond_2
     const-string v8, ""
 
-    .line 361
+    .line 368
     :goto_2
     invoke-virtual {v2}, Lcom/android/internal/util/NVStore;->GetRec4()Ljava/lang/String;
 
     move-result-object v9
 
-    .line 362
+    .line 369
     .local v9, rec4:Ljava/lang/String;
     invoke-static {v9}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1087,17 +1103,17 @@
 
     if-nez v11, :cond_a
 
-    .line 363
+    .line 370
     :cond_3
     const-string v9, ""
 
-    .line 372
+    .line 379
     :goto_3
     invoke-virtual {v2}, Lcom/android/internal/util/NVStore;->GetRec5()Ljava/lang/String;
 
     move-result-object v10
 
-    .line 373
+    .line 380
     .local v10, rec5:Ljava/lang/String;
     invoke-static {v10}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1113,17 +1129,17 @@
 
     if-nez v11, :cond_b
 
-    .line 374
+    .line 381
     :cond_4
     const-string v10, ""
 
-    .line 382
+    .line 389
     :goto_4
     invoke-virtual {v2}, Lcom/android/internal/util/NVStore;->GetSmsMsg()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 383
+    .line 390
     .local v5, msg:Ljava/lang/String;
     if-eqz v5, :cond_5
 
@@ -1137,25 +1153,25 @@
 
     if-nez v11, :cond_6
 
-    .line 384
+    .line 391
     :cond_5
     const-string v5, ""
 
-    .line 386
+    .line 393
     :cond_6
     sget-object v11, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mMessage:Landroid/preference/EditTextPreference;
 
     invoke-virtual {v11, v5}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 387
+    .line 394
     sget-object v11, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mMessage:Landroid/preference/EditTextPreference;
 
     invoke-virtual {v11, v5}, Landroid/preference/EditTextPreference;->setText(Ljava/lang/String;)V
 
-    .line 388
+    .line 395
     return-void
 
-    .line 332
+    .line 339
     .end local v5           #msg:Ljava/lang/String;
     .end local v7           #rec2:Ljava/lang/String;
     .end local v8           #rec3:Ljava/lang/String;
@@ -1172,13 +1188,13 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    .line 333
+    .line 340
     .local v1, MinusLayout:Landroid/widget/LinearLayout;
     iget-object v11, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
 
     invoke-virtual {v11, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 334
+    .line 341
     iget-object v11, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
 
     add-int/lit8 v4, v3, 0x1
@@ -1191,7 +1207,7 @@
 
     check-cast v0, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
 
-    .line 335
+    .line 342
     .local v0, ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
     invoke-virtual {v0, v6}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->setPhoneNumber(Ljava/lang/String;)V
 
@@ -1201,7 +1217,7 @@
     .restart local v3       #index:I
     goto/16 :goto_0
 
-    .line 343
+    .line 350
     .end local v0           #ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
     .end local v1           #MinusLayout:Landroid/widget/LinearLayout;
     .restart local v7       #rec2:Ljava/lang/String;
@@ -1216,13 +1232,13 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    .line 344
+    .line 351
     .restart local v1       #MinusLayout:Landroid/widget/LinearLayout;
     iget-object v11, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
 
     invoke-virtual {v11, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 345
+    .line 352
     iget-object v11, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
 
     add-int/lit8 v4, v3, 0x1
@@ -1235,7 +1251,7 @@
 
     check-cast v0, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
 
-    .line 346
+    .line 353
     .restart local v0       #ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
     invoke-virtual {v0, v7}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->setPhoneNumber(Ljava/lang/String;)V
 
@@ -1245,7 +1261,7 @@
     .restart local v3       #index:I
     goto/16 :goto_1
 
-    .line 354
+    .line 361
     .end local v0           #ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
     .end local v1           #MinusLayout:Landroid/widget/LinearLayout;
     .restart local v8       #rec3:Ljava/lang/String;
@@ -1260,13 +1276,13 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    .line 355
+    .line 362
     .restart local v1       #MinusLayout:Landroid/widget/LinearLayout;
     iget-object v11, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
 
     invoke-virtual {v11, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 356
+    .line 363
     iget-object v11, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
 
     add-int/lit8 v4, v3, 0x1
@@ -1279,7 +1295,7 @@
 
     check-cast v0, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
 
-    .line 357
+    .line 364
     .restart local v0       #ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
     invoke-virtual {v0, v8}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->setPhoneNumber(Ljava/lang/String;)V
 
@@ -1289,7 +1305,7 @@
     .restart local v3       #index:I
     goto/16 :goto_2
 
-    .line 365
+    .line 372
     .end local v0           #ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
     .end local v1           #MinusLayout:Landroid/widget/LinearLayout;
     .restart local v9       #rec4:Ljava/lang/String;
@@ -1304,13 +1320,13 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    .line 366
+    .line 373
     .restart local v1       #MinusLayout:Landroid/widget/LinearLayout;
     iget-object v11, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
 
     invoke-virtual {v11, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 367
+    .line 374
     iget-object v11, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
 
     add-int/lit8 v4, v3, 0x1
@@ -1323,7 +1339,7 @@
 
     check-cast v0, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
 
-    .line 368
+    .line 375
     .restart local v0       #ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
     invoke-virtual {v0, v9}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->setPhoneNumber(Ljava/lang/String;)V
 
@@ -1333,7 +1349,7 @@
     .restart local v3       #index:I
     goto/16 :goto_3
 
-    .line 376
+    .line 383
     .end local v0           #ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
     .end local v1           #MinusLayout:Landroid/widget/LinearLayout;
     .restart local v10       #rec5:Ljava/lang/String;
@@ -1348,13 +1364,13 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    .line 377
+    .line 384
     .restart local v1       #MinusLayout:Landroid/widget/LinearLayout;
     iget-object v11, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
 
     invoke-virtual {v11, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 378
+    .line 385
     iget-object v11, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
 
     add-int/lit8 v4, v3, 0x1
@@ -1367,7 +1383,7 @@
 
     check-cast v0, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
 
-    .line 379
+    .line 386
     .restart local v0       #ChildView:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
     invoke-virtual {v0, v10}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->setPhoneNumber(Ljava/lang/String;)V
 
@@ -1385,26 +1401,26 @@
     .parameter "data"
 
     .prologue
-    .line 223
+    .line 230
     invoke-super {p0, p1, p2, p3}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 225
+    .line 232
     const/4 v0, -0x1
 
     if-eq p2, v0, :cond_1
 
-    .line 231
+    .line 238
     :cond_0
     :goto_0
     return-void
 
-    .line 228
+    .line 235
     :cond_1
     const/16 v0, 0x65
 
     if-ne p1, v0, :cond_0
 
-    .line 229
+    .line 236
     invoke-virtual {p3}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v0
@@ -1426,10 +1442,10 @@
     .parameter "desiredState"
 
     .prologue
-    .line 207
+    .line 214
     if-eqz p2, :cond_2
 
-    .line 208
+    .line 215
     const-string v0, "CHM"
 
     const-string v1, "ro.csc.sales_code"
@@ -1477,14 +1493,14 @@
 
     if-nez v0, :cond_1
 
-    .line 211
+    .line 218
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->showNotificationChargeDialog()V
 
-    .line 219
+    .line 226
     :goto_0
     return-void
 
-    .line 213
+    .line 220
     :cond_1
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->getActivity()Landroid/app/Activity;
 
@@ -1500,12 +1516,12 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 214
+    .line 221
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->DoSave()Z
 
     goto :goto_0
 
-    .line 217
+    .line 224
     :cond_2
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->getActivity()Landroid/app/Activity;
 
@@ -1535,15 +1551,15 @@
 
     const/4 v5, 0x0
 
-    .line 93
+    .line 95
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 95
+    .line 97
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 100
+    .line 102
     .local v0, activity:Landroid/app/Activity;
     new-instance v3, Landroid/widget/Switch;
 
@@ -1551,42 +1567,42 @@
 
     iput-object v3, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mActionBarSwitch:Landroid/widget/Switch;
 
-    .line 102
+    .line 104
     instance-of v3, v0, Lmiui/preference/BasePreferenceActivity;
 
     if-eqz v3, :cond_0
 
     move-object v2, v0
 
-    .line 103
+    .line 105
     check-cast v2, Lmiui/preference/BasePreferenceActivity;
 
-    .line 105
+    .line 107
     .local v2, preferenceActivity:Lmiui/preference/BasePreferenceActivity;
     invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0e0002
+    const v4, 0x7f0f0002
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    .line 107
+    .line 109
     .local v1, padding:I
     iget-object v3, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mActionBarSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v3, v5, v5, v1, v5}, Landroid/widget/Switch;->setPadding(IIII)V
 
-    .line 108
+    .line 110
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v3
 
     invoke-virtual {v3, v6, v6}, Landroid/app/ActionBar;->setDisplayOptions(II)V
 
-    .line 110
+    .line 112
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v3
@@ -1601,7 +1617,7 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/app/ActionBar;->setCustomView(Landroid/view/View;Landroid/app/ActionBar$LayoutParams;)V
 
-    .line 114
+    .line 116
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v3
@@ -1612,7 +1628,7 @@
 
     iput-object v3, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mActionBarLayout:Landroid/view/View;
 
-    .line 118
+    .line 120
     .end local v1           #padding:I
     .end local v2           #preferenceActivity:Lmiui/preference/BasePreferenceActivity;
     :cond_0
@@ -1620,7 +1636,7 @@
 
     invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->setHasOptionsMenu(Z)V
 
-    .line 119
+    .line 121
     return-void
 .end method
 
@@ -1632,11 +1648,11 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 499
+    .line 506
     iput-object p1, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mOptionsMenu:Landroid/view/Menu;
 
-    .line 501
-    const v0, 0x7f0d0706
+    .line 508
+    const v0, 0x7f090830
 
     invoke-interface {p1, v1, v1, v1, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1646,96 +1662,128 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 504
+    .line 511
     invoke-super {p0, p1, p2}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
-    .line 505
+    .line 512
     return-void
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 3
+    .locals 4
     .parameter "inflater"
     .parameter "container"
     .parameter "savedInstanceState"
 
     .prologue
-    .line 146
+    .line 148
     iput-object p1, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 148
-    const v1, 0x7f0400b3
+    .line 150
+    const v2, 0x7f0400d4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {p1, v1, p2, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {p1, v2, p2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v1
+
+    .line 151
+    .local v1, view:Landroid/view/View;
+    const v2, 0x7f0b0251
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/LinearLayout;
+
+    iput-object v2, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
+
+    .line 153
+    const-string v2, "LGT"
+
+    const-string v3, "ro.csc.sales_code"
+
+    invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 154
+    const v2, 0x7f0b024d
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 149
-    .local v0, view:Landroid/view/View;
-    const v1, 0x7f0a01f8
+    check-cast v0, Landroid/widget/TextView;
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    .line 155
+    .local v0, textView:Landroid/widget/TextView;
+    const v2, 0x7f0908f8
 
-    move-result-object v1
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(I)V
 
-    check-cast v1, Landroid/widget/LinearLayout;
+    .line 158
+    .end local v0           #textView:Landroid/widget/TextView;
+    :cond_0
+    const v2, 0x7f0b024f
 
-    iput-object v1, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
+    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    .line 151
-    const v1, 0x7f0a01f6
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    check-cast v2, Landroid/widget/Button;
 
-    move-result-object v1
+    iput-object v2, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mCreate:Landroid/widget/Button;
 
-    check-cast v1, Landroid/widget/Button;
+    .line 159
+    iget-object v2, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mCreate:Landroid/widget/Button;
 
-    iput-object v1, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mCreate:Landroid/widget/Button;
+    new-instance v3, Lcom/android/OriginalSettings/fmm/SimChangeAlert$1;
 
-    .line 152
-    iget-object v1, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mCreate:Landroid/widget/Button;
+    invoke-direct {v3, p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert$1;-><init>(Lcom/android/OriginalSettings/fmm/SimChangeAlert;)V
 
-    new-instance v2, Lcom/android/OriginalSettings/fmm/SimChangeAlert$1;
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    invoke-direct {v2, p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert$1;-><init>(Lcom/android/OriginalSettings/fmm/SimChangeAlert;)V
+    .line 195
+    const v2, 0x7f0b0250
 
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    .line 188
-    const v1, 0x7f0a01f7
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    check-cast v2, Landroid/widget/Button;
 
-    move-result-object v1
+    iput-object v2, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContact:Landroid/widget/Button;
 
-    check-cast v1, Landroid/widget/Button;
+    .line 196
+    iget-object v2, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContact:Landroid/widget/Button;
 
-    iput-object v1, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContact:Landroid/widget/Button;
+    new-instance v3, Lcom/android/OriginalSettings/fmm/SimChangeAlert$2;
 
-    .line 189
-    iget-object v1, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContact:Landroid/widget/Button;
+    invoke-direct {v3, p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert$2;-><init>(Lcom/android/OriginalSettings/fmm/SimChangeAlert;)V
 
-    new-instance v2, Lcom/android/OriginalSettings/fmm/SimChangeAlert$2;
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    invoke-direct {v2, p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert$2;-><init>(Lcom/android/OriginalSettings/fmm/SimChangeAlert;)V
-
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 200
+    .line 207
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->init()V
 
-    .line 202
-    return-object v0
+    .line 209
+    return-object v1
 .end method
 
 .method public onDestroyView()V
     .locals 5
 
     .prologue
-    .line 528
+    .line 535
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
@@ -1746,7 +1794,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 529
+    .line 536
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v3
@@ -1755,13 +1803,13 @@
 
     move-result-object v2
 
-    .line 530
+    .line 537
     .local v2, transaction:Landroid/app/FragmentTransaction;
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v3
 
-    const v4, 0x7f0a01f4
+    const v4, 0x7f0b024c
 
     invoke-virtual {v3, v4}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
@@ -1769,13 +1817,13 @@
 
     invoke-virtual {v2, v3}, Landroid/app/FragmentTransaction;->remove(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
-    .line 532
+    .line 539
     :try_start_0
     invoke-virtual {v2}, Landroid/app/FragmentTransaction;->commit()I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 539
+    .line 546
     .end local v2           #transaction:Landroid/app/FragmentTransaction;
     :cond_0
     :goto_0
@@ -1791,7 +1839,7 @@
 
     check-cast v1, Landroid/view/inputmethod/InputMethodManager;
 
-    .line 540
+    .line 547
     .local v1, imm:Landroid/view/inputmethod/InputMethodManager;
     iget-object v3, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
 
@@ -1803,25 +1851,25 @@
 
     invoke-virtual {v1, v3, v4}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
-    .line 543
+    .line 550
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onDestroyView()V
 
-    .line 544
+    .line 551
     return-void
 
-    .line 533
+    .line 540
     .end local v1           #imm:Landroid/view/inputmethod/InputMethodManager;
     .restart local v2       #transaction:Landroid/app/FragmentTransaction;
     :catch_0
     move-exception v0
 
-    .line 534
+    .line 541
     .local v0, e:Ljava/lang/Exception;
     const-string v3, "SimChangeAlert"
 
     const-string v4, "can\'t perform transaction.commit()"
 
-    invoke-static {v3, v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v3, v4, v0}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
@@ -1831,14 +1879,14 @@
     .parameter "item"
 
     .prologue
-    .line 516
+    .line 523
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 523
+    .line 530
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
@@ -1846,7 +1894,7 @@
     :goto_0
     return v0
 
-    .line 518
+    .line 525
     :pswitch_0
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->DoSave()Z
 
@@ -1854,16 +1902,16 @@
 
     if-eqz v0, :cond_0
 
-    .line 519
+    .line 526
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->finishFragment()V
 
-    .line 520
+    .line 527
     :cond_0
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 516
+    .line 523
     nop
 
     :pswitch_data_0
@@ -1876,17 +1924,17 @@
     .locals 2
 
     .prologue
-    .line 132
+    .line 134
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onPause()V
 
-    .line 133
+    .line 135
     iget-object v0, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mActionBarSwitch:Landroid/widget/Switch;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 134
+    .line 136
     return-void
 .end method
 
@@ -1895,10 +1943,10 @@
     .parameter "menu"
 
     .prologue
-    .line 509
+    .line 516
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onPrepareOptionsMenu(Landroid/view/Menu;)V
 
-    .line 511
+    .line 518
     iget-object v0, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mOptionsMenu:Landroid/view/Menu;
 
     const/4 v1, 0x0
@@ -1911,7 +1959,7 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
-    .line 512
+    .line 519
     return-void
 .end method
 
@@ -1923,20 +1971,20 @@
 
     const/4 v1, 0x0
 
-    .line 123
+    .line 125
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onResume()V
 
-    .line 124
+    .line 126
     iget-object v2, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mActionBarLayout:Landroid/view/View;
 
     if-eqz v2, :cond_0
 
-    .line 125
+    .line 127
     iget-object v2, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mActionBarLayout:Landroid/view/View;
 
     invoke-virtual {v2, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 126
+    .line 128
     :cond_0
     iget-object v2, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mActionBarSwitch:Landroid/widget/Switch;
 
@@ -1959,18 +2007,18 @@
     :goto_0
     invoke-virtual {v2, v0}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 127
+    .line 129
     iget-object v0, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mActionBarSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v0, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 128
+    .line 130
     return-void
 
     :cond_1
     move v0, v1
 
-    .line 126
+    .line 128
     goto :goto_0
 .end method
 
@@ -1978,22 +2026,22 @@
     .locals 2
 
     .prologue
-    .line 138
+    .line 140
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onStop()V
 
-    .line 139
+    .line 141
     iget-object v0, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mActionBarLayout:Landroid/view/View;
 
     if-eqz v0, :cond_0
 
-    .line 140
+    .line 142
     iget-object v0, p0, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->mActionBarLayout:Landroid/view/View;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 141
+    .line 143
     :cond_0
     return-void
 .end method
@@ -2002,7 +2050,7 @@
     .locals 6
 
     .prologue
-    .line 234
+    .line 241
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
@@ -2011,7 +2059,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f04006f
+    const v4, 0x7f040087
 
     const/4 v5, 0x0
 
@@ -2019,9 +2067,9 @@
 
     move-result-object v2
 
-    .line 236
+    .line 243
     .local v2, mDialogLayout:Landroid/view/View;
-    const v3, 0x7f0a014e
+    const v3, 0x7f0b015c
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2029,7 +2077,7 @@
 
     check-cast v0, Landroid/widget/CheckBox;
 
-    .line 237
+    .line 244
     .local v0, chkbox:Landroid/widget/CheckBox;
     new-instance v3, Lcom/android/OriginalSettings/fmm/SimChangeAlert$3;
 
@@ -2037,7 +2085,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/CheckBox;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 242
+    .line 249
     new-instance v3, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->getActivity()Landroid/app/Activity;
@@ -2046,15 +2094,15 @@
 
     invoke-direct {v3, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f0d0a77
+    const v4, 0x7f090ca8
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v3
 
-    const v4, 0x1080027
+    const v4, 0x1010355
 
-    invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setIcon(I)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setIconAttribute(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v3
 
@@ -2086,7 +2134,7 @@
 
     move-result-object v1
 
-    .line 268
+    .line 275
     .local v1, dialog:Landroid/app/Dialog;
     return-void
 .end method

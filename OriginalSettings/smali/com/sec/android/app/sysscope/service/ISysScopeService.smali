@@ -31,6 +31,14 @@
     .end annotation
 .end method
 
+.method public abstract getLogState()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getScanPeriod()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -56,6 +64,14 @@
 .end method
 
 .method public abstract scope()I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setLogState(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

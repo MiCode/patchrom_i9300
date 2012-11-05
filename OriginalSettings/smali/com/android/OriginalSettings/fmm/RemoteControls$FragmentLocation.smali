@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 331
+    .line 279
     invoke-direct {p0}, Landroid/preference/PreferenceFragment;-><init>()V
 
     return-void
@@ -37,12 +37,12 @@
     .parameter "preference"
 
     .prologue
-    .line 363
+    .line 311
     iget-object v0, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$FragmentLocation;->mNetwork:Landroid/preference/CheckBoxPreference;
 
     if-ne p2, v0, :cond_0
 
-    .line 364
+    .line 312
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/RemoteControls$FragmentLocation;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
@@ -61,7 +61,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->setLocationProviderEnabled(Landroid/content/ContentResolver;Ljava/lang/String;Z)V
 
-    .line 368
+    .line 316
     :cond_0
     invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
@@ -74,33 +74,33 @@
     .locals 4
 
     .prologue
-    .line 339
+    .line 287
     invoke-super {p0}, Landroid/preference/PreferenceFragment;->onResume()V
 
-    .line 341
+    .line 289
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/RemoteControls$FragmentLocation;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
-    .line 342
+    .line 290
     .local v0, root:Landroid/preference/PreferenceScreen;
     if-eqz v0, :cond_0
 
-    .line 343
+    .line 291
     invoke-virtual {v0}, Landroid/preference/PreferenceScreen;->removeAll()V
 
-    .line 345
+    .line 293
     :cond_0
-    const v1, 0x7f07002a
+    const v1, 0x7f070031
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/fmm/RemoteControls$FragmentLocation;->addPreferencesFromResource(I)V
 
-    .line 346
+    .line 294
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/RemoteControls$FragmentLocation;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
-    .line 348
+    .line 296
     const-string v1, "location_network"
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -111,7 +111,7 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$FragmentLocation;->mNetwork:Landroid/preference/CheckBoxPreference;
 
-    .line 351
+    .line 299
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/RemoteControls$FragmentLocation;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
@@ -122,14 +122,14 @@
 
     if-eqz v1, :cond_1
 
-    .line 352
+    .line 300
     iget-object v1, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$FragmentLocation;->mNetwork:Landroid/preference/CheckBoxPreference;
 
-    const v2, 0x7f0d0468
+    const v2, 0x7f09052c
 
     invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setSummaryOn(I)V
 
-    .line 355
+    .line 303
     :cond_1
     iget-object v1, p0, Lcom/android/OriginalSettings/fmm/RemoteControls$FragmentLocation;->mNetwork:Landroid/preference/CheckBoxPreference;
 
@@ -149,6 +149,6 @@
 
     invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 357
+    .line 305
     return-void
 .end method

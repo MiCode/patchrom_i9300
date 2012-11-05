@@ -197,14 +197,14 @@
     .locals 4
 
     .prologue
-    .line 534
+    .line 539
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mClearPatternRunnable:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/LockPatternView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 535
+    .line 540
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mClearPatternRunnable:Ljava/lang/Runnable;
@@ -213,7 +213,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/internal/widget/LockPatternView;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 536
+    .line 541
     return-void
 .end method
 
@@ -225,14 +225,14 @@
 
     const/4 v5, 0x0
 
-    .line 539
+    .line 544
     iget-object v6, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mChooseLockSettingsHelper:Lcom/android/OriginalSettings/ChooseLockSettingsHelper;
 
     invoke-virtual {v6}, Lcom/android/OriginalSettings/ChooseLockSettingsHelper;->utils()Lcom/android/internal/widget/LockPatternUtils;
 
     move-result-object v3
 
-    .line 540
+    .line 545
     .local v3, utils:Lcom/android/internal/widget/LockPatternUtils;
     invoke-virtual {v3}, Lcom/android/internal/widget/LockPatternUtils;->isPatternEverChosen()Z
 
@@ -242,7 +242,7 @@
 
     move v2, v4
 
-    .line 542
+    .line 547
     .local v2, lockVirgin:Z
     :goto_0
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->getActivity()Landroid/app/Activity;
@@ -259,7 +259,7 @@
 
     move-result v0
 
-    .line 544
+    .line 549
     .local v0, isFallback:Z
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->getActivity()Landroid/app/Activity;
 
@@ -275,7 +275,7 @@
 
     move-result v1
 
-    .line 547
+    .line 552
     .local v1, isSignature:Z
     const/4 v6, 0x0
 
@@ -283,24 +283,24 @@
 
     invoke-virtual {v3, v6, v7}, Lcom/android/internal/widget/LockPatternUtils;->saveLockSpare(Ljava/lang/String;I)V
 
-    .line 549
+    .line 554
     iget-object v6, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mChosenPattern:Ljava/util/List;
 
     invoke-virtual {v3, v6, v0, v1}, Lcom/android/internal/widget/LockPatternUtils;->saveLockPattern(Ljava/util/List;ZZ)V
 
-    .line 551
+    .line 555
     invoke-virtual {v3, v4}, Lcom/android/internal/widget/LockPatternUtils;->setLockPatternEnabled(Z)V
 
-    .line 553
+    .line 557
     if-eqz v2, :cond_0
 
-    .line 554
+    .line 558
     invoke-virtual {v3, v4}, Lcom/android/internal/widget/LockPatternUtils;->setVisiblePatternEnabled(Z)V
 
-    .line 555
+    .line 559
     invoke-virtual {v3, v5}, Lcom/android/internal/widget/LockPatternUtils;->setTactileFeedbackEnabled(Z)V
 
-    .line 558
+    .line 562
     :cond_0
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->getActivity()Landroid/app/Activity;
 
@@ -308,14 +308,14 @@
 
     invoke-virtual {v6, v4}, Landroid/app/Activity;->setResult(I)V
 
-    .line 559
+    .line 563
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
     invoke-virtual {v6}, Landroid/app/Activity;->finish()V
 
-    .line 562
+    .line 566
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
@@ -332,7 +332,7 @@
 
     if-eqz v6, :cond_2
 
-    .line 563
+    .line 567
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
@@ -345,7 +345,7 @@
 
     invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 567
+    .line 571
     :goto_1
     return-void
 
@@ -355,10 +355,10 @@
     :cond_1
     move v2, v5
 
-    .line 540
+    .line 545
     goto :goto_0
 
-    .line 565
+    .line 569
     .restart local v0       #isFallback:Z
     .restart local v1       #isSignature:Z
     .restart local v2       #lockVirgin:Z
@@ -391,10 +391,6 @@
     invoke-super {p0, p1, p2, p3}, Landroid/app/Fragment;->onActivityResult(IILandroid/content/Intent;)V
 
     .line 134
-    sget-boolean v0, Lcom/android/OriginalSettings/Utils;->DBG:Z
-
-    if-eqz v0, :cond_0
-
     const-string v0, "ChooseLockPattern"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -425,10 +421,9 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 135
-    :cond_0
     packed-switch p1, :pswitch_data_0
 
     .line 144
@@ -439,7 +434,7 @@
     :pswitch_0
     const/4 v0, -0x1
 
-    if-eq p2, v0, :cond_1
+    if-eq p2, v0, :cond_0
 
     .line 138
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->getActivity()Landroid/app/Activity;
@@ -458,7 +453,7 @@
     invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
     .line 141
-    :cond_1
+    :cond_0
     sget-object v0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;->Introduction:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->updateStage(Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;)V
@@ -512,7 +507,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->updateStage(Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;)V
 
-    .line 431
+    .line 436
     :cond_0
     :goto_0
     return-void
@@ -577,13 +572,13 @@
 
     throw v0
 
-    .line 390
+    .line 391
     :cond_3
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mFooterRightButton:Landroid/widget/TextView;
 
     if-ne p1, v0, :cond_0
 
-    .line 392
+    .line 393
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mUiStage:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;
 
     iget-object v0, v0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;->rightMode:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$RightButtonMode;
@@ -592,14 +587,14 @@
 
     if-ne v0, v1, :cond_5
 
-    .line 393
+    .line 394
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mUiStage:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;
 
     sget-object v1, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;->FirstChoiceValid:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;
 
     if-eq v0, v1, :cond_4
 
-    .line 394
+    .line 395
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -638,7 +633,7 @@
 
     throw v0
 
-    .line 396
+    .line 398
     :cond_4
     sget-object v0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;->NeedToConfirm:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;
 
@@ -646,7 +641,7 @@
 
     goto :goto_0
 
-    .line 397
+    .line 399
     :cond_5
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mUiStage:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;
 
@@ -656,14 +651,14 @@
 
     if-ne v0, v1, :cond_8
 
-    .line 398
+    .line 400
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mUiStage:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;
 
     sget-object v1, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;->ChoiceConfirmed:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;
 
     if-eq v0, v1, :cond_6
 
-    .line 399
+    .line 401
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -702,7 +697,7 @@
 
     throw v0
 
-    .line 401
+    .line 404
     :cond_6
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->getActivity()Landroid/app/Activity;
 
@@ -718,7 +713,7 @@
 
     move-result v0
 
-    .line 402
+    .line 405
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
@@ -733,12 +728,12 @@
 
     move-result v1
 
-    .line 405
+    .line 408
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0b000c
+    const v3, 0x7f0c000d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -750,24 +745,24 @@
 
     if-nez v1, :cond_7
 
-    .line 406
+    .line 410
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     invoke-virtual {v0, v4}, Landroid/app/Activity;->setResult(I)V
 
-    .line 407
+    .line 411
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    .line 409
+    .line 413
     const/high16 v0, 0x1
 
-    .line 412
+    .line 416
     new-instance v1, Landroid/content/Intent;
 
     invoke-direct {v1}, Landroid/content/Intent;-><init>()V
@@ -782,26 +777,26 @@
 
     move-result-object v1
 
-    .line 413
+    .line 417
     const-string v2, "lockscreen.password_type"
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 414
+    .line 418
     const-string v0, "lockscreen.password_min"
 
     const/4 v2, 0x4
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 415
+    .line 419
     const-string v0, "lockscreen.password_max"
 
     const/16 v2, 0x8
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 416
+    .line 420
     const-string v0, "firstlock"
 
     iget-object v2, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mChosenPattern:Ljava/util/List;
@@ -812,23 +807,23 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 417
+    .line 421
     const/high16 v0, 0x200
 
     invoke-virtual {v1, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 418
+    .line 422
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->startActivity(Landroid/content/Intent;)V
 
     goto/16 :goto_0
 
-    .line 420
+    .line 424
     :cond_7
     invoke-direct {p0}, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->saveChosenPatternAndFinish()V
 
     goto/16 :goto_0
 
-    .line 422
+    .line 426
     :cond_8
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mUiStage:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;
 
@@ -838,14 +833,14 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 423
+    .line 427
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mUiStage:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;
 
     sget-object v1, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;->HelpScreen:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;
 
     if-eq v0, v1, :cond_9
 
-    .line 424
+    .line 428
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -872,20 +867,20 @@
 
     throw v0
 
-    .line 426
+    .line 431
     :cond_9
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
     invoke-virtual {v0}, Lcom/android/internal/widget/LockPatternView;->clearPattern()V
 
-    .line 427
+    .line 432
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
     sget-object v1, Lcom/android/internal/widget/LockPatternView$DisplayMode;->Correct:Lcom/android/internal/widget/LockPatternView$DisplayMode;
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/LockPatternView;->setDisplayMode(Lcom/android/internal/widget/LockPatternView$DisplayMode;)V
 
-    .line 428
+    .line 433
     sget-object v0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;->Introduction:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->updateStage(Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;)V
@@ -926,7 +921,7 @@
     const/4 v8, 0x0
 
     .line 327
-    const v5, 0x7f040020
+    const v5, 0x7f040021
 
     invoke-virtual {p1, v5, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -934,7 +929,7 @@
 
     .line 328
     .local v4, view:Landroid/view/View;
-    const v5, 0x7f0a003d
+    const v5, 0x7f0b0038
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -945,7 +940,7 @@
     iput-object v5, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mHeaderText:Landroid/widget/TextView;
 
     .line 329
-    const v5, 0x7f0a0048
+    const v5, 0x7f0b0046
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -978,7 +973,7 @@
     invoke-virtual {v5, v6}, Lcom/android/internal/widget/LockPatternView;->setTactileFeedbackEnabled(Z)V
 
     .line 334
-    const v5, 0x7f0a0049
+    const v5, 0x7f0b0047
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -989,7 +984,7 @@
     iput-object v5, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mFooterText:Landroid/widget/TextView;
 
     .line 336
-    const v5, 0x7f0a004a
+    const v5, 0x7f0b0048
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1000,7 +995,7 @@
     iput-object v5, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mFooterLeftButton:Landroid/widget/TextView;
 
     .line 337
-    const v5, 0x7f0a004b
+    const v5, 0x7f0b0049
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1021,7 +1016,7 @@
     invoke-virtual {v5, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 344
-    const v5, 0x7f0a0045
+    const v5, 0x7f0b0044
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1139,10 +1134,10 @@
     .parameter "outState"
 
     .prologue
-    .line 448
+    .line 453
     invoke-super {p0, p1}, Landroid/app/Fragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 450
+    .line 455
     const-string v0, "uiStage"
 
     iget-object v1, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mUiStage:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;
@@ -1153,12 +1148,12 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 451
+    .line 456
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mChosenPattern:Ljava/util/List;
 
     if-eqz v0, :cond_0
 
-    .line 452
+    .line 457
     const-string v0, "chosenPattern"
 
     iget-object v1, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mChosenPattern:Ljava/util/List;
@@ -1169,7 +1164,7 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 455
+    .line 460
     :cond_0
     return-void
 .end method
@@ -1181,15 +1176,15 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 465
+    .line 470
     iput-object p1, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mUiStage:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;
 
-    .line 469
+    .line 474
     sget-object v0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;->ChoiceTooShort:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;
 
     if-ne p1, v0, :cond_0
 
-    .line 470
+    .line 475
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mHeaderText:Landroid/widget/TextView;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->getResources()Landroid/content/res/Resources;
@@ -1216,7 +1211,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 477
+    .line 482
     :goto_0
     iget v0, p1, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;->footerMessage:I
 
@@ -1224,14 +1219,14 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 478
+    .line 483
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mFooterText:Landroid/widget/TextView;
 
     const-string v1, ""
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 483
+    .line 488
     :goto_1
     iget-object v0, p1, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;->leftMode:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$LeftButtonMode;
 
@@ -1239,14 +1234,14 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 484
+    .line 489
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mFooterLeftButton:Landroid/widget/TextView;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 491
+    .line 496
     :goto_2
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mFooterRightButton:Landroid/widget/TextView;
 
@@ -1256,7 +1251,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 492
+    .line 497
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mFooterRightButton:Landroid/widget/TextView;
 
     iget-object v1, p1, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;->rightMode:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$RightButtonMode;
@@ -1265,17 +1260,17 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 495
+    .line 500
     iget-boolean v0, p1, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;->patternEnabled:Z
 
     if-eqz v0, :cond_3
 
-    .line 496
+    .line 501
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
     invoke-virtual {v0}, Lcom/android/internal/widget/LockPatternView;->enableInput()V
 
-    .line 503
+    .line 508
     :goto_3
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
@@ -1283,7 +1278,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/LockPatternView;->setDisplayMode(Lcom/android/internal/widget/LockPatternView$DisplayMode;)V
 
-    .line 505
+    .line 510
     sget-object v0, Lcom/android/OriginalSettings/ChooseLockPattern$1;->$SwitchMap$com$android$settings$ChooseLockPattern$ChooseLockPatternFragment$Stage:[I
 
     iget-object v1, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mUiStage:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;
@@ -1296,12 +1291,12 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 528
+    .line 533
     :goto_4
     :pswitch_0
     return-void
 
-    .line 475
+    .line 480
     :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mHeaderText:Landroid/widget/TextView;
 
@@ -1311,7 +1306,7 @@
 
     goto :goto_0
 
-    .line 480
+    .line 485
     :cond_1
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mFooterText:Landroid/widget/TextView;
 
@@ -1321,13 +1316,13 @@
 
     goto :goto_1
 
-    .line 486
+    .line 491
     :cond_2
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mFooterLeftButton:Landroid/widget/TextView;
 
     invoke-virtual {v0, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 487
+    .line 492
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mFooterLeftButton:Landroid/widget/TextView;
 
     iget-object v1, p1, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;->leftMode:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$LeftButtonMode;
@@ -1336,7 +1331,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 488
+    .line 493
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mFooterLeftButton:Landroid/widget/TextView;
 
     iget-object v1, p1, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$Stage;->leftMode:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$LeftButtonMode;
@@ -1347,7 +1342,7 @@
 
     goto :goto_2
 
-    .line 498
+    .line 503
     :cond_3
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
@@ -1355,7 +1350,7 @@
 
     goto :goto_3
 
-    .line 507
+    .line 512
     :pswitch_1
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
@@ -1363,7 +1358,7 @@
 
     goto :goto_4
 
-    .line 510
+    .line 515
     :pswitch_2
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
@@ -1375,7 +1370,7 @@
 
     goto :goto_4
 
-    .line 513
+    .line 518
     :pswitch_3
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
@@ -1383,12 +1378,12 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/LockPatternView;->setDisplayMode(Lcom/android/internal/widget/LockPatternView$DisplayMode;)V
 
-    .line 514
+    .line 519
     invoke-direct {p0}, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->postClearPatternRunnable()V
 
     goto :goto_4
 
-    .line 519
+    .line 524
     :pswitch_4
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
@@ -1396,7 +1391,7 @@
 
     goto :goto_4
 
-    .line 522
+    .line 527
     :pswitch_5
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
@@ -1404,12 +1399,12 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/LockPatternView;->setDisplayMode(Lcom/android/internal/widget/LockPatternView$DisplayMode;)V
 
-    .line 523
+    .line 528
     invoke-direct {p0}, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment;->postClearPatternRunnable()V
 
     goto :goto_4
 
-    .line 505
+    .line 510
     nop
 
     :pswitch_data_0

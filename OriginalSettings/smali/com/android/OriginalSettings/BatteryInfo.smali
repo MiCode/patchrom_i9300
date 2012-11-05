@@ -252,7 +252,7 @@
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/BaseActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 139
-    const v0, 0x7f040012
+    const v0, 0x7f040010
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/BatteryInfo;->setContentView(I)V
 
@@ -305,7 +305,7 @@
     invoke-super {p0}, Lcom/android/OriginalSettings/BaseActivity;->onResume()V
 
     .line 151
-    const v0, 0x7f0a002a
+    const v0, 0x7f0b0021
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/BatteryInfo;->findViewById(I)Landroid/view/View;
 
@@ -316,7 +316,7 @@
     iput-object v0, p0, Lcom/android/OriginalSettings/BatteryInfo;->mStatus:Landroid/widget/TextView;
 
     .line 152
-    const v0, 0x7f0a002b
+    const v0, 0x7f0b0022
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/BatteryInfo;->findViewById(I)Landroid/view/View;
 
@@ -327,7 +327,7 @@
     iput-object v0, p0, Lcom/android/OriginalSettings/BatteryInfo;->mPower:Landroid/widget/TextView;
 
     .line 153
-    const v0, 0x7f0a002c
+    const v0, 0x7f0b0023
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/BatteryInfo;->findViewById(I)Landroid/view/View;
 
@@ -338,7 +338,7 @@
     iput-object v0, p0, Lcom/android/OriginalSettings/BatteryInfo;->mLevel:Landroid/widget/TextView;
 
     .line 154
-    const v0, 0x7f0a002d
+    const v0, 0x7f0b0024
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/BatteryInfo;->findViewById(I)Landroid/view/View;
 
@@ -349,7 +349,7 @@
     iput-object v0, p0, Lcom/android/OriginalSettings/BatteryInfo;->mScale:Landroid/widget/TextView;
 
     .line 155
-    const v0, 0x7f0a002e
+    const v0, 0x7f0b0025
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/BatteryInfo;->findViewById(I)Landroid/view/View;
 
@@ -360,7 +360,7 @@
     iput-object v0, p0, Lcom/android/OriginalSettings/BatteryInfo;->mHealth:Landroid/widget/TextView;
 
     .line 156
-    const v0, 0x7f0a0031
+    const v0, 0x7f0b0028
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/BatteryInfo;->findViewById(I)Landroid/view/View;
 
@@ -371,7 +371,7 @@
     iput-object v0, p0, Lcom/android/OriginalSettings/BatteryInfo;->mTechnology:Landroid/widget/TextView;
 
     .line 157
-    const v0, 0x7f0a002f
+    const v0, 0x7f0b0026
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/BatteryInfo;->findViewById(I)Landroid/view/View;
 
@@ -382,7 +382,7 @@
     iput-object v0, p0, Lcom/android/OriginalSettings/BatteryInfo;->mVoltage:Landroid/widget/TextView;
 
     .line 158
-    const v0, 0x7f0a0030
+    const v0, 0x7f0b0027
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/BatteryInfo;->findViewById(I)Landroid/view/View;
 
@@ -393,7 +393,7 @@
     iput-object v0, p0, Lcom/android/OriginalSettings/BatteryInfo;->mTemperature:Landroid/widget/TextView;
 
     .line 159
-    const v0, 0x7f0a0032
+    const v0, 0x7f0b0029
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/BatteryInfo;->findViewById(I)Landroid/view/View;
 

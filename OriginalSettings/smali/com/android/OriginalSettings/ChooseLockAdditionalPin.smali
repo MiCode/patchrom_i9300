@@ -69,7 +69,7 @@
     invoke-super {p0, p1}, Lmiui/preference/BasePreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 73
-    const v1, 0x7f0d048a
+    const v1, 0x7f09054e
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/ChooseLockAdditionalPin;->getText(I)Ljava/lang/CharSequence;
 

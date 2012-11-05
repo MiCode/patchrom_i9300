@@ -41,7 +41,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f040023
+    const v3, 0x7f040024
 
     const/4 v4, 0x0
 
@@ -51,7 +51,7 @@
 
     .line 87
     .local v1, view:Landroid/view/View;
-    const v2, 0x7f0a0007
+    const v2, 0x7f0b004d
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -65,7 +65,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v3, 0x7f0d08d8
+    const v3, 0x7f090ade
 
     invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/bluetooth/BluetoothEnableActivity;->getString(I)Ljava/lang/String;
 
@@ -81,17 +81,11 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d08d9
+    const v3, 0x7f090adf
 
     invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/bluetooth/BluetoothEnableActivity;->getString(I)Ljava/lang/String;
 
     move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, "\n"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -135,7 +129,7 @@
     if-eqz v0, :cond_0
 
     .line 125
-    const v0, 0x7f0d08e0
+    const v0, 0x7f090ae6
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/bluetooth/BluetoothEnableActivity;->getString(I)Ljava/lang/String;
 
@@ -212,7 +206,7 @@
 
     .line 76
     .local v0, p:Lcom/android/internal/app/AlertController$AlertParams;
-    const v1, 0x7f0d08d7
+    const v1, 0x7f090add
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/bluetooth/BluetoothEnableActivity;->getString(I)Ljava/lang/String;
 
@@ -228,7 +222,7 @@
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
     .line 78
-    const v1, 0x7f0d08db
+    const v1, 0x7f090ae1
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/bluetooth/BluetoothEnableActivity;->getString(I)Ljava/lang/String;
 
@@ -240,7 +234,7 @@
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
     .line 80
-    const v1, 0x7f0d08da
+    const v1, 0x7f090ae0
 
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/bluetooth/BluetoothEnableActivity;->getString(I)Ljava/lang/String;
 

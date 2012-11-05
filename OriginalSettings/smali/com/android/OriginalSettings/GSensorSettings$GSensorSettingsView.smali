@@ -35,13 +35,13 @@
     .parameter "context"
 
     .prologue
-    .line 325
+    .line 292
     iput-object p1, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
 
-    .line 326
+    .line 293
     invoke-direct {p0, p2}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
-    .line 315
+    .line 282
     iget-object v0, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
 
     #getter for: Lcom/android/OriginalSettings/GSensorSettings;->CENTER_X:I
@@ -60,7 +60,7 @@
 
     iput v0, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->sx:I
 
-    .line 317
+    .line 284
     iget-object v0, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
 
     #getter for: Lcom/android/OriginalSettings/GSensorSettings;->CENTER_Y:I
@@ -79,17 +79,17 @@
 
     iput v0, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->sy:I
 
-    .line 319
+    .line 286
     const/4 v0, 0x1
 
     iput v0, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->mState:I
 
-    .line 323
+    .line 290
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->image:Landroid/graphics/drawable/Drawable;
 
-    .line 327
+    .line 294
     return-void
 .end method
 
@@ -99,7 +99,7 @@
     .parameter "x1"
 
     .prologue
-    .line 314
+    .line 281
     invoke-direct {p0, p1}, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->updateState(I)V
 
     return-void
@@ -110,10 +110,10 @@
     .parameter "state"
 
     .prologue
-    .line 330
+    .line 297
     iput p1, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->mState:I
 
-    .line 331
+    .line 298
     return-void
 .end method
 
@@ -124,7 +124,7 @@
     .parameter "position"
 
     .prologue
-    .line 345
+    .line 312
     const/4 v0, 0x0
 
     iget v1, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->sx:I
@@ -142,7 +142,7 @@
 
     aput v1, p1, v0
 
-    .line 346
+    .line 313
     const/4 v0, 0x1
 
     iget v1, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->sy:I
@@ -160,7 +160,7 @@
 
     aput v1, p1, v0
 
-    .line 349
+    .line 316
     return-object p1
 .end method
 
@@ -171,7 +171,7 @@
     .prologue
     const-wide/high16 v8, 0x4000
 
-    .line 354
+    .line 321
     const/4 v6, 0x0
 
     .local v6, i:I
@@ -180,7 +180,7 @@
 
     if-ge v6, v0, :cond_0
 
-    .line 355
+    .line 322
     add-int/lit8 v0, v6, 0x1
 
     iget-object v1, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
@@ -192,7 +192,7 @@
 
     mul-int v7, v0, v1
 
-    .line 356
+    .line 323
     .local v7, rad:I
     iget-object v0, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
 
@@ -206,7 +206,7 @@
 
     if-le v7, v0, :cond_2
 
-    .line 360
+    .line 327
     .end local v7           #rad:I
     :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
@@ -271,7 +271,7 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
-    .line 361
+    .line 328
     iget-object v0, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
 
     #getter for: Lcom/android/OriginalSettings/GSensorSettings;->CENTER_X:I
@@ -334,19 +334,19 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
-    .line 364
+    .line 331
     iget v0, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->mState:I
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_3
 
-    .line 365
+    .line 332
     invoke-virtual {p0}, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f0201de
+    const v1, 0x7f02025c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -354,7 +354,7 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->image:Landroid/graphics/drawable/Drawable;
 
-    .line 375
+    .line 342
     :cond_1
     :goto_1
     iget-object v0, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->image:Landroid/graphics/drawable/Drawable;
@@ -391,15 +391,15 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 376
+    .line 343
     iget-object v0, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->image:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 378
+    .line 345
     return-void
 
-    .line 358
+    .line 325
     .restart local v7       #rad:I
     :cond_2
     iget-object v0, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
@@ -428,12 +428,12 @@
 
     invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
-    .line 354
+    .line 321
     add-int/lit8 v6, v6, 0x1
 
     goto/16 :goto_0
 
-    .line 366
+    .line 333
     .end local v7           #rad:I
     :cond_3
     iget v0, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->mState:I
@@ -442,7 +442,7 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 369
+    .line 336
     sget v0, Lcom/android/OriginalSettings/GSensorSettings;->ani_gap_x:F
 
     sget v1, Lcom/android/OriginalSettings/GSensorSettings;->ani_count:I
@@ -481,7 +481,7 @@
 
     iput v0, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->mRadius:I
 
-    .line 371
+    .line 338
     iget-object v0, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->this$0:Lcom/android/OriginalSettings/GSensorSettings;
 
     #getter for: Lcom/android/OriginalSettings/GSensorSettings;->CENTER_X:I
@@ -523,7 +523,7 @@
 
     invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
-    .line 373
+    .line 340
     const-string v0, "GSensorSettings"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -546,7 +546,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_1
 .end method
@@ -556,17 +556,17 @@
     .parameter "count"
 
     .prologue
-    .line 381
+    .line 348
     const/16 v0, 0x20
 
     if-lt p1, v0, :cond_0
 
-    .line 382
+    .line 349
     invoke-virtual {p0}, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f0201e2
+    const v1, 0x7f020260
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -574,22 +574,22 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->image:Landroid/graphics/drawable/Drawable;
 
-    .line 387
+    .line 354
     :goto_0
     return-void
 
-    .line 383
+    .line 350
     :cond_0
     const/16 v0, 0x10
 
     if-lt p1, v0, :cond_1
 
-    .line 384
+    .line 351
     invoke-virtual {p0}, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f0201e1
+    const v1, 0x7f02025f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -599,13 +599,13 @@
 
     goto :goto_0
 
-    .line 386
+    .line 353
     :cond_1
     invoke-virtual {p0}, Lcom/android/OriginalSettings/GSensorSettings$GSensorSettingsView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f0201e0
+    const v1, 0x7f02025e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

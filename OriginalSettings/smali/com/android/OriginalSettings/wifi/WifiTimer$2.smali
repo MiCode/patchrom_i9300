@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/wifi/WifiTimer;->setActionBar()V
+    value = Lcom/android/OriginalSettings/wifi/WifiTimer;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 150
+    .line 90
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/WifiTimer$2;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimer;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,19 +38,10 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
+    .locals 0
     .parameter "v"
 
     .prologue
-    .line 153
-    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiTimer$2;->this$0:Lcom/android/OriginalSettings/wifi/WifiTimer;
-
-    invoke-virtual {v0}, Lcom/android/OriginalSettings/wifi/WifiTimer;->getActivity()Landroid/app/Activity;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
-
-    .line 154
+    .line 93
     return-void
 .end method

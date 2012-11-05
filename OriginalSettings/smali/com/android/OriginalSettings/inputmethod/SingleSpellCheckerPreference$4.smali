@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 158
+    .line 160
     iput-object p1, p0, Lcom/android/OriginalSettings/inputmethod/SingleSpellCheckerPreference$4;->this$0:Lcom/android/OriginalSettings/inputmethod/SingleSpellCheckerPreference;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,10 +43,10 @@
     .parameter "which"
 
     .prologue
-    .line 161
+    .line 163
     if-nez p2, :cond_0
 
-    .line 162
+    .line 164
     iget-object v0, p0, Lcom/android/OriginalSettings/inputmethod/SingleSpellCheckerPreference$4;->this$0:Lcom/android/OriginalSettings/inputmethod/SingleSpellCheckerPreference;
 
     #getter for: Lcom/android/OriginalSettings/inputmethod/SingleSpellCheckerPreference;->mTsm:Landroid/view/textservice/TextServicesManager;
@@ -58,14 +58,14 @@
 
     invoke-virtual {v0, v1}, Landroid/view/textservice/TextServicesManager;->setSpellCheckerSubtype(Landroid/view/textservice/SpellCheckerSubtype;)V
 
-    .line 171
+    .line 173
     :goto_0
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 172
+    .line 174
     return-void
 
-    .line 164
+    .line 166
     :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/inputmethod/SingleSpellCheckerPreference$4;->this$0:Lcom/android/OriginalSettings/inputmethod/SingleSpellCheckerPreference;
 

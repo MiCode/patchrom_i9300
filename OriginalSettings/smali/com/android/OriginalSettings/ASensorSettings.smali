@@ -323,7 +323,7 @@
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setVisibility(I)V
 
     .line 268
-    const v1, 0x7f0d075c
+    const v1, 0x7f09088c
 
     invoke-static {p0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -346,7 +346,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0201de
+    const v2, 0x7f02025c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -390,7 +390,7 @@
     iput-object v0, p0, Lcom/android/OriginalSettings/ASensorSettings;->mAccelerometerSensor:Landroid/hardware/Sensor;
 
     .line 119
-    const v0, 0x7f0a0027
+    const v0, 0x7f0b001f
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/ASensorSettings;->findViewById(I)Landroid/view/View;
 
@@ -413,7 +413,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
 
     .line 123
-    const v0, 0x7f0a0025
+    const v0, 0x7f0b001d
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/ASensorSettings;->findViewById(I)Landroid/view/View;
 
@@ -492,7 +492,7 @@
 
     const-string v5, "Start calibration"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 142
     const/4 v2, 0x0
@@ -545,7 +545,7 @@
 
     const-string v5, "File not found!"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 148
     invoke-virtual {v0}, Ljava/io/FileNotFoundException;->printStackTrace()V
@@ -747,7 +747,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f0a0027
+    .packed-switch 0x7f0b001f
         :pswitch_0
     .end packed-switch
 .end method
@@ -837,7 +837,7 @@
     iput-object v0, p0, Lcom/android/OriginalSettings/ASensorSettings;->mHandler:Lcom/android/OriginalSettings/ASensorSettings$setHandler;
 
     .line 105
-    const v0, 0x7f04000f
+    const v0, 0x7f04000e
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/ASensorSettings;->setContentView(I)V
 
@@ -849,7 +849,7 @@
     iput-object v0, p0, Lcom/android/OriginalSettings/ASensorSettings;->drawView:Lcom/android/OriginalSettings/ASensorSettings$ASensorSettingsView;
 
     .line 107
-    const v0, 0x7f0a0026
+    const v0, 0x7f0b001e
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/ASensorSettings;->findViewById(I)Landroid/view/View;
 
@@ -946,7 +946,7 @@
     .line 184
     iget-object v0, p0, Lcom/android/OriginalSettings/ASensorSettings;->text:Landroid/widget/TextView;
 
-    const v1, 0x7f0d075a
+    const v1, 0x7f09088a
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

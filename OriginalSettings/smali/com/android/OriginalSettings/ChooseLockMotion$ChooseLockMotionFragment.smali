@@ -59,8 +59,8 @@
 
     :array_0
     .array-data 0x4
-        0xaet 0x1t 0x2t 0x7ft
-        0xaft 0x1t 0x2t 0x7ft
+        0xct 0x2t 0x2t 0x7ft
+        0xdt 0x2t 0x2t 0x7ft
     .end array-data
 .end method
 
@@ -107,27 +107,27 @@
     .parameter "isEnable"
 
     .prologue
-    .line 203
+    .line 207
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.sec.motions.MOTIONS_SETTINGS_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 204
+    .line 208
     .local v0, motion_changed:Landroid/content/Intent;
     const-string v1, "isEnable"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 205
+    .line 209
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 206
+    .line 210
     return-void
 .end method
 
@@ -135,26 +135,26 @@
     .locals 2
 
     .prologue
-    .line 196
+    .line 200
     const-string v0, "ChooseLockMotionFragment"
 
     const-string v1, "stopAnimation()"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 197
+    .line 201
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mAnimationHandler:Landroid/os/Handler;
 
     if-eqz v0, :cond_0
 
-    .line 198
+    .line 202
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mAnimationHandler:Landroid/os/Handler;
 
     const/16 v1, 0x66
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 200
+    .line 204
     :cond_0
     return-void
 .end method
@@ -165,7 +165,7 @@
     .prologue
     const/16 v3, 0x66
 
-    .line 168
+    .line 172
     const-string v0, "ChooseLockMotionFragment"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -188,14 +188,14 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 169
+    .line 173
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mAnimationView:Landroid/widget/ImageView;
 
     if-eqz v0, :cond_0
 
-    .line 170
+    .line 174
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mAnimationView:Landroid/widget/ImageView;
 
     sget-object v1, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mAnimationImage:[I
@@ -206,14 +206,14 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 171
+    .line 175
     iget v0, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mAnimationIndex:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mAnimationIndex:I
 
-    .line 174
+    .line 178
     :cond_0
     iget v0, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mAnimationIndex:I
 
@@ -221,32 +221,32 @@
 
     iput v0, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mAnimationIndex:I
 
-    .line 176
+    .line 180
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mAnimationHandler:Landroid/os/Handler;
 
     if-eqz v0, :cond_1
 
-    .line 177
+    .line 181
     invoke-direct {p0}, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->stopAnimation()V
 
-    .line 178
+    .line 182
     iget v0, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mAnimationIndex:I
 
     if-nez v0, :cond_2
 
-    .line 179
+    .line 183
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mAnimationHandler:Landroid/os/Handler;
 
     const-wide/16 v1, 0x7d0
 
     invoke-virtual {v0, v3, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 185
+    .line 189
     :cond_1
     :goto_0
     return-void
 
-    .line 181
+    .line 185
     :cond_2
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mAnimationHandler:Landroid/os/Handler;
 
@@ -268,37 +268,37 @@
 
     const/4 v3, 0x1
 
-    .line 146
+    .line 150
     iget-object v1, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mCancelButton:Landroid/widget/Button;
 
     if-ne p1, v1, :cond_1
 
-    .line 147
+    .line 151
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-virtual {v1, v3}, Landroid/app/Activity;->setResult(I)V
 
-    .line 148
+    .line 152
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-virtual {v1}, Landroid/app/Activity;->finish()V
 
-    .line 165
+    .line 169
     :cond_0
     :goto_0
     return-void
 
-    .line 149
+    .line 153
     :cond_1
     iget-object v1, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mOKButton:Landroid/widget/Button;
 
     if-ne p1, v1, :cond_2
 
-    .line 151
+    .line 155
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
@@ -311,10 +311,10 @@
 
     invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 152
+    .line 156
     invoke-direct {p0, v3}, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->broadcastMotionChanged(Z)V
 
-    .line 153
+    .line 157
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
@@ -327,7 +327,7 @@
 
     invoke-static {v1, v2, v3}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 154
+    .line 158
     iget-object v1, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mChooseLockSettingsHelper:Lcom/android/OriginalSettings/ChooseLockSettingsHelper;
 
     invoke-virtual {v1}, Lcom/android/OriginalSettings/ChooseLockSettingsHelper;->utils()Lcom/android/internal/widget/LockPatternUtils;
@@ -336,7 +336,7 @@
 
     invoke-virtual {v1, v4}, Lcom/android/internal/widget/LockPatternUtils;->clearLock(Z)V
 
-    .line 155
+    .line 159
     iget-object v1, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mChooseLockSettingsHelper:Lcom/android/OriginalSettings/ChooseLockSettingsHelper;
 
     invoke-virtual {v1}, Lcom/android/OriginalSettings/ChooseLockSettingsHelper;->utils()Lcom/android/internal/widget/LockPatternUtils;
@@ -345,7 +345,7 @@
 
     invoke-virtual {v1, v4}, Lcom/android/internal/widget/LockPatternUtils;->setLockScreenDisabled(Z)V
 
-    .line 156
+    .line 160
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
@@ -354,7 +354,7 @@
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->setResult(I)V
 
-    .line 157
+    .line 161
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
@@ -363,13 +363,13 @@
 
     goto :goto_0
 
-    .line 158
+    .line 162
     :cond_2
     iget-object v1, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mTryTutorialButton:Landroid/widget/Button;
 
     if-ne p1, v1, :cond_0
 
-    .line 159
+    .line 163
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
@@ -382,21 +382,21 @@
 
     invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 160
+    .line 164
     invoke-direct {p0, v3}, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->broadcastMotionChanged(Z)V
 
-    .line 161
+    .line 165
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 162
+    .line 166
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "android.tilttounlock.TILTTOUNLOCKTUTORIAL"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 163
+    .line 167
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
@@ -426,171 +426,200 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 7
+    .locals 8
     .parameter "inflater"
     .parameter "container"
     .parameter "savedInstanceState"
 
     .prologue
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
     .line 115
-    const v3, 0x7f04001d
+    const v4, 0x7f04001e
 
-    invoke-virtual {p1, v3, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {p1, v4, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v3
 
     .line 117
-    .local v2, view:Landroid/view/View;
-    const v3, 0x7f0a0043
+    .local v3, view:Landroid/view/View;
+    const v4, 0x7f0b0042
 
-    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Landroid/widget/ImageView;
+    check-cast v4, Landroid/widget/ImageView;
 
-    iput-object v3, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mAnimationView:Landroid/widget/ImageView;
+    iput-object v4, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mAnimationView:Landroid/widget/ImageView;
 
     .line 118
-    const v3, 0x7f0a0042
+    const v4, 0x7f0b0041
 
-    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Landroid/widget/TextView;
+    check-cast v4, Landroid/widget/TextView;
 
-    iput-object v3, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mContentTextView:Landroid/widget/TextView;
+    iput-object v4, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mContentTextView:Landroid/widget/TextView;
 
     .line 119
-    const v3, 0x7f0a0009
+    const v4, 0x7f0b0040
 
-    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Landroid/widget/Button;
+    check-cast v4, Landroid/widget/Button;
 
-    iput-object v3, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mCancelButton:Landroid/widget/Button;
+    iput-object v4, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mCancelButton:Landroid/widget/Button;
 
     .line 120
-    const v3, 0x7f0a000b
+    const v4, 0x7f0b003d
 
-    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Landroid/widget/Button;
+    check-cast v4, Landroid/widget/Button;
 
-    iput-object v3, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mOKButton:Landroid/widget/Button;
+    iput-object v4, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mOKButton:Landroid/widget/Button;
 
     .line 121
-    const v3, 0x7f0a0044
+    const v4, 0x7f0b0043
 
-    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Landroid/widget/Button;
+    check-cast v4, Landroid/widget/Button;
 
-    iput-object v3, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mTryTutorialButton:Landroid/widget/Button;
+    iput-object v4, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mTryTutorialButton:Landroid/widget/Button;
 
     .line 123
-    new-instance v3, Ljava/lang/StringBuilder;
+    const-string v2, ". "
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    .line 124
+    .local v2, dot:Ljava/lang/String;
+    const-string v4, "ja"
 
-    const v4, 0x7f0d0889
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->getResources()Landroid/content/res/Resources;
 
-    invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->getString(I)Ljava/lang/String;
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v5
+
+    iget-object v5, v5, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+
+    invoke-virtual {v5}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    .line 125
+    const-string v2, " "
+
+    .line 127
+    :cond_0
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const v5, 0x7f090a6c
+
+    invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, ". "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const v4, 0x7f0d088a
-
-    invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->getString(I)Ljava/lang/String;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const v5, 0x7f090a6d
 
-    move-result-object v3
+    invoke-virtual {p0, v5}, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 124
-    .local v1, content_string:Ljava/lang/String;
-    iget-object v3, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mContentTextView:Landroid/widget/TextView;
-
-    invoke-virtual {v3, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 126
-    iget-object v3, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mCancelButton:Landroid/widget/Button;
-
-    invoke-virtual {v3, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 127
-    iget-object v3, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mOKButton:Landroid/widget/Button;
-
-    invoke-virtual {v3, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
     .line 128
-    iget-object v3, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mTryTutorialButton:Landroid/widget/Button;
+    .local v1, content_string:Ljava/lang/String;
+    iget-object v4, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mContentTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v3, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v4, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 130
+    iget-object v4, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mCancelButton:Landroid/widget/Button;
+
+    invoke-virtual {v4, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 131
+    iget-object v4, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mOKButton:Landroid/widget/Button;
+
+    invoke-virtual {v4, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 132
+    iget-object v4, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mTryTutorialButton:Landroid/widget/Button;
+
+    invoke-virtual {v4, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 134
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {v4}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
-    move-result-object v3
+    move-result-object v4
 
-    const-string v4, "confirm_credentials"
+    const-string v5, "confirm_credentials"
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
-    invoke-virtual {v3, v4, v5}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {v4, v5, v6}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v0
 
-    .line 133
+    .line 137
     .local v0, confirmCredentials:Z
-    if-nez p3, :cond_0
+    if-nez p3, :cond_1
 
-    .line 134
-    if-eqz v0, :cond_1
-
-    .line 135
-    iget-object v3, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mChooseLockSettingsHelper:Lcom/android/OriginalSettings/ChooseLockSettingsHelper;
-
-    const/16 v4, 0x37
-
-    invoke-virtual {v3, v4, v6, v6}, Lcom/android/OriginalSettings/ChooseLockSettingsHelper;->launchConfirmationActivity(ILjava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    .line 142
-    :cond_0
-    :goto_0
-    return-object v2
+    .line 138
+    if-eqz v0, :cond_2
 
     .line 139
+    iget-object v4, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mChooseLockSettingsHelper:Lcom/android/OriginalSettings/ChooseLockSettingsHelper;
+
+    const/16 v5, 0x37
+
+    invoke-virtual {v4, v5, v7, v7}, Lcom/android/OriginalSettings/ChooseLockSettingsHelper;->launchConfirmationActivity(ILjava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    .line 146
     :cond_1
+    :goto_0
+    return-object v3
+
+    .line 143
+    :cond_2
     invoke-direct {p0}, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->updateAnimation()V
 
     goto :goto_0
@@ -633,7 +662,7 @@
 
     const-string v1, "onStop : remove handler message"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 101
     iget-object v0, p0, Lcom/android/OriginalSettings/ChooseLockMotion$ChooseLockMotionFragment;->mAnimationHandler:Landroid/os/Handler;

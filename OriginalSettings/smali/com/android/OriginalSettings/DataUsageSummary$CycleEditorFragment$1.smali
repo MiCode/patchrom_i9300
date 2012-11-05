@@ -39,7 +39,7 @@
     .parameter
 
     .prologue
-    .line 1881
+    .line 2064
     iput-object p1, p0, Lcom/android/OriginalSettings/DataUsageSummary$CycleEditorFragment$1;->this$0:Lcom/android/OriginalSettings/DataUsageSummary$CycleEditorFragment;
 
     iput-object p2, p0, Lcom/android/OriginalSettings/DataUsageSummary$CycleEditorFragment$1;->val$cycleDayPicker:Landroid/widget/NumberPicker;
@@ -58,39 +58,47 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 3
+    .locals 4
     .parameter "dialog"
     .parameter "which"
 
     .prologue
-    .line 1883
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$CycleEditorFragment$1;->val$cycleDayPicker:Landroid/widget/NumberPicker;
+    .line 2067
+    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary$CycleEditorFragment$1;->val$cycleDayPicker:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v1}, Landroid/widget/NumberPicker;->clearFocus()V
+    invoke-virtual {v2}, Landroid/widget/NumberPicker;->clearFocus()V
 
-    .line 1884
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$CycleEditorFragment$1;->val$cycleDayPicker:Landroid/widget/NumberPicker;
+    .line 2068
+    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary$CycleEditorFragment$1;->val$cycleDayPicker:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v1}, Landroid/widget/NumberPicker;->getValue()I
+    invoke-virtual {v2}, Landroid/widget/NumberPicker;->getValue()I
 
     move-result v0
 
-    .line 1885
+    .line 2069
     .local v0, cycleDay:I
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$CycleEditorFragment$1;->val$editor:Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
+    new-instance v2, Landroid/text/format/Time;
 
-    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary$CycleEditorFragment$1;->val$template:Landroid/net/NetworkTemplate;
+    invoke-direct {v2}, Landroid/text/format/Time;-><init>()V
 
-    invoke-virtual {v1, v2, v0}, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;->setPolicyCycleDay(Landroid/net/NetworkTemplate;I)V
+    iget-object v1, v2, Landroid/text/format/Time;->timezone:Ljava/lang/String;
 
-    .line 1886
-    iget-object v1, p0, Lcom/android/OriginalSettings/DataUsageSummary$CycleEditorFragment$1;->val$target:Lcom/android/OriginalSettings/DataUsageSummary;
+    .line 2070
+    .local v1, cycleTimezone:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary$CycleEditorFragment$1;->val$editor:Lcom/android/OriginalSettings/net/NetworkPolicyEditor;
 
-    const/4 v2, 0x1
+    iget-object v3, p0, Lcom/android/OriginalSettings/DataUsageSummary$CycleEditorFragment$1;->val$template:Landroid/net/NetworkTemplate;
+
+    invoke-virtual {v2, v3, v0, v1}, Lcom/android/OriginalSettings/net/NetworkPolicyEditor;->setPolicyCycleDay(Landroid/net/NetworkTemplate;ILjava/lang/String;)V
+
+    .line 2071
+    iget-object v2, p0, Lcom/android/OriginalSettings/DataUsageSummary$CycleEditorFragment$1;->val$target:Lcom/android/OriginalSettings/DataUsageSummary;
+
+    const/4 v3, 0x1
 
     #calls: Lcom/android/OriginalSettings/DataUsageSummary;->updatePolicy(Z)V
-    invoke-static {v1, v2}, Lcom/android/OriginalSettings/DataUsageSummary;->access$1500(Lcom/android/OriginalSettings/DataUsageSummary;Z)V
+    invoke-static {v2, v3}, Lcom/android/OriginalSettings/DataUsageSummary;->access$800(Lcom/android/OriginalSettings/DataUsageSummary;Z)V
 
-    .line 1887
+    .line 2072
     return-void
 .end method

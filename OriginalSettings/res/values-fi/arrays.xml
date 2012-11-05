@@ -18,12 +18,15 @@
         <item>10 minuuttia</item>
         <item>30 minuuttia</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 sekuntia</item>
         <item>30 sekuntia</item>
         <item>1 minuutti</item>
-        <item>2 minuuttia</item>
+        <item>3 minuuttia</item>
         <item>5 minuuttia</item>
+        <item>10 minuuttia</item>
+        <item>15 minuuttia</item>
+        <item>30 minuuttia</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Ei koskaan</item>
@@ -34,6 +37,18 @@
         <item>5 minuuttia</item>
         <item>10 minuuttia</item>
         <item>30 minuuttia</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 sekuntia</item>
+        <item>30 sekuntia</item>
+        <item>1 minuutti</item>
+        <item>3 minuuttia</item>
+        <item>5 minuuttia</item>
+        <item>10 minuuttia</item>
+        <item>15 minuuttia</item>
+        <item>30 minuuttia</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>Heti</item>
@@ -93,17 +108,7 @@
         <item>Yhteys katkaistu</item>
         <item>Epäonnistui</item>
         <item>Yhdistetty</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Vältetään huonoa yhteyttä tilapäisesti</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>Yhteys katkaistu</item>
         <item>Epäonnistui</item>
         <item>Yhdistetty</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Vältetään huonoa yhteyttä tilapäisesti</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>Avoin</item>
@@ -138,20 +133,32 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Paina painiketta</item>
+        <item>Vertaislaitteen PIN-koodi</item>
+        <item>Laitteen PIN-koodi</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Yhdistetty</item>
+        <item>Kutsuttu</item>
+        <item>Yhdistäminen epäonnistui</item>
+        <item>Yhdistä napauttamalla</item>
+        <item>Liian suuri tai pieni</item>
+        <item>Yhdistetty toiseen laitteeseen</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>Ei aikakatkaisua koskaan</item>
         <item>5 minuuttia</item>
         <item>10 minuuttia</item>
-        <item>20 minuuttia</item>
+        <item>20 min.</item>
         <item>30 minuuttia</item>
         <item>60 minuuttia</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Salli kaikki laitt.</item>
+        <item>Vain sallitut laitteet</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>Automaattinen</item>
@@ -179,19 +186,6 @@
         <item>9</item>
         <item>10</item>
     </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Paina painiketta</item>
-        <item>Vertaislaitteen PIN-koodi</item>
-        <item>Laitteen PIN-koodi</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Yhdistetty</item>
-        <item>Kutsuttu</item>
-        <item>Yhdistäminen epäonnistui</item>
-        <item>Yhdistä napauttamalla</item>
-        <item>Liian suuri tai pieni</item>
-        <item>Yhdistetty toiseen laitteeseen</item>
-    </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 min</item>
         <item>5 min</item>
@@ -208,7 +202,7 @@
     <string-array name="wifi_sleep_policy_entries">
         <item>Aina</item>
         <item>Vain silloin, kun laite on kytkettynä</item>
-        <item>Ei koskaan (lisaa datan kayttoa)</item>
+        <item>Ei koskaan (lisää datan käyttöä)</item>
     </string-array>
     <string-array name="wifi_sleep_policy_entries_wifi_only">
         <item>Aina</item>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -254,7 +249,7 @@
         <item>GTC</item>
     </string-array>
     <string-array name="wifi_network_setup">
-        <item>Pois päältä</item>
+        <item>Pois</item>
         <item>Paina painiketta</item>
         <item>Tukiaseman PIN-koodi</item>
         <item>Laitteen PIN-koodi</item>
@@ -266,16 +261,6 @@
     <string-array name="wifi_proxy_settings">
         <item>Ei mitään</item>
         <item>Manuaalinen</item>
-    </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Normaali</item>
-        <item>Downtown</item>
-        <item>Koti</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>Tämä on yleisin Wi-Fi-yhteysasetus</item>
-        <item>Jos olet alueella, jolla on paljon Wi-Fi-verkkoja, Wi-Fi-yhteys muodostetaan signaalin voimakkuuden parantamiseksi usein uudelleen</item>
-        <item>Jos olet alueella, jolla on vain muutamia Wi-Fi-verkkoja, Wi-Fi-yhteyttä pidetään muodostettuna mahdollisimman kauan</item>
     </string-array>
     <string-array name="emergency_tone_entries">
         <item>Pois päältä</item>
@@ -307,11 +292,6 @@
         <item>Laitteen sisäinen tallennustila</item>
         <item>Irrotettava SD-kortti</item>
         <item>Oletus</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>Pois päältä</item>
-        <item>Värinä</item>
-        <item>Mykistä</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Lyhyt</item>
@@ -346,6 +326,15 @@
         <item>Animaatiosuhde 5x</item>
         <item>Animaatiosuhde 10x</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Animaatio ei ole käytössä</item>
+        <item>Animaatiosuhde 0,5x</item>
+        <item>Animaatiosuhde 1x</item>
+        <item>Animaatiosuhde 1,5x</item>
+        <item>Animaatiosuhde 2x</item>
+        <item>Animaatiosuhde 5x</item>
+        <item>Animaatiosuhde 10x</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>Normaali rajoitus</item>
         <item>Ei taustaprosesseja</item>
@@ -370,22 +359,8 @@
         <item>Aikakatkaisu</item>
         <item>Epäonnistui</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>USB-muisti</item>
+        <item>Laite</item>
         <item>SD-kort.</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -415,15 +390,28 @@
         <item>Valokuvat</item>
         <item>Musiikki</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>Korkea</item>
-        <item>Keskikokoinen</item>
-        <item>Matala</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Automaattinen</item>
         <item>Manuaalisesti</item>
         <item>Kysy aina</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Aina pois päältä</item>
+        <item>3 sekuntia</item>
+        <item>5 sekuntia</item>
+        <item>10 sekuntia</item>
+        <item>15 sekuntia</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Ei mitään</item>
+        <item>Kaikki yhteystiedot</item>
+        <item>Suosikit</item>
+        <item>Mukautettu</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>Korkea</item>
+        <item>Keskikokoinen</item>
+        <item>Matala</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1,5 sekuntia</item>
@@ -439,11 +427,24 @@
     <string-array name="contents_type_entries">
         <item>Uutiset</item>
         <item>Osake</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Uutiset</item>
+        <item>Osake</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>Hidas</item>
         <item>Normaali</item>
         <item>Nopea</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Ei mitään</item>
+        <item>30 minuutin välein</item>
+        <item>1 tunnin välein</item>
+        <item>2 tunnin välein</item>
+        <item>4 tunnin välein</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>Kuuloke</item>
@@ -451,5 +452,9 @@
         <item>Puhelin</item>
         <item>HID (näppäimistö, hiiri jne.)</item>
         <item>Kaikki laitteet</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Stereo</item>
+        <item>Tilaääni</item>
     </string-array>
 </resources>

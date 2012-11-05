@@ -65,7 +65,7 @@
 
     const/4 v2, 0x0
 
-    const v3, 0x7f0d049d
+    const v3, 0x7f090561
 
     sget-object v4, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$LeftButtonMode;->Cancel:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$LeftButtonMode;
 
@@ -86,7 +86,7 @@
 
     const/4 v2, 0x1
 
-    const v3, 0x7f0d04b0
+    const v3, 0x7f090574
 
     sget-object v4, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$LeftButtonMode;->Gone:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$LeftButtonMode;
 
@@ -107,7 +107,7 @@
 
     const/4 v2, 0x2
 
-    const v3, 0x7f0d04a0
+    const v3, 0x7f090564
 
     sget-object v4, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$LeftButtonMode;->Retry:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$LeftButtonMode;
 
@@ -128,7 +128,7 @@
 
     const/4 v2, 0x3
 
-    const v3, 0x7f0d04a1
+    const v3, 0x7f090565
 
     sget-object v4, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$LeftButtonMode;->Retry:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$LeftButtonMode;
 
@@ -149,7 +149,7 @@
 
     const/4 v2, 0x4
 
-    const v3, 0x7f0d04a2
+    const v3, 0x7f090566
 
     sget-object v4, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$LeftButtonMode;->Cancel:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$LeftButtonMode;
 
@@ -170,7 +170,7 @@
 
     const/4 v2, 0x5
 
-    const v3, 0x7f0d049b
+    const v3, 0x7f09055f
 
     sget-object v4, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$LeftButtonMode;->Cancel:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$LeftButtonMode;
 
@@ -191,7 +191,7 @@
 
     const/4 v2, 0x6
 
-    const v3, 0x7f0d04a3
+    const v3, 0x7f090567
 
     sget-object v4, Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$LeftButtonMode;->Cancel:Lcom/android/OriginalSettings/ChooseLockPattern$ChooseLockPatternFragment$LeftButtonMode;
 

@@ -114,12 +114,12 @@
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/BaseActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 70
-    const v0, 0x7f040057
+    const v0, 0x7f04006b
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/DebugIntentSender;->setContentView(I)V
 
     .line 72
-    const v0, 0x7f0a0102
+    const v0, 0x7f0b011d
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/DebugIntentSender;->findViewById(I)Landroid/view/View;
 
@@ -146,7 +146,7 @@
     invoke-static {v0}, Landroid/text/Selection;->selectAll(Landroid/text/Spannable;)V
 
     .line 76
-    const v0, 0x7f0a0103
+    const v0, 0x7f0b011e
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/DebugIntentSender;->findViewById(I)Landroid/view/View;
 
@@ -164,7 +164,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setBackgroundResource(I)V
 
     .line 79
-    const v0, 0x7f0a0104
+    const v0, 0x7f0b011f
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/DebugIntentSender;->findViewById(I)Landroid/view/View;
 
@@ -175,7 +175,7 @@
     iput-object v0, p0, Lcom/android/OriginalSettings/DebugIntentSender;->mAccountField:Landroid/widget/EditText;
 
     .line 80
-    const v0, 0x7f0a0105
+    const v0, 0x7f0b0120
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/DebugIntentSender;->findViewById(I)Landroid/view/View;
 
@@ -186,7 +186,7 @@
     iput-object v0, p0, Lcom/android/OriginalSettings/DebugIntentSender;->mResourceField:Landroid/widget/EditText;
 
     .line 82
-    const v0, 0x7f0a0106
+    const v0, 0x7f0b0121
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/DebugIntentSender;->findViewById(I)Landroid/view/View;
 
@@ -204,7 +204,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 85
-    const v0, 0x7f0a0107
+    const v0, 0x7f0b0122
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/DebugIntentSender;->findViewById(I)Landroid/view/View;
 

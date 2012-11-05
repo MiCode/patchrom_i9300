@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 176
+    .line 230
     iput-object p1, p0, Lcom/android/OriginalSettings/DisplaySettings$3;->this$0:Lcom/android/OriginalSettings/DisplaySettings;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -36,40 +36,16 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 5
+    .locals 1
     .parameter "selfChange"
 
     .prologue
-    .line 179
-    iget-object v1, p0, Lcom/android/OriginalSettings/DisplaySettings$3;->this$0:Lcom/android/OriginalSettings/DisplaySettings;
+    .line 233
+    iget-object v0, p0, Lcom/android/OriginalSettings/DisplaySettings$3;->this$0:Lcom/android/OriginalSettings/DisplaySettings;
 
-    invoke-virtual {v1}, Lcom/android/OriginalSettings/DisplaySettings;->getContentResolver()Landroid/content/ContentResolver;
+    #calls: Lcom/android/OriginalSettings/DisplaySettings;->updateAccelerometerRotationSecondCheckbox()V
+    invoke-static {v0}, Lcom/android/OriginalSettings/DisplaySettings;->access$200(Lcom/android/OriginalSettings/DisplaySettings;)V
 
-    move-result-object v0
-
-    .line 180
-    .local v0, resolver:Landroid/content/ContentResolver;
-    iget-object v1, p0, Lcom/android/OriginalSettings/DisplaySettings$3;->this$0:Lcom/android/OriginalSettings/DisplaySettings;
-
-    #getter for: Lcom/android/OriginalSettings/DisplaySettings;->mScreenTimeoutPreference:Landroid/preference/ListPreference;
-    invoke-static {v1}, Lcom/android/OriginalSettings/DisplaySettings;->access$200(Lcom/android/OriginalSettings/DisplaySettings;)Landroid/preference/ListPreference;
-
-    move-result-object v1
-
-    const-string v2, "screen_off_timeout"
-
-    const-wide/16 v3, 0x7530
-
-    invoke-static {v0, v2, v3, v4}, Landroid/provider/Settings$System;->getLong(Landroid/content/ContentResolver;Ljava/lang/String;J)J
-
-    move-result-wide v2
-
-    invoke-static {v2, v3}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/preference/ListPreference;->setValue(Ljava/lang/String;)V
-
-    .line 181
+    .line 234
     return-void
 .end method

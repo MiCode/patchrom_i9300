@@ -62,14 +62,14 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 90
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 105
+    .line 98
     :goto_0
     return-void
 
@@ -88,7 +88,7 @@
 
     goto :goto_0
 
-    .line 102
+    .line 95
     :pswitch_1
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$2;->this$0:Lcom/android/OriginalSettings/motion/DoubleTapTutorial;
 

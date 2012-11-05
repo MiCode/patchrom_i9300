@@ -37,7 +37,7 @@
     .parameter
 
     .prologue
-    .line 68
+    .line 77
     iput-object p1, p0, Lcom/android/OriginalSettings/accounts/AddAccountSettings$1;->this$0:Lcom/android/OriginalSettings/accounts/AddAccountSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
     .end annotation
 
     .prologue
-    .line 71
+    .line 80
     .local p1, future:Landroid/accounts/AccountManagerFuture;,"Landroid/accounts/AccountManagerFuture<Landroid/os/Bundle;>;"
     :try_start_0
     invoke-interface {p1}, Landroid/accounts/AccountManagerFuture;->getResult()Ljava/lang/Object;
@@ -70,18 +70,18 @@
 
     check-cast v0, Landroid/os/Bundle;
 
-    .line 72
+    .line 81
     .local v0, bundle:Landroid/os/Bundle;
     invoke-virtual {v0}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
 
-    .line 73
+    .line 82
     iget-object v2, p0, Lcom/android/OriginalSettings/accounts/AddAccountSettings$1;->this$0:Lcom/android/OriginalSettings/accounts/AddAccountSettings;
 
     const/4 v3, -0x1
 
     invoke-virtual {v2, v3}, Lcom/android/OriginalSettings/accounts/AddAccountSettings;->setResult(I)V
 
-    .line 75
+    .line 84
     iget-object v2, p0, Lcom/android/OriginalSettings/accounts/AddAccountSettings$1;->this$0:Lcom/android/OriginalSettings/accounts/AddAccountSettings;
 
     #getter for: Lcom/android/OriginalSettings/accounts/AddAccountSettings;->mPendingIntent:Landroid/app/PendingIntent;
@@ -91,7 +91,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 76
+    .line 85
     iget-object v2, p0, Lcom/android/OriginalSettings/accounts/AddAccountSettings$1;->this$0:Lcom/android/OriginalSettings/accounts/AddAccountSettings;
 
     #getter for: Lcom/android/OriginalSettings/accounts/AddAccountSettings;->mPendingIntent:Landroid/app/PendingIntent;
@@ -101,7 +101,7 @@
 
     invoke-virtual {v2}, Landroid/app/PendingIntent;->cancel()V
 
-    .line 79
+    .line 88
     :cond_0
     const-string v2, "AccountSettings"
 
@@ -140,22 +140,22 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Landroid/accounts/AuthenticatorException; {:try_start_0 .. :try_end_0} :catch_2
 
-    .line 87
+    .line 96
     :cond_1
     iget-object v2, p0, Lcom/android/OriginalSettings/accounts/AddAccountSettings$1;->this$0:Lcom/android/OriginalSettings/accounts/AddAccountSettings;
 
     invoke-virtual {v2}, Lcom/android/OriginalSettings/accounts/AddAccountSettings;->finish()V
 
-    .line 89
+    .line 98
     .end local v0           #bundle:Landroid/os/Bundle;
     :goto_0
     return-void
 
-    .line 80
+    .line 89
     :catch_0
     move-exception v1
 
-    .line 81
+    .line 90
     .local v1, e:Landroid/accounts/OperationCanceledException;
     :try_start_1
     const-string v2, "AccountSettings"
@@ -176,7 +176,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 87
+    .line 96
     :cond_2
     iget-object v2, p0, Lcom/android/OriginalSettings/accounts/AddAccountSettings$1;->this$0:Lcom/android/OriginalSettings/accounts/AddAccountSettings;
 
@@ -184,12 +184,12 @@
 
     goto :goto_0
 
-    .line 82
+    .line 91
     .end local v1           #e:Landroid/accounts/OperationCanceledException;
     :catch_1
     move-exception v1
 
-    .line 83
+    .line 92
     .local v1, e:Ljava/io/IOException;
     :try_start_2
     const-string v2, "AccountSettings"
@@ -226,7 +226,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 87
+    .line 96
     :cond_3
     iget-object v2, p0, Lcom/android/OriginalSettings/accounts/AddAccountSettings$1;->this$0:Lcom/android/OriginalSettings/accounts/AddAccountSettings;
 
@@ -234,12 +234,12 @@
 
     goto :goto_0
 
-    .line 84
+    .line 93
     .end local v1           #e:Ljava/io/IOException;
     :catch_2
     move-exception v1
 
-    .line 85
+    .line 94
     .local v1, e:Landroid/accounts/AuthenticatorException;
     :try_start_3
     const-string v2, "AccountSettings"
@@ -276,7 +276,7 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 87
+    .line 96
     :cond_4
     iget-object v2, p0, Lcom/android/OriginalSettings/accounts/AddAccountSettings$1;->this$0:Lcom/android/OriginalSettings/accounts/AddAccountSettings;
 

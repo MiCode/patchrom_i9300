@@ -3,12 +3,12 @@
 .source "WifiP2pSettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->onCreate(Landroid/os/Bundle;)V
+    value = Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 554
+    .line 712
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$7;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,129 +37,49 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method public onFailure(I)V
     .locals 3
-    .parameter "dialog"
-    .parameter "which"
+    .parameter "reason"
 
     .prologue
-    const/4 v2, 0x0
-
-    .line 557
-    const/4 v0, -0x1
-
-    if-ne p2, v0, :cond_0
-
-    .line 558
-    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$7;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
-
-    #getter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$000(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;)Landroid/net/wifi/p2p/WifiP2pManager;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    .line 559
-    invoke-static {v2}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$802(Z)Z
-
-    .line 560
-    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$7;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
-
-    #getter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->mPeersGroup:Lcom/android/OriginalSettings/ProgressCategory;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$100(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;)Lcom/android/OriginalSettings/ProgressCategory;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2, v2}, Lcom/android/OriginalSettings/ProgressCategory;->setProgressText(ZI)V
-
-    .line 561
-    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$7;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
-
-    #getter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->mPeersGroup:Lcom/android/OriginalSettings/ProgressCategory;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$100(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;)Lcom/android/OriginalSettings/ProgressCategory;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Lcom/android/OriginalSettings/ProgressCategory;->setProgress(Z)V
-
-    .line 563
-    invoke-static {}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$1300()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 564
+    .line 717
     const-string v0, "WifiP2pSettings"
 
-    const-string v1, "cancelConnect ====> removeGroup()"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 565
-    invoke-static {v2}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$1302(Z)Z
+    const-string v2, " connect fail "
 
-    .line 566
-    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$7;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
-
-    #getter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$000(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;)Landroid/net/wifi/p2p/WifiP2pManager;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$7;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
-
-    #getter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
-    invoke-static {v1}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$600(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;)Landroid/net/wifi/p2p/WifiP2pManager$Channel;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$7$1;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-direct {v2, p0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$7$1;-><init>(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$7;)V
+    move-result-object v1
 
-    invoke-virtual {v0, v1, v2}, Landroid/net/wifi/p2p/WifiP2pManager;->removeGroup(Landroid/net/wifi/p2p/WifiP2pManager$Channel;Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;)V
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 591
-    :cond_0
-    :goto_0
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 718
     return-void
+.end method
 
-    .line 576
-    :cond_1
+.method public onSuccess()V
+    .locals 2
+
+    .prologue
+    .line 714
     const-string v0, "WifiP2pSettings"
 
-    const-string v1, "cancelConnect ====> cancelConnect()"
+    const-string v1, " connect success"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 577
-    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$7;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
-
-    #setter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->mMultiButOneDev:Z
-    invoke-static {v0, v2}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$1102(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;Z)Z
-
-    .line 578
-    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$7;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
-
-    #getter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$000(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;)Landroid/net/wifi/p2p/WifiP2pManager;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$7;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;
-
-    #getter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
-    invoke-static {v1}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;->access$600(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings;)Landroid/net/wifi/p2p/WifiP2pManager$Channel;
-
-    move-result-object v1
-
-    new-instance v2, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$7$2;
-
-    invoke-direct {v2, p0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$7$2;-><init>(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pSettings$7;)V
-
-    invoke-virtual {v0, v1, v2}, Landroid/net/wifi/p2p/WifiP2pManager;->cancelConnect(Landroid/net/wifi/p2p/WifiP2pManager$Channel;Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;)V
-
-    goto :goto_0
+    .line 715
+    return-void
 .end method

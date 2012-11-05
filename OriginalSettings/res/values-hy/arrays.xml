@@ -18,12 +18,15 @@
         <item>10 րոպե</item>
         <item>30 րոպե</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 վայրկյան</item>
         <item>30 վայրկյան</item>
         <item>1 րոպե</item>
-        <item>2 րոպե</item>
+        <item>3 րոպե</item>
         <item>5 րոպե</item>
+        <item>10 րոպե</item>
+        <item>15 րոպե</item>
+        <item>30 րոպե</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Երբեք</item>
@@ -34,6 +37,18 @@
         <item>5 րոպե</item>
         <item>10 րոպե</item>
         <item>30 րոպե</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 վայրկյան</item>
+        <item>30 վայրկյան</item>
+        <item>1 րոպե</item>
+        <item>3 րոպե</item>
+        <item>5 րոպե</item>
+        <item>10 րոպե</item>
+        <item>15 րոպե</item>
+        <item>30 րոպե</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>Անմիջապես</item>
@@ -93,17 +108,7 @@
         <item>Անջատված է</item>
         <item>Անհաջող</item>
         <item>Միացված է</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Temporarily avoiding poor connection</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>Անջատված է</item>
         <item>Անհաջող</item>
         <item>Միացված է</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Temporarily avoiding poor connection</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>Բացել</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Սեղմակոճակ</item>
+        <item>PIN միակարգ սարքից</item>
+        <item>PIN այս սարքից</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Միացված է</item>
+        <item>Հրավիրված եք</item>
+        <item>Միացումը ձախողվեց</item>
+        <item>Թակել միանալու համար</item>
+        <item>Ընդգրկույթից դուրս</item>
+        <item>Միացված է այլ սարքի հետ</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>Երբեք ժամանակի սպառում</item>
@@ -152,6 +155,10 @@
         <item>20 րոպե</item>
         <item>30 րոպե</item>
         <item>60 րոպե</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Թ. տալ բոլոր սարքերը</item>
+        <item>Միայն թույլատրված սարքեր</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>Ավտոմատ</item>
@@ -178,19 +185,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-    </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Սեղմակոճակ</item>
-        <item>PIN միակարգ սարքից</item>
-        <item>PIN այս սարքից</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Միացված է</item>
-        <item>Հրավիրված եք</item>
-        <item>Միացումը ձախողվեց</item>
-        <item>Թակել միանալու համար</item>
-        <item>Ընդգրկույթից դուրս</item>
-        <item>Միացված է այլ սարքի հետ</item>
     </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 րոպե</item>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -267,16 +262,6 @@
         <item>Չկա</item>
         <item>Ձեռքով</item>
     </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Նորմալ</item>
-        <item>Downtown</item>
-        <item>Տուն</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>Սա ամենաընդհանուր Wi-Fi միացման դրվածքն է</item>
-        <item>Եթե գտնվում եք շատ Wi-Fi ցանցերով տարածքում, Wi-Fi-ը հաճախակի կվերամիանա ազդանշանի ավելի լավ ուժգնության համար</item>
-        <item>Եթե գտնվում եք քիչ Wi-Fi ցանցերով տարածքում, Wi-Fi միացումը պահպանվում է հնարավորինս երկար</item>
-    </string-array>
     <string-array name="emergency_tone_entries">
         <item>Անջատված է</item>
         <item>Ազդանշան</item>
@@ -302,11 +287,6 @@
         <item>Սարքի ներքին պահոց</item>
         <item>Հեռացնելի SD քարտ</item>
         <item>Կանխադրված</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>Անջտված է</item>
-        <item>Թրթռալ</item>
-        <item>Անձայն</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Կարճ</item>
@@ -341,6 +321,15 @@
         <item>Շարժապատկերի մասշտաբ 5x</item>
         <item>Շարժապատկերի մասշտաբ 10x</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Շարժապատկերումն անջատված է</item>
+        <item>Շարժապատկերի մասշտաբ 0.5x</item>
+        <item>Շարժապատկերի մասշտաբ 1x</item>
+        <item>Շարժապատկերի մասշտաբ 1.5x</item>
+        <item>Շարժապատկերի մասշտաբ 2x</item>
+        <item>Շարժապատկերի մասշտաբ 5x</item>
+        <item>Շարժապատկերի մասշտաբ 10x</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>Սովորական սահմանափակում</item>
         <item>Ֆոնային պրոցեսներ չկան</item>
@@ -365,22 +354,8 @@
         <item>Ժամանակի սպառում</item>
         <item>Անհաջող</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>USB պահոց</item>
+        <item>Սարք</item>
         <item>SD քարտ</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -410,15 +385,28 @@
         <item>Լուսանկարներ</item>
         <item>Երաժշտությն</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>Բարձր</item>
-        <item>Միջին</item>
-        <item>Ցածր</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Ավտոմատ</item>
         <item>Ձեռքով</item>
         <item>Միշտ հարցնել</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Միշտ անջատված</item>
+        <item>3 վայրկյան</item>
+        <item>5 վայրկյան</item>
+        <item>10 վայրկյան</item>
+        <item>15 վայրկյան</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Չկա</item>
+        <item>Բոլոր կոնտակտները</item>
+        <item>Սիրվածները</item>
+        <item>Կարգավորել</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>Բարձր</item>
+        <item>Միջին</item>
+        <item>Ցածր</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1,5 վայրկյան</item>
@@ -434,11 +422,24 @@
     <string-array name="contents_type_entries">
         <item>Լուրեր</item>
         <item>Բաժնետոմս</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Նորություններ</item>
+        <item>Բաժնետոմս</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>Դանդաղ</item>
         <item>Նորմալ</item>
         <item>Արագ</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Չկա</item>
+        <item>Յուրաքանչյուր 30 րոպե</item>
+        <item>Ամեն մեկ ժամում</item>
+        <item>Ամեն 2 ժամ</item>
+        <item>Ամեն 4 ժամ</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>Ականջակալ</item>
@@ -446,5 +447,9 @@
         <item>Հեռախոս</item>
         <item>HID (ստեղնաշար, մուկ և այլ.)</item>
         <item>Բոլոր սարքերը</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Ստերեո</item>
+        <item>Շրջապատում</item>
     </string-array>
 </resources>

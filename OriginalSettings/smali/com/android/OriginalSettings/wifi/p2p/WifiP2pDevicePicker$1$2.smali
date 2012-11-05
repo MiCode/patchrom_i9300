@@ -3,7 +3,7 @@
 .source "WifiP2pDevicePicker.java"
 
 # interfaces
-.implements Landroid/net/wifi/p2p/WifiP2pManager$GroupInfoListener;
+.implements Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 210
+    .line 244
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$1$2;->this$1:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$1;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,19 +37,49 @@
 
 
 # virtual methods
-.method public onGroupInfoAvailable(Landroid/net/wifi/p2p/WifiP2pGroup;)V
-    .locals 1
-    .parameter "group"
+.method public onFailure(I)V
+    .locals 3
+    .parameter "reason"
 
     .prologue
-    .line 212
-    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$1$2;->this$1:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$1;
+    .line 249
+    const-string v0, "WifiP2pDevicePicker"
 
-    iget-object v0, v0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$1;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    #setter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->mCreatedGroupInfo:Landroid/net/wifi/p2p/WifiP2pGroup;
-    invoke-static {v0, p1}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->access$502(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;Landroid/net/wifi/p2p/WifiP2pGroup;)Landroid/net/wifi/p2p/WifiP2pGroup;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 213
+    const-string v2, " connect fail "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 250
+    return-void
+.end method
+
+.method public onSuccess()V
+    .locals 2
+
+    .prologue
+    .line 246
+    const-string v0, "WifiP2pDevicePicker"
+
+    const-string v1, " connect success"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 247
     return-void
 .end method

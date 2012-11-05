@@ -25,7 +25,7 @@
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/BaseActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 35
-    const v0, 0x7f0400ec
+    const v0, 0x7f04010f
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDummyPickerActivity;->setContentView(I)V
 

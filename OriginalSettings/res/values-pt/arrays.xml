@@ -43,7 +43,7 @@
         <item>Pequeno</item>
         <item>Normal</item>
         <item>Grande</item>
-        <item>Extragrande</item>
+        <item>Enorme</item>
     </string-array>
     <string-array name="tts_rate_entries">
         <item>Muito devagar</item>
@@ -70,6 +70,8 @@
         <item>Desconectando…</item>
         <item>Desconectado</item>
         <item>Falha</item>
+        <item>Bloqueado</item>
+        <item>Temporariamente evitando uma conexão ruim</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -82,11 +84,14 @@
         <item>Desconectando da %1$s…</item>
         <item>Desconectado</item>
         <item>Falha</item>
+        <item>Bloqueado</item>
+        <item>Temporariamente evitando uma conexão ruim</item>
     </string-array>
     <string-array name="wifi_eap_method">
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_p2p_wps_setup">
         <item>Pressione o botão</item>
@@ -107,7 +112,6 @@
         <item>Nunca definir tempo limite</item>
     </string-array>
     <string-array name="wifi_signal">
-        <item>Ruim</item>
         <item>Ruim</item>
         <item>Bom</item>
         <item>Bom</item>
@@ -137,6 +141,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase2_entries">
         <item>Nenhum</item>
@@ -144,12 +149,6 @@
         <item>MSCHAP</item>
         <item>MSCHAPV2</item>
         <item>GTC</item>
-    </string-array>
-    <string-array name="wifi_network_setup">
-        <item>Desativado</item>
-        <item>Pressione o botão</item>
-        <item>Pin do ponto de acesso</item>
-        <item>PIN deste dispositivo</item>
     </string-array>
     <string-array name="wifi_ip_settings">
         <item>DHCP</item>
@@ -202,21 +201,30 @@
     </string-array>
     <string-array name="window_animation_scale_entries">
         <item>Animação desligada</item>
-        <item>Animação escala 0,5 x</item>
-        <item>Animação escala 1x</item>
+        <item>Escala da animação 0,5 x</item>
+        <item>Escala da animação 1x</item>
         <item>Escala de animação 1,5 x</item>
-        <item>Animação escala 2x</item>
+        <item>Escala da animação 2x</item>
         <item>Escala de animação 5 x</item>
         <item>Escala de animação 10 x</item>
     </string-array>
     <string-array name="transition_animation_scale_entries">
         <item>Animação desligada</item>
-        <item>Animação escala 0,5 x</item>
-        <item>Animação escala 1x</item>
+        <item>Escala da animação 0,5 x</item>
+        <item>Escala da animação 1x</item>
         <item>Escala de animação 1,5 x</item>
-        <item>Animação escala 2x</item>
+        <item>Escala da animação 2x</item>
         <item>Escala de animação 5 x</item>
         <item>Escala de animação 10 x</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Animação desativada</item>
+        <item>Escala de animação 5x</item>
+        <item>Escala de animação 1x</item>
+        <item>Escala de animação 1.5 x</item>
+        <item>Escala de animação 2x</item>
+        <item>Escala de animação 5x</item>
+        <item>Escala de animação 10x</item>
     </string-array>
     <string-array name="app_process_limit_entries">
         <item>Limite padrão</item>
@@ -241,11 +249,5 @@
         <item>Conectado</item>
         <item>Tempo limite</item>
         <item>Malsucedida</item>
-    </string-array>
-    <string-array name="vibrate_entries">
-        <item>Sempre</item>
-        <item>Nunca</item>
-        <item>Somente no modo silencioso</item>
-        <item>Somente fora do modo silencioso</item>
     </string-array>
 </resources>

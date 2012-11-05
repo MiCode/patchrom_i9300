@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 63
+    .line 66
     iput-object p1, p0, Lcom/android/OriginalSettings/MasterClearModemReset$1;->this$0:Lcom/android/OriginalSettings/MasterClearModemReset;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,7 +39,7 @@
     .parameter "msg"
 
     .prologue
-    .line 65
+    .line 68
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v1
@@ -50,24 +50,24 @@
 
     move-result v0
 
-    .line 67
+    .line 70
     .local v0, error:I
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 73
+    .line 76
     const-string v1, "MasterClearModemReset"
 
     const-string v2, "Something weird happened"
 
     invoke-static {v1, v2}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 77
+    .line 80
     :goto_0
     return-void
 
-    .line 69
+    .line 72
     :pswitch_0
     const-string v1, "MasterClearModemReset"
 
@@ -75,7 +75,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 70
+    .line 73
     iget-object v1, p0, Lcom/android/OriginalSettings/MasterClearModemReset$1;->this$0:Lcom/android/OriginalSettings/MasterClearModemReset;
 
     #calls: Lcom/android/OriginalSettings/MasterClearModemReset;->sendMasterClearIntent()V
@@ -83,7 +83,7 @@
 
     goto :goto_0
 
-    .line 67
+    .line 70
     :pswitch_data_0
     .packed-switch 0x3f0
         :pswitch_0

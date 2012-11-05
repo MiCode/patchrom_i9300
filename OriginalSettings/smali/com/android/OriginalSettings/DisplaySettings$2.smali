@@ -1,5 +1,5 @@
 .class Lcom/android/OriginalSettings/DisplaySettings$2;
-.super Landroid/database/ContentObserver;
+.super Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
 .source "DisplaySettings.java"
 
 
@@ -19,33 +19,31 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/OriginalSettings/DisplaySettings;Landroid/os/Handler;)V
+.method constructor <init>(Lcom/android/OriginalSettings/DisplaySettings;)V
     .locals 0
     .parameter
-    .parameter "x0"
 
     .prologue
-    .line 169
+    .line 223
     iput-object p1, p0, Lcom/android/OriginalSettings/DisplaySettings$2;->this$0:Lcom/android/OriginalSettings/DisplaySettings;
 
-    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
+    invoke-direct {p0}, Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onChange(Z)V
+.method public onChange()V
     .locals 1
-    .parameter "selfChange"
 
     .prologue
-    .line 172
+    .line 226
     iget-object v0, p0, Lcom/android/OriginalSettings/DisplaySettings$2;->this$0:Lcom/android/OriginalSettings/DisplaySettings;
 
     #calls: Lcom/android/OriginalSettings/DisplaySettings;->updateAccelerometerRotationCheckbox()V
     invoke-static {v0}, Lcom/android/OriginalSettings/DisplaySettings;->access$100(Lcom/android/OriginalSettings/DisplaySettings;)V
 
-    .line 173
+    .line 227
     return-void
 .end method

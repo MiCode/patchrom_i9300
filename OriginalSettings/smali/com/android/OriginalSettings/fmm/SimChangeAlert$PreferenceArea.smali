@@ -22,7 +22,7 @@
     .locals 0
 
     .prologue
-    .line 270
+    .line 277
     invoke-direct {p0}, Landroid/preference/PreferenceFragment;-><init>()V
 
     return-void
@@ -37,15 +37,15 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 273
+    .line 280
     invoke-super {p0, p1}, Landroid/preference/PreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 275
-    const v0, 0x7f070007
+    .line 282
+    const v0, 0x7f070008
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert$PreferenceArea;->addPreferencesFromResource(I)V
 
-    .line 277
+    .line 284
     const-string v0, "message_preference"
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert$PreferenceArea;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -56,7 +56,7 @@
 
     invoke-static {v0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->access$702(Landroid/preference/EditTextPreference;)Landroid/preference/EditTextPreference;
 
-    .line 278
+    .line 285
     invoke-static {}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->access$700()Landroid/preference/EditTextPreference;
 
     move-result-object v0
@@ -67,14 +67,14 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setSelectAllOnFocus(Z)V
 
-    .line 279
+    .line 286
     invoke-static {}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->access$700()Landroid/preference/EditTextPreference;
 
     move-result-object v0
 
     invoke-virtual {v0, p0}, Landroid/preference/EditTextPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 280
+    .line 287
     invoke-static {}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->access$700()Landroid/preference/EditTextPreference;
 
     move-result-object v0
@@ -97,7 +97,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setFilters([Landroid/text/InputFilter;)V
 
-    .line 281
+    .line 288
     invoke-static {}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->access$700()Landroid/preference/EditTextPreference;
 
     move-result-object v0
@@ -112,7 +112,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
-    .line 303
+    .line 310
     return-void
 .end method
 
@@ -124,12 +124,12 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 307
+    .line 314
     invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 309
+    .line 316
     .local v0, key:Ljava/lang/String;
     const-string v1, "message_preference"
 
@@ -139,7 +139,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 310
+    .line 317
     invoke-static {}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->access$700()Landroid/preference/EditTextPreference;
 
     move-result-object v1
@@ -154,12 +154,12 @@
 
     if-nez v1, :cond_1
 
-    .line 311
+    .line 318
     invoke-virtual {p0}, Lcom/android/OriginalSettings/fmm/SimChangeAlert$PreferenceArea;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    const v2, 0x7f0d0006
+    const v2, 0x7f09000e
 
     invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -167,12 +167,12 @@
 
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
-    .line 319
+    .line 326
     :cond_0
     :goto_0
     return v3
 
-    .line 315
+    .line 322
     :cond_1
     invoke-static {}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->access$700()Landroid/preference/EditTextPreference;
 
@@ -184,7 +184,7 @@
 
     invoke-virtual {v1, v2}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 316
+    .line 323
     invoke-static {}, Lcom/android/OriginalSettings/fmm/SimChangeAlert;->access$700()Landroid/preference/EditTextPreference;
 
     move-result-object v1

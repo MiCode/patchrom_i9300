@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 207
+    .line 206
     iput-object p1, p0, Lcom/android/OriginalSettings/SettingsLicenseActivity$3;->this$0:Lcom/android/OriginalSettings/SettingsLicenseActivity;
 
     invoke-direct {p0}, Landroid/webkit/WebViewClient;-><init>()V
@@ -40,7 +40,7 @@
     .parameter "url"
 
     .prologue
-    .line 210
+    .line 209
     iget-object v0, p0, Lcom/android/OriginalSettings/SettingsLicenseActivity$3;->this$0:Lcom/android/OriginalSettings/SettingsLicenseActivity;
 
     #getter for: Lcom/android/OriginalSettings/SettingsLicenseActivity;->mSpinnerDlg:Landroid/app/ProgressDialog;
@@ -50,17 +50,16 @@
 
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V
 
-    .line 211
+    .line 210
     iget-object v0, p0, Lcom/android/OriginalSettings/SettingsLicenseActivity$3;->this$0:Lcom/android/OriginalSettings/SettingsLicenseActivity;
 
-    #getter for: Lcom/android/OriginalSettings/SettingsLicenseActivity;->mTextDlg:Landroid/app/AlertDialog;
-    invoke-static {v0}, Lcom/android/OriginalSettings/SettingsLicenseActivity;->access$300(Lcom/android/OriginalSettings/SettingsLicenseActivity;)Landroid/app/AlertDialog;
+    invoke-virtual {v0}, Lcom/android/OriginalSettings/SettingsLicenseActivity;->isFinishing()Z
 
-    move-result-object v0
+    move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
-    .line 212
+    .line 211
     iget-object v0, p0, Lcom/android/OriginalSettings/SettingsLicenseActivity$3;->this$0:Lcom/android/OriginalSettings/SettingsLicenseActivity;
 
     #getter for: Lcom/android/OriginalSettings/SettingsLicenseActivity;->mTextDlg:Landroid/app/AlertDialog;

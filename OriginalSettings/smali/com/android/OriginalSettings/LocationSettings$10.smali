@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 356
+    .line 334
     iput-object p1, p0, Lcom/android/OriginalSettings/LocationSettings$10;->this$0:Lcom/android/OriginalSettings/LocationSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 358
+    .line 336
     iget-object v0, p0, Lcom/android/OriginalSettings/LocationSettings$10;->this$0:Lcom/android/OriginalSettings/LocationSettings;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/LocationSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -56,7 +56,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 359
+    .line 337
     iget-object v0, p0, Lcom/android/OriginalSettings/LocationSettings$10;->this$0:Lcom/android/OriginalSettings/LocationSettings;
 
     #getter for: Lcom/android/OriginalSettings/LocationSettings;->mAssistedGps:Landroid/preference/CheckBoxPreference;
@@ -66,6 +66,6 @@
 
     invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 360
+    .line 338
     return-void
 .end method

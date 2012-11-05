@@ -117,7 +117,7 @@
 
     .prologue
     .line 100
-    const v0, 0x7f0400dc
+    const v0, 0x7f040102
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/wifi/WifiConnectionPreference;->setLayoutResource(I)V
 

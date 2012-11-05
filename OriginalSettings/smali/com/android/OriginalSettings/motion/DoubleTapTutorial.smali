@@ -60,10 +60,10 @@
 
     :array_0
     .array-data 0x4
-        0x88t 0x1t 0x2t 0x7ft
-        0x89t 0x1t 0x2t 0x7ft
-        0x88t 0x1t 0x2t 0x7ft
-        0x89t 0x1t 0x2t 0x7ft
+        0xe6t 0x1t 0x2t 0x7ft
+        0xe7t 0x1t 0x2t 0x7ft
+        0xe6t 0x1t 0x2t 0x7ft
+        0xe7t 0x1t 0x2t 0x7ft
     .end array-data
 .end method
 
@@ -112,14 +112,14 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mHandler:Landroid/os/Handler;
 
-    .line 108
+    .line 101
     new-instance v0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$3;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$3;-><init>(Lcom/android/OriginalSettings/motion/DoubleTapTutorial;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mMotionListener:Landroid/hardware/motion/MRListener;
 
-    .line 367
+    .line 360
     return-void
 .end method
 
@@ -229,12 +229,12 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 337
+    .line 330
     iget v1, p1, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$Header;->iconRes:I
 
     if-ge v1, v2, :cond_2
 
-    .line 338
+    .line 331
     new-instance v0, Landroid/preference/PreferenceCategory;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->getActivity()Landroid/app/Activity;
@@ -243,18 +243,18 @@
 
     invoke-direct {v0, v1}, Landroid/preference/PreferenceCategory;-><init>(Landroid/content/Context;)V
 
-    .line 339
+    .line 332
     .local v0, pref:Landroid/preference/PreferenceCategory;
     iget v1, p1, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$Header;->titleRes:I
 
     if-ge v1, v2, :cond_1
 
-    .line 340
+    .line 333
     iget-object v1, p1, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$Header;->title:Ljava/lang/CharSequence;
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceCategory;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 344
+    .line 337
     :goto_0
     invoke-virtual {v0}, Landroid/preference/PreferenceCategory;->getTitle()Ljava/lang/CharSequence;
 
@@ -262,20 +262,20 @@
 
     if-eqz v1, :cond_0
 
-    .line 345
+    .line 338
     invoke-virtual {p0}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
 
-    .line 365
+    .line 358
     .end local v0           #pref:Landroid/preference/PreferenceCategory;
     :cond_0
     :goto_1
     return-void
 
-    .line 342
+    .line 335
     .restart local v0       #pref:Landroid/preference/PreferenceCategory;
     :cond_1
     iget v1, p1, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$Header;->titleRes:I
@@ -284,7 +284,7 @@
 
     goto :goto_0
 
-    .line 348
+    .line 341
     .end local v0           #pref:Landroid/preference/PreferenceCategory;
     :cond_2
     new-instance v0, Landroid/preference/Preference;
@@ -295,18 +295,18 @@
 
     invoke-direct {v0, v1}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    .line 349
+    .line 342
     .local v0, pref:Landroid/preference/Preference;
     iget v1, p1, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$Header;->titleRes:I
 
     if-ge v1, v2, :cond_3
 
-    .line 350
+    .line 343
     iget-object v1, p1, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$Header;->title:Ljava/lang/CharSequence;
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 355
+    .line 348
     :goto_2
     invoke-virtual {v0}, Landroid/preference/Preference;->getTitle()Ljava/lang/CharSequence;
 
@@ -314,33 +314,17 @@
 
     if-eqz v1, :cond_0
 
-    .line 356
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/app/Activity;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v1
-
-    iget v1, v1, Landroid/content/pm/ApplicationInfo;->theme:I
-
-    const v2, 0x1030128
-
-    if-ne v1, v2, :cond_4
-
-    .line 357
-    const v1, 0x10900ed
+    .line 352
+    const v1, 0x10900bd
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setLayoutResource(I)V
 
-    .line 361
-    :goto_3
+    .line 354
     iget v1, p1, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$Header;->iconRes:I
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setIcon(I)V
 
-    .line 362
+    .line 355
     invoke-virtual {p0}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
@@ -349,21 +333,13 @@
 
     goto :goto_1
 
-    .line 352
+    .line 345
     :cond_3
     iget v1, p1, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$Header;->titleRes:I
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setTitle(I)V
 
     goto :goto_2
-
-    .line 359
-    :cond_4
-    const v1, 0x1090097
-
-    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setLayoutResource(I)V
-
-    goto :goto_3
 .end method
 
 .method private addHeaderPreferencesFromRes(I)V
@@ -377,10 +353,10 @@
 
     const/4 v11, 0x3
 
-    .line 284
+    .line 277
     const/4 v5, 0x0
 
-    .line 286
+    .line 279
     .local v5, parser:Landroid/content/res/XmlResourceParser;
     :try_start_0
     invoke-virtual {p0}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->getResources()Landroid/content/res/Resources;
@@ -391,12 +367,12 @@
 
     move-result-object v5
 
-    .line 287
+    .line 280
     invoke-static {v5}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object v0
 
-    .line 291
+    .line 284
     .local v0, attrs:Landroid/util/AttributeSet;
     :cond_0
     invoke-interface {v5}, Landroid/content/res/XmlResourceParser;->next()I
@@ -408,13 +384,13 @@
 
     if-ne v8, v10, :cond_0
 
-    .line 294
+    .line 287
     :cond_1
     invoke-interface {v5}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 295
+    .line 288
     .local v3, nodeName:Ljava/lang/String;
     const-string v9, "preference-headers"
 
@@ -424,7 +400,7 @@
 
     if-nez v9, :cond_3
 
-    .line 296
+    .line 289
     new-instance v9, Ljava/lang/RuntimeException;
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -466,38 +442,38 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 330
+    .line 323
     .end local v0           #attrs:Landroid/util/AttributeSet;
     .end local v3           #nodeName:Ljava/lang/String;
     .end local v8           #type:I
     :catch_0
     move-exception v9
 
-    .line 332
+    .line 325
     if-eqz v5, :cond_2
 
     invoke-interface {v5}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 334
+    .line 327
     :cond_2
     :goto_0
     return-void
 
-    .line 301
+    .line 294
     .restart local v0       #attrs:Landroid/util/AttributeSet;
     .restart local v3       #nodeName:Ljava/lang/String;
     .restart local v8       #type:I
     :cond_3
     const/4 v1, 0x0
 
-    .line 303
+    .line 296
     .local v1, curBundle:Landroid/os/Bundle;
     :try_start_1
     invoke-interface {v5}, Landroid/content/res/XmlResourceParser;->getDepth()I
 
     move-result v4
 
-    .line 305
+    .line 298
     .local v4, outerDepth:I
     :cond_4
     :goto_1
@@ -515,7 +491,7 @@
 
     if-le v9, v4, :cond_9
 
-    .line 306
+    .line 299
     :cond_5
     if-eq v8, v11, :cond_4
 
@@ -523,12 +499,12 @@
 
     if-eq v8, v9, :cond_4
 
-    .line 310
+    .line 303
     invoke-interface {v5}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 311
+    .line 304
     const-string v9, "header"
 
     invoke-virtual {v9, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -537,12 +513,12 @@
 
     if-eqz v9, :cond_4
 
-    .line 312
+    .line 305
     new-instance v2, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$Header;
 
     invoke-direct {v2, p0}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$Header;-><init>(Lcom/android/OriginalSettings/motion/DoubleTapTutorial;)V
 
-    .line 314
+    .line 307
     .local v2, header:Lcom/android/OriginalSettings/motion/DoubleTapTutorial$Header;
     invoke-virtual {p0}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->getResources()Landroid/content/res/Resources;
 
@@ -554,7 +530,7 @@
 
     move-result-object v6
 
-    .line 316
+    .line 309
     .local v6, sa:Landroid/content/res/TypedArray;
     const/4 v9, 0x2
 
@@ -562,7 +538,7 @@
 
     move-result-object v7
 
-    .line 318
+    .line 311
     .local v7, tv:Landroid/util/TypedValue;
     if-eqz v7, :cond_6
 
@@ -570,17 +546,17 @@
 
     if-ne v9, v11, :cond_6
 
-    .line 319
+    .line 312
     iget v9, v7, Landroid/util/TypedValue;->resourceId:I
 
     if-eqz v9, :cond_8
 
-    .line 320
+    .line 313
     iget v9, v7, Landroid/util/TypedValue;->resourceId:I
 
     iput v9, v2, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$Header;->titleRes:I
 
-    .line 325
+    .line 318
     :cond_6
     :goto_2
     const/4 v9, 0x0
@@ -593,10 +569,10 @@
 
     iput v9, v2, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$Header;->iconRes:I
 
-    .line 326
+    .line 319
     invoke-direct {p0, v2}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->addHeaderPreference(Lcom/android/OriginalSettings/motion/DoubleTapTutorial$Header;)V
 
-    .line 327
+    .line 320
     invoke-virtual {v6}, Landroid/content/res/TypedArray;->recycle()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -604,7 +580,7 @@
 
     goto :goto_1
 
-    .line 332
+    .line 325
     .end local v0           #attrs:Landroid/util/AttributeSet;
     .end local v1           #curBundle:Landroid/os/Bundle;
     .end local v2           #header:Lcom/android/OriginalSettings/motion/DoubleTapTutorial$Header;
@@ -623,7 +599,7 @@
     :cond_7
     throw v9
 
-    .line 322
+    .line 315
     .restart local v0       #attrs:Landroid/util/AttributeSet;
     .restart local v1       #curBundle:Landroid/os/Bundle;
     .restart local v2       #header:Lcom/android/OriginalSettings/motion/DoubleTapTutorial$Header;
@@ -643,7 +619,7 @@
 
     goto :goto_2
 
-    .line 332
+    .line 325
     .end local v2           #header:Lcom/android/OriginalSettings/motion/DoubleTapTutorial$Header;
     .end local v6           #sa:Landroid/content/res/TypedArray;
     .end local v7           #tv:Landroid/util/TypedValue;
@@ -659,22 +635,22 @@
     .locals 3
 
     .prologue
-    .line 195
+    .line 188
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mRetryDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
-    .line 196
+    .line 189
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mRetryDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 197
+    .line 190
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mRetryDialog:Landroid/app/AlertDialog;
 
-    .line 200
+    .line 193
     :cond_0
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
@@ -684,19 +660,19 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0d0876
+    const v1, 0x7f090a51
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0d0872
+    const v1, 0x7f090a4d
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0d0873
+    const v1, 0x7f090a4e
 
     new-instance v2, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$6;
 
@@ -706,7 +682,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0874
+    const v1, 0x7f090a4f
 
     new-instance v2, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$5;
 
@@ -722,7 +698,7 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mRetryDialog:Landroid/app/AlertDialog;
 
-    .line 219
+    .line 212
     return-void
 .end method
 
@@ -730,27 +706,27 @@
     .locals 2
 
     .prologue
-    .line 269
+    .line 262
     const-string v0, "DoubleTapTutorial"
 
     const-string v1, "startAnimation()"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 270
+    .line 263
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mAnimationHandler:Landroid/os/Handler;
 
     if-eqz v0, :cond_0
 
-    .line 271
+    .line 264
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mAnimationIndex:I
 
-    .line 272
+    .line 265
     invoke-direct {p0}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->updateAnimation()V
 
-    .line 274
+    .line 267
     :cond_0
     return-void
 .end method
@@ -759,26 +735,26 @@
     .locals 2
 
     .prologue
-    .line 277
+    .line 270
     const-string v0, "DoubleTapTutorial"
 
     const-string v1, "stopAnimation()"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 278
+    .line 271
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mAnimationHandler:Landroid/os/Handler;
 
     if-eqz v0, :cond_0
 
-    .line 279
+    .line 272
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mAnimationHandler:Landroid/os/Handler;
 
     const/16 v1, 0x66
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 281
+    .line 274
     :cond_0
     return-void
 .end method
@@ -789,7 +765,7 @@
     .prologue
     const/16 v3, 0x66
 
-    .line 249
+    .line 242
     const-string v0, "DoubleTapTutorial"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -812,14 +788,14 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 250
+    .line 243
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mAnimationView:Landroid/widget/ImageView;
 
     if-eqz v0, :cond_0
 
-    .line 251
+    .line 244
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mAnimationView:Landroid/widget/ImageView;
 
     sget-object v1, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mAnimationImage:[I
@@ -830,14 +806,14 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 252
+    .line 245
     iget v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mAnimationIndex:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mAnimationIndex:I
 
-    .line 255
+    .line 248
     :cond_0
     iget v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mAnimationIndex:I
 
@@ -845,32 +821,32 @@
 
     iput v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mAnimationIndex:I
 
-    .line 257
+    .line 250
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mAnimationHandler:Landroid/os/Handler;
 
     if-eqz v0, :cond_1
 
-    .line 258
+    .line 251
     invoke-direct {p0}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->stopAnimation()V
 
-    .line 259
+    .line 252
     iget v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mAnimationIndex:I
 
     if-nez v0, :cond_2
 
-    .line 260
+    .line 253
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mAnimationHandler:Landroid/os/Handler;
 
     const-wide/16 v1, 0x7d0
 
     invoke-virtual {v0, v3, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 266
+    .line 259
     :cond_1
     :goto_0
     return-void
 
-    .line 262
+    .line 255
     :cond_2
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mAnimationHandler:Landroid/os/Handler;
 
@@ -894,54 +870,54 @@
 
     const/4 v6, 0x0
 
-    .line 133
+    .line 126
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 134
-    const v4, 0x7f07004a
+    .line 127
+    const v4, 0x7f070056
 
     invoke-direct {p0, v4}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->addHeaderPreferencesFromRes(I)V
 
-    .line 136
+    .line 129
     invoke-virtual {p0}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    .line 137
+    .line 130
     .local v1, activity:Landroid/app/Activity;
     new-instance v0, Landroid/widget/ImageButton;
 
     invoke-direct {v0, v1}, Landroid/widget/ImageButton;-><init>(Landroid/content/Context;)V
 
-    .line 138
+    .line 131
     .local v0, actionBarImageBtn:Landroid/widget/ImageButton;
-    const v4, 0x7f02018a
+    const v4, 0x7f0201e8
 
     invoke-virtual {v0, v4}, Landroid/widget/ImageButton;->setImageResource(I)V
 
-    .line 139
-    const v4, 0x7f020296
+    .line 132
+    const v4, 0x7f020364
 
     invoke-virtual {v0, v4}, Landroid/widget/ImageButton;->setBackgroundResource(I)V
 
-    .line 140
+    .line 133
     new-instance v4, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$4;
 
     invoke-direct {v4, p0}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$4;-><init>(Lcom/android/OriginalSettings/motion/DoubleTapTutorial;)V
 
     invoke-virtual {v0, v4}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 146
+    .line 139
     instance-of v4, v1, Lmiui/preference/BasePreferenceActivity;
 
     if-eqz v4, :cond_1
 
     move-object v3, v1
 
-    .line 147
+    .line 140
     check-cast v3, Lmiui/preference/BasePreferenceActivity;
 
-    .line 148
+    .line 141
     .local v3, preferenceActivity:Lmiui/preference/BasePreferenceActivity;
     invoke-virtual {v3}, Lmiui/preference/BasePreferenceActivity;->onIsHidingHeaders()Z
 
@@ -955,30 +931,30 @@
 
     if-nez v4, :cond_1
 
-    .line 149
+    .line 142
     :cond_0
     invoke-virtual {v1}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    const v5, 0x7f0e0002
+    const v5, 0x7f0f0002
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v2
 
-    .line 150
+    .line 143
     .local v2, padding:I
     invoke-virtual {v0, v6, v6, v2, v6}, Landroid/widget/ImageButton;->setPadding(IIII)V
 
-    .line 151
+    .line 144
     invoke-virtual {v1}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v4
 
     invoke-virtual {v4, v8, v8}, Landroid/app/ActionBar;->setDisplayOptions(II)V
 
-    .line 152
+    .line 145
     invoke-virtual {v1}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v4
@@ -991,7 +967,7 @@
 
     invoke-virtual {v4, v0, v5}, Landroid/app/ActionBar;->setCustomView(Landroid/view/View;Landroid/app/ActionBar$LayoutParams;)V
 
-    .line 158
+    .line 151
     .end local v2           #padding:I
     .end local v3           #preferenceActivity:Lmiui/preference/BasePreferenceActivity;
     :cond_1
@@ -1009,26 +985,26 @@
 
     sput-object v4, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mMotionSensorManager:Landroid/hardware/motion/MotionRecognitionManager;
 
-    .line 159
+    .line 152
     const/4 v4, 0x1
 
     iput-boolean v4, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mCanDoubleTap:Z
 
-    .line 160
+    .line 153
     invoke-virtual {p0}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->getListView()Landroid/widget/ListView;
 
     move-result-object v4
 
     iput-object v4, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mListView:Landroid/widget/ListView;
 
-    .line 162
+    .line 155
     iget-object v4, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mListView:Landroid/widget/ListView;
 
     const/16 v5, 0x18
 
     invoke-virtual {v4, v5}, Landroid/widget/ListView;->smoothScrollToPosition(I)V
 
-    .line 163
+    .line 156
     return-void
 .end method
 
@@ -1037,15 +1013,15 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 126
+    .line 119
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 128
-    const v0, 0x7f070030
+    .line 121
+    const v0, 0x7f070037
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->addPreferencesFromResource(I)V
 
-    .line 129
+    .line 122
     return-void
 .end method
 
@@ -1053,25 +1029,25 @@
     .locals 2
 
     .prologue
-    .line 175
+    .line 168
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onPause()V
 
-    .line 176
+    .line 169
     invoke-direct {p0}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->stopAnimation()V
 
-    .line 177
+    .line 170
     sget-object v0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mMotionSensorManager:Landroid/hardware/motion/MotionRecognitionManager;
 
     if-eqz v0, :cond_0
 
-    .line 178
+    .line 171
     sget-object v0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mMotionSensorManager:Landroid/hardware/motion/MotionRecognitionManager;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mMotionListener:Landroid/hardware/motion/MRListener;
 
     invoke-virtual {v0, v1}, Landroid/hardware/motion/MotionRecognitionManager;->unregisterListener(Landroid/hardware/motion/MRListener;)V
 
-    .line 179
+    .line 172
     :cond_0
     return-void
 .end method
@@ -1080,13 +1056,13 @@
     .locals 3
 
     .prologue
-    .line 167
+    .line 160
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onResume()V
 
-    .line 168
+    .line 161
     invoke-direct {p0}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->updateAnimation()V
 
-    .line 169
+    .line 162
     sget-object v0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mMotionSensorManager:Landroid/hardware/motion/MotionRecognitionManager;
 
     if-eqz v0, :cond_0
@@ -1095,7 +1071,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 170
+    .line 163
     sget-object v0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mMotionSensorManager:Landroid/hardware/motion/MotionRecognitionManager;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mMotionListener:Landroid/hardware/motion/MRListener;
@@ -1104,7 +1080,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/hardware/motion/MotionRecognitionManager;->registerListenerEvent(Landroid/hardware/motion/MRListener;I)V
 
-    .line 171
+    .line 164
     :cond_0
     return-void
 .end method
@@ -1113,24 +1089,24 @@
     .locals 2
 
     .prologue
-    .line 183
+    .line 176
     const-string v0, "DoubleTapTutorial"
 
     const-string v1, "onStop : remove handler message"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 184
+    .line 177
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
 
-    .line 185
+    .line 178
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onStop()V
 
-    .line 186
+    .line 179
     return-void
 .end method
 
@@ -1140,7 +1116,7 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 223
+    .line 216
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->getActivity()Landroid/app/Activity;
@@ -1149,21 +1125,21 @@
 
     invoke-direct {v0, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 224
+    .line 217
     .local v0, builder:Landroid/app/AlertDialog$Builder;
     iget-object v4, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mGuideDialog:Landroid/app/AlertDialog;
 
     if-eqz v4, :cond_0
 
-    .line 225
+    .line 218
     iget-object v4, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mGuideDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v4}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 226
+    .line 219
     iput-object v6, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mGuideDialog:Landroid/app/AlertDialog;
 
-    .line 229
+    .line 222
     :cond_0
     invoke-virtual {p0}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->getActivity()Landroid/app/Activity;
 
@@ -1177,17 +1153,17 @@
 
     check-cast v1, Landroid/view/LayoutInflater;
 
-    .line 230
+    .line 223
     .local v1, inflater:Landroid/view/LayoutInflater;
-    const v4, 0x7f04004e
+    const v4, 0x7f04004c
 
     invoke-virtual {v1, v4, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v2
 
-    .line 231
+    .line 224
     .local v2, layout:Landroid/view/View;
-    const v4, 0x7f0a0033
+    const v4, 0x7f0b002a
 
     invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1195,9 +1171,9 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    .line 232
+    .line 225
     .local v3, message:Landroid/widget/TextView;
-    const v4, 0x7f0a00a9
+    const v4, 0x7f0b00b7
 
     invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1207,37 +1183,37 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mAnimationView:Landroid/widget/ImageView;
 
-    .line 234
-    const v4, 0x7f0d086d
+    .line 227
+    const v4, 0x7f090a47
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
-    .line 235
+    .line 228
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 236
-    const v4, 0x7f0d084f
+    .line 229
+    const v4, 0x7f090a28
 
     invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 237
-    const v4, 0x7f0d04ee
+    .line 230
+    const v4, 0x7f0905b8
 
     invoke-virtual {v0, v4, v6}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 238
+    .line 231
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v4
 
     iput-object v4, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mGuideDialog:Landroid/app/AlertDialog;
 
-    .line 239
+    .line 232
     iget-object v4, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mGuideDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v4}, Landroid/app/AlertDialog;->show()V
 
-    .line 240
+    .line 233
     iget-object v4, p0, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->mGuideDialog:Landroid/app/AlertDialog;
 
     new-instance v5, Lcom/android/OriginalSettings/motion/DoubleTapTutorial$7;
@@ -1246,9 +1222,9 @@
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    .line 245
+    .line 238
     invoke-direct {p0}, Lcom/android/OriginalSettings/motion/DoubleTapTutorial;->startAnimation()V
 
-    .line 246
+    .line 239
     return-void
 .end method

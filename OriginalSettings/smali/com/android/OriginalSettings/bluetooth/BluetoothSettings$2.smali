@@ -1,14 +1,11 @@
 .class Lcom/android/OriginalSettings/bluetooth/BluetoothSettings$2;
-.super Ljava/lang/Object;
+.super Landroid/preference/Preference;
 .source "BluetoothSettings.java"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;->updateContent(IZ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -22,110 +19,98 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;)V
+.method constructor <init>(Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;Landroid/content/Context;)V
     .locals 0
     .parameter
+    .parameter "x0"
 
     .prologue
-    .line 478
+    .line 546
     iput-object p1, p0, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings$2;->this$0:Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p2}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
-    .locals 7
-    .parameter
+.method protected onBindView(Landroid/view/View;)V
+    .locals 3
+    .parameter "view"
 
     .prologue
-    const/4 v4, 0x0
+    .line 549
+    invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    .line 481
-    invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
+    .line 550
+    const v1, 0x7f0b0239
 
-    move-result-object v0
-
-    instance-of v0, v0, Lcom/android/OriginalSettings/bluetooth/CachedBluetoothDevice;
-
-    if-eqz v0, :cond_0
-
-    .line 482
-    invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
+    invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/OriginalSettings/bluetooth/CachedBluetoothDevice;
+    check-cast v0, Landroid/widget/LinearLayout;
 
-    .line 484
-    new-instance v2, Landroid/os/Bundle;
+    .line 551
+    .local v0, layoutView:Landroid/widget/LinearLayout;
+    const/16 v1, 0x11
 
-    const/4 v1, 0x1
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    invoke-direct {v2, v1}, Landroid/os/Bundle;-><init>(I)V
+    .line 553
+    iget-object v2, p0, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings$2;->this$0:Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;
 
-    .line 485
-    const-string v1, "device"
+    const v1, 0x7f0b023a
 
-    invoke-virtual {v0}, Lcom/android/OriginalSettings/bluetooth/CachedBluetoothDevice;->getDevice()Landroid/bluetooth/BluetoothDevice;
-
-    move-result-object v0
-
-    invoke-virtual {v2, v1, v0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    .line 487
-    iget-object v0, p0, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings$2;->this$0:Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;
-
-    invoke-virtual {v0}, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v0
-
-    check-cast v0, Lmiui/preference/BasePreferenceActivity;
-
-    const-class v1, Lcom/android/OriginalSettings/bluetooth/DeviceProfilesSettings;
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    const v3, 0x7f0d01c0
+    check-cast v1, Landroid/widget/TextView;
 
-    const/4 v6, 0x0
+    #setter for: Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;->mButtonView:Landroid/widget/TextView;
+    invoke-static {v2, v1}, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;->access$202(Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;Landroid/widget/TextView;)Landroid/widget/TextView;
 
-    move-object v5, v4
+    .line 554
+    iget-object v1, p0, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings$2;->this$0:Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;
 
-    invoke-virtual/range {v0 .. v6}, Lmiui/preference/BasePreferenceActivity;->startPreferencePanel(Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/CharSequence;Landroid/app/Fragment;I)V
+    iget-object v1, v1, Lcom/android/OriginalSettings/bluetooth/DeviceListPreferenceFragment;->mLocalAdapter:Lcom/android/OriginalSettings/bluetooth/LocalBluetoothAdapter;
 
-    .line 493
+    invoke-virtual {v1}, Lcom/android/OriginalSettings/bluetooth/LocalBluetoothAdapter;->isDiscovering()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 555
+    iget-object v1, p0, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings$2;->this$0:Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;
+
+    #getter for: Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;->mButtonView:Landroid/widget/TextView;
+    invoke-static {v1}, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;->access$200(Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;)Landroid/widget/TextView;
+
+    move-result-object v1
+
+    const v2, 0x7f0905f3
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
+
+    .line 558
     :goto_0
     return-void
 
-    .line 491
+    .line 557
     :cond_0
-    const-string v0, "BluetoothSettings"
+    iget-object v1, p0, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings$2;->this$0:Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;
 
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "onClick() called for other View: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    #getter for: Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;->mButtonView:Landroid/widget/TextView;
+    invoke-static {v1}, Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;->access$200(Lcom/android/OriginalSettings/bluetooth/BluetoothSettings;)Landroid/widget/TextView;
 
     move-result-object v1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const v2, 0x7f090096
 
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
     goto :goto_0
 .end method

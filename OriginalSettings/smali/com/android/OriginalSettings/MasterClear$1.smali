@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 115
+    .line 113
     iput-object p1, p0, Lcom/android/OriginalSettings/MasterClear$1;->this$0:Lcom/android/OriginalSettings/MasterClear;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "v"
 
     .prologue
-    .line 118
+    .line 116
     iget-object v0, p0, Lcom/android/OriginalSettings/MasterClear$1;->this$0:Lcom/android/OriginalSettings/MasterClear;
 
     const/16 v1, 0x37
@@ -54,13 +54,13 @@
 
     if-nez v0, :cond_0
 
-    .line 119
+    .line 117
     iget-object v0, p0, Lcom/android/OriginalSettings/MasterClear$1;->this$0:Lcom/android/OriginalSettings/MasterClear;
 
     #calls: Lcom/android/OriginalSettings/MasterClear;->showFinalConfirmation()V
     invoke-static {v0}, Lcom/android/OriginalSettings/MasterClear;->access$100(Lcom/android/OriginalSettings/MasterClear;)V
 
-    .line 121
+    .line 119
     :cond_0
     return-void
 .end method

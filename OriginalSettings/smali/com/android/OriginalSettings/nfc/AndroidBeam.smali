@@ -167,7 +167,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0e0002
+    const v4, 0x7f0f0002
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -200,15 +200,6 @@
     invoke-direct {v5, v7, v7, v6}, Landroid/app/ActionBar$LayoutParams;-><init>(III)V
 
     invoke-virtual {v3, v4, v5}, Landroid/app/ActionBar;->setCustomView(Landroid/view/View;Landroid/app/ActionBar$LayoutParams;)V
-
-    .line 62
-    invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
-
-    move-result-object v3
-
-    const v4, 0x7f0d01da
-
-    invoke-virtual {v3, v4}, Landroid/app/ActionBar;->setTitle(I)V
 
     .line 66
     .end local v1           #padding:I
@@ -252,7 +243,7 @@
 
     .prologue
     .line 75
-    const v0, 0x7f04000c
+    const v0, 0x7f040008
 
     const/4 v1, 0x0
 

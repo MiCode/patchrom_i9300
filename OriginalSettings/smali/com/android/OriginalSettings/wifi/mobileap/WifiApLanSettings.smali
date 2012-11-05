@@ -471,7 +471,7 @@
     .line 148
     iget-object v1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApLanSettings;->mDhcpEnableCBPref:Landroid/preference/CheckBoxPreference;
 
-    const v2, 0x7f0d02a4
+    const v2, 0x7f09030e
 
     invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setSummary(I)V
 
@@ -523,7 +523,7 @@
     .line 160
     iget-object v1, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApLanSettings;->mDhcpLeaseTimeETPref:Landroid/preference/EditTextPreference;
 
-    const v2, 0x7f0d02a6
+    const v2, 0x7f090310
 
     const/4 v3, 0x1
 
@@ -1741,7 +1741,7 @@
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 101
-    const v0, 0x7f07006b
+    const v0, 0x7f07007c
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApLanSettings;->addPreferencesFromResource(I)V
 
@@ -1754,15 +1754,15 @@
     .parameter "id"
 
     .prologue
-    const v6, 0x7f0d02b1
+    const v6, 0x7f09031b
 
-    const v5, 0x7f0d02b0
+    const v5, 0x7f09031a
 
-    const v4, 0x7f0d02af
+    const v4, 0x7f090319
 
-    const v3, 0x7f0d02ae
+    const v3, 0x7f090318
 
-    const v2, 0x7f0d02ad
+    const v2, 0x7f090317
 
     .line 311
     packed-switch p1, :pswitch_data_0
@@ -1857,13 +1857,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0d02b2
+    const v1, 0x7f09031c
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0d02b3
+    const v1, 0x7f09031d
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1899,13 +1899,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0d02b2
+    const v1, 0x7f09031c
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0d02b3
+    const v1, 0x7f09031d
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1956,7 +1956,7 @@
     const/4 v2, 0x0
 
     .line 167
-    const v0, 0x7f0d02d6
+    const v0, 0x7f0902a7
 
     invoke-interface {p1, v2, v3, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1967,7 +1967,7 @@
     .line 170
     const/4 v0, 0x1
 
-    const v1, 0x7f0d02d5
+    const v1, 0x7f0902a6
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2040,11 +2040,11 @@
     .parameter "newValue"
 
     .prologue
-    const v5, 0x7f0d02a8
+    const v5, 0x7f090312
 
     const/4 v7, 0x2
 
-    const v6, 0x7f0d02d7
+    const v6, 0x7f0902a8
 
     const/4 v3, 0x0
 
@@ -2653,7 +2653,7 @@
     .line 285
     iget-object v2, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApLanSettings;->mDhcpLeaseTimeETPref:Landroid/preference/EditTextPreference;
 
-    const v4, 0x7f0d02a6
+    const v4, 0x7f090310
 
     const/4 v5, 0x1
 

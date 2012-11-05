@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 476
+    .line 538
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/WifiEnabler$6;->this$0:Lcom/android/OriginalSettings/wifi/WifiEnabler;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -44,11 +44,11 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 479
+    .line 541
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiEnabler$6;->this$0:Lcom/android/OriginalSettings/wifi/WifiEnabler;
 
     #getter for: Lcom/android/OriginalSettings/wifi/WifiEnabler;->mSwitch:Landroid/widget/Switch;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->access$700(Lcom/android/OriginalSettings/wifi/WifiEnabler;)Landroid/widget/Switch;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->access$1100(Lcom/android/OriginalSettings/wifi/WifiEnabler;)Landroid/widget/Switch;
 
     move-result-object v0
 
@@ -56,28 +56,28 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Switch;->setEnabled(Z)V
 
-    .line 480
+    .line 542
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiEnabler$6;->this$0:Lcom/android/OriginalSettings/wifi/WifiEnabler;
 
     #calls: Lcom/android/OriginalSettings/wifi/WifiEnabler;->setSwitchChecked(Z)V
-    invoke-static {v0, v2}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->access$800(Lcom/android/OriginalSettings/wifi/WifiEnabler;Z)V
+    invoke-static {v0, v2}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->access$1200(Lcom/android/OriginalSettings/wifi/WifiEnabler;Z)V
 
-    .line 481
+    .line 543
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiEnabler$6;->this$0:Lcom/android/OriginalSettings/wifi/WifiEnabler;
 
     iget-object v0, v0, Lcom/android/OriginalSettings/wifi/WifiEnabler;->mVerizonDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 482
+    .line 544
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiEnabler$6;->this$0:Lcom/android/OriginalSettings/wifi/WifiEnabler;
 
     #getter for: Lcom/android/OriginalSettings/wifi/WifiEnabler;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->access$900(Lcom/android/OriginalSettings/wifi/WifiEnabler;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiEnabler;->access$1000(Lcom/android/OriginalSettings/wifi/WifiEnabler;)Landroid/content/Context;
 
     move-result-object v0
 
-    const v1, 0x7f0d02be
+    const v1, 0x7f090338
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -85,6 +85,6 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 483
+    .line 545
     return-void
 .end method

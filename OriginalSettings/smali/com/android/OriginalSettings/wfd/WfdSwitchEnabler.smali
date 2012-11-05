@@ -8,11 +8,13 @@
 
 
 # instance fields
-.field private mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
-
 .field private final mContext:Landroid/content/Context;
 
-.field private final mIntentFilter:Landroid/content/IntentFilter;
+.field private mControlByWfdService:I
+
+.field private mEnableControlByWfdService:Z
+
+.field private mIntentFilter:Landroid/content/IntentFilter;
 
 .field private final mReceiver:Landroid/content/BroadcastReceiver;
 
@@ -20,105 +22,101 @@
 
 .field private mSwitchPreference:Landroid/preference/SwitchPreference;
 
-.field private mWfdChannel:Lcom/samsung/wfd/WfdManager$Channel;
-
 .field private mWfdManager:Lcom/samsung/wfd/WfdManager;
 
-.field private mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
+.field mWfdPickerActivity:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+
+.field private mWfdSwitchState:I
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Landroid/preference/SwitchPreference;)V
-    .locals 4
+.method public constructor <init>(Landroid/content/Context;Landroid/preference/SwitchPreference;Lcom/android/OriginalSettings/wfd/WfdPickerActivity;)V
+    .locals 3
     .parameter "context"
     .parameter "switch_"
+    .parameter "fragment"
 
     .prologue
-    const/4 v3, 0x0
+    const/4 v0, 0x0
 
-    .line 67
+    const/4 v2, 0x0
+
+    .line 150
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 55
+    .line 48
+    iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
+
+    .line 49
+    iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
+
+    .line 50
+    iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mIntentFilter:Landroid/content/IntentFilter;
+
+    .line 54
+    iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
+
+    .line 56
+    iput v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdSwitchState:I
+
+    .line 57
+    iput-boolean v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mEnableControlByWfdService:Z
+
+    .line 58
+    iput v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mControlByWfdService:I
+
+    .line 59
+    iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdPickerActivity:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+
+    .line 61
     new-instance v0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler$1;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler$1;-><init>(Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 68
-    iput-object p1, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mContext:Landroid/content/Context;
-
-    .line 69
-    iput-object p2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
-
-    .line 71
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
-
-    invoke-direct {p0}, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->isP2pEnabled()Z
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setChecked(Z)V
-
-    .line 73
-    const-string v0, "wifip2p"
-
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/net/wifi/p2p/WifiP2pManager;
-
-    iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
-
-    .line 74
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
-
-    if-eqz v0, :cond_2
-
-    .line 75
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
-
-    iget-object v1, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mContext:Landroid/content/Context;
-
-    iget-object v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getMainLooper()Landroid/os/Looper;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/net/wifi/p2p/WifiP2pManager;->initialize(Landroid/content/Context;Landroid/os/Looper;Landroid/net/wifi/p2p/WifiP2pManager$ChannelListener;)Landroid/net/wifi/p2p/WifiP2pManager$Channel;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
-
-    .line 76
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
-
-    if-nez v0, :cond_0
-
-    .line 77
+    .line 151
     const-string v0, "WfdSwitchEnabler"
 
-    const-string v1, "Failed to set up connection with wifi p2p service"
+    const-string v1, "WfdSwitchEnabler << tablet"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 78
-    iput-object v3, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
+    .line 153
+    iput-boolean v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mEnableControlByWfdService:Z
 
-    .line 79
+    .line 154
+    iput v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mControlByWfdService:I
+
+    .line 156
+    iput-object p1, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mContext:Landroid/content/Context;
+
+    .line 157
+    iput-object p2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
+
+    .line 158
+    iput-object p3, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdPickerActivity:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+
+    .line 160
+    const-string v0, "WfdSwitchEnabler"
+
+    const-string v1, "tablet case :: setEnabled << true"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 161
     iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
-    .line 85
-    :cond_0
-    :goto_0
+    .line 178
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
+
+    if-nez v0, :cond_0
+
+    .line 179
     const-string v0, "wfd"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -129,156 +127,153 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
 
-    .line 87
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
-
-    if-eqz v0, :cond_3
-
-    .line 88
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
-
-    invoke-virtual {p1}, Landroid/content/Context;->getMainLooper()Landroid/os/Looper;
-
-    move-result-object v1
-
-    invoke-virtual {v0, p1, v1, v3}, Lcom/samsung/wfd/WfdManager;->initialize(Landroid/content/Context;Landroid/os/Looper;Lcom/samsung/wfd/WfdManager$ChannelListener;)Lcom/samsung/wfd/WfdManager$Channel;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdChannel:Lcom/samsung/wfd/WfdManager$Channel;
-
-    .line 89
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdChannel:Lcom/samsung/wfd/WfdManager$Channel;
+    .line 182
+    :cond_0
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mIntentFilter:Landroid/content/IntentFilter;
 
     if-nez v0, :cond_1
 
-    .line 90
-    const-string v0, "WfdSwitchEnabler"
-
-    const-string v1, "Failed to set up connection with wifi display service"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 91
-    iput-object v3, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
-
-    .line 97
-    :cond_1
-    :goto_1
+    .line 183
     new-instance v0, Landroid/content/IntentFilter;
 
-    const-string v1, "android.net.wifi.p2p.STATE_CHANGED"
-
-    invoke-direct {v0, v1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mIntentFilter:Landroid/content/IntentFilter;
 
-    .line 98
+    .line 184
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mIntentFilter:Landroid/content/IntentFilter;
+
+    const-string v1, "android.net.wifi.p2p.STATE_CHANGED"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 185
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mIntentFilter:Landroid/content/IntentFilter;
+
+    const-string v1, "android.intent.action.WIFIDISPLAY_CONTROL_FROM_SERVICE"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 186
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mIntentFilter:Landroid/content/IntentFilter;
+
+    const-string v1, "android.net.wifi.p2p.CONNECTION_STATE_CHANGE"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 187
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mIntentFilter:Landroid/content/IntentFilter;
+
+    const-string v1, "android.net.wifi.p2p.THIS_DEVICE_CHANGED"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 190
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mIntentFilter:Landroid/content/IntentFilter;
+
+    const-string v1, "com.samsung.wfd.WFD_SESSION_ENABLED"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 191
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mIntentFilter:Landroid/content/IntentFilter;
+
+    const-string v1, "com.samsung.wfd.WFD_SESSION_ESTABLISHING"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 194
+    :cond_1
     return-void
-
-    .line 82
-    :cond_2
-    const-string v0, "WfdSwitchEnabler"
-
-    const-string v1, "mWifiP2pManager is null!"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    .line 94
-    :cond_3
-    const-string v0, "WfdSwitchEnabler"
-
-    const-string v1, "mWfdManager is null !"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Landroid/widget/Switch;)V
-    .locals 4
+.method public constructor <init>(Landroid/content/Context;Landroid/widget/Switch;Lcom/android/OriginalSettings/wfd/WfdPickerActivity;)V
+    .locals 3
     .parameter "context"
     .parameter "switch_"
+    .parameter "fragment"
 
     .prologue
-    const/4 v3, 0x0
+    const/4 v0, 0x0
 
-    .line 100
+    const/4 v2, 0x0
+
+    .line 196
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 55
+    .line 48
+    iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
+
+    .line 49
+    iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
+
+    .line 50
+    iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mIntentFilter:Landroid/content/IntentFilter;
+
+    .line 54
+    iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
+
+    .line 56
+    iput v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdSwitchState:I
+
+    .line 57
+    iput-boolean v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mEnableControlByWfdService:Z
+
+    .line 58
+    iput v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mControlByWfdService:I
+
+    .line 59
+    iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdPickerActivity:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+
+    .line 61
     new-instance v0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler$1;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler$1;-><init>(Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;)V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 101
-    iput-object p1, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mContext:Landroid/content/Context;
-
-    .line 102
-    iput-object p2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
-
-    .line 104
-    const-string v0, "wifip2p"
-
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/net/wifi/p2p/WifiP2pManager;
-
-    iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
-
-    .line 105
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
-
-    if-eqz v0, :cond_2
-
-    .line 106
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
-
-    iget-object v1, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mContext:Landroid/content/Context;
-
-    iget-object v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getMainLooper()Landroid/os/Looper;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/net/wifi/p2p/WifiP2pManager;->initialize(Landroid/content/Context;Landroid/os/Looper;Landroid/net/wifi/p2p/WifiP2pManager$ChannelListener;)Landroid/net/wifi/p2p/WifiP2pManager$Channel;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
-
-    .line 107
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
-
-    if-nez v0, :cond_0
-
-    .line 109
+    .line 197
     const-string v0, "WfdSwitchEnabler"
 
-    const-string v1, "Failed to set up connection with wifi p2p service"
+    const-string v1, "WfdSwitchEnabler << phone"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 110
-    iput-object v3, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
+    .line 199
+    iput-boolean v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mEnableControlByWfdService:Z
 
-    .line 111
+    .line 200
+    iput v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mControlByWfdService:I
+
+    .line 202
+    iput-object p1, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mContext:Landroid/content/Context;
+
+    .line 203
+    iput-object p2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
+
+    .line 204
+    iput-object p3, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdPickerActivity:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+
+    .line 206
+    const-string v0, "WfdSwitchEnabler"
+
+    const-string v1, "phone case :: setEnabled << true"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 207
     iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/widget/Switch;->setEnabled(Z)V
 
-    .line 117
-    :cond_0
-    :goto_0
+    .line 222
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
+
+    if-nez v0, :cond_0
+
+    .line 223
     const-string v0, "wfd"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -289,72 +284,64 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
 
-    .line 119
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
-
-    if-eqz v0, :cond_3
-
-    .line 120
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
-
-    invoke-virtual {p1}, Landroid/content/Context;->getMainLooper()Landroid/os/Looper;
-
-    move-result-object v1
-
-    invoke-virtual {v0, p1, v1, v3}, Lcom/samsung/wfd/WfdManager;->initialize(Landroid/content/Context;Landroid/os/Looper;Lcom/samsung/wfd/WfdManager$ChannelListener;)Lcom/samsung/wfd/WfdManager$Channel;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdChannel:Lcom/samsung/wfd/WfdManager$Channel;
-
-    .line 121
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdChannel:Lcom/samsung/wfd/WfdManager$Channel;
+    .line 226
+    :cond_0
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mIntentFilter:Landroid/content/IntentFilter;
 
     if-nez v0, :cond_1
 
-    .line 122
-    const-string v0, "WfdSwitchEnabler"
-
-    const-string v1, "Failed to set up connection with wifi display service"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 123
-    iput-object v3, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
-
-    .line 129
-    :cond_1
-    :goto_1
+    .line 227
     new-instance v0, Landroid/content/IntentFilter;
 
-    const-string v1, "android.net.wifi.p2p.STATE_CHANGED"
-
-    invoke-direct {v0, v1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mIntentFilter:Landroid/content/IntentFilter;
 
-    .line 130
+    .line 228
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mIntentFilter:Landroid/content/IntentFilter;
+
+    const-string v1, "android.net.wifi.p2p.STATE_CHANGED"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 229
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mIntentFilter:Landroid/content/IntentFilter;
+
+    const-string v1, "android.intent.action.WIFIDISPLAY_CONTROL_FROM_SERVICE"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 230
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mIntentFilter:Landroid/content/IntentFilter;
+
+    const-string v1, "android.net.wifi.p2p.CONNECTION_STATE_CHANGE"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 231
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mIntentFilter:Landroid/content/IntentFilter;
+
+    const-string v1, "android.net.wifi.p2p.THIS_DEVICE_CHANGED"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 234
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mIntentFilter:Landroid/content/IntentFilter;
+
+    const-string v1, "com.samsung.wfd.WFD_SESSION_ENABLED"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 235
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mIntentFilter:Landroid/content/IntentFilter;
+
+    const-string v1, "com.samsung.wfd.WFD_SESSION_ESTABLISHING"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 238
+    :cond_1
     return-void
-
-    .line 114
-    :cond_2
-    const-string v0, "WfdSwitchEnabler"
-
-    const-string v1, "mWifiP2pManager is null!"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    .line 126
-    :cond_3
-    const-string v0, "WfdSwitchEnabler"
-
-    const-string v1, "mWfdManager is null !"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
 .end method
 
 .method static synthetic access$000(Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;I)V
@@ -363,10 +350,67 @@
     .parameter "x1"
 
     .prologue
-    .line 42
+    .line 44
     invoke-direct {p0, p1}, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->handleP2pStateChanged(I)V
 
     return-void
+.end method
+
+.method static synthetic access$100(Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;)I
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 44
+    iget v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mControlByWfdService:I
+
+    return v0
+.end method
+
+.method static synthetic access$102(Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;I)I
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 44
+    iput p1, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mControlByWfdService:I
+
+    return p1
+.end method
+
+.method static synthetic access$200(Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;)Z
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 44
+    iget-boolean v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mEnableControlByWfdService:Z
+
+    return v0
+.end method
+
+.method static synthetic access$202(Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;Z)Z
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 44
+    iput-boolean p1, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mEnableControlByWfdService:Z
+
+    return p1
+.end method
+
+.method static synthetic access$300(Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;)Lcom/samsung/wfd/WfdManager;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 44
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
+
+    return-object v0
 .end method
 
 .method private handleP2pStateChanged(I)V
@@ -374,25 +418,89 @@
     .parameter "state"
 
     .prologue
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    .line 248
+    .line 422
+    iget v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdSwitchState:I
+
+    if-ne v0, p1, :cond_2
+
+    .line 423
+    const-string v0, "WfdSwitchEnabler"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "same state:"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, " skip handleP2pStateChanged!!"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 425
     iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
 
     if-eqz v0, :cond_0
 
-    .line 249
+    .line 426
+    const-string v0, "WfdSwitchEnabler"
+
+    const-string v1, "phone... setEnabled << true"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 427
     iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v2}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, v3}, Landroid/widget/Switch;->setEnabled(Z)V
 
-    .line 251
+    .line 429
     :cond_0
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
+
+    if-eqz v0, :cond_1
+
+    .line 430
+    const-string v0, "WfdSwitchEnabler"
+
+    const-string v1, "tablet... setEnabled << true"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 431
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v0, v3}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+
+    .line 478
+    :cond_1
+    :goto_0
+    return-void
+
+    .line 441
+    :cond_2
     packed-switch p1, :pswitch_data_0
 
-    .line 277
+    .line 473
     const-string v0, "WfdSwitchEnabler"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -415,94 +523,138 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 280
-    :cond_1
-    :goto_0
-    return-void
-
-    .line 253
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
-
-    if-eqz v0, :cond_2
-
-    .line 254
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
-
-    invoke-virtual {v0, v2}, Landroid/widget/Switch;->setEnabled(Z)V
-
-    .line 255
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
-
-    invoke-virtual {v0, v2}, Landroid/widget/Switch;->setChecked(Z)V
-
-    .line 257
-    const-string v0, "WfdSwitchEnabler"
-
-    const-string v1, "handleP2pStateChanged WifiP2pManager.WIFI_P2P_STATE_ENABLED"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 259
-    :cond_2
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
-
-    if-eqz v0, :cond_1
-
-    .line 260
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
-
-    invoke-virtual {v0, v2}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
-
-    .line 261
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
-
-    invoke-virtual {v0, v2}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    .line 477
+    :cond_3
+    :goto_1
+    iput p1, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdSwitchState:I
 
     goto :goto_0
 
-    .line 265
-    :pswitch_1
+    .line 443
+    :pswitch_0
     iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
-    .line 266
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
+    .line 444
+    const-string v0, "WfdSwitchEnabler"
 
-    invoke-virtual {v0, v2}, Landroid/widget/Switch;->setEnabled(Z)V
+    const-string v1, "phone << handleP2pStateChanged WifiP2pManager.WIFI_P2P_STATE_ENABLED"
 
-    .line 267
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 445
     iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v0, v3}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 269
+    .line 446
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v0, v3}, Landroid/widget/Switch;->setEnabled(Z)V
+
+    .line 447
     const-string v0, "WfdSwitchEnabler"
 
-    const-string v1, "handleP2pStateChanged WifiP2pManager.WIFI_P2P_STATE_DISABLED"
+    const-string v1, "handleP2pStateChanged... setEnabled << true"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 271
-    :cond_3
+    .line 449
+    :cond_4
     iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
-    .line 272
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
+    .line 450
+    const-string v0, "WfdSwitchEnabler"
 
-    invoke-virtual {v0, v2}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    const-string v1, "tablet << handleP2pStateChanged WifiP2pManager.WIFI_P2P_STATE_ENABLED"
 
-    .line 273
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 451
     iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
 
     invoke-virtual {v0, v3}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    goto :goto_0
+    .line 452
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
 
-    .line 251
+    invoke-virtual {v0, v3}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+
+    .line 453
+    const-string v0, "WfdSwitchEnabler"
+
+    const-string v1, "handleP2pStateChanged... setEnabled << true"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    .line 458
+    :pswitch_1
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
+
+    if-eqz v0, :cond_5
+
+    .line 459
+    const-string v0, "WfdSwitchEnabler"
+
+    const-string v1, "phone << handleP2pStateChanged WifiP2pManager.WIFI_P2P_STATE_DISABLED"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 460
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v0, v2}, Landroid/widget/Switch;->setChecked(Z)V
+
+    .line 461
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v0, v3}, Landroid/widget/Switch;->setEnabled(Z)V
+
+    .line 462
+    const-string v0, "WfdSwitchEnabler"
+
+    const-string v1, "handleP2pStateChanged... setEnabled << true"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 464
+    :cond_5
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
+
+    if-eqz v0, :cond_3
+
+    .line 465
+    const-string v0, "WfdSwitchEnabler"
+
+    const-string v1, "tablet << handleP2pStateChanged WifiP2pManager.WIFI_P2P_STATE_DISABLED"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 466
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v0, v2}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+
+    .line 467
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v0, v3}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+
+    .line 468
+    const-string v0, "WfdSwitchEnabler"
+
+    const-string v1, "handleP2pStateChanged... setEnabled << true"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    .line 441
     nop
 
     :pswitch_data_0
@@ -513,10 +665,10 @@
 .end method
 
 .method private isP2pEnabled()Z
-    .locals 5
+    .locals 6
 
     .prologue
-    .line 238
+    .line 402
     :try_start_0
     iget-object v3, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mContext:Landroid/content/Context;
 
@@ -528,7 +680,7 @@
 
     check-cast v0, Landroid/net/ConnectivityManager;
 
-    .line 239
+    .line 403
     .local v0, connectivityManager:Landroid/net/ConnectivityManager;
     const/16 v3, 0xd
 
@@ -536,25 +688,52 @@
 
     move-result-object v2
 
-    .line 240
+    .line 404
     .local v2, netInfo:Landroid/net/NetworkInfo;
+    const-string v3, "WfdSwitchEnabler"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "isP2pEnabled >> ret:"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v2}, Landroid/net/NetworkInfo;->isAvailable()Z
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 405
     invoke-virtual {v2}, Landroid/net/NetworkInfo;->isAvailable()Z
     :try_end_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v3
 
-    .line 244
+    .line 410
     .end local v0           #connectivityManager:Landroid/net/ConnectivityManager;
     .end local v2           #netInfo:Landroid/net/NetworkInfo;
     :goto_0
     return v3
 
-    .line 241
+    .line 406
     :catch_0
     move-exception v1
 
-    .line 242
+    .line 407
     .local v1, e:Ljava/lang/NullPointerException;
     const-string v3, "WfdSwitchEnabler"
 
@@ -562,7 +741,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 244
+    .line 410
     const/4 v3, 0x0
 
     goto :goto_0
@@ -571,108 +750,199 @@
 
 # virtual methods
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .locals 2
+    .locals 6
     .parameter "buttonView"
     .parameter "isChecked"
 
     .prologue
-    .line 190
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
+    const/4 v5, 0x1
 
-    if-nez v0, :cond_1
+    .line 306
+    const-string v2, "WfdSwitchEnabler"
 
-    .line 207
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "onCheckedChanged << isChecked:"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 308
+    iget-object v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mContext:Landroid/content/Context;
+
+    const-string v3, "connectivity"
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/net/ConnectivityManager;
+
+    .line 309
+    .local v1, manager:Landroid/net/ConnectivityManager;
+    invoke-virtual {v1, v5}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/net/NetworkInfo;->isConnectedOrConnecting()Z
+
+    move-result v0
+
+    .line 327
+    .local v0, isWifiConnected:Z
+    if-eqz p2, :cond_1
+
+    .line 329
+    iget-object v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdPickerActivity:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+
+    invoke-virtual {v2}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->isWfdConnected()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    .line 331
+    const-string v2, "WfdSwitchEnabler"
+
+    const-string v3, "onCheckedChanged will setWfdEnabledDialog"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 332
+    iget-object v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
+
+    invoke-virtual {v2, v5}, Lcom/samsung/wfd/WfdManager;->setWfdEnabledDialog(Z)Z
+
+    .line 334
+    iget-object v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdPickerActivity:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+
+    if-eqz v2, :cond_0
+
+    .line 335
+    iget-object v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdPickerActivity:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+
+    invoke-virtual {v2}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->startScanningWfdPickerDialog()V
+
+    .line 365
     :cond_0
     :goto_0
     return-void
 
-    .line 192
+    .line 339
     :cond_1
-    if-eqz p2, :cond_2
+    iget-object v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
 
-    invoke-direct {p0}, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->isP2pEnabled()Z
+    if-eqz v2, :cond_2
 
-    move-result v0
+    .line 340
+    const-string v2, "WfdSwitchEnabler"
 
-    if-eqz v0, :cond_3
+    new-instance v3, Ljava/lang/StringBuilder;
 
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "mWfdManager.getWfdState: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
+
+    invoke-virtual {v4}, Lcom/samsung/wfd/WfdManager;->getWfdState()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 341
+    iget-object v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
+
+    invoke-virtual {v2}, Lcom/samsung/wfd/WfdManager;->getWfdState()I
+
+    move-result v2
+
+    packed-switch v2, :pswitch_data_0
+
+    .line 352
+    iget-object v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdPickerActivity:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+
+    if-eqz v2, :cond_2
+
+    .line 354
+    iget-object v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdPickerActivity:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+
+    invoke-virtual {v2}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->stopScanningWfdPickerDialog()V
+
+    .line 355
+    iget-object v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdPickerActivity:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+
+    invoke-virtual {v2, v5}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->handleP2pStateChanged(Z)V
+
+    .line 361
     :cond_2
-    if-nez p2, :cond_4
+    :goto_1
+    iget-object v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-direct {p0}, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->isP2pEnabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    .line 193
-    :cond_3
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setEnabled(Z)V
-
-    .line 195
-    :cond_4
-    if-eqz p2, :cond_5
-
-    .line 196
-    invoke-direct {p0}, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->isP2pEnabled()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 199
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Lcom/samsung/wfd/WfdManager;->setWfdEnabledDialog(Z)Z
+    invoke-virtual {v2, v5}, Landroid/widget/Switch;->setEnabled(Z)V
 
     goto :goto_0
 
-    .line 202
-    :cond_5
-    invoke-direct {p0}, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->isP2pEnabled()Z
+    .line 345
+    :pswitch_0
+    const-string v2, "WfdSwitchEnabler"
 
-    move-result v0
+    const-string v3, "onCheckedChanged will setWfdTerminate"
 
-    if-eqz v0, :cond_0
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 204
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
+    .line 346
+    iget-object v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
 
-    invoke-virtual {v0}, Lcom/samsung/wfd/WfdManager;->setWfdTerminate()Z
+    invoke-virtual {v2}, Lcom/samsung/wfd/WfdManager;->setWfdTerminate()Z
 
-    goto :goto_0
+    goto :goto_1
+
+    .line 341
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x3
+        :pswitch_0
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
-    .locals 4
+    .locals 5
     .parameter "preference"
     .parameter "value"
 
     .prologue
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    const/4 v1, 0x0
-
-    .line 210
-    iget-object v3, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
-
-    if-nez v3, :cond_1
-
-    .line 233
-    .end local p2
-    :cond_0
-    :goto_0
-    return v1
-
-    .line 212
-    .restart local p2
-    :cond_1
+    .line 371
     check-cast p2, Ljava/lang/Boolean;
 
     .end local p2
@@ -680,70 +950,122 @@
 
     move-result v0
 
-    .line 214
+    .line 372
     .local v0, enable:Z
-    iget-object v3, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
+    const-string v2, "WfdSwitchEnabler"
 
-    invoke-virtual {v3}, Landroid/preference/SwitchPreference;->isChecked()Z
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    move-result v3
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-ne v3, v0, :cond_2
+    const-string v4, "onPreferenceChange << value:"
 
-    move v1, v2
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 215
-    goto :goto_0
+    move-result-object v3
 
-    .line 218
-    :cond_2
-    iget-object v3, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    move-result-object v3
 
-    .line 219
-    iget-object v3, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3, v0}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    move-result-object v3
 
-    .line 221
-    if-eqz v0, :cond_3
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 222
-    invoke-direct {p0}, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->isP2pEnabled()Z
+    .line 374
+    iget-object v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
 
-    move-result v3
+    invoke-virtual {v2}, Landroid/preference/SwitchPreference;->isChecked()Z
 
-    if-nez v3, :cond_0
+    move-result v2
 
-    .line 225
-    iget-object v3, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
+    if-ne v2, v0, :cond_0
 
-    invoke-virtual {v3, v2}, Lcom/samsung/wfd/WfdManager;->setWfdEnabledDialog(Z)Z
+    .line 375
+    const-string v2, "WfdSwitchEnabler"
 
-    goto :goto_0
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    .line 228
-    :cond_3
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "skip! "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 397
+    :goto_0
+    return v1
+
+    .line 380
+    :cond_0
+    iget-object v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v2, v0}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+
+    .line 383
+    if-eqz v0, :cond_2
+
+    .line 384
     invoke-direct {p0}, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->isP2pEnabled()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-nez v2, :cond_1
 
-    .line 229
-    iget-object v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
+    .line 386
+    const-string v2, "WfdSwitchEnabler"
 
-    iget-object v3, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
+    const-string v3, "onPreferenceChange will setWfdEnabledDialog"
 
-    invoke-virtual {v2, v3}, Landroid/net/wifi/p2p/WifiP2pManager;->disableP2p(Landroid/net/wifi/p2p/WifiP2pManager$Channel;)V
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 230
+    .line 387
     iget-object v2, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
 
-    invoke-virtual {v2}, Lcom/samsung/wfd/WfdManager;->setWfdTerminate()Z
+    invoke-virtual {v2, v1}, Lcom/samsung/wfd/WfdManager;->setWfdEnabledDialog(Z)Z
+
+    .line 397
+    :cond_1
+    :goto_1
+    const/4 v1, 0x0
 
     goto :goto_0
+
+    .line 390
+    :cond_2
+    invoke-direct {p0}, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->isP2pEnabled()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 392
+    const-string v1, "WfdSwitchEnabler"
+
+    const-string v2, "onPreferenceChange will setWfdTerminate"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 393
+    iget-object v1, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdManager:Lcom/samsung/wfd/WfdManager;
+
+    invoke-virtual {v1}, Lcom/samsung/wfd/WfdManager;->setWfdTerminate()Z
+
+    goto :goto_1
 .end method
 
 .method public pause()V
@@ -752,64 +1074,68 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 179
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
+    .line 288
+    const-string v0, "WfdSwitchEnabler"
 
-    if-nez v0, :cond_1
+    const-string v1, "pause"
 
-    .line 187
-    :cond_0
-    :goto_0
-    return-void
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 180
-    :cond_1
+    .line 291
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mEnableControlByWfdService:Z
+
+    .line 293
     iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 181
+    .line 294
     iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_0
 
-    .line 182
+    .line 295
     iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v0, v2}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 184
-    :cond_2
+    .line 298
+    :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    .line 185
+    .line 299
     iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
 
     invoke-virtual {v0, v2}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    goto :goto_0
+    .line 301
+    :cond_1
+    return-void
 .end method
 
 .method public resume()V
     .locals 3
 
     .prologue
-    .line 140
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
+    .line 253
+    const-string v0, "WfdSwitchEnabler"
 
-    if-nez v0, :cond_1
+    const-string v1, "resume"
 
-    .line 149
-    :cond_0
-    :goto_0
-    return-void
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 142
-    :cond_1
+    .line 256
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mWfdSwitchState:I
+
+    .line 258
     iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mReceiver:Landroid/content/BroadcastReceiver;
@@ -818,28 +1144,30 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 143
+    .line 260
     iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_0
 
-    .line 144
+    .line 261
     iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v0, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 146
-    :cond_2
+    .line 264
+    :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    .line 147
+    .line 265
     iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
 
     invoke-virtual {v0, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    goto :goto_0
+    .line 267
+    :cond_1
+    return-void
 .end method
 
 .method public setP2PDisable(Z)V
@@ -847,31 +1175,24 @@
     .parameter "bChecked"
 
     .prologue
-    .line 168
+    .line 279
     iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
 
     if-eqz v0, :cond_0
 
-    .line 170
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setEnabled(Z)V
-
-    .line 171
+    .line 281
     iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v0, p1}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 173
+    .line 283
     const-string v0, "WfdSwitchEnabler"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "setP2PDisable  mSwitch.setChecked(bChecked); !!!! "
+    const-string v2, "setP2PDisable >> mSwitch.setChecked(bChecked); !!!! "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -885,9 +1206,59 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 176
+    .line 285
+    :cond_0
+    return-void
+.end method
+
+.method public setP2PEnable(Z)V
+    .locals 3
+    .parameter "bChecked"
+
+    .prologue
+    .line 270
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
+
+    if-eqz v0, :cond_0
+
+    .line 271
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setEnabled(Z)V
+
+    .line 272
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdSwitchEnabler;->mSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v0, p1}, Landroid/widget/Switch;->setChecked(Z)V
+
+    .line 274
+    const-string v0, "WfdSwitchEnabler"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "setP2PEnable >> mSwitch.setChecked(bChecked); !!!! "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 276
     :cond_0
     return-void
 .end method

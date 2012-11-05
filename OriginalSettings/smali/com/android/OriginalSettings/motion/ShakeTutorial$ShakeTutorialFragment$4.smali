@@ -28,11 +28,11 @@
     .parameter "arg1"
 
     .prologue
-    .line 290
+    .line 268
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/ShakeTutorial$ShakeTutorialFragment$4;->this$0:Lcom/android/OriginalSettings/motion/ShakeTutorial$ShakeTutorialFragment;
 
     invoke-virtual {v0}, Lcom/android/OriginalSettings/motion/ShakeTutorial$ShakeTutorialFragment;->finish()V
 
-    .line 291
+    .line 269
     return-void
 .end method

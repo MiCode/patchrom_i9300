@@ -21,6 +21,8 @@
 
 .field dataSize:J
 
+.field externalCacheSize:J
+
 .field externalCodeSize:J
 
 .field externalDataSize:J

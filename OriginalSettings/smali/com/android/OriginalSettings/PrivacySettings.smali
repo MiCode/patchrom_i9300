@@ -32,10 +32,10 @@
     .locals 1
 
     .prologue
-    .line 50
+    .line 51
     invoke-direct {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;-><init>()V
 
-    .line 439
+    .line 440
     new-instance v0, Lcom/android/OriginalSettings/PrivacySettings$1;
 
     invoke-direct {v0, p0}, Lcom/android/OriginalSettings/PrivacySettings$1;-><init>(Lcom/android/OriginalSettings/PrivacySettings;)V
@@ -54,12 +54,12 @@
 
     const/4 v3, 0x0
 
-    .line 377
+    .line 378
     iget-object v1, p0, Lcom/android/OriginalSettings/PrivacySettings;->mBackupManager:Landroid/app/backup/IBackupManager;
 
     if-eqz v1, :cond_0
 
-    .line 379
+    .line 380
     :try_start_0
     iget-object v1, p0, Lcom/android/OriginalSettings/PrivacySettings;->mBackupManager:Landroid/app/backup/IBackupManager;
 
@@ -67,31 +67,31 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 386
+    .line 387
     :cond_0
     iget-object v1, p0, Lcom/android/OriginalSettings/PrivacySettings;->mBackup:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v1, p1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 387
+    .line 388
     iget-object v1, p0, Lcom/android/OriginalSettings/PrivacySettings;->mAutoRestore:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v1, p1}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
 
-    .line 388
+    .line 389
     iget-object v1, p0, Lcom/android/OriginalSettings/PrivacySettings;->mConfigure:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {v1, p1}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
 
-    .line 389
+    .line 390
     :goto_0
     return-void
 
-    .line 380
+    .line 381
     :catch_0
     move-exception v0
 
-    .line 381
+    .line 382
     .local v0, e:Landroid/os/RemoteException;
     iget-object v4, p0, Lcom/android/OriginalSettings/PrivacySettings;->mBackup:Landroid/preference/CheckBoxPreference;
 
@@ -102,7 +102,7 @@
     :goto_1
     invoke-virtual {v4, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 382
+    .line 383
     iget-object v1, p0, Lcom/android/OriginalSettings/PrivacySettings;->mAutoRestore:Landroid/preference/CheckBoxPreference;
 
     if-nez p1, :cond_2
@@ -115,13 +115,13 @@
     :cond_1
     move v1, v3
 
-    .line 381
+    .line 382
     goto :goto_1
 
     :cond_2
     move v2, v3
 
-    .line 382
+    .line 383
     goto :goto_2
 .end method
 
@@ -130,23 +130,23 @@
     .parameter "summary"
 
     .prologue
-    .line 317
+    .line 318
     if-eqz p1, :cond_0
 
-    .line 318
+    .line 319
     iget-object v0, p0, Lcom/android/OriginalSettings/PrivacySettings;->mConfigure:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {v0, p1}, Landroid/preference/PreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 322
+    .line 323
     :goto_0
     return-void
 
-    .line 320
+    .line 321
     :cond_0
     iget-object v0, p0, Lcom/android/OriginalSettings/PrivacySettings;->mConfigure:Landroid/preference/PreferenceScreen;
 
-    const v1, 0x7f0d0637
+    const v1, 0x7f09072e
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -157,30 +157,30 @@
     .locals 3
 
     .prologue
-    .line 199
+    .line 200
     iget-object v1, p0, Lcom/android/OriginalSettings/PrivacySettings;->mBackup:Landroid/preference/CheckBoxPreference;
 
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 201
+    .line 202
     const/4 v1, 0x2
 
     iput v1, p0, Lcom/android/OriginalSettings/PrivacySettings;->mDialogType:I
 
-    .line 202
+    .line 203
     invoke-virtual {p0}, Lcom/android/OriginalSettings/PrivacySettings;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0d063e
+    const v2, 0x7f090738
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .line 204
+    .line 205
     .local v0, msg:Ljava/lang/CharSequence;
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
@@ -194,7 +194,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d063d
+    const v2, 0x7f090737
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -224,7 +224,7 @@
 
     iput-object v1, p0, Lcom/android/OriginalSettings/PrivacySettings;->mConfirmDialog:Landroid/app/Dialog;
 
-    .line 210
+    .line 211
     return-void
 .end method
 
@@ -232,7 +232,7 @@
     .locals 3
 
     .prologue
-    .line 326
+    .line 327
     :try_start_0
     iget-object v2, p0, Lcom/android/OriginalSettings/PrivacySettings;->mBackupManager:Landroid/app/backup/IBackupManager;
 
@@ -240,7 +240,7 @@
 
     move-result-object v1
 
-    .line 327
+    .line 328
     .local v1, transport:Ljava/lang/String;
     iget-object v2, p0, Lcom/android/OriginalSettings/PrivacySettings;->mBackupManager:Landroid/app/backup/IBackupManager;
 
@@ -248,19 +248,19 @@
 
     move-result-object v0
 
-    .line 328
+    .line 329
     .local v0, summary:Ljava/lang/String;
     invoke-direct {p0, v0}, Lcom/android/OriginalSettings/PrivacySettings;->setConfigureSummary(Ljava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 332
+    .line 333
     .end local v0           #summary:Ljava/lang/String;
     .end local v1           #transport:Ljava/lang/String;
     :goto_0
     return-void
 
-    .line 329
+    .line 330
     :catch_0
     move-exception v2
 
@@ -275,24 +275,24 @@
 
     const/4 v8, 0x1
 
-    .line 262
+    .line 263
     invoke-virtual {p0}, Lcom/android/OriginalSettings/PrivacySettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
-    .line 264
+    .line 265
     .local v5, res:Landroid/content/ContentResolver;
     const/4 v0, 0x0
 
-    .line 265
+    .line 266
     .local v0, backupEnabled:Z
     const/4 v1, 0x0
 
-    .line 266
+    .line 267
     .local v1, configIntent:Landroid/content/Intent;
     const/4 v2, 0x0
 
-    .line 268
+    .line 269
     .local v2, configSummary:Ljava/lang/String;
     :try_start_0
     iget-object v7, p0, Lcom/android/OriginalSettings/PrivacySettings;->mBackupManager:Landroid/app/backup/IBackupManager;
@@ -301,14 +301,14 @@
 
     move-result v0
 
-    .line 269
+    .line 270
     iget-object v7, p0, Lcom/android/OriginalSettings/PrivacySettings;->mBackupManager:Landroid/app/backup/IBackupManager;
 
     invoke-interface {v7}, Landroid/app/backup/IBackupManager;->getCurrentTransport()Ljava/lang/String;
 
     move-result-object v6
 
-    .line 270
+    .line 271
     .local v6, transport:Ljava/lang/String;
     iget-object v7, p0, Lcom/android/OriginalSettings/PrivacySettings;->mBackupManager:Landroid/app/backup/IBackupManager;
 
@@ -316,7 +316,7 @@
 
     move-result-object v1
 
-    .line 271
+    .line 272
     iget-object v7, p0, Lcom/android/OriginalSettings/PrivacySettings;->mBackupManager:Landroid/app/backup/IBackupManager;
 
     invoke-interface {v7, v6}, Landroid/app/backup/IBackupManager;->getDestinationString(Ljava/lang/String;)Ljava/lang/String;
@@ -325,14 +325,14 @@
 
     move-result-object v2
 
-    .line 276
+    .line 277
     .end local v6           #transport:Ljava/lang/String;
     :goto_0
     iget-object v7, p0, Lcom/android/OriginalSettings/PrivacySettings;->mBackup:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v7, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 278
+    .line 279
     iget-object v10, p0, Lcom/android/OriginalSettings/PrivacySettings;->mAutoRestore:Landroid/preference/CheckBoxPreference;
 
     const-string v7, "backup_auto_restore"
@@ -348,42 +348,42 @@
     :goto_1
     invoke-virtual {v10, v7}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 280
+    .line 281
     iget-object v7, p0, Lcom/android/OriginalSettings/PrivacySettings;->mAutoRestore:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v7, v0}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
 
-    .line 286
+    .line 287
     if-eqz v1, :cond_1
 
     if-eqz v0, :cond_1
 
     move v3, v8
 
-    .line 287
+    .line 288
     .local v3, configureEnabled:Z
     :goto_2
     iget-object v7, p0, Lcom/android/OriginalSettings/PrivacySettings;->mConfigure:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {v7, v3}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
 
-    .line 288
+    .line 289
     iget-object v7, p0, Lcom/android/OriginalSettings/PrivacySettings;->mConfigure:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {v7, v1}, Landroid/preference/PreferenceScreen;->setIntent(Landroid/content/Intent;)V
 
-    .line 289
+    .line 290
     invoke-direct {p0, v2}, Lcom/android/OriginalSettings/PrivacySettings;->setConfigureSummary(Ljava/lang/String;)V
 
-    .line 290
+    .line 291
     return-void
 
-    .line 272
+    .line 273
     .end local v3           #configureEnabled:Z
     :catch_0
     move-exception v4
 
-    .line 274
+    .line 275
     .local v4, e:Landroid/os/RemoteException;
     iget-object v7, p0, Lcom/android/OriginalSettings/PrivacySettings;->mBackup:Landroid/preference/CheckBoxPreference;
 
@@ -395,24 +395,34 @@
     :cond_0
     move v7, v9
 
-    .line 278
+    .line 279
     goto :goto_1
 
     :cond_1
     move v3, v9
 
-    .line 286
+    .line 287
     goto :goto_2
 .end method
 
 
 # virtual methods
+.method protected getHelpResource()I
+    .locals 1
+
+    .prologue
+    .line 462
+    const v0, 0x7f0908ce
+
+    return v0
+.end method
+
 .method public onCancel(Landroid/content/DialogInterface;)V
     .locals 0
     .parameter "dialog"
 
     .prologue
-    .line 369
+    .line 370
     return-void
 .end method
 
@@ -424,29 +434,29 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 335
+    .line 336
     const/4 v0, -0x1
 
     if-ne p2, v0, :cond_0
 
-    .line 337
+    .line 338
     iget v0, p0, Lcom/android/OriginalSettings/PrivacySettings;->mDialogType:I
 
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_0
 
-    .line 338
+    .line 339
     invoke-direct {p0, v2}, Lcom/android/OriginalSettings/PrivacySettings;->setBackupEnabled(Z)V
 
-    .line 339
+    .line 340
     invoke-direct {p0}, Lcom/android/OriginalSettings/PrivacySettings;->updateConfigureSummary()V
 
-    .line 357
+    .line 358
     :cond_0
     iput v2, p0, Lcom/android/OriginalSettings/PrivacySettings;->mDialogType:I
 
-    .line 358
+    .line 359
     return-void
 .end method
 
@@ -455,20 +465,20 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 84
+    .line 85
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 85
-    const v4, 0x7f070037
+    .line 86
+    const v4, 0x7f070044
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/PrivacySettings;->addPreferencesFromResource(I)V
 
-    .line 86
+    .line 87
     invoke-virtual {p0}, Lcom/android/OriginalSettings/PrivacySettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v3
 
-    .line 88
+    .line 89
     .local v3, screen:Landroid/preference/PreferenceScreen;
     const-string v4, "backup"
 
@@ -482,7 +492,7 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/PrivacySettings;->mBackupManager:Landroid/app/backup/IBackupManager;
 
-    .line 91
+    .line 92
     const-string v4, "backup_data"
 
     invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -493,7 +503,7 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/PrivacySettings;->mBackup:Landroid/preference/CheckBoxPreference;
 
-    .line 92
+    .line 93
     const-string v4, "auto_restore"
 
     invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -504,7 +514,7 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/PrivacySettings;->mAutoRestore:Landroid/preference/CheckBoxPreference;
 
-    .line 93
+    .line 94
     const-string v4, "configure_account"
 
     invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -515,7 +525,7 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/PrivacySettings;->mConfigure:Landroid/preference/PreferenceScreen;
 
-    .line 94
+    .line 95
     const-string v4, "data_transfer_mode"
 
     invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -526,12 +536,12 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/PrivacySettings;->mDataTransferMode:Landroid/preference/CheckBoxPreference;
 
-    .line 96
+    .line 97
     iget-object v4, p0, Lcom/android/OriginalSettings/PrivacySettings;->mDataTransferMode:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 98
+    .line 99
     const-string v4, "collect_diagnostics"
 
     invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -542,16 +552,16 @@
 
     iput-object v4, p0, Lcom/android/OriginalSettings/PrivacySettings;->mDiagnostics:Landroid/preference/PreferenceScreen;
 
-    .line 100
+    .line 101
     invoke-virtual {p0}, Lcom/android/OriginalSettings/PrivacySettings;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v2
 
-    .line 101
+    .line 102
     .local v2, pm:Landroid/content/pm/PackageManager;
     const/4 v1, 0x1
 
-    .line 103
+    .line 104
     .local v1, hasCIQ:Z
     :try_start_0
     const-string v4, "com.carrieriq.tmobile.IQToggle"
@@ -562,7 +572,7 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 109
+    .line 110
     :goto_0
     const-string v4, "TMB"
 
@@ -580,13 +590,13 @@
 
     if-nez v1, :cond_1
 
-    .line 110
+    .line 111
     :cond_0
     iget-object v4, p0, Lcom/android/OriginalSettings/PrivacySettings;->mDiagnostics:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 114
+    .line 115
     :cond_1
     invoke-virtual {p0}, Lcom/android/OriginalSettings/PrivacySettings;->getActivity()Landroid/app/Activity;
 
@@ -606,7 +616,7 @@
 
     if-nez v4, :cond_2
 
-    .line 116
+    .line 117
     const-string v4, "backup_category"
 
     invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/PrivacySettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -615,27 +625,27 @@
 
     invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 118
+    .line 119
     :cond_2
     invoke-direct {p0}, Lcom/android/OriginalSettings/PrivacySettings;->updateToggles()V
 
-    .line 119
+    .line 120
     return-void
 
-    .line 104
+    .line 105
     :catch_0
     move-exception v0
 
-    .line 105
+    .line 106
     .local v0, e:Landroid/content/pm/PackageManager$NameNotFoundException;
     const/4 v1, 0x0
 
-    .line 106
+    .line 107
     const-string v4, "PrivacySettings"
 
     const-string v5, "Package not found : IQToggle"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
@@ -644,10 +654,10 @@
     .locals 0
 
     .prologue
-    .line 146
+    .line 147
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onPause()V
 
-    .line 151
+    .line 152
     return-void
 .end method
 
@@ -659,12 +669,12 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 166
+    .line 167
     iget-object v5, p0, Lcom/android/OriginalSettings/PrivacySettings;->mBackup:Landroid/preference/CheckBoxPreference;
 
     if-ne p2, v5, :cond_2
 
-    .line 167
+    .line 168
     iget-object v5, p0, Lcom/android/OriginalSettings/PrivacySettings;->mBackup:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v5}, Landroid/preference/CheckBoxPreference;->isChecked()Z
@@ -673,10 +683,10 @@
 
     if-nez v5, :cond_1
 
-    .line 168
+    .line 169
     invoke-direct {p0}, Lcom/android/OriginalSettings/PrivacySettings;->showEraseBackupDialog()V
 
-    .line 195
+    .line 196
     :cond_0
     :goto_0
     invoke-super {p0, p1, p2}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
@@ -685,26 +695,26 @@
 
     return v4
 
-    .line 170
+    .line 171
     :cond_1
     invoke-direct {p0, v4}, Lcom/android/OriginalSettings/PrivacySettings;->setBackupEnabled(Z)V
 
     goto :goto_0
 
-    .line 172
+    .line 173
     :cond_2
     iget-object v5, p0, Lcom/android/OriginalSettings/PrivacySettings;->mAutoRestore:Landroid/preference/CheckBoxPreference;
 
     if-ne p2, v5, :cond_4
 
-    .line 173
+    .line 174
     iget-object v5, p0, Lcom/android/OriginalSettings/PrivacySettings;->mAutoRestore:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v5}, Landroid/preference/CheckBoxPreference;->isChecked()Z
 
     move-result v1
 
-    .line 175
+    .line 176
     .local v1, curState:Z
     :try_start_0
     iget-object v5, p0, Lcom/android/OriginalSettings/PrivacySettings;->mBackupManager:Landroid/app/backup/IBackupManager;
@@ -715,11 +725,11 @@
 
     goto :goto_0
 
-    .line 176
+    .line 177
     :catch_0
     move-exception v2
 
-    .line 177
+    .line 178
     .local v2, e:Landroid/os/RemoteException;
     iget-object v5, p0, Lcom/android/OriginalSettings/PrivacySettings;->mAutoRestore:Landroid/preference/CheckBoxPreference;
 
@@ -735,7 +745,7 @@
 
     goto :goto_1
 
-    .line 179
+    .line 180
     .end local v1           #curState:Z
     .end local v2           #e:Landroid/os/RemoteException;
     :cond_4
@@ -743,7 +753,7 @@
 
     if-ne p2, v4, :cond_0
 
-    .line 180
+    .line 181
     new-instance v3, Landroid/content/Intent;
 
     const-string v4, "android.intent.action.MAIN"
@@ -752,7 +762,7 @@
 
     invoke-direct {v3, v4, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 181
+    .line 182
     .local v3, intent:Landroid/content/Intent;
     new-instance v0, Landroid/content/ComponentName;
 
@@ -762,11 +772,11 @@
 
     invoke-direct {v0, v4, v5}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 182
+    .line 183
     .local v0, cn:Landroid/content/ComponentName;
     invoke-virtual {v3, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 183
+    .line 184
     invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/PrivacySettings;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
@@ -776,10 +786,10 @@
     .locals 5
 
     .prologue
-    .line 123
+    .line 124
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onResume()V
 
-    .line 125
+    .line 126
     const-string v3, "enterprise_policy"
 
     invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/PrivacySettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -788,13 +798,13 @@
 
     check-cast v0, Landroid/app/enterprise/EnterpriseDeviceManager;
 
-    .line 126
+    .line 127
     .local v0, edm:Landroid/app/enterprise/EnterpriseDeviceManager;
     invoke-virtual {v0}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/app/enterprise/RestrictionPolicy;
 
     move-result-object v2
 
-    .line 127
+    .line 128
     .local v2, rp:Landroid/app/enterprise/RestrictionPolicy;
     iget-object v3, p0, Lcom/android/OriginalSettings/PrivacySettings;->mBackup:Landroid/preference/CheckBoxPreference;
 
@@ -806,7 +816,7 @@
 
     invoke-virtual {v3, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
 
-    .line 128
+    .line 129
     invoke-virtual {p0}, Lcom/android/OriginalSettings/PrivacySettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v3
@@ -819,7 +829,7 @@
 
     check-cast v1, Landroid/preference/PreferenceScreen;
 
-    .line 129
+    .line 130
     .local v1, factoryReset:Landroid/preference/PreferenceScreen;
     invoke-virtual {v2}, Landroid/app/enterprise/RestrictionPolicy;->isFactoryResetAllowed()Z
 
@@ -827,10 +837,10 @@
 
     invoke-virtual {v1, v3}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
 
-    .line 141
+    .line 142
     invoke-direct {p0}, Lcom/android/OriginalSettings/PrivacySettings;->updateToggles()V
 
-    .line 142
+    .line 143
     return-void
 .end method
 
@@ -838,7 +848,7 @@
     .locals 1
 
     .prologue
-    .line 155
+    .line 156
     iget-object v0, p0, Lcom/android/OriginalSettings/PrivacySettings;->mConfirmDialog:Landroid/app/Dialog;
 
     if-eqz v0, :cond_0
@@ -851,25 +861,25 @@
 
     if-eqz v0, :cond_0
 
-    .line 156
+    .line 157
     iget-object v0, p0, Lcom/android/OriginalSettings/PrivacySettings;->mConfirmDialog:Landroid/app/Dialog;
 
     invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 158
+    .line 159
     :cond_0
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/OriginalSettings/PrivacySettings;->mConfirmDialog:Landroid/app/Dialog;
 
-    .line 159
+    .line 160
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/OriginalSettings/PrivacySettings;->mDialogType:I
 
-    .line 160
+    .line 161
     invoke-super {p0}, Lcom/android/OriginalSettings/SettingsPreferenceFragment;->onStop()V
 
-    .line 161
+    .line 162
     return-void
 .end method

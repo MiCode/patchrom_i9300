@@ -513,7 +513,7 @@
     if-nez v2, :cond_1
 
     .line 156
-    const v2, 0x10401bb
+    const v2, 0x10401f3
 
     const/4 v3, 0x0
 

@@ -36,7 +36,7 @@
     .parameter
 
     .prologue
-    .line 316
+    .line 310
     iput-object p1, p0, Lcom/android/OriginalSettings/personalvibration/SelectPatternDialog$2;->this$0:Lcom/android/OriginalSettings/personalvibration/SelectPatternDialog;
 
     iput-object p2, p0, Lcom/android/OriginalSettings/personalvibration/SelectPatternDialog$2;->val$EditPattern:Landroid/widget/TextView;
@@ -58,12 +58,12 @@
     .parameter "whichButton"
 
     .prologue
-    .line 319
+    .line 313
     new-instance v2, Landroid/content/ContentValues;
 
     invoke-direct {v2}, Landroid/content/ContentValues;-><init>()V
 
-    .line 320
+    .line 314
     .local v2, values:Landroid/content/ContentValues;
     iget-object v3, p0, Lcom/android/OriginalSettings/personalvibration/SelectPatternDialog$2;->val$EditPattern:Landroid/widget/TextView;
 
@@ -75,13 +75,30 @@
 
     move-result-object v1
 
-    .line 321
+    .line 315
     .local v1, mPatternName:Ljava/lang/String;
+    const-string v3, "\n"
+
+    const-string v4, " "
+
+    invoke-virtual {v1, v3, v4}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string v4, "\r"
+
+    const-string v5, " "
+
+    invoke-virtual {v3, v4, v5}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 316
     const-string v3, "vibration_name"
 
     invoke-virtual {v2, v3, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 322
+    .line 317
     const-string v3, "vibration_type"
 
     const/4 v4, 0x1
@@ -92,7 +109,7 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 324
+    .line 319
     iget-object v3, p0, Lcom/android/OriginalSettings/personalvibration/SelectPatternDialog$2;->this$0:Lcom/android/OriginalSettings/personalvibration/SelectPatternDialog;
 
     invoke-virtual {v3}, Lcom/android/OriginalSettings/personalvibration/SelectPatternDialog;->getContentResolver()Landroid/content/ContentResolver;
@@ -131,7 +148,7 @@
 
     move-result v0
 
-    .line 326
+    .line 321
     .local v0, count:I
     const-string v3, "SelectPatternDialog"
 
@@ -163,16 +180,16 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 327
+    .line 322
     const-string v3, "SelectPatternDialog"
 
     const-string v4, "OK was clicked, the pattern saved sucessfully"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 328
+    .line 323
     iget-object v3, p0, Lcom/android/OriginalSettings/personalvibration/SelectPatternDialog$2;->this$0:Lcom/android/OriginalSettings/personalvibration/SelectPatternDialog;
 
     #getter for: Lcom/android/OriginalSettings/personalvibration/SelectPatternDialog;->mPatternListAdapter:Lcom/android/OriginalSettings/personalvibration/VibrationPatternListAdapter;
@@ -182,7 +199,7 @@
 
     invoke-virtual {v3}, Lcom/android/OriginalSettings/personalvibration/VibrationPatternListAdapter;->loadPatternType()V
 
-    .line 329
+    .line 324
     iget-object v3, p0, Lcom/android/OriginalSettings/personalvibration/SelectPatternDialog$2;->this$0:Lcom/android/OriginalSettings/personalvibration/SelectPatternDialog;
 
     #getter for: Lcom/android/OriginalSettings/personalvibration/SelectPatternDialog;->mPatternListAdapter:Lcom/android/OriginalSettings/personalvibration/VibrationPatternListAdapter;
@@ -192,7 +209,7 @@
 
     invoke-virtual {v3}, Lcom/android/OriginalSettings/personalvibration/VibrationPatternListAdapter;->notifyDataSetChanged()V
 
-    .line 331
+    .line 326
     iget-object v3, p0, Lcom/android/OriginalSettings/personalvibration/SelectPatternDialog$2;->val$imm:Landroid/view/inputmethod/InputMethodManager;
 
     iget-object v4, p0, Lcom/android/OriginalSettings/personalvibration/SelectPatternDialog$2;->val$EditPattern:Landroid/widget/TextView;
@@ -205,6 +222,6 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
-    .line 333
+    .line 328
     return-void
 .end method

@@ -183,7 +183,7 @@
 
     iget-object v4, p0, Lcom/android/OriginalSettings/DeviceAdminAdd$3;->this$0:Lcom/android/OriginalSettings/DeviceAdminAdd;
 
-    iget-object v4, v4, Lcom/android/OriginalSettings/DeviceAdminAdd;->mHandlerAdmin:Landroid/os/Handler;
+    iget-object v4, v4, Lcom/android/OriginalSettings/DeviceAdminAdd;->mHandler:Landroid/os/Handler;
 
     invoke-direct {v3, p0, v4}, Lcom/android/OriginalSettings/DeviceAdminAdd$3$1;-><init>(Lcom/android/OriginalSettings/DeviceAdminAdd$3;Landroid/os/Handler;)V
 

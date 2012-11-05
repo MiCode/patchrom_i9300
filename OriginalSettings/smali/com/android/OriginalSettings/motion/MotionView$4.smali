@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 243
+    .line 276
     iput-object p1, p0, Lcom/android/OriginalSettings/motion/MotionView$4;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -45,14 +45,14 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 245
+    .line 278
     const-string v1, "MotionView"
 
     const-string v2, "showMotionDialog, positive click"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 246
+    .line 279
     iget-object v1, p0, Lcom/android/OriginalSettings/motion/MotionView$4;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
 
     #calls: Lcom/android/OriginalSettings/motion/MotionView;->getContentResolver()Landroid/content/ContentResolver;
@@ -69,7 +69,7 @@
 
     invoke-static {v1, v2, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 247
+    .line 280
     iget-object v1, p0, Lcom/android/OriginalSettings/motion/MotionView$4;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
 
     #calls: Lcom/android/OriginalSettings/motion/MotionView;->getContentResolver()Landroid/content/ContentResolver;
@@ -87,7 +87,7 @@
 
     if-nez v1, :cond_0
 
-    .line 248
+    .line 281
     iget-object v1, p0, Lcom/android/OriginalSettings/motion/MotionView$4;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
 
     #calls: Lcom/android/OriginalSettings/motion/MotionView;->getContentResolver()Landroid/content/ContentResolver;
@@ -99,20 +99,20 @@
 
     invoke-static {v1, v2, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 249
+    .line 282
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.sec.motions.MOTIONS_SETTINGS_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 250
+    .line 283
     .local v0, motion_changed:Landroid/content/Intent;
     const-string v1, "isEnable"
 
     invoke-virtual {v0, v1, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 251
+    .line 284
     iget-object v1, p0, Lcom/android/OriginalSettings/motion/MotionView$4;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
 
     invoke-virtual {v1}, Lcom/android/OriginalSettings/motion/MotionView;->getActivity()Landroid/app/Activity;
@@ -121,7 +121,7 @@
 
     invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 253
+    .line 286
     .end local v0           #motion_changed:Landroid/content/Intent;
     :cond_0
     iget-object v1, p0, Lcom/android/OriginalSettings/motion/MotionView$4;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
@@ -129,6 +129,6 @@
     #calls: Lcom/android/OriginalSettings/motion/MotionView;->startTryActually()V
     invoke-static {v1}, Lcom/android/OriginalSettings/motion/MotionView;->access$800(Lcom/android/OriginalSettings/motion/MotionView;)V
 
-    .line 254
+    .line 287
     return-void
 .end method

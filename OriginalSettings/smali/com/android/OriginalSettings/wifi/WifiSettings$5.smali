@@ -1,11 +1,14 @@
 .class Lcom/android/OriginalSettings/wifi/WifiSettings$5;
-.super Landroid/os/CountDownTimer;
+.super Ljava/lang/Object;
 .source "WifiSettings.java"
+
+# interfaces
+.implements Landroid/hardware/motion/MRListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/wifi/WifiSettings;->showProgressDialog(Ljava/lang/String;)V
+    value = Lcom/android/OriginalSettings/wifi/WifiSettings;->onActivityCreated(Landroid/os/Bundle;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,93 +22,68 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/OriginalSettings/wifi/WifiSettings;JJ)V
+.method constructor <init>(Lcom/android/OriginalSettings/wifi/WifiSettings;)V
     .locals 0
     .parameter
-    .parameter "x0"
-    .parameter "x1"
 
     .prologue
-    .line 1187
+    .line 451
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$5;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
 
-    invoke-direct {p0, p2, p3, p4, p5}, Landroid/os/CountDownTimer;-><init>(JJ)V
+    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onFinish()V
+.method public onMotionListener(Landroid/hardware/motion/MREvent;)V
     .locals 1
+    .parameter "motionEvent"
 
     .prologue
-    .line 1196
-    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$5;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
+    .line 453
+    invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->getMotion()I
 
-    #calls: Lcom/android/OriginalSettings/wifi/WifiSettings;->dismissProgressDialog()V
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$600(Lcom/android/OriginalSettings/wifi/WifiSettings;)V
+    move-result v0
 
-    .line 1197
+    packed-switch v0, :pswitch_data_0
+
+    .line 460
+    :cond_0
+    :goto_0
     return-void
-.end method
 
-.method public onTick(J)V
-    .locals 2
-    .parameter "millisUntilFinished"
-
-    .prologue
-    const/16 v1, 0x3e8
-
-    .line 1189
+    .line 455
+    :pswitch_0
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$5;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
 
-    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$820(Lcom/android/OriginalSettings/wifi/WifiSettings;I)I
-
-    .line 1190
-    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$5;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
-
-    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mWpsDialog:Landroid/app/ProgressDialog;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$900(Lcom/android/OriginalSettings/wifi/WifiSettings;)Landroid/app/ProgressDialog;
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$300(Lcom/android/OriginalSettings/wifi/WifiSettings;)Landroid/net/wifi/WifiManager;
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->incrementProgressBy(I)V
+    invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
 
-    .line 1191
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 456
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$5;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
 
-    iget-object v1, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$5;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
-
-    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mLapseTime:I
-    invoke-static {v1}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$800(Lcom/android/OriginalSettings/wifi/WifiSettings;)I
-
-    move-result v1
-
-    invoke-static {v1}, Lcom/android/OriginalSettings/wifi/WifiSettings;->getTimeString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    #setter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mProgressNumberFormat:Ljava/lang/String;
-    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$1002(Lcom/android/OriginalSettings/wifi/WifiSettings;Ljava/lang/String;)Ljava/lang/String;
-
-    .line 1192
-    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$5;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
-
-    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mWpsDialog:Landroid/app/ProgressDialog;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$900(Lcom/android/OriginalSettings/wifi/WifiSettings;)Landroid/app/ProgressDialog;
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mScanner:Lcom/android/OriginalSettings/wifi/WifiSettings$Scanner;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$400(Lcom/android/OriginalSettings/wifi/WifiSettings;)Lcom/android/OriginalSettings/wifi/WifiSettings$Scanner;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$5;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
+    invoke-virtual {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings$Scanner;->forceScan()V
 
-    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mProgressNumberFormat:Ljava/lang/String;
-    invoke-static {v1}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$1000(Lcom/android/OriginalSettings/wifi/WifiSettings;)Ljava/lang/String;
+    goto :goto_0
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setProgressNumberFormat(Ljava/lang/String;)V
-
-    .line 1193
-    return-void
+    .line 453
+    :pswitch_data_0
+    .packed-switch 0x23
+        :pswitch_0
+    .end packed-switch
 .end method

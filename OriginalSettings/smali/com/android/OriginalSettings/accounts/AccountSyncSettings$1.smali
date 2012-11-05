@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 102
+    .line 98
     iput-object p1, p0, Lcom/android/OriginalSettings/accounts/AccountSyncSettings$1;->this$0:Lcom/android/OriginalSettings/accounts/AccountSyncSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,68 +38,37 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 5
+    .locals 4
     .parameter "dialog"
     .parameter "which"
 
     .prologue
-    .line 104
-    iget-object v1, p0, Lcom/android/OriginalSettings/accounts/AccountSyncSettings$1;->this$0:Lcom/android/OriginalSettings/accounts/AccountSyncSettings;
+    .line 100
+    iget-object v0, p0, Lcom/android/OriginalSettings/accounts/AccountSyncSettings$1;->this$0:Lcom/android/OriginalSettings/accounts/AccountSyncSettings;
 
-    invoke-virtual {v1}, Lcom/android/OriginalSettings/accounts/AccountSyncSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Lcom/android/OriginalSettings/accounts/AccountSyncSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 105
-    .local v0, activity:Landroid/app/Activity;
-    if-eqz v0, :cond_0
+    invoke-static {v0}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
 
-    if-eqz v0, :cond_1
+    move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->isFinishing()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    .line 106
-    :cond_0
-    const-string v1, "AccountSettings"
-
-    const-string v2, "Activity is finished!!!"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 141
-    :goto_0
-    return-void
-
-    .line 109
-    :cond_1
     iget-object v1, p0, Lcom/android/OriginalSettings/accounts/AccountSyncSettings$1;->this$0:Lcom/android/OriginalSettings/accounts/AccountSyncSettings;
 
-    invoke-virtual {v1}, Lcom/android/OriginalSettings/accounts/AccountSyncSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-static {v1}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/OriginalSettings/accounts/AccountSyncSettings$1;->this$0:Lcom/android/OriginalSettings/accounts/AccountSyncSettings;
-
     #getter for: Lcom/android/OriginalSettings/accounts/AccountSyncSettings;->mAccount:Landroid/accounts/Account;
-    invoke-static {v2}, Lcom/android/OriginalSettings/accounts/AccountSyncSettings;->access$000(Lcom/android/OriginalSettings/accounts/AccountSyncSettings;)Landroid/accounts/Account;
+    invoke-static {v1}, Lcom/android/OriginalSettings/accounts/AccountSyncSettings;->access$000(Lcom/android/OriginalSettings/accounts/AccountSyncSettings;)Landroid/accounts/Account;
 
-    move-result-object v2
+    move-result-object v1
 
-    new-instance v3, Lcom/android/OriginalSettings/accounts/AccountSyncSettings$1$1;
+    new-instance v2, Lcom/android/OriginalSettings/accounts/AccountSyncSettings$1$1;
 
-    invoke-direct {v3, p0}, Lcom/android/OriginalSettings/accounts/AccountSyncSettings$1$1;-><init>(Lcom/android/OriginalSettings/accounts/AccountSyncSettings$1;)V
+    invoke-direct {v2, p0}, Lcom/android/OriginalSettings/accounts/AccountSyncSettings$1$1;-><init>(Lcom/android/OriginalSettings/accounts/AccountSyncSettings$1;)V
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {v1, v2, v3, v4}, Landroid/accounts/AccountManager;->removeAccount(Landroid/accounts/Account;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;
+    invoke-virtual {v0, v1, v2, v3}, Landroid/accounts/AccountManager;->removeAccount(Landroid/accounts/Account;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;
 
-    goto :goto_0
+    .line 127
+    return-void
 .end method

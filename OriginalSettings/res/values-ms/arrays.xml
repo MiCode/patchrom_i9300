@@ -18,12 +18,15 @@
         <item>10 minit</item>
         <item>30 minit</item>
     </string-array>
-    <string-array name="psm_screen_timeout_entries">
+    <string-array name="screen_timeout_for_device_lock_entries">
         <item>15 saat</item>
         <item>30 saat</item>
         <item>1 minit</item>
-        <item>2 minit</item>
+        <item>3 minit</item>
         <item>5 minit</item>
+        <item>10 minit</item>
+        <item>15 minit</item>
+        <item>30 minit</item>
     </string-array>
     <string-array name="dream_timeout_entries">
         <item>Tidak pernah</item>
@@ -34,6 +37,18 @@
         <item>5 minit</item>
         <item>10 minit</item>
         <item>30 minit</item>
+    </string-array>
+    <string-array name="device_lock_timeout_entries">
+        <item>Instantly with power key or screen timeout</item>
+        <item>15 saat</item>
+        <item>30 saat</item>
+        <item>1 minit</item>
+        <item>3 minit</item>
+        <item>5 minit</item>
+        <item>10 minit</item>
+        <item>15 minit</item>
+        <item>30 minit</item>
+        <item>1 hours</item>
     </string-array>
     <string-array name="lock_after_timeout_entries">
         <item>Serta-merta</item>
@@ -93,17 +108,7 @@
         <item>Diputuskan</item>
         <item>Tidak berjaya</item>
         <item>Disambung</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Mengelakkan sambungan lemah buat sementara</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item></item>
@@ -117,17 +122,7 @@
         <item>Diputuskan</item>
         <item>Tidak berjaya</item>
         <item>Disambung</item>
-        <item>CW Disconnected</item>
-        <item>CW Registering</item>
-        <item>CW Registered</item>
-        <item>CW Register Fail</item>
-        <item>CW PPP Setup</item>
-        <item>CW PPP Fail</item>
-        <item>CW Deiniting</item>
-        <item>CW Ready</item>
-        <item>CW Stopping WLAN</item>
-        <item>Connected. CW Register Fail.</item>
-        <item>Connected. CW PPP Fail.</item>
+        <item>Mengelakkan sambungan lemah buat sementara</item>
     </string-array>
     <string-array name="wifi_ap_security">
         <item>Buka</item>
@@ -138,12 +133,20 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
-    <string-array name="wifi_eap_aka_method">
-        <item>PEAP</item>
-        <item>TLS</item>
-        <item>TTLS</item>
-        <item>AKA</item>
+    <string-array name="wifi_p2p_wps_setup">
+        <item>Butang tolak</item>
+        <item>PIN dari peranti rakan</item>
+        <item>PIN dari peranti ini</item>
+    </string-array>
+    <string-array name="wifi_p2p_status">
+        <item>Disambung</item>
+        <item>Dijemput</item>
+        <item>Sambungan gagal</item>
+        <item>Ketik untuk sambung</item>
+        <item>Di luar julat</item>
+        <item>Disambungkan dengan peranti lain</item>
     </string-array>
     <string-array name="wifi_ap_timeout">
         <item>Jangan sekali-kali tamat masa</item>
@@ -152,6 +155,10 @@
         <item>20 minit</item>
         <item>30 minit</item>
         <item>60 minit</item>
+    </string-array>
+    <string-array name="wifi_ap_connection_mode">
+        <item>Bnrkan semua peranti</item>
+        <item>Hanya peranti dibenarkan</item>
     </string-array>
     <string-array name="wifi_ap_channel">
         <item>Automatik</item>
@@ -178,19 +185,6 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-    </string-array>
-    <string-array name="wifi_p2p_wps_setup">
-        <item>Butang tolak</item>
-        <item>PIN dari peranti rakan</item>
-        <item>PIN dari peranti ini</item>
-    </string-array>
-    <string-array name="wifi_p2p_status">
-        <item>Disambung</item>
-        <item>Dijemput</item>
-        <item>Sambungan gagal</item>
-        <item>Ketik untuk sambung</item>
-        <item>Di luar julat</item>
-        <item>Disambungkan dengan peranti lain</item>
     </string-array>
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 minit</item>
@@ -221,7 +215,7 @@
         <item>0</item>
     </string-array>
     <string-array name="wifi_frequency_band_entries">
-        <item>Auto</item>
+        <item>Automatik</item>
         <item>5 GHz sahaja</item>
         <item>2.4 GHz sahaja</item>
     </string-array>
@@ -239,6 +233,7 @@
         <item>PEAP</item>
         <item>TLS</item>
         <item>TTLS</item>
+        <item>PWD</item>
     </string-array>
     <string-array name="wifi_phase1_entries">
         <item>0</item>
@@ -254,7 +249,7 @@
         <item>GTC</item>
     </string-array>
     <string-array name="wifi_network_setup">
-        <item>Mati</item>
+        <item>Matikan</item>
         <item>Butang tolak</item>
         <item>PIN dari titik capaian</item>
         <item>PIN dari peranti ini</item>
@@ -266,16 +261,6 @@
     <string-array name="wifi_proxy_settings">
         <item>Tiada</item>
         <item>Manual</item>
-    </string-array>
-    <string-array name="wifi_connection_settings">
-        <item>Biasa</item>
-        <item>Downtown</item>
-        <item>Rumah</item>
-    </string-array>
-    <string-array name="wifi_connection_settings_summary">
-        <item>Ini adalah aturan sambungan Wi-Fi yang paling umum</item>
-        <item>Jika anda berada di kawasan dengan rangkaian Wi-Fi yang banyak, Wi-Fi akan kerap menyambung semula untuk mendapat kekuatan isyarat yang lebih baik</item>
-        <item>Jika anda berada di kawasan dengan rangkaian Wi-Fi yang sedikit, sambungan Wi-Fi dikekalkan selama yang mungkin</item>
     </string-array>
     <string-array name="emergency_tone_entries">
         <item>Mati</item>
@@ -307,11 +292,6 @@
         <item>Storan peranti dalaman</item>
         <item>Kad SD yang boleh dikeluarkan</item>
         <item>Lalai</item>
-    </string-array>
-    <string-array name="silent_mode_entries">
-        <item>Matikan</item>
-        <item>Getaran</item>
-        <item>Bisu</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Pendek</item>
@@ -346,6 +326,15 @@
         <item>Skala animasi 5x</item>
         <item>Skala animasi 10x</item>
     </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Animasi dimatikan</item>
+        <item>Skala animasi 0.5x</item>
+        <item>Skala animasi 1x</item>
+        <item>Skala animasi 1.5x</item>
+        <item>Skala animasi 2x</item>
+        <item>Skala animasi 5x</item>
+        <item>Skala animasi 10x</item>
+    </string-array>
     <string-array name="app_process_limit_entries">
         <item>Had biasa</item>
         <item>Tiada proses latar belakang</item>
@@ -370,22 +359,8 @@
         <item>Tamat masa</item>
         <item>Tidak berjaya</item>
     </string-array>
-    <string-array name="psm_values_new">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-        <item>40</item>
-        <item>50</item>
-    </string-array>
-    <string-array name="psm_brightness_entries">
-        <item>10%</item>
-        <item>20%</item>
-        <item>30%</item>
-        <item>40%</item>
-        <item>50%</item>
-    </string-array>
     <string-array name="allshare_download_to">
-        <item>Storan USB</item>
+        <item>Peranti</item>
         <item>Kad SD</item>
     </string-array>
     <string-array name="allshare_download_to_value">
@@ -415,15 +390,28 @@
         <item>Foto</item>
         <item>Muzik</item>
     </string-array>
-    <string-array name="signature_settings_verification_level_entries">
-        <item>Tinggi</item>
-        <item>Sederhana</item>
-        <item>Rendah</item>
-    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Automatik</item>
         <item>Secara manual</item>
         <item>Tanya selalu</item>
+    </string-array>
+    <string-array name="key_backlight_entries">
+        <item>Sentiasa mati</item>
+        <item>3 saat</item>
+        <item>5 saat</item>
+        <item>10 saat</item>
+        <item>15 saat</item>
+    </string-array>
+    <string-array name="allow_list_entries">
+        <item>Tiada</item>
+        <item>Semua kenalan</item>
+        <item>Kegemaran</item>
+        <item>Langganan</item>
+    </string-array>
+    <string-array name="signature_settings_verification_level_entries">
+        <item>Tinggi</item>
+        <item>Sederhana</item>
+        <item>Rendah</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1.5 saat</item>
@@ -439,11 +427,24 @@
     <string-array name="contents_type_entries">
         <item>Berita</item>
         <item>Saham</item>
+        <item>Facebook</item>
+    </string-array>
+    <string-array name="contents_type_entries_weibo">
+        <item>Berita</item>
+        <item>Saham</item>
+        <item>Weibo</item>
     </string-array>
     <string-array name="sliding_speed_entries">
         <item>Perlahan</item>
         <item>Biasa</item>
         <item>Pantas</item>
+    </string-array>
+    <string-array name="facebook_auto_refresh_entries">
+        <item>Tiada</item>
+        <item>Setiap 30 minit</item>
+        <item>Setiap 1 jam</item>
+        <item>Setiap 2 jam</item>
+        <item>Setiap 4 jam</item>
     </string-array>
     <string-array name="bluetooth_class_of_device_entries">
         <item>Set kpala</item>
@@ -451,5 +452,9 @@
         <item>Telefon</item>
         <item>HID (papan kekunci, tetikus, etc.)</item>
         <item>Semua peranti</item>
+    </string-array>
+    <string-array name="audio_output_entries">
+        <item>Stereo</item>
+        <item>Selindungi</item>
     </string-array>
 </resources>

@@ -3,12 +3,12 @@
 .source "WifiSettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/wifi/WifiSettings;->showDurationDialog(IIZ)V
+    value = Lcom/android/OriginalSettings/wifi/WifiSettings;->startWith(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1300
+    .line 723
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$6;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,48 +37,25 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 4
-    .parameter "dialog"
-    .parameter "which"
+.method public run()V
+    .locals 3
 
     .prologue
-    const/4 v3, 0x1
+    .line 725
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$6;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
 
-    .line 1302
-    iget-object v1, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$6;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
-
-    invoke-virtual {v1}, Lcom/android/OriginalSettings/wifi/WifiSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 1303
-    .local v0, resolver:Landroid/content/ContentResolver;
-    const-string v1, "wifi_watchdog_on"
+    new-instance v1, Landroid/content/Intent;
 
-    invoke-static {v0, v1, v3}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    const-string v2, "com.android.settings.wifi.WIFI_ON"
 
-    move-result v1
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    if-ne v1, v3, :cond_0
+    invoke-virtual {v0, v1}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 1304
-    const-string v1, "wifi_watchdog_on"
-
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 1305
-    const-string v1, "wifi_watchdog_on"
-
-    invoke-static {v0, v1, v3}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 1307
-    :cond_0
+    .line 726
     return-void
 .end method

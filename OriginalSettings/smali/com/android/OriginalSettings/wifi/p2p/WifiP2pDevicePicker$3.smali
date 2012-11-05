@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->onCreate(Landroid/os/Bundle;)V
+    value = Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->onActivityCreated(Landroid/os/Bundle;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 346
+    .line 315
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$3;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,16 +38,82 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
+    .locals 4
     .parameter "v"
 
     .prologue
-    .line 349
+    const/4 v3, 0x0
+
+    .line 318
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$3;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;
 
-    #calls: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->send()Z
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->access$1800(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;)Z
+    #getter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->mMultiConnectClicked:Z
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->access$1500(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;)Z
 
-    .line 350
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 319
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$3;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;
+
+    invoke-virtual {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->finish()V
+
+    .line 328
+    :goto_0
     return-void
+
+    .line 322
+    :cond_0
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$3;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;
+
+    #getter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->access$000(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;)Landroid/net/wifi/p2p/WifiP2pManager;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$3;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;
+
+    #getter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
+    invoke-static {v1}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->access$700(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;)Landroid/net/wifi/p2p/WifiP2pManager$Channel;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$3;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;
+
+    invoke-virtual {v0, v1, v2}, Landroid/net/wifi/p2p/WifiP2pManager;->requestPeers(Landroid/net/wifi/p2p/WifiP2pManager$Channel;Landroid/net/wifi/p2p/WifiP2pManager$PeerListListener;)V
+
+    .line 323
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$3;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;
+
+    #setter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->mMultiConnectClicked:Z
+    invoke-static {v0, v3}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->access$1502(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;Z)Z
+
+    .line 324
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$3;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;
+
+    #getter for: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->mMultiConnectFooter:Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->access$1800(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;)Landroid/widget/TextView;
+
+    move-result-object v0
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 325
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$3;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;
+
+    #calls: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->useCustomActionBar(Z)V
+    invoke-static {v0, v3}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->access$1900(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;Z)V
+
+    .line 326
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker$3;->this$0:Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;
+
+    const/4 v1, 0x4
+
+    #calls: Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->setP2pMenu(I)V
+    invoke-static {v0, v1}, Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;->access$600(Lcom/android/OriginalSettings/wifi/p2p/WifiP2pDevicePicker;I)V
+
+    goto :goto_0
 .end method

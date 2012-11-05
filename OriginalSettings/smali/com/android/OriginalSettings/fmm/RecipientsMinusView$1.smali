@@ -63,7 +63,7 @@
     .local v1, imm:Landroid/view/inputmethod/InputMethodManager;
     iget-object v2, p0, Lcom/android/OriginalSettings/fmm/RecipientsMinusView$1;->this$0:Lcom/android/OriginalSettings/fmm/RecipientsMinusView;
 
-    const v3, 0x7f0a0104
+    const v3, 0x7f0b011f
 
     invoke-virtual {v2, v3}, Lcom/android/OriginalSettings/fmm/RecipientsMinusView;->findViewById(I)Landroid/view/View;
 

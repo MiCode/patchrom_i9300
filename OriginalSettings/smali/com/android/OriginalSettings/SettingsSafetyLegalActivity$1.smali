@@ -50,7 +50,7 @@
 
     iget-object v1, p0, Lcom/android/OriginalSettings/SettingsSafetyLegalActivity$1;->this$0:Lcom/android/OriginalSettings/SettingsSafetyLegalActivity;
 
-    const v2, 0x7f0d0487
+    const v2, 0x7f09054b
 
     invoke-virtual {v1, v2}, Lcom/android/OriginalSettings/SettingsSafetyLegalActivity;->getString(I)Ljava/lang/String;
 

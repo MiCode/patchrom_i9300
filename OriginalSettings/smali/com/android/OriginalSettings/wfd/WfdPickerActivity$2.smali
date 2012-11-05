@@ -3,12 +3,12 @@
 .source "WfdPickerActivity.java"
 
 # interfaces
-.implements Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;
+.implements Landroid/hardware/motion/MRListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->cancelWfdConnect()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 763
+    .line 472
     iput-object p1, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$2;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,25 +37,42 @@
 
 
 # virtual methods
-.method public onFailure(I)V
+.method public onMotionListener(Landroid/hardware/motion/MREvent;)V
     .locals 3
-    .parameter "reason"
+    .parameter "motionEvent"
 
     .prologue
-    .line 774
+    .line 474
+    invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->getMotion()I
+
+    move-result v0
+
+    packed-switch v0, :pswitch_data_0
+
+    .line 487
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 476
+    :pswitch_0
     const-string v0, "WfdPickerActivity"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "cancelWfdConnect removeGroup fail "
+    const-string v2, "Motion Event = "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -63,35 +80,68 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 775
-    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$2;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+    goto :goto_0
 
-    #calls: Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->scanDevice()V
-    invoke-static {v0}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->access$600(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;)V
-
-    .line 776
-    return-void
-.end method
-
-.method public onSuccess()V
-    .locals 2
-
-    .prologue
-    .line 767
+    .line 479
+    :pswitch_1
     const-string v0, "WfdPickerActivity"
 
-    const-string v1, "cancelWfdConnect removeGroup success"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 768
+    const-string v2, "Motion Event = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 480
     iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$2;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
 
-    #calls: Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->scanDevice()V
-    invoke-static {v0}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->access$600(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;)V
+    #getter for: Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->mMotionHandler:Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->access$1900(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;)Landroid/os/Handler;
 
-    .line 769
-    return-void
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    .line 481
+    iget-object v0, p0, Lcom/android/OriginalSettings/wfd/WfdPickerActivity$2;->this$0:Lcom/android/OriginalSettings/wfd/WfdPickerActivity;
+
+    #getter for: Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->mMotionHandler:Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wfd/WfdPickerActivity;->access$1900(Lcom/android/OriginalSettings/wfd/WfdPickerActivity;)Landroid/os/Handler;
+
+    move-result-object v0
+
+    const/16 v1, 0x1e0
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+
+    goto :goto_0
+
+    .line 474
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x23
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
 .end method

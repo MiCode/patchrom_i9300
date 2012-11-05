@@ -3,12 +3,12 @@
 .source "NearbySettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnCancelListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/OriginalSettings/nearby/NearbySettings;->requestWifiSettingPopup()V
+    value = Lcom/android/OriginalSettings/nearby/NearbySettings;->onCreate(Landroid/os/Bundle;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,15 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
 
+.field final synthetic val$edit:Landroid/widget/EditText;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/OriginalSettings/nearby/NearbySettings;)V
+.method constructor <init>(Lcom/android/OriginalSettings/nearby/NearbySettings;Landroid/widget/EditText;)V
     .locals 0
+    .parameter
     .parameter
 
     .prologue
-    .line 633
+    .line 413
     iput-object p1, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$2;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
+
+    iput-object p2, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$2;->val$edit:Landroid/widget/EditText;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
@@ -37,53 +42,33 @@
 
 
 # virtual methods
-.method public onCancel(Landroid/content/DialogInterface;)V
-    .locals 2
-    .parameter "dialog"
+.method public run()V
+    .locals 3
 
     .prologue
-    .line 636
-    const-string v0, "AllshareSetting"
+    .line 415
+    iget-object v1, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$2;->val$edit:Landroid/widget/EditText;
 
-    const-string v1, "AllshareSetting: Wifi AlertDialog Select : cancel"
+    invoke-virtual {v1}, Landroid/widget/EditText;->getContext()Landroid/content/Context;
 
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v1
 
-    .line 637
-    iget-object v0, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$2;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
+    const-string v2, "input_method"
 
-    const/4 v1, 0x0
-
-    #setter for: Lcom/android/OriginalSettings/nearby/NearbySettings;->bWifiPopupShown:Z
-    invoke-static {v0, v1}, Lcom/android/OriginalSettings/nearby/NearbySettings;->access$802(Lcom/android/OriginalSettings/nearby/NearbySettings;Z)Z
-
-    .line 638
-    iget-object v0, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$2;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
-
-    #getter for: Lcom/android/OriginalSettings/nearby/NearbySettings;->mFunctionOnoff:Landroid/preference/SwitchPreference;
-    invoke-static {v0}, Lcom/android/OriginalSettings/nearby/NearbySettings;->access$300(Lcom/android/OriginalSettings/nearby/NearbySettings;)Landroid/preference/SwitchPreference;
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/preference/SwitchPreference;->isEnabled()Z
+    check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
-    move-result v0
+    .line 417
+    .local v0, inputManager:Landroid/view/inputmethod/InputMethodManager;
+    iget-object v1, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$2;->val$edit:Landroid/widget/EditText;
 
-    if-nez v0, :cond_0
+    const/4 v2, 0x1
 
-    .line 639
-    iget-object v0, p0, Lcom/android/OriginalSettings/nearby/NearbySettings$2;->this$0:Lcom/android/OriginalSettings/nearby/NearbySettings;
+    invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->showSoftInput(Landroid/view/View;I)Z
 
-    #getter for: Lcom/android/OriginalSettings/nearby/NearbySettings;->mFunctionOnoff:Landroid/preference/SwitchPreference;
-    invoke-static {v0}, Lcom/android/OriginalSettings/nearby/NearbySettings;->access$300(Lcom/android/OriginalSettings/nearby/NearbySettings;)Landroid/preference/SwitchPreference;
-
-    move-result-object v0
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
-
-    .line 640
-    :cond_0
+    .line 418
     return-void
 .end method

@@ -25,13 +25,13 @@
     .parameter "context"
 
     .prologue
-    .line 228
+    .line 214
     invoke-direct {p0, p1}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 229
+    .line 215
     iput-object p2, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderNegativeColor$SettingsObserver;->mContext:Landroid/content/Context;
 
-    .line 230
+    .line 216
     return-void
 .end method
 
@@ -42,12 +42,12 @@
     .parameter "selfChange"
 
     .prologue
-    .line 244
+    .line 230
     iget-object v0, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderNegativeColor$SettingsObserver;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderNegativeColor;->updateWidget(Landroid/content/Context;)V
 
-    .line 245
+    .line 231
     return-void
 .end method
 
@@ -55,14 +55,14 @@
     .locals 3
 
     .prologue
-    .line 233
+    .line 219
     iget-object v1, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderNegativeColor$SettingsObserver;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 234
+    .line 220
     .local v0, resolver:Landroid/content/ContentResolver;
     const-string v1, "high_contrast"
 
@@ -74,7 +74,7 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 236
+    .line 222
     return-void
 .end method
 
@@ -82,7 +82,7 @@
     .locals 1
 
     .prologue
-    .line 239
+    .line 225
     iget-object v0, p0, Lcom/android/OriginalSettings/accessibilitywidget/AccessibilityWidgetProviderNegativeColor$SettingsObserver;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -91,6 +91,6 @@
 
     invoke-virtual {v0, p0}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 240
+    .line 226
     return-void
 .end method

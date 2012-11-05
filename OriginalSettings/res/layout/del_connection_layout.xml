@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ListView android:id="@android:id/list" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" />
-    <LinearLayout android:id="@id/InnerRelativeLayout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
-        <Button android:id="@id/savebutton" android:layout_width="0.0px" android:layout_height="wrap_content" android:text="@string/dlg_ok" android:layout_weight="1.0" />
-        <Button android:id="@id/cancelbutton" android:layout_width="0.0px" android:layout_height="wrap_content" android:text="@string/cancel" android:layout_weight="1.0" />
-    </LinearLayout>
-</RelativeLayout>

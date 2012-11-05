@@ -157,7 +157,7 @@
 
     invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
 
-    const v3, 0x7f0d0794
+    const v3, 0x7f0908eb
 
     const/4 v6, 0x0
 

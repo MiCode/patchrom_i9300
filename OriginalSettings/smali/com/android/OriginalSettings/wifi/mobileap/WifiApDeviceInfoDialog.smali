@@ -7,43 +7,23 @@
 
 
 # instance fields
-.field private mConnectionTime:Ljava/lang/Long;
-
-.field private mIp:Ljava/lang/String;
-
-.field private mMac:Ljava/lang/String;
-
-.field private mName:Ljava/lang/String;
-
-.field private mView:Landroid/view/View;
+.field private mDevice:Lcom/android/OriginalSettings/wifi/mobileap/WifiApConnectedDevice;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/OriginalSettings/wifi/mobileap/WifiApConnectedDevice;)V
     .locals 0
     .parameter "context"
-    .parameter "name"
-    .parameter "ip"
-    .parameter "mac"
-    .parameter "time"
+    .parameter "device"
 
     .prologue
-    .line 53
+    .line 36
     invoke-direct {p0, p1}, Landroid/app/AlertDialog;-><init>(Landroid/content/Context;)V
 
-    .line 55
-    iput-object p2, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->mName:Ljava/lang/String;
+    .line 37
+    iput-object p2, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->mDevice:Lcom/android/OriginalSettings/wifi/mobileap/WifiApConnectedDevice;
 
-    .line 56
-    iput-object p3, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->mIp:Ljava/lang/String;
-
-    .line 57
-    iput-object p4, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->mMac:Ljava/lang/String;
-
-    .line 58
-    iput-object p5, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->mConnectionTime:Ljava/lang/Long;
-
-    .line 59
+    .line 38
     return-void
 .end method
 
@@ -52,30 +32,30 @@
     .parameter "time"
 
     .prologue
-    .line 85
+    .line 64
     const-wide/16 v8, 0xe10
 
     div-long v0, p1, v8
 
-    .line 86
+    .line 65
     .local v0, hour:J
     const-wide/16 v8, 0xe10
 
     rem-long v2, p1, v8
 
-    .line 87
+    .line 66
     .local v2, hour_rest:J
     const-wide/16 v8, 0x3c
 
     div-long v4, v2, v8
 
-    .line 88
+    .line 67
     .local v4, min:J
     const-wide/16 v8, 0x3c
 
     rem-long v6, v2, v8
 
-    .line 90
+    .line 69
     .local v6, sec:J
     new-instance v8, Ljava/lang/StringBuilder;
 
@@ -180,167 +160,172 @@
     .parameter "arg1"
 
     .prologue
-    .line 95
+    .line 74
     return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 9
+    .locals 8
     .parameter "savedInstanceState"
 
     .prologue
-    const-wide/16 v7, 0x3e8
+    const-wide/16 v6, 0x3e8
 
-    .line 63
+    .line 42
     invoke-virtual {p0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->getLayoutInflater()Landroid/view/LayoutInflater;
 
-    move-result-object v4
+    move-result-object v2
 
-    const v5, 0x7f0400d1
+    const v3, 0x7f0400f7
 
-    const/4 v6, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {v4, v5, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v2, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v1
 
-    iput-object v4, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->mView:Landroid/view/View;
+    .line 43
+    .local v1, view:Landroid/view/View;
+    invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->setView(Landroid/view/View;)V
 
-    .line 64
-    iget-object v4, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->mView:Landroid/view/View;
+    .line 44
+    const/4 v2, 0x1
 
-    invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->setView(Landroid/view/View;)V
+    invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->setInverseBackgroundForced(Z)V
 
-    .line 65
-    const/4 v4, 0x1
+    .line 46
+    iget-object v2, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->mDevice:Lcom/android/OriginalSettings/wifi/mobileap/WifiApConnectedDevice;
 
-    invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->setInverseBackgroundForced(Z)V
+    invoke-virtual {v2}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApConnectedDevice;->getDeviceName()Ljava/lang/String;
 
-    .line 67
-    iget-object v4, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->mName:Ljava/lang/String;
+    move-result-object v2
 
-    invoke-virtual {p0, v4}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 69
-    iget-object v4, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->mView:Landroid/view/View;
+    .line 48
+    const v2, 0x7f0b02ce
 
-    const v5, 0x7f0a0271
+    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    move-result-object v2
 
-    move-result-object v4
+    check-cast v2, Landroid/widget/TextView;
 
-    check-cast v4, Landroid/widget/TextView;
+    iget-object v3, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->mDevice:Lcom/android/OriginalSettings/wifi/mobileap/WifiApConnectedDevice;
 
-    iget-object v5, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->mIp:Ljava/lang/String;
+    invoke-virtual {v3}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApConnectedDevice;->getIp()Ljava/lang/String;
 
-    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    move-result-object v3
 
-    .line 70
-    iget-object v4, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->mView:Landroid/view/View;
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v5, 0x7f0a0272
+    .line 49
+    const v2, 0x7f0b02cf
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v2
 
-    check-cast v4, Landroid/widget/TextView;
+    check-cast v2, Landroid/widget/TextView;
 
-    iget-object v5, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->mMac:Ljava/lang/String;
+    iget-object v3, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->mDevice:Lcom/android/OriginalSettings/wifi/mobileap/WifiApConnectedDevice;
 
-    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v3}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApConnectedDevice;->getMac()Ljava/lang/String;
 
-    .line 72
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 51
     new-instance v0, Ljava/text/SimpleDateFormat;
 
-    const-string v4, "MM/dd/yyyy HH:mm"
+    const-string v2, "MM/dd/yyyy HH:mm"
 
-    invoke-direct {v0, v4}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
 
-    .line 73
+    .line 52
     .local v0, connDateTime:Ljava/text/SimpleDateFormat;
-    new-instance v4, Ljava/util/Date;
+    const v2, 0x7f0b02d0
 
-    iget-object v5, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->mConnectionTime:Ljava/lang/Long;
+    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/TextView;
+
+    new-instance v3, Ljava/util/Date;
+
+    iget-object v4, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->mDevice:Lcom/android/OriginalSettings/wifi/mobileap/WifiApConnectedDevice;
+
+    invoke-virtual {v4}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApConnectedDevice;->getConnectedTime()Ljava/lang/Long;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v4
+
+    mul-long/2addr v4, v6
+
+    invoke-direct {v3, v4, v5}, Ljava/util/Date;-><init>(J)V
+
+    invoke-virtual {v0, v3}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 55
+    const v2, 0x7f0b02d1
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/TextView;
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v3
+
+    div-long/2addr v3, v6
+
+    iget-object v5, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->mDevice:Lcom/android/OriginalSettings/wifi/mobileap/WifiApConnectedDevice;
+
+    invoke-virtual {v5}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApConnectedDevice;->getConnectedTime()Ljava/lang/Long;
+
+    move-result-object v5
 
     invoke-virtual {v5}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v5
 
-    mul-long/2addr v5, v7
+    sub-long/2addr v3, v5
 
-    invoke-direct {v4, v5, v6}, Ljava/util/Date;-><init>(J)V
+    invoke-direct {p0, v3, v4}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->convertMilsToHHMMSS(J)Ljava/lang/String;
 
-    invoke-virtual {v0, v4}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v1
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 74
-    .local v1, connetcionTime:Ljava/lang/String;
-    iget-object v4, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->mView:Landroid/view/View;
-
-    const v5, 0x7f0a0273
-
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/widget/TextView;
-
-    invoke-virtual {v4, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 76
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v4
-
-    div-long/2addr v4, v7
-
-    iget-object v6, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->mConnectionTime:Ljava/lang/Long;
-
-    invoke-virtual {v6}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v6
-
-    sub-long v2, v4, v6
-
-    .line 77
-    .local v2, durationMils:J
-    iget-object v4, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->mView:Landroid/view/View;
-
-    const v5, 0x7f0a0274
-
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/widget/TextView;
-
-    invoke-direct {p0, v2, v3}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->convertMilsToHHMMSS(J)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 79
-    const/4 v4, -0x1
+    .line 58
+    const/4 v2, -0x1
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->getContext()Landroid/content/Context;
 
-    move-result-object v5
+    move-result-object v3
 
-    const v6, 0x7f0d04ee
+    const v4, 0x7f0905b8
 
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {p0, v4, v5, p0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
+    invoke-virtual {p0, v2, v3, p0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApDeviceInfoDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
-    .line 80
+    .line 59
     invoke-super {p0, p1}, Landroid/app/AlertDialog;->onCreate(Landroid/os/Bundle;)V
 
-    .line 81
+    .line 60
     return-void
 .end method

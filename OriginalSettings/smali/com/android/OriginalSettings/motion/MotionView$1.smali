@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 109
+    .line 142
     iput-object p1, p0, Lcom/android/OriginalSettings/motion/MotionView$1;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,16 +39,16 @@
     .parameter "msg"
 
     .prologue
-    .line 111
+    .line 144
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 116
+    .line 149
     :goto_0
     return-void
 
-    .line 113
+    .line 146
     :pswitch_0
     iget-object v0, p0, Lcom/android/OriginalSettings/motion/MotionView$1;->this$0:Lcom/android/OriginalSettings/motion/MotionView;
 
@@ -57,7 +57,7 @@
 
     goto :goto_0
 
-    .line 111
+    .line 144
     :pswitch_data_0
     .packed-switch 0x66
         :pswitch_0

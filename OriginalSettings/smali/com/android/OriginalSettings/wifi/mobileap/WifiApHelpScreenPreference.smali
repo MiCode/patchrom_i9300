@@ -13,122 +13,137 @@
     .parameter "context"
 
     .prologue
-    .line 38
+    .line 39
     invoke-direct {p0, p1}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    .line 35
+    .line 36
     const/16 v0, 0xa
 
     iput v0, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApHelpScreenPreference;->mMaxClient:I
 
-    .line 39
-    const v0, 0x7f0400d3
+    .line 40
+    const v0, 0x7f0400f9
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApHelpScreenPreference;->setLayoutResource(I)V
 
-    .line 40
+    .line 41
     return-void
 .end method
 
 
 # virtual methods
 .method protected onBindView(Landroid/view/View;)V
-    .locals 7
+    .locals 8
     .parameter "view"
 
     .prologue
-    .line 50
+    .line 51
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    .line 52
-    const v1, 0x7f0a00c1
+    .line 53
+    const v2, 0x7f0b02de
 
-    invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/TextView;
+    check-cast v0, Landroid/widget/ImageView;
+
+    .line 54
+    .local v0, tetherImg:Landroid/widget/ImageView;
+    const v2, 0x7f0b00d7
+
+    invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/TextView;
 
     .line 59
-    .local v0, tv:Landroid/widget/TextView;
-    new-instance v1, Ljava/lang/StringBuilder;
+    .local v1, tv:Landroid/widget/TextView;
+    const v2, 0x7f0202aa
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    invoke-virtual {p0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApHelpScreenPreference;->getContext()Landroid/content/Context;
+    .line 67
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    move-result-object v2
-
-    const v3, 0x7f0d028d
-
-    const/4 v4, 0x1
-
-    new-array v4, v4, [Ljava/lang/Object;
-
-    const/4 v5, 0x0
-
-    iget v6, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApHelpScreenPreference;->mMaxClient:I
-
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
-    aput-object v6, v4, v5
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, "\n\n"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApHelpScreenPreference;->getContext()Landroid/content/Context;
 
+    move-result-object v3
+
+    const v4, 0x7f0902f7
+
+    const/4 v5, 0x1
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    const/4 v6, 0x0
+
+    iget v7, p0, Lcom/android/OriginalSettings/wifi/mobileap/WifiApHelpScreenPreference;->mMaxClient:I
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    aput-object v7, v5, v6
+
+    invoke-virtual {v3, v4, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object v2
 
-    const v3, 0x7f0d0291
+    const-string v3, "\n\n"
 
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, "\n\n"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
 
     invoke-virtual {p0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApHelpScreenPreference;->getContext()Landroid/content/Context;
 
+    move-result-object v3
+
+    const v4, 0x7f0902fb
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object v2
 
-    const v3, 0x7f0d028e
+    const-string v3, "\n\n"
 
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0}, Lcom/android/OriginalSettings/wifi/mobileap/WifiApHelpScreenPreference;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const v4, 0x7f0902f8
 
-    move-result-object v1
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    move-result-object v3
 
-    .line 62
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 70
     return-void
 .end method

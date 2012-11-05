@@ -23,7 +23,7 @@
     invoke-direct {p0, p1}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
     .line 39
-    const v0, 0x7f04000e
+    const v0, 0x7f04000b
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/fuelgauge/PowerGaugePreference;->setLayoutResource(I)V
 
@@ -115,7 +115,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d072e
+    const v1, 0x7f09085a
 
     const/4 v2, 0x1
 

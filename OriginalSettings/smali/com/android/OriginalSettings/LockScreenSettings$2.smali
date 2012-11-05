@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 426
+    .line 502
     iput-object p1, p0, Lcom/android/OriginalSettings/LockScreenSettings$2;->this$0:Lcom/android/OriginalSettings/LockScreenSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 428
+    .line 504
     iget-object v1, p0, Lcom/android/OriginalSettings/LockScreenSettings$2;->this$0:Lcom/android/OriginalSettings/LockScreenSettings;
 
     #getter for: Lcom/android/OriginalSettings/LockScreenSettings;->mCameraShortCut:Landroid/preference/SwitchPreferenceScreen;
@@ -71,6 +71,6 @@
     :cond_0
     invoke-virtual {v1, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
 
-    .line 429
+    .line 505
     return-void
 .end method

@@ -3,7 +3,7 @@
 .source "WifiSettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1344
+    .line 1301
     iput-object p1, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$11;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,33 +37,31 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
-    .parameter "dialog"
-    .parameter "which"
+.method public run()V
+    .locals 1
 
     .prologue
-    .line 1346
+    .line 1303
     iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$11;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
 
-    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
-    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$300(Lcom/android/OriginalSettings/wifi/WifiSettings;)Landroid/net/wifi/WifiManager;
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mWatchdogDialog:Landroid/app/AlertDialog;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$1000(Lcom/android/OriginalSettings/wifi/WifiSettings;)Landroid/app/AlertDialog;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$11;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
+    if-eqz v0, :cond_0
 
-    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mErrorApInfo:Landroid/net/wifi/WifiInfo;
-    invoke-static {v1}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$1100(Lcom/android/OriginalSettings/wifi/WifiSettings;)Landroid/net/wifi/WifiInfo;
+    .line 1304
+    iget-object v0, p0, Lcom/android/OriginalSettings/wifi/WifiSettings$11;->this$0:Lcom/android/OriginalSettings/wifi/WifiSettings;
 
-    move-result-object v1
+    #getter for: Lcom/android/OriginalSettings/wifi/WifiSettings;->mWatchdogDialog:Landroid/app/AlertDialog;
+    invoke-static {v0}, Lcom/android/OriginalSettings/wifi/WifiSettings;->access$1000(Lcom/android/OriginalSettings/wifi/WifiSettings;)Landroid/app/AlertDialog;
 
-    invoke-virtual {v1}, Landroid/net/wifi/WifiInfo;->getNetworkId()I
+    move-result-object v0
 
-    move-result v1
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    invoke-virtual {v0, v1}, Landroid/net/wifi/WifiManager;->forgetNetwork(I)V
-
-    .line 1347
+    .line 1306
+    :cond_0
     return-void
 .end method

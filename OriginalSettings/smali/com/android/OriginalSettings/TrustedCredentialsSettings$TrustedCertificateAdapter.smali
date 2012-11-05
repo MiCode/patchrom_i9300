@@ -215,7 +215,7 @@
 
     .line 193
     .local v2, inflater:Landroid/view/LayoutInflater;
-    const v3, 0x7f0400bd
+    const v3, 0x7f0400da
 
     invoke-virtual {v2, v3, p3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -230,7 +230,7 @@
 
     .line 195
     .local v1, holder:Lcom/android/OriginalSettings/TrustedCredentialsSettings$ViewHolder;
-    const v3, 0x7f0a0229
+    const v3, 0x7f0b0256
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -242,7 +242,7 @@
     invoke-static {v1, v3}, Lcom/android/OriginalSettings/TrustedCredentialsSettings$ViewHolder;->access$1302(Lcom/android/OriginalSettings/TrustedCredentialsSettings$ViewHolder;Landroid/widget/TextView;)Landroid/widget/TextView;
 
     .line 197
-    const v3, 0x7f0a022a
+    const v3, 0x7f0b0257
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -254,7 +254,7 @@
     invoke-static {v1, v3}, Lcom/android/OriginalSettings/TrustedCredentialsSettings$ViewHolder;->access$1402(Lcom/android/OriginalSettings/TrustedCredentialsSettings$ViewHolder;Landroid/widget/TextView;)Landroid/widget/TextView;
 
     .line 199
-    const v3, 0x7f0a022b
+    const v3, 0x7f0b0258
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

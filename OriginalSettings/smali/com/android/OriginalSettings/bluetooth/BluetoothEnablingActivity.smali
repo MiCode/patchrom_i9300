@@ -71,7 +71,7 @@
 
     .line 83
     .local v1, view:Landroid/view/View;
-    const v2, 0x7f0a003c
+    const v2, 0x7f0b0037
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -81,7 +81,7 @@
 
     .line 84
     .local v0, contentView:Landroid/widget/TextView;
-    const v2, 0x7f0d08e0
+    const v2, 0x7f090ae6
 
     invoke-virtual {p0, v2}, Lcom/android/OriginalSettings/bluetooth/BluetoothEnablingActivity;->getString(I)Ljava/lang/String;
 
@@ -147,7 +147,7 @@
 
     .line 72
     .local v2, p:Lcom/android/internal/app/AlertController$AlertParams;
-    const v3, 0x7f0d08df
+    const v3, 0x7f090ae5
 
     invoke-virtual {p0, v3}, Lcom/android/OriginalSettings/bluetooth/BluetoothEnablingActivity;->getString(I)Ljava/lang/String;
 

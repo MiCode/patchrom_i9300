@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen android:title="@string/auto_power_on_off" android:key="auto_power_on_off_mode"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:OriginalSettings="http://schemas.android.com/apk/res/com.android.OriginalSettings">
-    <CheckBoxPreference android:persistent="false" android:title="@string/auto_power_on_off" android:key="toggle_auto_power_on_off_mode" />
-    <com.android.OriginalSettings.autopoweronoff.AutoPowerOnOffButtonPreference android:key="auto_time_from" android:dependency="toggle_auto_power_on_off_mode" OriginalSettings:autotext="@string/auto_power_start_time" OriginalSettings:autobutton="12 : 00" />
-    <com.android.OriginalSettings.autopoweronoff.AutoPowerOnOffButtonPreference android:key="auto_time_to" android:dependency="toggle_auto_power_on_off_mode" OriginalSettings:autotext="@string/auto_power_end_time" OriginalSettings:autobutton="07 : 00" />
-    <com.android.OriginalSettings.autopoweronoff.AutoPowerOnOffRepeatPreference android:persistent="false" android:title="@string/auto_power_repeat" android:key="weekly_repeat" android:dependency="toggle_auto_power_on_off_mode" />
-</PreferenceScreen>

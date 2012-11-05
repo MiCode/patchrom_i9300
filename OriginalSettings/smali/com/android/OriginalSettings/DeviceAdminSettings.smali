@@ -43,24 +43,24 @@
     .locals 1
 
     .prologue
-    .line 49
+    .line 59
     invoke-direct {p0}, Landroid/app/ListFragment;-><init>()V
 
-    .line 55
+    .line 65
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/DeviceAdminSettings;->mActiveAdmins:Ljava/util/HashSet;
 
-    .line 56
+    .line 66
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/OriginalSettings/DeviceAdminSettings;->mAvailableAdmins:Ljava/util/ArrayList;
 
-    .line 123
+    .line 152
     return-void
 .end method
 
@@ -71,10 +71,10 @@
     .parameter "icicle"
 
     .prologue
-    .line 60
+    .line 72
     invoke-super {p0, p1}, Landroid/app/ListFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 61
+    .line 73
     return-void
 .end method
 
@@ -85,7 +85,7 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 66
+    .line 78
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DeviceAdminSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
@@ -100,8 +100,8 @@
 
     iput-object v0, p0, Lcom/android/OriginalSettings/DeviceAdminSettings;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    .line 67
-    const v0, 0x7f04004a
+    .line 79
+    const v0, 0x7f040048
 
     const/4 v1, 0x0
 
@@ -120,7 +120,7 @@
     .parameter
 
     .prologue
-    .line 109
+    .line 121
     invoke-virtual {p1}, Landroid/widget/ListView;->getAdapter()Landroid/widget/ListAdapter;
 
     move-result-object v0
@@ -131,12 +131,12 @@
 
     check-cast v0, Landroid/app/admin/DeviceAdminInfo;
 
-    .line 110
+    .line 139
     new-instance v1, Landroid/content/Intent;
 
     invoke-direct {v1}, Landroid/content/Intent;-><init>()V
 
-    .line 111
+    .line 140
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DeviceAdminSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -145,7 +145,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
 
-    .line 112
+    .line 141
     const-string v2, "android.app.extra.DEVICE_ADMIN"
 
     invoke-virtual {v0}, Landroid/app/admin/DeviceAdminInfo;->getComponent()Landroid/content/ComponentName;
@@ -154,10 +154,10 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 113
+    .line 142
     invoke-virtual {p0, v1}, Lcom/android/OriginalSettings/DeviceAdminSettings;->startActivity(Landroid/content/Intent;)V
 
-    .line 114
+    .line 143
     return-void
 .end method
 
@@ -165,13 +165,13 @@
     .locals 0
 
     .prologue
-    .line 72
+    .line 84
     invoke-super {p0}, Landroid/app/ListFragment;->onResume()V
 
-    .line 73
+    .line 85
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DeviceAdminSettings;->updateList()V
 
-    .line 74
+    .line 86
     return-void
 .end method
 
@@ -179,23 +179,23 @@
     .locals 10
 
     .prologue
-    .line 77
+    .line 89
     iget-object v7, p0, Lcom/android/OriginalSettings/DeviceAdminSettings;->mActiveAdmins:Ljava/util/HashSet;
 
     invoke-virtual {v7}, Ljava/util/HashSet;->clear()V
 
-    .line 78
+    .line 90
     iget-object v7, p0, Lcom/android/OriginalSettings/DeviceAdminSettings;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
     invoke-virtual {v7}, Landroid/app/admin/DevicePolicyManager;->getActiveAdmins()Ljava/util/List;
 
     move-result-object v2
 
-    .line 79
+    .line 91
     .local v2, cur:Ljava/util/List;,"Ljava/util/List<Landroid/content/ComponentName;>;"
     if-eqz v2, :cond_0
 
-    .line 80
+    .line 92
     const/4 v5, 0x0
 
     .local v5, i:I
@@ -206,7 +206,7 @@
 
     if-ge v5, v7, :cond_0
 
-    .line 81
+    .line 93
     iget-object v7, p0, Lcom/android/OriginalSettings/DeviceAdminSettings;->mActiveAdmins:Ljava/util/HashSet;
 
     invoke-interface {v2, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -215,19 +215,19 @@
 
     invoke-virtual {v7, v8}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 80
+    .line 92
     add-int/lit8 v5, v5, 0x1
 
     goto :goto_0
 
-    .line 85
+    .line 97
     .end local v5           #i:I
     :cond_0
     iget-object v7, p0, Lcom/android/OriginalSettings/DeviceAdminSettings;->mAvailableAdmins:Ljava/util/ArrayList;
 
     invoke-virtual {v7}, Ljava/util/ArrayList;->clear()V
 
-    .line 86
+    .line 98
     invoke-virtual {p0}, Lcom/android/OriginalSettings/DeviceAdminSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v7
@@ -248,13 +248,13 @@
 
     move-result-object v0
 
-    .line 89
+    .line 101
     .local v0, avail:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     if-nez v0, :cond_3
 
     const/4 v1, 0x0
 
-    .line 90
+    .line 102
     .local v1, count:I
     :goto_1
     const/4 v5, 0x0
@@ -263,14 +263,14 @@
     :goto_2
     if-ge v5, v1, :cond_4
 
-    .line 91
+    .line 103
     invoke-interface {v0, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v6
 
     check-cast v6, Landroid/content/pm/ResolveInfo;
 
-    .line 93
+    .line 105
     .local v6, ri:Landroid/content/pm/ResolveInfo;
     :try_start_0
     new-instance v3, Landroid/app/admin/DeviceAdminInfo;
@@ -281,7 +281,7 @@
 
     invoke-direct {v3, v7, v6}, Landroid/app/admin/DeviceAdminInfo;-><init>(Landroid/content/Context;Landroid/content/pm/ResolveInfo;)V
 
-    .line 94
+    .line 106
     .local v3, dpi:Landroid/app/admin/DeviceAdminInfo;
     invoke-virtual {v3}, Landroid/app/admin/DeviceAdminInfo;->isVisible()Z
 
@@ -301,7 +301,7 @@
 
     if-eqz v7, :cond_2
 
-    .line 95
+    .line 107
     :cond_1
     iget-object v7, p0, Lcom/android/OriginalSettings/DeviceAdminSettings;->mAvailableAdmins:Ljava/util/ArrayList;
 
@@ -310,7 +310,7 @@
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 90
+    .line 102
     .end local v3           #dpi:Landroid/app/admin/DeviceAdminInfo;
     :cond_2
     :goto_3
@@ -318,7 +318,7 @@
 
     goto :goto_2
 
-    .line 89
+    .line 101
     .end local v1           #count:I
     .end local v5           #i:I
     .end local v6           #ri:Landroid/content/pm/ResolveInfo;
@@ -329,14 +329,14 @@
 
     goto :goto_1
 
-    .line 97
+    .line 109
     .restart local v1       #count:I
     .restart local v5       #i:I
     .restart local v6       #ri:Landroid/content/pm/ResolveInfo;
     :catch_0
     move-exception v4
 
-    .line 98
+    .line 110
     .local v4, e:Lorg/xmlpull/v1/XmlPullParserException;
     const-string v7, "DeviceAdminSettings"
 
@@ -364,12 +364,12 @@
 
     goto :goto_3
 
-    .line 99
+    .line 111
     .end local v4           #e:Lorg/xmlpull/v1/XmlPullParserException;
     :catch_1
     move-exception v4
 
-    .line 100
+    .line 112
     .local v4, e:Ljava/io/IOException;
     const-string v7, "DeviceAdminSettings"
 
@@ -397,7 +397,7 @@
 
     goto :goto_3
 
-    .line 104
+    .line 116
     .end local v4           #e:Ljava/io/IOException;
     .end local v6           #ri:Landroid/content/pm/ResolveInfo;
     :cond_4
@@ -411,6 +411,6 @@
 
     invoke-virtual {v7, v8}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 105
+    .line 117
     return-void
 .end method

@@ -124,7 +124,7 @@
 
     .line 157
     :cond_0
-    const v2, 0x7f0d049b
+    const v2, 0x7f09055f
 
     invoke-direct {p0, v2}, Lcom/android/OriginalSettings/ConfirmLockPassword$ConfirmLockPasswordFragment;->showError(I)V
 
@@ -222,20 +222,20 @@
 
     move-result v0
 
-    sparse-switch v0, :sswitch_data_0
+    packed-switch v0, :pswitch_data_0
 
     .line 172
     :goto_0
     return-void
 
     .line 164
-    :sswitch_0
+    :pswitch_0
     invoke-direct {p0}, Lcom/android/OriginalSettings/ConfirmLockPassword$ConfirmLockPasswordFragment;->handleNext()V
 
     goto :goto_0
 
     .line 168
-    :sswitch_1
+    :pswitch_1
     invoke-virtual {p0}, Lcom/android/OriginalSettings/ConfirmLockPassword$ConfirmLockPasswordFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
@@ -254,11 +254,11 @@
     goto :goto_0
 
     .line 162
-    :sswitch_data_0
-    .sparse-switch
-        0x7f0a000b -> :sswitch_0
-        0x7f0a001b -> :sswitch_1
-    .end sparse-switch
+    :pswitch_data_0
+    .packed-switch 0x7f0b003c
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
@@ -300,7 +300,7 @@
 
     .line 90
     .local v5, storedQuality:I
-    const v8, 0x7f040024
+    const v8, 0x7f040025
 
     const/4 v9, 0x0
 
@@ -310,7 +310,7 @@
 
     .line 93
     .local v7, view:Landroid/view/View;
-    const v8, 0x7f0a001b
+    const v8, 0x7f0b003c
 
     invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -319,7 +319,7 @@
     invoke-virtual {v8, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 94
-    const v8, 0x7f0a000b
+    const v8, 0x7f0b003d
 
     invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -342,7 +342,7 @@
     invoke-virtual {v8, v9}, Landroid/widget/Button;->setEnabled(Z)V
 
     .line 98
-    const v8, 0x7f0a003f
+    const v8, 0x7f0b003a
 
     invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -363,7 +363,7 @@
     invoke-virtual {v8, p0}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
     .line 102
-    const v8, 0x7f0a0041
+    const v8, 0x7f0b003e
 
     invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -374,7 +374,7 @@
     iput-object v8, p0, Lcom/android/OriginalSettings/ConfirmLockPassword$ConfirmLockPasswordFragment;->mKeyboardView:Lcom/android/internal/widget/PasswordEntryKeyboardView;
 
     .line 103
-    const v8, 0x7f0a003d
+    const v8, 0x7f0b0038
 
     invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -407,7 +407,7 @@
 
     if-eqz v3, :cond_3
 
-    const v8, 0x7f0d048d
+    const v8, 0x7f090551
 
     :goto_1
     invoke-virtual {v9, v8}, Landroid/widget/TextView;->setText(I)V
@@ -475,7 +475,7 @@
     .local v4, preferenceActivity:Lmiui/preference/BasePreferenceActivity;
     if-eqz v3, :cond_6
 
-    const v2, 0x7f0d048d
+    const v2, 0x7f090551
 
     .line 127
     .local v2, id:I
@@ -506,7 +506,7 @@
     .line 107
     .restart local v3       #isAlpha:Z
     :cond_3
-    const v8, 0x7f0d048f
+    const v8, 0x7f090553
 
     goto :goto_1
 
@@ -528,7 +528,7 @@
     .end local v1           #currentType:I
     .restart local v4       #preferenceActivity:Lmiui/preference/BasePreferenceActivity;
     :cond_6
-    const v2, 0x7f0d048f
+    const v2, 0x7f090553
 
     goto :goto_4
 .end method

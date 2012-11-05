@@ -48,13 +48,13 @@
     .parameter "savedInstanceState"
 
     .prologue
-    const v2, 0x7f0d01fe
+    const v2, 0x7f09022b
 
     .line 25
     invoke-super {p0, p1}, Lcom/android/OriginalSettings/BaseActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 26
-    const v0, 0x7f0400e1
+    const v0, 0x7f040107
 
     invoke-virtual {p0, v0}, Lcom/android/OriginalSettings/wifi/WifiManageNetworks;->setContentView(I)V
 
@@ -66,7 +66,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a02c6
+    const v1, 0x7f0b032b
 
     invoke-virtual {v0, v1}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
