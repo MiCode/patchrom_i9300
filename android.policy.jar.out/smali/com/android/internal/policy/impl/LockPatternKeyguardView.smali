@@ -4763,6 +4763,7 @@
     .local v1, isLiveWallpaper:Z
     :goto_1
     if-nez v1, :cond_a
+    if-eqz v1, :cond_a
 
     .line 1200
     iget-object v5, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mWallpaperWidget:Lcom/android/internal/policy/impl/sec/WallpaperWidget;
