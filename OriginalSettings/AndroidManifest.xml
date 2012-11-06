@@ -69,7 +69,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SubSettings" android:taskAffinity="com.android.OriginalSettings" android:configChanges="keyboardHidden|orientation|screenSize" android:parentActivityName="Settings" />
-        <activity android:theme="@style/Theme.CreateShortCut" android:label="@string/settings_shortcut" android:name="CreateShortcut">
+        <!--activity android:theme="@style/Theme.CreateShortCut" android:label="@string/settings_shortcut" android:name="CreateShortcut">
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -342,7 +342,7 @@
                 <action android:name="android.settings.WIFI_DIRECT_DEVICE_PICKER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>
+        </activity-->
         <activity android:name="Settings$NearbySettingsActivity" android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -373,7 +373,7 @@
             <meta-data android:name="com.android.settings.PARENT_FRAGMENT_TITLE" android:resource="@string/wireless_networks_settings_title" />
             <meta-data android:name="com.android.settings.PARENT_FRAGMENT_CLASS" android:value="com.android.settings.Settings$WirelessSettingsActivity" />
         </activity-alias>
-        <activity android:label="@string/wfd_settings_title" android:icon="@drawable/shortcut_allsharecast" android:name="Settings$AllShareCastSettingsActivity" android:permission="com.android.setting.permission.ALLSHARE_CAST_SERVICE" android:exported="true" android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="false" android:parentActivityName="Settings$WirelessSettingsActivity">
+        <!--activity android:label="@string/wfd_settings_title" android:icon="@drawable/shortcut_allsharecast" android:name="Settings$AllShareCastSettingsActivity" android:permission="com.android.setting.permission.ALLSHARE_CAST_SERVICE" android:exported="true" android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="false" android:parentActivityName="Settings$WirelessSettingsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="com.samsung.wfd.PICK_WFD_NETWORK" />
@@ -592,7 +592,7 @@
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.LedIndicatorSettings" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID" android:resource="@id/display_settings" />
-        </activity>
+        </activity-->
         <receiver android:name="SettingsIntentReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -604,7 +604,6 @@
                 <action android:name="android.hardware.usb.action.USB_STATE" />
                 <action android:name="osp.signin.SAMSUNG_ACCOUNT_SIGNOUT" />
                 <action android:name="android.intent.action.ACTION_ASSISTIVE_OFF" />
-                <action android:name="android.intent.action.CSC_CHAMELEON_UPDATE_SETTINGS" />
                 <action android:name="shopdemo_on" />
                 <action android:name="shopdemo_off" />
                 <action android:name="android.intent.action.MAX_BRIGHTNESS_CHANGED" />
@@ -613,19 +612,14 @@
                 <action android:name="com.sec.samsung.torchwidget.torch_on_2" />
                 <action android:name="com.sec.samsung.torchwidget.torch_on_3" />
                 <action android:name="com.sec.samsung.torchwidget.torch_off" />
-                <action android:name="com.sec.android.LockPattern.CLEAR" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_REMOVED" />
-                <data android:scheme="package" />
             </intent-filter>
         </receiver>
-        <receiver android:name="DateTimeIntentReceiver">
+        <!--receiver android:name="DateTimeIntentReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.SHOW_DATE_TIME_DIALOG" />
                 <action android:name="com.android.systemui.statusbar.phone.COLLAPSED" />
             </intent-filter>
-        </receiver>
+        </receiver-->
         <activity android:label="@string/accessory" android:name="Settings$DockSettingsActivity" android:enabled="@bool/has_dock_settings" android:clearTaskOnLaunch="true" android:parentActivityName="Settings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -640,7 +634,7 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.DockSettings" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID" android:resource="@id/dock_settings" />
         </activity-alias>
-        <activity-alias android:label="@string/contextual_page" android:name="ContextualPageSettings" android:exported="true" android:clearTaskOnLaunch="true" android:targetActivity="Settings$DockSettingsActivity">
+        <!--activity-alias android:label="@string/contextual_page" android:name="ContextualPageSettings" android:exported="true" android:clearTaskOnLaunch="true" android:targetActivity="Settings$DockSettingsActivity">
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.ContextualPageSettings" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID" android:resource="@id/dock_settings" />
             <meta-data android:name="com.android.settings.PARENT_FRAGMENT_TITLE" android:resource="@string/accessory" />
@@ -1050,7 +1044,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.nfc.AndroidBeam" />
-        </activity>
+        </activity-->
         <activity android:label="@string/s_beam_settings_title" android:icon="@drawable/shortcut_sbeam" android:name="Settings$SBeamSettingsActivity" android:exported="true" android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation" android:parentActivityName="Settings$WirelessSettingsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -1060,7 +1054,7 @@
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.nfc.SBeam" />
         </activity>
-        <activity android:label="@string/debug_intent_sender_label" android:name="DebugIntentSender">
+        <!--activity android:label="@string/debug_intent_sender_label" android:name="DebugIntentSender">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" />
@@ -1077,14 +1071,14 @@
                 <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" />
                 <category android:name="android.intent.category.VOICE_LAUNCH" />
             </intent-filter>
-        </activity>
+        </activity-->
         <activity android:label="@string/display_label" android:name="Display" android:configChanges="fontScale" android:parentActivityName="Settings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" />
             </intent-filter>
         </activity>
-        <activity android:label="@string/phone_info_label" android:name="RadioInfo" android:process="com.android.phone">
+        <!--activity android:label="@string/phone_info_label" android:name="RadioInfo" android:process="com.android.phone">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" />
@@ -1271,7 +1265,7 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.InformationTicker" />
-        </activity>
+        </activity-->
         <activity android:label="@string/g_sensor_title" android:name="GSensorSettings" android:screenOrientation="portrait" android:hardwareAccelerated="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -1312,7 +1306,7 @@
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/connectivitylocationwidget_info" />
         </receiver>
         <activity android:theme="@style/SettingsTheme.DialogWhenLarge" android:label="" android:name="ModePreview" android:uiOptions="none" />
-        <activity android:name="ChooseLockFaceWarning" />
+        <!--activity android:name="ChooseLockFaceWarning" />
         <activity android:theme="@android:style/Theme.DeviceDefault.Dialog.Alert" android:name=".AskUSBMode" android:excludeFromRecents="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -1420,7 +1414,7 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>
+        </activity-->
         <activity android:label="@string/set_shortcut_title" android:name="com.android.settings.lockscreenshortcut.LockScreenShortcutSettings" android:clearTaskOnLaunch="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
