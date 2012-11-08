@@ -28,7 +28,7 @@
     const/4 v4, 0x1
 
     .line 27
-    invoke-static {p0}, Lcom/android/thememanager/ThemeHelper;->getScreenDisplayMetrics(Landroid/content/Context;)Landroid/util/DisplayMetrics;
+    invoke-static {p0}, Lcom/android/thememanager/util/ThemeHelper;->getScreenDisplayMetrics(Landroid/content/Context;)Landroid/util/DisplayMetrics;
 
     move-result-object v0
 
