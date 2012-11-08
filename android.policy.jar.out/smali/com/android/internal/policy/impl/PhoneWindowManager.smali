@@ -5543,6 +5543,7 @@
 
     if-eqz v3, :cond_c
 
+    .line 3869
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBar:Landroid/view/WindowManagerPolicy$WindowState;
@@ -5553,6 +5554,7 @@
 
     if-nez v3, :cond_c
 
+    .line 3872
     :cond_c
     return-void
 
@@ -8933,19 +8935,16 @@
 
     iput-boolean v7, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHeadless:Z
 
-    .line 1604
     iget-boolean v7, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHeadless:Z
 
     if-nez v7, :cond_0
 
-    .line 1606
     new-instance v7, Lcom/android/internal/policy/impl/MiuiKeyguardViewMediator;
  
     invoke-direct {v7, p1, p0, p4}, Lcom/android/internal/policy/impl/MiuiKeyguardViewMediator;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/os/LocalPowerManager;)V
 
     iput-object v7, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguardMediator:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
-    .line 1608
     :cond_0
     new-instance v7, Lcom/android/internal/policy/impl/PhoneWindowManager$PolicyHandler;
 

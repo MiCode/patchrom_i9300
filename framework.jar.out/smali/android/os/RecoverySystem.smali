@@ -709,7 +709,6 @@
 
     move-result-object v1
 
-    .line 355
     .local v1, arg:Ljava/lang/String;
 
     invoke-static {v4}, Landroid/os/RecoverySystem;->buildInstallPackageArg(Ljava/lang/String;)Ljava/lang/String;
@@ -718,10 +717,8 @@
 
     invoke-static {p0, v1}, Landroid/os/RecoverySystem;->bootCommand(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 356
     return-void
 
-    .line 342
     .end local v1           #arg:Ljava/lang/String;
     .end local v4           #filename:Ljava/lang/String;
     .end local v5           #raf:Ljava/io/RandomAccessFile;
@@ -1899,7 +1896,6 @@
     .parameter "filename"
 
     .prologue
-    .line 335
     const-string v0, "/sdcard"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
@@ -1908,8 +1904,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 336
-    const-string/jumbo v0, "sdcard"
+    const-string v0, "sdcard"
 
     const-string v1, "emmc"
 
@@ -1917,7 +1912,6 @@
 
     move-result-object p0
 
-    .line 344
     :goto_0
     const-string v0, "RecoverySystem"
 
@@ -1947,7 +1941,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 345
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1974,7 +1967,6 @@
 
     return-object v0
 
-    .line 338
     :cond_0
     const-string v0, "/extSdCard"
 
@@ -1984,10 +1976,9 @@
 
     if-eqz v0, :cond_1
 
-    .line 339
     const-string v0, "extSdCard"
 
-    const-string/jumbo v1, "sdcard"
+    const-string v1, "sdcard"
 
     invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
@@ -1995,7 +1986,6 @@
 
     goto :goto_0
 
-    .line 342
     :cond_1
     const-string v0, "RecoverySystem"
 

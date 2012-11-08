@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 171
+    .line 172
     iput-object p1, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 171
+    .line 172
     invoke-direct {p0, p1}, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;-><init>(Lcom/android/server/pm/ShutdownDialog;)V
 
     return-void
@@ -61,10 +61,10 @@
 
     const/4 v2, 0x0
 
-    .line 175
+    .line 176
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    .line 178
+    .line 179
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
     #getter for: Lcom/android/server/pm/ShutdownDialog;->handle:I
@@ -83,26 +83,26 @@
 
     move-result v9
 
-    .line 180
+    .line 181
     .local v9, ret:I
     iget v0, p1, Landroid/os/Message;->what:I
 
     if-ne v0, v4, :cond_1
 
-    .line 182
+    .line 183
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
     #setter for: Lcom/android/server/pm/ShutdownDialog;->mDrawState:I
     invoke-static {v0, v4}, Lcom/android/server/pm/ShutdownDialog;->access$302(Lcom/android/server/pm/ShutdownDialog;I)I
 
-    .line 185
+    .line 186
     const-string v0, "ShutdownDialog"
 
     const-string v1, "getting animation lock acquire"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 186
+    .line 187
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
     new-instance v1, Ljava/util/concurrent/Semaphore;
@@ -112,7 +112,7 @@
     #setter for: Lcom/android/server/pm/ShutdownDialog;->sAnimationEndedLock:Ljava/util/concurrent/Semaphore;
     invoke-static {v0, v1}, Lcom/android/server/pm/ShutdownDialog;->access$402(Lcom/android/server/pm/ShutdownDialog;Ljava/util/concurrent/Semaphore;)Ljava/util/concurrent/Semaphore;
 
-    .line 188
+    .line 189
     :try_start_0
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
@@ -125,7 +125,7 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 194
+    .line 195
     :goto_0
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
@@ -136,7 +136,7 @@
     #setter for: Lcom/android/server/pm/ShutdownDialog;->mRunOnAnimationEnd:Ljava/lang/Runnable;
     invoke-static {v0, v1}, Lcom/android/server/pm/ShutdownDialog;->access$502(Lcom/android/server/pm/ShutdownDialog;Ljava/lang/Runnable;)Ljava/lang/Runnable;
 
-    .line 203
+    .line 204
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
     #getter for: Lcom/android/server/pm/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
@@ -146,14 +146,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 204
+    .line 205
     const-string v0, "ShutdownDialog"
 
     const-string v1, "getting animation lock acquire"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 205
+    .line 206
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
     new-instance v1, Ljava/util/concurrent/Semaphore;
@@ -163,7 +163,7 @@
     #setter for: Lcom/android/server/pm/ShutdownDialog;->sAnimationSoundEndedLock:Ljava/util/concurrent/Semaphore;
     invoke-static {v0, v1}, Lcom/android/server/pm/ShutdownDialog;->access$702(Lcom/android/server/pm/ShutdownDialog;Ljava/util/concurrent/Semaphore;)Ljava/util/concurrent/Semaphore;
 
-    .line 207
+    .line 208
     :try_start_1
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
@@ -176,7 +176,7 @@
     :try_end_1
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 213
+    .line 214
     :goto_1
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
@@ -187,18 +187,18 @@
 
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    .line 217
+    .line 218
     :cond_0
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
     #setter for: Lcom/android/server/pm/ShutdownDialog;->mDrawState:I
     invoke-static {v0, v10}, Lcom/android/server/pm/ShutdownDialog;->access$302(Lcom/android/server/pm/ShutdownDialog;I)I
 
-    .line 220
+    .line 221
     :cond_1
     if-ltz v9, :cond_4
 
-    .line 221
+    .line 222
     const-string v0, "ShutdownDialog"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -221,7 +221,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 222
+    .line 223
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
     #getter for: Lcom/android/server/pm/ShutdownDialog;->mImages:Landroid/graphics/Bitmap;
@@ -263,7 +263,7 @@
 
     invoke-virtual/range {v0 .. v7}, Landroid/graphics/Bitmap;->setPixels([IIIIIII)V
 
-    .line 223
+    .line 224
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
     #getter for: Lcom/android/server/pm/ShutdownDialog;->mImages:Landroid/graphics/Bitmap;
@@ -273,7 +273,7 @@
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->prepareToDraw()V
 
-    .line 224
+    .line 225
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
     #getter for: Lcom/android/server/pm/ShutdownDialog;->mShutdownView:Landroid/widget/ImageView;
@@ -290,18 +290,8 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 226
-    if-nez v9, :cond_3
-
     .line 227
-    iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
-
-    #getter for: Lcom/android/server/pm/ShutdownDialog;->mRunOnAnimationEnd:Ljava/lang/Runnable;
-    invoke-static {v0}, Lcom/android/server/pm/ShutdownDialog;->access$500(Lcom/android/server/pm/ShutdownDialog;)Ljava/lang/Runnable;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_2
+    if-nez v9, :cond_3
 
     .line 228
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
@@ -311,9 +301,19 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_2
+
+    .line 229
+    iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
+
+    #getter for: Lcom/android/server/pm/ShutdownDialog;->mRunOnAnimationEnd:Ljava/lang/Runnable;
+    invoke-static {v0}, Lcom/android/server/pm/ShutdownDialog;->access$500(Lcom/android/server/pm/ShutdownDialog;)Ljava/lang/Runnable;
+
+    move-result-object v0
+
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 230
+    .line 231
     :cond_2
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
@@ -324,7 +324,7 @@
 
     invoke-static {v0}, Lcom/android/server/pm/LibQmg;->qmgClose(I)I
 
-    .line 231
+    .line 232
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
     const/16 v1, 0x190
@@ -332,22 +332,22 @@
     #setter for: Lcom/android/server/pm/ShutdownDialog;->mDrawState:I
     invoke-static {v0, v1}, Lcom/android/server/pm/ShutdownDialog;->access$302(Lcom/android/server/pm/ShutdownDialog;I)I
 
-    .line 244
+    .line 245
     :goto_2
     return-void
 
-    .line 189
+    .line 190
     :catch_0
     move-exception v8
 
-    .line 190
+    .line 191
     .local v8, e:Ljava/lang/InterruptedException;
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
     #setter for: Lcom/android/server/pm/ShutdownDialog;->sAnimationEndedLock:Ljava/util/concurrent/Semaphore;
     invoke-static {v0, v5}, Lcom/android/server/pm/ShutdownDialog;->access$402(Lcom/android/server/pm/ShutdownDialog;Ljava/util/concurrent/Semaphore;)Ljava/util/concurrent/Semaphore;
 
-    .line 191
+    .line 192
     const-string v0, "ShutdownDialog"
 
     const-string v1, "!@Exception occurs while sAnimationEndedLock.acquire()"
@@ -356,19 +356,19 @@
 
     goto/16 :goto_0
 
-    .line 208
+    .line 209
     .end local v8           #e:Ljava/lang/InterruptedException;
     :catch_1
     move-exception v8
 
-    .line 209
+    .line 210
     .restart local v8       #e:Ljava/lang/InterruptedException;
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
     #setter for: Lcom/android/server/pm/ShutdownDialog;->sAnimationSoundEndedLock:Ljava/util/concurrent/Semaphore;
     invoke-static {v0, v5}, Lcom/android/server/pm/ShutdownDialog;->access$702(Lcom/android/server/pm/ShutdownDialog;Ljava/util/concurrent/Semaphore;)Ljava/util/concurrent/Semaphore;
 
-    .line 210
+    .line 211
     const-string v0, "ShutdownDialog"
 
     const-string v1, "!@Exception occurs while sAnimationSoundEndedLock.acquire()"
@@ -377,7 +377,7 @@
 
     goto/16 :goto_1
 
-    .line 234
+    .line 235
     .end local v8           #e:Ljava/lang/InterruptedException;
     :cond_3
     const-wide/16 v0, 0x1e
@@ -386,23 +386,13 @@
 
     goto :goto_2
 
-    .line 238
+    .line 239
     :cond_4
     const-string v0, "ShutdownDialog"
 
     const-string v1, "libQmg.qmgLoadFrame() return < 0"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 239
-    iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
-
-    #getter for: Lcom/android/server/pm/ShutdownDialog;->mRunOnAnimationEnd:Ljava/lang/Runnable;
-    invoke-static {v0}, Lcom/android/server/pm/ShutdownDialog;->access$500(Lcom/android/server/pm/ShutdownDialog;)Ljava/lang/Runnable;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_5
 
     .line 240
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
@@ -412,9 +402,19 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_5
+
+    .line 241
+    iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
+
+    #getter for: Lcom/android/server/pm/ShutdownDialog;->mRunOnAnimationEnd:Ljava/lang/Runnable;
+    invoke-static {v0}, Lcom/android/server/pm/ShutdownDialog;->access$500(Lcom/android/server/pm/ShutdownDialog;)Ljava/lang/Runnable;
+
+    move-result-object v0
+
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 242
+    .line 243
     :cond_5
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
 

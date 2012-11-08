@@ -56,6 +56,6 @@ system/bin/uptime|system/bin/toolbox
 system/bin/vmstat|system/bin/toolbox
 system/bin/watchprops|system/bin/toolbox
 system/bin/wipe|system/bin/toolbox
-system/csc_contents|system/csc/TGY/csc_contents
+system/csc_contents|system/csc/XEO/csc_contents
 system/fonts/DroidSans-Bold.ttf|system/fonts/Roboto-Bold.ttf
 system/fonts/DroidSans.ttf|system/fonts/Roboto-Regular.ttf

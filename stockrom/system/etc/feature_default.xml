@@ -151,6 +151,7 @@ jhwan.kim@hdlnc.com  -->
 <CscFeature_RIL_PDPRetryMechanism4>NONE</CscFeature_RIL_PDPRetryMechanism4>
 <CscFeature_RIL_Enable2DigitCall>true</CscFeature_RIL_Enable2DigitCall>
 <CscFeature_RIL_EnableRoamingIcon4NationalRoaming>false</CscFeature_RIL_EnableRoamingIcon4NationalRoaming>
+<CscFeature_RIL_ControlFakeRoamingNRP2G>false</CscFeature_RIL_ControlFakeRoamingNRP2G>
 <!-- Settings -->
 <CscFeature_Settings_FindMyMobile>true</CscFeature_Settings_FindMyMobile>
 <CscFeature_Setting_EnableSimChangeAlertOnly4FindMobile>false</CscFeature_Setting_EnableSimChangeAlertOnly4FindMobile>

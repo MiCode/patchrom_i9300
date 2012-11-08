@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 312
+    .line 317
     iput-object p1, p0, Lcom/android/server/pm/ShutdownDialog$2;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,14 +42,14 @@
     .parameter "arg0"
 
     .prologue
-    .line 314
+    .line 319
     const-string v0, "ShutdownDialog"
 
     const-string v1, "!@onCompletion(MediaPlayer arg0) called !!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 315
+    .line 320
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$2;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
     #getter for: Lcom/android/server/pm/ShutdownDialog;->sAnimationSoundEndedLock:Ljava/util/concurrent/Semaphore;
@@ -59,14 +59,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 316
+    .line 321
     const-string v0, "ShutdownDialog"
 
     const-string v1, "!@Releasing sAnimationSound end lock"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 317
+    .line 322
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$2;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
     #getter for: Lcom/android/server/pm/ShutdownDialog;->sAnimationSoundEndedLock:Ljava/util/concurrent/Semaphore;
@@ -76,7 +76,7 @@
 
     invoke-virtual {v0}, Ljava/util/concurrent/Semaphore;->release()V
 
-    .line 319
+    .line 324
     :cond_0
     return-void
 .end method

@@ -1599,30 +1599,25 @@
 
     move-result v5
 
-    .line 745
     .local v5, resId:I
     new-instance v3, Landroid/app/ApplicationPackageManager$ResourceName;
 
     invoke-direct {v3, p1, v5}, Landroid/app/ApplicationPackageManager$ResourceName;-><init>(Ljava/lang/String;I)V
 
-    .line 746
     .local v3, name:Landroid/app/ApplicationPackageManager$ResourceName;
     invoke-static {v3}, Landroid/app/ApplicationPackageManager;->getCachedIcon(Landroid/app/ApplicationPackageManager$ResourceName;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    .line 747
     .local v1, dr:Landroid/graphics/drawable/Drawable;
     if-eqz v1, :cond_0
 
-    .line 771
     .end local v1           #dr:Landroid/graphics/drawable/Drawable;
     .end local v3           #name:Landroid/app/ApplicationPackageManager$ResourceName;
     .end local v5           #resId:I
     :goto_0
     return-object v1
 
-    .line 752
     .restart local v1       #dr:Landroid/graphics/drawable/Drawable;
     .restart local v3       #name:Landroid/app/ApplicationPackageManager$ResourceName;
     .restart local v5       #resId:I
@@ -1642,34 +1637,28 @@
 
     move-result-object v4
 
-    .line 753
     .local v4, r:Landroid/content/res/Resources;
     if-nez v4, :cond_1
 
     move-object v1, v7
 
-    .line 754
     goto :goto_0
 
-    .line 757
     :cond_1
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    .line 759
     invoke-static {v3, v1}, Landroid/app/ApplicationPackageManager;->putCachedIcon(Landroid/app/ApplicationPackageManager$ResourceName;Landroid/graphics/drawable/Drawable;)V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 761
     .end local v4           #r:Landroid/content/res/Resources;
     :catch_0
     move-exception v2
 
-    .line 764
     .local v2, e:Ljava/lang/RuntimeException;
     const-string v6, "ApplicationPackageManager"
 
@@ -2101,27 +2090,22 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 623
     .end local v3           #e:Ljava/lang/Exception;
     :cond_1
     new-instance v6, Landroid/app/ApplicationPackageManager$ResourceName;
 
     invoke-direct {v6, p1, p2}, Landroid/app/ApplicationPackageManager$ResourceName;-><init>(Ljava/lang/String;I)V
 
-    .line 624
     .local v6, name:Landroid/app/ApplicationPackageManager$ResourceName;
     invoke-static {v6}, Landroid/app/ApplicationPackageManager;->getCachedIcon(Landroid/app/ApplicationPackageManager$ResourceName;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    .line 625
     .local v1, dr:Landroid/graphics/drawable/Drawable;
     if-nez v1, :cond_0
 
-    .line 628
     if-nez p3, :cond_2
 
-    .line 630
     const/4 v9, 0x0
 
     :try_start_1
@@ -2131,30 +2115,25 @@
 
     move-result-object p3
 
-    .line 636
     :cond_2
     :try_start_2
     invoke-virtual {p0, p3}, Landroid/app/ApplicationPackageManager;->getResourcesForApplication(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/Resources;
 
     move-result-object v7
 
-    .line 638
     .local v7, r:Landroid/content/res/Resources;
     iget-object v9, p3, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     iput-object v9, v7, Landroid/content/res/Resources;->mPackageName:Ljava/lang/String;
 
-    .line 639
     iget v9, p3, Landroid/content/pm/ApplicationInfo;->icon:I
 
     iput v9, v7, Landroid/content/res/Resources;->mAppIconResId:I
 
-    .line 641
     invoke-virtual {v7, p2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    .line 654
     invoke-static {v6, v1}, Landroid/app/ApplicationPackageManager;->putCachedIcon(Landroid/app/ApplicationPackageManager$ResourceName;Landroid/graphics/drawable/Drawable;)V
     :try_end_2
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_1

@@ -5744,7 +5744,6 @@
     .end annotation
 
     .prologue
-    .line 43
     sget-object v0, Lcom/android/internal/telephony/IccProvider;->URL_MATCHER:Landroid/content/UriMatcher;
 
     return-object v0

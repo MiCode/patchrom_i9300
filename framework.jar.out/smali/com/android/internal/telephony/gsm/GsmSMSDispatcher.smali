@@ -267,7 +267,7 @@
 .end method
 
 .method private handleBroadcastSms(Landroid/os/AsyncResult;)V
-    .locals 19
+    .locals 20
     .parameter "ar"
 
     .prologue
@@ -277,41 +277,41 @@
 
     iget-object v0, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    check-cast v17, [B
+    check-cast v18, [B
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     check-cast v0, [B
 
-    move-object/from16 v16, v0
+    move-object/from16 v17, v0
 
     .line 1214
-    .local v16, receivedPdu:[B
+    .local v17, receivedPdu:[B
     new-instance v6, Lcom/android/internal/telephony/gsm/SmsCbHeader;
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     invoke-direct {v6, v0}, Lcom/android/internal/telephony/gsm/SmsCbHeader;-><init>([B)V
 
     .line 1215
     .local v6, header:Lcom/android/internal/telephony/gsm/SmsCbHeader;
-    const-string v17, "gsm.operator.numeric"
+    const-string v18, "gsm.operator.numeric"
 
-    invoke-static/range {v17 .. v17}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v18 .. v18}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v16
 
     .line 1216
-    .local v15, plmn:Ljava/lang/String;
+    .local v16, plmn:Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/SMSDispatcher;->mPhone:Lcom/android/internal/telephony/Phone;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    invoke-interface/range {v17 .. v17}, Lcom/android/internal/telephony/Phone;->getCellLocation()Landroid/telephony/CellLocation;
+    invoke-interface/range {v18 .. v18}, Lcom/android/internal/telephony/Phone;->getCellLocation()Landroid/telephony/CellLocation;
 
     move-result-object v2
 
@@ -321,10 +321,10 @@
     .local v2, cellLocation:Landroid/telephony/gsm/GsmCellLocation;
     invoke-virtual {v2}, Landroid/telephony/gsm/GsmCellLocation;->getLac()I
 
-    move-result v10
+    move-result v11
 
     .line 1218
-    .local v10, lac:I
+    .local v11, lac:I
     invoke-virtual {v2}, Landroid/telephony/gsm/GsmCellLocation;->getCid()I
 
     move-result v3
@@ -333,35 +333,37 @@
     .local v3, cid:I
     invoke-virtual {v6}, Lcom/android/internal/telephony/gsm/SmsCbHeader;->getGeographicalScope()I
 
-    move-result v17
+    move-result v18
 
-    packed-switch v17, :pswitch_data_0
+    packed-switch v18, :pswitch_data_0
 
     .line 1233
     :pswitch_0
-    new-instance v11, Landroid/telephony/SmsCbLocation;
+    new-instance v12, Landroid/telephony/SmsCbLocation;
 
-    invoke-direct {v11, v15}, Landroid/telephony/SmsCbLocation;-><init>(Ljava/lang/String;)V
+    move-object/from16 v0, v16
+
+    invoke-direct {v12, v0}, Landroid/telephony/SmsCbLocation;-><init>(Ljava/lang/String;)V
 
     .line 1238
-    .local v11, location:Landroid/telephony/SmsCbLocation;
+    .local v12, location:Landroid/telephony/SmsCbLocation;
     :goto_0
     invoke-virtual {v6}, Lcom/android/internal/telephony/gsm/SmsCbHeader;->getNumberOfPages()I
 
-    move-result v13
+    move-result v14
 
     .line 1239
-    .local v13, pageCount:I
-    const/16 v17, 0x1
+    .local v14, pageCount:I
+    const/16 v18, 0x1
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
-    if-le v13, v0, :cond_5
+    if-le v14, v0, :cond_7
 
     .line 1241
     new-instance v4, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$SmsCbConcatInfo;
 
-    invoke-direct {v4, v6, v11}, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$SmsCbConcatInfo;-><init>(Lcom/android/internal/telephony/gsm/SmsCbHeader;Landroid/telephony/SmsCbLocation;)V
+    invoke-direct {v4, v6, v12}, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$SmsCbConcatInfo;-><init>(Lcom/android/internal/telephony/gsm/SmsCbHeader;Landroid/telephony/SmsCbLocation;)V
 
     .line 1244
     .local v4, concatInfo:Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$SmsCbConcatInfo;
@@ -369,74 +371,74 @@
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher;->mSmsCbPageMap:Ljava/util/HashMap;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v4}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v14
+    move-result-object v15
 
-    check-cast v14, [[B
+    check-cast v15, [[B
 
     .line 1246
-    .local v14, pdus:[[B
-    if-nez v14, :cond_0
+    .local v15, pdus:[[B
+    if-nez v15, :cond_0
 
     .line 1249
-    new-array v14, v13, [[B
+    new-array v15, v14, [[B
 
     .line 1251
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher;->mSmsCbPageMap:Ljava/util/HashMap;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
-    invoke-virtual {v0, v4, v14}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v4, v15}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1255
     :cond_0
     invoke-virtual {v6}, Lcom/android/internal/telephony/gsm/SmsCbHeader;->getPageIndex()I
 
-    move-result v17
+    move-result v18
 
-    add-int/lit8 v17, v17, -0x1
+    add-int/lit8 v18, v18, -0x1
 
-    aput-object v16, v14, v17
+    aput-object v17, v15, v18
 
     .line 1257
     const/4 v7, 0x0
 
     .local v7, i:I
     :goto_1
-    array-length v0, v14
+    array-length v0, v15
 
-    move/from16 v17, v0
+    move/from16 v18, v0
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
     if-ge v7, v0, :cond_3
 
     .line 1258
-    aget-object v17, v14, v7
+    aget-object v18, v15, v7
 
-    if-nez v17, :cond_2
+    if-nez v18, :cond_2
 
-    .line 1290
+    .line 1292
     .end local v2           #cellLocation:Landroid/telephony/gsm/GsmCellLocation;
     .end local v3           #cid:I
     .end local v4           #concatInfo:Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$SmsCbConcatInfo;
     .end local v6           #header:Lcom/android/internal/telephony/gsm/SmsCbHeader;
     .end local v7           #i:I
-    .end local v10           #lac:I
-    .end local v11           #location:Landroid/telephony/SmsCbLocation;
-    .end local v13           #pageCount:I
-    .end local v14           #pdus:[[B
-    .end local v15           #plmn:Ljava/lang/String;
-    .end local v16           #receivedPdu:[B
+    .end local v11           #lac:I
+    .end local v12           #location:Landroid/telephony/SmsCbLocation;
+    .end local v14           #pageCount:I
+    .end local v15           #pdus:[[B
+    .end local v16           #plmn:Ljava/lang/String;
+    .end local v17           #receivedPdu:[B
     :cond_1
     :goto_2
     return-void
@@ -445,38 +447,42 @@
     .restart local v2       #cellLocation:Landroid/telephony/gsm/GsmCellLocation;
     .restart local v3       #cid:I
     .restart local v6       #header:Lcom/android/internal/telephony/gsm/SmsCbHeader;
-    .restart local v10       #lac:I
-    .restart local v15       #plmn:Ljava/lang/String;
-    .restart local v16       #receivedPdu:[B
+    .restart local v11       #lac:I
+    .restart local v16       #plmn:Ljava/lang/String;
+    .restart local v17       #receivedPdu:[B
     :pswitch_1
-    new-instance v11, Landroid/telephony/SmsCbLocation;
+    new-instance v12, Landroid/telephony/SmsCbLocation;
 
-    const/16 v17, -0x1
+    const/16 v18, -0x1
 
-    move/from16 v0, v17
+    move-object/from16 v0, v16
 
-    invoke-direct {v11, v15, v10, v0}, Landroid/telephony/SmsCbLocation;-><init>(Ljava/lang/String;II)V
+    move/from16 v1, v18
+
+    invoke-direct {v12, v0, v11, v1}, Landroid/telephony/SmsCbLocation;-><init>(Ljava/lang/String;II)V
 
     .line 1224
-    .restart local v11       #location:Landroid/telephony/SmsCbLocation;
+    .restart local v12       #location:Landroid/telephony/SmsCbLocation;
     goto :goto_0
 
     .line 1228
-    .end local v11           #location:Landroid/telephony/SmsCbLocation;
+    .end local v12           #location:Landroid/telephony/SmsCbLocation;
     :pswitch_2
-    new-instance v11, Landroid/telephony/SmsCbLocation;
+    new-instance v12, Landroid/telephony/SmsCbLocation;
 
-    invoke-direct {v11, v15, v10, v3}, Landroid/telephony/SmsCbLocation;-><init>(Ljava/lang/String;II)V
+    move-object/from16 v0, v16
+
+    invoke-direct {v12, v0, v11, v3}, Landroid/telephony/SmsCbLocation;-><init>(Ljava/lang/String;II)V
 
     .line 1229
-    .restart local v11       #location:Landroid/telephony/SmsCbLocation;
+    .restart local v12       #location:Landroid/telephony/SmsCbLocation;
     goto :goto_0
 
     .line 1257
     .restart local v4       #concatInfo:Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$SmsCbConcatInfo;
     .restart local v7       #i:I
-    .restart local v13       #pageCount:I
-    .restart local v14       #pdus:[[B
+    .restart local v14       #pageCount:I
+    .restart local v15       #pdus:[[B
     :cond_2
     add-int/lit8 v7, v7, 0x1
 
@@ -488,9 +494,9 @@
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher;->mSmsCbPageMap:Ljava/util/HashMap;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v4}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -498,88 +504,114 @@
     .end local v4           #concatInfo:Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$SmsCbConcatInfo;
     .end local v7           #i:I
     :goto_3
-    invoke-static {v6, v11, v14}, Lcom/android/internal/telephony/gsm/GsmSmsCbMessage;->createSmsCbMessage(Lcom/android/internal/telephony/gsm/SmsCbHeader;Landroid/telephony/SmsCbLocation;[[B)Landroid/telephony/SmsCbMessage;
+    invoke-static {v6, v12, v15}, Lcom/android/internal/telephony/gsm/GsmSmsCbMessage;->createSmsCbMessage(Lcom/android/internal/telephony/gsm/SmsCbHeader;Landroid/telephony/SmsCbLocation;[[B)Landroid/telephony/SmsCbMessage;
 
-    move-result-object v12
+    move-result-object v13
 
     .line 1273
-    .local v12, message:Landroid/telephony/SmsCbMessage;
+    .local v13, message:Landroid/telephony/SmsCbMessage;
+    invoke-virtual {v6}, Lcom/android/internal/telephony/gsm/SmsCbHeader;->isEmergencyMessage()Z
+
+    move-result v9
+
+    .line 1274
+    .local v9, isEmergencyMessage:Z
+    iget v0, v6, Lcom/android/internal/telephony/gsm/SmsCbHeader;->messageIdentifier:I
+
+    move/from16 v18, v0
+
+    const/16 v19, 0x3e8
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    if-lt v0, v1, :cond_4
+
+    if-eqz v9, :cond_5
+
+    .line 1275
+    :cond_4
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12}, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher;->dispatchBroadcastMessage(Landroid/telephony/SmsCbMessage;)V
+    invoke-virtual {v0, v13}, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher;->dispatchBroadcastMessage(Landroid/telephony/SmsCbMessage;)V
 
-    .line 1278
+    .line 1280
+    :cond_5
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher;->mSmsCbPageMap:Ljava/util/HashMap;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    invoke-virtual/range {v17 .. v17}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
+    invoke-virtual/range {v18 .. v18}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
 
-    move-result-object v17
+    move-result-object v18
 
-    invoke-interface/range {v17 .. v17}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v18 .. v18}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v9
+    move-result-object v10
 
-    .line 1280
-    .local v9, iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$SmsCbConcatInfo;>;"
-    :cond_4
+    .line 1282
+    .local v10, iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$SmsCbConcatInfo;>;"
+    :cond_6
     :goto_4
-    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v17
+    move-result v18
 
-    if-eqz v17, :cond_1
+    if-eqz v18, :cond_1
 
-    .line 1281
-    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    .line 1283
+    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v8
 
     check-cast v8, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$SmsCbConcatInfo;
 
-    .line 1283
+    .line 1285
     .local v8, info:Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$SmsCbConcatInfo;
-    invoke-virtual {v8, v15, v10, v3}, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$SmsCbConcatInfo;->matchesLocation(Ljava/lang/String;II)Z
+    move-object/from16 v0, v16
 
-    move-result v17
+    invoke-virtual {v8, v0, v11, v3}, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$SmsCbConcatInfo;->matchesLocation(Ljava/lang/String;II)Z
 
-    if-nez v17, :cond_4
+    move-result v18
 
-    .line 1284
-    invoke-interface {v9}, Ljava/util/Iterator;->remove()V
+    if-nez v18, :cond_6
+
+    .line 1286
+    invoke-interface {v10}, Ljava/util/Iterator;->remove()V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_4
 
-    .line 1287
+    .line 1289
     .end local v2           #cellLocation:Landroid/telephony/gsm/GsmCellLocation;
     .end local v3           #cid:I
     .end local v6           #header:Lcom/android/internal/telephony/gsm/SmsCbHeader;
     .end local v8           #info:Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$SmsCbConcatInfo;
-    .end local v9           #iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$SmsCbConcatInfo;>;"
-    .end local v10           #lac:I
-    .end local v11           #location:Landroid/telephony/SmsCbLocation;
-    .end local v12           #message:Landroid/telephony/SmsCbMessage;
-    .end local v13           #pageCount:I
-    .end local v14           #pdus:[[B
-    .end local v15           #plmn:Ljava/lang/String;
-    .end local v16           #receivedPdu:[B
+    .end local v9           #isEmergencyMessage:Z
+    .end local v10           #iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$SmsCbConcatInfo;>;"
+    .end local v11           #lac:I
+    .end local v12           #location:Landroid/telephony/SmsCbLocation;
+    .end local v13           #message:Landroid/telephony/SmsCbMessage;
+    .end local v14           #pageCount:I
+    .end local v15           #pdus:[[B
+    .end local v16           #plmn:Ljava/lang/String;
+    .end local v17           #receivedPdu:[B
     :catch_0
     move-exception v5
 
-    .line 1288
+    .line 1290
     .local v5, e:Ljava/lang/RuntimeException;
-    const-string v17, "GsmSmsDispatcher"
+    const-string v18, "GsmSmsDispatcher"
 
-    const-string v18, "Error in decoding SMS CB pdu"
+    const-string v19, "Error in decoding SMS CB pdu"
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v19
 
     invoke-static {v0, v1, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
@@ -590,24 +622,24 @@
     .restart local v2       #cellLocation:Landroid/telephony/gsm/GsmCellLocation;
     .restart local v3       #cid:I
     .restart local v6       #header:Lcom/android/internal/telephony/gsm/SmsCbHeader;
-    .restart local v10       #lac:I
-    .restart local v11       #location:Landroid/telephony/SmsCbLocation;
-    .restart local v13       #pageCount:I
-    .restart local v15       #plmn:Ljava/lang/String;
-    .restart local v16       #receivedPdu:[B
-    :cond_5
-    const/16 v17, 0x1
+    .restart local v11       #lac:I
+    .restart local v12       #location:Landroid/telephony/SmsCbLocation;
+    .restart local v14       #pageCount:I
+    .restart local v16       #plmn:Ljava/lang/String;
+    .restart local v17       #receivedPdu:[B
+    :cond_7
+    const/16 v18, 0x1
 
     :try_start_1
-    move/from16 v0, v17
+    move/from16 v0, v18
 
-    new-array v14, v0, [[B
+    new-array v15, v0, [[B
 
     .line 1269
-    .restart local v14       #pdus:[[B
-    const/16 v17, 0x0
+    .restart local v15       #pdus:[[B
+    const/16 v18, 0x0
 
-    aput-object v16, v14, v17
+    aput-object v17, v15, v18
     :try_end_1
     .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -1964,7 +1996,7 @@
     .parameter "sms"
 
     .prologue
-    .line 1296
+    .line 1298
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher;->mDuplicateFilter:Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$GsmSmsDuplicateFilter;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$GsmSmsDuplicateFilter;->isDuplicated(Lcom/android/internal/telephony/SmsMessageBase;)Z
@@ -1973,20 +2005,20 @@
 
     if-eqz v0, :cond_0
 
-    .line 1297
+    .line 1299
     const/4 v0, 0x1
 
-    .line 1302
+    .line 1304
     :goto_0
     return v0
 
-    .line 1300
+    .line 1302
     :cond_0
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher;->mDuplicateFilter:Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$GsmSmsDuplicateFilter;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$GsmSmsDuplicateFilter;->addMessage(Lcom/android/internal/telephony/SmsMessageBase;)V
 
-    .line 1302
+    .line 1304
     const/4 v0, 0x0
 
     goto :goto_0

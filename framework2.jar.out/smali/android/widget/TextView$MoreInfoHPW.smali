@@ -38,41 +38,41 @@
     .parameter "type"
 
     .prologue
-    .line 9237
+    .line 9249
     iput-object p1, p0, Landroid/widget/TextView$MoreInfoHPW;->this$0:Landroid/widget/TextView;
 
-    .line 9238
+    .line 9250
     invoke-direct {p0, p2, p3}, Landroid/widget/HoverPopupWindow;-><init>(Landroid/view/View;I)V
 
-    .line 9234
+    .line 9246
     const/4 v0, 0x7
 
     iput v0, p0, Landroid/widget/TextView$MoreInfoHPW;->mInitialMaxLine:I
 
-    .line 9235
+    .line 9247
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/widget/TextView$MoreInfoHPW;->mParentTextView:Landroid/widget/TextView;
 
-    .line 9239
+    .line 9251
     iget-object v0, p0, Landroid/widget/HoverPopupWindow;->mParentView:Landroid/view/View;
 
     instance-of v0, v0, Landroid/widget/TextView;
 
     if-eqz v0, :cond_0
 
-    .line 9240
+    .line 9252
     iget-object v0, p0, Landroid/widget/HoverPopupWindow;->mParentView:Landroid/view/View;
 
     check-cast v0, Landroid/widget/TextView;
 
     iput-object v0, p0, Landroid/widget/TextView$MoreInfoHPW;->mParentTextView:Landroid/widget/TextView;
 
-    .line 9248
+    .line 9260
     :goto_0
     return-void
 
-    .line 9243
+    .line 9255
     :cond_0
     const-string v0, "MoreInfoHPW"
 
@@ -80,7 +80,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 9244
+    .line 9256
     new-instance v0, Landroid/widget/TextView;
 
     iget-object v1, p0, Landroid/widget/HoverPopupWindow;->mContext:Landroid/content/Context;
@@ -98,10 +98,10 @@
     .locals 4
 
     .prologue
-    .line 9265
+    .line 9277
     const/4 v1, 0x1
 
-    .line 9267
+    .line 9279
     .local v1, ret:Z
     iget v2, p0, Landroid/widget/HoverPopupWindow;->mPopupType:I
 
@@ -109,10 +109,10 @@
 
     if-ne v2, v3, :cond_3
 
-    .line 9268
+    .line 9280
     const/4 v1, 0x0
 
-    .line 9270
+    .line 9282
     iget-object v2, p0, Landroid/widget/HoverPopupWindow;->mContentText:Ljava/lang/CharSequence;
 
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -135,15 +135,15 @@
 
     if-nez v2, :cond_1
 
-    .line 9273
+    .line 9285
     const/4 v1, 0x1
 
-    .line 9299
+    .line 9311
     :cond_0
     :goto_0
     return v1
 
-    .line 9274
+    .line 9286
     :cond_1
     iget-object v2, p0, Landroid/widget/TextView$MoreInfoHPW;->mParentTextView:Landroid/widget/TextView;
 
@@ -164,12 +164,12 @@
 
     if-eqz v2, :cond_2
 
-    .line 9275
+    .line 9287
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 9276
+    .line 9288
     :cond_2
     iget-object v2, p0, Landroid/widget/TextView$MoreInfoHPW;->mParentTextView:Landroid/widget/TextView;
 
@@ -180,7 +180,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 9277
+    .line 9289
     iget-object v2, p0, Landroid/widget/TextView$MoreInfoHPW;->mParentTextView:Landroid/widget/TextView;
 
     #getter for: Landroid/widget/TextView;->mLayout:Landroid/text/Layout;
@@ -188,7 +188,7 @@
 
     move-result-object v0
 
-    .line 9280
+    .line 9292
     .local v0, l:Landroid/text/Layout;
     const/4 v2, 0x0
 
@@ -198,12 +198,12 @@
 
     if-lez v2, :cond_0
 
-    .line 9281
+    .line 9293
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 9297
+    .line 9309
     .end local v0           #l:Landroid/text/Layout;
     :cond_3
     invoke-super {p0}, Landroid/widget/HoverPopupWindow;->isHoverPopupPossible()Z
@@ -219,10 +219,10 @@
     .prologue
     const v6, 0x7011214
 
-    .line 9305
+    .line 9317
     const/4 v3, 0x0
 
-    .line 9307
+    .line 9319
     .local v3, v:Landroid/widget/TextView;
     iget-object v4, p0, Landroid/widget/HoverPopupWindow;->mContentView:Landroid/view/View;
 
@@ -236,7 +236,7 @@
 
     if-eq v4, v6, :cond_2
 
-    .line 9309
+    .line 9321
     :cond_0
     iget-object v4, p0, Landroid/widget/HoverPopupWindow;->mContext:Landroid/content/Context;
 
@@ -244,7 +244,7 @@
 
     move-result-object v1
 
-    .line 9310
+    .line 9322
     .local v1, inflater:Landroid/view/LayoutInflater;
     const v4, 0x109004c
 
@@ -257,23 +257,23 @@
     .end local v3           #v:Landroid/widget/TextView;
     check-cast v3, Landroid/widget/TextView;
 
-    .line 9312
+    .line 9324
     .restart local v3       #v:Landroid/widget/TextView;
     const/4 v4, 0x0
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setHoverPopupType(I)V
 
-    .line 9313
+    .line 9325
     invoke-virtual {v3, v6}, Landroid/widget/TextView;->setId(I)V
 
-    .line 9314
+    .line 9326
     invoke-virtual {v3}, Landroid/widget/TextView;->getMaxLines()I
 
     move-result v4
 
     iput v4, p0, Landroid/widget/TextView$MoreInfoHPW;->mInitialMaxLine:I
 
-    .line 9321
+    .line 9333
     .end local v1           #inflater:Landroid/view/LayoutInflater;
     :goto_0
     iget-object v4, p0, Landroid/widget/HoverPopupWindow;->mContentText:Ljava/lang/CharSequence;
@@ -286,7 +286,7 @@
 
     iget-object v2, p0, Landroid/widget/HoverPopupWindow;->mContentText:Ljava/lang/CharSequence;
 
-    .line 9323
+    .line 9335
     .local v2, text:Ljava/lang/CharSequence;
     :goto_1
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -295,19 +295,19 @@
 
     if-nez v4, :cond_4
 
-    .line 9324
+    .line 9336
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 9325
+    .line 9337
     sget-object v4, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    .line 9327
+    .line 9339
     iget-object v4, p0, Landroid/widget/TextView$MoreInfoHPW;->this$0:Landroid/widget/TextView;
 
     invoke-virtual {v4}, Landroid/widget/TextView;->getResources()Landroid/content/res/Resources;
@@ -318,7 +318,7 @@
 
     move-result-object v0
 
-    .line 9328
+    .line 9340
     .local v0, d:Landroid/util/DisplayMetrics;
     iget v4, v0, Landroid/util/DisplayMetrics;->scaledDensity:F
 
@@ -334,23 +334,23 @@
 
     if-le v4, v5, :cond_1
 
-    .line 9329
+    .line 9341
     iget v4, p0, Landroid/widget/TextView$MoreInfoHPW;->mInitialMaxLine:I
 
     add-int/lit8 v4, v4, -0x2
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setMaxLines(I)V
 
-    .line 9335
+    .line 9347
     .end local v0           #d:Landroid/util/DisplayMetrics;
     :cond_1
     :goto_2
     iput-object v3, p0, Landroid/widget/HoverPopupWindow;->mContentView:Landroid/view/View;
 
-    .line 9336
+    .line 9348
     return-void
 
-    .line 9317
+    .line 9329
     .end local v2           #text:Ljava/lang/CharSequence;
     :cond_2
     iget-object v3, p0, Landroid/widget/HoverPopupWindow;->mContentView:Landroid/view/View;
@@ -361,7 +361,7 @@
     .restart local v3       #v:Landroid/widget/TextView;
     goto :goto_0
 
-    .line 9321
+    .line 9333
     :cond_3
     iget-object v4, p0, Landroid/widget/TextView$MoreInfoHPW;->mParentTextView:Landroid/widget/TextView;
 
@@ -371,7 +371,7 @@
 
     goto :goto_1
 
-    .line 9332
+    .line 9344
     .restart local v2       #text:Ljava/lang/CharSequence;
     :cond_4
     const/4 v3, 0x0
@@ -384,35 +384,35 @@
     .parameter "type"
 
     .prologue
-    .line 9252
+    .line 9264
     invoke-super {p0, p1}, Landroid/widget/HoverPopupWindow;->setInstanceByType(I)V
 
-    .line 9253
+    .line 9265
     const/4 v0, 0x2
 
     if-ne p1, v0, :cond_0
 
-    .line 9254
+    .line 9266
     const/16 v0, 0x3031
 
     iput v0, p0, Landroid/widget/HoverPopupWindow;->mPopupGravity:I
 
-    .line 9256
+    .line 9268
     const v0, 0x1030327
 
     iput v0, p0, Landroid/widget/HoverPopupWindow;->mAnimationStyle:I
 
-    .line 9257
+    .line 9269
     const/16 v0, 0x12c
 
     iput v0, p0, Landroid/widget/HoverPopupWindow;->mHoverDetectTimeMS:I
 
-    .line 9258
+    .line 9270
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/widget/HoverPopupWindow;->mIsGuideLineEnabled:Z
 
-    .line 9259
+    .line 9271
     const/4 v0, 0x6
 
     const/4 v1, 0x0
@@ -423,7 +423,7 @@
 
     iput v0, p0, Landroid/widget/HoverPopupWindow;->mGuideLineFadeOffset:I
 
-    .line 9261
+    .line 9273
     :cond_0
     return-void
 .end method

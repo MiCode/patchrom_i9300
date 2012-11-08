@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 5693
+    .line 5690
     iput-object p1, p0, Landroid/webkit/WebViewClassic$ColorPickerDialog$2;->this$1:Landroid/webkit/WebViewClassic$ColorPickerDialog;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "dialog"
 
     .prologue
-    .line 5695
+    .line 5692
     iget-object v0, p0, Landroid/webkit/WebViewClassic$ColorPickerDialog$2;->this$1:Landroid/webkit/WebViewClassic$ColorPickerDialog;
 
     iget-object v0, v0, Landroid/webkit/WebViewClassic$ColorPickerDialog;->this$0:Landroid/webkit/WebViewClassic;
@@ -52,6 +52,6 @@
     #calls: Landroid/webkit/WebViewClassic;->updateColor(I)V
     invoke-static {v0, v1}, Landroid/webkit/WebViewClassic;->access$2900(Landroid/webkit/WebViewClassic;I)V
 
-    .line 5696
+    .line 5693
     return-void
 .end method

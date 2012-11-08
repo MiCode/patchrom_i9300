@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 194
+    .line 195
     iput-object p1, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler$1;->this$1:Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 196
+    .line 197
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler$1;->this$1:Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;
 
     iget-object v0, v0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
@@ -53,14 +53,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 197
+    .line 198
     const-string v0, "ShutdownDialog"
 
     const-string v1, "!@Releasing animation end lock"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 198
+    .line 199
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler$1;->this$1:Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;
 
     iget-object v0, v0, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->this$0:Lcom/android/server/pm/ShutdownDialog;
@@ -72,7 +72,7 @@
 
     invoke-virtual {v0}, Ljava/util/concurrent/Semaphore;->release()V
 
-    .line 200
+    .line 201
     :cond_0
     return-void
 .end method

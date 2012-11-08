@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest android:sharedUserId="android.uid.system" android:versionCode="16" android:versionName="4.1.1-I9300XXDLIB" android:sharedUserLabel="@string/android_system_label" package="android" coreApp="true"
+<manifest android:sharedUserId="android.uid.system" android:versionCode="16" android:versionName="4.1.1-I9300XXDLJ4" android:sharedUserLabel="@string/android_system_label" package="android" coreApp="true"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="16" />
     <eat-comment />

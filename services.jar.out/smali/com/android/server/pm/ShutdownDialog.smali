@@ -16,6 +16,8 @@
 
 .field private static final PATH_SHUTDOWNIMG_MULTI_CSC:Ljava/lang/String; = "//system/csc_contents/shutdown.qmg"
 
+.field private static final PATH_SHUTDOWNSOUND_MULTI_CSC:Ljava/lang/String; = "//system/csc_contents/PowerOff.ogg"
+
 .field private static final SHUTDOWN_COUNT:I = 0x0
 
 .field private static final TAG:Ljava/lang/String; = "ShutdownDialog"
@@ -73,12 +75,12 @@
     .parameter "context"
 
     .prologue
-    .line 112
+    .line 113
     const v0, 0x1030007
 
     invoke-direct {p0, p1, v0}, Lcom/android/server/pm/ShutdownDialog;-><init>(Landroid/content/Context;I)V
 
-    .line 113
+    .line 114
     return-void
 .end method
 
@@ -96,76 +98,76 @@
 
     const/4 v2, 0x0
 
-    .line 116
+    .line 117
     invoke-direct {p0, p1, p2}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
 
-    .line 81
+    .line 82
     iput v1, p0, Lcom/android/server/pm/ShutdownDialog;->MAX_IMAGECOUNT:I
 
-    .line 85
+    .line 86
     iput v4, p0, Lcom/android/server/pm/ShutdownDialog;->DRAW_BEFORE:I
 
-    .line 86
+    .line 87
     iput v1, p0, Lcom/android/server/pm/ShutdownDialog;->DRAW_START:I
 
-    .line 87
+    .line 88
     const/16 v1, 0x12c
 
     iput v1, p0, Lcom/android/server/pm/ShutdownDialog;->DRAW_NEXT:I
 
-    .line 88
+    .line 89
     const/16 v1, 0x190
 
     iput v1, p0, Lcom/android/server/pm/ShutdownDialog;->DRAW_FINISH:I
 
-    .line 90
+    .line 91
     iput v4, p0, Lcom/android/server/pm/ShutdownDialog;->mDrawState:I
 
-    .line 91
+    .line 92
     new-instance v1, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;
 
     invoke-direct {v1, p0, v2}, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;-><init>(Lcom/android/server/pm/ShutdownDialog;Lcom/android/server/pm/ShutdownDialog$1;)V
 
     iput-object v1, p0, Lcom/android/server/pm/ShutdownDialog;->mViewUpdateHandler:Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;
 
-    .line 92
+    .line 93
     iput v3, p0, Lcom/android/server/pm/ShutdownDialog;->cntImages:I
 
-    .line 99
+    .line 100
     iput-object v2, p0, Lcom/android/server/pm/ShutdownDialog;->mContext:Landroid/content/Context;
 
-    .line 101
+    .line 102
     iput-object v2, p0, Lcom/android/server/pm/ShutdownDialog;->sAnimationEndedLock:Ljava/util/concurrent/Semaphore;
 
-    .line 102
+    .line 103
     iput-object v2, p0, Lcom/android/server/pm/ShutdownDialog;->sAnimationSoundEndedLock:Ljava/util/concurrent/Semaphore;
 
-    .line 105
+    .line 106
     iput-object v2, p0, Lcom/android/server/pm/ShutdownDialog;->mRunOnAnimationEnd:Ljava/lang/Runnable;
 
-    .line 248
+    .line 249
     iput-object v2, p0, Lcom/android/server/pm/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
 
-    .line 117
+    .line 118
     iput-object p1, p0, Lcom/android/server/pm/ShutdownDialog;->mContext:Landroid/content/Context;
 
-    .line 120
+    .line 121
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "POWER_OFF_ANIMATION_START"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 121
+    .line 122
     .local v0, startAnimation:Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/server/pm/ShutdownDialog;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 124
+    .line 125
     invoke-virtual {p0, v3}, Lcom/android/server/pm/ShutdownDialog;->setCancelable(Z)V
 
-    .line 125
+    .line 126
     invoke-virtual {p0}, Lcom/android/server/pm/ShutdownDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v1
@@ -174,7 +176,7 @@
 
     invoke-virtual {v1, v2}, Landroid/view/Window;->setType(I)V
 
-    .line 127
+    .line 128
     invoke-virtual {p0}, Lcom/android/server/pm/ShutdownDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v1
@@ -183,7 +185,7 @@
 
     invoke-virtual {v1, v2}, Landroid/view/Window;->addFlags(I)V
 
-    .line 128
+    .line 129
     invoke-virtual {p0}, Lcom/android/server/pm/ShutdownDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v1
@@ -192,7 +194,7 @@
 
     invoke-virtual {v1, v2}, Landroid/view/Window;->addFlags(I)V
 
-    .line 131
+    .line 132
     invoke-virtual {p0}, Lcom/android/server/pm/ShutdownDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v1
@@ -201,7 +203,7 @@
 
     invoke-virtual {v1, v2}, Landroid/view/Window;->addFlags(I)V
 
-    .line 132
+    .line 133
     invoke-virtual {p0}, Lcom/android/server/pm/ShutdownDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v1
@@ -210,7 +212,7 @@
 
     invoke-virtual {v1, v2}, Landroid/view/Window;->addFlags(I)V
 
-    .line 133
+    .line 134
     invoke-virtual {p0}, Lcom/android/server/pm/ShutdownDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v1
@@ -219,19 +221,19 @@
 
     invoke-virtual {v1, v2}, Landroid/view/Window;->addFlags(I)V
 
-    .line 135
+    .line 136
     invoke-virtual {p0}, Lcom/android/server/pm/ShutdownDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v1
 
     invoke-virtual {v1, v3}, Landroid/view/Window;->setWindowAnimations(I)V
 
-    .line 137
+    .line 138
     const-string v1, "/system/media/audio/ui/PowerOn.ogg"
 
     invoke-direct {p0, v1}, Lcom/android/server/pm/ShutdownDialog;->prepareSound(Ljava/lang/String;)V
 
-    .line 138
+    .line 139
     return-void
 .end method
 
@@ -410,14 +412,14 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 383
+    .line 388
     new-instance v0, Ljava/io/File;
 
     const-string v2, "//system/csc_contents/shutdown.qmg"
 
     invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 384
+    .line 389
     .local v0, f:Ljava/io/File;
     if-eqz v0, :cond_1
 
@@ -427,12 +429,12 @@
 
     if-eqz v2, :cond_1
 
-    .line 389
+    .line 394
     :cond_0
     :goto_0
     return v1
 
-    .line 386
+    .line 391
     :cond_1
     new-instance v0, Ljava/io/File;
 
@@ -441,7 +443,7 @@
 
     invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 387
+    .line 392
     .restart local v0       #f:Ljava/io/File;
     if-eqz v0, :cond_2
 
@@ -451,7 +453,7 @@
 
     if-nez v2, :cond_0
 
-    .line 389
+    .line 394
     :cond_2
     const/4 v1, 0x0
 
@@ -463,17 +465,17 @@
     .parameter "animPath"
 
     .prologue
-    .line 420
+    .line 425
     if-eqz p1, :cond_0
 
-    .line 421
+    .line 426
     invoke-static {p1}, Lcom/android/server/pm/LibQmg;->qmgOpen(Ljava/lang/String;)I
 
     move-result v2
 
     iput v2, p0, Lcom/android/server/pm/ShutdownDialog;->handle:I
 
-    .line 425
+    .line 430
     :goto_0
     iget v2, p0, Lcom/android/server/pm/ShutdownDialog;->handle:I
 
@@ -483,7 +485,7 @@
 
     iput v2, p0, Lcom/android/server/pm/ShutdownDialog;->width:I
 
-    .line 426
+    .line 431
     iget v2, p0, Lcom/android/server/pm/ShutdownDialog;->handle:I
 
     invoke-static {v2}, Lcom/android/server/pm/LibQmg;->qmgGetHeight(I)I
@@ -492,7 +494,7 @@
 
     iput v2, p0, Lcom/android/server/pm/ShutdownDialog;->height:I
 
-    .line 428
+    .line 433
     const-string v2, "ShutdownDialog"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -517,7 +519,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 429
+    .line 434
     const-string v2, "ShutdownDialog"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -542,7 +544,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 431
+    .line 436
     invoke-virtual {p0}, Lcom/android/server/pm/ShutdownDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v2
@@ -551,29 +553,29 @@
 
     move-result-object v0
 
-    .line 432
+    .line 437
     .local v0, l:Landroid/view/WindowManager$LayoutParams;
     new-instance v1, Landroid/view/WindowManager$LayoutParams;
 
     invoke-direct {v1}, Landroid/view/WindowManager$LayoutParams;-><init>()V
 
-    .line 433
+    .line 438
     .local v1, nl:Landroid/view/WindowManager$LayoutParams;
     invoke-virtual {v1, v0}, Landroid/view/WindowManager$LayoutParams;->copyFrom(Landroid/view/WindowManager$LayoutParams;)I
 
-    .line 435
+    .line 440
     iget v2, p0, Lcom/android/server/pm/ShutdownDialog;->width:I
 
     iget v3, p0, Lcom/android/server/pm/ShutdownDialog;->height:I
 
     if-le v2, v3, :cond_1
 
-    .line 436
+    .line 441
     const/4 v2, 0x0
 
     iput v2, v1, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
-    .line 441
+    .line 446
     :goto_1
     iget v2, v1, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
 
@@ -581,14 +583,14 @@
 
     iput v2, v1, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
 
-    .line 443
+    .line 448
     invoke-virtual {p0}, Lcom/android/server/pm/ShutdownDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v2
 
     invoke-virtual {v2, v1}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 444
+    .line 449
     invoke-virtual {p0}, Lcom/android/server/pm/ShutdownDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v2
@@ -597,7 +599,7 @@
 
     invoke-virtual {v2, v3}, Landroid/view/Window;->setType(I)V
 
-    .line 446
+    .line 451
     iget v2, p0, Lcom/android/server/pm/ShutdownDialog;->width:I
 
     iget v3, p0, Lcom/android/server/pm/ShutdownDialog;->height:I
@@ -608,7 +610,7 @@
 
     iput-object v2, p0, Lcom/android/server/pm/ShutdownDialog;->buf:[I
 
-    .line 448
+    .line 453
     iget v2, p0, Lcom/android/server/pm/ShutdownDialog;->width:I
 
     iget v3, p0, Lcom/android/server/pm/ShutdownDialog;->height:I
@@ -621,10 +623,10 @@
 
     iput-object v2, p0, Lcom/android/server/pm/ShutdownDialog;->mImages:Landroid/graphics/Bitmap;
 
-    .line 449
+    .line 454
     return-void
 
-    .line 423
+    .line 428
     .end local v0           #l:Landroid/view/WindowManager$LayoutParams;
     .end local v1           #nl:Landroid/view/WindowManager$LayoutParams;
     :cond_0
@@ -638,7 +640,7 @@
 
     goto/16 :goto_0
 
-    .line 438
+    .line 443
     .restart local v0       #l:Landroid/view/WindowManager$LayoutParams;
     .restart local v1       #nl:Landroid/view/WindowManager$LayoutParams;
     :cond_1
@@ -654,7 +656,7 @@
     .parameter "soundPath"
 
     .prologue
-    .line 398
+    .line 403
     const-string v2, ""
 
     const-string v3, "KOR"
@@ -667,7 +669,7 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 400
+    .line 405
     :try_start_0
     const-string v2, "ShutdownDialog"
 
@@ -675,21 +677,21 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 402
+    .line 407
     const-string v2, "service.media.powersnd"
 
     const-string v3, "2"
 
     invoke-static {v2, v3}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 403
+    .line 408
     const-string v2, "ctl.start"
 
     const-string v3, "powersnd"
 
     invoke-static {v2, v3}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 405
+    .line 410
     const-wide/16 v2, 0x64
 
     invoke-static {v2, v3}, Ljava/lang/Thread;->sleep(J)V
@@ -697,28 +699,28 @@
     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 417
+    .line 422
     :goto_0
     return-void
 
-    .line 406
+    .line 411
     :catch_0
     move-exception v1
 
-    .line 407
+    .line 412
     .local v1, e:Ljava/lang/IllegalStateException;
     invoke-virtual {v1}, Ljava/lang/IllegalStateException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 412
+    .line 417
     .end local v1           #e:Ljava/lang/IllegalStateException;
     :cond_0
     const/4 v2, 0x0
 
     invoke-direct {p0, v2}, Lcom/android/server/pm/ShutdownDialog;->prepareSoundThread(Ljava/lang/String;)V
 
-    .line 414
+    .line 419
     iget-object v2, p0, Lcom/android/server/pm/ShutdownDialog;->mContext:Landroid/content/Context;
 
     const-string v3, "audio"
@@ -729,7 +731,7 @@
 
     check-cast v0, Landroid/media/AudioManager;
 
-    .line 415
+    .line 420
     .local v0, audioManager:Landroid/media/AudioManager;
     iget-object v2, p0, Lcom/android/server/pm/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
 
@@ -737,7 +739,7 @@
 
     goto :goto_0
 
-    .line 408
+    .line 413
     .end local v0           #audioManager:Landroid/media/AudioManager;
     :catch_1
     move-exception v2
@@ -746,299 +748,333 @@
 .end method
 
 .method private prepareSoundThread(Ljava/lang/String;)V
-    .locals 9
+    .locals 10
     .parameter "soundPath"
 
     .prologue
-    const/4 v8, 0x1
+    const/4 v9, 0x1
 
-    .line 257
-    new-instance v6, Ljava/lang/Thread;
+    .line 258
+    new-instance v7, Ljava/lang/Thread;
 
-    new-instance v7, Lcom/android/server/pm/ShutdownDialog$1;
+    new-instance v8, Lcom/android/server/pm/ShutdownDialog$1;
 
-    invoke-direct {v7, p0}, Lcom/android/server/pm/ShutdownDialog$1;-><init>(Lcom/android/server/pm/ShutdownDialog;)V
+    invoke-direct {v8, p0}, Lcom/android/server/pm/ShutdownDialog$1;-><init>(Lcom/android/server/pm/ShutdownDialog;)V
 
-    invoke-direct {v6, v7}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+    invoke-direct {v7, v8}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    iput-object v6, p0, Lcom/android/server/pm/ShutdownDialog;->soundThread:Ljava/lang/Thread;
-
-    .line 282
-    const/4 v2, 0x0
+    iput-object v7, p0, Lcom/android/server/pm/ShutdownDialog;->soundThread:Ljava/lang/Thread;
 
     .line 283
-    .local v2, f:Ljava/io/File;
-    if-eqz p1, :cond_0
+    const/4 v2, 0x0
 
     .line 284
+    .local v2, f:Ljava/io/File;
+    new-instance v3, Ljava/io/File;
+
+    const-string v7, "//system/csc_contents/PowerOff.ogg"
+
+    invoke-direct {v3, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    .line 285
+    .local v3, fMultiCsc:Ljava/io/File;
+    if-eqz p1, :cond_0
+
+    .line 286
     new-instance v2, Ljava/io/File;
 
     .end local v2           #f:Ljava/io/File;
     invoke-direct {v2, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 286
+    .line 288
     .restart local v2       #f:Ljava/io/File;
     :cond_0
+    invoke-virtual {v3}, Ljava/io/File;->exists()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_2
+
     if-eqz v2, :cond_1
 
     invoke-virtual {v2}, Ljava/io/File;->isFile()Z
 
-    move-result v6
+    move-result v7
 
-    if-nez v6, :cond_2
+    if-nez v7, :cond_2
 
-    .line 287
+    .line 289
     :cond_1
     new-instance v2, Ljava/io/File;
 
     .end local v2           #f:Ljava/io/File;
-    const-string v6, "//system/media/audio/ui/PowerOff.wav"
+    const-string v7, "//system/csc_contents/PowerOff.ogg"
 
-    invoke-direct {v2, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 289
+    .line 291
     .restart local v2       #f:Ljava/io/File;
     :cond_2
     if-eqz v2, :cond_3
 
     invoke-virtual {v2}, Ljava/io/File;->isFile()Z
 
-    move-result v6
+    move-result v7
 
-    if-nez v6, :cond_4
+    if-nez v7, :cond_4
 
-    .line 290
+    .line 292
     :cond_3
     new-instance v2, Ljava/io/File;
 
     .end local v2           #f:Ljava/io/File;
-    const-string v6, "//system/media/audio/ui/PowerOff.ogg"
+    const-string v7, "//system/media/audio/ui/PowerOff.wav"
 
-    invoke-direct {v2, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 292
+    .line 294
     .restart local v2       #f:Ljava/io/File;
     :cond_4
     if-eqz v2, :cond_5
 
     invoke-virtual {v2}, Ljava/io/File;->isFile()Z
 
-    move-result v6
+    move-result v7
 
-    if-nez v6, :cond_7
+    if-nez v7, :cond_6
 
-    .line 293
+    .line 295
     :cond_5
-    const-string v6, "ShutdownDialog"
+    new-instance v2, Ljava/io/File;
 
-    const-string v7, "!@Sound file not found, Shutdown sound will not be start!"
+    .end local v2           #f:Ljava/io/File;
+    const-string v7, "//system/media/audio/ui/PowerOff.ogg"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v2, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 342
+    .line 297
+    .restart local v2       #f:Ljava/io/File;
     :cond_6
+    if-eqz v2, :cond_7
+
+    invoke-virtual {v2}, Ljava/io/File;->isFile()Z
+
+    move-result v7
+
+    if-nez v7, :cond_9
+
+    .line 298
+    :cond_7
+    const-string v7, "ShutdownDialog"
+
+    const-string v8, "!@Sound file not found, Shutdown sound will not be start!"
+
+    invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 347
+    :cond_8
     :goto_0
     return-void
 
-    .line 296
-    :cond_7
-    const-string v6, "ShutdownDialog"
+    .line 301
+    :cond_9
+    const-string v7, "ShutdownDialog"
 
-    const-string v7, "!@Sound file found"
+    const-string v8, "!@Sound file found"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 298
-    iget-object v6, p0, Lcom/android/server/pm/ShutdownDialog;->mContext:Landroid/content/Context;
+    .line 303
+    iget-object v7, p0, Lcom/android/server/pm/ShutdownDialog;->mContext:Landroid/content/Context;
 
-    const-string v7, "audio"
+    const-string v8, "audio"
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v7, v8}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/media/AudioManager;
 
-    .line 299
+    .line 304
     .local v0, audioManager:Landroid/media/AudioManager;
-    invoke-virtual {v0, v8}, Landroid/media/AudioManager;->getStreamVolume(I)I
+    invoke-virtual {v0, v9}, Landroid/media/AudioManager;->getStreamVolume(I)I
 
-    move-result v5
+    move-result v6
 
-    .line 300
-    .local v5, volume:I
-    if-gez v5, :cond_8
+    .line 305
+    .local v6, volume:I
+    if-gez v6, :cond_a
 
-    .line 301
-    const-string v6, "ShutdownDialog"
+    .line 306
+    const-string v7, "ShutdownDialog"
 
-    const-string v7, "!@Volume is not enough"
+    const-string v8, "!@Volume is not enough"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 305
-    :cond_8
-    const/4 v3, 0x0
+    .line 310
+    :cond_a
+    const/4 v4, 0x0
 
-    .line 307
-    .local v3, fis:Ljava/io/FileInputStream;
+    .line 312
+    .local v4, fis:Ljava/io/FileInputStream;
     :try_start_0
-    new-instance v6, Landroid/media/MediaPlayer;
+    new-instance v7, Landroid/media/MediaPlayer;
 
-    invoke-direct {v6}, Landroid/media/MediaPlayer;-><init>()V
+    invoke-direct {v7}, Landroid/media/MediaPlayer;-><init>()V
 
-    iput-object v6, p0, Lcom/android/server/pm/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
+    iput-object v7, p0, Lcom/android/server/pm/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
 
-    .line 308
-    new-instance v4, Ljava/io/FileInputStream;
+    .line 313
+    new-instance v5, Ljava/io/FileInputStream;
 
-    invoke-direct {v4, v2}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    invoke-direct {v5, v2}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 309
-    .end local v3           #fis:Ljava/io/FileInputStream;
-    .local v4, fis:Ljava/io/FileInputStream;
+    .line 314
+    .end local v4           #fis:Ljava/io/FileInputStream;
+    .local v5, fis:Ljava/io/FileInputStream;
     :try_start_1
-    iget-object v6, p0, Lcom/android/server/pm/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
+    iget-object v7, p0, Lcom/android/server/pm/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
 
-    invoke-virtual {v4}, Ljava/io/FileInputStream;->getFD()Ljava/io/FileDescriptor;
+    invoke-virtual {v5}, Ljava/io/FileInputStream;->getFD()Ljava/io/FileDescriptor;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v6, v7}, Landroid/media/MediaPlayer;->setDataSource(Ljava/io/FileDescriptor;)V
+    invoke-virtual {v7, v8}, Landroid/media/MediaPlayer;->setDataSource(Ljava/io/FileDescriptor;)V
 
-    .line 310
-    iget-object v6, p0, Lcom/android/server/pm/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
+    .line 315
+    iget-object v7, p0, Lcom/android/server/pm/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
 
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
-    invoke-virtual {v6, v7}, Landroid/media/MediaPlayer;->setAudioStreamType(I)V
+    invoke-virtual {v7, v8}, Landroid/media/MediaPlayer;->setAudioStreamType(I)V
 
-    .line 311
-    iget-object v6, p0, Lcom/android/server/pm/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
+    .line 316
+    iget-object v7, p0, Lcom/android/server/pm/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
 
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
-    invoke-virtual {v6, v7}, Landroid/media/MediaPlayer;->setLooping(Z)V
+    invoke-virtual {v7, v8}, Landroid/media/MediaPlayer;->setLooping(Z)V
 
-    .line 312
-    iget-object v6, p0, Lcom/android/server/pm/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
+    .line 317
+    iget-object v7, p0, Lcom/android/server/pm/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
 
-    new-instance v7, Lcom/android/server/pm/ShutdownDialog$2;
+    new-instance v8, Lcom/android/server/pm/ShutdownDialog$2;
 
-    invoke-direct {v7, p0}, Lcom/android/server/pm/ShutdownDialog$2;-><init>(Lcom/android/server/pm/ShutdownDialog;)V
+    invoke-direct {v8, p0}, Lcom/android/server/pm/ShutdownDialog$2;-><init>(Lcom/android/server/pm/ShutdownDialog;)V
 
-    invoke-virtual {v6, v7}, Landroid/media/MediaPlayer;->setOnCompletionListener(Landroid/media/MediaPlayer$OnCompletionListener;)V
+    invoke-virtual {v7, v8}, Landroid/media/MediaPlayer;->setOnCompletionListener(Landroid/media/MediaPlayer$OnCompletionListener;)V
 
-    .line 321
-    iget-object v6, p0, Lcom/android/server/pm/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
+    .line 326
+    iget-object v7, p0, Lcom/android/server/pm/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
 
-    invoke-virtual {v6}, Landroid/media/MediaPlayer;->prepare()V
+    invoke-virtual {v7}, Landroid/media/MediaPlayer;->prepare()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_3
 
-    .line 330
-    if-eqz v4, :cond_6
+    .line 335
+    if-eqz v5, :cond_8
 
-    .line 331
+    .line 336
     :try_start_2
-    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v5}, Ljava/io/FileInputStream;->close()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
     goto :goto_0
 
-    .line 332
-    .end local v4           #fis:Ljava/io/FileInputStream;
+    .line 337
+    .end local v5           #fis:Ljava/io/FileInputStream;
     :catch_0
-    move-exception v6
+    move-exception v7
 
     goto :goto_0
 
-    .line 322
-    .restart local v3       #fis:Ljava/io/FileInputStream;
+    .line 327
+    .restart local v4       #fis:Ljava/io/FileInputStream;
     :catch_1
     move-exception v1
 
-    .line 323
+    .line 328
     .local v1, e:Ljava/lang/Exception;
     :goto_1
     :try_start_3
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 324
-    const-string v6, "ShutdownDialog"
+    .line 329
+    const-string v7, "ShutdownDialog"
 
-    const-string v7, "!@MediaPlayer exception raised. SoundThread is not started !"
+    const-string v8, "!@MediaPlayer exception raised. SoundThread is not started !"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 330
-    if-eqz v3, :cond_6
+    .line 335
+    if-eqz v4, :cond_8
 
-    .line 331
+    .line 336
     :try_start_4
-    invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
 
     goto :goto_0
 
-    .line 329
+    .line 334
     .end local v1           #e:Ljava/lang/Exception;
     :catchall_0
-    move-exception v6
+    move-exception v7
 
-    .line 330
+    .line 335
     :goto_2
-    if-eqz v3, :cond_9
+    if-eqz v4, :cond_b
 
-    .line 331
+    .line 336
     :try_start_5
-    invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
 
-    .line 329
-    :cond_9
+    .line 334
+    :cond_b
     :goto_3
-    throw v6
+    throw v7
 
-    .line 332
+    .line 337
     :catch_2
-    move-exception v7
+    move-exception v8
 
     goto :goto_3
 
-    .line 329
-    .end local v3           #fis:Ljava/io/FileInputStream;
-    .restart local v4       #fis:Ljava/io/FileInputStream;
-    :catchall_1
-    move-exception v6
-
-    move-object v3, v4
-
+    .line 334
     .end local v4           #fis:Ljava/io/FileInputStream;
-    .restart local v3       #fis:Ljava/io/FileInputStream;
+    .restart local v5       #fis:Ljava/io/FileInputStream;
+    :catchall_1
+    move-exception v7
+
+    move-object v4, v5
+
+    .end local v5           #fis:Ljava/io/FileInputStream;
+    .restart local v4       #fis:Ljava/io/FileInputStream;
     goto :goto_2
 
-    .line 322
-    .end local v3           #fis:Ljava/io/FileInputStream;
-    .restart local v4       #fis:Ljava/io/FileInputStream;
+    .line 327
+    .end local v4           #fis:Ljava/io/FileInputStream;
+    .restart local v5       #fis:Ljava/io/FileInputStream;
     :catch_3
     move-exception v1
 
-    move-object v3, v4
+    move-object v4, v5
 
-    .end local v4           #fis:Ljava/io/FileInputStream;
-    .restart local v3       #fis:Ljava/io/FileInputStream;
+    .end local v5           #fis:Ljava/io/FileInputStream;
+    .restart local v4       #fis:Ljava/io/FileInputStream;
     goto :goto_1
 .end method
 
@@ -1048,7 +1084,7 @@
     .locals 1
 
     .prologue
-    .line 251
+    .line 252
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
 
     return-object v0
@@ -1059,17 +1095,17 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 142
+    .line 143
     const-string v0, "ShutdownDialog"
 
     const-string v1, "onCreate"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 143
+    .line 144
     invoke-super {p0, p1}, Landroid/app/Dialog;->onCreate(Landroid/os/Bundle;)V
 
-    .line 145
+    .line 146
     new-instance v0, Landroid/widget/ImageView;
 
     iget-object v1, p0, Lcom/android/server/pm/ShutdownDialog;->mContext:Landroid/content/Context;
@@ -1078,12 +1114,12 @@
 
     iput-object v0, p0, Lcom/android/server/pm/ShutdownDialog;->mShutdownView:Landroid/widget/ImageView;
 
-    .line 146
+    .line 147
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog;->mShutdownView:Landroid/widget/ImageView;
 
     invoke-virtual {p0, v0}, Lcom/android/server/pm/ShutdownDialog;->setContentView(Landroid/view/View;)V
 
-    .line 147
+    .line 148
     return-void
 .end method
 
@@ -1091,10 +1127,10 @@
     .locals 3
 
     .prologue
-    .line 151
+    .line 152
     invoke-super {p0}, Landroid/app/Dialog;->onStart()V
 
-    .line 154
+    .line 155
     iget-object v1, p0, Lcom/android/server/pm/ShutdownDialog;->mContext:Landroid/content/Context;
 
     const-string v2, "statusbar"
@@ -1105,20 +1141,20 @@
 
     check-cast v0, Landroid/app/StatusBarManager;
 
-    .line 155
+    .line 156
     .local v0, statusBarManager:Landroid/app/StatusBarManager;
     if-eqz v0, :cond_1
 
-    .line 156
+    .line 157
     invoke-virtual {v0}, Landroid/app/StatusBarManager;->collapse()V
 
-    .line 161
+    .line 162
     :goto_0
     iget-object v1, p0, Lcom/android/server/pm/ShutdownDialog;->mContext:Landroid/content/Context;
 
     if-eqz v1, :cond_0
 
-    .line 163
+    .line 164
     iget-object v1, p0, Lcom/android/server/pm/ShutdownDialog;->mContext:Landroid/content/Context;
 
     const-string v2, "keyguard"
@@ -1131,7 +1167,7 @@
 
     iput-object v1, p0, Lcom/android/server/pm/ShutdownDialog;->mKeyguardManager:Landroid/app/KeyguardManager;
 
-    .line 164
+    .line 165
     iget-object v1, p0, Lcom/android/server/pm/ShutdownDialog;->mKeyguardManager:Landroid/app/KeyguardManager;
 
     const-string v2, "ShutdownDialog"
@@ -1142,19 +1178,19 @@
 
     iput-object v1, p0, Lcom/android/server/pm/ShutdownDialog;->mKeyguardLock:Landroid/app/KeyguardManager$KeyguardLock;
 
-    .line 165
+    .line 166
     iget-object v1, p0, Lcom/android/server/pm/ShutdownDialog;->mKeyguardLock:Landroid/app/KeyguardManager$KeyguardLock;
 
     invoke-virtual {v1}, Landroid/app/KeyguardManager$KeyguardLock;->disableKeyguard()V
 
-    .line 168
+    .line 169
     :cond_0
     invoke-virtual {p0}, Lcom/android/server/pm/ShutdownDialog;->start()V
 
-    .line 169
+    .line 170
     return-void
 
-    .line 158
+    .line 159
     :cond_1
     const-string v1, "ShutdownDialog"
 
@@ -1169,10 +1205,10 @@
     .locals 0
 
     .prologue
-    .line 379
+    .line 384
     invoke-super {p0}, Landroid/app/Dialog;->onStop()V
 
-    .line 380
+    .line 385
     return-void
 .end method
 
@@ -1180,77 +1216,105 @@
     .locals 2
 
     .prologue
-    .line 464
+    .line 473
     const-string v0, "ShutdownDialog"
 
     const-string v1, "prepare shutdown dialog image and sound"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 465
+    .line 474
     const-string v0, "/system/media/audio/ui/PowerOn.ogg"
 
     invoke-direct {p0, v0}, Lcom/android/server/pm/ShutdownDialog;->prepareSound(Ljava/lang/String;)V
 
-    .line 466
+    .line 475
     const-string v0, "/system/media/video/shutdown/warmboot.qmg"
 
     invoke-direct {p0, v0}, Lcom/android/server/pm/ShutdownDialog;->prepareAnim(Ljava/lang/String;)V
 
-    .line 467
+    .line 476
     return-void
 .end method
 
 .method public prepareShutdown()V
-    .locals 4
+    .locals 5
 
     .prologue
-    .line 452
-    const-string v2, "ShutdownDialog"
+    .line 457
+    const-string v3, "ShutdownDialog"
 
-    const-string v3, "prepare shutdown dialog image and sound"
+    const-string v4, "prepare shutdown dialog image and sound"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 453
-    const-string v2, "/System/media/audio/ui/PowerOff.ogg"
+    .line 458
+    new-instance v2, Ljava/io/File;
 
-    invoke-direct {p0, v2}, Lcom/android/server/pm/ShutdownDialog;->prepareSound(Ljava/lang/String;)V
+    const-string v3, "//system/csc_contents/PowerOff.ogg"
 
-    .line 454
+    invoke-direct {v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    .line 459
+    .local v2, shutdownSoundFileMultiCSC:Ljava/io/File;
+    invoke-virtual {v2}, Ljava/io/File;->exists()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    .line 460
+    const-string v3, "//system/csc_contents/PowerOff.ogg"
+
+    invoke-direct {p0, v3}, Lcom/android/server/pm/ShutdownDialog;->prepareSound(Ljava/lang/String;)V
+
+    .line 463
+    :goto_0
     new-instance v1, Ljava/io/File;
 
-    const-string v2, "//system/csc_contents/shutdown.qmg"
+    const-string v3, "//system/csc_contents/shutdown.qmg"
 
-    invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 455
+    .line 464
     .local v1, shutdownFilePathMultiCSC:Ljava/io/File;
     const/4 v0, 0x0
 
-    .line 456
+    .line 465
     .local v0, filePath:Ljava/lang/String;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_1
 
-    .line 457
+    .line 466
     const-string v0, "//system/csc_contents/shutdown.qmg"
 
-    .line 460
-    :goto_0
+    .line 469
+    :goto_1
     invoke-direct {p0, v0}, Lcom/android/server/pm/ShutdownDialog;->prepareAnim(Ljava/lang/String;)V
 
-    .line 461
+    .line 470
     return-void
 
-    .line 459
+    .line 462
+    .end local v0           #filePath:Ljava/lang/String;
+    .end local v1           #shutdownFilePathMultiCSC:Ljava/io/File;
     :cond_0
-    const-string v0, "//system/media/video/shutdown/shutdown.qmg"
+    const-string v3, "/System/media/audio/ui/PowerOff.ogg"
+
+    invoke-direct {p0, v3}, Lcom/android/server/pm/ShutdownDialog;->prepareSound(Ljava/lang/String;)V
 
     goto :goto_0
+
+    .line 468
+    .restart local v0       #filePath:Ljava/lang/String;
+    .restart local v1       #shutdownFilePathMultiCSC:Ljava/io/File;
+    :cond_1
+    const-string v0, "//system/media/video/shutdown/shutdown.qmg"
+
+    goto :goto_1
 .end method
 
 .method public setOnAnimationEnd(Ljava/lang/Runnable;)V
@@ -1258,10 +1322,10 @@
     .parameter "r"
 
     .prologue
-    .line 393
+    .line 398
     iput-object p1, p0, Lcom/android/server/pm/ShutdownDialog;->mRunOnAnimationEnd:Ljava/lang/Runnable;
 
-    .line 394
+    .line 399
     return-void
 .end method
 
@@ -1269,24 +1333,24 @@
     .locals 2
 
     .prologue
-    .line 470
+    .line 479
     const/16 v0, 0x64
 
     iput v0, p0, Lcom/android/server/pm/ShutdownDialog;->mDrawState:I
 
-    .line 471
+    .line 480
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog;->mViewUpdateHandler:Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;
 
     const/16 v1, 0xc8
 
     invoke-virtual {v0, v1}, Lcom/android/server/pm/ShutdownDialog$ShutdownAnimHandler;->sendEmptyMessage(I)Z
 
-    .line 472
+    .line 481
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog;->mContext:Landroid/content/Context;
 
     if-eqz v0, :cond_0
 
-    .line 474
+    .line 483
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog;->mContext:Landroid/content/Context;
 
     const-string v1, "keyguard"
@@ -1299,7 +1363,7 @@
 
     iput-object v0, p0, Lcom/android/server/pm/ShutdownDialog;->mKeyguardManager:Landroid/app/KeyguardManager;
 
-    .line 475
+    .line 484
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog;->mKeyguardManager:Landroid/app/KeyguardManager;
 
     const-string v1, "ShutdownDialog"
@@ -1310,12 +1374,12 @@
 
     iput-object v0, p0, Lcom/android/server/pm/ShutdownDialog;->mKeyguardLock:Landroid/app/KeyguardManager$KeyguardLock;
 
-    .line 476
+    .line 485
     iget-object v0, p0, Lcom/android/server/pm/ShutdownDialog;->mKeyguardLock:Landroid/app/KeyguardManager$KeyguardLock;
 
     invoke-virtual {v0}, Landroid/app/KeyguardManager$KeyguardLock;->disableKeyguard()V
 
-    .line 478
+    .line 487
     :cond_0
     return-void
 .end method
@@ -1327,7 +1391,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 346
+    .line 351
     :goto_0
     iget v2, p0, Lcom/android/server/pm/ShutdownDialog;->mDrawState:I
 
@@ -1335,7 +1399,7 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 348
+    .line 353
     const-wide/16 v2, 0x64
 
     :try_start_0
@@ -1345,11 +1409,11 @@
 
     goto :goto_0
 
-    .line 350
+    .line 355
     :catch_0
     move-exception v0
 
-    .line 351
+    .line 356
     .local v0, e:Ljava/lang/InterruptedException;
     const-string v2, "ShutdownDialog"
 
@@ -1357,12 +1421,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 374
+    .line 379
     .end local v0           #e:Ljava/lang/InterruptedException;
     :goto_1
     return v1
 
-    .line 356
+    .line 361
     :cond_0
     const-string v2, "ShutdownDialog"
 
@@ -1370,7 +1434,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 358
+    .line 363
     :try_start_1
     iget-object v2, p0, Lcom/android/server/pm/ShutdownDialog;->sAnimationEndedLock:Ljava/util/concurrent/Semaphore;
 
@@ -1388,7 +1452,7 @@
 
     if-nez v2, :cond_2
 
-    .line 360
+    .line 365
     const-string v2, "ShutdownDialog"
 
     const-string v3, "animation end lock time out or null"
@@ -1400,11 +1464,11 @@
 
     goto :goto_1
 
-    .line 368
+    .line 373
     :catch_1
     move-exception v0
 
-    .line 369
+    .line 374
     .restart local v0       #e:Ljava/lang/InterruptedException;
     const-string v1, "ShutdownDialog"
 
@@ -1412,7 +1476,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 373
+    .line 378
     .end local v0           #e:Ljava/lang/InterruptedException;
     :cond_1
     :goto_2
@@ -1422,12 +1486,12 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 374
+    .line 379
     const/4 v1, 0x1
 
     goto :goto_1
 
-    .line 363
+    .line 368
     :cond_2
     :try_start_2
     iget-object v2, p0, Lcom/android/server/pm/ShutdownDialog;->sAnimationSoundEndedLock:Ljava/util/concurrent/Semaphore;
@@ -1446,7 +1510,7 @@
 
     if-nez v2, :cond_1
 
-    .line 365
+    .line 370
     const-string v2, "ShutdownDialog"
 
     const-string v3, "sound end lock time out or null"
@@ -1458,11 +1522,11 @@
 
     goto :goto_1
 
-    .line 370
+    .line 375
     :catch_2
     move-exception v0
 
-    .line 371
+    .line 376
     .local v0, e:Ljava/lang/Exception;
     const-string v1, "ShutdownDialog"
 

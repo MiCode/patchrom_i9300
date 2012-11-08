@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 229
+    .line 244
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -45,7 +45,7 @@
     .parameter "in"
 
     .prologue
-    .line 231
+    .line 246
     new-instance v0, Lcom/android/internal/telephony/OperatorInfo;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -72,7 +72,7 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/internal/telephony/OperatorInfo;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/telephony/OperatorInfo$State;I)V
 
-    .line 237
+    .line 252
     .local v0, opInfo:Lcom/android/internal/telephony/OperatorInfo;
     return-object v0
 .end method
@@ -82,7 +82,7 @@
     .parameter "x0"
 
     .prologue
-    .line 229
+    .line 244
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/OperatorInfo$1;->createFromParcel(Landroid/os/Parcel;)Lcom/android/internal/telephony/OperatorInfo;
 
     move-result-object v0
@@ -95,7 +95,7 @@
     .parameter "size"
 
     .prologue
-    .line 241
+    .line 256
     new-array v0, p1, [Lcom/android/internal/telephony/OperatorInfo;
 
     return-object v0
@@ -106,7 +106,7 @@
     .parameter "x0"
 
     .prologue
-    .line 229
+    .line 244
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/OperatorInfo$1;->newArray(I)[Lcom/android/internal/telephony/OperatorInfo;
 
     move-result-object v0

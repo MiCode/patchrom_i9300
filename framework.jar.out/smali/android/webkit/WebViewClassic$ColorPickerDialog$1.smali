@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 5684
+    .line 5681
     iput-object p1, p0, Landroid/webkit/WebViewClassic$ColorPickerDialog$1;->this$1:Landroid/webkit/WebViewClassic$ColorPickerDialog;
 
     iput-object p2, p0, Landroid/webkit/WebViewClassic$ColorPickerDialog$1;->val$gridViewColors:Landroid/widget/GridView;
@@ -59,13 +59,13 @@
     .end annotation
 
     .prologue
-    .line 5687
+    .line 5684
     .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     iget-object v1, p0, Landroid/webkit/WebViewClassic$ColorPickerDialog$1;->this$1:Landroid/webkit/WebViewClassic$ColorPickerDialog;
 
     invoke-virtual {v1}, Landroid/webkit/WebViewClassic$ColorPickerDialog;->dismiss()V
 
-    .line 5688
+    .line 5685
     iget-object v1, p0, Landroid/webkit/WebViewClassic$ColorPickerDialog$1;->val$gridViewColors:Landroid/widget/GridView;
 
     invoke-virtual {v1}, Landroid/widget/GridView;->getAdapter()Landroid/widget/ListAdapter;
@@ -82,7 +82,7 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 5689
+    .line 5686
     .local v0, color:Ljava/lang/Integer;
     iget-object v1, p0, Landroid/webkit/WebViewClassic$ColorPickerDialog$1;->this$1:Landroid/webkit/WebViewClassic$ColorPickerDialog;
 
@@ -95,6 +95,6 @@
     #calls: Landroid/webkit/WebViewClassic;->updateColor(I)V
     invoke-static {v1, v2}, Landroid/webkit/WebViewClassic;->access$2900(Landroid/webkit/WebViewClassic;I)V
 
-    .line 5690
+    .line 5687
     return-void
 .end method

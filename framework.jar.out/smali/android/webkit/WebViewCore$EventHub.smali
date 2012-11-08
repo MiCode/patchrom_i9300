@@ -162,7 +162,7 @@
 
 .field static final MOVE_FOCUS_PREV:I = 0x259
 
-.field static final MOVE_SINGLE_CURSOR_HANDLER:I = 0x21c
+.field public static final MOVE_SINGLE_CURSOR_HANDLER:I = 0x21c
 
 .field static final NAVIGATION_BT_KEYBOARD:I = 0x2cd
 

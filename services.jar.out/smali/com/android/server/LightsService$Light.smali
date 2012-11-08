@@ -102,7 +102,6 @@
     .parameter "x5"
 
     .prologue
-    .line 140
     invoke-virtual/range {p0 .. p5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
 
     return-void

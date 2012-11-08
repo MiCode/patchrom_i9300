@@ -714,71 +714,71 @@
 
     iput v3, p0, Landroid/webkit/HtmlComposerView;->mEndY:I
 
-    .line 4729
+    .line 4739
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->isImageSelected:Z
 
-    .line 4730
+    .line 4740
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->imageCanbeMoved:Z
 
-    .line 4731
+    .line 4741
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->imageCanbeResized:Z
 
-    .line 4732
+    .line 4742
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->resizingHandlerInActionMove:Z
 
-    .line 5145
+    .line 5155
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->isTouchedSCH:Z
 
-    .line 5147
+    .line 5157
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->mSCH_pos_origin_cursor:Landroid/graphics/Rect;
 
-    .line 5148
+    .line 5158
     iput v2, p0, Landroid/webkit/HtmlComposerView;->mSCH_pos_origin_handle_y:I
 
-    .line 5149
+    .line 5159
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->isSCHCompletelyDrawn:Z
 
-    .line 5150
+    .line 5160
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->bShowSingleCursorHandler:Z
 
-    .line 5151
+    .line 5161
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mActionMoveSCH:Z
 
-    .line 5152
+    .line 5162
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mMoveIsStarted:Z
 
-    .line 5153
+    .line 5163
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->bSCHvisibleonFocus:Z
 
-    .line 5160
+    .line 5170
     iput v2, p0, Landroid/webkit/HtmlComposerView;->x_lastPosition:I
 
-    .line 5161
+    .line 5171
     iput v2, p0, Landroid/webkit/HtmlComposerView;->y_lastPosition:I
 
-    .line 5162
+    .line 5172
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->isContextMenuVisible:Z
 
-    .line 5163
+    .line 5173
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mRectNotScrolled:Z
 
-    .line 5165
+    .line 5175
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->isTouchedImage:Z
 
-    .line 5166
+    .line 5176
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Landroid/webkit/HtmlComposerView;->mImageRect:Landroid/graphics/Rect;
 
-    .line 5167
+    .line 5177
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mIsInReverse:Z
 
-    .line 5168
+    .line 5178
     iput-boolean v5, p0, Landroid/webkit/HtmlComposerView;->mIsSCHExpired:Z
 
-    .line 5169
+    .line 5179
     new-instance v0, Ljava/util/Timer;
 
     const-string v1, "SCHTimer"
@@ -787,17 +787,17 @@
 
     iput-object v0, p0, Landroid/webkit/HtmlComposerView;->mSCHTimer:Ljava/util/Timer;
 
-    .line 5170
+    .line 5180
     new-instance v0, Landroid/webkit/HtmlComposerView$SingleCursorTimerTask;
 
     invoke-direct {v0, p0}, Landroid/webkit/HtmlComposerView$SingleCursorTimerTask;-><init>(Landroid/webkit/HtmlComposerView;)V
 
     iput-object v0, p0, Landroid/webkit/HtmlComposerView;->mSCHTimerTask:Ljava/util/TimerTask;
 
-    .line 5172
+    .line 5182
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mLongPressForActionPopup:Z
 
-    .line 5174
+    .line 5184
     iput-boolean v5, p0, Landroid/webkit/HtmlComposerView;->isPhone:Z
 
     .line 331
@@ -1111,71 +1111,71 @@
 
     iput v3, p0, Landroid/webkit/HtmlComposerView;->mEndY:I
 
-    .line 4729
+    .line 4739
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->isImageSelected:Z
 
-    .line 4730
+    .line 4740
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->imageCanbeMoved:Z
 
-    .line 4731
+    .line 4741
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->imageCanbeResized:Z
 
-    .line 4732
+    .line 4742
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->resizingHandlerInActionMove:Z
 
-    .line 5145
+    .line 5155
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->isTouchedSCH:Z
 
-    .line 5147
+    .line 5157
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->mSCH_pos_origin_cursor:Landroid/graphics/Rect;
 
-    .line 5148
+    .line 5158
     iput v2, p0, Landroid/webkit/HtmlComposerView;->mSCH_pos_origin_handle_y:I
 
-    .line 5149
+    .line 5159
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->isSCHCompletelyDrawn:Z
 
-    .line 5150
+    .line 5160
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->bShowSingleCursorHandler:Z
 
-    .line 5151
+    .line 5161
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mActionMoveSCH:Z
 
-    .line 5152
+    .line 5162
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mMoveIsStarted:Z
 
-    .line 5153
+    .line 5163
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->bSCHvisibleonFocus:Z
 
-    .line 5160
+    .line 5170
     iput v2, p0, Landroid/webkit/HtmlComposerView;->x_lastPosition:I
 
-    .line 5161
+    .line 5171
     iput v2, p0, Landroid/webkit/HtmlComposerView;->y_lastPosition:I
 
-    .line 5162
+    .line 5172
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->isContextMenuVisible:Z
 
-    .line 5163
+    .line 5173
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mRectNotScrolled:Z
 
-    .line 5165
+    .line 5175
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->isTouchedImage:Z
 
-    .line 5166
+    .line 5176
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Landroid/webkit/HtmlComposerView;->mImageRect:Landroid/graphics/Rect;
 
-    .line 5167
+    .line 5177
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mIsInReverse:Z
 
-    .line 5168
+    .line 5178
     iput-boolean v5, p0, Landroid/webkit/HtmlComposerView;->mIsSCHExpired:Z
 
-    .line 5169
+    .line 5179
     new-instance v0, Ljava/util/Timer;
 
     const-string v1, "SCHTimer"
@@ -1184,17 +1184,17 @@
 
     iput-object v0, p0, Landroid/webkit/HtmlComposerView;->mSCHTimer:Ljava/util/Timer;
 
-    .line 5170
+    .line 5180
     new-instance v0, Landroid/webkit/HtmlComposerView$SingleCursorTimerTask;
 
     invoke-direct {v0, p0}, Landroid/webkit/HtmlComposerView$SingleCursorTimerTask;-><init>(Landroid/webkit/HtmlComposerView;)V
 
     iput-object v0, p0, Landroid/webkit/HtmlComposerView;->mSCHTimerTask:Ljava/util/TimerTask;
 
-    .line 5172
+    .line 5182
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mLongPressForActionPopup:Z
 
-    .line 5174
+    .line 5184
     iput-boolean v5, p0, Landroid/webkit/HtmlComposerView;->isPhone:Z
 
     .line 337
@@ -1506,71 +1506,71 @@
 
     iput v3, p0, Landroid/webkit/HtmlComposerView;->mEndY:I
 
-    .line 4729
+    .line 4739
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->isImageSelected:Z
 
-    .line 4730
+    .line 4740
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->imageCanbeMoved:Z
 
-    .line 4731
+    .line 4741
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->imageCanbeResized:Z
 
-    .line 4732
+    .line 4742
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->resizingHandlerInActionMove:Z
 
-    .line 5145
+    .line 5155
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->isTouchedSCH:Z
 
-    .line 5147
+    .line 5157
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->mSCH_pos_origin_cursor:Landroid/graphics/Rect;
 
-    .line 5148
+    .line 5158
     iput v2, p0, Landroid/webkit/HtmlComposerView;->mSCH_pos_origin_handle_y:I
 
-    .line 5149
+    .line 5159
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->isSCHCompletelyDrawn:Z
 
-    .line 5150
+    .line 5160
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->bShowSingleCursorHandler:Z
 
-    .line 5151
+    .line 5161
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mActionMoveSCH:Z
 
-    .line 5152
+    .line 5162
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mMoveIsStarted:Z
 
-    .line 5153
+    .line 5163
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->bSCHvisibleonFocus:Z
 
-    .line 5160
+    .line 5170
     iput v2, p0, Landroid/webkit/HtmlComposerView;->x_lastPosition:I
 
-    .line 5161
+    .line 5171
     iput v2, p0, Landroid/webkit/HtmlComposerView;->y_lastPosition:I
 
-    .line 5162
+    .line 5172
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->isContextMenuVisible:Z
 
-    .line 5163
+    .line 5173
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mRectNotScrolled:Z
 
-    .line 5165
+    .line 5175
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->isTouchedImage:Z
 
-    .line 5166
+    .line 5176
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Landroid/webkit/HtmlComposerView;->mImageRect:Landroid/graphics/Rect;
 
-    .line 5167
+    .line 5177
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mIsInReverse:Z
 
-    .line 5168
+    .line 5178
     iput-boolean v5, p0, Landroid/webkit/HtmlComposerView;->mIsSCHExpired:Z
 
-    .line 5169
+    .line 5179
     new-instance v0, Ljava/util/Timer;
 
     const-string v1, "SCHTimer"
@@ -1579,17 +1579,17 @@
 
     iput-object v0, p0, Landroid/webkit/HtmlComposerView;->mSCHTimer:Ljava/util/Timer;
 
-    .line 5170
+    .line 5180
     new-instance v0, Landroid/webkit/HtmlComposerView$SingleCursorTimerTask;
 
     invoke-direct {v0, p0}, Landroid/webkit/HtmlComposerView$SingleCursorTimerTask;-><init>(Landroid/webkit/HtmlComposerView;)V
 
     iput-object v0, p0, Landroid/webkit/HtmlComposerView;->mSCHTimerTask:Ljava/util/TimerTask;
 
-    .line 5172
+    .line 5182
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mLongPressForActionPopup:Z
 
-    .line 5174
+    .line 5184
     iput-boolean v5, p0, Landroid/webkit/HtmlComposerView;->isPhone:Z
 
     .line 342
@@ -1900,71 +1900,71 @@
 
     iput v4, p0, Landroid/webkit/HtmlComposerView;->mEndY:I
 
-    .line 4729
+    .line 4739
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->isImageSelected:Z
 
-    .line 4730
+    .line 4740
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->imageCanbeMoved:Z
 
-    .line 4731
+    .line 4741
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->imageCanbeResized:Z
 
-    .line 4732
+    .line 4742
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->resizingHandlerInActionMove:Z
 
-    .line 5145
+    .line 5155
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->isTouchedSCH:Z
 
-    .line 5147
+    .line 5157
     iput-object v2, p0, Landroid/webkit/HtmlComposerView;->mSCH_pos_origin_cursor:Landroid/graphics/Rect;
 
-    .line 5148
+    .line 5158
     iput v3, p0, Landroid/webkit/HtmlComposerView;->mSCH_pos_origin_handle_y:I
 
-    .line 5149
+    .line 5159
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->isSCHCompletelyDrawn:Z
 
-    .line 5150
+    .line 5160
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->bShowSingleCursorHandler:Z
 
-    .line 5151
+    .line 5161
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->mActionMoveSCH:Z
 
-    .line 5152
+    .line 5162
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->mMoveIsStarted:Z
 
-    .line 5153
+    .line 5163
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->bSCHvisibleonFocus:Z
 
-    .line 5160
+    .line 5170
     iput v3, p0, Landroid/webkit/HtmlComposerView;->x_lastPosition:I
 
-    .line 5161
+    .line 5171
     iput v3, p0, Landroid/webkit/HtmlComposerView;->y_lastPosition:I
 
-    .line 5162
+    .line 5172
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->isContextMenuVisible:Z
 
-    .line 5163
+    .line 5173
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->mRectNotScrolled:Z
 
-    .line 5165
+    .line 5175
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->isTouchedImage:Z
 
-    .line 5166
+    .line 5176
     new-instance v1, Landroid/graphics/Rect;
 
     invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->mImageRect:Landroid/graphics/Rect;
 
-    .line 5167
+    .line 5177
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->mIsInReverse:Z
 
-    .line 5168
+    .line 5178
     iput-boolean v6, p0, Landroid/webkit/HtmlComposerView;->mIsSCHExpired:Z
 
-    .line 5169
+    .line 5179
     new-instance v1, Ljava/util/Timer;
 
     const-string v2, "SCHTimer"
@@ -1973,17 +1973,17 @@
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->mSCHTimer:Ljava/util/Timer;
 
-    .line 5170
+    .line 5180
     new-instance v1, Landroid/webkit/HtmlComposerView$SingleCursorTimerTask;
 
     invoke-direct {v1, p0}, Landroid/webkit/HtmlComposerView$SingleCursorTimerTask;-><init>(Landroid/webkit/HtmlComposerView;)V
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->mSCHTimerTask:Ljava/util/TimerTask;
 
-    .line 5172
+    .line 5182
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->mLongPressForActionPopup:Z
 
-    .line 5174
+    .line 5184
     iput-boolean v6, p0, Landroid/webkit/HtmlComposerView;->isPhone:Z
 
     .line 347
@@ -2426,17 +2426,17 @@
     .locals 1
 
     .prologue
-    .line 3408
+    .line 3418
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->length()I
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 3409
+    .line 3419
     const/4 v0, 0x1
 
-    .line 3412
+    .line 3422
     :goto_0
     return v0
 
@@ -2454,29 +2454,29 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 3418
+    .line 3428
     :try_start_0
     new-instance v3, Ljava/io/FileInputStream;
 
     invoke-direct {v3, p1}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
 
-    .line 3419
+    .line 3429
     .local v3, source:Ljava/io/FileInputStream;
     new-instance v4, Ljava/io/FileOutputStream;
 
     invoke-direct {v4, p2}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
 
-    .line 3421
+    .line 3431
     .local v4, target:Ljava/io/FileOutputStream;
     const/16 v6, 0x400
 
     new-array v0, v6, [B
 
-    .line 3422
+    .line 3432
     .local v0, buffer:[B
     const/4 v2, 0x0
 
-    .line 3423
+    .line 3433
     .local v2, i:I
     :goto_0
     invoke-virtual {v3, v0}, Ljava/io/FileInputStream;->read([B)I
@@ -2487,7 +2487,7 @@
 
     if-eq v2, v6, :cond_0
 
-    .line 3424
+    .line 3434
     const/4 v6, 0x0
 
     invoke-virtual {v4, v0, v6, v2}, Ljava/io/FileOutputStream;->write([BII)V
@@ -2497,7 +2497,7 @@
 
     goto :goto_0
 
-    .line 3433
+    .line 3443
     .end local v0           #buffer:[B
     .end local v2           #i:I
     .end local v3           #source:Ljava/io/FileInputStream;
@@ -2505,16 +2505,16 @@
     :catch_0
     move-exception v1
 
-    .line 3434
+    .line 3444
     .local v1, e:Ljava/io/FileNotFoundException;
     invoke-virtual {v1}, Ljava/io/FileNotFoundException;->printStackTrace()V
 
-    .line 3438
+    .line 3448
     .end local v1           #e:Ljava/io/FileNotFoundException;
     :goto_1
     return v5
 
-    .line 3426
+    .line 3436
     .restart local v0       #buffer:[B
     .restart local v2       #i:I
     .restart local v3       #source:Ljava/io/FileInputStream;
@@ -2522,27 +2522,27 @@
     :cond_0
     if-eqz v3, :cond_1
 
-    .line 3427
+    .line 3437
     :try_start_1
     invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
 
-    .line 3429
+    .line 3439
     :cond_1
     if-eqz v4, :cond_2
 
-    .line 3430
+    .line 3440
     invoke-virtual {v4}, Ljava/io/FileOutputStream;->close()V
     :try_end_1
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 3432
+    .line 3442
     :cond_2
     const/4 v5, 0x1
 
     goto :goto_1
 
-    .line 3436
+    .line 3446
     .end local v0           #buffer:[B
     .end local v2           #i:I
     .end local v3           #source:Ljava/io/FileInputStream;
@@ -2550,7 +2550,7 @@
     :catch_1
     move-exception v1
 
-    .line 3437
+    .line 3447
     .local v1, e:Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
@@ -2604,7 +2604,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 3443
+    .line 3453
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->getContext()Landroid/content/Context;
 
     move-result-object v3
@@ -2617,7 +2617,7 @@
 
     check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
-    .line 3446
+    .line 3456
     .local v0, imm:Landroid/view/inputmethod/InputMethodManager;
     invoke-virtual {v0}, Landroid/view/inputmethod/InputMethodManager;->isAccessoryKeyboardState()I
 
@@ -2627,15 +2627,15 @@
 
     const/4 v1, 0x1
 
-    .line 3448
+    .line 3458
     .local v1, showIme:Z
     :goto_0
     if-eqz v1, :cond_0
 
-    .line 3449
+    .line 3459
     invoke-virtual {v0, p0, v2}, Landroid/view/inputmethod/InputMethodManager;->showSoftInput(Landroid/view/View;I)Z
 
-    .line 3451
+    .line 3461
     :cond_0
     return-void
 
@@ -2643,7 +2643,7 @@
     :cond_1
     move v1, v2
 
-    .line 3446
+    .line 3456
     goto :goto_0
 .end method
 
@@ -2652,10 +2652,10 @@
     .parameter "canvas"
 
     .prologue
-    .line 4827
+    .line 4837
     const/16 v10, 0xc
 
-    .line 4829
+    .line 4839
     .local v10, left_right_image_gap:I
     move-object/from16 v0, p0
 
@@ -2686,18 +2686,18 @@
 
     if-nez v17, :cond_2
 
-    .line 4955
+    .line 4965
     :cond_1
     :goto_0
     return-void
 
-    .line 4834
+    .line 4844
     :cond_2
     new-instance v11, Landroid/util/DisplayMetrics;
 
     invoke-direct {v11}, Landroid/util/DisplayMetrics;-><init>()V
 
-    .line 4835
+    .line 4845
     .local v11, metric:Landroid/util/DisplayMetrics;
     move-object/from16 v0, p0
 
@@ -2719,7 +2719,7 @@
 
     invoke-virtual {v0, v11}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
 
-    .line 4837
+    .line 4847
     iget v0, v11, Landroid/util/DisplayMetrics;->density:F
 
     move/from16 v17, v0
@@ -2750,7 +2750,7 @@
 
     div-float v5, v17, v18
 
-    .line 4839
+    .line 4849
     .local v5, density:F
     move-object/from16 v0, p0
 
@@ -2762,7 +2762,7 @@
 
     move-result v12
 
-    .line 4841
+    .line 4851
     .local v12, scale:F
     const-string v17, "HtmlComposerView"
 
@@ -2800,7 +2800,7 @@
 
     invoke-static/range {v17 .. v18}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4844
+    .line 4854
     const/16 v17, 0x1
 
     move-object/from16 v0, p0
@@ -2811,11 +2811,11 @@
 
     move-result-object v4
 
-    .line 4845
+    .line 4855
     .local v4, cursurRect:Landroid/graphics/Rect;
     if-eqz v4, :cond_1
 
-    .line 4849
+    .line 4859
     iget v0, v4, Landroid/graphics/Rect;->bottom:I
 
     move/from16 v17, v0
@@ -2838,7 +2838,7 @@
 
     iput v0, v4, Landroid/graphics/Rect;->bottom:I
 
-    .line 4850
+    .line 4860
     iget v0, v4, Landroid/graphics/Rect;->left:I
 
     move/from16 v17, v0
@@ -2861,7 +2861,7 @@
 
     iput v0, v4, Landroid/graphics/Rect;->left:I
 
-    .line 4851
+    .line 4861
     iget v0, v4, Landroid/graphics/Rect;->right:I
 
     move/from16 v17, v0
@@ -2884,7 +2884,7 @@
 
     iput v0, v4, Landroid/graphics/Rect;->right:I
 
-    .line 4852
+    .line 4862
     iget v0, v4, Landroid/graphics/Rect;->top:I
 
     move/from16 v17, v0
@@ -2907,10 +2907,10 @@
 
     iput v0, v4, Landroid/graphics/Rect;->top:I
 
-    .line 4856
+    .line 4866
     iget v15, v4, Landroid/graphics/Rect;->left:I
 
-    .line 4857
+    .line 4867
     .local v15, x:I
     iget v0, v4, Landroid/graphics/Rect;->top:I
 
@@ -2922,13 +2922,13 @@
 
     add-int v16, v17, v18
 
-    .line 4858
+    .line 4868
     .local v16, y:I
     new-instance v14, Landroid/graphics/Rect;
 
     invoke-direct {v14}, Landroid/graphics/Rect;-><init>()V
 
-    .line 4859
+    .line 4869
     .local v14, visRect:Landroid/graphics/Rect;
     move-object/from16 v0, p0
 
@@ -2940,7 +2940,7 @@
 
     invoke-virtual {v0, v14}, Landroid/webkit/WebViewClassic;->calcOurVisibleRect(Landroid/graphics/Rect;)V
 
-    .line 4861
+    .line 4871
     iget v0, v4, Landroid/graphics/Rect;->left:I
 
     move/from16 v17, v0
@@ -2969,7 +2969,7 @@
 
     if-eq v0, v1, :cond_1
 
-    .line 4864
+    .line 4874
     :cond_3
     move-object/from16 v0, p0
 
@@ -2987,19 +2987,19 @@
 
     move-result-object v13
 
-    .line 4867
+    .line 4877
     .local v13, singleCursorhandler:Landroid/graphics/drawable/Drawable;
     invoke-virtual {v13}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v6
 
-    .line 4868
+    .line 4878
     .local v6, iSCHHeight:I
     invoke-virtual {v13}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v8
 
-    .line 4869
+    .line 4879
     .local v8, iSCHWidth:I
     int-to-float v0, v6
 
@@ -3011,7 +3011,7 @@
 
     float-to-int v7, v0
 
-    .line 4870
+    .line 4880
     .local v7, iSCHHeightByDensity:I
     int-to-float v0, v8
 
@@ -3023,7 +3023,7 @@
 
     float-to-int v9, v0
 
-    .line 4872
+    .line 4882
     .local v9, iSCHWidthByDensity:I
     add-int v17, v16, v6
 
@@ -3059,7 +3059,7 @@
 
     if-ge v0, v1, :cond_a
 
-    .line 4875
+    .line 4885
     iget v0, v4, Landroid/graphics/Rect;->top:I
 
     move/from16 v17, v0
@@ -3082,7 +3082,7 @@
 
     if-nez v17, :cond_4
 
-    .line 4877
+    .line 4887
     const/16 v17, 0x1
 
     move/from16 v0, v17
@@ -3091,7 +3091,7 @@
 
     iput-boolean v0, v1, Landroid/webkit/HtmlComposerView;->mIsSCHExpired:Z
 
-    .line 4878
+    .line 4888
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView;->mSCHTimerTask:Ljava/util/TimerTask;
@@ -3100,7 +3100,7 @@
 
     invoke-virtual/range {v17 .. v17}, Ljava/util/TimerTask;->cancel()Z
 
-    .line 4879
+    .line 4889
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView;->mSCHTimer:Ljava/util/Timer;
@@ -3111,7 +3111,7 @@
 
     goto/16 :goto_0
 
-    .line 4883
+    .line 4893
     :cond_4
     move-object/from16 v0, p0
 
@@ -3135,7 +3135,7 @@
 
     invoke-virtual {v0, v1}, Landroid/webkit/HtmlComposerView;->textChangedForWatcher(Z)V
 
-    .line 4885
+    .line 4895
     :cond_5
     move-object/from16 v0, p0
 
@@ -3153,7 +3153,7 @@
 
     move-result-object v13
 
-    .line 4887
+    .line 4897
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/webkit/HtmlComposerView;->isPhone:Z
@@ -3168,7 +3168,7 @@
 
     if-ne v0, v1, :cond_7
 
-    .line 4888
+    .line 4898
     div-int/lit8 v17, v9, 0x2
 
     sub-int v17, v15, v17
@@ -3201,7 +3201,7 @@
 
     invoke-virtual {v13, v0, v1, v2, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 4901
+    .line 4911
     :goto_1
     const/16 v17, 0x1
 
@@ -3211,7 +3211,7 @@
 
     iput-boolean v0, v1, Landroid/webkit/HtmlComposerView;->mIsInReverse:Z
 
-    .line 4930
+    .line 4940
     :goto_2
     move-object/from16 v0, p0
 
@@ -3235,7 +3235,7 @@
 
     if-ge v0, v1, :cond_10
 
-    .line 4933
+    .line 4943
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/webkit/HtmlComposerView;->iAlpha:I
@@ -3250,7 +3250,7 @@
 
     iput v0, v1, Landroid/webkit/HtmlComposerView;->iAlpha:I
 
-    .line 4935
+    .line 4945
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/webkit/HtmlComposerView;->iAlpha:I
@@ -3265,10 +3265,10 @@
 
     if-ne v0, v1, :cond_6
 
-    .line 4937
+    .line 4947
     invoke-virtual/range {p0 .. p0}, Landroid/webkit/HtmlComposerView;->invalidate()V
 
-    .line 4939
+    .line 4949
     :cond_6
     move-object/from16 v0, p1
 
@@ -3276,7 +3276,7 @@
 
     goto/16 :goto_0
 
-    .line 4890
+    .line 4900
     :cond_7
     iget v0, v4, Landroid/graphics/Rect;->left:I
 
@@ -3296,7 +3296,7 @@
 
     if-ge v0, v1, :cond_8
 
-    .line 4891
+    .line 4901
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView;->mContext:Landroid/content/Context;
@@ -3313,7 +3313,7 @@
 
     move-result-object v13
 
-    .line 4892
+    .line 4902
     sub-int v17, v15, v10
 
     invoke-virtual {v4}, Landroid/graphics/Rect;->height()I
@@ -3346,7 +3346,7 @@
 
     goto/16 :goto_1
 
-    .line 4893
+    .line 4903
     :cond_8
     iget v0, v4, Landroid/graphics/Rect;->right:I
 
@@ -3366,7 +3366,7 @@
 
     if-le v0, v1, :cond_9
 
-    .line 4894
+    .line 4904
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView;->mContext:Landroid/content/Context;
@@ -3383,7 +3383,7 @@
 
     move-result-object v13
 
-    .line 4895
+    .line 4905
     add-int v17, v15, v10
 
     sub-int v17, v17, v9
@@ -3416,7 +3416,7 @@
 
     goto/16 :goto_1
 
-    .line 4897
+    .line 4907
     :cond_9
     div-int/lit8 v17, v9, 0x2
 
@@ -3452,7 +3452,7 @@
 
     goto/16 :goto_1
 
-    .line 4903
+    .line 4913
     :cond_a
     iget v0, v4, Landroid/graphics/Rect;->bottom:I
 
@@ -3476,7 +3476,7 @@
 
     if-nez v17, :cond_b
 
-    .line 4905
+    .line 4915
     const/16 v17, 0x1
 
     move/from16 v0, v17
@@ -3485,7 +3485,7 @@
 
     iput-boolean v0, v1, Landroid/webkit/HtmlComposerView;->mIsSCHExpired:Z
 
-    .line 4906
+    .line 4916
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView;->mSCHTimerTask:Ljava/util/TimerTask;
@@ -3494,7 +3494,7 @@
 
     invoke-virtual/range {v17 .. v17}, Ljava/util/TimerTask;->cancel()Z
 
-    .line 4907
+    .line 4917
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView;->mSCHTimer:Ljava/util/Timer;
@@ -3505,7 +3505,7 @@
 
     goto/16 :goto_0
 
-    .line 4911
+    .line 4921
     :cond_b
     move-object/from16 v0, p0
 
@@ -3529,7 +3529,7 @@
 
     invoke-virtual {v0, v1}, Landroid/webkit/HtmlComposerView;->textChangedForWatcher(Z)V
 
-    .line 4913
+    .line 4923
     :cond_c
     move-object/from16 v0, p0
 
@@ -3545,7 +3545,7 @@
 
     if-ne v0, v1, :cond_d
 
-    .line 4914
+    .line 4924
     div-int/lit8 v17, v9, 0x2
 
     sub-int v17, v15, v17
@@ -3566,7 +3566,7 @@
 
     invoke-virtual {v13, v0, v1, v2, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 4927
+    .line 4937
     :goto_3
     const/16 v17, 0x0
 
@@ -3578,7 +3578,7 @@
 
     goto/16 :goto_2
 
-    .line 4916
+    .line 4926
     :cond_d
     iget v0, v4, Landroid/graphics/Rect;->left:I
 
@@ -3598,7 +3598,7 @@
 
     if-ge v0, v1, :cond_e
 
-    .line 4917
+    .line 4927
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView;->mContext:Landroid/content/Context;
@@ -3615,7 +3615,7 @@
 
     move-result-object v13
 
-    .line 4918
+    .line 4928
     sub-int v17, v15, v10
 
     sub-int v18, v15, v10
@@ -3636,7 +3636,7 @@
 
     goto :goto_3
 
-    .line 4919
+    .line 4929
     :cond_e
     iget v0, v4, Landroid/graphics/Rect;->right:I
 
@@ -3656,7 +3656,7 @@
 
     if-le v0, v1, :cond_f
 
-    .line 4920
+    .line 4930
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView;->mContext:Landroid/content/Context;
@@ -3673,7 +3673,7 @@
 
     move-result-object v13
 
-    .line 4921
+    .line 4931
     add-int v17, v15, v10
 
     sub-int v17, v17, v9
@@ -3694,7 +3694,7 @@
 
     goto :goto_3
 
-    .line 4923
+    .line 4933
     :cond_f
     div-int/lit8 v17, v9, 0x2
 
@@ -3718,7 +3718,7 @@
 
     goto/16 :goto_3
 
-    .line 4946
+    .line 4956
     :cond_10
     const/16 v17, 0xff
 
@@ -3728,12 +3728,12 @@
 
     iput v0, v1, Landroid/webkit/HtmlComposerView;->iAlpha:I
 
-    .line 4952
+    .line 4962
     move-object/from16 v0, p1
 
     invoke-virtual {v13, v0}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 4953
+    .line 4963
     const/16 v17, 0x1
 
     move/from16 v0, v17
@@ -3750,14 +3750,14 @@
     .parameter "canvas"
 
     .prologue
-    .line 5008
+    .line 5018
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     iget-object v0, v0, Landroid/webkit/WebViewClassic;->mImageCopyInfo:Landroid/webkit/WebViewCore$ImageSelectionCopiedData;
 
     if-eqz v0, :cond_0
 
-    .line 5011
+    .line 5021
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     iget-object v0, v0, Landroid/webkit/WebViewClassic;->mWebSelectionControls:Landroid/webkit/WebTextSelectionControls;
@@ -3770,7 +3770,7 @@
 
     invoke-virtual {v0, p1, v1}, Landroid/webkit/WebTextSelectionControls;->DrawImageSelectionControls(Landroid/graphics/Canvas;Landroid/graphics/Rect;)V
 
-    .line 5012
+    .line 5022
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     iget-object v0, v0, Landroid/webkit/WebViewClassic;->mWebSelectionControls:Landroid/webkit/WebTextSelectionControls;
@@ -3789,14 +3789,14 @@
 
     invoke-virtual {v0, p1, v1, v2}, Landroid/webkit/WebTextSelectionControls;->DrawImageResizeMoveHandlers(Landroid/graphics/Canvas;Landroid/graphics/Path;Landroid/graphics/Path;)V
 
-    .line 5013
+    .line 5023
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->invalidate()V
 
-    .line 5020
+    .line 5030
     :goto_0
     return-void
 
-    .line 5017
+    .line 5027
     :cond_0
     const-string v0, "HtmlComposerView"
 
@@ -3804,7 +3804,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 5018
+    .line 5028
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->invalidate()V
 
     goto :goto_0
@@ -3814,7 +3814,7 @@
     .locals 1
 
     .prologue
-    .line 3973
+    .line 3983
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->right:F
@@ -3826,7 +3826,7 @@
     .locals 2
 
     .prologue
-    .line 3965
+    .line 3975
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->top:F
@@ -3850,7 +3850,7 @@
     .locals 1
 
     .prologue
-    .line 3977
+    .line 3987
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->bottom:F
@@ -3862,7 +3862,7 @@
     .locals 2
 
     .prologue
-    .line 3969
+    .line 3979
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->left:F
@@ -3887,25 +3887,25 @@
     .parameter "filePath"
 
     .prologue
-    .line 3454
+    .line 3464
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 3458
+    .line 3468
     .local v1, bufer:Ljava/lang/StringBuilder;
     :try_start_0
     new-instance v4, Ljava/io/FileInputStream;
 
     invoke-direct {v4, p1}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
 
-    .line 3460
+    .line 3470
     .local v4, fstream:Ljava/io/FileInputStream;
     new-instance v5, Ljava/io/DataInputStream;
 
     invoke-direct {v5, v4}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
 
-    .line 3461
+    .line 3471
     .local v5, in:Ljava/io/DataInputStream;
     new-instance v0, Ljava/io/BufferedReader;
 
@@ -3915,7 +3915,7 @@
 
     invoke-direct {v0, v7}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
 
-    .line 3464
+    .line 3474
     .local v0, br:Ljava/io/BufferedReader;
     :goto_0
     invoke-virtual {v0}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
@@ -3925,14 +3925,14 @@
     .local v6, strLine:Ljava/lang/String;
     if-eqz v6, :cond_1
 
-    .line 3466
+    .line 3476
     invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 3482
+    .line 3492
     .end local v0           #br:Ljava/io/BufferedReader;
     .end local v4           #fstream:Ljava/io/FileInputStream;
     .end local v5           #in:Ljava/io/DataInputStream;
@@ -3940,7 +3940,7 @@
     :catch_0
     move-exception v3
 
-    .line 3483
+    .line 3493
     .local v3, ep:Ljava/lang/Exception;
     sget-object v7, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -3968,7 +3968,7 @@
 
     invoke-virtual {v7, v8}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 3484
+    .line 3494
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->defaultLoadString:Ljava/lang/String;
 
     .end local v3           #ep:Ljava/lang/Exception;
@@ -3976,7 +3976,7 @@
     :goto_1
     return-object v2
 
-    .line 3468
+    .line 3478
     .restart local v0       #br:Ljava/io/BufferedReader;
     .restart local v4       #fstream:Ljava/io/FileInputStream;
     .restart local v5       #in:Ljava/io/DataInputStream;
@@ -3987,17 +3987,17 @@
 
     move-result-object v2
 
-    .line 3471
+    .line 3481
     .local v2, data:Ljava/lang/String;
     invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
 
-    .line 3472
+    .line 3482
     invoke-virtual {v5}, Ljava/io/DataInputStream;->close()V
 
-    .line 3473
+    .line 3483
     invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
 
-    .line 3474
+    .line 3484
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
     move-result v7
@@ -4008,7 +4008,7 @@
 
     if-nez v7, :cond_0
 
-    .line 3476
+    .line 3486
     iget-object v7, p0, Landroid/webkit/HtmlComposerView;->mContext:Landroid/content/Context;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -4057,7 +4057,7 @@
 
     invoke-virtual {v7}, Landroid/widget/Toast;->show()V
 
-    .line 3477
+    .line 3487
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->defaultLoadString:Ljava/lang/String;
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
@@ -4071,7 +4071,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 3490
+    .line 3500
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v3}, Landroid/webkit/WebViewClassic;->getNativeClass()I
@@ -4090,22 +4090,22 @@
 
     if-nez v3, :cond_1
 
-    .line 3507
+    .line 3517
     :cond_0
     :goto_0
     return-object v2
 
-    .line 3492
+    .line 3502
     :cond_1
     new-instance v1, Landroid/webkit/HtmlComposerView$ResultTransport;
 
     invoke-direct {v1, p0, v2, v2}, Landroid/webkit/HtmlComposerView$ResultTransport;-><init>(Landroid/webkit/HtmlComposerView;[Ljava/lang/Object;Ljava/lang/Object;)V
 
-    .line 3493
+    .line 3503
     .local v1, res:Landroid/webkit/HtmlComposerView$ResultTransport;,"Landroid/webkit/HtmlComposerView$ResultTransport<Ljava/lang/Object;Ljava/lang/String;>;"
     monitor-enter v1
 
-    .line 3494
+    .line 3504
     :try_start_0
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
@@ -4115,7 +4115,7 @@
 
     if-eqz v3, :cond_2
 
-    .line 3495
+    .line 3505
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v2}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -4128,21 +4128,21 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 3500
+    .line 3510
     :try_start_1
     invoke-virtual {v1}, Ljava/lang/Object;->wait()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 3505
+    .line 3515
     :goto_1
     :try_start_2
     monitor-exit v1
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 3507
+    .line 3517
     invoke-virtual {v1}, Landroid/webkit/HtmlComposerView$ResultTransport;->getResult()Ljava/lang/Object;
 
     move-result-object v2
@@ -4151,14 +4151,14 @@
 
     goto :goto_0
 
-    .line 3497
+    .line 3507
     :cond_2
     :try_start_3
     monitor-exit v1
 
     goto :goto_0
 
-    .line 3505
+    .line 3515
     :catchall_0
     move-exception v2
 
@@ -4168,11 +4168,11 @@
 
     throw v2
 
-    .line 3501
+    .line 3511
     :catch_0
     move-exception v0
 
-    .line 3502
+    .line 3512
     .local v0, e:Ljava/lang/InterruptedException;
     :try_start_4
     const-string v2, "HtmlComposerView"
@@ -4181,7 +4181,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3503
+    .line 3513
     const-string v2, "HtmlComposerView"
 
     invoke-static {v0}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
@@ -4199,7 +4199,7 @@
     .locals 2
 
     .prologue
-    .line 3512
+    .line 3522
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->getSettings()Landroid/webkit/WebSettings;
 
     move-result-object v0
@@ -4210,12 +4210,12 @@
 
     if-nez v0, :cond_1
 
-    .line 3517
+    .line 3527
     :cond_0
     :goto_0
     return-void
 
-    .line 3514
+    .line 3524
     :cond_1
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
@@ -4225,7 +4225,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 3515
+    .line 3525
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -4244,7 +4244,7 @@
     .parameter "rect"
 
     .prologue
-    .line 3523
+    .line 3533
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getSettings()Landroid/webkit/WebSettingsClassic;
@@ -4257,12 +4257,12 @@
 
     if-nez v0, :cond_1
 
-    .line 3533
+    .line 3543
     :cond_0
     :goto_0
     return-void
 
-    .line 3525
+    .line 3535
     :cond_1
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
@@ -4280,7 +4280,7 @@
 
     iput-object v1, v0, Landroid/webkit/WebViewClassic;->mImageCopyInfo:Landroid/webkit/WebViewCore$ImageSelectionCopiedData;
 
-    .line 3526
+    .line 3536
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     iget-object v0, v0, Landroid/webkit/WebViewClassic;->mImageCopyInfo:Landroid/webkit/WebViewCore$ImageSelectionCopiedData;
@@ -4289,19 +4289,19 @@
 
     iput v1, v0, Landroid/webkit/WebViewCore$ImageSelectionCopiedData;->mGranularity:I
 
-    .line 3527
+    .line 3537
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     iget-object v0, v0, Landroid/webkit/WebViewClassic;->mImageCopyInfo:Landroid/webkit/WebViewCore$ImageSelectionCopiedData;
 
     iput-object p1, v0, Landroid/webkit/WebViewCore$ImageSelectionCopiedData;->imageRect:Landroid/graphics/Rect;
 
-    .line 3528
+    .line 3538
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/webkit/HtmlComposerView;->isImageSelected:Z
 
-    .line 3530
+    .line 3540
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -4310,7 +4310,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 3531
+    .line 3541
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -4331,7 +4331,7 @@
     .parameter "imagehandlesPath"
 
     .prologue
-    .line 3539
+    .line 3549
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getSettings()Landroid/webkit/WebSettingsClassic;
@@ -4344,12 +4344,12 @@
 
     if-nez v0, :cond_1
 
-    .line 3552
+    .line 3562
     :cond_0
     :goto_0
     return-void
 
-    .line 3541
+    .line 3551
     :cond_1
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
@@ -4367,7 +4367,7 @@
 
     iput-object v1, v0, Landroid/webkit/WebViewClassic;->mImageCopyInfo:Landroid/webkit/WebViewCore$ImageSelectionCopiedData;
 
-    .line 3542
+    .line 3552
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     iget-object v0, v0, Landroid/webkit/WebViewClassic;->mImageCopyInfo:Landroid/webkit/WebViewCore$ImageSelectionCopiedData;
@@ -4376,33 +4376,33 @@
 
     iput v1, v0, Landroid/webkit/WebViewCore$ImageSelectionCopiedData;->mGranularity:I
 
-    .line 3543
+    .line 3553
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     iget-object v0, v0, Landroid/webkit/WebViewClassic;->mImageCopyInfo:Landroid/webkit/WebViewCore$ImageSelectionCopiedData;
 
     iput-object p1, v0, Landroid/webkit/WebViewCore$ImageSelectionCopiedData;->imageRect:Landroid/graphics/Rect;
 
-    .line 3544
+    .line 3554
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/webkit/HtmlComposerView;->isImageSelected:Z
 
-    .line 3546
+    .line 3556
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     iget-object v0, v0, Landroid/webkit/WebViewClassic;->mImageCopyInfo:Landroid/webkit/WebViewCore$ImageSelectionCopiedData;
 
     iput-object p2, v0, Landroid/webkit/WebViewCore$ImageSelectionCopiedData;->outLinePath:Landroid/graphics/Path;
 
-    .line 3547
+    .line 3557
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     iget-object v0, v0, Landroid/webkit/WebViewClassic;->mImageCopyInfo:Landroid/webkit/WebViewCore$ImageSelectionCopiedData;
 
     iput-object p3, v0, Landroid/webkit/WebViewCore$ImageSelectionCopiedData;->handlesPath:Landroid/graphics/Path;
 
-    .line 3549
+    .line 3559
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -4411,7 +4411,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 3550
+    .line 3560
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -4429,7 +4429,7 @@
     .locals 1
 
     .prologue
-    .line 3556
+    .line 3566
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mTargetView:Landroid/webkit/HtmlComposerView;
 
     return-object v0
@@ -4441,35 +4441,35 @@
     .parameter "positionY"
 
     .prologue
-    .line 4316
+    .line 4326
     const/4 v0, 0x0
 
-    .line 4317
+    .line 4327
     .local v0, deltaX:I
     iget v2, p0, Landroid/webkit/HtmlComposerView;->prevY:I
 
     sub-int v1, p2, v2
 
-    .line 4318
+    .line 4328
     .local v1, deltaY:I
     invoke-direct {p0, v0, v1}, Landroid/webkit/HtmlComposerView;->updateOutlineRectangle(II)V
 
-    .line 4319
+    .line 4329
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateAllHandles()V
 
-    .line 4320
+    .line 4330
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->resetAndRecreateHandlesPath()V
 
-    .line 4321
+    .line 4331
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->resetAndCreateOutlinePath()V
 
-    .line 4322
+    .line 4332
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateRegions()V
 
-    .line 4324
+    .line 4334
     iput p2, p0, Landroid/webkit/HtmlComposerView;->prevY:I
 
-    .line 4325
+    .line 4335
     return-void
 .end method
 
@@ -4481,97 +4481,97 @@
     .prologue
     const/16 v7, 0xa
 
-    .line 4170
+    .line 4180
     iget v6, p0, Landroid/webkit/HtmlComposerView;->prevX:I
 
     sub-int v2, p1, v6
 
-    .line 4171
+    .line 4181
     .local v2, deltaX:I
     iget v6, p0, Landroid/webkit/HtmlComposerView;->prevY:I
 
     sub-int v3, p2, v6
 
-    .line 4172
+    .line 4182
     .local v3, deltaY:I
     invoke-static {v2}, Ljava/lang/Math;->abs(I)I
 
     move-result v0
 
-    .line 4173
+    .line 4183
     .local v0, deltaValueX:I
     invoke-static {v3}, Ljava/lang/Math;->abs(I)I
 
     move-result v1
 
-    .line 4174
+    .line 4184
     .local v1, deltaValueY:I
     const/4 v4, 0x1
 
-    .line 4175
+    .line 4185
     .local v4, signX:I
     const/4 v5, 0x1
 
-    .line 4177
+    .line 4187
     .local v5, signY:I
     if-lt v0, v7, :cond_0
 
     if-ge v1, v7, :cond_1
 
-    .line 4203
+    .line 4213
     :cond_0
     :goto_0
     return-void
 
-    .line 4179
+    .line 4189
     :cond_1
     if-gez v2, :cond_2
 
-    .line 4180
+    .line 4190
     const/4 v4, -0x1
 
-    .line 4181
+    .line 4191
     :cond_2
     if-gez v3, :cond_3
 
-    .line 4182
+    .line 4192
     const/4 v5, -0x1
 
-    .line 4183
+    .line 4193
     :cond_3
     if-eq v4, v5, :cond_0
 
-    .line 4186
+    .line 4196
     if-ge v0, v1, :cond_4
 
-    .line 4187
+    .line 4197
     mul-int v3, v0, v5
 
-    .line 4194
+    .line 4204
     :goto_1
     invoke-direct {p0, v2, v3}, Landroid/webkit/HtmlComposerView;->updateOutlineRectangle(II)V
 
-    .line 4195
+    .line 4205
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateAllHandles()V
 
-    .line 4198
+    .line 4208
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->resetAndRecreateHandlesPath()V
 
-    .line 4199
+    .line 4209
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->resetAndCreateOutlinePath()V
 
-    .line 4200
+    .line 4210
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateRegions()V
 
-    .line 4201
+    .line 4211
     iput p1, p0, Landroid/webkit/HtmlComposerView;->prevX:I
 
-    .line 4202
+    .line 4212
     iput p2, p0, Landroid/webkit/HtmlComposerView;->prevY:I
 
     goto :goto_0
 
-    .line 4190
+    .line 4200
     :cond_4
     mul-int v2, v1, v4
 
@@ -4584,35 +4584,35 @@
     .parameter "positionY"
 
     .prologue
-    .line 4351
+    .line 4361
     iget v2, p0, Landroid/webkit/HtmlComposerView;->prevX:I
 
     sub-int v0, p1, v2
 
-    .line 4352
+    .line 4362
     .local v0, deltaX:I
     const/4 v1, 0x0
 
-    .line 4353
+    .line 4363
     .local v1, deltaY:I
     invoke-direct {p0, v0, v1}, Landroid/webkit/HtmlComposerView;->updateOutlineRectangle(II)V
 
-    .line 4354
+    .line 4364
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateAllHandles()V
 
-    .line 4355
+    .line 4365
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->resetAndRecreateHandlesPath()V
 
-    .line 4356
+    .line 4366
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->resetAndCreateOutlinePath()V
 
-    .line 4357
+    .line 4367
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateRegions()V
 
-    .line 4358
+    .line 4368
     iput p1, p0, Landroid/webkit/HtmlComposerView;->prevX:I
 
-    .line 4359
+    .line 4369
     return-void
 .end method
 
@@ -4624,97 +4624,97 @@
     .prologue
     const/16 v7, 0xa
 
-    .line 4206
+    .line 4216
     iget v6, p0, Landroid/webkit/HtmlComposerView;->prevX:I
 
     sub-int v2, p1, v6
 
-    .line 4207
+    .line 4217
     .local v2, deltaX:I
     iget v6, p0, Landroid/webkit/HtmlComposerView;->prevY:I
 
     sub-int v3, p2, v6
 
-    .line 4208
+    .line 4218
     .local v3, deltaY:I
     invoke-static {v2}, Ljava/lang/Math;->abs(I)I
 
     move-result v0
 
-    .line 4209
+    .line 4219
     .local v0, deltaValueX:I
     invoke-static {v3}, Ljava/lang/Math;->abs(I)I
 
     move-result v1
 
-    .line 4210
+    .line 4220
     .local v1, deltaValueY:I
     const/4 v4, 0x1
 
-    .line 4211
+    .line 4221
     .local v4, signX:I
     const/4 v5, 0x1
 
-    .line 4213
+    .line 4223
     .local v5, signY:I
     if-lt v0, v7, :cond_0
 
     if-ge v1, v7, :cond_1
 
-    .line 4239
+    .line 4249
     :cond_0
     :goto_0
     return-void
 
-    .line 4215
+    .line 4225
     :cond_1
     if-gez v2, :cond_2
 
-    .line 4216
+    .line 4226
     const/4 v4, -0x1
 
-    .line 4217
+    .line 4227
     :cond_2
     if-gez v3, :cond_3
 
-    .line 4218
+    .line 4228
     const/4 v5, -0x1
 
-    .line 4219
+    .line 4229
     :cond_3
     if-ne v4, v5, :cond_0
 
-    .line 4222
+    .line 4232
     if-ge v0, v1, :cond_4
 
-    .line 4223
+    .line 4233
     mul-int v3, v0, v5
 
-    .line 4230
+    .line 4240
     :goto_1
     invoke-direct {p0, v2, v3}, Landroid/webkit/HtmlComposerView;->updateOutlineRectangle(II)V
 
-    .line 4231
+    .line 4241
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateAllHandles()V
 
-    .line 4234
+    .line 4244
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->resetAndRecreateHandlesPath()V
 
-    .line 4235
+    .line 4245
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->resetAndCreateOutlinePath()V
 
-    .line 4236
+    .line 4246
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateRegions()V
 
-    .line 4237
+    .line 4247
     iput p1, p0, Landroid/webkit/HtmlComposerView;->prevX:I
 
-    .line 4238
+    .line 4248
     iput p2, p0, Landroid/webkit/HtmlComposerView;->prevY:I
 
     goto :goto_0
 
-    .line 4226
+    .line 4236
     :cond_4
     mul-int v2, v1, v4
 
@@ -4734,51 +4734,51 @@
 
     const/4 v4, -0x1
 
-    .line 3560
+    .line 3570
     packed-switch p1, :pswitch_data_0
 
-    .line 3656
+    .line 3666
     :cond_0
     :goto_0
     invoke-virtual {p0, p1}, Landroid/webkit/HtmlComposerView;->textChangedForWatcher(I)V
 
-    .line 3658
+    .line 3668
     invoke-virtual {p0, v6}, Landroid/webkit/HtmlComposerView;->drawSelectionControl(Z)V
 
-    .line 3660
+    .line 3670
     invoke-virtual {p0, v6}, Landroid/webkit/HtmlComposerView;->UpdateRichTextToolbar(Z)V
 
-    .line 3661
+    .line 3671
     return-void
 
-    .line 3562
+    .line 3572
     :pswitch_0
     iget-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mShiftKeyIsPressed:Z
 
     if-eqz v2, :cond_2
 
-    .line 3563
+    .line 3573
     const-string v2, "MoveLeftAndModifySelection"
 
     invoke-virtual {p0, v2, v3}, Landroid/webkit/HtmlComposerView;->execEditorCommand(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3564
+    .line 3574
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->selectedType()I
 
     move-result v1
 
-    .line 3565
+    .line 3575
     .local v1, selectionType:I
     if-ne v5, v1, :cond_1
 
-    .line 3566
+    .line 3576
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mTargetView:Landroid/webkit/HtmlComposerView;
 
     invoke-virtual {v2}, Landroid/webkit/HtmlComposerView;->getSelectionOffset()Landroid/webkit/HtmlComposerView$SelectionOffset;
 
     move-result-object v0
 
-    .line 3567
+    .line 3577
     .local v0, selctionOffset:Landroid/webkit/HtmlComposerView$SelectionOffset;
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
@@ -4786,87 +4786,87 @@
 
     iput v3, v2, Landroid/webkit/HtmlComposerInputConnection;->curSelStart:I
 
-    .line 3568
+    .line 3578
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     iget v3, v0, Landroid/webkit/HtmlComposerView$SelectionOffset;->endOffset:I
 
     iput v3, v2, Landroid/webkit/HtmlComposerInputConnection;->curSelEnd:I
 
-    .line 3569
+    .line 3579
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     iput v4, v2, Landroid/webkit/HtmlComposerInputConnection;->composingStart:I
 
-    .line 3570
+    .line 3580
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     iput v4, v2, Landroid/webkit/HtmlComposerInputConnection;->composingEnd:I
 
-    .line 3571
+    .line 3581
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     invoke-virtual {v2}, Landroid/webkit/HtmlComposerInputConnection;->updateInputMethodSelection()V
 
     goto :goto_0
 
-    .line 3572
+    .line 3582
     .end local v0           #selctionOffset:Landroid/webkit/HtmlComposerView$SelectionOffset;
     :cond_1
     if-nez v1, :cond_0
 
-    .line 3573
+    .line 3583
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     invoke-virtual {v2}, Landroid/webkit/HtmlComposerInputConnection;->updateInputMethodSelectionWithRandom()V
 
     goto :goto_0
 
-    .line 3577
+    .line 3587
     .end local v1           #selectionType:I
     :cond_2
     const-string v2, "MoveLeft"
 
     invoke-virtual {p0, v2, v3}, Landroid/webkit/HtmlComposerView;->execEditorCommand(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3579
+    .line 3589
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->restartIMEByHtmlComposerView()V
 
-    .line 3580
+    .line 3590
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     invoke-virtual {v2}, Landroid/webkit/HtmlComposerInputConnection;->updateInputMethodSelectionWithRandom()V
 
     goto :goto_0
 
-    .line 3585
+    .line 3595
     :pswitch_1
     iget-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mShiftKeyIsPressed:Z
 
     if-eqz v2, :cond_4
 
-    .line 3586
+    .line 3596
     const-string v2, "MoveRightAndModifySelection"
 
     invoke-virtual {p0, v2, v3}, Landroid/webkit/HtmlComposerView;->execEditorCommand(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3587
+    .line 3597
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->selectedType()I
 
     move-result v1
 
-    .line 3588
+    .line 3598
     .restart local v1       #selectionType:I
     if-ne v5, v1, :cond_3
 
-    .line 3589
+    .line 3599
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mTargetView:Landroid/webkit/HtmlComposerView;
 
     invoke-virtual {v2}, Landroid/webkit/HtmlComposerView;->getSelectionOffset()Landroid/webkit/HtmlComposerView$SelectionOffset;
 
     move-result-object v0
 
-    .line 3590
+    .line 3600
     .restart local v0       #selctionOffset:Landroid/webkit/HtmlComposerView$SelectionOffset;
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
@@ -4874,87 +4874,87 @@
 
     iput v3, v2, Landroid/webkit/HtmlComposerInputConnection;->curSelStart:I
 
-    .line 3591
+    .line 3601
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     iget v3, v0, Landroid/webkit/HtmlComposerView$SelectionOffset;->endOffset:I
 
     iput v3, v2, Landroid/webkit/HtmlComposerInputConnection;->curSelEnd:I
 
-    .line 3592
+    .line 3602
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     iput v4, v2, Landroid/webkit/HtmlComposerInputConnection;->composingStart:I
 
-    .line 3593
+    .line 3603
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     iput v4, v2, Landroid/webkit/HtmlComposerInputConnection;->composingEnd:I
 
-    .line 3594
+    .line 3604
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     invoke-virtual {v2}, Landroid/webkit/HtmlComposerInputConnection;->updateInputMethodSelection()V
 
     goto :goto_0
 
-    .line 3595
+    .line 3605
     .end local v0           #selctionOffset:Landroid/webkit/HtmlComposerView$SelectionOffset;
     :cond_3
     if-nez v1, :cond_0
 
-    .line 3596
+    .line 3606
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     invoke-virtual {v2}, Landroid/webkit/HtmlComposerInputConnection;->updateInputMethodSelectionWithRandom()V
 
     goto/16 :goto_0
 
-    .line 3600
+    .line 3610
     .end local v1           #selectionType:I
     :cond_4
     const-string v2, "MoveRight"
 
     invoke-virtual {p0, v2, v3}, Landroid/webkit/HtmlComposerView;->execEditorCommand(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3602
+    .line 3612
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->restartIMEByHtmlComposerView()V
 
-    .line 3603
+    .line 3613
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     invoke-virtual {v2}, Landroid/webkit/HtmlComposerInputConnection;->updateInputMethodSelectionWithRandom()V
 
     goto/16 :goto_0
 
-    .line 3608
+    .line 3618
     :pswitch_2
     iget-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mShiftKeyIsPressed:Z
 
     if-eqz v2, :cond_6
 
-    .line 3609
+    .line 3619
     const-string v2, "MoveUpAndModifySelection"
 
     invoke-virtual {p0, v2, v3}, Landroid/webkit/HtmlComposerView;->execEditorCommand(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3610
+    .line 3620
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->selectedType()I
 
     move-result v1
 
-    .line 3611
+    .line 3621
     .restart local v1       #selectionType:I
     if-ne v5, v1, :cond_5
 
-    .line 3612
+    .line 3622
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mTargetView:Landroid/webkit/HtmlComposerView;
 
     invoke-virtual {v2}, Landroid/webkit/HtmlComposerView;->getSelectionOffset()Landroid/webkit/HtmlComposerView$SelectionOffset;
 
     move-result-object v0
 
-    .line 3613
+    .line 3623
     .restart local v0       #selctionOffset:Landroid/webkit/HtmlComposerView$SelectionOffset;
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
@@ -4962,87 +4962,87 @@
 
     iput v3, v2, Landroid/webkit/HtmlComposerInputConnection;->curSelStart:I
 
-    .line 3614
+    .line 3624
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     iget v3, v0, Landroid/webkit/HtmlComposerView$SelectionOffset;->endOffset:I
 
     iput v3, v2, Landroid/webkit/HtmlComposerInputConnection;->curSelEnd:I
 
-    .line 3615
+    .line 3625
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     iput v4, v2, Landroid/webkit/HtmlComposerInputConnection;->composingStart:I
 
-    .line 3616
+    .line 3626
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     iput v4, v2, Landroid/webkit/HtmlComposerInputConnection;->composingEnd:I
 
-    .line 3617
+    .line 3627
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     invoke-virtual {v2}, Landroid/webkit/HtmlComposerInputConnection;->updateInputMethodSelection()V
 
     goto/16 :goto_0
 
-    .line 3618
+    .line 3628
     .end local v0           #selctionOffset:Landroid/webkit/HtmlComposerView$SelectionOffset;
     :cond_5
     if-nez v1, :cond_0
 
-    .line 3619
+    .line 3629
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     invoke-virtual {v2}, Landroid/webkit/HtmlComposerInputConnection;->updateInputMethodSelectionWithRandom()V
 
     goto/16 :goto_0
 
-    .line 3623
+    .line 3633
     .end local v1           #selectionType:I
     :cond_6
     const-string v2, "MoveUp"
 
     invoke-virtual {p0, v2, v3}, Landroid/webkit/HtmlComposerView;->execEditorCommand(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3625
+    .line 3635
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->restartIMEByHtmlComposerView()V
 
-    .line 3626
+    .line 3636
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     invoke-virtual {v2}, Landroid/webkit/HtmlComposerInputConnection;->updateInputMethodSelectionWithRandom()V
 
     goto/16 :goto_0
 
-    .line 3631
+    .line 3641
     :pswitch_3
     iget-boolean v2, p0, Landroid/webkit/HtmlComposerView;->mShiftKeyIsPressed:Z
 
     if-eqz v2, :cond_8
 
-    .line 3632
+    .line 3642
     const-string v2, "MoveDownAndModifySelection"
 
     invoke-virtual {p0, v2, v3}, Landroid/webkit/HtmlComposerView;->execEditorCommand(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3633
+    .line 3643
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->selectedType()I
 
     move-result v1
 
-    .line 3634
+    .line 3644
     .restart local v1       #selectionType:I
     if-ne v5, v1, :cond_7
 
-    .line 3635
+    .line 3645
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mTargetView:Landroid/webkit/HtmlComposerView;
 
     invoke-virtual {v2}, Landroid/webkit/HtmlComposerView;->getSelectionOffset()Landroid/webkit/HtmlComposerView$SelectionOffset;
 
     move-result-object v0
 
-    .line 3636
+    .line 3646
     .restart local v0       #selctionOffset:Landroid/webkit/HtmlComposerView$SelectionOffset;
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
@@ -5050,60 +5050,60 @@
 
     iput v3, v2, Landroid/webkit/HtmlComposerInputConnection;->curSelStart:I
 
-    .line 3637
+    .line 3647
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     iget v3, v0, Landroid/webkit/HtmlComposerView$SelectionOffset;->endOffset:I
 
     iput v3, v2, Landroid/webkit/HtmlComposerInputConnection;->curSelEnd:I
 
-    .line 3638
+    .line 3648
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     iput v4, v2, Landroid/webkit/HtmlComposerInputConnection;->composingStart:I
 
-    .line 3639
+    .line 3649
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     iput v4, v2, Landroid/webkit/HtmlComposerInputConnection;->composingEnd:I
 
-    .line 3640
+    .line 3650
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     invoke-virtual {v2}, Landroid/webkit/HtmlComposerInputConnection;->updateInputMethodSelection()V
 
     goto/16 :goto_0
 
-    .line 3641
+    .line 3651
     .end local v0           #selctionOffset:Landroid/webkit/HtmlComposerView$SelectionOffset;
     :cond_7
     if-nez v1, :cond_0
 
-    .line 3642
+    .line 3652
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     invoke-virtual {v2}, Landroid/webkit/HtmlComposerInputConnection;->updateInputMethodSelectionWithRandom()V
 
     goto/16 :goto_0
 
-    .line 3646
+    .line 3656
     .end local v1           #selectionType:I
     :cond_8
     const-string v2, "MoveDown"
 
     invoke-virtual {p0, v2, v3}, Landroid/webkit/HtmlComposerView;->execEditorCommand(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3648
+    .line 3658
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->restartIMEByHtmlComposerView()V
 
-    .line 3649
+    .line 3659
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     invoke-virtual {v2}, Landroid/webkit/HtmlComposerInputConnection;->updateInputMethodSelectionWithRandom()V
 
     goto/16 :goto_0
 
-    .line 3560
+    .line 3570
     nop
 
     :pswitch_data_0
@@ -5123,97 +5123,97 @@
     .prologue
     const/16 v7, 0xa
 
-    .line 4242
+    .line 4252
     iget v6, p0, Landroid/webkit/HtmlComposerView;->prevX:I
 
     sub-int v2, p1, v6
 
-    .line 4243
+    .line 4253
     .local v2, deltaX:I
     iget v6, p0, Landroid/webkit/HtmlComposerView;->prevY:I
 
     sub-int v3, p2, v6
 
-    .line 4244
+    .line 4254
     .local v3, deltaY:I
     invoke-static {v2}, Ljava/lang/Math;->abs(I)I
 
     move-result v0
 
-    .line 4245
+    .line 4255
     .local v0, deltaValueX:I
     invoke-static {v3}, Ljava/lang/Math;->abs(I)I
 
     move-result v1
 
-    .line 4246
+    .line 4256
     .local v1, deltaValueY:I
     const/4 v4, 0x1
 
-    .line 4247
+    .line 4257
     .local v4, signX:I
     const/4 v5, 0x1
 
-    .line 4249
+    .line 4259
     .local v5, signY:I
     if-lt v0, v7, :cond_0
 
     if-ge v1, v7, :cond_1
 
-    .line 4276
+    .line 4286
     :cond_0
     :goto_0
     return-void
 
-    .line 4251
+    .line 4261
     :cond_1
     if-gez v2, :cond_2
 
-    .line 4252
+    .line 4262
     const/4 v4, -0x1
 
-    .line 4253
+    .line 4263
     :cond_2
     if-gez v3, :cond_3
 
-    .line 4254
+    .line 4264
     const/4 v5, -0x1
 
-    .line 4255
+    .line 4265
     :cond_3
     if-ne v4, v5, :cond_0
 
-    .line 4258
+    .line 4268
     if-ge v0, v1, :cond_4
 
-    .line 4259
+    .line 4269
     mul-int v3, v0, v5
 
-    .line 4266
+    .line 4276
     :goto_1
     invoke-direct {p0, v2, v3}, Landroid/webkit/HtmlComposerView;->updateOutlineRectangle(II)V
 
-    .line 4267
+    .line 4277
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateAllHandles()V
 
-    .line 4271
+    .line 4281
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->resetAndRecreateHandlesPath()V
 
-    .line 4272
+    .line 4282
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->resetAndCreateOutlinePath()V
 
-    .line 4273
+    .line 4283
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateRegions()V
 
-    .line 4274
+    .line 4284
     iput p1, p0, Landroid/webkit/HtmlComposerView;->prevX:I
 
-    .line 4275
+    .line 4285
     iput p2, p0, Landroid/webkit/HtmlComposerView;->prevY:I
 
     goto :goto_0
 
-    .line 4262
+    .line 4272
     :cond_4
     mul-int v2, v1, v4
 
@@ -5226,35 +5226,35 @@
     .parameter "positionY"
 
     .prologue
-    .line 4340
+    .line 4350
     iget v2, p0, Landroid/webkit/HtmlComposerView;->prevX:I
 
     sub-int v0, p1, v2
 
-    .line 4341
+    .line 4351
     .local v0, deltaX:I
     const/4 v1, 0x0
 
-    .line 4342
+    .line 4352
     .local v1, deltaY:I
     invoke-direct {p0, v0, v1}, Landroid/webkit/HtmlComposerView;->updateOutlineRectangle(II)V
 
-    .line 4343
+    .line 4353
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateAllHandles()V
 
-    .line 4344
+    .line 4354
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->resetAndRecreateHandlesPath()V
 
-    .line 4345
+    .line 4355
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->resetAndCreateOutlinePath()V
 
-    .line 4346
+    .line 4356
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateRegions()V
 
-    .line 4347
+    .line 4357
     iput p1, p0, Landroid/webkit/HtmlComposerView;->prevX:I
 
-    .line 4348
+    .line 4358
     return-void
 .end method
 
@@ -5266,97 +5266,97 @@
     .prologue
     const/16 v7, 0xa
 
-    .line 4279
+    .line 4289
     iget v6, p0, Landroid/webkit/HtmlComposerView;->prevX:I
 
     sub-int v2, p1, v6
 
-    .line 4280
+    .line 4290
     .local v2, deltaX:I
     iget v6, p0, Landroid/webkit/HtmlComposerView;->prevY:I
 
     sub-int v3, p2, v6
 
-    .line 4281
+    .line 4291
     .local v3, deltaY:I
     invoke-static {v2}, Ljava/lang/Math;->abs(I)I
 
     move-result v0
 
-    .line 4282
+    .line 4292
     .local v0, deltaValueX:I
     invoke-static {v3}, Ljava/lang/Math;->abs(I)I
 
     move-result v1
 
-    .line 4283
+    .line 4293
     .local v1, deltaValueY:I
     const/4 v4, 0x1
 
-    .line 4284
+    .line 4294
     .local v4, signX:I
     const/4 v5, 0x1
 
-    .line 4286
+    .line 4296
     .local v5, signY:I
     if-lt v0, v7, :cond_0
 
     if-ge v1, v7, :cond_1
 
-    .line 4312
+    .line 4322
     :cond_0
     :goto_0
     return-void
 
-    .line 4288
+    .line 4298
     :cond_1
     if-gez v2, :cond_2
 
-    .line 4289
+    .line 4299
     const/4 v4, -0x1
 
-    .line 4290
+    .line 4300
     :cond_2
     if-gez v3, :cond_3
 
-    .line 4291
+    .line 4301
     const/4 v5, -0x1
 
-    .line 4292
+    .line 4302
     :cond_3
     if-eq v4, v5, :cond_0
 
-    .line 4295
+    .line 4305
     if-ge v0, v1, :cond_4
 
-    .line 4296
+    .line 4306
     mul-int v3, v0, v5
 
-    .line 4303
+    .line 4313
     :goto_1
     invoke-direct {p0, v2, v3}, Landroid/webkit/HtmlComposerView;->updateOutlineRectangle(II)V
 
-    .line 4304
+    .line 4314
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateAllHandles()V
 
-    .line 4307
+    .line 4317
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->resetAndRecreateHandlesPath()V
 
-    .line 4308
+    .line 4318
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->resetAndCreateOutlinePath()V
 
-    .line 4309
+    .line 4319
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateRegions()V
 
-    .line 4310
+    .line 4320
     iput p1, p0, Landroid/webkit/HtmlComposerView;->prevX:I
 
-    .line 4311
+    .line 4321
     iput p2, p0, Landroid/webkit/HtmlComposerView;->prevY:I
 
     goto :goto_0
 
-    .line 4299
+    .line 4309
     :cond_4
     mul-int v2, v1, v4
 
@@ -5369,35 +5369,35 @@
     .parameter "positionY"
 
     .prologue
-    .line 4328
+    .line 4338
     const/4 v0, 0x0
 
-    .line 4329
+    .line 4339
     .local v0, deltaX:I
     iget v2, p0, Landroid/webkit/HtmlComposerView;->prevY:I
 
     sub-int v1, p2, v2
 
-    .line 4330
+    .line 4340
     .local v1, deltaY:I
     invoke-direct {p0, v0, v1}, Landroid/webkit/HtmlComposerView;->updateOutlineRectangle(II)V
 
-    .line 4331
+    .line 4341
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateAllHandles()V
 
-    .line 4332
+    .line 4342
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->resetAndRecreateHandlesPath()V
 
-    .line 4333
+    .line 4343
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->resetAndCreateOutlinePath()V
 
-    .line 4334
+    .line 4344
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateRegions()V
 
-    .line 4336
+    .line 4346
     iput p2, p0, Landroid/webkit/HtmlComposerView;->prevY:I
 
-    .line 4337
+    .line 4347
     return-void
 .end method
 
@@ -5411,21 +5411,21 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 3982
+    .line 3992
     invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->isOutLineRect(II)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 3984
+    .line 3994
     const-string v0, "HtmlComposerView"
 
     const-string v1, "inside \"If outline\""
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3989
+    .line 3999
     :goto_0
     invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->isleftTopImageHandle(II)Z
 
@@ -5433,51 +5433,51 @@
 
     if-eqz v0, :cond_1
 
-    .line 3990
+    .line 4000
     iput p3, p0, Landroid/webkit/HtmlComposerView;->prevX:I
 
-    .line 3991
+    .line 4001
     iput p4, p0, Landroid/webkit/HtmlComposerView;->prevY:I
 
-    .line 3992
+    .line 4002
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->leftTopHandleEnabled:Z
 
-    .line 3993
+    .line 4003
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->left:F
 
     iput v0, p0, Landroid/webkit/HtmlComposerView;->prevOutlineLeft:F
 
-    .line 3995
+    .line 4005
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->top:F
 
     iput v0, p0, Landroid/webkit/HtmlComposerView;->prevOutlineTop:F
 
-    .line 3996
+    .line 4006
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->left:F
 
     iput v0, p0, Landroid/webkit/HtmlComposerView;->firstOutlineLeft:F
 
-    .line 3997
+    .line 4007
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->top:F
 
     iput v0, p0, Landroid/webkit/HtmlComposerView;->firstOutlineTop:F
 
-    .line 3999
+    .line 4009
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->imageCanbeResized:Z
 
-    .line 4071
+    .line 4081
     :goto_1
     return-void
 
-    .line 3987
+    .line 3997
     :cond_0
     const-string v0, "HtmlComposerView"
 
@@ -5487,7 +5487,7 @@
 
     goto :goto_0
 
-    .line 4000
+    .line 4010
     :cond_1
     invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->isleftBottomImageHandle(II)Z
 
@@ -5495,66 +5495,16 @@
 
     if-eqz v0, :cond_2
 
-    .line 4001
-    iput p3, p0, Landroid/webkit/HtmlComposerView;->prevX:I
-
-    .line 4002
-    iput p4, p0, Landroid/webkit/HtmlComposerView;->prevY:I
-
-    .line 4003
-    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->leftBottomHandleEnabled:Z
-
-    .line 4004
-    iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
-
-    iget v0, v0, Landroid/graphics/RectF;->left:F
-
-    iput v0, p0, Landroid/webkit/HtmlComposerView;->prevOutlineLeft:F
-
-    .line 4006
-    iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
-
-    iget v0, v0, Landroid/graphics/RectF;->top:F
-
-    iput v0, p0, Landroid/webkit/HtmlComposerView;->prevOutlineTop:F
-
-    .line 4007
-    iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
-
-    iget v0, v0, Landroid/graphics/RectF;->left:F
-
-    iput v0, p0, Landroid/webkit/HtmlComposerView;->firstOutlineLeft:F
-
-    .line 4008
-    iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
-
-    iget v0, v0, Landroid/graphics/RectF;->top:F
-
-    iput v0, p0, Landroid/webkit/HtmlComposerView;->firstOutlineTop:F
-
-    .line 4010
-    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->imageCanbeResized:Z
-
-    goto :goto_1
-
     .line 4011
-    :cond_2
-    invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->isRightTopImageHandle(II)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
+    iput p3, p0, Landroid/webkit/HtmlComposerView;->prevX:I
 
     .line 4012
-    iput p3, p0, Landroid/webkit/HtmlComposerView;->prevX:I
-
-    .line 4013
     iput p4, p0, Landroid/webkit/HtmlComposerView;->prevY:I
 
-    .line 4014
-    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->rightTopHandleEnabled:Z
+    .line 4013
+    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->leftBottomHandleEnabled:Z
 
-    .line 4015
+    .line 4014
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->left:F
@@ -5588,12 +5538,12 @@
     goto :goto_1
 
     .line 4021
-    :cond_3
-    invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->isRightBottomImageHandle(II)Z
+    :cond_2
+    invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->isRightTopImageHandle(II)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
     .line 4022
     iput p3, p0, Landroid/webkit/HtmlComposerView;->prevX:I
@@ -5602,70 +5552,70 @@
     iput p4, p0, Landroid/webkit/HtmlComposerView;->prevY:I
 
     .line 4024
-    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->rightBottomHandleEnabled:Z
+    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->rightTopHandleEnabled:Z
 
-    .line 4026
-    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->imageCanbeResized:Z
-
-    goto :goto_1
-
-    .line 4027
-    :cond_4
-    invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->isleftMiddleImageHandle(II)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_5
-
-    .line 4028
-    iput p3, p0, Landroid/webkit/HtmlComposerView;->prevX:I
-
-    .line 4029
-    iput p4, p0, Landroid/webkit/HtmlComposerView;->prevY:I
-
-    .line 4030
-    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->leftMiddleHandleEnabled:Z
-
-    .line 4031
+    .line 4025
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->left:F
 
     iput v0, p0, Landroid/webkit/HtmlComposerView;->prevOutlineLeft:F
 
-    .line 4032
+    .line 4026
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->top:F
 
     iput v0, p0, Landroid/webkit/HtmlComposerView;->prevOutlineTop:F
 
-    .line 4033
+    .line 4027
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->left:F
 
     iput v0, p0, Landroid/webkit/HtmlComposerView;->firstOutlineLeft:F
 
-    .line 4034
+    .line 4028
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->top:F
 
     iput v0, p0, Landroid/webkit/HtmlComposerView;->firstOutlineTop:F
 
-    .line 4036
+    .line 4030
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->imageCanbeResized:Z
 
-    goto/16 :goto_1
+    goto :goto_1
 
-    .line 4037
-    :cond_5
-    invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->isBottomMiddleImageHandle(II)Z
+    .line 4031
+    :cond_3
+    invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->isRightBottomImageHandle(II)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_4
+
+    .line 4032
+    iput p3, p0, Landroid/webkit/HtmlComposerView;->prevX:I
+
+    .line 4033
+    iput p4, p0, Landroid/webkit/HtmlComposerView;->prevY:I
+
+    .line 4034
+    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->rightBottomHandleEnabled:Z
+
+    .line 4036
+    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->imageCanbeResized:Z
+
+    goto :goto_1
+
+    .line 4037
+    :cond_4
+    invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->isleftMiddleImageHandle(II)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
 
     .line 4038
     iput p3, p0, Landroid/webkit/HtmlComposerView;->prevX:I
@@ -5674,7 +5624,7 @@
     iput p4, p0, Landroid/webkit/HtmlComposerView;->prevY:I
 
     .line 4040
-    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->bottomMiddleHandleEnabled:Z
+    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->leftMiddleHandleEnabled:Z
 
     .line 4041
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -5683,50 +5633,50 @@
 
     iput v0, p0, Landroid/webkit/HtmlComposerView;->prevOutlineLeft:F
 
-    .line 4043
+    .line 4042
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->top:F
 
     iput v0, p0, Landroid/webkit/HtmlComposerView;->prevOutlineTop:F
 
-    .line 4044
+    .line 4043
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->left:F
 
     iput v0, p0, Landroid/webkit/HtmlComposerView;->firstOutlineLeft:F
 
-    .line 4045
+    .line 4044
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->top:F
 
     iput v0, p0, Landroid/webkit/HtmlComposerView;->firstOutlineTop:F
 
-    .line 4047
+    .line 4046
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->imageCanbeResized:Z
 
     goto/16 :goto_1
 
-    .line 4048
-    :cond_6
-    invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->isTopMiddleImageHandle(II)Z
+    .line 4047
+    :cond_5
+    invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->isBottomMiddleImageHandle(II)Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_6
 
-    .line 4049
+    .line 4048
     iput p3, p0, Landroid/webkit/HtmlComposerView;->prevX:I
 
-    .line 4050
+    .line 4049
     iput p4, p0, Landroid/webkit/HtmlComposerView;->prevY:I
 
-    .line 4051
-    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->topMiddleHandleEnabled:Z
+    .line 4050
+    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->bottomMiddleHandleEnabled:Z
 
-    .line 4052
+    .line 4051
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->left:F
@@ -5760,12 +5710,12 @@
     goto/16 :goto_1
 
     .line 4058
-    :cond_7
-    invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->isRightMiddleImageHandle(II)Z
+    :cond_6
+    invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->isTopMiddleImageHandle(II)Z
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_7
 
     .line 4059
     iput p3, p0, Landroid/webkit/HtmlComposerView;->prevX:I
@@ -5774,7 +5724,7 @@
     iput p4, p0, Landroid/webkit/HtmlComposerView;->prevY:I
 
     .line 4061
-    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->rightMiddleHandleEnabled:Z
+    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->topMiddleHandleEnabled:Z
 
     .line 4062
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -5809,7 +5759,57 @@
 
     goto/16 :goto_1
 
+    .line 4068
+    :cond_7
+    invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->isRightMiddleImageHandle(II)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
     .line 4069
+    iput p3, p0, Landroid/webkit/HtmlComposerView;->prevX:I
+
+    .line 4070
+    iput p4, p0, Landroid/webkit/HtmlComposerView;->prevY:I
+
+    .line 4071
+    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->rightMiddleHandleEnabled:Z
+
+    .line 4072
+    iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
+
+    iget v0, v0, Landroid/graphics/RectF;->left:F
+
+    iput v0, p0, Landroid/webkit/HtmlComposerView;->prevOutlineLeft:F
+
+    .line 4073
+    iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
+
+    iget v0, v0, Landroid/graphics/RectF;->top:F
+
+    iput v0, p0, Landroid/webkit/HtmlComposerView;->prevOutlineTop:F
+
+    .line 4074
+    iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
+
+    iget v0, v0, Landroid/graphics/RectF;->left:F
+
+    iput v0, p0, Landroid/webkit/HtmlComposerView;->firstOutlineLeft:F
+
+    .line 4075
+    iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
+
+    iget v0, v0, Landroid/graphics/RectF;->top:F
+
+    iput v0, p0, Landroid/webkit/HtmlComposerView;->firstOutlineTop:F
+
+    .line 4077
+    iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->imageCanbeResized:Z
+
+    goto/16 :goto_1
+
+    .line 4079
     :cond_8
     const/4 v0, 0x0
 
@@ -5826,15 +5826,15 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 4074
+    .line 4084
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->rightBottomHandleEnabled:Z
 
     if-ne v0, v2, :cond_5
 
-    .line 4076
+    .line 4086
     invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->handleRightBottomHandleDrag(II)V
 
-    .line 4121
+    .line 4131
     :cond_0
     :goto_0
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->rightMiddleHandleEnabled:Z
@@ -5853,11 +5853,11 @@
 
     if-eqz v0, :cond_2
 
-    .line 4122
+    .line 4132
     :cond_1
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->resizingHandlerInActionMove:Z
 
-    .line 4124
+    .line 4134
     :cond_2
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->rightBottomHandleEnabled:Z
 
@@ -5875,24 +5875,24 @@
 
     if-eqz v0, :cond_4
 
-    .line 4125
+    .line 4135
     :cond_3
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->resizingHandlerInActionMove:Z
 
-    .line 4126
+    .line 4136
     :cond_4
     return-void
 
-    .line 4078
+    .line 4088
     :cond_5
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->leftBottomHandleEnabled:Z
 
     if-ne v0, v2, :cond_6
 
-    .line 4080
+    .line 4090
     invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->handleLeftBottomHandleDrag(II)V
 
-    .line 4081
+    .line 4091
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->left:F
@@ -5909,7 +5909,7 @@
 
     iput v0, p0, Landroid/webkit/HtmlComposerView;->prevOutlineWidth:F
 
-    .line 4082
+    .line 4092
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->top:F
@@ -5928,16 +5928,16 @@
 
     goto :goto_0
 
-    .line 4084
+    .line 4094
     :cond_6
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->leftTopHandleEnabled:Z
 
     if-ne v0, v2, :cond_7
 
-    .line 4086
+    .line 4096
     invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->handleLeftTopHandleDrag(II)V
 
-    .line 4087
+    .line 4097
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->left:F
@@ -5954,7 +5954,7 @@
 
     iput v0, p0, Landroid/webkit/HtmlComposerView;->prevOutlineWidth:F
 
-    .line 4088
+    .line 4098
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->top:F
@@ -5973,16 +5973,16 @@
 
     goto :goto_0
 
-    .line 4090
+    .line 4100
     :cond_7
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->rightTopHandleEnabled:Z
 
     if-ne v0, v2, :cond_8
 
-    .line 4092
+    .line 4102
     invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->handleRightTopHandleDrag(II)V
 
-    .line 4093
+    .line 4103
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->left:F
@@ -5999,7 +5999,7 @@
 
     iput v0, p0, Landroid/webkit/HtmlComposerView;->prevOutlineWidth:F
 
-    .line 4094
+    .line 4104
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->top:F
@@ -6018,16 +6018,16 @@
 
     goto/16 :goto_0
 
-    .line 4096
+    .line 4106
     :cond_8
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->leftMiddleHandleEnabled:Z
 
     if-ne v0, v2, :cond_9
 
-    .line 4098
+    .line 4108
     invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->handleLeftMiddleHandleDrag(II)V
 
-    .line 4099
+    .line 4109
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->left:F
@@ -6044,7 +6044,7 @@
 
     iput v0, p0, Landroid/webkit/HtmlComposerView;->prevOutlineWidth:F
 
-    .line 4100
+    .line 4110
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->top:F
@@ -6063,16 +6063,16 @@
 
     goto/16 :goto_0
 
-    .line 4102
+    .line 4112
     :cond_9
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->topMiddleHandleEnabled:Z
 
     if-ne v0, v2, :cond_a
 
-    .line 4104
+    .line 4114
     invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->handleTopMiddleHandleDrag(II)V
 
-    .line 4105
+    .line 4115
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->left:F
@@ -6089,7 +6089,7 @@
 
     iput v0, p0, Landroid/webkit/HtmlComposerView;->prevOutlineWidth:F
 
-    .line 4106
+    .line 4116
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->top:F
@@ -6108,16 +6108,16 @@
 
     goto/16 :goto_0
 
-    .line 4108
+    .line 4118
     :cond_a
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->rightMiddleHandleEnabled:Z
 
     if-ne v0, v2, :cond_b
 
-    .line 4110
+    .line 4120
     invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->handleRightMiddleHandleDrag(II)V
 
-    .line 4111
+    .line 4121
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->left:F
@@ -6134,7 +6134,7 @@
 
     iput v0, p0, Landroid/webkit/HtmlComposerView;->prevOutlineWidth:F
 
-    .line 4112
+    .line 4122
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->top:F
@@ -6153,16 +6153,16 @@
 
     goto/16 :goto_0
 
-    .line 4114
+    .line 4124
     :cond_b
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->bottomMiddleHandleEnabled:Z
 
     if-ne v0, v2, :cond_0
 
-    .line 4116
+    .line 4126
     invoke-direct {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->handleBottomMiddleHandleDrag(II)V
 
-    .line 4117
+    .line 4127
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->left:F
@@ -6179,7 +6179,7 @@
 
     iput v0, p0, Landroid/webkit/HtmlComposerView;->prevOutlineWidth:F
 
-    .line 4118
+    .line 4128
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->top:F
@@ -6211,16 +6211,16 @@
 
     const/4 v3, 0x0
 
-    .line 4129
+    .line 4139
     iput p1, p0, Landroid/webkit/HtmlComposerView;->prevX:I
 
-    .line 4130
+    .line 4140
     iput p2, p0, Landroid/webkit/HtmlComposerView;->prevY:I
 
-    .line 4131
+    .line 4141
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->rightBottomHandleEnabled:Z
 
-    .line 4133
+    .line 4143
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->leftTopHandleEnabled:Z
 
     if-eq v0, v1, :cond_0
@@ -6249,29 +6249,29 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 4136
+    .line 4146
     :cond_0
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->leftBottomHandleEnabled:Z
 
-    .line 4137
+    .line 4147
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->leftTopHandleEnabled:Z
 
-    .line 4138
+    .line 4148
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->rightTopHandleEnabled:Z
 
-    .line 4139
+    .line 4149
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->leftMiddleHandleEnabled:Z
 
-    .line 4140
+    .line 4150
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->rightMiddleHandleEnabled:Z
 
-    .line 4141
+    .line 4151
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->topMiddleHandleEnabled:Z
 
-    .line 4142
+    .line 4152
     iput-boolean v3, p0, Landroid/webkit/HtmlComposerView;->bottomMiddleHandleEnabled:Z
 
-    .line 4144
+    .line 4154
     iget v0, p0, Landroid/webkit/HtmlComposerView;->prevOutlineWidth:F
 
     cmpl-float v0, v4, v0
@@ -6284,21 +6284,21 @@
 
     if-eqz v0, :cond_1
 
-    .line 4145
+    .line 4155
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v1, p0, Landroid/webkit/HtmlComposerView;->prevOutlineLeft:F
 
     iput v1, v0, Landroid/graphics/RectF;->left:F
 
-    .line 4146
+    .line 4156
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v1, p0, Landroid/webkit/HtmlComposerView;->prevOutlineTop:F
 
     iput v1, v0, Landroid/graphics/RectF;->top:F
 
-    .line 4147
+    .line 4157
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v1, p0, Landroid/webkit/HtmlComposerView;->prevOutlineLeft:F
@@ -6309,7 +6309,7 @@
 
     iput v1, v0, Landroid/graphics/RectF;->right:F
 
-    .line 4148
+    .line 4158
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v1, p0, Landroid/webkit/HtmlComposerView;->prevOutlineTop:F
@@ -6320,39 +6320,39 @@
 
     iput v1, v0, Landroid/graphics/RectF;->bottom:F
 
-    .line 4151
+    .line 4161
     :cond_1
     invoke-direct {p0, v3, v3}, Landroid/webkit/HtmlComposerView;->updateOutlineRectangle(II)V
 
-    .line 4152
+    .line 4162
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateAllHandles()V
 
-    .line 4155
+    .line 4165
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->resetAndRecreateHandlesPath()V
 
-    .line 4156
+    .line 4166
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->resetAndCreateOutlinePath()V
 
-    .line 4159
+    .line 4169
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateRegions()V
 
-    .line 4160
+    .line 4170
     iget v0, p0, Landroid/webkit/HtmlComposerView;->firstOutlineLeft:F
 
     iput v0, p0, Landroid/webkit/HtmlComposerView;->prevOutlineLeft:F
 
-    .line 4161
+    .line 4171
     iget v0, p0, Landroid/webkit/HtmlComposerView;->firstOutlineTop:F
 
     iput v0, p0, Landroid/webkit/HtmlComposerView;->prevOutlineTop:F
 
-    .line 4162
+    .line 4172
     iput v4, p0, Landroid/webkit/HtmlComposerView;->prevOutlineHeight:F
 
-    .line 4163
+    .line 4173
     iput v4, p0, Landroid/webkit/HtmlComposerView;->prevOutlineWidth:F
 
-    .line 4166
+    .line 4176
     :cond_2
     return-void
 .end method
@@ -6400,12 +6400,12 @@
     .locals 3
 
     .prologue
-    .line 3664
+    .line 3674
     invoke-static {}, Landroid/view/inputmethod/InputMethodManager;->peekInstance()Landroid/view/inputmethod/InputMethodManager;
 
     move-result-object v0
 
-    .line 3665
+    .line 3675
     .local v0, imm:Landroid/view/inputmethod/InputMethodManager;
     if-eqz v0, :cond_0
 
@@ -6415,7 +6415,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 3666
+    .line 3676
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v1
@@ -6424,7 +6424,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
-    .line 3668
+    .line 3678
     :cond_0
     return-void
 .end method
@@ -6434,10 +6434,10 @@
     .parameter "url"
 
     .prologue
-    .line 3671
+    .line 3681
     if-eqz p1, :cond_0
 
-    .line 3672
+    .line 3682
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -6446,7 +6446,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 3673
+    .line 3683
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -6457,7 +6457,7 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/webkit/WebViewCore;->sendMessage(ILjava/lang/Object;)V
 
-    .line 3675
+    .line 3685
     :cond_0
     return-void
 .end method
@@ -6467,7 +6467,7 @@
     .parameter "command"
 
     .prologue
-    .line 3678
+    .line 3688
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -6476,7 +6476,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 3679
+    .line 3689
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -6487,7 +6487,7 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/webkit/WebViewCore;->sendMessage(ILjava/lang/Object;)V
 
-    .line 3680
+    .line 3690
     :cond_0
     return-void
 .end method
@@ -6498,14 +6498,14 @@
     .parameter "y"
 
     .prologue
-    .line 4511
+    .line 4521
     move v0, p1
 
-    .line 4512
+    .line 4522
     .local v0, positionX:I
     move v1, p2
 
-    .line 4514
+    .line 4524
     .local v1, positionY:I
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_BM:Landroid/graphics/Region;
 
@@ -6515,22 +6515,22 @@
 
     if-eqz v3, :cond_0
 
-    .line 4516
+    .line 4526
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_BM:Landroid/graphics/Region;
 
     invoke-virtual {v3}, Landroid/graphics/Region;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v2
 
-    .line 4517
+    .line 4527
     .local v2, temp:Landroid/graphics/Rect;
     const/4 v3, 0x1
 
-    .line 4522
+    .line 4532
     :goto_0
     return v3
 
-    .line 4520
+    .line 4530
     .end local v2           #temp:Landroid/graphics/Rect;
     :cond_0
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_BM:Landroid/graphics/Region;
@@ -6539,7 +6539,7 @@
 
     move-result-object v2
 
-    .line 4522
+    .line 4532
     .restart local v2       #temp:Landroid/graphics/Rect;
     const/4 v3, 0x0
 
@@ -6562,23 +6562,23 @@
 
     const/4 v9, -0x1
 
-    .line 3691
+    .line 3701
     iget-boolean v6, p0, Landroid/webkit/HtmlComposerView;->isImageSelected:Z
 
     if-ne v5, v6, :cond_3
 
-    .line 3692
+    .line 3702
     new-instance v1, Landroid/graphics/RectF;
 
     invoke-direct {v1}, Landroid/graphics/RectF;-><init>()V
 
-    .line 3693
+    .line 3703
     .local v1, re:Landroid/graphics/RectF;
     iget-object v6, p0, Landroid/webkit/HtmlComposerView;->outLinePath:Landroid/graphics/Path;
 
     invoke-virtual {v6, v1, v5}, Landroid/graphics/Path;->computeBounds(Landroid/graphics/RectF;Z)V
 
-    .line 3695
+    .line 3705
     iget-boolean v6, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v6, :cond_0
@@ -6615,7 +6615,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3696
+    .line 3706
     :cond_0
     iget-boolean v6, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
@@ -6681,11 +6681,11 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3698
+    .line 3708
     :cond_1
     const/16 v0, 0x28
 
-    .line 3699
+    .line 3709
     .local v0, delta:I
     iget v6, v1, Landroid/graphics/RectF;->left:F
 
@@ -6697,7 +6697,7 @@
 
     float-to-int v2, v6
 
-    .line 3700
+    .line 3710
     .local v2, xCenter:I
     iget v6, v1, Landroid/graphics/RectF;->top:F
 
@@ -6709,7 +6709,7 @@
 
     float-to-int v3, v6
 
-    .line 3702
+    .line 3712
     .local v3, yCenter:I
     iget v6, v1, Landroid/graphics/RectF;->left:F
 
@@ -6759,7 +6759,7 @@
 
     if-ltz v6, :cond_4
 
-    .line 3704
+    .line 3714
     iget-boolean v4, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v4, :cond_2
@@ -6770,20 +6770,20 @@
 
     invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3705
+    .line 3715
     :cond_2
     const v4, 0x10805aa
 
     iput v4, p0, Landroid/webkit/HtmlComposerView;->mRHIResource:I
 
-    .line 3706
+    .line 3716
     iget v4, v1, Landroid/graphics/RectF;->left:F
 
     float-to-int v4, v4
 
     iput v4, p0, Landroid/webkit/HtmlComposerView;->mXCenter:I
 
-    .line 3707
+    .line 3717
     iget v4, v1, Landroid/graphics/RectF;->top:F
 
     float-to-int v4, v4
@@ -6793,7 +6793,7 @@
     :goto_0
     move v4, v5
 
-    .line 3760
+    .line 3770
     .end local v0           #delta:I
     .end local v1           #re:Landroid/graphics/RectF;
     .end local v2           #xCenter:I
@@ -6802,7 +6802,7 @@
     :goto_1
     return v4
 
-    .line 3708
+    .line 3718
     .restart local v0       #delta:I
     .restart local v1       #re:Landroid/graphics/RectF;
     .restart local v2       #xCenter:I
@@ -6856,7 +6856,7 @@
 
     if-ltz v6, :cond_6
 
-    .line 3710
+    .line 3720
     iget-boolean v4, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v4, :cond_5
@@ -6867,20 +6867,20 @@
 
     invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3711
+    .line 3721
     :cond_5
     const v4, 0x10805a9
 
     iput v4, p0, Landroid/webkit/HtmlComposerView;->mRHIResource:I
 
-    .line 3712
+    .line 3722
     iget v4, v1, Landroid/graphics/RectF;->right:F
 
     float-to-int v4, v4
 
     iput v4, p0, Landroid/webkit/HtmlComposerView;->mXCenter:I
 
-    .line 3713
+    .line 3723
     iget v4, v1, Landroid/graphics/RectF;->top:F
 
     float-to-int v4, v4
@@ -6889,7 +6889,7 @@
 
     goto :goto_0
 
-    .line 3714
+    .line 3724
     :cond_6
     iget v6, v1, Landroid/graphics/RectF;->left:F
 
@@ -6939,7 +6939,7 @@
 
     if-ltz v6, :cond_8
 
-    .line 3716
+    .line 3726
     iget-boolean v4, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v4, :cond_7
@@ -6950,20 +6950,20 @@
 
     invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3717
+    .line 3727
     :cond_7
     const v4, 0x10805a9
 
     iput v4, p0, Landroid/webkit/HtmlComposerView;->mRHIResource:I
 
-    .line 3718
+    .line 3728
     iget v4, v1, Landroid/graphics/RectF;->left:F
 
     float-to-int v4, v4
 
     iput v4, p0, Landroid/webkit/HtmlComposerView;->mXCenter:I
 
-    .line 3719
+    .line 3729
     iget v4, v1, Landroid/graphics/RectF;->bottom:F
 
     float-to-int v4, v4
@@ -6972,7 +6972,7 @@
 
     goto :goto_0
 
-    .line 3720
+    .line 3730
     :cond_8
     iget v6, v1, Landroid/graphics/RectF;->right:F
 
@@ -7022,7 +7022,7 @@
 
     if-ltz v6, :cond_a
 
-    .line 3722
+    .line 3732
     iget-boolean v4, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v4, :cond_9
@@ -7033,20 +7033,20 @@
 
     invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3723
+    .line 3733
     :cond_9
     const v4, 0x10805aa
 
     iput v4, p0, Landroid/webkit/HtmlComposerView;->mRHIResource:I
 
-    .line 3724
+    .line 3734
     iget v4, v1, Landroid/graphics/RectF;->right:F
 
     float-to-int v4, v4
 
     iput v4, p0, Landroid/webkit/HtmlComposerView;->mXCenter:I
 
-    .line 3725
+    .line 3735
     iget v4, v1, Landroid/graphics/RectF;->bottom:F
 
     float-to-int v4, v4
@@ -7055,7 +7055,7 @@
 
     goto/16 :goto_0
 
-    .line 3726
+    .line 3736
     :cond_a
     sub-int v6, v2, v0
 
@@ -7089,7 +7089,7 @@
 
     if-ltz v6, :cond_c
 
-    .line 3728
+    .line 3738
     iget-boolean v4, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v4, :cond_b
@@ -7100,14 +7100,14 @@
 
     invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3729
+    .line 3739
     :cond_b
     iput v11, p0, Landroid/webkit/HtmlComposerView;->mRHIResource:I
 
-    .line 3730
+    .line 3740
     iput v2, p0, Landroid/webkit/HtmlComposerView;->mXCenter:I
 
-    .line 3731
+    .line 3741
     iget v4, v1, Landroid/graphics/RectF;->top:F
 
     float-to-int v4, v4
@@ -7116,7 +7116,7 @@
 
     goto/16 :goto_0
 
-    .line 3732
+    .line 3742
     :cond_c
     sub-int v6, v2, v0
 
@@ -7150,7 +7150,7 @@
 
     if-ltz v6, :cond_e
 
-    .line 3734
+    .line 3744
     iget-boolean v4, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v4, :cond_d
@@ -7161,14 +7161,14 @@
 
     invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3735
+    .line 3745
     :cond_d
     iput v11, p0, Landroid/webkit/HtmlComposerView;->mRHIResource:I
 
-    .line 3736
+    .line 3746
     iput v2, p0, Landroid/webkit/HtmlComposerView;->mXCenter:I
 
-    .line 3737
+    .line 3747
     iget v4, v1, Landroid/graphics/RectF;->bottom:F
 
     float-to-int v4, v4
@@ -7177,7 +7177,7 @@
 
     goto/16 :goto_0
 
-    .line 3738
+    .line 3748
     :cond_e
     iget v6, v1, Landroid/graphics/RectF;->left:F
 
@@ -7211,7 +7211,7 @@
 
     if-lt v6, p2, :cond_10
 
-    .line 3740
+    .line 3750
     iget-boolean v4, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v4, :cond_f
@@ -7222,25 +7222,25 @@
 
     invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3741
+    .line 3751
     :cond_f
     const v4, 0x10805ab
 
     iput v4, p0, Landroid/webkit/HtmlComposerView;->mRHIResource:I
 
-    .line 3742
+    .line 3752
     iget v4, v1, Landroid/graphics/RectF;->left:F
 
     float-to-int v4, v4
 
     iput v4, p0, Landroid/webkit/HtmlComposerView;->mXCenter:I
 
-    .line 3743
+    .line 3753
     iput v3, p0, Landroid/webkit/HtmlComposerView;->mYCenter:I
 
     goto/16 :goto_0
 
-    .line 3744
+    .line 3754
     :cond_10
     iget v6, v1, Landroid/graphics/RectF;->right:F
 
@@ -7274,7 +7274,7 @@
 
     if-lt v6, p2, :cond_12
 
-    .line 3746
+    .line 3756
     iget-boolean v4, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v4, :cond_11
@@ -7285,32 +7285,32 @@
 
     invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3747
+    .line 3757
     :cond_11
     const v4, 0x10805ab
 
     iput v4, p0, Landroid/webkit/HtmlComposerView;->mRHIResource:I
 
-    .line 3748
+    .line 3758
     iget v4, v1, Landroid/graphics/RectF;->right:F
 
     float-to-int v4, v4
 
     iput v4, p0, Landroid/webkit/HtmlComposerView;->mXCenter:I
 
-    .line 3749
+    .line 3759
     iput v3, p0, Landroid/webkit/HtmlComposerView;->mYCenter:I
 
     goto/16 :goto_0
 
-    .line 3751
+    .line 3761
     :cond_12
     iput v9, p0, Landroid/webkit/HtmlComposerView;->mRHIResource:I
 
-    .line 3752
+    .line 3762
     iput v9, p0, Landroid/webkit/HtmlComposerView;->mXCenter:I
 
-    .line 3753
+    .line 3763
     iput v9, p0, Landroid/webkit/HtmlComposerView;->mYCenter:I
 
     goto/16 :goto_1
@@ -7325,17 +7325,17 @@
 
     const/4 v1, 0x1
 
-    .line 3765
+    .line 3775
     iget-boolean v3, p0, Landroid/webkit/HtmlComposerView;->ignoreMaxLength:Z
 
     if-eqz v3, :cond_1
 
-    .line 3776
+    .line 3786
     :cond_0
     :goto_0
     return v1
 
-    .line 3767
+    .line 3777
     :cond_1
     iget v3, p0, Landroid/webkit/HtmlComposerView;->mMaxHtmlLength:I
 
@@ -7345,7 +7345,7 @@
 
     div-int/lit8 v0, v3, 0x3
 
-    .line 3768
+    .line 3778
     .local v0, avoidLength:I
     iget v3, p0, Landroid/webkit/HtmlComposerView;->mAccumlationLength:I
 
@@ -7353,22 +7353,22 @@
 
     iput v3, p0, Landroid/webkit/HtmlComposerView;->mAccumlationLength:I
 
-    .line 3770
+    .line 3780
     iget v3, p0, Landroid/webkit/HtmlComposerView;->mAccumlationLength:I
 
     if-lt v3, v0, :cond_0
 
-    .line 3774
+    .line 3784
     iput v2, p0, Landroid/webkit/HtmlComposerView;->mAccumlationLength:I
 
-    .line 3775
+    .line 3785
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->htmlLength()I
 
     move-result v3
 
     iput v3, p0, Landroid/webkit/HtmlComposerView;->mCurHtmlLength:I
 
-    .line 3776
+    .line 3786
     iget v3, p0, Landroid/webkit/HtmlComposerView;->mCurHtmlLength:I
 
     add-int/2addr v3, p1
@@ -7388,14 +7388,14 @@
     .parameter "y"
 
     .prologue
-    .line 4526
+    .line 4536
     move v0, p1
 
-    .line 4527
+    .line 4537
     .local v0, positionX:I
     move v1, p2
 
-    .line 4529
+    .line 4539
     .local v1, positionY:I
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->region_rect_OutLine:Landroid/graphics/Region;
 
@@ -7405,12 +7405,12 @@
 
     if-eqz v2, :cond_1
 
-    .line 4531
+    .line 4541
     iget-boolean v2, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v2, :cond_0
 
-    .line 4532
+    .line 4542
     const-string v2, "HtmlComposerView"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -7459,21 +7459,21 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4535
+    .line 4545
     :cond_0
     const/4 v2, 0x1
 
-    .line 4543
+    .line 4553
     :goto_0
     return v2
 
-    .line 4538
+    .line 4548
     :cond_1
     iget-boolean v2, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v2, :cond_2
 
-    .line 4539
+    .line 4549
     const-string v2, "HtmlComposerView"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -7522,7 +7522,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4543
+    .line 4553
     :cond_2
     const/4 v2, 0x0
 
@@ -7535,14 +7535,14 @@
     .parameter "y"
 
     .prologue
-    .line 4440
+    .line 4450
     move v0, p1
 
-    .line 4441
+    .line 4451
     .local v0, positionX:I
     move v1, p2
 
-    .line 4443
+    .line 4453
     .local v1, positionY:I
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_RB:Landroid/graphics/Region;
 
@@ -7552,20 +7552,20 @@
 
     if-eqz v3, :cond_1
 
-    .line 4445
+    .line 4455
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_RB:Landroid/graphics/Region;
 
     invoke-virtual {v3}, Landroid/graphics/Region;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v2
 
-    .line 4447
+    .line 4457
     .local v2, temp:Landroid/graphics/Rect;
     iget-boolean v3, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v3, :cond_0
 
-    .line 4448
+    .line 4458
     const-string v3, "HtmlComposerView"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -7646,15 +7646,15 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4451
+    .line 4461
     :cond_0
     const/4 v3, 0x1
 
-    .line 4460
+    .line 4470
     :goto_0
     return v3
 
-    .line 4454
+    .line 4464
     .end local v2           #temp:Landroid/graphics/Rect;
     :cond_1
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_RB:Landroid/graphics/Region;
@@ -7663,13 +7663,13 @@
 
     move-result-object v2
 
-    .line 4456
+    .line 4466
     .restart local v2       #temp:Landroid/graphics/Rect;
     iget-boolean v3, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v3, :cond_2
 
-    .line 4457
+    .line 4467
     const-string v3, "HtmlComposerView"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -7750,7 +7750,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4460
+    .line 4470
     :cond_2
     const/4 v3, 0x0
 
@@ -7763,14 +7763,14 @@
     .parameter "y"
 
     .prologue
-    .line 4480
+    .line 4490
     move v0, p1
 
-    .line 4481
+    .line 4491
     .local v0, positionX:I
     move v1, p2
 
-    .line 4483
+    .line 4493
     .local v1, positionY:I
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_RM:Landroid/graphics/Region;
 
@@ -7780,22 +7780,22 @@
 
     if-eqz v3, :cond_0
 
-    .line 4484
+    .line 4494
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_RM:Landroid/graphics/Region;
 
     invoke-virtual {v3}, Landroid/graphics/Region;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v2
 
-    .line 4486
+    .line 4496
     .local v2, temp:Landroid/graphics/Rect;
     const/4 v3, 0x1
 
-    .line 4491
+    .line 4501
     :goto_0
     return v3
 
-    .line 4489
+    .line 4499
     .end local v2           #temp:Landroid/graphics/Rect;
     :cond_0
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_RM:Landroid/graphics/Region;
@@ -7804,7 +7804,7 @@
 
     move-result-object v2
 
-    .line 4491
+    .line 4501
     .restart local v2       #temp:Landroid/graphics/Rect;
     const/4 v3, 0x0
 
@@ -7817,14 +7817,14 @@
     .parameter "y"
 
     .prologue
-    .line 4412
+    .line 4422
     move v0, p1
 
-    .line 4413
+    .line 4423
     .local v0, positionX:I
     move v1, p2
 
-    .line 4415
+    .line 4425
     .local v1, positionY:I
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_RT:Landroid/graphics/Region;
 
@@ -7834,21 +7834,21 @@
 
     if-eqz v3, :cond_2
 
-    .line 4417
+    .line 4427
     invoke-direct {p0, v0, v1}, Landroid/webkit/HtmlComposerView;->isOutLineRect(II)Z
 
     move-result v3
 
     if-eqz v3, :cond_0
 
-    .line 4419
+    .line 4429
     const-string v3, "HtmlComposerView"
 
     const-string v4, "Right top and outline inteersecting so disable outlineRect region as user intention is to resize not move"
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4421
+    .line 4431
     :cond_0
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_RT:Landroid/graphics/Region;
 
@@ -7856,13 +7856,13 @@
 
     move-result-object v2
 
-    .line 4423
+    .line 4433
     .local v2, temp:Landroid/graphics/Rect;
     iget-boolean v3, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v3, :cond_1
 
-    .line 4424
+    .line 4434
     const-string v3, "HtmlComposerView"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -7943,15 +7943,15 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4427
+    .line 4437
     :cond_1
     const/4 v3, 0x1
 
-    .line 4436
+    .line 4446
     :goto_0
     return v3
 
-    .line 4430
+    .line 4440
     .end local v2           #temp:Landroid/graphics/Rect;
     :cond_2
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_RT:Landroid/graphics/Region;
@@ -7960,13 +7960,13 @@
 
     move-result-object v2
 
-    .line 4432
+    .line 4442
     .restart local v2       #temp:Landroid/graphics/Rect;
     iget-boolean v3, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v3, :cond_3
 
-    .line 4433
+    .line 4443
     const-string v3, "HtmlComposerView"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -8047,7 +8047,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4436
+    .line 4446
     :cond_3
     const/4 v3, 0x0
 
@@ -8060,14 +8060,14 @@
     .parameter "y"
 
     .prologue
-    .line 4495
+    .line 4505
     move v0, p1
 
-    .line 4496
+    .line 4506
     .local v0, positionX:I
     move v1, p2
 
-    .line 4498
+    .line 4508
     .local v1, positionY:I
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_TM:Landroid/graphics/Region;
 
@@ -8077,22 +8077,22 @@
 
     if-eqz v3, :cond_0
 
-    .line 4500
+    .line 4510
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_TM:Landroid/graphics/Region;
 
     invoke-virtual {v3}, Landroid/graphics/Region;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v2
 
-    .line 4502
+    .line 4512
     .local v2, temp:Landroid/graphics/Rect;
     const/4 v3, 0x1
 
-    .line 4507
+    .line 4517
     :goto_0
     return v3
 
-    .line 4505
+    .line 4515
     .end local v2           #temp:Landroid/graphics/Rect;
     :cond_0
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_TM:Landroid/graphics/Region;
@@ -8101,7 +8101,7 @@
 
     move-result-object v2
 
-    .line 4507
+    .line 4517
     .restart local v2       #temp:Landroid/graphics/Rect;
     const/4 v3, 0x0
 
@@ -8114,14 +8114,14 @@
     .parameter "y"
 
     .prologue
-    .line 4389
+    .line 4399
     move v0, p1
 
-    .line 4390
+    .line 4400
     .local v0, positionX:I
     move v1, p2
 
-    .line 4392
+    .line 4402
     .local v1, positionY:I
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_LB:Landroid/graphics/Region;
 
@@ -8131,20 +8131,20 @@
 
     if-eqz v3, :cond_1
 
-    .line 4393
+    .line 4403
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_LB:Landroid/graphics/Region;
 
     invoke-virtual {v3}, Landroid/graphics/Region;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v2
 
-    .line 4395
+    .line 4405
     .local v2, temp:Landroid/graphics/Rect;
     iget-boolean v3, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v3, :cond_0
 
-    .line 4396
+    .line 4406
     const-string v3, "HtmlComposerView"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -8225,15 +8225,15 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4399
+    .line 4409
     :cond_0
     const/4 v3, 0x1
 
-    .line 4408
+    .line 4418
     :goto_0
     return v3
 
-    .line 4402
+    .line 4412
     .end local v2           #temp:Landroid/graphics/Rect;
     :cond_1
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_LB:Landroid/graphics/Region;
@@ -8242,13 +8242,13 @@
 
     move-result-object v2
 
-    .line 4404
+    .line 4414
     .restart local v2       #temp:Landroid/graphics/Rect;
     iget-boolean v3, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v3, :cond_2
 
-    .line 4405
+    .line 4415
     const-string v3, "HtmlComposerView"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -8329,7 +8329,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4408
+    .line 4418
     :cond_2
     const/4 v3, 0x0
 
@@ -8342,14 +8342,14 @@
     .parameter "y"
 
     .prologue
-    .line 4464
+    .line 4474
     move v0, p1
 
-    .line 4465
+    .line 4475
     .local v0, positionX:I
     move v1, p2
 
-    .line 4467
+    .line 4477
     .local v1, positionY:I
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_LM:Landroid/graphics/Region;
 
@@ -8359,22 +8359,22 @@
 
     if-eqz v3, :cond_0
 
-    .line 4469
+    .line 4479
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_LM:Landroid/graphics/Region;
 
     invoke-virtual {v3}, Landroid/graphics/Region;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v2
 
-    .line 4471
+    .line 4481
     .local v2, temp:Landroid/graphics/Rect;
     const/4 v3, 0x1
 
-    .line 4476
+    .line 4486
     :goto_0
     return v3
 
-    .line 4474
+    .line 4484
     .end local v2           #temp:Landroid/graphics/Rect;
     :cond_0
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_LM:Landroid/graphics/Region;
@@ -8383,7 +8383,7 @@
 
     move-result-object v2
 
-    .line 4476
+    .line 4486
     .restart local v2       #temp:Landroid/graphics/Rect;
     const/4 v3, 0x0
 
@@ -8396,14 +8396,14 @@
     .parameter "y"
 
     .prologue
-    .line 4365
+    .line 4375
     move v0, p1
 
-    .line 4366
+    .line 4376
     .local v0, positionX:I
     move v1, p2
 
-    .line 4368
+    .line 4378
     .local v1, positionY:I
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_LT:Landroid/graphics/Region;
 
@@ -8413,20 +8413,20 @@
 
     if-eqz v3, :cond_1
 
-    .line 4370
+    .line 4380
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_LT:Landroid/graphics/Region;
 
     invoke-virtual {v3}, Landroid/graphics/Region;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v2
 
-    .line 4372
+    .line 4382
     .local v2, temp:Landroid/graphics/Rect;
     iget-boolean v3, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v3, :cond_0
 
-    .line 4373
+    .line 4383
     const-string v3, "HtmlComposerView"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -8507,15 +8507,15 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4376
+    .line 4386
     :cond_0
     const/4 v3, 0x1
 
-    .line 4385
+    .line 4395
     :goto_0
     return v3
 
-    .line 4379
+    .line 4389
     .end local v2           #temp:Landroid/graphics/Rect;
     :cond_1
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->region_rect_LT:Landroid/graphics/Region;
@@ -8524,13 +8524,13 @@
 
     move-result-object v2
 
-    .line 4381
+    .line 4391
     .restart local v2       #temp:Landroid/graphics/Rect;
     iget-boolean v3, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v3, :cond_2
 
-    .line 4382
+    .line 4392
     const-string v3, "HtmlComposerView"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -8611,7 +8611,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4385
+    .line 4395
     :cond_2
     const/4 v3, 0x0
 
@@ -8622,12 +8622,12 @@
     .locals 6
 
     .prologue
-    .line 4549
+    .line 4559
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->outLinePath:Landroid/graphics/Path;
 
     invoke-virtual {v0}, Landroid/graphics/Path;->reset()V
 
-    .line 4550
+    .line 4560
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->outLinePath:Landroid/graphics/Path;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -8650,7 +8650,7 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Path;->addRect(FFFFLandroid/graphics/Path$Direction;)V
 
-    .line 4551
+    .line 4561
     return-void
 .end method
 
@@ -8658,12 +8658,12 @@
     .locals 6
 
     .prologue
-    .line 4554
+    .line 4564
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->handlesPath:Landroid/graphics/Path;
 
     invoke-virtual {v0}, Landroid/graphics/Path;->reset()V
 
-    .line 4555
+    .line 4565
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->handlesPath:Landroid/graphics/Path;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->leftTopCropHandler:Landroid/graphics/Rect;
@@ -8694,12 +8694,12 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Path;->addRect(FFFFLandroid/graphics/Path$Direction;)V
 
-    .line 4556
+    .line 4566
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->handlesPath:Landroid/graphics/Path;
 
     invoke-virtual {v0}, Landroid/graphics/Path;->close()V
 
-    .line 4558
+    .line 4568
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->handlesPath:Landroid/graphics/Path;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->rightBottomCropHandler:Landroid/graphics/Rect;
@@ -8730,12 +8730,12 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Path;->addRect(FFFFLandroid/graphics/Path$Direction;)V
 
-    .line 4559
+    .line 4569
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->handlesPath:Landroid/graphics/Path;
 
     invoke-virtual {v0}, Landroid/graphics/Path;->close()V
 
-    .line 4561
+    .line 4571
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->handlesPath:Landroid/graphics/Path;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->rightTopCropHandler:Landroid/graphics/Rect;
@@ -8766,12 +8766,12 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Path;->addRect(FFFFLandroid/graphics/Path$Direction;)V
 
-    .line 4562
+    .line 4572
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->handlesPath:Landroid/graphics/Path;
 
     invoke-virtual {v0}, Landroid/graphics/Path;->close()V
 
-    .line 4564
+    .line 4574
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->handlesPath:Landroid/graphics/Path;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->leftBottomCropHandler:Landroid/graphics/Rect;
@@ -8802,12 +8802,12 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Path;->addRect(FFFFLandroid/graphics/Path$Direction;)V
 
-    .line 4565
+    .line 4575
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->handlesPath:Landroid/graphics/Path;
 
     invoke-virtual {v0}, Landroid/graphics/Path;->close()V
 
-    .line 4567
+    .line 4577
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->handlesPath:Landroid/graphics/Path;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->leftMiddleCropHandler:Landroid/graphics/Rect;
@@ -8838,12 +8838,12 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Path;->addRect(FFFFLandroid/graphics/Path$Direction;)V
 
-    .line 4568
+    .line 4578
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->handlesPath:Landroid/graphics/Path;
 
     invoke-virtual {v0}, Landroid/graphics/Path;->close()V
 
-    .line 4570
+    .line 4580
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->handlesPath:Landroid/graphics/Path;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->rightMiddleCropHandler:Landroid/graphics/Rect;
@@ -8874,12 +8874,12 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Path;->addRect(FFFFLandroid/graphics/Path$Direction;)V
 
-    .line 4571
+    .line 4581
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->handlesPath:Landroid/graphics/Path;
 
     invoke-virtual {v0}, Landroid/graphics/Path;->close()V
 
-    .line 4573
+    .line 4583
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->handlesPath:Landroid/graphics/Path;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->topMiddleCropHandler:Landroid/graphics/Rect;
@@ -8910,12 +8910,12 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Path;->addRect(FFFFLandroid/graphics/Path$Direction;)V
 
-    .line 4574
+    .line 4584
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->handlesPath:Landroid/graphics/Path;
 
     invoke-virtual {v0}, Landroid/graphics/Path;->close()V
 
-    .line 4576
+    .line 4586
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->handlesPath:Landroid/graphics/Path;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->bottomMiddleCropHandler:Landroid/graphics/Rect;
@@ -8946,12 +8946,12 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Path;->addRect(FFFFLandroid/graphics/Path$Direction;)V
 
-    .line 4577
+    .line 4587
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->handlesPath:Landroid/graphics/Path;
 
     invoke-virtual {v0}, Landroid/graphics/Path;->close()V
 
-    .line 4578
+    .line 4588
     return-void
 .end method
 
@@ -8961,7 +8961,7 @@
     .prologue
     const/4 v3, -0x1
 
-    .line 3781
+    .line 3791
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -8974,7 +8974,7 @@
 
     check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
-    .line 3783
+    .line 3793
     .local v0, imm:Landroid/view/inputmethod/InputMethodManager;
     const/4 v1, 0x1
 
@@ -8984,20 +8984,20 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 3784
+    .line 3794
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     iput v3, v1, Landroid/webkit/HtmlComposerInputConnection;->composingStart:I
 
-    .line 3785
+    .line 3795
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     iput v3, v1, Landroid/webkit/HtmlComposerInputConnection;->composingEnd:I
 
-    .line 3786
+    .line 3796
     invoke-virtual {v0, p0}, Landroid/view/inputmethod/InputMethodManager;->restartInput(Landroid/view/View;)V
 
-    .line 3788
+    .line 3798
     :cond_0
     return-void
 .end method
@@ -9008,7 +9008,7 @@
     .prologue
     const/4 v3, -0x1
 
-    .line 3955
+    .line 3965
     iget-boolean v1, p0, Landroid/webkit/HtmlComposerView;->isImageSelected:Z
 
     if-eqz v1, :cond_0
@@ -9021,7 +9021,7 @@
 
     if-eq v1, v3, :cond_0
 
-    .line 3957
+    .line 3967
     iget v1, p0, Landroid/webkit/HtmlComposerView;->imageSelectedX:I
 
     iget v2, p0, Landroid/webkit/HtmlComposerView;->imageSelectedY:I
@@ -9030,7 +9030,7 @@
 
     move-result-object v0
 
-    .line 3958
+    .line 3968
     .local v0, selectedImageRect:Landroid/graphics/Rect;
     iget v1, v0, Landroid/graphics/Rect;->left:I
 
@@ -9048,10 +9048,10 @@
 
     if-eq v1, v3, :cond_0
 
-    .line 3959
+    .line 3969
     invoke-virtual {p0, v0}, Landroid/webkit/HtmlComposerView;->updateOutlineDrawRect(Landroid/graphics/Rect;)V
 
-    .line 3961
+    .line 3971
     .end local v0           #selectedImageRect:Landroid/graphics/Rect;
     :cond_0
     return-void
@@ -9061,23 +9061,23 @@
     .locals 2
 
     .prologue
-    .line 3815
+    .line 3825
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 3816
+    .line 3826
     .local v0, msg:Landroid/os/Message;
     const/16 v1, 0x501
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 3817
+    .line 3827
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->myHandler:Landroid/webkit/HtmlComposerView$HCWHandler;
 
     invoke-virtual {v1, v0}, Landroid/webkit/HtmlComposerView$HCWHandler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 3818
+    .line 3828
     return-void
 .end method
 
@@ -9088,7 +9088,7 @@
     .prologue
     const/16 v2, 0x207
 
-    .line 3804
+    .line 3814
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getNativeClass()I
@@ -9107,12 +9107,12 @@
 
     if-nez v0, :cond_1
 
-    .line 3812
+    .line 3822
     :cond_0
     :goto_0
     return-void
 
-    .line 3806
+    .line 3816
     :cond_1
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
@@ -9122,10 +9122,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 3808
+    .line 3818
     if-eqz p1, :cond_2
 
-    .line 3809
+    .line 3819
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -9138,7 +9138,7 @@
 
     goto :goto_0
 
-    .line 3811
+    .line 3821
     :cond_2
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
@@ -9157,31 +9157,31 @@
     .locals 0
 
     .prologue
-    .line 4583
+    .line 4593
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateLeftTopHandle()V
 
-    .line 4584
+    .line 4594
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateRightTopHandle()V
 
-    .line 4585
+    .line 4595
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateLeftBottomHandle()V
 
-    .line 4586
+    .line 4596
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateRightBottomHandle()V
 
-    .line 4587
+    .line 4597
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateTopMiddleHandle()V
 
-    .line 4588
+    .line 4598
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateLeftMiddleHandle()V
 
-    .line 4589
+    .line 4599
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateBottomMiddleHandle()V
 
-    .line 4590
+    .line 4600
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateRightMiddleHandle()V
 
-    .line 4591
+    .line 4601
     return-void
 .end method
 
@@ -9191,14 +9191,14 @@
     .prologue
     const/high16 v6, 0x4000
 
-    .line 4699
+    .line 4709
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->bottomMiddleHandleEnabled:Z
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 4700
+    .line 4710
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->bottomMiddleCropHandler:Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9221,7 +9221,7 @@
 
     iput v1, v0, Landroid/graphics/Rect;->left:I
 
-    .line 4701
+    .line 4711
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->bottomMiddleCropHandler:Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9232,7 +9232,7 @@
 
     iput v1, v0, Landroid/graphics/Rect;->top:I
 
-    .line 4702
+    .line 4712
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->bottomMiddleCropHandler:Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->bottomMiddleCropHandler:Landroid/graphics/Rect;
@@ -9245,7 +9245,7 @@
 
     iput v1, v0, Landroid/graphics/Rect;->right:I
 
-    .line 4703
+    .line 4713
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->bottomMiddleCropHandler:Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->bottomMiddleCropHandler:Landroid/graphics/Rect;
@@ -9258,11 +9258,11 @@
 
     iput v1, v0, Landroid/graphics/Rect;->bottom:I
 
-    .line 4708
+    .line 4718
     :goto_0
     return-void
 
-    .line 4706
+    .line 4716
     :cond_0
     new-instance v0, Landroid/graphics/Rect;
 
@@ -9331,12 +9331,12 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 3828
+    .line 3838
     new-instance v1, Landroid/view/inputmethod/ExtractedText;
 
     invoke-direct {v1}, Landroid/view/inputmethod/ExtractedText;-><init>()V
 
-    .line 3829
+    .line 3839
     .local v1, outText:Landroid/view/inputmethod/ExtractedText;
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->getPlainText()Ljava/lang/String;
 
@@ -9344,17 +9344,17 @@
 
     iput-object v3, v1, Landroid/view/inputmethod/ExtractedText;->text:Ljava/lang/CharSequence;
 
-    .line 3831
+    .line 3841
     iget-object v3, v1, Landroid/view/inputmethod/ExtractedText;->text:Ljava/lang/CharSequence;
 
     if-nez v3, :cond_1
 
-    .line 3846
+    .line 3856
     :cond_0
     :goto_0
     return-void
 
-    .line 3834
+    .line 3844
     :cond_1
     const/4 v3, -0x1
 
@@ -9362,41 +9362,41 @@
 
     iput v3, v1, Landroid/view/inputmethod/ExtractedText;->partialStartOffset:I
 
-    .line 3835
+    .line 3845
     iput v5, v1, Landroid/view/inputmethod/ExtractedText;->flags:I
 
-    .line 3836
+    .line 3846
     iput v5, v1, Landroid/view/inputmethod/ExtractedText;->startOffset:I
 
-    .line 3837
+    .line 3847
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->getSelectionOffset()Landroid/webkit/HtmlComposerView$SelectionOffset;
 
     move-result-object v2
 
-    .line 3838
+    .line 3848
     .local v2, selctionOffset:Landroid/webkit/HtmlComposerView$SelectionOffset;
     iget v3, v2, Landroid/webkit/HtmlComposerView$SelectionOffset;->startOffset:I
 
     iput v3, v1, Landroid/view/inputmethod/ExtractedText;->selectionStart:I
 
-    .line 3839
+    .line 3849
     iget v3, v2, Landroid/webkit/HtmlComposerView$SelectionOffset;->endOffset:I
 
     iput v3, v1, Landroid/view/inputmethod/ExtractedText;->selectionEnd:I
 
-    .line 3841
+    .line 3851
     const-string v3, "HtmlComposerView"
 
     const-string v4, "getExtractedText "
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3843
+    .line 3853
     invoke-static {}, Landroid/view/inputmethod/InputMethodManager;->peekInstance()Landroid/view/inputmethod/InputMethodManager;
 
     move-result-object v0
 
-    .line 3844
+    .line 3854
     .local v0, imm:Landroid/view/inputmethod/InputMethodManager;
     if-eqz v0, :cond_0
 
@@ -9406,7 +9406,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 3845
+    .line 3855
     invoke-virtual {v0, p0, v5, v1}, Landroid/view/inputmethod/InputMethodManager;->updateExtractedText(Landroid/view/View;ILandroid/view/inputmethod/ExtractedText;)V
 
     goto :goto_0
@@ -9416,14 +9416,14 @@
     .locals 6
 
     .prologue
-    .line 4627
+    .line 4637
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->leftBottomHandleEnabled:Z
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 4629
+    .line 4639
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->leftBottomCropHandler:Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9438,7 +9438,7 @@
 
     iput v1, v0, Landroid/graphics/Rect;->left:I
 
-    .line 4630
+    .line 4640
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->leftBottomCropHandler:Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9449,7 +9449,7 @@
 
     iput v1, v0, Landroid/graphics/Rect;->top:I
 
-    .line 4631
+    .line 4641
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->leftBottomCropHandler:Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->leftBottomCropHandler:Landroid/graphics/Rect;
@@ -9462,7 +9462,7 @@
 
     iput v1, v0, Landroid/graphics/Rect;->right:I
 
-    .line 4632
+    .line 4642
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->leftBottomCropHandler:Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->leftBottomCropHandler:Landroid/graphics/Rect;
@@ -9475,11 +9475,11 @@
 
     iput v1, v0, Landroid/graphics/Rect;->bottom:I
 
-    .line 4637
+    .line 4647
     :goto_0
     return-void
 
-    .line 4635
+    .line 4645
     :cond_0
     new-instance v0, Landroid/graphics/Rect;
 
@@ -9528,7 +9528,7 @@
     .prologue
     const/high16 v7, 0x4000
 
-    .line 4695
+    .line 4705
     new-instance v0, Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9587,7 +9587,7 @@
 
     iput-object v0, p0, Landroid/webkit/HtmlComposerView;->leftMiddleCropHandler:Landroid/graphics/Rect;
 
-    .line 4696
+    .line 4706
     return-void
 .end method
 
@@ -9595,7 +9595,7 @@
     .locals 5
 
     .prologue
-    .line 4622
+    .line 4632
     new-instance v0, Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9634,7 +9634,7 @@
 
     iput-object v0, p0, Landroid/webkit/HtmlComposerView;->leftTopCropHandler:Landroid/graphics/Rect;
 
-    .line 4623
+    .line 4633
     return-void
 .end method
 
@@ -9646,12 +9646,12 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 4640
+    .line 4650
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->rightBottomHandleEnabled:Z
 
     if-ne v0, v3, :cond_0
 
-    .line 4641
+    .line 4651
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9664,7 +9664,7 @@
 
     iput v1, v0, Landroid/graphics/RectF;->right:F
 
-    .line 4642
+    .line 4652
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9677,13 +9677,13 @@
 
     iput v1, v0, Landroid/graphics/RectF;->bottom:F
 
-    .line 4644
+    .line 4654
     :cond_0
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->leftBottomHandleEnabled:Z
 
     if-ne v0, v3, :cond_1
 
-    .line 4645
+    .line 4655
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9696,7 +9696,7 @@
 
     iput v1, v0, Landroid/graphics/RectF;->left:F
 
-    .line 4646
+    .line 4656
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9709,13 +9709,13 @@
 
     iput v1, v0, Landroid/graphics/RectF;->bottom:F
 
-    .line 4648
+    .line 4658
     :cond_1
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->leftTopHandleEnabled:Z
 
     if-ne v0, v3, :cond_2
 
-    .line 4649
+    .line 4659
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9728,7 +9728,7 @@
 
     iput v1, v0, Landroid/graphics/RectF;->left:F
 
-    .line 4650
+    .line 4660
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9741,13 +9741,13 @@
 
     iput v1, v0, Landroid/graphics/RectF;->top:F
 
-    .line 4652
+    .line 4662
     :cond_2
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->rightTopHandleEnabled:Z
 
     if-ne v0, v3, :cond_3
 
-    .line 4653
+    .line 4663
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9760,7 +9760,7 @@
 
     iput v1, v0, Landroid/graphics/RectF;->right:F
 
-    .line 4654
+    .line 4664
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9773,13 +9773,13 @@
 
     iput v1, v0, Landroid/graphics/RectF;->top:F
 
-    .line 4656
+    .line 4666
     :cond_3
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->rightMiddleHandleEnabled:Z
 
     if-ne v0, v3, :cond_4
 
-    .line 4657
+    .line 4667
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9792,7 +9792,7 @@
 
     iput v1, v0, Landroid/graphics/RectF;->right:F
 
-    .line 4658
+    .line 4668
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9805,13 +9805,13 @@
 
     iput v1, v0, Landroid/graphics/RectF;->top:F
 
-    .line 4660
+    .line 4670
     :cond_4
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->leftMiddleHandleEnabled:Z
 
     if-ne v0, v3, :cond_5
 
-    .line 4661
+    .line 4671
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9824,7 +9824,7 @@
 
     iput v1, v0, Landroid/graphics/RectF;->left:F
 
-    .line 4662
+    .line 4672
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9837,13 +9837,13 @@
 
     iput v1, v0, Landroid/graphics/RectF;->top:F
 
-    .line 4664
+    .line 4674
     :cond_5
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->topMiddleHandleEnabled:Z
 
     if-ne v0, v3, :cond_6
 
-    .line 4665
+    .line 4675
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9856,7 +9856,7 @@
 
     iput v1, v0, Landroid/graphics/RectF;->left:F
 
-    .line 4666
+    .line 4676
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9869,13 +9869,13 @@
 
     iput v1, v0, Landroid/graphics/RectF;->top:F
 
-    .line 4668
+    .line 4678
     :cond_6
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->bottomMiddleHandleEnabled:Z
 
     if-ne v0, v3, :cond_7
 
-    .line 4669
+    .line 4679
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9888,7 +9888,7 @@
 
     iput v1, v0, Landroid/graphics/RectF;->left:F
 
-    .line 4670
+    .line 4680
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9901,7 +9901,7 @@
 
     iput v1, v0, Landroid/graphics/RectF;->bottom:F
 
-    .line 4672
+    .line 4682
     :cond_7
     return-void
 .end method
@@ -9912,7 +9912,7 @@
     .prologue
     const-wide v4, 0x3fc3333333333333L
 
-    .line 4595
+    .line 4605
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v2, v2, Landroid/graphics/RectF;->left:F
@@ -9929,7 +9929,7 @@
 
     float-to-int v1, v2
 
-    .line 4596
+    .line 4606
     .local v1, localImagWidth:I
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
@@ -9947,7 +9947,7 @@
 
     float-to-int v0, v2
 
-    .line 4597
+    .line 4607
     .local v0, localImagHeight:I
     int-to-double v2, v1
 
@@ -9957,7 +9957,7 @@
 
     iput v2, p0, Landroid/webkit/HtmlComposerView;->extraRegiontoCover:I
 
-    .line 4599
+    .line 4609
     int-to-double v2, v0
 
     mul-double/2addr v2, v4
@@ -9966,7 +9966,7 @@
 
     iput v2, p0, Landroid/webkit/HtmlComposerView;->extraHeightRegionToCover:I
 
-    .line 4600
+    .line 4610
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->region_rect_OutLine:Landroid/graphics/Region;
 
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -9997,7 +9997,7 @@
 
     invoke-virtual {v2, v3, v4, v5, v6}, Landroid/graphics/Region;->set(IIII)Z
 
-    .line 4601
+    .line 4611
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->region_rect_LT:Landroid/graphics/Region;
 
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->leftTopCropHandler:Landroid/graphics/Rect;
@@ -10034,7 +10034,7 @@
 
     invoke-virtual {v2, v3, v4, v5, v6}, Landroid/graphics/Region;->set(IIII)Z
 
-    .line 4604
+    .line 4614
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->region_rect_RT:Landroid/graphics/Region;
 
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->rightTopCropHandler:Landroid/graphics/Rect;
@@ -10071,7 +10071,7 @@
 
     invoke-virtual {v2, v3, v4, v5, v6}, Landroid/graphics/Region;->set(IIII)Z
 
-    .line 4606
+    .line 4616
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->region_rect_LB:Landroid/graphics/Region;
 
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->leftBottomCropHandler:Landroid/graphics/Rect;
@@ -10108,7 +10108,7 @@
 
     invoke-virtual {v2, v3, v4, v5, v6}, Landroid/graphics/Region;->set(IIII)Z
 
-    .line 4608
+    .line 4618
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->region_rect_RB:Landroid/graphics/Region;
 
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->rightBottomCropHandler:Landroid/graphics/Rect;
@@ -10145,7 +10145,7 @@
 
     invoke-virtual {v2, v3, v4, v5, v6}, Landroid/graphics/Region;->set(IIII)Z
 
-    .line 4610
+    .line 4620
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->region_rect_TM:Landroid/graphics/Region;
 
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->topMiddleCropHandler:Landroid/graphics/Rect;
@@ -10182,7 +10182,7 @@
 
     invoke-virtual {v2, v3, v4, v5, v6}, Landroid/graphics/Region;->set(IIII)Z
 
-    .line 4612
+    .line 4622
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->region_rect_RM:Landroid/graphics/Region;
 
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->rightMiddleCropHandler:Landroid/graphics/Rect;
@@ -10219,7 +10219,7 @@
 
     invoke-virtual {v2, v3, v4, v5, v6}, Landroid/graphics/Region;->set(IIII)Z
 
-    .line 4614
+    .line 4624
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->region_rect_LM:Landroid/graphics/Region;
 
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->leftMiddleCropHandler:Landroid/graphics/Rect;
@@ -10256,7 +10256,7 @@
 
     invoke-virtual {v2, v3, v4, v5, v6}, Landroid/graphics/Region;->set(IIII)Z
 
-    .line 4616
+    .line 4626
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->region_rect_BM:Landroid/graphics/Region;
 
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->bottomMiddleCropHandler:Landroid/graphics/Rect;
@@ -10293,7 +10293,7 @@
 
     invoke-virtual {v2, v3, v4, v5, v6}, Landroid/graphics/Region;->set(IIII)Z
 
-    .line 4617
+    .line 4627
     return-void
 .end method
 
@@ -10301,14 +10301,14 @@
     .locals 6
 
     .prologue
-    .line 4675
+    .line 4685
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->rightBottomHandleEnabled:Z
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 4676
+    .line 4686
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->rightBottomCropHandler:Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -10319,7 +10319,7 @@
 
     iput v1, v0, Landroid/graphics/Rect;->left:I
 
-    .line 4677
+    .line 4687
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->rightBottomCropHandler:Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -10330,7 +10330,7 @@
 
     iput v1, v0, Landroid/graphics/Rect;->top:I
 
-    .line 4678
+    .line 4688
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->rightBottomCropHandler:Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->rightBottomCropHandler:Landroid/graphics/Rect;
@@ -10343,7 +10343,7 @@
 
     iput v1, v0, Landroid/graphics/Rect;->right:I
 
-    .line 4679
+    .line 4689
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->rightBottomCropHandler:Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->rightBottomCropHandler:Landroid/graphics/Rect;
@@ -10356,11 +10356,11 @@
 
     iput v1, v0, Landroid/graphics/Rect;->bottom:I
 
-    .line 4684
+    .line 4694
     :goto_0
     return-void
 
-    .line 4682
+    .line 4692
     :cond_0
     new-instance v0, Landroid/graphics/Rect;
 
@@ -10409,7 +10409,7 @@
     .prologue
     const/high16 v7, 0x4000
 
-    .line 4711
+    .line 4721
     new-instance v0, Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -10468,7 +10468,7 @@
 
     iput-object v0, p0, Landroid/webkit/HtmlComposerView;->rightMiddleCropHandler:Landroid/graphics/Rect;
 
-    .line 4712
+    .line 4722
     return-void
 .end method
 
@@ -10476,7 +10476,7 @@
     .locals 5
 
     .prologue
-    .line 4687
+    .line 4697
     new-instance v0, Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -10507,7 +10507,7 @@
 
     iput-object v0, p0, Landroid/webkit/HtmlComposerView;->rightTopCropHandler:Landroid/graphics/Rect;
 
-    .line 4688
+    .line 4698
     return-void
 .end method
 
@@ -10517,14 +10517,14 @@
     .prologue
     const/high16 v6, 0x4000
 
-    .line 4715
+    .line 4725
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->topMiddleHandleEnabled:Z
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 4716
+    .line 4726
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->topMiddleCropHandler:Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -10547,7 +10547,7 @@
 
     iput v1, v0, Landroid/graphics/Rect;->left:I
 
-    .line 4717
+    .line 4727
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->topMiddleCropHandler:Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -10562,7 +10562,7 @@
 
     iput v1, v0, Landroid/graphics/Rect;->top:I
 
-    .line 4718
+    .line 4728
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->topMiddleCropHandler:Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->topMiddleCropHandler:Landroid/graphics/Rect;
@@ -10575,7 +10575,7 @@
 
     iput v1, v0, Landroid/graphics/Rect;->right:I
 
-    .line 4719
+    .line 4729
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->topMiddleCropHandler:Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->topMiddleCropHandler:Landroid/graphics/Rect;
@@ -10588,11 +10588,11 @@
 
     iput v1, v0, Landroid/graphics/Rect;->bottom:I
 
-    .line 4724
+    .line 4734
     :goto_0
     return-void
 
-    .line 4722
+    .line 4732
     :cond_0
     new-instance v0, Landroid/graphics/Rect;
 
@@ -10659,7 +10659,7 @@
     .locals 2
 
     .prologue
-    .line 3821
+    .line 3831
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getNativeClass()I
@@ -10678,12 +10678,12 @@
 
     if-nez v0, :cond_1
 
-    .line 3825
+    .line 3835
     :cond_0
     :goto_0
     return-void
 
-    .line 3823
+    .line 3833
     :cond_1
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
@@ -10693,7 +10693,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 3824
+    .line 3834
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -10737,7 +10737,7 @@
     .locals 1
 
     .prologue
-    .line 4801
+    .line 4811
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->mLongPressForActionPopup:Z
 
     return v0
@@ -10752,7 +10752,7 @@
 
     const/4 v9, 0x1
 
-    .line 4959
+    .line 4969
     iget-boolean v1, p0, Landroid/webkit/HtmlComposerView;->bShowSingleCursorHandler:Z
 
     if-ne v9, v1, :cond_1
@@ -10767,7 +10767,7 @@
 
     if-ne v9, v1, :cond_1
 
-    .line 4961
+    .line 4971
     iget-boolean v1, p0, Landroid/webkit/HtmlComposerView;->mIsSCHExpired:Z
 
     if-ne v9, v1, :cond_5
@@ -10776,15 +10776,15 @@
 
     if-nez v1, :cond_5
 
-    .line 4964
+    .line 4974
     iput-boolean v10, p0, Landroid/webkit/HtmlComposerView;->bShowSingleCursorHandler:Z
 
-    .line 4965
+    .line 4975
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerViewCursorHandlerListener:Landroid/webkit/HtmlComposerViewUtils$HtmlComposerViewCursorHandlerListener;
 
     if-eqz v1, :cond_0
 
-    .line 4967
+    .line 4977
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerViewCursorHandlerListener:Landroid/webkit/HtmlComposerViewUtils$HtmlComposerViewCursorHandlerListener;
 
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerViewCursorHandlerListener:Landroid/webkit/HtmlComposerViewUtils$HtmlComposerViewCursorHandlerListener;
@@ -10793,17 +10793,17 @@
 
     invoke-interface {v1, v2}, Landroid/webkit/HtmlComposerViewUtils$HtmlComposerViewCursorHandlerListener;->isVisibleCursorHandler(I)V
 
-    .line 4969
+    .line 4979
     :cond_0
     iput-boolean v10, p0, Landroid/webkit/HtmlComposerView;->isTouchedSCH:Z
 
-    .line 4970
+    .line 4980
     iput-boolean v10, p0, Landroid/webkit/HtmlComposerView;->isSCHCompletelyDrawn:Z
 
-    .line 4971
+    .line 4981
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->invalidate()V
 
-    .line 4982
+    .line 4992
     :cond_1
     :goto_0
     iget-boolean v1, p0, Landroid/webkit/HtmlComposerView;->imageCanbeMoved:Z
@@ -10840,16 +10840,16 @@
 
     if-nez v1, :cond_2
 
-    .line 4984
+    .line 4994
     invoke-virtual {p0, v9}, Landroid/webkit/HtmlComposerView;->getCursorRect(Z)Landroid/graphics/Rect;
 
     move-result-object v7
 
-    .line 4985
+    .line 4995
     .local v7, normalCursorRect:Landroid/graphics/Rect;
     if-eqz v7, :cond_2
 
-    .line 4986
+    .line 4996
     new-instance v6, Landroid/graphics/Rect;
 
     iget v1, v7, Landroid/graphics/Rect;->left:I
@@ -10868,13 +10868,13 @@
 
     invoke-direct {v6, v1, v2, v3, v4}, Landroid/graphics/Rect;-><init>(IIII)V
 
-    .line 4987
+    .line 4997
     .local v6, imageCursorRect:Landroid/graphics/Rect;
     new-instance v0, Landroid/graphics/Path;
 
     invoke-direct {v0}, Landroid/graphics/Path;-><init>()V
 
-    .line 4988
+    .line 4998
     .local v0, cursorPath:Landroid/graphics/Path;
     iget v1, v6, Landroid/graphics/Rect;->left:I
 
@@ -10896,24 +10896,24 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Path;->addRect(FFFFLandroid/graphics/Path$Direction;)V
 
-    .line 4989
+    .line 4999
     invoke-virtual {v0}, Landroid/graphics/Path;->close()V
 
-    .line 4990
+    .line 5000
     new-instance v8, Landroid/graphics/Paint;
 
     invoke-direct {v8}, Landroid/graphics/Paint;-><init>()V
 
-    .line 4991
+    .line 5001
     .local v8, paint:Landroid/graphics/Paint;
     sget-object v1, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
     invoke-virtual {v8, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    .line 4992
+    .line 5002
     invoke-virtual {p1, v0, v8}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
-    .line 4997
+    .line 5007
     .end local v0           #cursorPath:Landroid/graphics/Path;
     .end local v6           #imageCursorRect:Landroid/graphics/Rect;
     .end local v7           #normalCursorRect:Landroid/graphics/Rect;
@@ -10935,30 +10935,30 @@
 
     if-ne v1, v2, :cond_3
 
-    .line 4998
+    .line 5008
     const-string v1, "HtmlComposerView"
 
     const-string v2, "drawWebImageSelectionControl is being called "
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4999
+    .line 5009
     invoke-direct {p0, p1}, Landroid/webkit/HtmlComposerView;->drawWebImageSelectionControl(Landroid/graphics/Canvas;)V
 
-    .line 5002
+    .line 5012
     :cond_3
     iget-boolean v1, p0, Landroid/webkit/HtmlComposerView;->isImageSelected:Z
 
     if-ne v1, v9, :cond_4
 
-    .line 5003
+    .line 5013
     iput-boolean v10, p0, Landroid/webkit/HtmlComposerView;->bShowSingleCursorHandler:Z
 
-    .line 5005
+    .line 5015
     :cond_4
     return-void
 
-    .line 4977
+    .line 4987
     :cond_5
     invoke-direct {p0, p1}, Landroid/webkit/HtmlComposerView;->drawSingleCursorHandler(Landroid/graphics/Canvas;)V
 
@@ -11000,25 +11000,25 @@
     .locals 2
 
     .prologue
-    .line 3332
+    .line 3342
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 3333
+    .line 3343
     .local v0, imeBroadCast:Landroid/content/Intent;
     const-string v1, "imeAction:initComposing"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 3334
+    .line 3344
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 3335
+    .line 3345
     return-void
 .end method
 
@@ -11027,10 +11027,10 @@
     .parameter "_visible"
 
     .prologue
-    .line 3281
+    .line 3291
     iput-boolean p1, p0, Landroid/webkit/HtmlComposerView;->isContextMenuVisible:Z
 
-    .line 3282
+    .line 3292
     return-void
 .end method
 
@@ -11039,10 +11039,10 @@
     .parameter "_set"
 
     .prologue
-    .line 4805
+    .line 4815
     iput-boolean p1, p0, Landroid/webkit/HtmlComposerView;->mLongPressForActionPopup:Z
 
-    .line 4806
+    .line 4816
     return-void
 .end method
 
@@ -11053,19 +11053,19 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 3392
+    .line 3402
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mRichTextFormatChangedListener:Landroid/webkit/HtmlComposerView$RichTextFormatChangedListener;
 
     if-eqz v0, :cond_1
 
-    .line 3393
+    .line 3403
     if-eq p1, v1, :cond_0
 
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->isImageSelected:Z
 
     if-ne v0, v1, :cond_2
 
-    .line 3394
+    .line 3404
     :cond_0
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mRichTextFormatChangedListener:Landroid/webkit/HtmlComposerView$RichTextFormatChangedListener;
 
@@ -11073,25 +11073,25 @@
 
     invoke-interface {v0, v1}, Landroid/webkit/HtmlComposerView$RichTextFormatChangedListener;->onChanged(I)V
 
-    .line 3401
+    .line 3411
     :cond_1
     :goto_0
     return-void
 
-    .line 3395
+    .line 3405
     :cond_2
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->isInComposingState:Z
 
     if-ne v0, v1, :cond_3
 
-    .line 3396
+    .line 3406
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mRichTextFormatChangedListener:Landroid/webkit/HtmlComposerView$RichTextFormatChangedListener;
 
     invoke-interface {v0, v1}, Landroid/webkit/HtmlComposerView$RichTextFormatChangedListener;->onChanged(I)V
 
     goto :goto_0
 
-    .line 3398
+    .line 3408
     :cond_3
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mRichTextFormatChangedListener:Landroid/webkit/HtmlComposerView$RichTextFormatChangedListener;
 
@@ -11107,10 +11107,10 @@
     .parameter "watcher"
 
     .prologue
-    .line 4736
+    .line 4746
     iput-object p1, p0, Landroid/webkit/HtmlComposerView;->textWatcher:Landroid/text/TextWatcher;
 
-    .line 4737
+    .line 4747
     return-void
 .end method
 
@@ -11853,14 +11853,14 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 5176
+    .line 5186
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v1, "HtmlComposerView  clearImageSelection"
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 5178
+    .line 5188
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->isImageSelected:Z
 
     if-eqz v0, :cond_0
@@ -11871,36 +11871,36 @@
 
     if-eqz v0, :cond_0
 
-    .line 5179
+    .line 5189
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v1, "HtmlComposerView  clearImageSelection  Clearing selection"
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 5180
+    .line 5190
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->isImageSelected:Z
 
-    .line 5181
+    .line 5191
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     const/4 v1, 0x0
 
     iput-object v1, v0, Landroid/webkit/WebViewClassic;->mImageCopyInfo:Landroid/webkit/WebViewCore$ImageSelectionCopiedData;
 
-    .line 5182
+    .line 5192
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->imageCanbeMoved:Z
 
-    .line 5183
+    .line 5193
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->imageCanbeResized:Z
 
-    .line 5184
+    .line 5194
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->resizingHandlerInActionMove:Z
 
-    .line 5185
+    .line 5195
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->clearSelection()V
 
-    .line 5187
+    .line 5197
     :cond_0
     return-void
 .end method
@@ -13669,12 +13669,12 @@
     .locals 1
 
     .prologue
-    .line 4760
+    .line 4770
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Landroid/webkit/HtmlComposerView;->drawSelectionControl(Z)V
 
-    .line 4761
+    .line 4771
     return-void
 .end method
 
@@ -13685,7 +13685,7 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 4764
+    .line 4774
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getNativeClass()I
@@ -13704,12 +13704,12 @@
 
     if-nez v0, :cond_1
 
-    .line 4778
+    .line 4788
     :cond_0
     :goto_0
     return-void
 
-    .line 4766
+    .line 4776
     :cond_1
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
@@ -13719,7 +13719,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 4767
+    .line 4777
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -13730,11 +13730,11 @@
 
     invoke-virtual {v0, v1}, Landroid/webkit/WebViewCore;->sendMessage(I)V
 
-    .line 4769
+    .line 4779
     :cond_2
     if-ne v2, p1, :cond_4
 
-    .line 4770
+    .line 4780
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v0
@@ -13747,18 +13747,18 @@
 
     if-eqz v0, :cond_3
 
-    .line 4771
+    .line 4781
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Landroid/webkit/HtmlComposerView;->sendNotificationToIME(Z)V
 
-    .line 4773
+    .line 4783
     :cond_3
     invoke-virtual {p0, v2}, Landroid/webkit/HtmlComposerView;->textChangedForWatcher(Z)V
 
     goto :goto_0
 
-    .line 4775
+    .line 4785
     :cond_4
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
@@ -13772,7 +13772,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 4776
+    .line 4786
     invoke-virtual {p0, v2}, Landroid/webkit/HtmlComposerView;->sendNotificationToIME(Z)V
 
     goto :goto_0
@@ -14099,7 +14099,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 4809
+    .line 4819
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v3}, Landroid/webkit/WebViewClassic;->getNativeClass()I
@@ -14118,12 +14118,12 @@
 
     if-nez v3, :cond_1
 
-    .line 4822
+    .line 4832
     :cond_0
     :goto_0
     return v2
 
-    .line 4811
+    .line 4821
     :cond_1
     new-instance v1, Landroid/webkit/HtmlComposerView$ResultTransport;
 
@@ -14135,11 +14135,11 @@
 
     invoke-direct {v1, p0, v3, v2}, Landroid/webkit/HtmlComposerView$ResultTransport;-><init>(Landroid/webkit/HtmlComposerView;[Ljava/lang/Object;Ljava/lang/Object;)V
 
-    .line 4812
+    .line 4822
     .local v1, res:Landroid/webkit/HtmlComposerView$ResultTransport;,"Landroid/webkit/HtmlComposerView$ResultTransport<Ljava/lang/Object;Ljava/lang/Boolean;>;"
     monitor-enter v1
 
-    .line 4813
+    .line 4823
     :try_start_0
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
@@ -14153,21 +14153,21 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 4815
+    .line 4825
     :try_start_1
     invoke-virtual {v1}, Ljava/lang/Object;->wait()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 4820
+    .line 4830
     :goto_1
     :try_start_2
     monitor-exit v1
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 4821
+    .line 4831
     const-string v2, "HtmlComposerView"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -14194,7 +14194,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4822
+    .line 4832
     invoke-virtual {v1}, Landroid/webkit/HtmlComposerView$ResultTransport;->getResult()Ljava/lang/Object;
 
     move-result-object v2
@@ -14207,11 +14207,11 @@
 
     goto :goto_0
 
-    .line 4816
+    .line 4826
     :catch_0
     move-exception v0
 
-    .line 4817
+    .line 4827
     .local v0, e:Ljava/lang/InterruptedException;
     :try_start_3
     const-string v2, "HtmlComposerView"
@@ -14220,7 +14220,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4818
+    .line 4828
     const-string v2, "HtmlComposerView"
 
     invoke-static {v0}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
@@ -14231,7 +14231,7 @@
 
     goto :goto_1
 
-    .line 4820
+    .line 4830
     .end local v0           #e:Ljava/lang/InterruptedException;
     :catchall_0
     move-exception v2
@@ -14281,7 +14281,7 @@
     .locals 4
 
     .prologue
-    .line 5230
+    .line 5240
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
@@ -14296,7 +14296,7 @@
 
     move-result v0
 
-    .line 5231
+    .line 5241
     .local v0, contentX:I
     return v0
 .end method
@@ -14305,7 +14305,7 @@
     .locals 4
 
     .prologue
-    .line 5235
+    .line 5245
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
@@ -14320,7 +14320,7 @@
 
     move-result v0
 
-    .line 5236
+    .line 5246
     .local v0, contentY:I
     return v0
 .end method
@@ -14524,7 +14524,7 @@
     .parameter "giveContentRect"
 
     .prologue
-    .line 4781
+    .line 4791
     iget-object v4, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v4}, Landroid/webkit/WebViewClassic;->getNativeClass()I
@@ -14548,11 +14548,11 @@
 
     invoke-direct {v4}, Landroid/graphics/Rect;-><init>()V
 
-    .line 4796
+    .line 4806
     :goto_0
     return-object v4
 
-    .line 4783
+    .line 4793
     :cond_1
     const/4 v4, 0x1
 
@@ -14566,23 +14566,23 @@
 
     aput-object v5, v1, v4
 
-    .line 4784
+    .line 4794
     .local v1, paramArray:[Ljava/lang/Object;
     new-instance v2, Landroid/graphics/Rect;
 
     invoke-direct {v2}, Landroid/graphics/Rect;-><init>()V
 
-    .line 4785
+    .line 4795
     .local v2, rect:Landroid/graphics/Rect;
     new-instance v3, Landroid/webkit/HtmlComposerView$ResultTransport;
 
     invoke-direct {v3, p0, v1, v2}, Landroid/webkit/HtmlComposerView$ResultTransport;-><init>(Landroid/webkit/HtmlComposerView;[Ljava/lang/Object;Ljava/lang/Object;)V
 
-    .line 4786
+    .line 4796
     .local v3, res:Landroid/webkit/HtmlComposerView$ResultTransport;,"Landroid/webkit/HtmlComposerView$ResultTransport<Ljava/lang/Object;Landroid/graphics/Rect;>;"
     monitor-enter v3
 
-    .line 4787
+    .line 4797
     :try_start_0
     iget-object v4, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
@@ -14596,21 +14596,21 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 4790
+    .line 4800
     :try_start_1
     invoke-virtual {v3}, Ljava/lang/Object;->wait()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 4795
+    .line 4805
     :goto_1
     :try_start_2
     monitor-exit v3
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 4796
+    .line 4806
     invoke-virtual {v3}, Landroid/webkit/HtmlComposerView$ResultTransport;->getResult()Ljava/lang/Object;
 
     move-result-object v4
@@ -14619,11 +14619,11 @@
 
     goto :goto_0
 
-    .line 4791
+    .line 4801
     :catch_0
     move-exception v0
 
-    .line 4792
+    .line 4802
     .local v0, e:Ljava/lang/InterruptedException;
     :try_start_3
     const-string v4, "HtmlComposerView"
@@ -14632,7 +14632,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4793
+    .line 4803
     const-string v4, "HtmlComposerView"
 
     invoke-static {v0}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
@@ -14643,7 +14643,7 @@
 
     goto :goto_1
 
-    .line 4795
+    .line 4805
     .end local v0           #e:Ljava/lang/InterruptedException;
     :catchall_0
     move-exception v4
@@ -16662,21 +16662,21 @@
     .prologue
     const/high16 v8, 0x4000
 
-    .line 3857
+    .line 3867
     new-instance v1, Landroid/graphics/Path;
 
     invoke-direct {v1}, Landroid/graphics/Path;-><init>()V
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->outLinePath:Landroid/graphics/Path;
 
-    .line 3858
+    .line 3868
     new-instance v1, Landroid/graphics/RectF;
 
     invoke-direct {v1, p2}, Landroid/graphics/RectF;-><init>(Landroid/graphics/Rect;)V
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
-    .line 3860
+    .line 3870
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v1, v1, Landroid/graphics/RectF;->top:F
@@ -16693,7 +16693,7 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->imgHeight:F
 
-    .line 3861
+    .line 3871
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v1, v1, Landroid/graphics/RectF;->left:F
@@ -16710,7 +16710,7 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->imgWidth:F
 
-    .line 3862
+    .line 3872
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
 
     iget v1, v1, Landroid/graphics/RectF;->left:F
@@ -16733,7 +16733,7 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->extraRegiontoCover:I
 
-    .line 3863
+    .line 3873
     new-instance v1, Landroid/graphics/Rect;
 
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -16772,7 +16772,7 @@
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->leftTopCropHandler:Landroid/graphics/Rect;
 
-    .line 3864
+    .line 3874
     new-instance v1, Landroid/graphics/Rect;
 
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -16803,7 +16803,7 @@
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->rightTopCropHandler:Landroid/graphics/Rect;
 
-    .line 3865
+    .line 3875
     new-instance v1, Landroid/graphics/Rect;
 
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -16842,7 +16842,7 @@
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->leftBottomCropHandler:Landroid/graphics/Rect;
 
-    .line 3866
+    .line 3876
     new-instance v1, Landroid/graphics/Rect;
 
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -16881,7 +16881,7 @@
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->rightBottomCropHandler:Landroid/graphics/Rect;
 
-    .line 3868
+    .line 3878
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->leftTopCropHandler:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->right:I
@@ -16900,7 +16900,7 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->imageSelectedX:I
 
-    .line 3869
+    .line 3879
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->leftTopCropHandler:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->bottom:I
@@ -16919,7 +16919,7 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->imageSelectedY:I
 
-    .line 3870
+    .line 3880
     new-instance v1, Landroid/graphics/Rect;
 
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -16978,7 +16978,7 @@
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->leftMiddleCropHandler:Landroid/graphics/Rect;
 
-    .line 3871
+    .line 3881
     new-instance v1, Landroid/graphics/Rect;
 
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -17037,7 +17037,7 @@
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->rightMiddleCropHandler:Landroid/graphics/Rect;
 
-    .line 3872
+    .line 3882
     new-instance v1, Landroid/graphics/Rect;
 
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -17096,7 +17096,7 @@
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->topMiddleCropHandler:Landroid/graphics/Rect;
 
-    .line 3873
+    .line 3883
     new-instance v1, Landroid/graphics/Rect;
 
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->imagetRect:Landroid/graphics/RectF;
@@ -17155,7 +17155,7 @@
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->bottomMiddleCropHandler:Landroid/graphics/Rect;
 
-    .line 3876
+    .line 3886
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->leftTopCropHandler:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->top:I
@@ -17172,7 +17172,7 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->lt_height:I
 
-    .line 3877
+    .line 3887
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->leftTopCropHandler:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->left:I
@@ -17189,7 +17189,7 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->lt_width:I
 
-    .line 3880
+    .line 3890
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->rightTopCropHandler:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->top:I
@@ -17206,7 +17206,7 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->rt_height:I
 
-    .line 3881
+    .line 3891
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->rightTopCropHandler:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->left:I
@@ -17223,7 +17223,7 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->rt_width:I
 
-    .line 3883
+    .line 3893
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->leftBottomCropHandler:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->top:I
@@ -17240,7 +17240,7 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->lb_height:I
 
-    .line 3884
+    .line 3894
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->leftBottomCropHandler:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->left:I
@@ -17257,7 +17257,7 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->lb_width:I
 
-    .line 3887
+    .line 3897
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->rightBottomCropHandler:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->top:I
@@ -17274,7 +17274,7 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->rb_height:I
 
-    .line 3888
+    .line 3898
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->rightBottomCropHandler:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->left:I
@@ -17291,7 +17291,7 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->rb_width:I
 
-    .line 3890
+    .line 3900
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->topMiddleCropHandler:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->top:I
@@ -17308,7 +17308,7 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->tm_height:I
 
-    .line 3891
+    .line 3901
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->topMiddleCropHandler:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->left:I
@@ -17325,7 +17325,7 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->tm_width:I
 
-    .line 3893
+    .line 3903
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->rightMiddleCropHandler:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->top:I
@@ -17342,7 +17342,7 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->rm_height:I
 
-    .line 3894
+    .line 3904
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->rightMiddleCropHandler:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->left:I
@@ -17359,7 +17359,7 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->rm_width:I
 
-    .line 3897
+    .line 3907
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->leftMiddleCropHandler:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->top:I
@@ -17376,7 +17376,7 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->lm_height:I
 
-    .line 3898
+    .line 3908
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->leftMiddleCropHandler:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->left:I
@@ -17393,7 +17393,7 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->lm_width:I
 
-    .line 3900
+    .line 3910
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->bottomMiddleCropHandler:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->top:I
@@ -17410,7 +17410,7 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->bm_height:I
 
-    .line 3901
+    .line 3911
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->bottomMiddleCropHandler:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->left:I
@@ -17427,94 +17427,94 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->bm_width:I
 
-    .line 3903
+    .line 3913
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->hideSoftKeyboardForHtmlComposer()V
 
-    .line 3905
+    .line 3915
     new-instance v1, Landroid/graphics/Path;
 
     invoke-direct {v1}, Landroid/graphics/Path;-><init>()V
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->handlesPath:Landroid/graphics/Path;
 
-    .line 3907
+    .line 3917
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->resetAndCreateOutlinePath()V
 
-    .line 3908
+    .line 3918
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->resetAndRecreateHandlesPath()V
 
-    .line 3909
+    .line 3919
     new-instance v1, Landroid/graphics/Region;
 
     invoke-direct {v1}, Landroid/graphics/Region;-><init>()V
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->region_rect_OutLine:Landroid/graphics/Region;
 
-    .line 3910
+    .line 3920
     new-instance v1, Landroid/graphics/Region;
 
     invoke-direct {v1}, Landroid/graphics/Region;-><init>()V
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->region_rect_LT:Landroid/graphics/Region;
 
-    .line 3911
+    .line 3921
     new-instance v1, Landroid/graphics/Region;
 
     invoke-direct {v1}, Landroid/graphics/Region;-><init>()V
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->region_rect_LB:Landroid/graphics/Region;
 
-    .line 3912
+    .line 3922
     new-instance v1, Landroid/graphics/Region;
 
     invoke-direct {v1}, Landroid/graphics/Region;-><init>()V
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->region_rect_RT:Landroid/graphics/Region;
 
-    .line 3913
+    .line 3923
     new-instance v1, Landroid/graphics/Region;
 
     invoke-direct {v1}, Landroid/graphics/Region;-><init>()V
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->region_rect_RB:Landroid/graphics/Region;
 
-    .line 3915
+    .line 3925
     new-instance v1, Landroid/graphics/Region;
 
     invoke-direct {v1}, Landroid/graphics/Region;-><init>()V
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->region_rect_TM:Landroid/graphics/Region;
 
-    .line 3916
+    .line 3926
     new-instance v1, Landroid/graphics/Region;
 
     invoke-direct {v1}, Landroid/graphics/Region;-><init>()V
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->region_rect_LM:Landroid/graphics/Region;
 
-    .line 3917
+    .line 3927
     new-instance v1, Landroid/graphics/Region;
 
     invoke-direct {v1}, Landroid/graphics/Region;-><init>()V
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->region_rect_RM:Landroid/graphics/Region;
 
-    .line 3918
+    .line 3928
     new-instance v1, Landroid/graphics/Region;
 
     invoke-direct {v1}, Landroid/graphics/Region;-><init>()V
 
     iput-object v1, p0, Landroid/webkit/HtmlComposerView;->region_rect_BM:Landroid/graphics/Region;
 
-    .line 3920
+    .line 3930
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->updateRegions()V
 
-    .line 3922
+    .line 3932
     invoke-static {p1}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
 
     move-result-object v0
 
-    .line 3923
+    .line 3933
     .local v0, configuration:Landroid/view/ViewConfiguration;
     invoke-virtual {v0}, Landroid/view/ViewConfiguration;->getScaledTouchSlop()I
 
@@ -17522,7 +17522,7 @@
 
     iput v1, p0, Landroid/webkit/HtmlComposerView;->mTouchSlop:I
 
-    .line 3924
+    .line 3934
     return-void
 .end method
 
@@ -18479,7 +18479,7 @@
     .locals 1
 
     .prologue
-    .line 5227
+    .line 5237
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->isImageSelected:Z
 
     return v0
@@ -21328,14 +21328,54 @@
 .end method
 
 .method public onRecieveWebViewSelectionChanged()V
-    .locals 0
+    .locals 3
 
     .prologue
     .line 3200
+    const-string v1, "HtmlComposerView"
+
+    const-string v2, "onRecieveWebViewSelectionChanged"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 3202
+    iget-object v1, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
+
+    invoke-virtual {v1}, Landroid/webkit/WebViewClassic;->getDCHandlerLastHandleType()I
+
+    move-result v0
+
+    .line 3204
+    .local v0, handleType:I
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_1
+
+    .line 3205
+    const/16 v1, 0x13
+
+    invoke-virtual {p0, v1}, Landroid/webkit/HtmlComposerView;->textChangedForWatcher(I)V
+
+    .line 3210
+    :cond_0
+    :goto_0
     invoke-direct {p0}, Landroid/webkit/HtmlComposerView;->sendEventToUpdateToolbar()V
 
-    .line 3201
+    .line 3211
     return-void
+
+    .line 3206
+    :cond_1
+    const/4 v1, 0x2
+
+    if-ne v0, v1, :cond_0
+
+    .line 3207
+    const/16 v1, 0x14
+
+    invoke-virtual {p0, v1}, Landroid/webkit/HtmlComposerView;->textChangedForWatcher(I)V
+
+    goto :goto_0
 .end method
 
 .method public onRecieveWebviewLongTouchUp()V
@@ -22304,34 +22344,34 @@
     .prologue
     const/4 v5, 0x1
 
-    .line 3928
+    .line 3938
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->clearImageSelection()V
 
-    .line 3929
+    .line 3939
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
 
     invoke-virtual {v2}, Landroid/webkit/HtmlComposerInputConnection;->finishComposingText()Z
 
-    .line 3930
+    .line 3940
     invoke-virtual {p0, p1, p2}, Landroid/webkit/HtmlComposerView;->initImageResizeControls(Landroid/content/Context;Landroid/graphics/Rect;)V
 
-    .line 3931
+    .line 3941
     new-instance v0, Landroid/graphics/RectF;
 
     invoke-direct {v0}, Landroid/graphics/RectF;-><init>()V
 
-    .line 3932
+    .line 3942
     .local v0, re:Landroid/graphics/RectF;
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->outLinePath:Landroid/graphics/Path;
 
     invoke-virtual {v2, v0, v5}, Landroid/graphics/Path;->computeBounds(Landroid/graphics/RectF;Z)V
 
-    .line 3934
+    .line 3944
     iget-boolean v2, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v2, :cond_0
 
-    .line 3935
+    .line 3945
     const-string v2, "HtmlComposerView"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -22392,24 +22432,24 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3938
+    .line 3948
     :cond_0
     new-instance v1, Landroid/graphics/RectF;
 
     invoke-direct {v1}, Landroid/graphics/RectF;-><init>()V
 
-    .line 3939
+    .line 3949
     .local v1, reh:Landroid/graphics/RectF;
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->handlesPath:Landroid/graphics/Path;
 
     invoke-virtual {v2, v1, v5}, Landroid/graphics/Path;->computeBounds(Landroid/graphics/RectF;Z)V
 
-    .line 3941
+    .line 3951
     iget-boolean v2, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v2, :cond_1
 
-    .line 3942
+    .line 3952
     const-string v2, "HtmlComposerView"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -22470,7 +22510,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3945
+    .line 3955
     :cond_1
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->outLinePath:Landroid/graphics/Path;
 
@@ -22478,7 +22518,7 @@
 
     invoke-direct {p0, p2, v2, v3}, Landroid/webkit/HtmlComposerView;->getSelectionOffsetImage(Landroid/graphics/Rect;Landroid/graphics/Path;Landroid/graphics/Path;)V
 
-    .line 3946
+    .line 3956
     return-void
 .end method
 
@@ -22553,7 +22593,7 @@
     .locals 2
 
     .prologue
-    .line 3204
+    .line 3214
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getNativeClass()I
@@ -22572,12 +22612,12 @@
 
     if-nez v0, :cond_1
 
-    .line 3210
+    .line 3220
     :cond_0
     :goto_0
     return-void
 
-    .line 3206
+    .line 3216
     :cond_1
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
@@ -22587,7 +22627,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 3207
+    .line 3217
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -22598,7 +22638,7 @@
 
     invoke-virtual {v0, v1}, Landroid/webkit/WebViewCore;->sendMessage(I)V
 
-    .line 3208
+    .line 3218
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/webkit/HtmlComposerView;->isSelectionset:Z
@@ -22610,7 +22650,7 @@
     .locals 2
 
     .prologue
-    .line 3213
+    .line 3223
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getNativeClass()I
@@ -22629,12 +22669,12 @@
 
     if-nez v0, :cond_1
 
-    .line 3217
+    .line 3227
     :cond_0
     :goto_0
     return-void
 
-    .line 3215
+    .line 3225
     :cond_1
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
@@ -22644,7 +22684,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 3216
+    .line 3226
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -22681,7 +22721,7 @@
     .parameter "endY"
 
     .prologue
-    .line 3792
+    .line 3802
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v1}, Landroid/webkit/WebViewClassic;->getNativeClass()I
@@ -22700,12 +22740,12 @@
 
     if-nez v1, :cond_1
 
-    .line 3800
+    .line 3810
     :cond_0
     :goto_0
     return-void
 
-    .line 3794
+    .line 3804
     :cond_1
     iget-boolean v1, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
@@ -22769,13 +22809,13 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3796
+    .line 3806
     :cond_2
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0, p1, p2, p3, p4}, Landroid/graphics/Rect;-><init>(IIII)V
 
-    .line 3798
+    .line 3808
     .local v0, rect:Landroid/graphics/Rect;
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
@@ -22785,7 +22825,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 3799
+    .line 3809
     iget-object v1, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v1}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -22805,7 +22845,7 @@
     .prologue
     const/4 v3, -0x1
 
-    .line 3220
+    .line 3230
     iget-object v4, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v4}, Landroid/webkit/WebViewClassic;->getNativeClass()I
@@ -22824,18 +22864,18 @@
 
     if-nez v4, :cond_1
 
-    .line 3239
+    .line 3249
     :cond_0
     :goto_0
     return v3
 
-    .line 3222
+    .line 3232
     :cond_1
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
 
-    .line 3224
+    .line 3234
     .local v2, selectedType:Ljava/lang/Integer;
     new-instance v1, Landroid/webkit/HtmlComposerView$ResultTransport;
 
@@ -22843,11 +22883,11 @@
 
     invoke-direct {v1, p0, v4, v2}, Landroid/webkit/HtmlComposerView$ResultTransport;-><init>(Landroid/webkit/HtmlComposerView;[Ljava/lang/Object;Ljava/lang/Object;)V
 
-    .line 3225
+    .line 3235
     .local v1, res:Landroid/webkit/HtmlComposerView$ResultTransport;,"Landroid/webkit/HtmlComposerView$ResultTransport<Ljava/lang/Object;Ljava/lang/Integer;>;"
     monitor-enter v1
 
-    .line 3226
+    .line 3236
     :try_start_0
     iget-object v4, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
@@ -22857,7 +22897,7 @@
 
     if-eqz v4, :cond_2
 
-    .line 3227
+    .line 3237
     iget-object v3, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v3}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -22870,21 +22910,21 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 3232
+    .line 3242
     :try_start_1
     invoke-virtual {v1}, Ljava/lang/Object;->wait()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 3237
+    .line 3247
     :goto_1
     :try_start_2
     monitor-exit v1
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 3239
+    .line 3249
     invoke-virtual {v1}, Landroid/webkit/HtmlComposerView$ResultTransport;->getResult()Ljava/lang/Object;
 
     move-result-object v3
@@ -22897,14 +22937,14 @@
 
     goto :goto_0
 
-    .line 3229
+    .line 3239
     :cond_2
     :try_start_3
     monitor-exit v1
 
     goto :goto_0
 
-    .line 3237
+    .line 3247
     :catchall_0
     move-exception v3
 
@@ -22914,11 +22954,11 @@
 
     throw v3
 
-    .line 3233
+    .line 3243
     :catch_0
     move-exception v0
 
-    .line 3234
+    .line 3244
     .local v0, e:Ljava/lang/InterruptedException;
     :try_start_4
     const-string v3, "HtmlComposerView"
@@ -22927,7 +22967,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3235
+    .line 3245
     const-string v3, "HtmlComposerView"
 
     invoke-static {v0}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
@@ -23024,7 +23064,7 @@
 
     const/4 v2, 0x0
 
-    .line 3243
+    .line 3253
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getNativeClass()I
@@ -23043,16 +23083,16 @@
 
     if-nez v0, :cond_1
 
-    .line 3256
+    .line 3266
     :cond_0
     :goto_0
     return-void
 
-    .line 3245
+    .line 3255
     :cond_1
     if-eqz p1, :cond_2
 
-    .line 3246
+    .line 3256
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -23061,7 +23101,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 3247
+    .line 3257
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -23072,11 +23112,11 @@
 
     goto :goto_0
 
-    .line 3250
+    .line 3260
     :cond_2
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->isSelectionset:Z
 
-    .line 3251
+    .line 3261
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -23085,7 +23125,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 3252
+    .line 3262
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -23094,7 +23134,7 @@
 
     invoke-virtual {v0, v1, v2, v2}, Landroid/webkit/WebViewCore;->sendMessage(III)V
 
-    .line 3253
+    .line 3263
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -23114,7 +23154,7 @@
     .parameter "end"
 
     .prologue
-    .line 3259
+    .line 3269
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v2}, Landroid/webkit/WebViewClassic;->getNativeClass()I
@@ -23133,32 +23173,32 @@
 
     if-nez v2, :cond_1
 
-    .line 3278
+    .line 3288
     :cond_0
     :goto_0
     return-void
 
-    .line 3260
+    .line 3270
     :cond_1
     if-ltz p1, :cond_0
 
     if-ltz p2, :cond_0
 
-    .line 3262
+    .line 3272
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->isSelectionset:Z
 
-    .line 3263
+    .line 3273
     new-instance v1, Landroid/graphics/Point;
 
     invoke-direct {v1, p1, p2}, Landroid/graphics/Point;-><init>(II)V
 
-    .line 3265
+    .line 3275
     .local v1, sendTwoIntObj:Landroid/graphics/Point;
     monitor-enter v1
 
-    .line 3266
+    .line 3276
     :try_start_0
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
@@ -23168,7 +23208,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 3267
+    .line 3277
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v2}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -23181,14 +23221,14 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 3272
+    .line 3282
     :try_start_1
     invoke-virtual {v1}, Ljava/lang/Object;->wait()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 3277
+    .line 3287
     :goto_1
     :try_start_2
     monitor-exit v1
@@ -23204,18 +23244,18 @@
 
     throw v2
 
-    .line 3269
+    .line 3279
     :cond_2
     :try_start_3
     monitor-exit v1
 
     goto :goto_0
 
-    .line 3273
+    .line 3283
     :catch_0
     move-exception v0
 
-    .line 3274
+    .line 3284
     .local v0, e:Ljava/lang/InterruptedException;
     const-string v2, "HtmlComposerView"
 
@@ -23223,7 +23263,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3275
+    .line 3285
     const-string v2, "HtmlComposerView"
 
     invoke-static {v0}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
@@ -23285,7 +23325,7 @@
     .locals 2
 
     .prologue
-    .line 3285
+    .line 3295
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getNativeClass()I
@@ -23304,12 +23344,12 @@
 
     if-nez v0, :cond_1
 
-    .line 3289
+    .line 3299
     :cond_0
     :goto_0
     return-void
 
-    .line 3287
+    .line 3297
     :cond_1
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
@@ -23319,7 +23359,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 3288
+    .line 3298
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -23338,7 +23378,7 @@
     .parameter "defaultFontSize"
 
     .prologue
-    .line 3292
+    .line 3302
     iget v0, p0, Landroid/webkit/HtmlComposerView;->mDensity:F
 
     const/high16 v1, 0x4000
@@ -23347,7 +23387,7 @@
 
     if-nez v0, :cond_0
 
-    .line 3293
+    .line 3303
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->getSettings()Landroid/webkit/WebSettings;
 
     move-result-object v0
@@ -23364,11 +23404,11 @@
 
     invoke-virtual {v0, v1}, Landroid/webkit/WebSettings;->setDefaultFontSize(I)V
 
-    .line 3297
+    .line 3307
     :goto_0
     return-void
 
-    .line 3295
+    .line 3305
     :cond_0
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->getSettings()Landroid/webkit/WebSettings;
 
@@ -23385,7 +23425,7 @@
     .parameter "end"
 
     .prologue
-    .line 3300
+    .line 3310
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v2}, Landroid/webkit/WebViewClassic;->getNativeClass()I
@@ -23404,32 +23444,32 @@
 
     if-nez v2, :cond_1
 
-    .line 3319
+    .line 3329
     :cond_0
     :goto_0
     return-void
 
-    .line 3301
+    .line 3311
     :cond_1
     if-ltz p1, :cond_0
 
     if-ltz p2, :cond_0
 
-    .line 3303
+    .line 3313
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Landroid/webkit/HtmlComposerView;->isSelectionset:Z
 
-    .line 3304
+    .line 3314
     new-instance v1, Landroid/graphics/Point;
 
     invoke-direct {v1, p1, p2}, Landroid/graphics/Point;-><init>(II)V
 
-    .line 3306
+    .line 3316
     .local v1, sendTwoIntObj:Landroid/graphics/Point;
     monitor-enter v1
 
-    .line 3307
+    .line 3317
     :try_start_0
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
@@ -23439,7 +23479,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 3308
+    .line 3318
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v2}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -23452,14 +23492,14 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 3313
+    .line 3323
     :try_start_1
     invoke-virtual {v1}, Ljava/lang/Object;->wait()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 3318
+    .line 3328
     :goto_1
     :try_start_2
     monitor-exit v1
@@ -23475,18 +23515,18 @@
 
     throw v2
 
-    .line 3310
+    .line 3320
     :cond_2
     :try_start_3
     monitor-exit v1
 
     goto :goto_0
 
-    .line 3314
+    .line 3324
     :catch_0
     move-exception v0
 
-    .line 3315
+    .line 3325
     .local v0, e:Ljava/lang/InterruptedException;
     const-string v2, "HtmlComposerView"
 
@@ -23494,7 +23534,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3316
+    .line 3326
     const-string v2, "HtmlComposerView"
 
     invoke-static {v0}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
@@ -23513,7 +23553,7 @@
     .parameter "bIsActive"
 
     .prologue
-    .line 3323
+    .line 3333
     const-string v0, "HtmlComposerView"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -23536,10 +23576,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3324
+    .line 3334
     iput-boolean p1, p0, Landroid/webkit/HtmlComposerView;->mEmojiIsActive:Z
 
-    .line 3325
+    .line 3335
     return-void
 .end method
 
@@ -23548,10 +23588,10 @@
     .parameter "imeOption"
 
     .prologue
-    .line 3328
+    .line 3338
     iput p1, p0, Landroid/webkit/HtmlComposerView;->imeOptions:I
 
-    .line 3329
+    .line 3339
     return-void
 .end method
 
@@ -23572,10 +23612,10 @@
     .parameter "state"
 
     .prologue
-    .line 4691
+    .line 4701
     iput-boolean p1, p0, Landroid/webkit/HtmlComposerView;->bLastSoftKeyPadStateShowing:Z
 
-    .line 4692
+    .line 4702
     return-void
 .end method
 
@@ -23584,15 +23624,15 @@
     .parameter "maxHtmlLength"
 
     .prologue
-    .line 3362
+    .line 3372
     iput p1, p0, Landroid/webkit/HtmlComposerView;->mMaxHtmlLength:I
 
-    .line 3363
+    .line 3373
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/webkit/HtmlComposerView;->ignoreMaxLength:Z
 
-    .line 3364
+    .line 3374
     return-void
 .end method
 
@@ -23625,12 +23665,12 @@
     .parameter "factor"
 
     .prologue
-    .line 3338
+    .line 3348
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v0, :cond_0
 
-    .line 3339
+    .line 3349
     const-string v0, "HtmlComposerView"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -23653,25 +23693,25 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3342
+    .line 3352
     :cond_0
     iput p1, p0, Landroid/webkit/HtmlComposerView;->mZoomFactor:F
 
-    .line 3343
+    .line 3353
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->getWebClipboard()Landroid/webkit/WebClipboard;
 
     move-result-object v0
 
     if-eqz v0, :cond_1
 
-    .line 3344
+    .line 3354
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->getWebClipboard()Landroid/webkit/WebClipboard;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Landroid/webkit/WebClipboard;->setZoomFactorForPasting(F)V
 
-    .line 3345
+    .line 3355
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->getWebClipboard()Landroid/webkit/WebClipboard;
 
     move-result-object v1
@@ -23699,7 +23739,7 @@
 
     invoke-virtual {v1, v0}, Landroid/webkit/WebClipboard;->setWidthForCopiedImage(I)V
 
-    .line 3348
+    .line 3358
     :cond_1
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
@@ -23709,7 +23749,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 3349
+    .line 3359
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -23724,11 +23764,11 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/webkit/WebViewCore;->sendMessage(ILjava/lang/Object;)V
 
-    .line 3350
+    .line 3360
     :cond_2
     return-void
 
-    .line 3345
+    .line 3355
     :cond_3
     iget v0, p0, Landroid/webkit/HtmlComposerView;->mScreenHeight:I
 
@@ -23740,10 +23780,10 @@
     .parameter "type"
 
     .prologue
-    .line 3353
+    .line 3363
     iput-object p1, p0, Landroid/webkit/HtmlComposerView;->mPrivateOptions:Ljava/lang/String;
 
-    .line 3354
+    .line 3364
     return-void
 .end method
 
@@ -23752,15 +23792,15 @@
     .parameter "content"
 
     .prologue
-    .line 3357
+    .line 3367
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->clear()V
 
-    .line 3358
+    .line 3368
     sget-object v0, Landroid/webkit/HtmlComposerView$InsertionPosition;->INSERT_AT_BEGINING:Landroid/webkit/HtmlComposerView$InsertionPosition;
 
     invoke-virtual {p0, p1, v0}, Landroid/webkit/HtmlComposerView;->insertContent(Ljava/lang/CharSequence;Landroid/webkit/HtmlComposerView$InsertionPosition;)V
 
-    .line 3359
+    .line 3369
     return-void
 .end method
 
@@ -23774,16 +23814,16 @@
     .parameter "y"
 
     .prologue
-    .line 5023
+    .line 5033
     const/16 v13, 0xc
 
-    .line 5029
+    .line 5039
     .local v13, left_right_image_gap:I
     new-instance v14, Landroid/util/DisplayMetrics;
 
     invoke-direct {v14}, Landroid/util/DisplayMetrics;-><init>()V
 
-    .line 5030
+    .line 5040
     .local v14, metric:Landroid/util/DisplayMetrics;
     move-object/from16 v0, p0
 
@@ -23805,7 +23845,7 @@
 
     invoke-virtual {v0, v14}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
 
-    .line 5032
+    .line 5042
     iget v0, v14, Landroid/util/DisplayMetrics;->density:F
 
     move/from16 v23, v0
@@ -23836,7 +23876,7 @@
 
     div-float v8, v23, v24
 
-    .line 5034
+    .line 5044
     .local v8, density:F
     const-string v23, "HtmlComposerView"
 
@@ -23862,7 +23902,7 @@
 
     invoke-static/range {v23 .. v24}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 5036
+    .line 5046
     const/16 v23, 0x1
 
     move-object/from16 v0, p0
@@ -23873,35 +23913,35 @@
 
     move-result-object v7
 
-    .line 5037
+    .line 5047
     .local v7, cursurRect:Landroid/graphics/Rect;
     if-nez v7, :cond_0
 
     const/16 v23, 0x0
 
-    .line 5137
+    .line 5147
     :goto_0
     return v23
 
-    .line 5039
+    .line 5049
     :cond_0
     iget v0, v7, Landroid/graphics/Rect;->left:I
 
     move/from16 v19, v0
 
-    .line 5040
+    .line 5050
     .local v19, xCursorPosition:I
     iget v0, v7, Landroid/graphics/Rect;->bottom:I
 
     move/from16 v22, v0
 
-    .line 5042
+    .line 5052
     .local v22, yCursorPosition:I
     new-instance v16, Landroid/graphics/Rect;
 
     invoke-direct/range {v16 .. v16}, Landroid/graphics/Rect;-><init>()V
 
-    .line 5043
+    .line 5053
     .local v16, visRect:Landroid/graphics/Rect;
     move-object/from16 v0, p0
 
@@ -23915,7 +23955,7 @@
 
     invoke-virtual {v0, v1}, Landroid/webkit/WebViewClassic;->calcOurVisibleRect(Landroid/graphics/Rect;)V
 
-    .line 5045
+    .line 5055
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView;->mContext:Landroid/content/Context;
@@ -23932,19 +23972,19 @@
 
     move-result-object v15
 
-    .line 5046
+    .line 5056
     .local v15, singleCursorhandler:Landroid/graphics/drawable/Drawable;
     invoke-virtual {v15}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v9
 
-    .line 5047
+    .line 5057
     .local v9, iSCHHeight:I
     invoke-virtual {v15}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v11
 
-    .line 5048
+    .line 5058
     .local v11, iSCHWidth:I
     int-to-float v0, v9
 
@@ -23956,7 +23996,7 @@
 
     float-to-int v10, v0
 
-    .line 5049
+    .line 5059
     .local v10, iSCHHeightByDensity:I
     int-to-float v0, v11
 
@@ -23968,43 +24008,43 @@
 
     float-to-int v12, v0
 
-    .line 5051
+    .line 5061
     .local v12, iSCHWidthByDensity:I
     div-int/lit8 v2, v12, 0x2
 
-    .line 5052
+    .line 5062
     .local v2, TOUCH_X_LEFT:I
     div-int/lit8 v3, v12, 0x2
 
-    .line 5053
+    .line 5063
     .local v3, TOUCH_X_RIGHT:I
     const/4 v5, 0x0
 
-    .line 5054
+    .line 5064
     .local v5, TOUCH_Y_TOP:I
     move v4, v10
 
-    .line 5056
+    .line 5066
     .local v4, TOUCH_Y_BOTTOM:I
     sub-int v17, v19, v2
 
-    .line 5057
+    .line 5067
     .local v17, x1:I
     add-int v18, v19, v3
 
-    .line 5058
+    .line 5068
     .local v18, x2:I
     add-int/lit8 v20, v22, 0x0
 
-    .line 5059
+    .line 5069
     .local v20, y1:I
     add-int v21, v22, v4
 
-    .line 5061
+    .line 5071
     .local v21, y2:I
     const/4 v6, 0x0
 
-    .line 5063
+    .line 5073
     .local v6, bIsReverse:Z
     add-int v23, v22, v9
 
@@ -24046,18 +24086,18 @@
 
     if-ge v0, v1, :cond_6
 
-    .line 5066
+    .line 5076
     iget v0, v7, Landroid/graphics/Rect;->top:I
 
     move/from16 v22, v0
 
-    .line 5067
+    .line 5077
     sub-int v20, v22, v4
 
-    .line 5068
+    .line 5078
     add-int/lit8 v21, v22, 0x0
 
-    .line 5070
+    .line 5080
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/webkit/HtmlComposerView;->isPhone:Z
@@ -24072,29 +24112,29 @@
 
     if-ne v0, v1, :cond_3
 
-    .line 5071
+    .line 5081
     sub-int v17, v19, v2
 
-    .line 5072
+    .line 5082
     add-int v18, v19, v3
 
-    .line 5086
+    .line 5096
     :goto_1
     const/4 v6, 0x1
 
-    .line 5104
+    .line 5114
     :cond_1
     :goto_2
     packed-switch p2, :pswitch_data_0
 
-    .line 5137
+    .line 5147
     :cond_2
     :goto_3
     const/16 v23, 0x0
 
     goto/16 :goto_0
 
-    .line 5074
+    .line 5084
     :cond_3
     div-int/lit8 v23, v11, 0x2
 
@@ -24112,17 +24152,17 @@
 
     if-ge v0, v1, :cond_4
 
-    .line 5075
+    .line 5085
     sub-int v17, v19, v13
 
-    .line 5076
+    .line 5086
     sub-int v23, v19, v13
 
     add-int v18, v23, v12
 
     goto :goto_1
 
-    .line 5077
+    .line 5087
     :cond_4
     div-int/lit8 v23, v11, 0x2
 
@@ -24140,26 +24180,26 @@
 
     if-le v0, v1, :cond_5
 
-    .line 5078
+    .line 5088
     add-int v23, v19, v13
 
     sub-int v17, v23, v12
 
-    .line 5079
+    .line 5089
     add-int v18, v19, v13
 
     goto :goto_1
 
-    .line 5081
+    .line 5091
     :cond_5
     sub-int v17, v19, v2
 
-    .line 5082
+    .line 5092
     add-int v18, v19, v3
 
     goto :goto_1
 
-    .line 5087
+    .line 5097
     :cond_6
     move-object/from16 v0, p0
 
@@ -24169,7 +24209,7 @@
 
     if-nez v23, :cond_1
 
-    .line 5088
+    .line 5098
     div-int/lit8 v23, v11, 0x2
 
     sub-int v23, v19, v23
@@ -24186,17 +24226,17 @@
 
     if-ge v0, v1, :cond_7
 
-    .line 5089
+    .line 5099
     sub-int v17, v19, v13
 
-    .line 5090
+    .line 5100
     sub-int v23, v19, v13
 
     add-int v18, v23, v12
 
     goto :goto_2
 
-    .line 5091
+    .line 5101
     :cond_7
     div-int/lit8 v23, v11, 0x2
 
@@ -24214,26 +24254,26 @@
 
     if-le v0, v1, :cond_8
 
-    .line 5092
+    .line 5102
     add-int v23, v19, v13
 
     sub-int v17, v23, v12
 
-    .line 5093
+    .line 5103
     add-int v18, v19, v13
 
     goto :goto_2
 
-    .line 5095
+    .line 5105
     :cond_8
     sub-int v17, v19, v2
 
-    .line 5096
+    .line 5106
     add-int v18, v19, v3
 
     goto :goto_2
 
-    .line 5107
+    .line 5117
     :pswitch_0
     move/from16 v0, p3
 
@@ -24259,12 +24299,12 @@
 
     if-ge v0, v1, :cond_2
 
-    .line 5109
+    .line 5119
     const/16 v23, 0x1
 
     goto/16 :goto_0
 
-    .line 5115
+    .line 5125
     :pswitch_1
     if-nez v6, :cond_9
 
@@ -24343,7 +24383,7 @@
 
     if-ge v0, v1, :cond_b
 
-    .line 5118
+    .line 5128
     :cond_a
     const/16 v23, 0x1
 
@@ -24353,7 +24393,7 @@
 
     iput-boolean v0, v1, Landroid/webkit/HtmlComposerView;->mActionMoveSCH:Z
 
-    .line 5119
+    .line 5129
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
@@ -24368,12 +24408,12 @@
 
     iput-boolean v0, v1, Landroid/webkit/WebViewClassic;->mInActionMove:Z
 
-    .line 5120
+    .line 5130
     const/16 v23, 0x1
 
     goto/16 :goto_0
 
-    .line 5124
+    .line 5134
     :cond_b
     const-string v23, "HtmlComposerView"
 
@@ -24383,7 +24423,7 @@
 
     goto/16 :goto_3
 
-    .line 5130
+    .line 5140
     :pswitch_2
     const/16 v23, 0x0
 
@@ -24395,7 +24435,7 @@
 
     goto/16 :goto_3
 
-    .line 5104
+    .line 5114
     nop
 
     :pswitch_data_0
@@ -24412,19 +24452,19 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 4741
+    .line 4751
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->textWatcher:Landroid/text/TextWatcher;
 
     if-eqz v0, :cond_0
 
-    .line 4742
+    .line 4752
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->textWatcher:Landroid/text/TextWatcher;
 
     const-string v1, ""
 
     invoke-interface {v0, v1, v2, v2, v2}, Landroid/text/TextWatcher;->onTextChanged(Ljava/lang/CharSequence;III)V
 
-    .line 4743
+    .line 4753
     :cond_0
     return-void
 .end method
@@ -24436,19 +24476,19 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 4754
+    .line 4764
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->textWatcher:Landroid/text/TextWatcher;
 
     if-eqz v0, :cond_0
 
-    .line 4755
+    .line 4765
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->textWatcher:Landroid/text/TextWatcher;
 
     const-string v1, ""
 
     invoke-interface {v0, v1, v2, p1, v2}, Landroid/text/TextWatcher;->onTextChanged(Ljava/lang/CharSequence;III)V
 
-    .line 4757
+    .line 4767
     :cond_0
     return-void
 .end method
@@ -24460,26 +24500,26 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 4746
+    .line 4756
     if-eqz p1, :cond_1
 
     const/4 v0, 0x1
 
-    .line 4747
+    .line 4757
     .local v0, temp:I
     :goto_0
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->textWatcher:Landroid/text/TextWatcher;
 
     if-eqz v2, :cond_0
 
-    .line 4749
+    .line 4759
     iget-object v2, p0, Landroid/webkit/HtmlComposerView;->textWatcher:Landroid/text/TextWatcher;
 
     const-string v3, ""
 
     invoke-interface {v2, v3, v1, v1, v0}, Landroid/text/TextWatcher;->onTextChanged(Ljava/lang/CharSequence;III)V
 
-    .line 4751
+    .line 4761
     :cond_0
     return-void
 
@@ -24487,7 +24527,7 @@
     :cond_1
     move v0, v1
 
-    .line 4746
+    .line 4756
     goto :goto_0
 .end method
 
@@ -24497,7 +24537,7 @@
     .parameter "remove"
 
     .prologue
-    .line 3368
+    .line 3378
     invoke-virtual {p0}, Landroid/webkit/HtmlComposerView;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -24512,13 +24552,13 @@
 
     if-eqz v0, :cond_1
 
-    .line 3369
+    .line 3379
     iput p1, p0, Landroid/webkit/HtmlComposerView;->mAdd:I
 
-    .line 3370
+    .line 3380
     iput p2, p0, Landroid/webkit/HtmlComposerView;->mRemove:I
 
-    .line 3371
+    .line 3381
     iget-boolean v0, p0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -24529,13 +24569,13 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3372
+    .line 3382
     :cond_0
     const/16 v0, 0x10
 
     invoke-virtual {p0, v0}, Landroid/webkit/HtmlComposerView;->sendAccessibilityEvent(I)V
 
-    .line 3374
+    .line 3384
     :cond_1
     return-void
 .end method
@@ -24676,7 +24716,7 @@
     .locals 2
 
     .prologue
-    .line 3378
+    .line 3388
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getNativeClass()I
@@ -24695,12 +24735,12 @@
 
     if-nez v0, :cond_1
 
-    .line 3382
+    .line 3392
     :cond_0
     :goto_0
     return-void
 
-    .line 3380
+    .line 3390
     :cond_1
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
@@ -24710,7 +24750,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 3381
+    .line 3391
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -24744,7 +24784,7 @@
     .parameter "curSelEnd"
 
     .prologue
-    .line 3385
+    .line 3395
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getNativeClass()I
@@ -24763,12 +24803,12 @@
 
     if-nez v0, :cond_1
 
-    .line 3389
+    .line 3399
     :cond_0
     :goto_0
     return-void
 
-    .line 3387
+    .line 3397
     :cond_1
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
@@ -24778,7 +24818,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 3388
+    .line 3398
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mWebViewClassic:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->getWebViewCore()Landroid/webkit/WebViewCore;
@@ -24797,11 +24837,11 @@
     .parameter "imagetRect"
 
     .prologue
-    .line 3950
+    .line 3960
     iget-object v0, p0, Landroid/webkit/HtmlComposerView;->mContext:Landroid/content/Context;
 
     invoke-virtual {p0, v0, p1}, Landroid/webkit/HtmlComposerView;->outlineDrawRect(Landroid/content/Context;Landroid/graphics/Rect;)V
 
-    .line 3951
+    .line 3961
     return-void
 .end method

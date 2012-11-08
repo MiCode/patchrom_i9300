@@ -145,7 +145,7 @@
 
 .field private mTimeoutDest:I
 
-.field private mWakeLock:Landroid/os/PowerManager$WakeLock;
+.field mWakeLock:Landroid/os/PowerManager$WakeLock;
 
 
 # direct methods

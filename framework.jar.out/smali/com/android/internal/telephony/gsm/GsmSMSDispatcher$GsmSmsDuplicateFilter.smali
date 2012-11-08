@@ -37,24 +37,24 @@
     .parameter
 
     .prologue
-    .line 1309
+    .line 1311
     iput-object p1, p0, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$GsmSmsDuplicateFilter;->this$0:Lcom/android/internal/telephony/gsm/GsmSMSDispatcher;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1306
+    .line 1308
     const/4 v0, 0x2
 
     iput v0, p0, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$GsmSmsDuplicateFilter;->FILTER_SIZE:I
 
-    .line 1310
+    .line 1312
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$GsmSmsDuplicateFilter;->mHistory:Ljava/util/ArrayList;
 
-    .line 1311
+    .line 1313
     return-void
 .end method
 
@@ -65,7 +65,7 @@
     .parameter "msg"
 
     .prologue
-    .line 1314
+    .line 1316
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$GsmSmsDuplicateFilter;->mHistory:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -76,20 +76,20 @@
 
     if-lt v0, v1, :cond_0
 
-    .line 1315
+    .line 1317
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$GsmSmsDuplicateFilter;->mHistory:Ljava/util/ArrayList;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    .line 1318
+    .line 1320
     :cond_0
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$GsmSmsDuplicateFilter;->mHistory:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1319
+    .line 1321
     return-void
 .end method
 
@@ -102,7 +102,7 @@
 
     const/4 v6, 0x0
 
-    .line 1325
+    .line 1327
     const/4 v2, 0x0
 
     .local v2, i:I
@@ -115,7 +115,7 @@
 
     if-ge v2, v7, :cond_6
 
-    .line 1326
+    .line 1328
     const/4 v0, 0x0
 
     .local v0, addrMatched:Z
@@ -124,7 +124,7 @@
     .local v1, bodyMatched:Z
     const/4 v4, 0x0
 
-    .line 1327
+    .line 1329
     .local v4, timeMatched:Z
     iget-object v7, p0, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$GsmSmsDuplicateFilter;->mHistory:Ljava/util/ArrayList;
 
@@ -134,7 +134,7 @@
 
     check-cast v3, Lcom/android/internal/telephony/SmsMessageBase;
 
-    .line 1329
+    .line 1331
     .local v3, msg:Lcom/android/internal/telephony/SmsMessageBase;
     invoke-virtual {v3}, Lcom/android/internal/telephony/SmsMessageBase;->getOriginatingAddress()Ljava/lang/String;
 
@@ -142,7 +142,7 @@
 
     if-eqz v7, :cond_0
 
-    .line 1330
+    .line 1332
     invoke-virtual {v3}, Lcom/android/internal/telephony/SmsMessageBase;->getOriginatingAddress()Ljava/lang/String;
 
     move-result-object v7
@@ -155,7 +155,7 @@
 
     move-result v0
 
-    .line 1335
+    .line 1337
     :goto_1
     invoke-virtual {v3}, Lcom/android/internal/telephony/SmsMessageBase;->getDisplayMessageBody()Ljava/lang/String;
 
@@ -163,7 +163,7 @@
 
     if-eqz v7, :cond_2
 
-    .line 1336
+    .line 1338
     invoke-virtual {v3}, Lcom/android/internal/telephony/SmsMessageBase;->getDisplayMessageBody()Ljava/lang/String;
 
     move-result-object v7
@@ -176,7 +176,7 @@
 
     move-result v1
 
-    .line 1341
+    .line 1343
     :goto_2
     invoke-virtual {v3}, Lcom/android/internal/telephony/SmsMessageBase;->getTimestampMillis()J
 
@@ -192,7 +192,7 @@
 
     move v4, v5
 
-    .line 1343
+    .line 1345
     :goto_3
     if-eqz v0, :cond_5
 
@@ -200,7 +200,7 @@
 
     if-eqz v4, :cond_5
 
-    .line 1348
+    .line 1350
     .end local v0           #addrMatched:Z
     .end local v1           #bodyMatched:Z
     .end local v3           #msg:Lcom/android/internal/telephony/SmsMessageBase;
@@ -208,7 +208,7 @@
     :goto_4
     return v5
 
-    .line 1332
+    .line 1334
     .restart local v0       #addrMatched:Z
     .restart local v1       #bodyMatched:Z
     .restart local v3       #msg:Lcom/android/internal/telephony/SmsMessageBase;
@@ -230,7 +230,7 @@
 
     goto :goto_5
 
-    .line 1338
+    .line 1340
     :cond_2
     invoke-virtual {p1}, Lcom/android/internal/telephony/SmsMessageBase;->getDisplayMessageBody()Ljava/lang/String;
 
@@ -251,10 +251,10 @@
     :cond_4
     move v4, v6
 
-    .line 1341
+    .line 1343
     goto :goto_3
 
-    .line 1325
+    .line 1327
     :cond_5
     add-int/lit8 v2, v2, 0x1
 
@@ -267,6 +267,6 @@
     :cond_6
     move v5, v6
 
-    .line 1348
+    .line 1350
     goto :goto_4
 .end method

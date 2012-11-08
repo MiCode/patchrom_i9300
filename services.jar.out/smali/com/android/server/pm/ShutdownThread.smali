@@ -609,7 +609,6 @@
 
     invoke-virtual {v3, v4}, Landroid/app/ProgressDialog;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 386
     const v4, 0x60c01aa
 
     invoke-virtual {p0, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
@@ -678,18 +677,15 @@
 
     invoke-virtual {v4, v5}, Landroid/view/Window;->addFlags(I)V
 
-    .line 398
     #invoke-virtual {v3}, Landroid/app/ProgressDialog;->show()V
     invoke-static {p0}, Lcom/android/server/pm/ShutdownThread$Injector;->createShutDownDialog(Landroid/content/Context;)V
 
     goto/16 :goto_2
 
-    .line 411
     .end local v3           #pd:Landroid/app/ProgressDialog;
     :catch_0
     move-exception v1
 
-    .line 412
     .local v1, e:Ljava/lang/SecurityException;
     const-string v4, "ShutdownThread"
 
@@ -1283,22 +1279,17 @@
 
     invoke-static {v0, v1}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 315
     sput-boolean v3, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
 
-    .line 316
     const/4 v3, 0x0
     sput-boolean v3, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
 
-    .line 317
     sput-object p1, Lcom/android/server/pm/ShutdownThread;->mRebootReason:Ljava/lang/String;
 
-    .line 318
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/android/server/pm/ShutdownThread;->mFakeShutdown:Z
 
-    .line 319
     invoke-static {p0, p2}, Lcom/android/server/pm/ShutdownThread;->shutdownInner(Landroid/content/Context;Z)V
 
     goto :goto_0
@@ -1732,14 +1723,12 @@
 
     if-lt v8, v9, :cond_3
 
-    .line 198
     new-instance v1, Landroid/view/ContextThemeWrapper;
 
     const v8, 0x103006e
 
     invoke-direct {v1, p0, v8}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    .line 203
     .local v1, context:Landroid/content/Context;
     :goto_1
     new-instance v3, Ljava/lang/Exception;
@@ -1855,7 +1844,6 @@
 
     move-result-object v2
 
-    .line 235
     .local v2, dialog:Landroid/app/AlertDialog;
 
     invoke-static {v2}, Lcom/android/server/pm/ShutdownThread$Injector;->setDialogTitle(Landroid/app/Dialog;)V
@@ -1864,7 +1852,6 @@
 
     if-eqz v8, :cond_8
 
-    .line 236
     const v8, 0x1040190
 
     invoke-virtual {v1, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;

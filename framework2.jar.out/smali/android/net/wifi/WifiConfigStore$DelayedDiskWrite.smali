@@ -29,7 +29,7 @@
     .locals 1
 
     .prologue
-    .line 745
+    .line 849
     const/4 v0, 0x0
 
     sput v0, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sWriteSequence:I
@@ -41,7 +41,7 @@
     .locals 0
 
     .prologue
-    .line 740
+    .line 844
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -52,7 +52,7 @@
     .parameter "x0"
 
     .prologue
-    .line 740
+    .line 844
     invoke-static {p0}, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->onWriteCalled(Ljava/util/List;)V
 
     return-void
@@ -63,12 +63,12 @@
     .parameter "s"
 
     .prologue
-    .line 883
+    .line 987
     const-string v0, "DelayedDiskWrite"
 
     invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 884
+    .line 988
     return-void
 .end method
 
@@ -86,11 +86,11 @@
     .end annotation
 
     .prologue
-    .line 769
+    .line 873
     .local p0, networks:Ljava/util/List;,"Ljava/util/List<Landroid/net/wifi/WifiConfiguration;>;"
     const/4 v9, 0x0
 
-    .line 771
+    .line 875
     .local v9, out:Ljava/io/DataOutputStream;
     :try_start_0
     new-instance v10, Ljava/io/DataOutputStream;
@@ -112,7 +112,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_4
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_5
 
-    .line 774
+    .line 878
     .end local v9           #out:Ljava/io/DataOutputStream;
     .local v10, out:Ljava/io/DataOutputStream;
     const/4 v14, 0x2
@@ -120,7 +120,7 @@
     :try_start_1
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 776
+    .line 880
     invoke-interface/range {p0 .. p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
@@ -141,16 +141,16 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 777
+    .line 881
     .local v0, config:Landroid/net/wifi/WifiConfiguration;
     const/4 v13, 0x0
 
-    .line 780
+    .line 884
     .local v13, writeToFile:Z
     :try_start_2
     iget-object v8, v0, Landroid/net/wifi/WifiConfiguration;->linkProperties:Landroid/net/LinkProperties;
 
-    .line 781
+    .line 885
     .local v8, linkProperties:Landroid/net/LinkProperties;
     sget-object v14, Landroid/net/wifi/WifiConfigStore$1;->$SwitchMap$android$net$wifi$WifiConfiguration$IpAssignment:[I
 
@@ -164,12 +164,12 @@
 
     packed-switch v14, :pswitch_data_0
 
-    .line 822
+    .line 926
     const-string v14, "Ignore invalid ip assignment while writing"
 
     invoke-static {v14}, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->loge(Ljava/lang/String;)V
 
-    .line 826
+    .line 930
     :goto_1
     :pswitch_0
     sget-object v14, Landroid/net/wifi/WifiConfigStore$1;->$SwitchMap$android$net$wifi$WifiConfiguration$ProxySettings:[I
@@ -184,22 +184,22 @@
 
     packed-switch v14, :pswitch_data_1
 
-    .line 849
+    .line 953
     const-string v14, "Ignthisore invalid proxy settings while writing"
 
     invoke-static {v14}, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->loge(Ljava/lang/String;)V
 
-    .line 852
+    .line 956
     :goto_2
     :pswitch_1
     if-eqz v13, :cond_0
 
-    .line 853
+    .line 957
     const-string v14, "id"
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 854
+    .line 958
     #calls: Landroid/net/wifi/WifiConfigStore;->configKey(Landroid/net/wifi/WifiConfiguration;)I
     invoke-static {v0}, Landroid/net/wifi/WifiConfigStore;->access$200(Landroid/net/wifi/WifiConfiguration;)I
 
@@ -211,7 +211,7 @@
     .catch Ljava/lang/NullPointerException; {:try_start_2 .. :try_end_2} :catch_1
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 859
+    .line 963
     .end local v8           #linkProperties:Landroid/net/LinkProperties;
     :cond_0
     :goto_3
@@ -225,7 +225,7 @@
 
     goto :goto_0
 
-    .line 862
+    .line 966
     .end local v0           #config:Landroid/net/wifi/WifiConfiguration;
     .end local v13           #writeToFile:Z
     :catch_0
@@ -233,7 +233,7 @@
 
     move-object v9, v10
 
-    .line 863
+    .line 967
     .end local v10           #out:Ljava/io/DataOutputStream;
     .local v2, e:Ljava/io/IOException;
     .restart local v9       #out:Ljava/io/DataOutputStream;
@@ -245,23 +245,23 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_4
 
-    .line 865
+    .line 969
     if-eqz v9, :cond_1
 
-    .line 867
+    .line 971
     :try_start_5
     invoke-virtual {v9}, Ljava/io/DataOutputStream;->close()V
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_3
 
-    .line 872
+    .line 976
     :cond_1
     :goto_5
     const-class v15, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;
 
     monitor-enter v15
 
-    .line 873
+    .line 977
     :try_start_6
     sget v14, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sWriteSequence:I
 
@@ -271,7 +271,7 @@
 
     if-nez v14, :cond_2
 
-    .line 874
+    .line 978
     sget-object v14, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandler:Landroid/os/Handler;
 
     invoke-virtual {v14}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
@@ -280,28 +280,28 @@
 
     invoke-virtual {v14}, Landroid/os/Looper;->quit()V
 
-    .line 875
+    .line 979
     const/4 v14, 0x0
 
     sput-object v14, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandler:Landroid/os/Handler;
 
-    .line 876
+    .line 980
     const/4 v14, 0x0
 
     sput-object v14, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandlerThread:Landroid/os/HandlerThread;
 
-    .line 878
+    .line 982
     :cond_2
     monitor-exit v15
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
-    .line 880
+    .line 984
     .end local v2           #e:Ljava/io/IOException;
     :goto_6
     return-void
 
-    .line 783
+    .line 887
     .end local v9           #out:Ljava/io/DataOutputStream;
     .restart local v0       #config:Landroid/net/wifi/WifiConfiguration;
     .restart local v8       #linkProperties:Landroid/net/LinkProperties;
@@ -313,7 +313,7 @@
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 784
+    .line 888
     iget-object v14, v0, Landroid/net/wifi/WifiConfiguration;->ipAssignment:Landroid/net/wifi/WifiConfiguration$IpAssignment;
 
     invoke-virtual {v14}, Landroid/net/wifi/WifiConfiguration$IpAssignment;->toString()Ljava/lang/String;
@@ -322,7 +322,7 @@
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 785
+    .line 889
     invoke-virtual {v8}, Landroid/net/LinkProperties;->getLinkAddresses()Ljava/util/Collection;
 
     move-result-object v14
@@ -345,13 +345,13 @@
 
     check-cast v7, Landroid/net/LinkAddress;
 
-    .line 786
+    .line 890
     .local v7, linkAddr:Landroid/net/LinkAddress;
     const-string v14, "linkAddress"
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 787
+    .line 891
     invoke-virtual {v7}, Landroid/net/LinkAddress;->getAddress()Ljava/net/InetAddress;
 
     move-result-object v14
@@ -362,7 +362,7 @@
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 788
+    .line 892
     invoke-virtual {v7}, Landroid/net/LinkAddress;->getNetworkPrefixLength()I
 
     move-result v14
@@ -375,14 +375,14 @@
 
     goto :goto_7
 
-    .line 856
+    .line 960
     .end local v5           #i$:Ljava/util/Iterator;
     .end local v7           #linkAddr:Landroid/net/LinkAddress;
     .end local v8           #linkProperties:Landroid/net/LinkProperties;
     :catch_1
     move-exception v2
 
-    .line 857
+    .line 961
     .local v2, e:Ljava/lang/NullPointerException;
     :try_start_8
     new-instance v14, Ljava/lang/StringBuilder;
@@ -416,7 +416,7 @@
 
     goto/16 :goto_3
 
-    .line 865
+    .line 969
     .end local v0           #config:Landroid/net/wifi/WifiConfiguration;
     .end local v2           #e:Ljava/lang/NullPointerException;
     .end local v13           #writeToFile:Z
@@ -430,20 +430,20 @@
     :goto_8
     if-eqz v9, :cond_3
 
-    .line 867
+    .line 971
     :try_start_9
     invoke-virtual {v9}, Ljava/io/DataOutputStream;->close()V
     :try_end_9
     .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_4
 
-    .line 872
+    .line 976
     :cond_3
     :goto_9
     const-class v15, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;
 
     monitor-enter v15
 
-    .line 873
+    .line 977
     :try_start_a
     sget v16, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sWriteSequence:I
 
@@ -453,7 +453,7 @@
 
     if-nez v16, :cond_4
 
-    .line 874
+    .line 978
     sget-object v16, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandler:Landroid/os/Handler;
 
     invoke-virtual/range {v16 .. v16}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
@@ -462,17 +462,17 @@
 
     invoke-virtual/range {v16 .. v16}, Landroid/os/Looper;->quit()V
 
-    .line 875
+    .line 979
     const/16 v16, 0x0
 
     sput-object v16, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandler:Landroid/os/Handler;
 
-    .line 876
+    .line 980
     const/16 v16, 0x0
 
     sput-object v16, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandlerThread:Landroid/os/HandlerThread;
 
-    .line 878
+    .line 982
     :cond_4
     monitor-exit v15
     :try_end_a
@@ -480,7 +480,7 @@
 
     throw v14
 
-    .line 790
+    .line 894
     .end local v9           #out:Ljava/io/DataOutputStream;
     .restart local v0       #config:Landroid/net/wifi/WifiConfiguration;
     .restart local v5       #i$:Ljava/util/Iterator;
@@ -510,27 +510,27 @@
 
     check-cast v12, Landroid/net/RouteInfo;
 
-    .line 791
+    .line 895
     .local v12, route:Landroid/net/RouteInfo;
     const-string v14, "gateway"
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 792
+    .line 896
     invoke-virtual {v12}, Landroid/net/RouteInfo;->getDestination()Landroid/net/LinkAddress;
 
     move-result-object v1
 
-    .line 793
+    .line 897
     .local v1, dest:Landroid/net/LinkAddress;
     if-eqz v1, :cond_6
 
-    .line 794
+    .line 898
     const/4 v14, 0x1
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 795
+    .line 899
     invoke-virtual {v1}, Landroid/net/LinkAddress;->getAddress()Ljava/net/InetAddress;
 
     move-result-object v14
@@ -541,14 +541,14 @@
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 796
+    .line 900
     invoke-virtual {v1}, Landroid/net/LinkAddress;->getNetworkPrefixLength()I
 
     move-result v14
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 800
+    .line 904
     :goto_b
     invoke-virtual {v12}, Landroid/net/RouteInfo;->getGateway()Ljava/net/InetAddress;
 
@@ -556,12 +556,12 @@
 
     if-eqz v14, :cond_7
 
-    .line 801
+    .line 905
     const/4 v14, 0x1
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 802
+    .line 906
     invoke-virtual {v12}, Landroid/net/RouteInfo;->getGateway()Ljava/net/InetAddress;
 
     move-result-object v14
@@ -574,7 +574,7 @@
 
     goto :goto_a
 
-    .line 798
+    .line 902
     :cond_6
     const/4 v14, 0x0
 
@@ -582,7 +582,7 @@
 
     goto :goto_b
 
-    .line 804
+    .line 908
     :cond_7
     const/4 v14, 0x0
 
@@ -590,7 +590,7 @@
 
     goto :goto_a
 
-    .line 807
+    .line 911
     .end local v1           #dest:Landroid/net/LinkAddress;
     .end local v12           #route:Landroid/net/RouteInfo;
     :cond_8
@@ -615,13 +615,13 @@
 
     check-cast v6, Ljava/net/InetAddress;
 
-    .line 808
+    .line 912
     .local v6, inetAddr:Ljava/net/InetAddress;
     const-string v14, "dns"
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 809
+    .line 913
     invoke-virtual {v6}, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
 
     move-result-object v14
@@ -630,22 +630,22 @@
 
     goto :goto_c
 
-    .line 811
+    .line 915
     .end local v6           #inetAddr:Ljava/net/InetAddress;
     :cond_9
     const/4 v13, 0x1
 
-    .line 812
+    .line 916
     goto/16 :goto_1
 
-    .line 814
+    .line 918
     .end local v5           #i$:Ljava/util/Iterator;
     :pswitch_3
     const-string v14, "ipAssignment"
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 815
+    .line 919
     iget-object v14, v0, Landroid/net/wifi/WifiConfiguration;->ipAssignment:Landroid/net/wifi/WifiConfiguration$IpAssignment;
 
     invoke-virtual {v14}, Landroid/net/wifi/WifiConfiguration$IpAssignment;->toString()Ljava/lang/String;
@@ -654,31 +654,31 @@
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 816
+    .line 920
     const/4 v13, 0x1
 
-    .line 817
+    .line 921
     goto/16 :goto_1
 
-    .line 828
+    .line 932
     :pswitch_4
     invoke-virtual {v8}, Landroid/net/LinkProperties;->getHttpProxy()Landroid/net/ProxyProperties;
 
     move-result-object v11
 
-    .line 829
+    .line 933
     .local v11, proxyProperties:Landroid/net/ProxyProperties;
     invoke-virtual {v11}, Landroid/net/ProxyProperties;->getExclusionList()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 830
+    .line 934
     .local v3, exclusionList:Ljava/lang/String;
     const-string v14, "proxySettings"
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 831
+    .line 935
     iget-object v14, v0, Landroid/net/wifi/WifiConfiguration;->proxySettings:Landroid/net/wifi/WifiConfiguration$ProxySettings;
 
     invoke-virtual {v14}, Landroid/net/wifi/WifiConfiguration$ProxySettings;->toString()Ljava/lang/String;
@@ -687,45 +687,45 @@
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 832
+    .line 936
     const-string v14, "proxyHost"
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 833
+    .line 937
     invoke-virtual {v11}, Landroid/net/ProxyProperties;->getHost()Ljava/lang/String;
 
     move-result-object v14
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 834
+    .line 938
     const-string v14, "proxyPort"
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 835
+    .line 939
     invoke-virtual {v11}, Landroid/net/ProxyProperties;->getPort()I
 
     move-result v14
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 836
+    .line 940
     const-string v14, "exclusionList"
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 837
+    .line 941
     invoke-virtual {v10, v3}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 838
+    .line 942
     const/4 v13, 0x1
 
-    .line 839
+    .line 943
     goto/16 :goto_2
 
-    .line 841
+    .line 945
     .end local v3           #exclusionList:Ljava/lang/String;
     .end local v11           #proxyProperties:Landroid/net/ProxyProperties;
     :pswitch_5
@@ -733,7 +733,7 @@
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    .line 842
+    .line 946
     iget-object v14, v0, Landroid/net/wifi/WifiConfiguration;->proxySettings:Landroid/net/wifi/WifiConfiguration$ProxySettings;
 
     invoke-virtual {v14}, Landroid/net/wifi/WifiConfiguration$ProxySettings;->toString()Ljava/lang/String;
@@ -746,33 +746,33 @@
     .catch Ljava/lang/NullPointerException; {:try_start_b .. :try_end_b} :catch_1
     .catch Ljava/io/IOException; {:try_start_b .. :try_end_b} :catch_0
 
-    .line 843
+    .line 947
     const/4 v13, 0x1
 
-    .line 844
+    .line 948
     goto/16 :goto_2
 
-    .line 865
+    .line 969
     .end local v0           #config:Landroid/net/wifi/WifiConfiguration;
     .end local v8           #linkProperties:Landroid/net/LinkProperties;
     .end local v13           #writeToFile:Z
     :cond_a
     if-eqz v10, :cond_b
 
-    .line 867
+    .line 971
     :try_start_c
     invoke-virtual {v10}, Ljava/io/DataOutputStream;->close()V
     :try_end_c
     .catch Ljava/lang/Exception; {:try_start_c .. :try_end_c} :catch_2
 
-    .line 872
+    .line 976
     :cond_b
     :goto_d
     const-class v15, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;
 
     monitor-enter v15
 
-    .line 873
+    .line 977
     :try_start_d
     sget v14, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sWriteSequence:I
 
@@ -782,7 +782,7 @@
 
     if-nez v14, :cond_c
 
-    .line 874
+    .line 978
     sget-object v14, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandler:Landroid/os/Handler;
 
     invoke-virtual {v14}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
@@ -791,28 +791,28 @@
 
     invoke-virtual {v14}, Landroid/os/Looper;->quit()V
 
-    .line 875
+    .line 979
     const/4 v14, 0x0
 
     sput-object v14, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandler:Landroid/os/Handler;
 
-    .line 876
+    .line 980
     const/4 v14, 0x0
 
     sput-object v14, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandlerThread:Landroid/os/HandlerThread;
 
-    .line 878
+    .line 982
     :cond_c
     monitor-exit v15
 
     move-object v9, v10
 
-    .line 879
+    .line 983
     .end local v10           #out:Ljava/io/DataOutputStream;
     .restart local v9       #out:Ljava/io/DataOutputStream;
     goto/16 :goto_6
 
-    .line 878
+    .line 982
     .end local v9           #out:Ljava/io/DataOutputStream;
     .restart local v10       #out:Ljava/io/DataOutputStream;
     :catchall_1
@@ -848,7 +848,7 @@
 
     throw v14
 
-    .line 868
+    .line 972
     .end local v9           #out:Ljava/io/DataOutputStream;
     .restart local v10       #out:Ljava/io/DataOutputStream;
     :catch_2
@@ -870,19 +870,19 @@
 
     goto/16 :goto_9
 
-    .line 865
+    .line 969
     :catchall_4
     move-exception v14
 
     goto/16 :goto_8
 
-    .line 862
+    .line 966
     :catch_5
     move-exception v2
 
     goto/16 :goto_4
 
-    .line 781
+    .line 885
     nop
 
     :pswitch_data_0
@@ -892,7 +892,7 @@
         :pswitch_0
     .end packed-switch
 
-    .line 826
+    .line 930
     :pswitch_data_1
     .packed-switch 0x1
         :pswitch_4
@@ -915,13 +915,13 @@
     .end annotation
 
     .prologue
-    .line 751
+    .line 855
     .local p0, networks:Ljava/util/List;,"Ljava/util/List<Landroid/net/wifi/WifiConfiguration;>;"
     const-class v1, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;
 
     monitor-enter v1
 
-    .line 752
+    .line 856
     :try_start_0
     sget v0, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sWriteSequence:I
 
@@ -933,7 +933,7 @@
 
     if-ne v0, v2, :cond_0
 
-    .line 753
+    .line 857
     new-instance v0, Landroid/os/HandlerThread;
 
     const-string v2, "WifiConfigThread"
@@ -942,12 +942,12 @@
 
     sput-object v0, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandlerThread:Landroid/os/HandlerThread;
 
-    .line 754
+    .line 858
     sget-object v0, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandlerThread:Landroid/os/HandlerThread;
 
     invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
 
-    .line 755
+    .line 859
     new-instance v0, Landroid/os/Handler;
 
     sget-object v2, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandlerThread:Landroid/os/HandlerThread;
@@ -960,13 +960,13 @@
 
     sput-object v0, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandler:Landroid/os/Handler;
 
-    .line 757
+    .line 861
     :cond_0
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 759
+    .line 863
     sget-object v0, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandler:Landroid/os/Handler;
 
     new-instance v1, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite$1;
@@ -975,10 +975,10 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 765
+    .line 869
     return-void
 
-    .line 757
+    .line 861
     :catchall_0
     move-exception v0
 

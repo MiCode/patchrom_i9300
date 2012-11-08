@@ -48,34 +48,27 @@
 
     const/4 v7, 0x0
 
-    .line 186
     invoke-direct {p0, p1}, Lcom/android/server/am/BaseErrorDialog;-><init>(Landroid/content/Context;)V
 
-    .line 244
     new-instance v4, Lcom/android/server/am/AppErrorDialog$1;
 
     invoke-direct {v4, p0}, Lcom/android/server/am/AppErrorDialog$1;-><init>(Lcom/android/server/am/AppErrorDialog;)V
 
     iput-object v4, p0, Lcom/android/server/am/AppErrorDialog;->mHandler:Landroid/os/Handler;
 
-    .line 188
     const-string v4, "-k -t -n -z -d -o /data/log/dumpstate_app_error"
 
     invoke-static {v4}, Landroid/os/Debug;->saveDumpstate(Ljava/lang/String;)V
 
-    .line 190
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 192
     .local v2, res:Landroid/content/res/Resources;
     iput-object p3, p0, Lcom/android/server/am/AppErrorDialog;->mProc:Lcom/android/server/am/ProcessRecord;
 
-    .line 193
     iput-object p2, p0, Lcom/android/server/am/AppErrorDialog;->mResult:Lcom/android/server/am/AppErrorResult;
 
-    .line 195
     iget-object v4, p3, Lcom/android/server/am/ProcessRecord;->pkgList:Ljava/util/HashSet;
 
     invoke-virtual {v4}, Ljava/util/HashSet;->size()I
@@ -97,7 +90,6 @@
     .local v1, name:Ljava/lang/CharSequence;
     if-eqz v1, :cond_3
 
-    .line 197
     const v4, 0x010404cf
 
     const/4 v5, 0x2
@@ -122,11 +114,11 @@
 
     invoke-virtual {p0, v4}, Lcom/android/server/am/AppErrorDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    .line 207
+    .line 70
     :goto_0
     invoke-virtual {p0, v7}, Lcom/android/server/am/AppErrorDialog;->setCancelable(Z)V
 
-    .line 209
+    .line 72
     const/4 v4, -0x1
 
     const v5, 0x010404d6
@@ -143,15 +135,15 @@
 
     invoke-virtual {p0, v4, v5, v6}, Lcom/android/server/am/AppErrorDialog;->setButton(ILjava/lang/CharSequence;Landroid/os/Message;)V
 
-    .line 213
+    .line 76
     iget-object v4, p3, Lcom/android/server/am/ProcessRecord;->errorReportReceiver:Landroid/content/ComponentName;
 
     if-eqz v4, :cond_1
 
-    .line 215
+    .line 78
     const/4 v3, 0x0
 
-    .line 216
+    .line 79
     .local v3, rp:Landroid/app/enterprise/RestrictionPolicy;
     const-string v4, "enterprise_policy"
 
@@ -161,16 +153,16 @@
 
     check-cast v0, Landroid/app/enterprise/EnterpriseDeviceManager;
 
-    .line 218
+    .line 81
     .local v0, edm:Landroid/app/enterprise/EnterpriseDeviceManager;
     if-eqz v0, :cond_0
 
-    .line 219
+    .line 82
     invoke-virtual {v0}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/app/enterprise/RestrictionPolicy;
 
     move-result-object v3
 
-    .line 221
+    .line 84
     :cond_0
     if-eqz v3, :cond_1
 
@@ -180,7 +172,7 @@
 
     if-eqz v4, :cond_1
 
-    .line 223
+    .line 86
     const/4 v4, -0x2
 
     const v5, 0x010404d7
@@ -197,7 +189,7 @@
 
     invoke-virtual {p0, v4, v5, v6}, Lcom/android/server/am/AppErrorDialog;->setButton(ILjava/lang/CharSequence;Landroid/os/Message;)V
 
-    .line 231
+    .line 94
     .end local v0           #edm:Landroid/app/enterprise/EnterpriseDeviceManager;
     .end local v3           #rp:Landroid/app/enterprise/RestrictionPolicy;
     :cond_1
@@ -209,7 +201,7 @@
 
     invoke-virtual {p0, v4}, Lcom/android/server/am/AppErrorDialog;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 232
+    .line 95
     invoke-virtual {p0}, Lcom/android/server/am/AppErrorDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v4
@@ -218,7 +210,7 @@
 
     invoke-virtual {v4, v5}, Landroid/view/Window;->addFlags(I)V
 
-    .line 233
+    .line 96
     invoke-virtual {p0}, Lcom/android/server/am/AppErrorDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v4
@@ -247,12 +239,12 @@
 
     invoke-virtual {v4, v5}, Landroid/view/Window;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 234
+    .line 97
     iget-boolean v4, p3, Lcom/android/server/am/ProcessRecord;->persistent:Z
 
     if-eqz v4, :cond_2
 
-    .line 235
+    .line 98
     invoke-virtual {p0}, Lcom/android/server/am/AppErrorDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v4
@@ -261,7 +253,7 @@
 
     invoke-virtual {v4, v5}, Landroid/view/Window;->setType(I)V
 
-    .line 239
+    .line 102
     :cond_2
     iget-object v4, p0, Lcom/android/server/am/AppErrorDialog;->mHandler:Landroid/os/Handler;
 
@@ -275,15 +267,15 @@
 
     invoke-virtual {v4, v5, v6, v7}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 242
+    .line 105
     return-void
 
-    .line 201
+    .line 64
     .end local v1           #name:Ljava/lang/CharSequence;
     :cond_3
     iget-object v1, p3, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
-    .line 202
+    .line 65
     .restart local v1       #name:Ljava/lang/CharSequence;
     const v4, 0x010404d0
 

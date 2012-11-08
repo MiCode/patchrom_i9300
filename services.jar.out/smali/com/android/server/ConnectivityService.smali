@@ -13523,7 +13523,6 @@
 
     invoke-interface {v0, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 1131
     :cond_e
     monitor-exit p0
     :try_end_8
@@ -13532,10 +13531,8 @@
     :try_start_9
     invoke-static/range {v23 .. v23}, Lcom/android/server/ConnectivityService$Injector;->startUsingNetworkFeature(I)V
 
-    .line 1133
     if-ltz v15, :cond_f
 
-    .line 1134
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/ConnectivityService;->mHandler:Landroid/os/Handler;

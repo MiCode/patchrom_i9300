@@ -26,6 +26,10 @@
 
 .field public static final TAG_CSCFEATURE_WIFI_GLOBAL_MOBILEAP_MAX_CLIENT:Ljava/lang/String; = "CscFeature_Wifi_MaxClient4MobileAp"
 
+.field public static final TAG_CSCFEATURE_WIFI_PRIORITYRULEAS:Ljava/lang/String; = "CscFeature_Wifi_PriorityRuleAs"
+
+.field public static final TAG_CSCFEATURE_WIFI_ROAMING_DISABLE:Ljava/lang/String; = "CscFeature_Wifi_Roaming_Disable"
+
 .field public static final TAG_CSCFEATURE_WIFI_USE_DEFAULT_SECURITY_AS:Ljava/lang/String; = "CscFeature_Wifi_UseDefaultSecurityAs"
 
 .field public static final TAG_CSCFEATURE_WIFI_USE_RANDOM4DIGIT_COMBINATION_AS_SSID:Ljava/lang/String; = "CscFeature_Wifi_UseRandom4digitCombinationAsSSID"

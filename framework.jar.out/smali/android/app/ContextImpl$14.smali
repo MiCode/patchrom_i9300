@@ -32,7 +32,6 @@
     .parameter "ctx"
 
     .prologue
-    .line 374
     new-instance v0, Landroid/app/MiuiDownloadManager;
 
     invoke-virtual {p1}, Landroid/app/ContextImpl;->getContentResolver()Landroid/content/ContentResolver;

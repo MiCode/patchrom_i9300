@@ -224,7 +224,7 @@
     .line 160
     new-instance v1, Landroid/drm/mobile1/DrmException;
 
-    const-string v2, "nativeGetDeliveryMethod() returned JNI_DRM_FAILURE"
+    const-string/jumbo v2, "nativeGetDeliveryMethod() returned JNI_DRM_FAILURE"
 
     invoke-direct {v1, v2}, Landroid/drm/mobile1/DrmException;-><init>(Ljava/lang/String;)V
 

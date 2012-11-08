@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 5139
+    .line 5149
     iput-object p1, p0, Landroid/webkit/HtmlComposerView$SingleCursorTimerTask;->this$0:Landroid/webkit/HtmlComposerView;
 
     invoke-direct {p0}, Ljava/util/TimerTask;-><init>()V
@@ -38,13 +38,13 @@
     .locals 2
 
     .prologue
-    .line 5142
+    .line 5152
     iget-object v0, p0, Landroid/webkit/HtmlComposerView$SingleCursorTimerTask;->this$0:Landroid/webkit/HtmlComposerView;
 
     const/4 v1, 0x1
 
     iput-boolean v1, v0, Landroid/webkit/HtmlComposerView;->mIsSCHExpired:Z
 
-    .line 5143
+    .line 5153
     return-void
 .end method

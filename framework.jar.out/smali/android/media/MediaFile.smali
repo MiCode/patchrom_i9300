@@ -376,11 +376,11 @@
 
     invoke-static {v0, v1, v2}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 281
     invoke-static {}, Landroid/media/MediaFile$Injector;->isWMAEnabled()Z
     move-result v0
     if-eqz v0, :cond_miui_1
 
+    .line 281
     const-string v0, "WMA"
 
     const/4 v1, 0x6

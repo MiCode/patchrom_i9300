@@ -12,6 +12,8 @@
 
 .field public static final TAG_CSCFEATURE_RIL_CHECKNETLOCKMCCONLY4:Ljava/lang/String; = "CscFeature_RIL_CheckNetLockMccOnly4"
 
+.field public static final TAG_CSCFEATURE_RIL_CONTROL_FAKE_ROAMING_NRP2G:Ljava/lang/String; = "CscFeature_RIL_ControlFakeRoamingNRP2G"
+
 .field public static final TAG_CSCFEATURE_RIL_CONVERT_GSM_EXTENDED_CHAR_TURKISH:Ljava/lang/String; = "CscFeature_RIL_ConvertGsmExtendedCharTurkish"
 
 .field public static final TAG_CSCFEATURE_RIL_CONVERT_NONGSM_CHAR_HUNGARIAN:Ljava/lang/String; = "CscFeature_RIL_ConvertNonGsmCharHungarian"
@@ -83,6 +85,8 @@
 .field public static final TAG_CSCFEATURE_RIL_KT_SMS_DB_SCHEMA:Ljava/lang/String; = "CscFeature_RIL_KtSmsDbSchema"
 
 .field public static final TAG_CSCFEATURE_RIL_LGT_SMS_DB_SCHEMA:Ljava/lang/String; = "CscFeature_RIL_LgtSmsDbSchema"
+
+.field public static final TAG_CSCFEATURE_RIL_LOAD_ICCID_ON_LOCK:Ljava/lang/String; = "CscFeature_RIL_LoadIccIdOnLock"
 
 .field public static final TAG_CSCFEATURE_RIL_NATIONAL_ROAMING_OPTION:Ljava/lang/String; = "CscFeature_RIL_NationalRoamingOption"
 

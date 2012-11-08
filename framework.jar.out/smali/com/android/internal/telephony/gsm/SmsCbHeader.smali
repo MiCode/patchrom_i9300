@@ -30,7 +30,7 @@
 
 .field private final mEtwsInfo:Landroid/telephony/SmsCbEtwsInfo;
 
-.field private final messageIdentifier:I
+.field public final messageIdentifier:I
 
 .field private final nrOfPages:I
 

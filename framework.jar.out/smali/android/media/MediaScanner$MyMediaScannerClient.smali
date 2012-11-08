@@ -975,22 +975,18 @@
 
     invoke-static/range {v39 .. v41}, Landroid/media/MediaScanner;->access$3114(Landroid/media/MediaScanner;J)J
 
-    .line 1213
     if-eqz v30, :cond_10
 
-    .line 1214
     invoke-static/range {v30 .. v30}, Landroid/content/ContentUris;->parseId(Landroid/net/Uri;)J
 
     move-result-wide v31
 
-    .line 1215
     move-wide/from16 v0, v31
 
     move-object/from16 v2, p1
 
     iput-wide v0, v2, Landroid/media/MediaScanner$FileEntry;->mRowId:J
 
-    .line 1254
     :cond_10
     :goto_6
     if-eqz v26, :cond_11
@@ -1015,11 +1011,9 @@
     invoke-static {v0, v1, v2, v3, v4}, Landroid/media/MediaScanner$Injector;->setAllSettingsIfNotSet(Landroid/media/MediaScanner;Landroid/media/MediaScanner$FileEntry;ZZZ)V
     #end
 
-    .line 1255
     if-eqz p4, :cond_2e
 
-    .line 1256
-    const-string/jumbo v39, "notification_sound"
+    const-string v39, "notification_sound"
 
     move-object/from16 v0, p0
 

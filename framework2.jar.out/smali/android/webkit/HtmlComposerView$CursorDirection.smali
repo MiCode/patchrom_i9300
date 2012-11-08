@@ -40,7 +40,7 @@
 
     const/4 v2, 0x0
 
-    .line 5240
+    .line 5250
     new-instance v0, Landroid/webkit/HtmlComposerView$CursorDirection;
 
     const-string v1, "FORWARD"
@@ -49,7 +49,7 @@
 
     sput-object v0, Landroid/webkit/HtmlComposerView$CursorDirection;->FORWARD:Landroid/webkit/HtmlComposerView$CursorDirection;
 
-    .line 5241
+    .line 5251
     new-instance v0, Landroid/webkit/HtmlComposerView$CursorDirection;
 
     const-string v1, "BACKWARD"
@@ -58,7 +58,7 @@
 
     sput-object v0, Landroid/webkit/HtmlComposerView$CursorDirection;->BACKWARD:Landroid/webkit/HtmlComposerView$CursorDirection;
 
-    .line 5239
+    .line 5249
     const/4 v0, 0x2
 
     new-array v0, v0, [Landroid/webkit/HtmlComposerView$CursorDirection;
@@ -87,7 +87,7 @@
     .end annotation
 
     .prologue
-    .line 5239
+    .line 5249
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -98,7 +98,7 @@
     .parameter "name"
 
     .prologue
-    .line 5239
+    .line 5249
     const-class v0, Landroid/webkit/HtmlComposerView$CursorDirection;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -114,7 +114,7 @@
     .locals 1
 
     .prologue
-    .line 5239
+    .line 5249
     sget-object v0, Landroid/webkit/HtmlComposerView$CursorDirection;->$VALUES:[Landroid/webkit/HtmlComposerView$CursorDirection;
 
     invoke-virtual {v0}, [Landroid/webkit/HtmlComposerView$CursorDirection;->clone()Ljava/lang/Object;

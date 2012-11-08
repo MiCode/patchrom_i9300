@@ -57,33 +57,27 @@
     .parameter "unused"
 
     .prologue
-    .line 275
     iget-object v0, p0, Lcom/android/server/pm/ShutdownThread$CloseDialogReceiver;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     invoke-static {p1}, Lcom/android/server/pm/ShutdownThread$Injector;->onDismiss(Landroid/content/DialogInterface;)V
 
-    .line 276
     invoke-static {}, Lcom/android/server/pm/ShutdownThread;->access$100()Ljava/lang/Object;
 
     move-result-object v1
 
     monitor-enter v1
 
-    .line 277
     const/4 v0, 0x0
 
     :try_start_0
     invoke-static {v0}, Lcom/android/server/pm/ShutdownThread;->access$202(Z)Z
 
-    .line 278
     monitor-exit v1
 
-    .line 279
     return-void
 
-    .line 278
     :catchall_0
     move-exception v0
 

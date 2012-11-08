@@ -23,8 +23,8 @@
 /system/app/WeatherWall.apk
 /system/app/SecCalendar.apk
 /system/app/GoogleTTS.apk
-/system/app/Phonesky.apk
 /system/app/Samsungservice.apk
+/system/app/Phonesky.apk
 /system/app/SamsungApps.apk
 /system/app/GoogleLoginService.apk
 /system/app/SamsungIME.apk
@@ -122,8 +122,8 @@
 /system/app/SecFileShareClient.apk
 /system/app/SecFileShareServer.apk
 /system/app/GooglePartnerSetup.apk
-/system/app/SecOmaDownloadProvider.apk
 /system/app/GoogleBackupTransport.apk
+/system/app/SecOmaDownloadProvider.apk
 /system/app/CertInstaller.apk
 /system/app/SecExchange.apk
 /system/app/WfdBroker.apk
@@ -195,6 +195,7 @@
 /system/app/VoiceSearchStub.apk
 /system/app/SmartcardService.apk
 /system/app/BluetoothMap.apk
+/system/app/SimServicePermission.apk
 /system/app/UserDictionaryProvider.apk
 /system/app/EdmVpnServices.apk
 /system/app/EdmSysScopeService.apk

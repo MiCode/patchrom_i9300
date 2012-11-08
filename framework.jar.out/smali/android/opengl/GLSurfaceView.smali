@@ -94,7 +94,7 @@
     .locals 2
 
     .prologue
-    .line 1924
+    .line 1927
     new-instance v0, Landroid/opengl/GLSurfaceView$GLThreadManager;
 
     const/4 v1, 0x0
@@ -114,7 +114,7 @@
     .line 213
     invoke-direct {p0, p1}, Landroid/view/SurfaceView;-><init>(Landroid/content/Context;)V
 
-    .line 1926
+    .line 1929
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p0}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
@@ -137,7 +137,7 @@
     .line 222
     invoke-direct {p0, p1, p2}, Landroid/view/SurfaceView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 1926
+    .line 1929
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p0}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
@@ -529,12 +529,12 @@
     .parameter "drawing"
 
     .prologue
-    .line 1941
+    .line 1944
     iget-object v0, p0, Landroid/opengl/GLSurfaceView;->mGLThread:Landroid/opengl/GLSurfaceView$GLThread;
 
     invoke-virtual {v0, p1}, Landroid/opengl/GLSurfaceView$GLThread;->setDrawingOnWindowResize(Z)V
 
-    .line 1942
+    .line 1945
     return-void
 .end method
 

@@ -2660,13 +2660,10 @@
 
     if-eqz v5, :cond_5
 
-    .line 1590
     iget v1, p0, Lcom/android/server/NotificationManagerService;->mDefaultNotificationColor:I
 
-    .line 1591
     iget v3, p0, Lcom/android/server/NotificationManagerService;->mDefaultNotificationLedOn:I
 
-    .line 1592
     iget v2, p0, Lcom/android/server/NotificationManagerService;->mDefaultNotificationLedOff:I
 
     invoke-static {p0}, Lcom/android/server/NotificationManagerService$Injector;->updateNotificationLight(Lcom/android/server/NotificationManagerService;)V
@@ -2689,7 +2686,6 @@
 
     iget v2, v5, Landroid/app/Notification;->ledOffMS:I
 
-    .line 1604
     :cond_5
     iget-boolean v5, p0, Lcom/android/server/NotificationManagerService;->isDormantModeOn:Z
 

@@ -8878,7 +8878,7 @@
     return-void
 .end method
 
-.method sendMessage(II)V
+.method public sendMessage(II)V
     .locals 3
     .parameter "what"
     .parameter "arg1"
@@ -8902,7 +8902,7 @@
     return-void
 .end method
 
-.method sendMessage(III)V
+.method public sendMessage(III)V
     .locals 2
     .parameter "what"
     .parameter "arg1"

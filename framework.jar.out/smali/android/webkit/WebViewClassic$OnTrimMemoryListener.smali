@@ -26,7 +26,7 @@
     .locals 1
 
     .prologue
-    .line 1019
+    .line 1016
     const/4 v0, 0x0
 
     sput-object v0, Landroid/webkit/WebViewClassic$OnTrimMemoryListener;->sInstance:Landroid/webkit/WebViewClassic$OnTrimMemoryListener;
@@ -39,13 +39,13 @@
     .parameter "c"
 
     .prologue
-    .line 1027
+    .line 1024
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1028
+    .line 1025
     invoke-virtual {p1, p0}, Landroid/content/Context;->registerComponentCallbacks(Landroid/content/ComponentCallbacks;)V
 
-    .line 1029
+    .line 1026
     return-void
 .end method
 
@@ -54,12 +54,12 @@
     .parameter "c"
 
     .prologue
-    .line 1022
+    .line 1019
     sget-object v0, Landroid/webkit/WebViewClassic$OnTrimMemoryListener;->sInstance:Landroid/webkit/WebViewClassic$OnTrimMemoryListener;
 
     if-nez v0, :cond_0
 
-    .line 1023
+    .line 1020
     new-instance v0, Landroid/webkit/WebViewClassic$OnTrimMemoryListener;
 
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
@@ -70,7 +70,7 @@
 
     sput-object v0, Landroid/webkit/WebViewClassic$OnTrimMemoryListener;->sInstance:Landroid/webkit/WebViewClassic$OnTrimMemoryListener;
 
-    .line 1025
+    .line 1022
     :cond_0
     return-void
 .end method
@@ -82,7 +82,7 @@
     .parameter "newConfig"
 
     .prologue
-    .line 1034
+    .line 1031
     return-void
 .end method
 
@@ -90,7 +90,7 @@
     .locals 0
 
     .prologue
-    .line 1039
+    .line 1036
     return-void
 .end method
 
@@ -99,19 +99,19 @@
     .parameter "level"
 
     .prologue
-    .line 1050
+    .line 1047
     const/16 v0, 0x14
 
     if-lt p1, v0, :cond_0
 
-    .line 1051
+    .line 1048
     invoke-static {}, Landroid/webkit/HTML5VideoInline;->cleanupSurfaceTexture()V
 
-    .line 1053
+    .line 1050
     :cond_0
     #calls: Landroid/webkit/WebViewClassic;->nativeOnTrimMemory(I)V
     invoke-static {p1}, Landroid/webkit/WebViewClassic;->access$1600(I)V
 
-    .line 1054
+    .line 1051
     return-void
 .end method

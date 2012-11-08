@@ -16,7 +16,7 @@
 
 
 # static fields
-.field private static final AKA_ARRAYS_LENGTHS_SIZE:I = 0x1
+.field private static final AKA_ARRAYS_LENGTHS_SIZE:I = 0x2
 
 .field private static final AKA_AUTH_HEADER_SIZE:I = 0x4
 
@@ -154,7 +154,7 @@
     .parameter "msg"
 
     .prologue
-    .line 1196
+    .line 1198
     :try_start_0
     new-instance v1, Ljava/lang/Exception;
 
@@ -164,11 +164,11 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1197
+    .line 1199
     :catch_0
     move-exception v0
 
-    .line 1198
+    .line 1200
     .local v0, e:Ljava/lang/Exception;
     const-string v1, "SERVICE_TEST"
 
@@ -220,7 +220,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1200
+    .line 1202
     return-void
 .end method
 
@@ -229,7 +229,7 @@
     .parameter "msg"
 
     .prologue
-    .line 1185
+    .line 1187
     :try_start_0
     new-instance v1, Ljava/lang/Exception;
 
@@ -239,11 +239,11 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1186
+    .line 1188
     :catch_0
     move-exception v0
 
-    .line 1187
+    .line 1189
     .local v0, e:Ljava/lang/Exception;
     const-string v1, "SERVICE_TEST"
 
@@ -295,7 +295,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1190
+    .line 1192
     return-void
 .end method
 
@@ -305,17 +305,17 @@
     .parameter "reqInfoHead"
 
     .prologue
-    .line 400
+    .line 402
     const/4 v2, 0x0
 
-    .line 401
+    .line 403
     .local v2, isWaitException:Z
     const/4 v3, 0x0
 
     .local v3, waitExceptionString:Ljava/lang/String;
     const/4 v1, 0x0
 
-    .line 403
+    .line 405
     .local v1, error:Ljava/lang/String;
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -337,7 +337,7 @@
 
     invoke-direct {p0, v4}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Logi(Ljava/lang/String;)V
 
-    .line 409
+    .line 411
     :try_start_0
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
@@ -347,13 +347,13 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 411
+    .line 413
     :try_start_1
     iget-boolean v4, p1, Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;->mIsResponseValid:Z
 
     if-nez v4, :cond_0
 
-    .line 413
+    .line 415
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -374,7 +374,7 @@
 
     invoke-direct {p0, v4}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Logi(Ljava/lang/String;)V
 
-    .line 415
+    .line 417
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v4
@@ -383,35 +383,35 @@
 
     invoke-virtual {v4, v6, v7}, Ljava/lang/Object;->wait(J)V
 
-    .line 417
+    .line 419
     :cond_0
     monitor-exit v5
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 425
+    .line 427
     :goto_0
     iget-object v5, p0, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->mRequestOriginatorArray:Ljava/util/ArrayList;
 
     monitor-enter v5
 
-    .line 428
+    .line 430
     :try_start_2
     iget-object v4, p0, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->mRequestOriginatorArray:Ljava/util/ArrayList;
 
     invoke-virtual {v4, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 429
+    .line 431
     monitor-exit v5
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    .line 432
+    .line 434
     iget-boolean v4, p1, Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;->mIsResponseValid:Z
 
     if-eqz v4, :cond_1
 
-    .line 434
+    .line 436
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -432,14 +432,14 @@
 
     invoke-direct {p0, v4}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Logi(Ljava/lang/String;)V
 
-    .line 435
+    .line 437
     const/4 v4, 0x0
 
-    .line 441
+    .line 443
     :goto_1
     return-object v4
 
-    .line 417
+    .line 419
     :catchall_0
     move-exception v4
 
@@ -453,20 +453,20 @@
     :try_end_4
     .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_0
 
-    .line 418
+    .line 420
     :catch_0
     move-exception v0
 
-    .line 419
+    .line 421
     .local v0, e:Ljava/lang/Throwable;
     invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 420
+    .line 422
     const/4 v2, 0x1
 
-    .line 421
+    .line 423
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -493,7 +493,7 @@
 
     goto :goto_0
 
-    .line 429
+    .line 431
     .end local v0           #e:Ljava/lang/Throwable;
     :catchall_1
     move-exception v4
@@ -505,11 +505,11 @@
 
     throw v4
 
-    .line 436
+    .line 438
     :cond_1
     if-eqz v2, :cond_2
 
-    .line 437
+    .line 439
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -536,10 +536,10 @@
 
     move-object v4, v1
 
-    .line 438
+    .line 440
     goto :goto_1
 
-    .line 440
+    .line 442
     :cond_2
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -563,7 +563,7 @@
 
     move-object v4, v1
 
-    .line 441
+    .line 443
     goto :goto_1
 .end method
 
@@ -575,10 +575,10 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 368
+    .line 370
     if-nez p1, :cond_0
 
-    .line 369
+    .line 371
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -601,46 +601,46 @@
 
     move-object v0, v1
 
-    .line 391
+    .line 393
     :goto_0
     return-object v0
 
-    .line 373
+    .line 375
     :cond_0
     new-instance v0, Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;
 
     invoke-direct {v0, p0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;-><init>(Lcom/orange/authentication/simcard/SimCardAuthenticationService;Lcom/orange/authentication/simcard/SimCardAuthenticationService$1;)V
 
-    .line 374
+    .line 376
     .local v0, requester:Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;
     const/4 v2, 0x0
 
     iput-boolean v2, v0, Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;->mIsResponseValid:Z
 
-    .line 375
+    .line 377
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v2
 
     iput-object v2, v0, Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;->mCallingThread:Ljava/lang/Thread;
 
-    .line 376
+    .line 378
     invoke-direct {p0}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->obtainSequenceNumber()I
 
     move-result v2
 
     iput v2, v0, Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;->mSequenceId:I
 
-    .line 377
+    .line 379
     #setter for: Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;->mResponse:Ljava/lang/Object;
     invoke-static {v0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;->access$102(Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 379
+    .line 381
     iget v2, v0, Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;->mSequenceId:I
 
     iput v2, p1, Landroid/os/Message;->arg1:I
 
-    .line 381
+    .line 383
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -663,12 +663,12 @@
 
     invoke-direct {p0, v2}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Logi(Ljava/lang/String;)V
 
-    .line 383
+    .line 385
     iget-object v2, p0, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->mRequestOriginatorArray:Ljava/util/ArrayList;
 
     monitor-enter v2
 
-    .line 385
+    .line 387
     :try_start_0
     iget-object v3, p0, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->mRequestOriginatorArray:Ljava/util/ArrayList;
 
@@ -678,7 +678,7 @@
 
     if-nez v3, :cond_1
 
-    .line 387
+    .line 389
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -699,14 +699,14 @@
 
     invoke-direct {p0, v3}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 388
+    .line 390
     monitor-exit v2
 
     move-object v0, v1
 
     goto :goto_0
 
-    .line 390
+    .line 392
     :cond_1
     monitor-exit v2
 
@@ -737,56 +737,56 @@
 
     const/4 v6, 0x4
 
-    .line 1122
+    .line 1124
     if-nez p1, :cond_0
 
-    .line 1123
+    .line 1125
     new-instance v6, Ljava/lang/NullPointerException;
 
     invoke-direct {v6}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v6
 
-    .line 1125
+    .line 1127
     :cond_0
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v3
 
-    .line 1127
+    .line 1129
     .local v3, bufferLength:I
     const/4 v1, 0x4
 
-    .line 1128
+    .line 1130
     .local v1, INT_BYTE_SIZE:I
     if-le v3, v6, :cond_1
 
     move v0, v6
 
-    .line 1131
+    .line 1133
     .local v0, CORRECT_VALUE_SIZE:I
     :goto_0
     invoke-static {v6}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
 
     move-result-object v2
 
-    .line 1132
+    .line 1134
     .local v2, bb:Ljava/nio/ByteBuffer;
     sget-object v7, Ljava/nio/ByteOrder;->BIG_ENDIAN:Ljava/nio/ByteOrder;
 
     invoke-virtual {v2, v7}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    .line 1136
+    .line 1138
     move v4, v0
 
     .local v4, i:I
     :goto_1
     if-ge v4, v6, :cond_2
 
-    .line 1137
+    .line 1139
     invoke-virtual {v2, v8}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
-    .line 1136
+    .line 1138
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
@@ -797,10 +797,10 @@
     :cond_1
     move v0, v3
 
-    .line 1128
+    .line 1130
     goto :goto_0
 
-    .line 1142
+    .line 1144
     .restart local v0       #CORRECT_VALUE_SIZE:I
     .restart local v2       #bb:Ljava/nio/ByteBuffer;
     .restart local v4       #i:I
@@ -809,14 +809,14 @@
 
     move-result v5
 
-    .line 1143
+    .line 1145
     .local v5, startPosition:I
     sub-int v4, v3, v0
 
     :goto_2
     if-ge v4, v3, :cond_3
 
-    .line 1144
+    .line 1146
     add-int v6, v5, v4
 
     invoke-virtual {p1, v6}, Ljava/nio/ByteBuffer;->get(I)B
@@ -825,12 +825,12 @@
 
     invoke-virtual {v2, v6}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
-    .line 1143
+    .line 1145
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_2
 
-    .line 1147
+    .line 1149
     :cond_3
     invoke-virtual {v2, v8}, Ljava/nio/ByteBuffer;->getInt(I)I
 
@@ -854,56 +854,56 @@
 
     const/16 v6, 0x8
 
-    .line 1152
+    .line 1154
     if-nez p1, :cond_0
 
-    .line 1153
+    .line 1155
     new-instance v6, Ljava/lang/NullPointerException;
 
     invoke-direct {v6}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v6
 
-    .line 1155
+    .line 1157
     :cond_0
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v3
 
-    .line 1157
+    .line 1159
     .local v3, bufferLength:I
     const/16 v1, 0x8
 
-    .line 1158
+    .line 1160
     .local v1, LONG_BYTE_SIZE:I
     if-le v3, v6, :cond_1
 
     move v0, v6
 
-    .line 1161
+    .line 1163
     .local v0, CORRECT_VALUE_SIZE:I
     :goto_0
     invoke-static {v6}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
 
     move-result-object v2
 
-    .line 1162
+    .line 1164
     .local v2, bb:Ljava/nio/ByteBuffer;
     sget-object v7, Ljava/nio/ByteOrder;->BIG_ENDIAN:Ljava/nio/ByteOrder;
 
     invoke-virtual {v2, v7}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    .line 1166
+    .line 1168
     move v4, v0
 
     .local v4, i:I
     :goto_1
     if-ge v4, v6, :cond_2
 
-    .line 1167
+    .line 1169
     invoke-virtual {v2, v8}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
-    .line 1166
+    .line 1168
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
@@ -914,10 +914,10 @@
     :cond_1
     move v0, v3
 
-    .line 1158
+    .line 1160
     goto :goto_0
 
-    .line 1172
+    .line 1174
     .restart local v0       #CORRECT_VALUE_SIZE:I
     .restart local v2       #bb:Ljava/nio/ByteBuffer;
     .restart local v4       #i:I
@@ -926,14 +926,14 @@
 
     move-result v5
 
-    .line 1173
+    .line 1175
     .local v5, startPosition:I
     sub-int v4, v3, v0
 
     :goto_2
     if-ge v4, v3, :cond_3
 
-    .line 1174
+    .line 1176
     add-int v6, v5, v4
 
     invoke-virtual {p1, v6}, Ljava/nio/ByteBuffer;->get(I)B
@@ -942,12 +942,12 @@
 
     invoke-virtual {v2, v6}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
-    .line 1173
+    .line 1175
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_2
 
-    .line 1177
+    .line 1179
     :cond_3
     invoke-virtual {v2, v8}, Ljava/nio/ByteBuffer;->getLong(I)J
 
@@ -961,23 +961,23 @@
     .parameter "data"
 
     .prologue
-    .line 1211
+    .line 1213
     if-nez p1, :cond_0
 
-    .line 1212
+    .line 1214
     const-string v3, "null"
 
-    .line 1220
+    .line 1222
     :goto_0
     return-object v3
 
-    .line 1213
+    .line 1215
     :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 1214
+    .line 1216
     .local v1, sb:Ljava/lang/StringBuilder;
     const/4 v0, 0x0
 
@@ -987,29 +987,29 @@
 
     if-ge v0, v3, :cond_1
 
-    .line 1215
+    .line 1217
     const/4 v2, 0x0
 
-    .line 1216
+    .line 1218
     .local v2, val:I
     aget-byte v3, p1, v0
 
     and-int/lit16 v2, v3, 0xff
 
-    .line 1217
+    .line 1219
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 1218
+    .line 1220
     const-string v3, ", "
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1214
+    .line 1216
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 1220
+    .line 1222
     .end local v2           #val:I
     :cond_1
     const/4 v3, 0x0
@@ -1031,7 +1031,7 @@
     .locals 2
 
     .prologue
-    .line 349
+    .line 351
     iget-object v0, p0, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->mContext:Landroid/content/Context;
 
     const-string v1, "com.orange.permission.SIMCARD_AUTHENTICATION"
@@ -1057,7 +1057,7 @@
     .locals 3
 
     .prologue
-    .line 1203
+    .line 1205
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v1
@@ -1074,7 +1074,7 @@
 
     move-result-object v0
 
-    .line 1204
+    .line 1206
     .local v0, methodName:Ljava/lang/String;
     const-string v1, "access"
 
@@ -1086,7 +1086,7 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 1207
+    .line 1209
     .end local v0           #methodName:Ljava/lang/String;
     :goto_0
     return-object v0
@@ -1117,21 +1117,21 @@
     .parameter "response"
 
     .prologue
-    .line 884
+    .line 886
     const/4 v7, 0x0
 
-    .line 885
+    .line 887
     .local v7, error:Ljava/lang/String;
     if-nez p1, :cond_1
 
-    .line 886
+    .line 888
     const-string v7, "response == null"
 
     move-object/from16 v0, p0
 
     invoke-direct {v0, v7}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 887
+    .line 889
     new-instance v10, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
 
     sget-object v18, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult$Error;->INTERNAL_ERR:Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult$Error;
@@ -1140,12 +1140,12 @@
 
     invoke-direct {v10, v0, v7}, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;-><init>(Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult$Error;Ljava/lang/String;)V
 
-    .line 1105
+    .line 1107
     :cond_0
     :goto_0
     return-object v10
 
-    .line 889
+    .line 891
     :cond_1
     move-object/from16 v0, p1
 
@@ -1155,14 +1155,14 @@
 
     if-nez v18, :cond_2
 
-    .line 890
+    .line 892
     const-string v7, "response.obj == null"
 
     move-object/from16 v0, p0
 
     invoke-direct {v0, v7}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 891
+    .line 893
     new-instance v10, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
 
     sget-object v18, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult$Error;->INTERNAL_ERR:Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult$Error;
@@ -1173,7 +1173,7 @@
 
     goto :goto_0
 
-    .line 894
+    .line 896
     :cond_2
     new-instance v10, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
 
@@ -1187,7 +1187,7 @@
 
     invoke-direct {v10, v0, v1}, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;-><init>(Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult$Error;Ljava/lang/String;)V
 
-    .line 896
+    .line 898
     .local v10, invalidAkaResponse:Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
     move-object/from16 v0, p1
 
@@ -1195,7 +1195,7 @@
 
     check-cast v3, Landroid/os/AsyncResult;
 
-    .line 897
+    .line 899
     .local v3, ar:Landroid/os/AsyncResult;
     iget-object v0, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
@@ -1203,7 +1203,7 @@
 
     if-eqz v18, :cond_3
 
-    .line 899
+    .line 901
     new-instance v18, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
@@ -1234,7 +1234,7 @@
 
     invoke-direct {v0, v7}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 901
+    .line 903
     new-instance v10, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
 
     .end local v10           #invalidAkaResponse:Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
@@ -1246,7 +1246,7 @@
 
     goto :goto_0
 
-    .line 904
+    .line 906
     .restart local v10       #invalidAkaResponse:Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
     :cond_3
     iget-object v0, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
@@ -1255,14 +1255,14 @@
 
     if-nez v18, :cond_4
 
-    .line 905
+    .line 907
     const-string v7, "ar.result == null"
 
     move-object/from16 v0, p0
 
     invoke-direct {v0, v7}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 906
+    .line 908
     new-instance v10, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
 
     .end local v10           #invalidAkaResponse:Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
@@ -1274,14 +1274,14 @@
 
     goto :goto_0
 
-    .line 909
+    .line 911
     .restart local v10       #invalidAkaResponse:Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
     :cond_4
     new-instance v17, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
 
     invoke-direct/range {v17 .. v17}, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;-><init>()V
 
-    .line 912
+    .line 914
     .local v17, result:Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
     iget-object v0, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
@@ -1293,7 +1293,7 @@
 
     check-cast v2, [B
 
-    .line 913
+    .line 915
     .local v2, akaResponse:[B
     new-instance v18, Ljava/lang/StringBuilder;
 
@@ -1325,10 +1325,10 @@
 
     invoke-direct {v0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Logi(Ljava/lang/String;)V
 
-    .line 924
+    .line 926
     const/4 v9, 0x0
 
-    .line 926
+    .line 928
     .local v9, index:I
     array-length v0, v2
 
@@ -1342,7 +1342,7 @@
 
     if-lt v0, v1, :cond_0
 
-    .line 929
+    .line 931
     aget-byte v18, v2, v9
 
     const/16 v19, 0x2
@@ -1353,17 +1353,17 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 933
+    .line 935
     add-int/lit8 v9, v9, 0x1
 
-    .line 934
+    .line 936
     aget-byte v16, v2, v9
 
-    .line 935
+    .line 937
     .local v16, response_error_type:I
     packed-switch v16, :pswitch_data_0
 
-    .line 958
+    .line 960
     :pswitch_0
     new-instance v18, Ljava/lang/StringBuilder;
 
@@ -1395,7 +1395,7 @@
 
     goto/16 :goto_0
 
-    .line 938
+    .line 940
     :pswitch_1
     const-string v18, "response type - IPC_SEC_IMS_AUTH_NO_ERR"
 
@@ -1405,7 +1405,7 @@
 
     invoke-direct {v0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 967
+    .line 969
     :goto_1
     array-length v0, v2
 
@@ -1419,7 +1419,7 @@
 
     if-ge v0, v1, :cond_5
 
-    .line 970
+    .line 972
     const/16 v18, 0x4
 
     move/from16 v0, v16
@@ -1428,7 +1428,7 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 971
+    .line 973
     new-instance v10, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
 
     .end local v10           #invalidAkaResponse:Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
@@ -1440,7 +1440,7 @@
 
     goto/16 :goto_0
 
-    .line 942
+    .line 944
     .restart local v10       #invalidAkaResponse:Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
     :pswitch_2
     const-string v18, "response type - IPC_SEC_IMS_AUTH_UNSUPPORTED_CONTEX"
@@ -1451,7 +1451,7 @@
 
     invoke-direct {v0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 943
+    .line 945
     new-instance v10, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
 
     .end local v10           #invalidAkaResponse:Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
@@ -1467,7 +1467,7 @@
 
     goto/16 :goto_0
 
-    .line 949
+    .line 951
     .restart local v10       #invalidAkaResponse:Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
     :pswitch_3
     const-string v18, "response type - IPC_SEC_IMS_AUTH_CANNOT_PERFORM"
@@ -1478,7 +1478,7 @@
 
     invoke-direct {v0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 950
+    .line 952
     new-instance v10, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
 
     .end local v10           #invalidAkaResponse:Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
@@ -1494,7 +1494,7 @@
 
     goto/16 :goto_0
 
-    .line 953
+    .line 955
     .restart local v10       #invalidAkaResponse:Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
     :pswitch_4
     const-string v18, "response type - IPC_SEC_IMS_AUTH_SQN_FAIL"
@@ -1507,46 +1507,46 @@
 
     goto :goto_1
 
-    .line 976
+    .line 978
     :cond_5
     const/4 v4, 0x0
 
-    .line 977
+    .line 979
     .local v4, auts_len:I
     const/4 v5, 0x0
 
-    .line 978
+    .line 980
     .local v5, ck_len:I
     const/4 v8, 0x0
 
-    .line 979
+    .line 981
     .local v8, ik_len:I
     const/4 v11, 0x0
 
-    .line 980
+    .line 982
     .local v11, kc_len:I
     const/4 v12, 0x0
 
-    .line 981
+    .line 983
     .local v12, res_auts:[B
     const/4 v13, 0x0
 
-    .line 982
+    .line 984
     .local v13, res_ck:[B
     const/4 v14, 0x0
 
-    .line 983
+    .line 985
     .local v14, res_ik:[B
     const/4 v15, 0x0
 
-    .line 985
+    .line 987
     .local v15, res_kc:[B
     add-int/lit8 v9, v9, 0x1
 
-    .line 986
+    .line 988
     aget-byte v4, v2, v9
 
-    .line 987
+    .line 989
     new-instance v18, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
@@ -1573,16 +1573,16 @@
 
     invoke-direct {v0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 988
+    .line 990
     add-int/lit8 v9, v9, 0x1
 
-    .line 991
+    .line 993
     if-lez v4, :cond_6
 
-    .line 993
+    .line 995
     new-array v12, v4, [B
 
-    .line 995
+    .line 997
     const/16 v18, 0x0
 
     :try_start_0
@@ -1592,14 +1592,14 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1001
+    .line 1003
     add-int/lit8 v9, v4, 0x3
 
-    .line 1004
+    .line 1006
     :cond_6
     if-eqz v12, :cond_7
 
-    .line 1005
+    .line 1007
     new-instance v18, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
@@ -1630,7 +1630,7 @@
 
     invoke-direct {v0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 1007
+    .line 1009
     :cond_7
     const/16 v18, 0x4
 
@@ -1640,10 +1640,10 @@
 
     if-ne v0, v1, :cond_9
 
-    .line 1009
+    .line 1011
     if-nez v12, :cond_8
 
-    .line 1010
+    .line 1012
     const-string v18, "Since error type is SQN_FAIL we are retunring synch error with auts NULL"
 
     move-object/from16 v0, p0
@@ -1652,7 +1652,7 @@
 
     invoke-direct {v0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 1014
+    .line 1016
     :goto_2
     new-instance v10, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
 
@@ -1661,12 +1661,12 @@
 
     goto/16 :goto_0
 
-    .line 997
+    .line 999
     .restart local v10       #invalidAkaResponse:Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
     :catch_0
     move-exception v6
 
-    .line 998
+    .line 1000
     .local v6, e:Ljava/lang/Throwable;
     const-string v18, "cannot copy auts "
 
@@ -1678,7 +1678,7 @@
 
     goto/16 :goto_0
 
-    .line 1012
+    .line 1014
     .end local v6           #e:Ljava/lang/Throwable;
     :cond_8
     new-instance v18, Ljava/lang/StringBuilder;
@@ -1713,7 +1713,7 @@
 
     goto :goto_2
 
-    .line 1017
+    .line 1019
     :cond_9
     array-length v0, v2
 
@@ -1723,10 +1723,10 @@
 
     if-le v0, v9, :cond_0
 
-    .line 1021
+    .line 1023
     aget-byte v5, v2, v9
 
-    .line 1022
+    .line 1024
     new-instance v18, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
@@ -1753,7 +1753,7 @@
 
     invoke-direct {v0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 1023
+    .line 1025
     array-length v0, v2
 
     move/from16 v18, v0
@@ -1766,16 +1766,16 @@
 
     if-le v0, v1, :cond_0
 
-    .line 1026
+    .line 1028
     add-int/lit8 v9, v9, 0x1
 
-    .line 1028
+    .line 1030
     if-lez v5, :cond_a
 
-    .line 1030
+    .line 1032
     new-array v13, v5, [B
 
-    .line 1032
+    .line 1034
     const/16 v18, 0x0
 
     :try_start_1
@@ -1785,14 +1785,14 @@
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 1036
+    .line 1038
     add-int/2addr v9, v5
 
-    .line 1039
+    .line 1041
     :cond_a
     if-eqz v13, :cond_b
 
-    .line 1040
+    .line 1042
     new-instance v18, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
@@ -1821,7 +1821,7 @@
 
     invoke-direct {v0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 1044
+    .line 1046
     :cond_b
     array-length v0, v2
 
@@ -1831,10 +1831,10 @@
 
     if-le v0, v9, :cond_0
 
-    .line 1048
+    .line 1050
     aget-byte v8, v2, v9
 
-    .line 1049
+    .line 1051
     new-instance v18, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
@@ -1861,7 +1861,7 @@
 
     invoke-direct {v0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 1050
+    .line 1052
     array-length v0, v2
 
     move/from16 v18, v0
@@ -1874,16 +1874,16 @@
 
     if-le v0, v1, :cond_0
 
-    .line 1053
+    .line 1055
     add-int/lit8 v9, v9, 0x1
 
-    .line 1055
+    .line 1057
     if-lez v8, :cond_c
 
-    .line 1057
+    .line 1059
     new-array v14, v8, [B
 
-    .line 1059
+    .line 1061
     const/16 v18, 0x0
 
     :try_start_2
@@ -1893,14 +1893,14 @@
     :try_end_2
     .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_2
 
-    .line 1063
+    .line 1065
     add-int/2addr v9, v8
 
-    .line 1066
+    .line 1068
     :cond_c
     if-eqz v14, :cond_d
 
-    .line 1067
+    .line 1069
     new-instance v18, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
@@ -1929,7 +1929,7 @@
 
     invoke-direct {v0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 1070
+    .line 1072
     :cond_d
     array-length v0, v2
 
@@ -1939,10 +1939,10 @@
 
     if-le v0, v9, :cond_0
 
-    .line 1074
+    .line 1076
     aget-byte v11, v2, v9
 
-    .line 1075
+    .line 1077
     new-instance v18, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
@@ -1969,7 +1969,7 @@
 
     invoke-direct {v0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 1076
+    .line 1078
     array-length v0, v2
 
     move/from16 v18, v0
@@ -1982,16 +1982,16 @@
 
     if-le v0, v1, :cond_0
 
-    .line 1079
+    .line 1081
     add-int/lit8 v9, v9, 0x1
 
-    .line 1081
+    .line 1083
     if-lez v11, :cond_e
 
-    .line 1083
+    .line 1085
     new-array v15, v11, [B
 
-    .line 1085
+    .line 1087
     const/16 v18, 0x0
 
     :try_start_3
@@ -2001,14 +2001,14 @@
     :try_end_3
     .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_3
 
-    .line 1089
+    .line 1091
     add-int/2addr v9, v11
 
-    .line 1092
+    .line 1094
     :cond_e
     if-eqz v15, :cond_f
 
-    .line 1093
+    .line 1095
     new-instance v18, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
@@ -2037,7 +2037,7 @@
 
     invoke-direct {v0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 1096
+    .line 1098
     :cond_f
     if-eqz v13, :cond_0
 
@@ -2045,22 +2045,22 @@
 
     if-eqz v12, :cond_0
 
-    .line 1099
+    .line 1101
     move-object/from16 v0, v17
 
     invoke-virtual {v0, v13}, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;->setCk([B)V
 
-    .line 1100
+    .line 1102
     move-object/from16 v0, v17
 
     invoke-virtual {v0, v14}, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;->setIk([B)V
 
-    .line 1101
+    .line 1103
     move-object/from16 v0, v17
 
     invoke-virtual {v0, v12}, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;->setRes([B)V
 
-    .line 1103
+    .line 1105
     const-string v18, "successfully parsed response"
 
     move-object/from16 v0, p0
@@ -2071,36 +2071,36 @@
 
     move-object/from16 v10, v17
 
-    .line 1105
+    .line 1107
     goto/16 :goto_0
 
-    .line 1033
+    .line 1035
     :catch_1
     move-exception v6
 
-    .line 1034
+    .line 1036
     .restart local v6       #e:Ljava/lang/Throwable;
     goto/16 :goto_0
 
-    .line 1060
+    .line 1062
     .end local v6           #e:Ljava/lang/Throwable;
     :catch_2
     move-exception v6
 
-    .line 1061
+    .line 1063
     .restart local v6       #e:Ljava/lang/Throwable;
     goto/16 :goto_0
 
-    .line 1086
+    .line 1088
     .end local v6           #e:Ljava/lang/Throwable;
     :catch_3
     move-exception v6
 
-    .line 1087
+    .line 1089
     .restart local v6       #e:Ljava/lang/Throwable;
     goto/16 :goto_0
 
-    .line 935
+    .line 937
     nop
 
     :pswitch_data_0
@@ -2120,42 +2120,42 @@
     .parameter "response"
 
     .prologue
-    .line 754
+    .line 756
     const/4 v5, 0x0
 
-    .line 755
+    .line 757
     .local v5, error:Ljava/lang/String;
     if-nez p1, :cond_1
 
-    .line 756
+    .line 758
     const-string v5, "response == null"
 
     invoke-direct {p0, v5}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 757
+    .line 759
     new-instance v8, Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;
 
     sget-object v12, Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult$Error;->INTERNAL_ERR:Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult$Error;
 
     invoke-direct {v8, v12, v5}, Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;-><init>(Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult$Error;Ljava/lang/String;)V
 
-    .line 877
+    .line 879
     :cond_0
     :goto_0
     return-object v8
 
-    .line 759
+    .line 761
     :cond_1
     iget-object v12, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     if-nez v12, :cond_2
 
-    .line 760
+    .line 762
     const-string v5, "response.obj == null"
 
     invoke-direct {p0, v5}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 761
+    .line 763
     new-instance v8, Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;
 
     sget-object v12, Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult$Error;->INTERNAL_ERR:Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult$Error;
@@ -2164,19 +2164,19 @@
 
     goto :goto_0
 
-    .line 764
+    .line 766
     :cond_2
     iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v3, Landroid/os/AsyncResult;
 
-    .line 765
+    .line 767
     .local v3, ar:Landroid/os/AsyncResult;
     iget-object v12, v3, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-eqz v12, :cond_4
 
-    .line 766
+    .line 768
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -2203,12 +2203,12 @@
 
     invoke-direct {p0, v5}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 767
+    .line 769
     iget-object v12, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     if-eqz v12, :cond_3
 
-    .line 768
+    .line 770
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -2239,7 +2239,7 @@
 
     invoke-direct {p0, v12}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Logi(Ljava/lang/String;)V
 
-    .line 772
+    .line 774
     :goto_1
     new-instance v8, Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;
 
@@ -2249,7 +2249,7 @@
 
     goto :goto_0
 
-    .line 770
+    .line 772
     :cond_3
     const-string v12, "gsmResponse is null"
 
@@ -2257,18 +2257,18 @@
 
     goto :goto_1
 
-    .line 775
+    .line 777
     :cond_4
     iget-object v12, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     if-nez v12, :cond_5
 
-    .line 776
+    .line 778
     const-string v5, "ar.result == null"
 
     invoke-direct {p0, v5}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 777
+    .line 779
     new-instance v8, Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;
 
     sget-object v12, Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult$Error;->INTERNAL_ERR:Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult$Error;
@@ -2277,13 +2277,13 @@
 
     goto :goto_0
 
-    .line 780
+    .line 782
     :cond_5
     new-instance v10, Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;
 
     invoke-direct {v10}, Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;-><init>()V
 
-    .line 781
+    .line 783
     .local v10, result:Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;
     new-instance v8, Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;
 
@@ -2293,7 +2293,7 @@
 
     invoke-direct {v8, v12, v13}, Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;-><init>(Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult$Error;Ljava/lang/String;)V
 
-    .line 783
+    .line 785
     .local v8, invalidGsmResponse:Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;
     iget-object v12, v3, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
@@ -2303,7 +2303,7 @@
 
     check-cast v6, [B
 
-    .line 784
+    .line 786
     .local v6, gsmResponse:[B
     new-instance v12, Ljava/lang/StringBuilder;
 
@@ -2329,10 +2329,10 @@
 
     invoke-direct {p0, v12}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Logi(Ljava/lang/String;)V
 
-    .line 795
+    .line 797
     const/4 v7, 0x0
 
-    .line 797
+    .line 799
     .local v7, index:I
     array-length v12, v6
 
@@ -2340,22 +2340,22 @@
 
     if-lt v12, v13, :cond_0
 
-    .line 800
+    .line 802
     aget-byte v12, v6, v7
 
     const/4 v13, 0x1
 
     if-ne v12, v13, :cond_0
 
-    .line 804
+    .line 806
     add-int/lit8 v7, v7, 0x1
 
-    .line 805
+    .line 807
     aget-byte v12, v6, v7
 
     packed-switch v12, :pswitch_data_0
 
-    .line 818
+    .line 820
     :pswitch_0
     const-string v12, "Unexpected error type"
 
@@ -2363,26 +2363,26 @@
 
     goto/16 :goto_0
 
-    .line 808
+    .line 810
     :pswitch_1
     const-string v12, "No error reported"
 
     invoke-direct {p0, v12}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Logi(Ljava/lang/String;)V
 
-    .line 825
+    .line 827
     array-length v12, v6
 
     const/4 v13, 0x4
 
     if-lt v12, v13, :cond_0
 
-    .line 828
+    .line 830
     add-int/lit8 v7, v7, 0x1
 
-    .line 829
+    .line 831
     aget-byte v11, v6, v7
 
-    .line 831
+    .line 833
     .local v11, sres_len:I
     add-int/lit8 v12, v11, 0x4
 
@@ -2390,21 +2390,21 @@
 
     if-le v12, v13, :cond_6
 
-    .line 833
+    .line 835
     const-string v12, "buffer length is not valid"
 
     invoke-direct {p0, v12}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Logi(Ljava/lang/String;)V
 
     goto/16 :goto_0
 
-    .line 814
+    .line 816
     .end local v11           #sres_len:I
     :pswitch_2
     const-string v12, "Rejection error type"
 
     invoke-direct {p0, v12}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Logi(Ljava/lang/String;)V
 
-    .line 815
+    .line 817
     new-instance v8, Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;
 
     .end local v8           #invalidGsmResponse:Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;
@@ -2416,13 +2416,13 @@
 
     goto/16 :goto_0
 
-    .line 837
+    .line 839
     .restart local v8       #invalidGsmResponse:Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;
     .restart local v11       #sres_len:I
     :cond_6
     add-int/lit8 v7, v7, 0x1
 
-    .line 838
+    .line 840
     const/4 v12, 0x2
 
     aget-byte v12, v6, v12
@@ -2431,7 +2431,7 @@
 
     aget-byte v9, v6, v12
 
-    .line 840
+    .line 842
     .local v9, kc_len:I
     new-instance v12, Ljava/lang/StringBuilder;
 
@@ -2453,7 +2453,7 @@
 
     invoke-direct {p0, v12}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Logi(Ljava/lang/String;)V
 
-    .line 841
+    .line 843
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -2474,12 +2474,12 @@
 
     invoke-direct {p0, v12}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Logi(Ljava/lang/String;)V
 
-    .line 843
+    .line 845
     if-eqz v11, :cond_7
 
     if-nez v9, :cond_8
 
-    .line 844
+    .line 846
     :cond_7
     new-instance v8, Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;
 
@@ -2492,7 +2492,7 @@
 
     goto/16 :goto_0
 
-    .line 846
+    .line 848
     .restart local v8       #invalidGsmResponse:Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;
     :cond_8
     add-int/lit8 v12, v11, 0x4
@@ -2503,18 +2503,18 @@
 
     if-le v12, v13, :cond_9
 
-    .line 848
+    .line 850
     const-string v12, "buffer length is not valid"
 
     invoke-direct {p0, v12}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Logi(Ljava/lang/String;)V
 
     goto/16 :goto_0
 
-    .line 852
+    .line 854
     :cond_9
     const/4 v2, 0x0
 
-    .line 854
+    .line 856
     .local v2, Sres:I
     :try_start_0
     invoke-static {v6, v7, v11}, Ljava/nio/ByteBuffer;->wrap([BII)Ljava/nio/ByteBuffer;
@@ -2527,16 +2527,16 @@
 
     move-result v2
 
-    .line 860
+    .line 862
     add-int/lit8 v7, v11, 0x3
 
-    .line 861
+    .line 863
     add-int/lit8 v7, v7, 0x1
 
-    .line 863
+    .line 865
     const-wide/16 v0, 0x0
 
-    .line 865
+    .line 867
     .local v0, Kc:J
     :try_start_1
     invoke-static {v6, v7, v9}, Ljava/nio/ByteBuffer;->wrap([BII)Ljava/nio/ByteBuffer;
@@ -2549,28 +2549,28 @@
 
     move-result-wide v0
 
-    .line 872
+    .line 874
     invoke-virtual {v10, v2}, Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;->setSres(I)V
 
-    .line 873
+    .line 875
     invoke-virtual {v10, v0, v1}, Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;->setKc(J)V
 
-    .line 875
+    .line 877
     const-string v12, "successfully parsed response"
 
     invoke-direct {p0, v12}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Logi(Ljava/lang/String;)V
 
     move-object v8, v10
 
-    .line 877
+    .line 879
     goto/16 :goto_0
 
-    .line 855
+    .line 857
     .end local v0           #Kc:J
     :catch_0
     move-exception v4
 
-    .line 856
+    .line 858
     .local v4, e:Ljava/lang/Throwable;
     const-string v12, "Cannot convert sres to int"
 
@@ -2578,13 +2578,13 @@
 
     goto/16 :goto_0
 
-    .line 866
+    .line 868
     .end local v4           #e:Ljava/lang/Throwable;
     .restart local v0       #Kc:J
     :catch_1
     move-exception v4
 
-    .line 867
+    .line 869
     .restart local v4       #e:Ljava/lang/Throwable;
     const-string v12, "Cannot convert kc to long"
 
@@ -2592,7 +2592,7 @@
 
     goto/16 :goto_0
 
-    .line 805
+    .line 807
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
@@ -2611,41 +2611,41 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 661
+    .line 663
     const/4 v1, 0x0
 
-    .line 662
+    .line 664
     .local v1, error:Ljava/lang/String;
     if-nez p1, :cond_0
 
-    .line 663
+    .line 665
     const-string v1, "response == null"
 
     invoke-direct {p0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 664
+    .line 666
     new-instance v3, Lcom/orange/authentication/simcard/ServiceSimCardType;
 
     sget-object v4, Lcom/orange/authentication/simcard/ServiceSimCardType$Error;->INTERNAL_ERR:Lcom/orange/authentication/simcard/ServiceSimCardType$Error;
 
     invoke-direct {v3, v4, v1}, Lcom/orange/authentication/simcard/ServiceSimCardType;-><init>(Lcom/orange/authentication/simcard/ServiceSimCardType$Error;Ljava/lang/String;)V
 
-    .line 747
+    .line 749
     :goto_0
     return-object v3
 
-    .line 666
+    .line 668
     :cond_0
     iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     if-nez v4, :cond_1
 
-    .line 667
+    .line 669
     const-string v1, "response.obj == null"
 
     invoke-direct {p0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 668
+    .line 670
     new-instance v3, Lcom/orange/authentication/simcard/ServiceSimCardType;
 
     sget-object v4, Lcom/orange/authentication/simcard/ServiceSimCardType$Error;->INTERNAL_ERR:Lcom/orange/authentication/simcard/ServiceSimCardType$Error;
@@ -2654,19 +2654,19 @@
 
     goto :goto_0
 
-    .line 671
+    .line 673
     :cond_1
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/AsyncResult;
 
-    .line 672
+    .line 674
     .local v0, ar:Landroid/os/AsyncResult;
     iget-object v4, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-eqz v4, :cond_2
 
-    .line 673
+    .line 675
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -2693,7 +2693,7 @@
 
     invoke-direct {p0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 675
+    .line 677
     new-instance v3, Lcom/orange/authentication/simcard/ServiceSimCardType;
 
     sget-object v4, Lcom/orange/authentication/simcard/ServiceSimCardType$Error;->INTERNAL_ERR:Lcom/orange/authentication/simcard/ServiceSimCardType$Error;
@@ -2702,18 +2702,18 @@
 
     goto :goto_0
 
-    .line 678
+    .line 680
     :cond_2
     iget-object v4, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     if-nez v4, :cond_3
 
-    .line 679
+    .line 681
     const-string v1, "ar.result == null"
 
     invoke-direct {p0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 680
+    .line 682
     new-instance v3, Lcom/orange/authentication/simcard/ServiceSimCardType;
 
     sget-object v4, Lcom/orange/authentication/simcard/ServiceSimCardType$Error;->INTERNAL_ERR:Lcom/orange/authentication/simcard/ServiceSimCardType$Error;
@@ -2722,17 +2722,17 @@
 
     goto :goto_0
 
-    .line 683
+    .line 685
     :cond_3
     iget-object v2, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v2, Lcom/android/internal/telephony/IccCardStatus;
 
-    .line 684
+    .line 686
     .local v2, iccCardStatus:Lcom/android/internal/telephony/IccCardStatus;
     const/4 v3, 0x0
 
-    .line 686
+    .line 688
     .local v3, result:Lcom/orange/authentication/simcard/ServiceSimCardType;
     invoke-virtual {v2}, Lcom/android/internal/telephony/IccCardStatus;->getCardState()Lcom/android/internal/telephony/IccCardStatus$CardState;
 
@@ -2740,12 +2740,12 @@
 
     if-nez v4, :cond_4
 
-    .line 687
+    .line 689
     const-string v1, "iccCardStatus.getCardState() == null"
 
     invoke-direct {p0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 688
+    .line 690
     new-instance v3, Lcom/orange/authentication/simcard/ServiceSimCardType;
 
     .end local v3           #result:Lcom/orange/authentication/simcard/ServiceSimCardType;
@@ -2755,7 +2755,7 @@
 
     goto :goto_0
 
-    .line 691
+    .line 693
     .restart local v3       #result:Lcom/orange/authentication/simcard/ServiceSimCardType;
     :cond_4
     sget-object v4, Lcom/orange/authentication/simcard/SimCardAuthenticationService$1;->$SwitchMap$com$android$internal$telephony$IccCardStatus$CardState:[I
@@ -2772,12 +2772,12 @@
 
     packed-switch v4, :pswitch_data_0
 
-    .line 741
+    .line 743
     const-string v1, "switch(iccCardStatus.getCardState()) - default"
 
     invoke-direct {p0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 742
+    .line 744
     new-instance v3, Lcom/orange/authentication/simcard/ServiceSimCardType;
 
     .end local v3           #result:Lcom/orange/authentication/simcard/ServiceSimCardType;
@@ -2787,7 +2787,7 @@
 
     goto/16 :goto_0
 
-    .line 693
+    .line 695
     .restart local v3       #result:Lcom/orange/authentication/simcard/ServiceSimCardType;
     :pswitch_0
     new-instance v3, Lcom/orange/authentication/simcard/ServiceSimCardType;
@@ -2797,7 +2797,7 @@
 
     invoke-direct {v3, v4}, Lcom/orange/authentication/simcard/ServiceSimCardType;-><init>(Lcom/orange/authentication/simcard/SimCardAuthenticationManager$SimCardType;)V
 
-    .line 745
+    .line 747
     .restart local v3       #result:Lcom/orange/authentication/simcard/ServiceSimCardType;
     :goto_1
     const-string v4, "successfully parsed response"
@@ -2806,7 +2806,7 @@
 
     goto/16 :goto_0
 
-    .line 697
+    .line 699
     :pswitch_1
     new-instance v3, Lcom/orange/authentication/simcard/ServiceSimCardType;
 
@@ -2815,11 +2815,11 @@
 
     invoke-direct {v3, v4}, Lcom/orange/authentication/simcard/ServiceSimCardType;-><init>(Lcom/orange/authentication/simcard/SimCardAuthenticationManager$SimCardType;)V
 
-    .line 698
+    .line 700
     .restart local v3       #result:Lcom/orange/authentication/simcard/ServiceSimCardType;
     goto :goto_1
 
-    .line 701
+    .line 703
     :pswitch_2
     invoke-virtual {v2, v6}, Lcom/android/internal/telephony/IccCardStatus;->getApplication(I)Lcom/android/internal/telephony/IccCardApplication;
 
@@ -2827,12 +2827,12 @@
 
     if-nez v4, :cond_5
 
-    .line 702
+    .line 704
     const-string v1, "iccCardStatus.getApplication(0) == null"
 
     invoke-direct {p0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 703
+    .line 705
     new-instance v3, Lcom/orange/authentication/simcard/ServiceSimCardType;
 
     .end local v3           #result:Lcom/orange/authentication/simcard/ServiceSimCardType;
@@ -2842,7 +2842,7 @@
 
     goto/16 :goto_0
 
-    .line 706
+    .line 708
     .restart local v3       #result:Lcom/orange/authentication/simcard/ServiceSimCardType;
     :cond_5
     invoke-virtual {v2, v6}, Lcom/android/internal/telephony/IccCardStatus;->getApplication(I)Lcom/android/internal/telephony/IccCardApplication;
@@ -2853,12 +2853,12 @@
 
     if-nez v4, :cond_6
 
-    .line 707
+    .line 709
     const-string v1, "iccCardStatus.getApplication(0).app_type == null"
 
     invoke-direct {p0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 708
+    .line 710
     new-instance v3, Lcom/orange/authentication/simcard/ServiceSimCardType;
 
     .end local v3           #result:Lcom/orange/authentication/simcard/ServiceSimCardType;
@@ -2868,7 +2868,7 @@
 
     goto/16 :goto_0
 
-    .line 711
+    .line 713
     .restart local v3       #result:Lcom/orange/authentication/simcard/ServiceSimCardType;
     :cond_6
     sget-object v4, Lcom/orange/authentication/simcard/SimCardAuthenticationService$1;->$SwitchMap$com$android$internal$telephony$IccCardApplication$AppType:[I
@@ -2887,12 +2887,12 @@
 
     packed-switch v4, :pswitch_data_1
 
-    .line 734
+    .line 736
     const-string v1, "switch(iccCardStatus.getApplication(0).app_type) - default"
 
     invoke-direct {p0, v1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 735
+    .line 737
     new-instance v3, Lcom/orange/authentication/simcard/ServiceSimCardType;
 
     .end local v3           #result:Lcom/orange/authentication/simcard/ServiceSimCardType;
@@ -2902,7 +2902,7 @@
 
     goto/16 :goto_0
 
-    .line 713
+    .line 715
     .restart local v3       #result:Lcom/orange/authentication/simcard/ServiceSimCardType;
     :pswitch_3
     new-instance v3, Lcom/orange/authentication/simcard/ServiceSimCardType;
@@ -2912,11 +2912,11 @@
 
     invoke-direct {v3, v4}, Lcom/orange/authentication/simcard/ServiceSimCardType;-><init>(Lcom/orange/authentication/simcard/SimCardAuthenticationManager$SimCardType;)V
 
-    .line 714
+    .line 716
     .restart local v3       #result:Lcom/orange/authentication/simcard/ServiceSimCardType;
     goto :goto_1
 
-    .line 717
+    .line 719
     :pswitch_4
     new-instance v3, Lcom/orange/authentication/simcard/ServiceSimCardType;
 
@@ -2925,11 +2925,11 @@
 
     invoke-direct {v3, v4}, Lcom/orange/authentication/simcard/ServiceSimCardType;-><init>(Lcom/orange/authentication/simcard/SimCardAuthenticationManager$SimCardType;)V
 
-    .line 718
+    .line 720
     .restart local v3       #result:Lcom/orange/authentication/simcard/ServiceSimCardType;
     goto :goto_1
 
-    .line 721
+    .line 723
     :pswitch_5
     new-instance v3, Lcom/orange/authentication/simcard/ServiceSimCardType;
 
@@ -2938,11 +2938,11 @@
 
     invoke-direct {v3, v4}, Lcom/orange/authentication/simcard/ServiceSimCardType;-><init>(Lcom/orange/authentication/simcard/SimCardAuthenticationManager$SimCardType;)V
 
-    .line 722
+    .line 724
     .restart local v3       #result:Lcom/orange/authentication/simcard/ServiceSimCardType;
     goto :goto_1
 
-    .line 725
+    .line 727
     :pswitch_6
     new-instance v3, Lcom/orange/authentication/simcard/ServiceSimCardType;
 
@@ -2951,11 +2951,11 @@
 
     invoke-direct {v3, v4}, Lcom/orange/authentication/simcard/ServiceSimCardType;-><init>(Lcom/orange/authentication/simcard/SimCardAuthenticationManager$SimCardType;)V
 
-    .line 726
+    .line 728
     .restart local v3       #result:Lcom/orange/authentication/simcard/ServiceSimCardType;
     goto :goto_1
 
-    .line 729
+    .line 731
     :pswitch_7
     new-instance v3, Lcom/orange/authentication/simcard/ServiceSimCardType;
 
@@ -2964,11 +2964,11 @@
 
     invoke-direct {v3, v4}, Lcom/orange/authentication/simcard/ServiceSimCardType;-><init>(Lcom/orange/authentication/simcard/SimCardAuthenticationManager$SimCardType;)V
 
-    .line 730
+    .line 732
     .restart local v3       #result:Lcom/orange/authentication/simcard/ServiceSimCardType;
     goto :goto_1
 
-    .line 691
+    .line 693
     nop
 
     :pswitch_data_0
@@ -2978,7 +2978,7 @@
         :pswitch_2
     .end packed-switch
 
-    .line 711
+    .line 713
     :pswitch_data_1
     .packed-switch 0x1
         :pswitch_3
@@ -2993,7 +2993,7 @@
     .locals 2
 
     .prologue
-    .line 357
+    .line 359
     monitor-enter p0
 
     :try_start_0
@@ -3022,16 +3022,16 @@
     .parameter "message"
 
     .prologue
-    .line 456
+    .line 458
     monitor-enter p0
 
     const/4 v3, 0x0
 
-    .line 457
+    .line 459
     .local v3, msg:Landroid/os/Message;
     const/4 v0, 0x0
 
-    .line 458
+    .line 460
     .local v0, error:Ljava/lang/String;
     :try_start_0
     new-instance v8, Ljava/lang/StringBuilder;
@@ -3056,17 +3056,17 @@
 
     invoke-direct {p0, v8}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Logi(Ljava/lang/String;)V
 
-    .line 461
+    .line 463
     const/4 v1, 0x0
 
     .local v1, is3G:Z
     const/4 v2, 0x0
 
-    .line 462
+    .line 464
     .local v2, isSimReady:Z
     const/4 v5, 0x0
 
-    .line 463
+    .line 465
     .local v5, serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
     iget-object v8, p0, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->mRILrequestsHandler:Landroid/os/Handler;
 
@@ -3076,10 +3076,10 @@
 
     move-result-object v3
 
-    .line 464
+    .line 466
     const/4 v6, 0x0
 
-    .line 466
+    .line 468
     .local v6, simTypeError:Ljava/lang/String;
     const-string v8, "Get sim type"
 
@@ -3087,26 +3087,26 @@
 
     move-result-object v7
 
-    .line 469
+    .line 471
     .local v7, sim_requester:Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;
     if-eqz v7, :cond_0
 
-    .line 471
+    .line 473
     iget-object v8, p0, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->mCommandsInterface:Lcom/android/internal/telephony/CommandsInterface;
 
     invoke-interface {v8, v3}, Lcom/android/internal/telephony/CommandsInterface;->getIccCardStatus(Landroid/os/Message;)V
 
-    .line 472
+    .line 474
     const-string v8, "Get sim type"
 
     invoke-direct {p0, v7, v8}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->afterRILrequest(Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
 
-    .line 473
+    .line 475
     if-nez v6, :cond_0
 
-    .line 474
+    .line 476
     #getter for: Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;->mResponse:Ljava/lang/Object;
     invoke-static {v7}, Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;->access$100(Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;)Ljava/lang/Object;
 
@@ -3115,19 +3115,19 @@
     .end local v5           #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
     check-cast v5, Lcom/orange/authentication/simcard/ServiceSimCardType;
 
-    .line 475
+    .line 477
     .restart local v5       #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
     if-nez v5, :cond_3
 
-    .line 476
+    .line 478
     const-string v6, "Get sim type - response is null"
 
-    .line 506
+    .line 508
     :cond_0
     :goto_0
     if-eqz v6, :cond_6
 
-    .line 507
+    .line 509
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -3148,21 +3148,21 @@
 
     invoke-direct {p0, v8}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 513
+    .line 515
     :cond_1
     :goto_1
     iget v8, p1, Landroid/os/Message;->what:I
 
     packed-switch v8, :pswitch_data_0
 
-    .line 571
+    .line 573
     const-string v8, "message.what - default"
 
     invoke-direct {p0, v8}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 572
+    .line 574
     const/4 v5, 0x0
 
     .end local v5           #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
@@ -3172,7 +3172,7 @@
 
     return-object v5
 
-    .line 477
+    .line 479
     .restart local v5       #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
     :cond_3
     :try_start_1
@@ -3184,7 +3184,7 @@
 
     if-eq v8, v9, :cond_4
 
-    .line 478
+    .line 480
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -3209,7 +3209,7 @@
 
     goto :goto_0
 
-    .line 479
+    .line 481
     :cond_4
     invoke-virtual {v5}, Lcom/orange/authentication/simcard/ServiceSimCardType;->getSimCardType()Lcom/orange/authentication/simcard/SimCardAuthenticationManager$SimCardType;
 
@@ -3217,12 +3217,12 @@
 
     if-nez v8, :cond_5
 
-    .line 480
+    .line 482
     const-string v6, "serviceSimCardType.getSimCardType() == null"
 
     goto :goto_0
 
-    .line 482
+    .line 484
     :cond_5
     sget-object v8, Lcom/orange/authentication/simcard/SimCardAuthenticationService$1;->$SwitchMap$com$orange$authentication$simcard$SimCardAuthenticationManager$SimCardType:[I
 
@@ -3238,39 +3238,39 @@
 
     packed-switch v8, :pswitch_data_1
 
-    .line 499
+    .line 501
     const/4 v1, 0x0
 
-    .line 500
+    .line 502
     const/4 v2, 0x0
 
     goto :goto_0
 
-    .line 486
+    .line 488
     :pswitch_0
     const/4 v1, 0x1
 
-    .line 487
+    .line 489
     const/4 v2, 0x1
 
-    .line 488
+    .line 490
     goto :goto_0
 
-    .line 491
+    .line 493
     :pswitch_1
     const/4 v1, 0x0
 
-    .line 492
+    .line 494
     const/4 v2, 0x1
 
-    .line 493
+    .line 495
     goto :goto_0
 
-    .line 509
+    .line 511
     :cond_6
     if-eqz v5, :cond_1
 
-    .line 510
+    .line 512
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -3303,7 +3303,7 @@
 
     goto :goto_1
 
-    .line 456
+    .line 458
     .end local v1           #is3G:Z
     .end local v2           #isSimReady:Z
     .end local v5           #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
@@ -3316,7 +3316,7 @@
 
     throw v8
 
-    .line 515
+    .line 517
     .restart local v1       #is3G:Z
     .restart local v2       #isSimReady:Z
     .restart local v5       #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
@@ -3325,7 +3325,7 @@
     :pswitch_2
     if-nez v5, :cond_2
 
-    .line 518
+    .line 520
     :try_start_2
     new-instance v5, Lcom/orange/authentication/simcard/ServiceSimCardType;
 
@@ -3336,12 +3336,12 @@
 
     goto :goto_2
 
-    .line 522
+    .line 524
     .restart local v5       #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
     :pswitch_3
     if-eqz v6, :cond_7
 
-    .line 523
+    .line 525
     new-instance v5, Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;
 
     .end local v5           #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
@@ -3353,12 +3353,12 @@
 
     goto :goto_2
 
-    .line 524
+    .line 526
     .restart local v5       #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
     :cond_7
     if-nez v2, :cond_8
 
-    .line 525
+    .line 527
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -3387,7 +3387,7 @@
 
     invoke-direct {p0, v8}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 526
+    .line 528
     new-instance v5, Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;
 
     .end local v5           #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
@@ -3399,14 +3399,14 @@
 
     goto/16 :goto_2
 
-    .line 530
+    .line 532
     .restart local v5       #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
     :cond_8
     const-string v8, "Sending GSM"
 
     invoke-direct {p0, v8}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Logi(Ljava/lang/String;)V
 
-    .line 531
+    .line 533
     iget-object v8, p0, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->mRILrequestsHandler:Landroid/os/Handler;
 
     const/4 v9, 0x2
@@ -3417,18 +3417,18 @@
 
     move-result-object v3
 
-    .line 532
+    .line 534
     const-string v8, "GSM Auth"
 
     invoke-direct {p0, v3, v8}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->beforeRILrequest(Landroid/os/Message;Ljava/lang/String;)Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;
 
     move-result-object v4
 
-    .line 533
+    .line 535
     .local v4, requester:Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;
     if-nez v4, :cond_9
 
-    .line 534
+    .line 536
     new-instance v5, Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;
 
     .end local v5           #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
@@ -3440,7 +3440,7 @@
 
     goto/16 :goto_2
 
-    .line 535
+    .line 537
     .restart local v5       #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
     :cond_9
     iget-object v9, p0, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->mCommandsInterface:Lcom/android/internal/telephony/CommandsInterface;
@@ -3453,7 +3453,7 @@
 
     invoke-interface {v9, v8, v3}, Lcom/android/internal/telephony/CommandsInterface;->invokeOemRilRequestRaw([BLandroid/os/Message;)V
 
-    .line 536
+    .line 538
     const-string v8, "GSM Auth"
 
     invoke-direct {p0, v4, v8}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->afterRILrequest(Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;Ljava/lang/String;)Ljava/lang/String;
@@ -3462,7 +3462,7 @@
 
     if-eqz v0, :cond_a
 
-    .line 537
+    .line 539
     new-instance v5, Lcom/orange/authentication/simcard/ServiceGsmAuthenticationResult;
 
     .end local v5           #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
@@ -3472,7 +3472,7 @@
 
     goto/16 :goto_2
 
-    .line 539
+    .line 541
     .restart local v5       #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
     :cond_a
     #getter for: Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;->mResponse:Ljava/lang/Object;
@@ -3482,12 +3482,12 @@
 
     goto/16 :goto_2
 
-    .line 544
+    .line 546
     .end local v4           #requester:Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;
     :pswitch_4
     if-eqz v6, :cond_b
 
-    .line 545
+    .line 547
     new-instance v5, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
 
     .end local v5           #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
@@ -3499,12 +3499,12 @@
 
     goto/16 :goto_2
 
-    .line 546
+    .line 548
     .restart local v5       #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
     :cond_b
     if-nez v2, :cond_c
 
-    .line 547
+    .line 549
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -3533,7 +3533,7 @@
 
     invoke-direct {p0, v8}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 548
+    .line 550
     new-instance v5, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
 
     .end local v5           #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
@@ -3545,17 +3545,17 @@
 
     goto/16 :goto_2
 
-    .line 551
+    .line 553
     .restart local v5       #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
     :cond_c
     if-nez v1, :cond_d
 
-    .line 552
+    .line 554
     const-string v0, "modem or SIM card do not handle AKA authentication"
 
     invoke-direct {p0, v0}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 553
+    .line 555
     new-instance v5, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
 
     .end local v5           #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
@@ -3565,14 +3565,14 @@
 
     goto/16 :goto_2
 
-    .line 557
+    .line 559
     .restart local v5       #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
     :cond_d
     const-string v8, "Sending AKA"
 
     invoke-direct {p0, v8}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Logi(Ljava/lang/String;)V
 
-    .line 558
+    .line 560
     iget-object v8, p0, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->mRILrequestsHandler:Landroid/os/Handler;
 
     const/4 v9, 0x1
@@ -3583,18 +3583,18 @@
 
     move-result-object v3
 
-    .line 559
+    .line 561
     const-string v8, "AKA Auth"
 
     invoke-direct {p0, v3, v8}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->beforeRILrequest(Landroid/os/Message;Ljava/lang/String;)Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;
 
     move-result-object v4
 
-    .line 560
+    .line 562
     .restart local v4       #requester:Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;
     if-nez v4, :cond_e
 
-    .line 561
+    .line 563
     new-instance v5, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
 
     .end local v5           #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
@@ -3606,7 +3606,7 @@
 
     goto/16 :goto_2
 
-    .line 562
+    .line 564
     .restart local v5       #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
     :cond_e
     iget-object v9, p0, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->mCommandsInterface:Lcom/android/internal/telephony/CommandsInterface;
@@ -3619,7 +3619,7 @@
 
     invoke-interface {v9, v8, v3}, Lcom/android/internal/telephony/CommandsInterface;->invokeOemRilRequestRaw([BLandroid/os/Message;)V
 
-    .line 563
+    .line 565
     const-string v8, "AKA Auth"
 
     invoke-direct {p0, v4, v8}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->afterRILrequest(Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;Ljava/lang/String;)Ljava/lang/String;
@@ -3628,7 +3628,7 @@
 
     if-eqz v0, :cond_f
 
-    .line 564
+    .line 566
     new-instance v5, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
 
     .end local v5           #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
@@ -3638,7 +3638,7 @@
 
     goto/16 :goto_2
 
-    .line 566
+    .line 568
     .restart local v5       #serviceSimCardType:Lcom/orange/authentication/simcard/ServiceSimCardType;
     :cond_f
     #getter for: Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;->mResponse:Ljava/lang/Object;
@@ -3650,7 +3650,7 @@
 
     goto/16 :goto_2
 
-    .line 513
+    .line 515
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_2
@@ -3658,7 +3658,7 @@
         :pswitch_3
     .end packed-switch
 
-    .line 482
+    .line 484
     :pswitch_data_1
     .packed-switch 0x1
         :pswitch_0
@@ -3712,7 +3712,7 @@
 
     invoke-direct {v6, v7, v2}, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;-><init>(Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult$Error;Ljava/lang/String;)V
 
-    .line 338
+    .line 340
     :goto_0
     return-object v6
 
@@ -3736,11 +3736,11 @@
 
     goto :goto_0
 
-    .line 336
+    .line 338
     :catch_0
     move-exception v1
 
-    .line 337
+    .line 339
     .local v1, e:Ljava/lang/Throwable;
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -3766,7 +3766,7 @@
 
     invoke-direct {p0, v2}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 338
+    .line 340
     new-instance v6, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
 
     sget-object v7, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult$Error;->INTERNAL_ERR:Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult$Error;
@@ -3837,7 +3837,7 @@
 
     .line 299
     :cond_4
-    const/16 v6, 0x26
+    const/16 v6, 0x28
 
     new-array v0, v6, [B
 
@@ -3878,7 +3878,7 @@
 
     .end local v4           #index:I
     .restart local v3       #index:I
-    const/16 v6, 0x26
+    const/16 v6, 0x28
 
     aput-byte v6, v0, v4
 
@@ -3890,25 +3890,32 @@
     const/16 v6, 0x10
 
     aput-byte v6, v0, v3
+
+    .line 311
+    add-int/lit8 v3, v4, 0x1
+
+    .end local v4           #index:I
+    .restart local v3       #index:I
+    const/4 v6, 0x0
+
+    aput-byte v6, v0, v4
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 312
+    .line 313
     const/4 v6, 0x0
 
     const/16 v7, 0x10
 
     :try_start_2
-    invoke-static {p1, v6, v0, v4, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p1, v6, v0, v3, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
     :try_end_2
     .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_1
 
-    .line 317
-    add-int/lit8 v3, v4, 0x10
+    .line 318
+    add-int/lit8 v3, v3, 0x10
 
-    .line 319
-    .end local v4           #index:I
-    .restart local v3       #index:I
+    .line 320
     add-int/lit8 v4, v3, 0x1
 
     .end local v3           #index:I
@@ -3917,20 +3924,29 @@
 
     :try_start_3
     aput-byte v6, v0, v3
+
+    .line 321
+    add-int/lit8 v3, v4, 0x1
+
+    .end local v4           #index:I
+    .restart local v3       #index:I
+    const/4 v6, 0x0
+
+    aput-byte v6, v0, v4
     :try_end_3
     .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_0
 
-    .line 321
+    .line 323
     const/4 v6, 0x0
 
     const/16 v7, 0x10
 
     :try_start_4
-    invoke-static {p2, v6, v0, v4, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p2, v6, v0, v3, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
     :try_end_4
     .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_2
 
-    .line 328
+    .line 330
     :try_start_5
     iget-object v6, p0, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->mRILrequestsHandler:Landroid/os/Handler;
 
@@ -3940,16 +3956,16 @@
 
     move-result-object v5
 
-    .line 329
+    .line 331
     .local v5, message:Landroid/os/Message;
     if-nez v5, :cond_5
 
-    .line 330
+    .line 332
     const-string v2, "Can not obtain message from mRILrequestsHandler"
 
     invoke-direct {p0, v2}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 331
+    .line 333
     new-instance v6, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
 
     sget-object v7, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult$Error;->INTERNAL_ERR:Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult$Error;
@@ -3958,12 +3974,12 @@
 
     goto/16 :goto_0
 
-    .line 313
+    .line 314
     .end local v5           #message:Landroid/os/Message;
     :catch_1
     move-exception v1
 
-    .line 314
+    .line 315
     .restart local v1       #e:Ljava/lang/Throwable;
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -3989,7 +4005,7 @@
 
     invoke-direct {p0, v2}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 315
+    .line 316
     new-instance v6, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
 
     sget-object v7, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult$Error;->INTERNAL_ERR:Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult$Error;
@@ -3998,12 +4014,12 @@
 
     goto/16 :goto_0
 
-    .line 322
+    .line 324
     .end local v1           #e:Ljava/lang/Throwable;
     :catch_2
     move-exception v1
 
-    .line 323
+    .line 325
     .restart local v1       #e:Ljava/lang/Throwable;
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -4029,7 +4045,7 @@
 
     invoke-direct {p0, v2}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 324
+    .line 326
     new-instance v6, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult;
 
     sget-object v7, Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult$Error;->INTERNAL_ERR:Lcom/orange/authentication/simcard/ServiceAkaAuthenticationResult$Error;
@@ -4038,7 +4054,7 @@
 
     goto/16 :goto_0
 
-    .line 334
+    .line 336
     .end local v1           #e:Ljava/lang/Throwable;
     .restart local v5       #message:Landroid/os/Message;
     :cond_5
@@ -4451,7 +4467,7 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 583
+    .line 585
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -4474,7 +4490,7 @@
 
     invoke-direct {p0, v5}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Logi(Ljava/lang/String;)V
 
-    .line 585
+    .line 587
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -4497,30 +4513,30 @@
 
     invoke-direct {p0, v5}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Logi(Ljava/lang/String;)V
 
-    .line 587
+    .line 589
     const/4 v3, 0x0
 
-    .line 589
+    .line 591
     .local v3, result:Ljava/lang/Object;
     :try_start_0
     iget v5, p1, Landroid/os/Message;->what:I
 
     packed-switch v5, :pswitch_data_0
 
-    .line 607
+    .line 609
     const-string v5, "respons.what default"
 
     invoke-direct {p0, v5}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Loge(Ljava/lang/String;)V
 
-    .line 608
+    .line 610
     const/4 v4, 0x0
 
-    .line 654
+    .line 656
     .end local v3           #result:Ljava/lang/Object;
     :goto_0
     return v4
 
-    .line 591
+    .line 593
     .restart local v3       #result:Ljava/lang/Object;
     :pswitch_0
     invoke-direct {p0, p1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->hanleGetCardState(Landroid/os/Message;)Ljava/lang/Object;
@@ -4529,14 +4545,14 @@
 
     move-result-object v3
 
-    .line 618
+    .line 620
     .end local v3           #result:Ljava/lang/Object;
     :goto_1
     iget-object v6, p0, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->mRequestOriginatorArray:Ljava/util/ArrayList;
 
     monitor-enter v6
 
-    .line 622
+    .line 624
     :try_start_1
     iget-object v5, p0, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->mRequestOriginatorArray:Ljava/util/ArrayList;
 
@@ -4544,7 +4560,7 @@
 
     move-result-object v2
 
-    .line 623
+    .line 625
     .local v2, itr:Ljava/util/ListIterator;,"Ljava/util/ListIterator<Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;>;"
     :cond_0
     invoke-interface {v2}, Ljava/util/ListIterator;->hasNext()Z
@@ -4553,14 +4569,14 @@
 
     if-eqz v5, :cond_1
 
-    .line 624
+    .line 626
     invoke-interface {v2}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;
 
-    .line 626
+    .line 628
     .local v1, element:Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;
     iget v5, v1, Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;->mSequenceId:I
 
@@ -4570,13 +4586,13 @@
 
     if-ne v5, v7, :cond_0
 
-    .line 632
+    .line 634
     :try_start_2
     const-string v5, "notify"
 
     invoke-direct {p0, v5}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->Logi(Ljava/lang/String;)V
 
-    .line 633
+    .line 635
     iget-object v7, v1, Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;->mCallingThread:Ljava/lang/Thread;
 
     monitor-enter v7
@@ -4584,17 +4600,17 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_1
 
-    .line 635
+    .line 637
     const/4 v5, 0x1
 
     :try_start_3
     iput-boolean v5, v1, Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;->mIsResponseValid:Z
 
-    .line 636
+    .line 638
     #setter for: Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;->mResponse:Ljava/lang/Object;
     invoke-static {v1, v3}, Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;->access$102(Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 638
+    .line 640
     iget-object v5, v1, Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;->mCallingThread:Ljava/lang/Thread;
 
     invoke-virtual {v5}, Ljava/lang/Thread;->isAlive()Z
@@ -4603,18 +4619,18 @@
 
     if-eqz v5, :cond_2
 
-    .line 639
+    .line 641
     iget-object v5, v1, Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;->mCallingThread:Ljava/lang/Thread;
 
     invoke-virtual {v5}, Ljava/lang/Object;->notify()V
 
-    .line 643
+    .line 645
     :goto_2
     monitor-exit v7
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    .line 644
+    .line 646
     :try_start_4
     const-string v5, "notified"
 
@@ -4623,7 +4639,7 @@
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
     .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_1
 
-    .line 652
+    .line 654
     .end local v1           #element:Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;
     :cond_1
     :goto_3
@@ -4642,7 +4658,7 @@
 
     throw v4
 
-    .line 595
+    .line 597
     .restart local v3       #result:Ljava/lang/Object;
     :pswitch_1
     :try_start_6
@@ -4650,10 +4666,10 @@
 
     move-result-object v3
 
-    .line 596
+    .line 598
     goto :goto_1
 
-    .line 603
+    .line 605
     :pswitch_2
     invoke-direct {p0, p1}, Lcom/orange/authentication/simcard/SimCardAuthenticationService;->handleAkaAuthResponse(Landroid/os/Message;)Ljava/lang/Object;
     :try_end_6
@@ -4661,14 +4677,14 @@
 
     move-result-object v3
 
-    .line 604
+    .line 606
     goto :goto_1
 
-    .line 611
+    .line 613
     :catch_0
     move-exception v0
 
-    .line 612
+    .line 614
     .local v0, e:Ljava/lang/Throwable;
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -4696,7 +4712,7 @@
 
     goto :goto_1
 
-    .line 640
+    .line 642
     .end local v0           #e:Ljava/lang/Throwable;
     .end local v3           #result:Ljava/lang/Object;
     .restart local v1       #element:Lcom/orange/authentication/simcard/SimCardAuthenticationService$RequestThread;
@@ -4709,7 +4725,7 @@
 
     goto :goto_2
 
-    .line 643
+    .line 645
     :catchall_1
     move-exception v5
 
@@ -4723,11 +4739,11 @@
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
     .catch Ljava/lang/Throwable; {:try_start_8 .. :try_end_8} :catch_1
 
-    .line 645
+    .line 647
     :catch_1
     move-exception v0
 
-    .line 646
+    .line 648
     .restart local v0       #e:Ljava/lang/Throwable;
     :try_start_9
     new-instance v5, Ljava/lang/StringBuilder;
@@ -4758,7 +4774,7 @@
 
     goto :goto_3
 
-    .line 589
+    .line 591
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

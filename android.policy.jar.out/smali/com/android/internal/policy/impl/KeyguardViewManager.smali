@@ -674,25 +674,20 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;
 
-    .line 119
     const/4 v9, -0x1
 
-    .line 120
     .local v9, stretch:I
     const v4, 0x100900
 
-    .line 125
     .local v4, flags:I
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mNeedsInput:Z
 
     if-nez v1, :cond_1
 
-    .line 126
     const/high16 v1, 0x2
 
     or-int/2addr v4, v1
 
-    .line 128
     :cond_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mContext:Landroid/content/Context;
 
@@ -987,14 +982,12 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 199
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;
 
     invoke-virtual {v1, v10}, Landroid/widget/FrameLayout;->setSystemUiVisibility(I)V
 
     invoke-static {p0}, Lcom/android/internal/policy/impl/KeyguardViewManager$Injector;->updateDisplayDesktopFlag(Lcom/android/internal/policy/impl/KeyguardViewManager;)V
 
-    .line 201
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mViewManager:Landroid/view/ViewManager;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;

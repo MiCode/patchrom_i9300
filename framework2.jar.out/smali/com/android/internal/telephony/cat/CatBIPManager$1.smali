@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 151
+    .line 154
     iput-object p1, p0, Lcom/android/internal/telephony/cat/CatBIPManager$1;->this$0:Lcom/android/internal/telephony/cat/CatBIPManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -42,12 +42,12 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 154
+    .line 157
     const-string v2, ">>>>>>>>>> BROADCAST EVENT FROM CAT BIP MANAGER <<<<<<<<<<"
 
     invoke-static {p0, v2}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 156
+    .line 159
     iget-object v2, p0, Lcom/android/internal/telephony/cat/CatBIPManager$1;->this$0:Lcom/android/internal/telephony/cat/CatBIPManager;
 
     #getter for: Lcom/android/internal/telephony/cat/CatBIPManager;->mConnectivityListener:Lcom/android/internal/telephony/cat/NetworkConnectivityListener;
@@ -61,7 +61,7 @@
 
     if-nez v2, :cond_0
 
-    .line 157
+    .line 160
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -107,11 +107,11 @@
 
     invoke-static {p0, v2}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 196
+    .line 199
     :goto_0
     return-void
 
-    .line 161
+    .line 164
     :cond_0
     const-string v2, "networkInfo"
 
@@ -121,18 +121,18 @@
 
     check-cast v1, Landroid/net/NetworkInfo;
 
-    .line 163
+    .line 166
     .local v1, nwInfo:Landroid/net/NetworkInfo;
     if-nez v1, :cond_1
 
-    .line 164
+    .line 167
     const-string v2, "there is no network info"
 
     invoke-static {p0, v2}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 168
+    .line 171
     :cond_1
     iget-object v2, p0, Lcom/android/internal/telephony/cat/CatBIPManager$1;->this$0:Lcom/android/internal/telephony/cat/CatBIPManager;
 
@@ -167,7 +167,7 @@
 
     if-eq v2, v3, :cond_4
 
-    .line 170
+    .line 173
     :cond_3
     const-string v2, "It is not BIP type"
 
@@ -175,7 +175,7 @@
 
     goto :goto_0
 
-    .line 174
+    .line 177
     :cond_4
     const-string v2, "noConnectivity"
 
@@ -183,11 +183,11 @@
 
     move-result v0
 
-    .line 177
+    .line 180
     .local v0, noConnectivity:Z
     if-eqz v0, :cond_5
 
-    .line 178
+    .line 181
     iget-object v2, p0, Lcom/android/internal/telephony/cat/CatBIPManager$1;->this$0:Lcom/android/internal/telephony/cat/CatBIPManager;
 
     #getter for: Lcom/android/internal/telephony/cat/CatBIPManager;->mConnectivityListener:Lcom/android/internal/telephony/cat/NetworkConnectivityListener;
@@ -199,7 +199,7 @@
 
     invoke-virtual {v2, v3}, Lcom/android/internal/telephony/cat/NetworkConnectivityListener;->setState(Lcom/android/internal/telephony/cat/NetworkConnectivityListener$State;)V
 
-    .line 183
+    .line 186
     :goto_1
     iget-object v2, p0, Lcom/android/internal/telephony/cat/CatBIPManager$1;->this$0:Lcom/android/internal/telephony/cat/CatBIPManager;
 
@@ -218,7 +218,7 @@
 
     invoke-virtual {v3, v2}, Lcom/android/internal/telephony/cat/NetworkConnectivityListener;->setNetworkInfo(Landroid/net/NetworkInfo;)V
 
-    .line 185
+    .line 188
     iget-object v2, p0, Lcom/android/internal/telephony/cat/CatBIPManager$1;->this$0:Lcom/android/internal/telephony/cat/CatBIPManager;
 
     #getter for: Lcom/android/internal/telephony/cat/CatBIPManager;->mConnectivityListener:Lcom/android/internal/telephony/cat/NetworkConnectivityListener;
@@ -236,7 +236,7 @@
 
     invoke-virtual {v3, v2}, Lcom/android/internal/telephony/cat/NetworkConnectivityListener;->setOtherNetworkInfo(Landroid/net/NetworkInfo;)V
 
-    .line 188
+    .line 191
     iget-object v2, p0, Lcom/android/internal/telephony/cat/CatBIPManager$1;->this$0:Lcom/android/internal/telephony/cat/CatBIPManager;
 
     #getter for: Lcom/android/internal/telephony/cat/CatBIPManager;->mConnectivityListener:Lcom/android/internal/telephony/cat/NetworkConnectivityListener;
@@ -252,7 +252,7 @@
 
     invoke-virtual {v2, v3}, Lcom/android/internal/telephony/cat/NetworkConnectivityListener;->setReason(Ljava/lang/String;)V
 
-    .line 189
+    .line 192
     iget-object v2, p0, Lcom/android/internal/telephony/cat/CatBIPManager$1;->this$0:Lcom/android/internal/telephony/cat/CatBIPManager;
 
     #getter for: Lcom/android/internal/telephony/cat/CatBIPManager;->mConnectivityListener:Lcom/android/internal/telephony/cat/NetworkConnectivityListener;
@@ -268,7 +268,7 @@
 
     invoke-virtual {v2, v3}, Lcom/android/internal/telephony/cat/NetworkConnectivityListener;->setFailover(Z)V
 
-    .line 192
+    .line 195
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -351,7 +351,7 @@
 
     invoke-static {p0, v2}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 195
+    .line 198
     iget-object v2, p0, Lcom/android/internal/telephony/cat/CatBIPManager$1;->this$0:Lcom/android/internal/telephony/cat/CatBIPManager;
 
     #getter for: Lcom/android/internal/telephony/cat/CatBIPManager;->mConnectivityListener:Lcom/android/internal/telephony/cat/NetworkConnectivityListener;
@@ -363,7 +363,7 @@
 
     goto/16 :goto_0
 
-    .line 180
+    .line 183
     :cond_5
     iget-object v2, p0, Lcom/android/internal/telephony/cat/CatBIPManager$1;->this$0:Lcom/android/internal/telephony/cat/CatBIPManager;
 
@@ -378,7 +378,7 @@
 
     goto/16 :goto_1
 
-    .line 192
+    .line 195
     :cond_6
     new-instance v2, Ljava/lang/StringBuilder;
 

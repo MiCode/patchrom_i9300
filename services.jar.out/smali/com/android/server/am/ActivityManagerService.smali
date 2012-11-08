@@ -12179,7 +12179,6 @@
 
     invoke-virtual {v12, v3, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 8898
     const-string v3, "app"
 
     move-object/from16 v0, p1
@@ -12192,68 +12191,55 @@
 
     invoke-virtual {v12, v3, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 8900
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v15
 
-    .line 8901
     .local v15, msg:Landroid/os/Message;
     # merget from ics.9300
     #sget-boolean v3, Lcom/android/server/am/ActivityManagerService;->mCMManagedPermissionError:Z
 
     #if-eqz v3, :cond_d
 
-    .line 8902
     const/16 v3, 0x01
 
     iput v3, v15, Landroid/os/Message;->what:I
 
-    .line 8903
     #const-string v3, "errorpermission"
 
     #sget-object v10, Lcom/android/server/am/ActivityManagerService;->mCMErrorPermissionName:Ljava/lang/String;
 
     #invoke-virtual {v12, v3, v10}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 8904
     #const/4 v3, 0x0
 
     #sput-boolean v3, Lcom/android/server/am/ActivityManagerService;->mCMManagedPermissionError:Z
 
-    .line 8908
     :goto_4
     iput-object v12, v15, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 8909
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/am/ActivityManagerService;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v3, v15}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 8911
     invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 8912
     monitor-exit p0
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    .line 8914
     invoke-virtual/range {v19 .. v19}, Lcom/android/server/am/AppErrorResult;->get()I
 
     move-result v18
 
-    .line 8916
     .local v18, res:I
     const/4 v11, 0x0
 
-    .line 8917
     .local v11, appErrorIntent:Landroid/content/Intent;
     monitor-enter p0
 
-    .line 8918
     if-eqz p1, :cond_b
 
     :try_start_6

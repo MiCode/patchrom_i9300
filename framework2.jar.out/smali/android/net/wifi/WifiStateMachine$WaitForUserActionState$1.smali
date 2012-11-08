@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 4821
+    .line 4825
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$WaitForUserActionState$1;->this$1:Landroid/net/wifi/WifiStateMachine$WaitForUserActionState;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,12 +43,12 @@
     .parameter "which"
 
     .prologue
-    .line 4824
+    .line 4828
     const/4 v0, -0x1
 
     if-ne p2, v0, :cond_0
 
-    .line 4825
+    .line 4829
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$WaitForUserActionState$1;->this$1:Landroid/net/wifi/WifiStateMachine$WaitForUserActionState;
 
     iget-object v0, v0, Landroid/net/wifi/WifiStateMachine$WaitForUserActionState;->this$0:Landroid/net/wifi/WifiStateMachine;
@@ -57,11 +57,11 @@
 
     invoke-virtual {v0, v1}, Landroid/net/wifi/WifiStateMachine;->sendMessage(I)V
 
-    .line 4829
+    .line 4833
     :goto_0
     return-void
 
-    .line 4827
+    .line 4831
     :cond_0
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$WaitForUserActionState$1;->this$1:Landroid/net/wifi/WifiStateMachine$WaitForUserActionState;
 

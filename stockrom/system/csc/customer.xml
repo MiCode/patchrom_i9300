@@ -1,7 +1,7 @@
 ﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED013</CSCEdition>
+    <CSCEdition>ED003</CSCEdition>
     <Country>Poland</Country>
     <CountryISO>PL</CountryISO>
     <Region>EUR</Region>
@@ -65,6 +65,9 @@
           <NetworkName>Play</NetworkName>
           <WbAmrCodec>on</WbAmrCodec>
         </WbAmr>
+        <NbSOSNumber>2</NbSOSNumber>
+        <SOSNumber>112</SOSNumber>
+        <SOSNumber>911</SOSNumber>
         <AutoProfile>on</AutoProfile>
         <AutoVoicemail>off</AutoVoicemail>
         <AutoEmailAccount>off</AutoEmailAccount>
@@ -76,24 +79,33 @@
         <AutoFOTA>off</AutoFOTA>
       </Network>
       <Sound>
+        <RngVolume>6</RngVolume>
+        <KeyTone>
+          <KeyVolume>3</KeyVolume>
+        </KeyTone>
+        <MsgToneAlertType>vibmelody</MsgToneAlertType>
         <ExtraSound>
           <ConnectTone>on</ConnectTone>
           <CallEndTone>off</CallEndTone>
           <MinuteMind>off</MinuteMind>
         </ExtraSound>
+        <AMRVoiceCodec>on</AMRVoiceCodec>
       </Sound>
       <Phone>
         <AlertOnCall>on</AlertOnCall>
         <DefLanguage>polish</DefLanguage>
         <DefLanguageNoSIM>polish</DefLanguageNoSIM>
         <T9Enabling>enable</T9Enabling>
+        <T9Language>polish</T9Language>
+        <KeypadType>qwerty</KeypadType>
         <BackLightTime>15sec</BackLightTime>
         <DateTimeFormat>
           <DateFormat>ddmmyyyy</DateFormat>
           <TimeFormat>24h</TimeFormat>
         </DateTimeFormat>
-        <UnknownSource>off</UnknownSource>
-        <UsePacketData>off</UsePacketData>
+        <WeekendSetting>satsun</WeekendSetting>
+        <AutoSyncCommon>off</AutoSyncCommon>
+        <UnknownSource>on</UnknownSource>
       </Phone>
       <Security />
     </Main>
@@ -111,14 +123,37 @@
         <SSMS>off</SSMS>
       </SMS>
       <MMS>
+        <MmsSending>
+          <ReqDeliveryRep>off</ReqDeliveryRep>
+          <ReqReadRep>off</ReqReadRep>
+          <CreationMode>warning</CreationMode>
+        </MmsSending>
         <MmsReceiving>
           <Home>auto</Home>
           <Roaming>manual</Roaming>
+          <SendReadRep>prompt</SendReadRep>
+          <SendDeliveryRep>off</SendDeliveryRep>
         </MmsReceiving>
       </MMS>
     </Messages>
+    <Multimedia>
+      <Camera>
+        <Quality>high</Quality>
+      </Camera>
+      <Video>
+        <Quality>high</Quality>
+        <VideoResolution>hd1080</VideoResolution>
+      </Video>
+    </Multimedia>
+    <ActiveSync>
+      <UseSSL>on</UseSSL>
+      <AcceptAllSSLCert>on</AcceptAllSSLCert>
+      <EasEmail>
+        <PeriodEmail>automatic</PeriodEmail>
+      </EasEmail>
+    </ActiveSync>
     <Browser>
-      <NbBookmark>2</NbBookmark>
+      <NbBookmark>3</NbBookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
@@ -132,6 +167,10 @@
         <Index>2</Index>
         <BookmarkName>Yahoo!</BookmarkName>
         <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>no</Editable>
       </Bookmark>
       <eManual>
         <URL>http://www.samsung.com/m-manual/common</URL>

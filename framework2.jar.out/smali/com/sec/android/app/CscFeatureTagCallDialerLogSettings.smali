@@ -116,6 +116,8 @@
 
 .field public static final TAG_CSCFEATURE_VOICECALL_DISABLE_AUTOANSWER_IN_SILENT_N_EARJACK_MODE:Ljava/lang/String; = "CscFeature_VoiceCall_DisableAutoAnswerInSilentNEarjactMode"
 
+.field public static final TAG_CSCFEATURE_VOICECALL_DISABLE_DISPLAY_VOICEMAIL_KEYPAD:Ljava/lang/String; = "CscFeature_VoiceCall_DisableDisplayVoicemailKeypad"
+
 .field public static final TAG_CSCFEATURE_VOICECALL_DISABLE_EDITING_CALLERID:Ljava/lang/String; = "CscFeature_VoiceCall_DisableEditingCallerID"
 
 .field public static final TAG_CSCFEATURE_VOICECALL_DISABLE_GEO_DESCRIPTION:Ljava/lang/String; = "CscFeature_VoiceCall_DisableGeoDescription"

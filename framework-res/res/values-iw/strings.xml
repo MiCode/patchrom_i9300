@@ -339,7 +339,7 @@
     <string name="global_action_restart">הפעלה מחדש</string>
     <string name="global_action_sound_mode_mute">השתק</string>
     <string name="global_action_sound_mode_vibrate">רטט</string>
-    <string name="global_action_sound_mode_sound">צלילים</string>
+    <string name="global_action_sound_mode_sound">צליל</string>
     <string name="global_action_toggle_silent_mode">מצב שקט</string>
     <string name="global_action_silent_mode_on_status">קול כבוי</string>
     <string name="global_action_silent_mode_off_status">קול מופעל</string>
@@ -361,7 +361,7 @@
     <string name="global_action_insert_sim_card_message">הכנס כרטיס SIM כדי לגשת לשירותי רשת</string>
     <string name="globalactions_silent_mode_mute">השתק</string>
     <string name="globalactions_silent_mode_vibrate">רטט</string>
-    <string name="globalactions_silent_mode_sound">צלילים</string>
+    <string name="globalactions_silent_mode_sound">צליל</string>
     <string name="safeMode">מצב בטוח</string>
     <string name="permlab_mdmApplications">נהל יישומים</string>
     <string name="permdesc_mdmApplications">התקן, הסר התקנה, השבת, הפעל והצג שאילתה על המצב של יישומים אחרים. אפשר גם הגבלות בנוגע להתקנה ולהסרת ההתקנה של יישומים אחרים</string>

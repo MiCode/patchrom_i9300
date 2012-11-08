@@ -93,7 +93,7 @@
     .locals 2
 
     .prologue
-    .line 723
+    .line 768
     new-instance v0, Landroid/text/StaticLayout;
 
     const/4 v1, 0x0
@@ -102,7 +102,7 @@
 
     sput-object v0, Landroid/text/DynamicLayout;->sStaticLayout:Landroid/text/StaticLayout;
 
-    .line 725
+    .line 770
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -123,7 +123,7 @@
     .parameter "includepad"
 
     .prologue
-    .line 49
+    .line 55
     move-object v0, p0
 
     move-object v1, p1
@@ -144,7 +144,7 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/text/DynamicLayout;-><init>(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFZ)V
 
-    .line 51
+    .line 57
     return-void
 .end method
 
@@ -160,7 +160,7 @@
     .parameter "includepad"
 
     .prologue
-    .line 63
+    .line 69
     const/4 v9, 0x0
 
     const/4 v10, 0x0
@@ -185,7 +185,7 @@
 
     invoke-direct/range {v0 .. v10}, Landroid/text/DynamicLayout;-><init>(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFZLandroid/text/TextUtils$TruncateAt;I)V
 
-    .line 65
+    .line 71
     return-void
 .end method
 
@@ -203,7 +203,7 @@
     .parameter "ellipsizedWidth"
 
     .prologue
-    .line 80
+    .line 86
     sget-object v6, Landroid/text/TextDirectionHeuristics;->FIRSTSTRONG_LTR:Landroid/text/TextDirectionHeuristic;
 
     move-object v0, p0
@@ -230,7 +230,7 @@
 
     invoke-direct/range {v0 .. v11}, Landroid/text/DynamicLayout;-><init>(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;Landroid/text/TextDirectionHeuristic;FFZLandroid/text/TextUtils$TruncateAt;I)V
 
-    .line 82
+    .line 88
     return-void
 .end method
 
@@ -249,7 +249,7 @@
     .parameter "ellipsizedWidth"
 
     .prologue
-    .line 99
+    .line 105
     if-nez p10, :cond_2
 
     move-object/from16 v3, p2
@@ -271,24 +271,24 @@
 
     invoke-direct/range {v2 .. v9}, Landroid/text/Layout;-><init>(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;Landroid/text/TextDirectionHeuristic;FF)V
 
-    .line 106
+    .line 112
     move-object/from16 v0, p1
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Landroid/text/DynamicLayout;->mBase:Ljava/lang/CharSequence;
 
-    .line 107
+    .line 113
     move-object/from16 v0, p2
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Landroid/text/DynamicLayout;->mDisplay:Ljava/lang/CharSequence;
 
-    .line 109
+    .line 115
     if-eqz p10, :cond_4
 
-    .line 110
+    .line 116
     new-instance v2, Landroid/text/PackedIntVector;
 
     const/4 v3, 0x5
@@ -299,21 +299,21 @@
 
     iput-object v2, v0, Landroid/text/DynamicLayout;->mInts:Landroid/text/PackedIntVector;
 
-    .line 111
+    .line 117
     move/from16 v0, p11
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/text/DynamicLayout;->mEllipsizedWidth:I
 
-    .line 112
+    .line 118
     move-object/from16 v0, p10
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Landroid/text/DynamicLayout;->mEllipsizeAt:Landroid/text/TextUtils$TruncateAt;
 
-    .line 119
+    .line 125
     :goto_1
     new-instance v2, Landroid/text/PackedObjectVector;
 
@@ -325,59 +325,59 @@
 
     iput-object v2, v0, Landroid/text/DynamicLayout;->mObjects:Landroid/text/PackedObjectVector;
 
-    .line 121
+    .line 127
     move/from16 v0, p9
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/text/DynamicLayout;->mIncludePad:Z
 
-    .line 131
+    .line 137
     if-eqz p10, :cond_0
 
-    .line 132
+    .line 138
     invoke-virtual/range {p0 .. p0}, Landroid/text/DynamicLayout;->getText()Ljava/lang/CharSequence;
 
     move-result-object v13
 
     check-cast v13, Landroid/text/Layout$Ellipsizer;
 
-    .line 134
+    .line 140
     .local v13, e:Landroid/text/Layout$Ellipsizer;
     move-object/from16 v0, p0
 
     iput-object v0, v13, Landroid/text/Layout$Ellipsizer;->mLayout:Landroid/text/Layout;
 
-    .line 135
+    .line 141
     move/from16 v0, p11
 
     iput v0, v13, Landroid/text/Layout$Ellipsizer;->mWidth:I
 
-    .line 136
+    .line 142
     move-object/from16 v0, p10
 
     iput-object v0, v13, Landroid/text/Layout$Ellipsizer;->mMethod:Landroid/text/TextUtils$TruncateAt;
 
-    .line 137
+    .line 143
     const/4 v2, 0x1
 
     move-object/from16 v0, p0
 
     iput-boolean v2, v0, Landroid/text/DynamicLayout;->mEllipsize:Z
 
-    .line 146
+    .line 152
     .end local v13           #e:Landroid/text/Layout$Ellipsizer;
     :cond_0
     if-eqz p10, :cond_5
 
-    .line 147
+    .line 153
     const/4 v2, 0x5
 
     new-array v0, v2, [I
 
     move-object/from16 v18, v0
 
-    .line 148
+    .line 154
     .local v18, start:[I
     const/4 v2, 0x3
 
@@ -385,7 +385,7 @@
 
     aput v3, v18, v2
 
-    .line 153
+    .line 159
     :goto_2
     const/4 v2, 0x1
 
@@ -397,21 +397,21 @@
 
     aput-object v3, v12, v2
 
-    .line 155
+    .line 161
     .local v12, dirs:[Landroid/text/Layout$Directions;
     invoke-virtual/range {p3 .. p3}, Landroid/text/TextPaint;->getFontMetricsInt()Landroid/graphics/Paint$FontMetricsInt;
 
     move-result-object v14
 
-    .line 156
+    .line 162
     .local v14, fm:Landroid/graphics/Paint$FontMetricsInt;
     iget v10, v14, Landroid/graphics/Paint$FontMetricsInt;->ascent:I
 
-    .line 157
+    .line 163
     .local v10, asc:I
     iget v11, v14, Landroid/graphics/Paint$FontMetricsInt;->descent:I
 
-    .line 159
+    .line 165
     .local v11, desc:I
     const/4 v2, 0x0
 
@@ -419,19 +419,19 @@
 
     aput v3, v18, v2
 
-    .line 160
+    .line 166
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
     aput v3, v18, v2
 
-    .line 161
+    .line 167
     const/4 v2, 0x2
 
     aput v11, v18, v2
 
-    .line 162
+    .line 168
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/text/DynamicLayout;->mInts:Landroid/text/PackedIntVector;
@@ -442,14 +442,14 @@
 
     invoke-virtual {v2, v3, v0}, Landroid/text/PackedIntVector;->insertAt(I[I)V
 
-    .line 164
+    .line 170
     const/4 v2, 0x1
 
     sub-int v3, v11, v10
 
     aput v3, v18, v2
 
-    .line 165
+    .line 171
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/text/DynamicLayout;->mInts:Landroid/text/PackedIntVector;
@@ -460,7 +460,7 @@
 
     invoke-virtual {v2, v3, v0}, Landroid/text/PackedIntVector;->insertAt(I[I)V
 
-    .line 167
+    .line 173
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/text/DynamicLayout;->mObjects:Landroid/text/PackedObjectVector;
@@ -469,7 +469,7 @@
 
     invoke-virtual {v2, v3, v12}, Landroid/text/PackedObjectVector;->insertAt(I[Ljava/lang/Object;)V
 
-    .line 170
+    .line 176
     const/4 v2, 0x0
 
     const/4 v3, 0x0
@@ -484,21 +484,21 @@
 
     invoke-direct {v0, v1, v2, v3, v4}, Landroid/text/DynamicLayout;->reflow(Ljava/lang/CharSequence;III)V
 
-    .line 172
+    .line 178
     move-object/from16 v0, p1
 
     instance-of v2, v0, Landroid/text/Spannable;
 
     if-eqz v2, :cond_7
 
-    .line 173
+    .line 179
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/text/DynamicLayout;->mWatcher:Landroid/text/DynamicLayout$ChangeWatcher;
 
     if-nez v2, :cond_1
 
-    .line 174
+    .line 180
     new-instance v2, Landroid/text/DynamicLayout$ChangeWatcher;
 
     move-object/from16 v0, p0
@@ -512,10 +512,10 @@
     :cond_1
     move-object/from16 v16, p1
 
-    .line 177
+    .line 183
     check-cast v16, Landroid/text/Spannable;
 
-    .line 178
+    .line 184
     .local v16, sp:Landroid/text/Spannable;
     const/4 v2, 0x0
 
@@ -533,7 +533,7 @@
 
     check-cast v17, [Landroid/text/DynamicLayout$ChangeWatcher;
 
-    .line 179
+    .line 185
     .local v17, spans:[Landroid/text/DynamicLayout$ChangeWatcher;
     const/4 v15, 0x0
 
@@ -545,19 +545,19 @@
 
     if-ge v15, v2, :cond_6
 
-    .line 180
+    .line 186
     aget-object v2, v17, v15
 
     move-object/from16 v0, v16
 
     invoke-interface {v0, v2}, Landroid/text/Spannable;->removeSpan(Ljava/lang/Object;)V
 
-    .line 179
+    .line 185
     add-int/lit8 v15, v15, 0x1
 
     goto :goto_3
 
-    .line 99
+    .line 105
     .end local v10           #asc:I
     .end local v11           #desc:I
     .end local v12           #dirs:[Landroid/text/Layout$Directions;
@@ -590,7 +590,7 @@
 
     goto/16 :goto_0
 
-    .line 114
+    .line 120
     :cond_4
     new-instance v2, Landroid/text/PackedIntVector;
 
@@ -602,14 +602,14 @@
 
     iput-object v2, v0, Landroid/text/DynamicLayout;->mInts:Landroid/text/PackedIntVector;
 
-    .line 115
+    .line 121
     move/from16 v0, p4
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/text/DynamicLayout;->mEllipsizedWidth:I
 
-    .line 116
+    .line 122
     const/4 v2, 0x0
 
     move-object/from16 v0, p0
@@ -618,7 +618,7 @@
 
     goto/16 :goto_1
 
-    .line 150
+    .line 156
     :cond_5
     const/4 v2, 0x3
 
@@ -629,7 +629,7 @@
     .restart local v18       #start:[I
     goto/16 :goto_2
 
-    .line 182
+    .line 188
     .restart local v10       #asc:I
     .restart local v11       #desc:I
     .restart local v12       #dirs:[Landroid/text/Layout$Directions;
@@ -654,7 +654,7 @@
 
     invoke-interface {v0, v2, v3, v4, v5}, Landroid/text/Spannable;->setSpan(Ljava/lang/Object;III)V
 
-    .line 186
+    .line 192
     .end local v15           #i:I
     .end local v16           #sp:Landroid/text/Spannable;
     .end local v17           #spans:[Landroid/text/DynamicLayout$ChangeWatcher;
@@ -671,7 +671,7 @@
     .parameter "x4"
 
     .prologue
-    .line 35
+    .line 41
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/text/DynamicLayout;->reflow(Ljava/lang/CharSequence;III)V
 
     return-void
@@ -684,18 +684,18 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 420
+    .line 465
     invoke-virtual {p0, p1}, Landroid/text/DynamicLayout;->getLineForOffset(I)I
 
     move-result v1
 
-    .line 422
+    .line 467
     .local v1, line:I
     iget-object v3, p0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
 
     if-nez v3, :cond_1
 
-    .line 424
+    .line 469
     const/4 v3, 0x1
 
     invoke-static {v3}, Lcom/android/internal/util/ArrayUtils;->idealIntArraySize(I)I
@@ -706,26 +706,26 @@
 
     iput-object v3, p0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
 
-    .line 425
+    .line 470
     iget-object v3, p0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
 
     iget v4, p0, Landroid/text/DynamicLayout;->mNumberOfBlocks:I
 
     aput v1, v3, v4
 
-    .line 426
+    .line 471
     iget v3, p0, Landroid/text/DynamicLayout;->mNumberOfBlocks:I
 
     add-int/lit8 v3, v3, 0x1
 
     iput v3, p0, Landroid/text/DynamicLayout;->mNumberOfBlocks:I
 
-    .line 441
+    .line 486
     :cond_0
     :goto_0
     return-void
 
-    .line 430
+    .line 475
     :cond_1
     iget-object v3, p0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
 
@@ -735,11 +735,11 @@
 
     aget v2, v3, v4
 
-    .line 431
+    .line 476
     .local v2, previousBlockEndLine:I
     if-le v1, v2, :cond_0
 
-    .line 432
+    .line 477
     iget v3, p0, Landroid/text/DynamicLayout;->mNumberOfBlocks:I
 
     iget-object v4, p0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
@@ -748,7 +748,7 @@
 
     if-ne v3, v4, :cond_2
 
-    .line 434
+    .line 479
     iget v3, p0, Landroid/text/DynamicLayout;->mNumberOfBlocks:I
 
     add-int/lit8 v3, v3, 0x1
@@ -759,7 +759,7 @@
 
     new-array v0, v3, [I
 
-    .line 435
+    .line 480
     .local v0, blockEndLines:[I
     iget-object v3, p0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
 
@@ -767,10 +767,10 @@
 
     invoke-static {v3, v5, v0, v5, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 436
+    .line 481
     iput-object v0, p0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
 
-    .line 438
+    .line 483
     .end local v0           #blockEndLines:[I
     :cond_2
     iget-object v3, p0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
@@ -779,7 +779,7 @@
 
     aput v1, v3, v4
 
-    .line 439
+    .line 484
     iget v3, p0, Landroid/text/DynamicLayout;->mNumberOfBlocks:I
 
     add-int/lit8 v3, v3, 0x1
@@ -793,19 +793,19 @@
     .locals 5
 
     .prologue
-    .line 392
+    .line 437
     const/16 v1, 0x190
 
-    .line 393
+    .line 438
     .local v1, offset:I
     const/4 v3, 0x0
 
     iput v3, p0, Landroid/text/DynamicLayout;->mNumberOfBlocks:I
 
-    .line 394
+    .line 439
     iget-object v2, p0, Landroid/text/DynamicLayout;->mDisplay:Ljava/lang/CharSequence;
 
-    .line 397
+    .line 442
     .local v2, text:Ljava/lang/CharSequence;
     :goto_0
     const/16 v3, 0xa
@@ -814,17 +814,17 @@
 
     move-result v1
 
-    .line 398
+    .line 443
     if-gez v1, :cond_0
 
-    .line 399
+    .line 444
     invoke-interface {v2}, Ljava/lang/CharSequence;->length()I
 
     move-result v3
 
     invoke-direct {p0, v3}, Landroid/text/DynamicLayout;->addBlockAtOffset(I)V
 
-    .line 408
+    .line 453
     iget-object v3, p0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
 
     array-length v3, v3
@@ -833,7 +833,7 @@
 
     iput-object v3, p0, Landroid/text/DynamicLayout;->mBlockIndices:[I
 
-    .line 409
+    .line 454
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -844,29 +844,29 @@
 
     if-ge v0, v3, :cond_1
 
-    .line 410
+    .line 455
     iget-object v3, p0, Landroid/text/DynamicLayout;->mBlockIndices:[I
 
     const/4 v4, -0x1
 
     aput v4, v3, v0
 
-    .line 409
+    .line 454
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 402
+    .line 447
     .end local v0           #i:I
     :cond_0
     invoke-direct {p0, v1}, Landroid/text/DynamicLayout;->addBlockAtOffset(I)V
 
-    .line 403
+    .line 448
     add-int/lit16 v1, v1, 0x190
 
     goto :goto_0
 
-    .line 412
+    .line 457
     .restart local v0       #i:I
     :cond_1
     return-void
@@ -876,7 +876,7 @@
     .locals 3
 
     .prologue
-    .line 379
+    .line 424
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -885,40 +885,40 @@
 
     if-ge v0, v1, :cond_1
 
-    .line 380
+    .line 425
     iget-object v1, p0, Landroid/text/DynamicLayout;->mBlockIndices:[I
 
     array-length v1, v1
 
     if-ge v0, v1, :cond_0
 
-    .line 381
+    .line 426
     iget-object v1, p0, Landroid/text/DynamicLayout;->mBlockIndices:[I
 
     const/4 v2, -0x1
 
     aput v2, v1, v0
 
-    .line 379
+    .line 424
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 384
+    .line 429
     :cond_1
     return-void
 .end method
 
 .method private reflow(Ljava/lang/CharSequence;III)V
-    .locals 42
+    .locals 48
     .parameter "s"
     .parameter "where"
     .parameter "before"
     .parameter "after"
 
     .prologue
-    .line 189
+    .line 195
     move-object/from16 v0, p0
 
     iget-object v5, v0, Landroid/text/DynamicLayout;->mBase:Ljava/lang/CharSequence;
@@ -927,322 +927,533 @@
 
     if-eq v0, v5, :cond_0
 
-    .line 375
+    .line 420
     :goto_0
     return-void
 
-    .line 192
+    .line 198
     :cond_0
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/text/DynamicLayout;->mDisplay:Ljava/lang/CharSequence;
 
-    .line 193
+    .line 199
     .local v4, text:Ljava/lang/CharSequence;
     invoke-interface {v4}, Ljava/lang/CharSequence;->length()I
 
-    move-result v30
+    move-result v32
 
-    .line 197
-    .local v30, len:I
+    .line 204
+    .local v32, len:I
+    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
+
+    move-result-object v5
+
+    const-string v6, "CscFeature_Framework_EnableThaiVietReshaping"
+
+    invoke-virtual {v5, v6}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
+
+    .line 207
+    add-int/lit8 v5, p3, 0x1
+
+    move/from16 v0, p4
+
+    if-eq v0, v5, :cond_1
+
+    move/from16 v0, p4
+
+    move/from16 v1, p3
+
+    if-ne v0, v1, :cond_4
+
+    :cond_1
+    :try_start_0
+    instance-of v5, v4, Landroid/text/SpannableStringBuilder;
+
+    if-eqz v5, :cond_4
+
+    if-ltz p2, :cond_4
+
+    .line 209
+    move/from16 v0, p2
+
+    invoke-interface {v4, v0}, Ljava/lang/CharSequence;->charAt(I)C
+
+    move-result v29
+
+    .line 211
+    .local v29, insertedText:C
+    const/16 v5, 0xe31
+
+    move/from16 v0, v29
+
+    if-eq v0, v5, :cond_3
+
+    const/16 v5, 0xe34
+
+    move/from16 v0, v29
+
+    if-lt v0, v5, :cond_2
+
+    const/16 v5, 0xe39
+
+    move/from16 v0, v29
+
+    if-le v0, v5, :cond_3
+
+    :cond_2
+    const/16 v5, 0xe47
+
+    move/from16 v0, v29
+
+    if-lt v0, v5, :cond_4
+
+    const/16 v5, 0xe4d
+
+    move/from16 v0, v29
+
+    if-gt v0, v5, :cond_4
+
+    .line 214
+    :cond_3
+    move-object v0, v4
+
+    check-cast v0, Landroid/text/SpannableStringBuilder;
+
+    move-object/from16 v38, v0
+
+    .line 216
+    .local v38, sp:Landroid/text/SpannableStringBuilder;
+    const/4 v5, 0x0
+
+    invoke-virtual/range {v38 .. v38}, Landroid/text/SpannableStringBuilder;->length()I
+
+    move-result v6
+
+    const-class v7, Landroid/text/style/UnderlineSpan;
+
+    move-object/from16 v0, v38
+
+    invoke-virtual {v0, v5, v6, v7}, Landroid/text/SpannableStringBuilder;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
+
+    move-result-object v47
+
+    check-cast v47, [Landroid/text/style/UnderlineSpan;
+
+    .line 217
+    .local v47, us:[Landroid/text/style/UnderlineSpan;
+    const/16 v28, 0x0
+
+    .local v28, i:I
+    :goto_1
+    move-object/from16 v0, v47
+
+    array-length v5, v0
+
+    move/from16 v0, v28
+
+    if-ge v0, v5, :cond_4
+
+    .line 218
+    aget-object v5, v47, v28
+
+    move-object/from16 v0, v38
+
+    invoke-virtual {v0, v5}, Landroid/text/SpannableStringBuilder;->getSpanStart(Ljava/lang/Object;)I
+
+    move-result v46
+
+    .line 219
+    .local v46, underLineSpenStartPos:I
+    aget-object v5, v47, v28
+
+    move-object/from16 v0, v38
+
+    invoke-virtual {v0, v5}, Landroid/text/SpannableStringBuilder;->getSpanEnd(Ljava/lang/Object;)I
+
+    move-result v44
+
+    .line 221
+    .local v44, underLineSpenEndPos:I
+    if-lez v46, :cond_8
+
+    move/from16 v0, v46
+
+    move/from16 v1, p2
+
+    if-ne v0, v1, :cond_8
+
+    add-int/lit8 v5, v46, 0x1
+
+    move/from16 v0, v44
+
+    if-ne v5, v0, :cond_8
+
+    .line 223
+    aget-object v5, v47, v28
+
+    move-object/from16 v0, v38
+
+    invoke-virtual {v0, v5}, Landroid/text/SpannableStringBuilder;->getSpanFlags(Ljava/lang/Object;)I
+
+    move-result v45
+
+    .line 224
+    .local v45, underLineSpenFlag:I
+    aget-object v5, v47, v28
+
+    move-object/from16 v0, v38
+
+    invoke-virtual {v0, v5}, Landroid/text/SpannableStringBuilder;->removeSpan(Ljava/lang/Object;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 242
+    .end local v28           #i:I
+    .end local v29           #insertedText:C
+    .end local v38           #sp:Landroid/text/SpannableStringBuilder;
+    .end local v44           #underLineSpenEndPos:I
+    .end local v45           #underLineSpenFlag:I
+    .end local v46           #underLineSpenStartPos:I
+    .end local v47           #us:[Landroid/text/style/UnderlineSpan;
+    :cond_4
+    :goto_2
     const/16 v5, 0xa
 
     add-int/lit8 v6, p2, -0x1
 
     invoke-static {v4, v5, v6}, Landroid/text/TextUtils;->lastIndexOf(Ljava/lang/CharSequence;CI)I
 
-    move-result v24
+    move-result v25
 
-    .line 198
-    .local v24, find:I
-    if-gez v24, :cond_4
+    .line 243
+    .local v25, find:I
+    if-gez v25, :cond_9
 
-    .line 199
-    const/16 v24, 0x0
+    .line 244
+    const/16 v25, 0x0
 
-    .line 204
-    :goto_1
-    sub-int v20, p2, v24
+    .line 249
+    :goto_3
+    sub-int v20, p2, v25
 
-    .line 205
+    .line 250
     .local v20, diff:I
     add-int p3, p3, v20
 
-    .line 206
+    .line 251
     add-int p4, p4, v20
 
-    .line 207
+    .line 252
     sub-int p2, p2, v20
 
-    .line 212
+    .line 257
     const/16 v5, 0xa
 
     add-int v6, p2, p4
 
     invoke-static {v4, v5, v6}, Landroid/text/TextUtils;->indexOf(Ljava/lang/CharSequence;CI)I
 
-    move-result v31
+    move-result v33
 
-    .line 213
-    .local v31, look:I
-    if-gez v31, :cond_5
+    .line 258
+    .local v33, look:I
+    if-gez v33, :cond_a
 
-    .line 214
-    move/from16 v31, v30
+    .line 259
+    move/from16 v33, v32
 
-    .line 218
-    :goto_2
+    .line 263
+    :goto_4
     add-int v5, p2, p4
 
-    sub-int v18, v31, v5
+    sub-int v18, v33, v5
 
-    .line 219
+    .line 264
     .local v18, change:I
     add-int p3, p3, v18
 
-    .line 220
+    .line 265
     add-int p4, p4, v18
 
-    .line 224
+    .line 269
     instance-of v5, v4, Landroid/text/Spanned;
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_c
 
-    move-object/from16 v36, v4
+    move-object/from16 v38, v4
 
-    .line 225
-    check-cast v36, Landroid/text/Spanned;
+    .line 270
+    check-cast v38, Landroid/text/Spanned;
 
-    .line 229
-    .local v36, sp:Landroid/text/Spanned;
-    :cond_1
+    .line 274
+    .local v38, sp:Landroid/text/Spanned;
+    :cond_5
     const/16 v16, 0x0
 
-    .line 231
+    .line 276
     .local v16, again:Z
     add-int v5, p2, p4
 
     const-class v6, Landroid/text/style/WrapTogetherSpan;
 
-    move-object/from16 v0, v36
+    move-object/from16 v0, v38
 
     move/from16 v1, p2
 
     invoke-interface {v0, v1, v5, v6}, Landroid/text/Spanned;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
 
-    move-result-object v25
+    move-result-object v26
 
-    .line 234
-    .local v25, force:[Ljava/lang/Object;
-    const/16 v27, 0x0
+    .line 279
+    .local v26, force:[Ljava/lang/Object;
+    const/16 v28, 0x0
 
-    .local v27, i:I
-    :goto_3
-    move-object/from16 v0, v25
+    .restart local v28       #i:I
+    :goto_5
+    move-object/from16 v0, v26
 
     array-length v5, v0
 
-    move/from16 v0, v27
+    move/from16 v0, v28
 
-    if-ge v0, v5, :cond_6
+    if-ge v0, v5, :cond_b
 
-    .line 235
-    aget-object v5, v25, v27
+    .line 280
+    aget-object v5, v26, v28
 
-    move-object/from16 v0, v36
+    move-object/from16 v0, v38
 
     invoke-interface {v0, v5}, Landroid/text/Spanned;->getSpanStart(Ljava/lang/Object;)I
 
-    move-result v37
+    move-result v39
 
-    .line 236
-    .local v37, st:I
-    aget-object v5, v25, v27
+    .line 281
+    .local v39, st:I
+    aget-object v5, v26, v28
 
-    move-object/from16 v0, v36
+    move-object/from16 v0, v38
 
     invoke-interface {v0, v5}, Landroid/text/Spanned;->getSpanEnd(Ljava/lang/Object;)I
 
-    move-result v21
+    move-result v22
 
-    .line 238
-    .local v21, en:I
-    move/from16 v0, v37
+    .line 283
+    .local v22, en:I
+    move/from16 v0, v39
 
     move/from16 v1, p2
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_6
 
-    .line 239
+    .line 284
     const/16 v16, 0x1
 
-    .line 241
-    sub-int v20, p2, v37
+    .line 286
+    sub-int v20, p2, v39
 
-    .line 242
+    .line 287
     add-int p3, p3, v20
 
-    .line 243
+    .line 288
     add-int p4, p4, v20
 
-    .line 244
+    .line 289
     sub-int p2, p2, v20
 
-    .line 247
-    :cond_2
+    .line 292
+    :cond_6
     add-int v5, p2, p4
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    if-le v0, v5, :cond_3
+    if-le v0, v5, :cond_7
 
-    .line 248
+    .line 293
     const/16 v16, 0x1
 
-    .line 250
+    .line 295
     add-int v5, p2, p4
 
-    sub-int v20, v21, v5
+    sub-int v20, v22, v5
 
-    .line 251
+    .line 296
     add-int p3, p3, v20
 
-    .line 252
+    .line 297
     add-int p4, p4, v20
 
-    .line 234
-    :cond_3
-    add-int/lit8 v27, v27, 0x1
+    .line 279
+    :cond_7
+    add-int/lit8 v28, v28, 0x1
 
-    goto :goto_3
+    goto :goto_5
 
-    .line 201
+    .line 217
     .end local v16           #again:Z
     .end local v18           #change:I
     .end local v20           #diff:I
-    .end local v21           #en:I
-    .end local v25           #force:[Ljava/lang/Object;
-    .end local v27           #i:I
-    .end local v31           #look:I
-    .end local v36           #sp:Landroid/text/Spanned;
-    .end local v37           #st:I
-    :cond_4
-    add-int/lit8 v24, v24, 0x1
+    .end local v22           #en:I
+    .end local v25           #find:I
+    .end local v26           #force:[Ljava/lang/Object;
+    .end local v33           #look:I
+    .end local v39           #st:I
+    .restart local v29       #insertedText:C
+    .local v38, sp:Landroid/text/SpannableStringBuilder;
+    .restart local v44       #underLineSpenEndPos:I
+    .restart local v46       #underLineSpenStartPos:I
+    .restart local v47       #us:[Landroid/text/style/UnderlineSpan;
+    :cond_8
+    add-int/lit8 v28, v28, 0x1
 
-    goto :goto_1
+    goto/16 :goto_1
 
-    .line 216
+    .line 234
+    .end local v28           #i:I
+    .end local v29           #insertedText:C
+    .end local v38           #sp:Landroid/text/SpannableStringBuilder;
+    .end local v44           #underLineSpenEndPos:I
+    .end local v46           #underLineSpenStartPos:I
+    .end local v47           #us:[Landroid/text/style/UnderlineSpan;
+    :catch_0
+    move-exception v21
+
+    .line 235
+    .local v21, e:Ljava/lang/Exception;
+    const-string v5, "Dynamiclayout"
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_2
+
+    .line 246
+    .end local v21           #e:Ljava/lang/Exception;
+    .restart local v25       #find:I
+    :cond_9
+    add-int/lit8 v25, v25, 0x1
+
+    goto :goto_3
+
+    .line 261
     .restart local v20       #diff:I
-    .restart local v31       #look:I
-    :cond_5
-    add-int/lit8 v31, v31, 0x1
+    .restart local v33       #look:I
+    :cond_a
+    add-int/lit8 v33, v33, 0x1
 
-    goto :goto_2
+    goto :goto_4
 
-    .line 255
+    .line 300
     .restart local v16       #again:Z
     .restart local v18       #change:I
-    .restart local v25       #force:[Ljava/lang/Object;
-    .restart local v27       #i:I
-    .restart local v36       #sp:Landroid/text/Spanned;
-    :cond_6
-    if-nez v16, :cond_1
+    .restart local v26       #force:[Ljava/lang/Object;
+    .restart local v28       #i:I
+    .local v38, sp:Landroid/text/Spanned;
+    :cond_b
+    if-nez v16, :cond_5
 
-    .line 260
+    .line 305
     .end local v16           #again:Z
-    .end local v25           #force:[Ljava/lang/Object;
-    .end local v27           #i:I
-    .end local v36           #sp:Landroid/text/Spanned;
-    :cond_7
+    .end local v26           #force:[Ljava/lang/Object;
+    .end local v28           #i:I
+    .end local v38           #sp:Landroid/text/Spanned;
+    :cond_c
     move-object/from16 v0, p0
 
     move/from16 v1, p2
 
     invoke-virtual {v0, v1}, Landroid/text/DynamicLayout;->getLineForOffset(I)I
 
-    move-result v38
+    move-result v40
 
-    .line 261
-    .local v38, startline:I
+    .line 306
+    .local v40, startline:I
     move-object/from16 v0, p0
 
-    move/from16 v1, v38
+    move/from16 v1, v40
 
     invoke-virtual {v0, v1}, Landroid/text/DynamicLayout;->getLineTop(I)I
 
-    move-result v39
+    move-result v41
 
-    .line 263
-    .local v39, startv:I
+    .line 308
+    .local v41, startv:I
     add-int v5, p2, p3
 
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v5}, Landroid/text/DynamicLayout;->getLineForOffset(I)I
 
-    move-result v22
+    move-result v23
 
-    .line 264
-    .local v22, endline:I
+    .line 309
+    .local v23, endline:I
     add-int v5, p2, p4
 
-    move/from16 v0, v30
+    move/from16 v0, v32
 
-    if-ne v5, v0, :cond_8
+    if-ne v5, v0, :cond_d
 
-    .line 265
+    .line 310
     invoke-virtual/range {p0 .. p0}, Landroid/text/DynamicLayout;->getLineCount()I
-
-    move-result v22
-
-    .line 266
-    :cond_8
-    move-object/from16 v0, p0
-
-    move/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Landroid/text/DynamicLayout;->getLineTop(I)I
 
     move-result v23
 
-    .line 267
-    .local v23, endv:I
+    .line 311
+    :cond_d
+    move-object/from16 v0, p0
+
+    move/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Landroid/text/DynamicLayout;->getLineTop(I)I
+
+    move-result v24
+
+    .line 312
+    .local v24, endv:I
     invoke-virtual/range {p0 .. p0}, Landroid/text/DynamicLayout;->getLineCount()I
 
     move-result v5
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    if-ne v0, v5, :cond_f
+    if-ne v0, v5, :cond_14
 
-    const/16 v29, 0x1
+    const/16 v31, 0x1
 
-    .line 273
-    .local v29, islast:Z
-    :goto_4
+    .line 318
+    .local v31, islast:Z
+    :goto_6
     sget-object v6, Landroid/text/DynamicLayout;->sLock:[Ljava/lang/Object;
 
     monitor-enter v6
 
-    .line 274
-    :try_start_0
+    .line 319
+    :try_start_1
     sget-object v3, Landroid/text/DynamicLayout;->sStaticLayout:Landroid/text/StaticLayout;
 
-    .line 275
+    .line 320
     .local v3, reflowed:Landroid/text/StaticLayout;
     const/4 v5, 0x0
 
     sput-object v5, Landroid/text/DynamicLayout;->sStaticLayout:Landroid/text/StaticLayout;
 
-    .line 276
+    .line 321
     monitor-exit v6
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 278
-    if-nez v3, :cond_10
+    .line 323
+    if-nez v3, :cond_15
 
-    .line 279
+    .line 324
     new-instance v3, Landroid/text/StaticLayout;
 
     .end local v3           #reflowed:Landroid/text/StaticLayout;
@@ -1250,15 +1461,15 @@
 
     invoke-direct {v3, v5}, Landroid/text/StaticLayout;-><init>(Ljava/lang/CharSequence;)V
 
-    .line 285
+    .line 330
     .restart local v3       #reflowed:Landroid/text/StaticLayout;
-    :goto_5
+    :goto_7
     invoke-virtual/range {p0 .. p0}, Landroid/text/DynamicLayout;->getLineCount()I
 
-    move-result v35
+    move-result v37
 
-    .line 287
-    .local v35, oldLine:I
+    .line 332
+    .local v37, oldLine:I
     add-int v6, p2, p4
 
     invoke-virtual/range {p0 .. p0}, Landroid/text/DynamicLayout;->getPaint()Landroid/text/TextPaint;
@@ -1299,20 +1510,20 @@
 
     invoke-virtual/range {v3 .. v15}, Landroid/text/StaticLayout;->generate(Ljava/lang/CharSequence;IILandroid/text/TextPaint;ILandroid/text/TextDirectionHeuristic;FFZZFLandroid/text/TextUtils$TruncateAt;)V
 
-    .line 291
+    .line 336
     invoke-virtual {v3}, Landroid/text/StaticLayout;->getLineCount()I
 
-    move-result v32
+    move-result v34
 
-    .line 297
-    .local v32, n:I
+    .line 342
+    .local v34, n:I
     add-int v5, p2, p4
 
-    move/from16 v0, v30
+    move/from16 v0, v32
 
-    if-eq v5, v0, :cond_9
+    if-eq v5, v0, :cond_e
 
-    add-int/lit8 v5, v32, -0x1
+    add-int/lit8 v5, v34, -0x1
 
     invoke-virtual {v3, v5}, Landroid/text/StaticLayout;->getLineStart(I)I
 
@@ -1320,100 +1531,100 @@
 
     add-int v6, p2, p4
 
-    if-ne v5, v6, :cond_9
+    if-ne v5, v6, :cond_e
 
-    .line 298
-    add-int/lit8 v32, v32, -0x1
+    .line 343
+    add-int/lit8 v34, v34, -0x1
 
-    .line 301
-    :cond_9
+    .line 346
+    :cond_e
     move-object/from16 v0, p0
 
     iget-object v5, v0, Landroid/text/DynamicLayout;->mInts:Landroid/text/PackedIntVector;
 
-    sub-int v6, v22, v38
+    sub-int v6, v23, v40
 
-    move/from16 v0, v38
+    move/from16 v0, v40
 
     invoke-virtual {v5, v0, v6}, Landroid/text/PackedIntVector;->deleteAt(II)V
 
-    .line 302
+    .line 347
     move-object/from16 v0, p0
 
     iget-object v5, v0, Landroid/text/DynamicLayout;->mObjects:Landroid/text/PackedObjectVector;
 
-    sub-int v6, v22, v38
+    sub-int v6, v23, v40
 
-    move/from16 v0, v38
+    move/from16 v0, v40
 
     invoke-virtual {v5, v0, v6}, Landroid/text/PackedObjectVector;->deleteAt(II)V
 
-    .line 306
-    move/from16 v0, v32
+    .line 351
+    move/from16 v0, v34
 
     invoke-virtual {v3, v0}, Landroid/text/StaticLayout;->getLineTop(I)I
 
-    move-result v26
+    move-result v27
 
-    .line 307
-    .local v26, ht:I
-    const/16 v41, 0x0
+    .line 352
+    .local v27, ht:I
+    const/16 v43, 0x0
 
-    .local v41, toppad:I
+    .local v43, toppad:I
     const/16 v17, 0x0
 
-    .line 309
+    .line 354
     .local v17, botpad:I
     move-object/from16 v0, p0
 
     iget-boolean v5, v0, Landroid/text/DynamicLayout;->mIncludePad:Z
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_f
 
-    if-nez v38, :cond_a
+    if-nez v40, :cond_f
 
-    .line 310
+    .line 355
     invoke-virtual {v3}, Landroid/text/StaticLayout;->getTopPadding()I
 
-    move-result v41
+    move-result v43
 
-    .line 311
-    move/from16 v0, v41
+    .line 356
+    move/from16 v0, v43
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/text/DynamicLayout;->mTopPadding:I
 
-    .line 312
-    sub-int v26, v26, v41
+    .line 357
+    sub-int v27, v27, v43
 
-    .line 314
-    :cond_a
+    .line 359
+    :cond_f
     move-object/from16 v0, p0
 
     iget-boolean v5, v0, Landroid/text/DynamicLayout;->mIncludePad:Z
 
-    if-eqz v5, :cond_b
+    if-eqz v5, :cond_10
 
-    if-eqz v29, :cond_b
+    if-eqz v31, :cond_10
 
-    .line 315
+    .line 360
     invoke-virtual {v3}, Landroid/text/StaticLayout;->getBottomPadding()I
 
     move-result v17
 
-    .line 316
+    .line 361
     move/from16 v0, v17
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/text/DynamicLayout;->mBottomPadding:I
 
-    .line 317
-    add-int v26, v26, v17
+    .line 362
+    add-int v27, v27, v17
 
-    .line 320
-    :cond_b
+    .line 365
+    :cond_10
     move-object/from16 v0, p0
 
     iget-object v5, v0, Landroid/text/DynamicLayout;->mInts:Landroid/text/PackedIntVector;
@@ -1422,77 +1633,77 @@
 
     sub-int v7, p4, p3
 
-    move/from16 v0, v38
+    move/from16 v0, v40
 
     invoke-virtual {v5, v0, v6, v7}, Landroid/text/PackedIntVector;->adjustValuesBelow(III)V
 
-    .line 321
+    .line 366
     move-object/from16 v0, p0
 
     iget-object v5, v0, Landroid/text/DynamicLayout;->mInts:Landroid/text/PackedIntVector;
 
     const/4 v6, 0x1
 
-    sub-int v7, v39, v23
+    sub-int v7, v41, v24
 
-    add-int v7, v7, v26
+    add-int v7, v7, v27
 
-    move/from16 v0, v38
+    move/from16 v0, v40
 
     invoke-virtual {v5, v0, v6, v7}, Landroid/text/PackedIntVector;->adjustValuesBelow(III)V
 
-    .line 327
+    .line 372
     move-object/from16 v0, p0
 
     iget-boolean v5, v0, Landroid/text/DynamicLayout;->mEllipsize:Z
 
-    if-eqz v5, :cond_11
+    if-eqz v5, :cond_16
 
-    .line 328
+    .line 373
     const/4 v5, 0x5
 
     new-array v0, v5, [I
 
-    move-object/from16 v28, v0
+    move-object/from16 v30, v0
 
-    .line 329
-    .local v28, ints:[I
+    .line 374
+    .local v30, ints:[I
     const/4 v5, 0x3
 
     const/high16 v6, -0x8000
 
-    aput v6, v28, v5
+    aput v6, v30, v5
 
-    .line 334
-    :goto_6
+    .line 379
+    :goto_8
     const/4 v5, 0x1
 
     new-array v0, v5, [Landroid/text/Layout$Directions;
 
-    move-object/from16 v34, v0
+    move-object/from16 v36, v0
 
-    .line 336
-    .local v34, objects:[Landroid/text/Layout$Directions;
-    const/16 v27, 0x0
+    .line 381
+    .local v36, objects:[Landroid/text/Layout$Directions;
+    const/16 v28, 0x0
 
-    .restart local v27       #i:I
-    :goto_7
-    move/from16 v0, v27
+    .restart local v28       #i:I
+    :goto_9
+    move/from16 v0, v28
 
-    move/from16 v1, v32
+    move/from16 v1, v34
 
-    if-ge v0, v1, :cond_13
+    if-ge v0, v1, :cond_18
 
-    .line 337
+    .line 382
     const/4 v6, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v28
 
     invoke-virtual {v3, v0}, Landroid/text/StaticLayout;->getLineStart(I)I
 
     move-result v5
 
-    move/from16 v0, v27
+    move/from16 v0, v28
 
     invoke-virtual {v3, v0}, Landroid/text/StaticLayout;->getParagraphDirection(I)I
 
@@ -1502,238 +1713,238 @@
 
     or-int/2addr v7, v5
 
-    move/from16 v0, v27
+    move/from16 v0, v28
 
     invoke-virtual {v3, v0}, Landroid/text/StaticLayout;->getLineContainsTab(I)Z
 
     move-result v5
 
-    if-eqz v5, :cond_12
+    if-eqz v5, :cond_17
 
     const/high16 v5, 0x2000
 
-    :goto_8
+    :goto_a
     or-int/2addr v5, v7
 
-    aput v5, v28, v6
+    aput v5, v30, v6
 
-    .line 341
-    move/from16 v0, v27
+    .line 386
+    move/from16 v0, v28
 
     invoke-virtual {v3, v0}, Landroid/text/StaticLayout;->getLineTop(I)I
 
     move-result v5
 
-    add-int v40, v5, v39
+    add-int v42, v5, v41
 
-    .line 342
-    .local v40, top:I
-    if-lez v27, :cond_c
+    .line 387
+    .local v42, top:I
+    if-lez v28, :cond_11
 
-    .line 343
-    sub-int v40, v40, v41
+    .line 388
+    sub-int v42, v42, v43
 
-    .line 344
-    :cond_c
+    .line 389
+    :cond_11
     const/4 v5, 0x1
 
-    aput v40, v28, v5
+    aput v42, v30, v5
 
-    .line 346
-    move/from16 v0, v27
+    .line 391
+    move/from16 v0, v28
 
     invoke-virtual {v3, v0}, Landroid/text/StaticLayout;->getLineDescent(I)I
 
     move-result v19
 
-    .line 347
+    .line 392
     .local v19, desc:I
-    add-int/lit8 v5, v32, -0x1
+    add-int/lit8 v5, v34, -0x1
 
-    move/from16 v0, v27
+    move/from16 v0, v28
 
-    if-ne v0, v5, :cond_d
+    if-ne v0, v5, :cond_12
 
-    .line 348
+    .line 393
     add-int v19, v19, v17
 
-    .line 350
-    :cond_d
+    .line 395
+    :cond_12
     const/4 v5, 0x2
 
-    aput v19, v28, v5
+    aput v19, v30, v5
 
-    .line 351
+    .line 396
     const/4 v5, 0x0
 
-    move/from16 v0, v27
+    move/from16 v0, v28
 
     invoke-virtual {v3, v0}, Landroid/text/StaticLayout;->getLineDirections(I)Landroid/text/Layout$Directions;
 
     move-result-object v6
 
-    aput-object v6, v34, v5
+    aput-object v6, v36, v5
 
-    .line 353
+    .line 398
     move-object/from16 v0, p0
 
     iget-boolean v5, v0, Landroid/text/DynamicLayout;->mEllipsize:Z
 
-    if-eqz v5, :cond_e
+    if-eqz v5, :cond_13
 
-    .line 354
+    .line 399
     const/4 v5, 0x3
 
-    move/from16 v0, v27
+    move/from16 v0, v28
 
     invoke-virtual {v3, v0}, Landroid/text/StaticLayout;->getEllipsisStart(I)I
 
     move-result v6
 
-    aput v6, v28, v5
+    aput v6, v30, v5
 
-    .line 355
+    .line 400
     const/4 v5, 0x4
 
-    move/from16 v0, v27
+    move/from16 v0, v28
 
     invoke-virtual {v3, v0}, Landroid/text/StaticLayout;->getEllipsisCount(I)I
 
     move-result v6
 
-    aput v6, v28, v5
+    aput v6, v30, v5
 
-    .line 358
-    :cond_e
+    .line 403
+    :cond_13
     move-object/from16 v0, p0
 
     iget-object v5, v0, Landroid/text/DynamicLayout;->mInts:Landroid/text/PackedIntVector;
 
-    add-int v6, v38, v27
+    add-int v6, v40, v28
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v30
 
     invoke-virtual {v5, v6, v0}, Landroid/text/PackedIntVector;->insertAt(I[I)V
 
-    .line 359
+    .line 404
     move-object/from16 v0, p0
 
     iget-object v5, v0, Landroid/text/DynamicLayout;->mObjects:Landroid/text/PackedObjectVector;
 
-    add-int v6, v38, v27
+    add-int v6, v40, v28
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v36
 
     invoke-virtual {v5, v6, v0}, Landroid/text/PackedObjectVector;->insertAt(I[Ljava/lang/Object;)V
 
-    .line 336
-    add-int/lit8 v27, v27, 0x1
+    .line 381
+    add-int/lit8 v28, v28, 0x1
 
-    goto :goto_7
+    goto :goto_9
 
-    .line 267
+    .line 312
     .end local v3           #reflowed:Landroid/text/StaticLayout;
     .end local v17           #botpad:I
     .end local v19           #desc:I
-    .end local v26           #ht:I
-    .end local v27           #i:I
-    .end local v28           #ints:[I
-    .end local v29           #islast:Z
-    .end local v32           #n:I
-    .end local v34           #objects:[Landroid/text/Layout$Directions;
-    .end local v35           #oldLine:I
-    .end local v40           #top:I
-    .end local v41           #toppad:I
-    :cond_f
-    const/16 v29, 0x0
+    .end local v27           #ht:I
+    .end local v28           #i:I
+    .end local v30           #ints:[I
+    .end local v31           #islast:Z
+    .end local v34           #n:I
+    .end local v36           #objects:[Landroid/text/Layout$Directions;
+    .end local v37           #oldLine:I
+    .end local v42           #top:I
+    .end local v43           #toppad:I
+    :cond_14
+    const/16 v31, 0x0
 
-    goto/16 :goto_4
+    goto/16 :goto_6
 
-    .line 276
-    .restart local v29       #islast:Z
+    .line 321
+    .restart local v31       #islast:Z
     :catchall_0
     move-exception v5
 
-    :try_start_1
+    :try_start_2
     monitor-exit v6
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v5
 
-    .line 281
+    .line 326
     .restart local v3       #reflowed:Landroid/text/StaticLayout;
-    :cond_10
+    :cond_15
     invoke-virtual {v3}, Landroid/text/StaticLayout;->prepare()V
 
-    goto/16 :goto_5
+    goto/16 :goto_7
 
-    .line 331
+    .line 376
     .restart local v17       #botpad:I
-    .restart local v26       #ht:I
-    .restart local v32       #n:I
-    .restart local v35       #oldLine:I
-    .restart local v41       #toppad:I
-    :cond_11
+    .restart local v27       #ht:I
+    .restart local v34       #n:I
+    .restart local v37       #oldLine:I
+    .restart local v43       #toppad:I
+    :cond_16
     const/4 v5, 0x3
 
     new-array v0, v5, [I
 
-    move-object/from16 v28, v0
+    move-object/from16 v30, v0
 
-    .restart local v28       #ints:[I
-    goto/16 :goto_6
+    .restart local v30       #ints:[I
+    goto/16 :goto_8
 
-    .line 337
-    .restart local v27       #i:I
-    .restart local v34       #objects:[Landroid/text/Layout$Directions;
-    :cond_12
+    .line 382
+    .restart local v28       #i:I
+    .restart local v36       #objects:[Landroid/text/Layout$Directions;
+    :cond_17
     const/4 v5, 0x0
 
-    goto :goto_8
+    goto :goto_a
 
-    .line 363
-    :cond_13
+    .line 408
+    :cond_18
     invoke-virtual/range {p0 .. p0}, Landroid/text/DynamicLayout;->getLineCount()I
 
-    move-result v33
+    move-result v35
 
-    .line 364
-    .local v33, newLine:I
-    move/from16 v0, v35
+    .line 409
+    .local v35, newLine:I
+    move/from16 v0, v37
 
-    move/from16 v1, v33
+    move/from16 v1, v35
 
-    if-eq v0, v1, :cond_14
+    if-eq v0, v1, :cond_19
 
-    .line 365
+    .line 410
     invoke-direct/range {p0 .. p0}, Landroid/text/DynamicLayout;->invalidateBlocks()V
 
-    .line 369
-    :cond_14
-    add-int/lit8 v5, v22, -0x1
+    .line 414
+    :cond_19
+    add-int/lit8 v5, v23, -0x1
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v38
+    move/from16 v1, v40
 
-    move/from16 v2, v32
+    move/from16 v2, v34
 
     invoke-virtual {v0, v1, v5, v2}, Landroid/text/DynamicLayout;->updateBlocks(III)V
 
-    .line 371
+    .line 416
     sget-object v6, Landroid/text/DynamicLayout;->sLock:[Ljava/lang/Object;
 
     monitor-enter v6
 
-    .line 372
-    :try_start_2
+    .line 417
+    :try_start_3
     sput-object v3, Landroid/text/DynamicLayout;->sStaticLayout:Landroid/text/StaticLayout;
 
-    .line 373
+    .line 418
     invoke-virtual {v3}, Landroid/text/StaticLayout;->finish()V
 
-    .line 374
+    .line 419
     monitor-exit v6
 
     goto/16 :goto_0
@@ -1742,8 +1953,8 @@
     move-exception v5
 
     monitor-exit v6
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     throw v5
 .end method
@@ -1754,7 +1965,7 @@
     .locals 1
 
     .prologue
-    .line 565
+    .line 610
     iget-object v0, p0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
 
     return-object v0
@@ -1764,7 +1975,7 @@
     .locals 1
 
     .prologue
-    .line 572
+    .line 617
     iget-object v0, p0, Landroid/text/DynamicLayout;->mBlockIndices:[I
 
     return-object v0
@@ -1774,7 +1985,7 @@
     .locals 1
 
     .prologue
-    .line 624
+    .line 669
     iget v0, p0, Landroid/text/DynamicLayout;->mBottomPadding:I
 
     return v0
@@ -1785,15 +1996,15 @@
     .parameter "line"
 
     .prologue
-    .line 689
+    .line 734
     iget-object v0, p0, Landroid/text/DynamicLayout;->mEllipsizeAt:Landroid/text/TextUtils$TruncateAt;
 
     if-nez v0, :cond_0
 
-    .line 690
+    .line 735
     const/4 v0, 0x0
 
-    .line 693
+    .line 738
     :goto_0
     return v0
 
@@ -1814,15 +2025,15 @@
     .parameter "line"
 
     .prologue
-    .line 680
+    .line 725
     iget-object v0, p0, Landroid/text/DynamicLayout;->mEllipsizeAt:Landroid/text/TextUtils$TruncateAt;
 
     if-nez v0, :cond_0
 
-    .line 681
+    .line 726
     const/4 v0, 0x0
 
-    .line 684
+    .line 729
     :goto_0
     return v0
 
@@ -1842,7 +2053,7 @@
     .locals 1
 
     .prologue
-    .line 629
+    .line 674
     iget v0, p0, Landroid/text/DynamicLayout;->mEllipsizedWidth:I
 
     return v0
@@ -1855,7 +2066,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 604
+    .line 649
     iget-object v1, p0, Landroid/text/DynamicLayout;->mInts:Landroid/text/PackedIntVector;
 
     invoke-virtual {v1, p1, v0}, Landroid/text/PackedIntVector;->getValue(II)I
@@ -1878,7 +2089,7 @@
     .locals 1
 
     .prologue
-    .line 584
+    .line 629
     iget-object v0, p0, Landroid/text/DynamicLayout;->mInts:Landroid/text/PackedIntVector;
 
     invoke-virtual {v0}, Landroid/text/PackedIntVector;->size()I
@@ -1895,7 +2106,7 @@
     .parameter "line"
 
     .prologue
-    .line 594
+    .line 639
     iget-object v0, p0, Landroid/text/DynamicLayout;->mInts:Landroid/text/PackedIntVector;
 
     const/4 v1, 0x2
@@ -1912,7 +2123,7 @@
     .parameter "line"
 
     .prologue
-    .line 614
+    .line 659
     iget-object v0, p0, Landroid/text/DynamicLayout;->mObjects:Landroid/text/PackedObjectVector;
 
     const/4 v1, 0x0
@@ -1931,7 +2142,7 @@
     .parameter "line"
 
     .prologue
-    .line 599
+    .line 644
     iget-object v0, p0, Landroid/text/DynamicLayout;->mInts:Landroid/text/PackedIntVector;
 
     const/4 v1, 0x0
@@ -1952,7 +2163,7 @@
     .parameter "line"
 
     .prologue
-    .line 589
+    .line 634
     iget-object v0, p0, Landroid/text/DynamicLayout;->mInts:Landroid/text/PackedIntVector;
 
     const/4 v1, 0x1
@@ -1968,7 +2179,7 @@
     .locals 1
 
     .prologue
-    .line 579
+    .line 624
     iget v0, p0, Landroid/text/DynamicLayout;->mNumberOfBlocks:I
 
     return v0
@@ -1979,7 +2190,7 @@
     .parameter "line"
 
     .prologue
-    .line 609
+    .line 654
     iget-object v0, p0, Landroid/text/DynamicLayout;->mInts:Landroid/text/PackedIntVector;
 
     const/4 v1, 0x0
@@ -1997,7 +2208,7 @@
     .locals 1
 
     .prologue
-    .line 619
+    .line 664
     iget v0, p0, Landroid/text/DynamicLayout;->mTopPadding:I
 
     return v0
@@ -2012,38 +2223,38 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 554
+    .line 599
     array-length v0, p1
 
     new-array v0, v0, [I
 
     iput-object v0, p0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
 
-    .line 555
+    .line 600
     array-length v0, p2
 
     new-array v0, v0, [I
 
     iput-object v0, p0, Landroid/text/DynamicLayout;->mBlockIndices:[I
 
-    .line 556
+    .line 601
     iget-object v0, p0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
 
     array-length v1, p1
 
     invoke-static {p1, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 557
+    .line 602
     iget-object v0, p0, Landroid/text/DynamicLayout;->mBlockIndices:[I
 
     array-length v1, p2
 
     invoke-static {p2, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 558
+    .line 603
     iput p3, p0, Landroid/text/DynamicLayout;->mNumberOfBlocks:I
 
-    .line 559
+    .line 604
     return-void
 .end method
 
@@ -2054,7 +2265,7 @@
     .parameter "newLineCount"
 
     .prologue
-    .line 463
+    .line 508
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
@@ -2063,23 +2274,23 @@
 
     if-nez v19, :cond_1
 
-    .line 464
+    .line 509
     invoke-direct/range {p0 .. p0}, Landroid/text/DynamicLayout;->createBlocks()V
 
-    .line 547
+    .line 592
     :cond_0
     :goto_0
     return-void
 
-    .line 468
+    .line 513
     :cond_1
     const/4 v11, -0x1
 
-    .line 469
+    .line 514
     .local v11, firstBlock:I
     const/4 v13, -0x1
 
-    .line 470
+    .line 515
     .local v13, lastBlock:I
     const/4 v12, 0x0
 
@@ -2095,7 +2306,7 @@
 
     if-ge v12, v0, :cond_2
 
-    .line 471
+    .line 516
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
@@ -2110,10 +2321,10 @@
 
     if-lt v0, v1, :cond_7
 
-    .line 472
+    .line 517
     move v11, v12
 
-    .line 476
+    .line 521
     :cond_2
     move v12, v11
 
@@ -2128,7 +2339,7 @@
 
     if-ge v12, v0, :cond_3
 
-    .line 477
+    .line 522
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
@@ -2143,10 +2354,10 @@
 
     if-lt v0, v1, :cond_8
 
-    .line 478
+    .line 523
     move v13, v12
 
-    .line 482
+    .line 527
     :cond_3
     move-object/from16 v0, p0
 
@@ -2156,7 +2367,7 @@
 
     aget v14, v19, v13
 
-    .line 484
+    .line 529
     .local v14, lastBlockEndLine:I
     if-nez v11, :cond_9
 
@@ -2171,14 +2382,14 @@
 
     const/4 v9, 0x1
 
-    .line 486
+    .line 531
     .local v9, createBlockBefore:Z
     :goto_4
     if-lez p3, :cond_b
 
     const/4 v7, 0x1
 
-    .line 487
+    .line 532
     .local v7, createBlock:Z
     :goto_5
     move-object/from16 v0, p0
@@ -2197,36 +2408,36 @@
 
     const/4 v8, 0x1
 
-    .line 489
+    .line 534
     .local v8, createBlockAfter:Z
     :goto_6
     const/16 v17, 0x0
 
-    .line 490
+    .line 535
     .local v17, numAddedBlocks:I
     if-eqz v9, :cond_4
 
     add-int/lit8 v17, v17, 0x1
 
-    .line 491
+    .line 536
     :cond_4
     if-eqz v7, :cond_5
 
     add-int/lit8 v17, v17, 0x1
 
-    .line 492
+    .line 537
     :cond_5
     if-eqz v8, :cond_6
 
     add-int/lit8 v17, v17, 0x1
 
-    .line 494
+    .line 539
     :cond_6
     sub-int v19, v13, v11
 
     add-int/lit8 v18, v19, 0x1
 
-    .line 495
+    .line 540
     .local v18, numRemovedBlocks:I
     move-object/from16 v0, p0
 
@@ -2238,11 +2449,11 @@
 
     sub-int v15, v19, v18
 
-    .line 497
+    .line 542
     .local v15, newNumberOfBlocks:I
     if-nez v15, :cond_d
 
-    .line 499
+    .line 544
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
@@ -2255,7 +2466,7 @@
 
     aput v21, v19, v20
 
-    .line 500
+    .line 545
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/text/DynamicLayout;->mBlockIndices:[I
@@ -2268,7 +2479,7 @@
 
     aput v21, v19, v20
 
-    .line 501
+    .line 546
     const/16 v19, 0x1
 
     move/from16 v0, v19
@@ -2279,7 +2490,7 @@
 
     goto/16 :goto_0
 
-    .line 470
+    .line 515
     .end local v7           #createBlock:Z
     .end local v8           #createBlockAfter:Z
     .end local v9           #createBlockBefore:Z
@@ -2292,13 +2503,13 @@
 
     goto/16 :goto_1
 
-    .line 476
+    .line 521
     :cond_8
     add-int/lit8 v12, v12, 0x1
 
     goto/16 :goto_2
 
-    .line 484
+    .line 529
     .restart local v14       #lastBlockEndLine:I
     :cond_9
     move-object/from16 v0, p0
@@ -2320,21 +2531,21 @@
 
     goto :goto_4
 
-    .line 486
+    .line 531
     .restart local v9       #createBlockBefore:Z
     :cond_b
     const/4 v7, 0x0
 
     goto :goto_5
 
-    .line 487
+    .line 532
     .restart local v7       #createBlock:Z
     :cond_c
     const/4 v8, 0x0
 
     goto :goto_6
 
-    .line 505
+    .line 550
     .restart local v8       #createBlockAfter:Z
     .restart local v15       #newNumberOfBlocks:I
     .restart local v17       #numAddedBlocks:I
@@ -2356,24 +2567,24 @@
 
     if-le v15, v0, :cond_e
 
-    .line 506
+    .line 551
     invoke-static {v15}, Lcom/android/internal/util/ArrayUtils;->idealIntArraySize(I)I
 
     move-result v16
 
-    .line 507
+    .line 552
     .local v16, newSize:I
     move/from16 v0, v16
 
     new-array v4, v0, [I
 
-    .line 508
+    .line 553
     .local v4, blockEndLines:[I
     move/from16 v0, v16
 
     new-array v6, v0, [I
 
-    .line 509
+    .line 554
     .local v6, blockIndices:[I
     move-object/from16 v0, p0
 
@@ -2393,7 +2604,7 @@
 
     invoke-static {v0, v1, v4, v2, v11}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 510
+    .line 555
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/text/DynamicLayout;->mBlockIndices:[I
@@ -2412,7 +2623,7 @@
 
     invoke-static {v0, v1, v6, v2, v11}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 511
+    .line 556
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
@@ -2443,7 +2654,7 @@
 
     invoke-static {v0, v1, v4, v2, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 513
+    .line 558
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/text/DynamicLayout;->mBlockIndices:[I
@@ -2474,17 +2685,17 @@
 
     invoke-static {v0, v1, v6, v2, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 515
+    .line 560
     move-object/from16 v0, p0
 
     iput-object v4, v0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
 
-    .line 516
+    .line 561
     move-object/from16 v0, p0
 
     iput-object v6, v0, Landroid/text/DynamicLayout;->mBlockIndices:[I
 
-    .line 524
+    .line 569
     .end local v4           #blockEndLines:[I
     .end local v6           #blockIndices:[I
     .end local v16           #newSize:I
@@ -2493,14 +2704,14 @@
 
     iput v15, v0, Landroid/text/DynamicLayout;->mNumberOfBlocks:I
 
-    .line 525
+    .line 570
     sub-int v19, p2, p1
 
     add-int/lit8 v19, v19, 0x1
 
     sub-int v10, p3, v19
 
-    .line 526
+    .line 571
     .local v10, deltaLines:I
     add-int v12, v11, v17
 
@@ -2515,7 +2726,7 @@
 
     if-ge v12, v0, :cond_f
 
-    .line 527
+    .line 572
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
@@ -2528,12 +2739,12 @@
 
     aput v20, v19, v12
 
-    .line 526
+    .line 571
     add-int/lit8 v12, v12, 0x1
 
     goto :goto_8
 
-    .line 518
+    .line 563
     .end local v10           #deltaLines:I
     :cond_e
     move-object/from16 v0, p0
@@ -2564,7 +2775,7 @@
 
     invoke-static/range {v19 .. v23}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 520
+    .line 565
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/text/DynamicLayout;->mBlockIndices:[I
@@ -2595,16 +2806,16 @@
 
     goto :goto_7
 
-    .line 530
+    .line 575
     .restart local v10       #deltaLines:I
     :cond_f
     move v5, v11
 
-    .line 531
+    .line 576
     .local v5, blockIndex:I
     if-eqz v9, :cond_10
 
-    .line 532
+    .line 577
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
@@ -2615,7 +2826,7 @@
 
     aput v20, v19, v5
 
-    .line 533
+    .line 578
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/text/DynamicLayout;->mBlockIndices:[I
@@ -2626,14 +2837,14 @@
 
     aput v20, v19, v5
 
-    .line 534
+    .line 579
     add-int/lit8 v5, v5, 0x1
 
-    .line 537
+    .line 582
     :cond_10
     if-eqz v7, :cond_11
 
-    .line 538
+    .line 583
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
@@ -2646,7 +2857,7 @@
 
     aput v20, v19, v5
 
-    .line 539
+    .line 584
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/text/DynamicLayout;->mBlockIndices:[I
@@ -2657,14 +2868,14 @@
 
     aput v20, v19, v5
 
-    .line 540
+    .line 585
     add-int/lit8 v5, v5, 0x1
 
-    .line 543
+    .line 588
     :cond_11
     if-eqz v8, :cond_0
 
-    .line 544
+    .line 589
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/text/DynamicLayout;->mBlockEndLines:[I
@@ -2675,7 +2886,7 @@
 
     aput v20, v19, v5
 
-    .line 545
+    .line 590
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/text/DynamicLayout;->mBlockIndices:[I

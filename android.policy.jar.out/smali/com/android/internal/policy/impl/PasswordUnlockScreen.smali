@@ -469,19 +469,16 @@
 
     move-object v1, v9
 
-    .line 277
     check-cast v1, Landroid/view/ViewGroup$MarginLayoutParams;
 
     const/4 v2, 0x0
 
     iput v2, v1, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
-    .line 278
     iget-object v1, p0, Lcom/android/internal/policy/impl/PasswordUnlockScreen;->mPasswordEntry:Landroid/widget/EditText;
 
     invoke-virtual {v1, v9}, Landroid/widget/EditText;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 281
     .end local v9           #params:Landroid/view/ViewGroup$LayoutParams;
     :cond_6
     const/high16 v1, 0x4c00
@@ -489,10 +486,8 @@
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/PasswordUnlockScreen;->setBackgroundColor(I)V
     invoke-static {p0}, Lcom/android/internal/policy/impl/PasswordUnlockScreen$Injector;->initialize(Lcom/android/internal/policy/impl/PasswordUnlockScreen;)V
 
-    .line 282
     return-void
 
-    .line 127
     .end local v7           #imeOrDeleteButtonVisible:Z
     .end local v11           #quality:I
     .end local v12           #switchImeButton:Landroid/view/View;
@@ -1281,33 +1276,27 @@
 
     invoke-virtual {v11, v12, v13}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
-    .line 412
     iget-object v11, p0, Lcom/android/internal/policy/impl/PasswordUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     invoke-interface {v11}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->reportSuccessfulUnlockAttempt()V
 
-    .line 413
     iget-object v11, p0, Lcom/android/internal/policy/impl/PasswordUnlockScreen;->mStatusViewManager:Lcom/android/internal/policy/impl/KeyguardStatusViewManager;
 
     const/4 v12, 0x0
 
     invoke-virtual {v11, v12}, Lcom/android/internal/policy/impl/KeyguardStatusViewManager;->setInstructionText(Ljava/lang/String;)V
 
-    .line 414
     invoke-static {p0, v4}, Lcom/android/internal/policy/impl/PasswordUnlockScreen$Injector;->clearPinLockForFindDevice(Lcom/android/internal/policy/impl/PasswordUnlockScreen;Ljava/lang/String;)V
 
-    .line 417
     new-instance v2, Landroid/dirEncryption/DirEncryptionManager;
 
     iget-object v11, p0, Lcom/android/internal/policy/impl/PasswordUnlockScreen;->mContext:Landroid/content/Context;
 
     invoke-direct {v2, v11}, Landroid/dirEncryption/DirEncryptionManager;-><init>(Landroid/content/Context;)V
 
-    .line 418
     .local v2, dem:Landroid/dirEncryption/DirEncryptionManager;
     invoke-virtual {v2, v4}, Landroid/dirEncryption/DirEncryptionManager;->setPassword(Ljava/lang/String;)I
 
-    .line 443
     .end local v2           #dem:Landroid/dirEncryption/DirEncryptionManager;
     .end local v3           #enforcePwdChange:Z
     :cond_2

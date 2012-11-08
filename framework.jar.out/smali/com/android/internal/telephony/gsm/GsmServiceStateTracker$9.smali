@@ -1,80 +1,52 @@
-.class synthetic Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$9;
+.class Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$9;
 .super Ljava/lang/Object;
 .source "GsmServiceStateTracker.java"
 
+# interfaces
+.implements Landroid/content/DialogInterface$OnDismissListener;
+
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->showRescanDialog()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
+    accessFlags = 0x0
     name = null
 .end annotation
 
 
-# static fields
-.field static final synthetic $SwitchMap$com$android$internal$telephony$CommandsInterface$RadioState:[I
+# instance fields
+.field final synthetic this$0:Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 3
+.method constructor <init>(Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;)V
+    .locals 0
+    .parameter
 
     .prologue
-    .line 1335
-    invoke-static {}, Lcom/android/internal/telephony/CommandsInterface$RadioState;->values()[Lcom/android/internal/telephony/CommandsInterface$RadioState;
+    .line 3352
+    iput-object p1, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$9;->this$0:Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;
 
-    move-result-object v0
+    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    array-length v0, v0
-
-    new-array v0, v0, [I
-
-    sput-object v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$9;->$SwitchMap$com$android$internal$telephony$CommandsInterface$RadioState:[I
-
-    :try_start_0
-    sget-object v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$9;->$SwitchMap$com$android$internal$telephony$CommandsInterface$RadioState:[I
-
-    sget-object v1, Lcom/android/internal/telephony/CommandsInterface$RadioState;->RADIO_UNAVAILABLE:Lcom/android/internal/telephony/CommandsInterface$RadioState;
-
-    invoke-virtual {v1}, Lcom/android/internal/telephony/CommandsInterface$RadioState;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x1
-
-    aput v2, v0, v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_1
-
-    :goto_0
-    :try_start_1
-    sget-object v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$9;->$SwitchMap$com$android$internal$telephony$CommandsInterface$RadioState:[I
-
-    sget-object v1, Lcom/android/internal/telephony/CommandsInterface$RadioState;->RADIO_OFF:Lcom/android/internal/telephony/CommandsInterface$RadioState;
-
-    invoke-virtual {v1}, Lcom/android/internal/telephony/CommandsInterface$RadioState;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x2
-
-    aput v2, v0, v1
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_0
-
-    :goto_1
     return-void
+.end method
 
-    :catch_0
-    move-exception v0
 
-    goto :goto_1
+# virtual methods
+.method public onDismiss(Landroid/content/DialogInterface;)V
+    .locals 1
+    .parameter "dialog"
 
-    :catch_1
-    move-exception v0
+    .prologue
+    .line 3355
+    const/4 v0, 0x0
 
-    goto :goto_0
+    invoke-static {v0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->access$502(Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+
+    .line 3356
+    return-void
 .end method
