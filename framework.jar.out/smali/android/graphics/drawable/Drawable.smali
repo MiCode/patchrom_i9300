@@ -39,6 +39,12 @@
 
 .field private mVisible:Z
 
+.field mId:I
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -65,7 +71,9 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 120
-    sget-object v0, Landroid/util/StateSet;->WILD_CARD:[I
+    #sget-object v0, Landroid/util/StateSet;->WILD_CARD:[I
+    #.line 165
+    new-array v0, v1, [I
 
     iput-object v0, p0, Landroid/graphics/drawable/Drawable;->mStateSet:[I
 
@@ -1564,4 +1572,32 @@
     .line 385
     :cond_0
     return-void
+.end method
+
+.method public setId(I)V
+    .locals 0
+    .parameter "id"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    .line 182
+    iput p1, p0, Landroid/graphics/drawable/Drawable;->mId:I
+
+    .line 183
+    return-void
+.end method
+
+.method public getId()I
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    .line 190
+    iget v0, p0, Landroid/graphics/drawable/Drawable;->mId:I
+
+    return v0
 .end method
