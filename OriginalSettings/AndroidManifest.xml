@@ -1305,7 +1305,7 @@
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/connectivitylocationwidget_info" />
         </receiver>
-        <activity android:theme="@style/SettingsTheme.DialogWhenLarge" android:label="" android:name="ModePreview" android:uiOptions="none" />
+        <activity android:label="" android:name="ModePreview" android:uiOptions="none" />
         <!--activity android:name="ChooseLockFaceWarning" />
         <activity android:theme="@android:style/Theme.DeviceDefault.Dialog.Alert" android:name=".AskUSBMode" android:excludeFromRecents="true">
             <intent-filter>
