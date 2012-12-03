@@ -51,13 +51,21 @@ local-pre-zip-misc:
 	more $(pre_install_data_packages) | wc -l > $(ZIP_DIR)/system/etc/enforcecopyinglibpackages.txt
 	more $(pre_install_data_packages) >> $(ZIP_DIR)/system/etc/enforcecopyinglibpackages.txt
 
+out/framework2.jar : out/framework.jar
 
-local-rom-zip := MIUI_i9300.zip
-local-put-to-phone:
-	adb shell rm /sdcard/$(local-rom-zip)
-	adb push out/$(local-rom-zip) /sdcard/
-	adb reboot recovery
+%.phone : out/%.jar
+	@echo push -- to --- phone
+	adb remount
+	adb push $< /system/framework
+	adb shell chmod 644 /system/framework/$*.jar
+	#adb shell stop
+	#adb shell start
+	#adb reboot
 
-local-root-phone:
-	adb shell su -c insecure &
-	adb kill-server
+%.sign-plat : out/%
+#%.sign-plat : /home/gexudong/libra.jbmiui/out/target/product/maguro/system/app/%
+	java -jar $(TOOL_DIR)/signapk.jar $(PORT_ROOT)/build/security/platform.x509.pem $(PORT_ROOT)/build/security/platform.pk8  $< $<.signed
+	@echo push -- to --- phone
+	adb remount
+	adb push $<.signed /system/app/$*
+	adb shell chmod 644 /system/app/$*
