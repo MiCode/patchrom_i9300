@@ -1,4 +1,4 @@
-local-phone-apps = $(private-phone-apps) $(private-lockscreen-apps)
+local-phone-apps = $(private-phone-apps)
 
 private-phone-apps := ApplicationsProvider \
 					  BackupRestoreConfirmation \
