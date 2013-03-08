@@ -8052,6 +8052,9 @@
 
 .method protected stopSelectionActionMode()V
     .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     .line 1740
@@ -8066,6 +8069,8 @@
 
     .line 1744
     :cond_0
+    #invoke-virtual {p0}, Landroid/widget/Editor;->stopTextSelectionMode()V
+
     return-void
 .end method
 

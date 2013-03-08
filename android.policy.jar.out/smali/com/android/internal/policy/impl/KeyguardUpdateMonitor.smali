@@ -189,6 +189,12 @@
     .end annotation
 .end field
 
+.field private mSkipSimStateChange:Z
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
+
 .field private mTelephonyPlmn:Ljava/lang/CharSequence;
 
 .field private mTelephonySpn:Ljava/lang/CharSequence;
@@ -198,90 +204,79 @@
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 7
     .parameter "context"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     const/4 v3, 0x1
 
     const/4 v4, 0x0
 
-    .line 237
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 85
+    iput-boolean v4, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSkipSimStateChange:Z
+
     sget-object v2, Lcom/android/internal/telephony/IccCard$State;->READY:Lcom/android/internal/telephony/IccCard$State;
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSimState:Lcom/android/internal/telephony/IccCard$State;
 
-    .line 94
     iput v4, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mFailedAttempts:I
 
-    .line 95
     iput v4, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mFailedBiometricUnlockAttempts:I
 
-    .line 102
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v2
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mInfoCallbacks:Ljava/util/ArrayList;
 
-    .line 103
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v2
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSimStateCallbacks:Ljava/util/ArrayList;
 
-    .line 104
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v2
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mShortcutWidgetCallbacks:Ljava/util/ArrayList;
 
-    .line 106
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v2
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mPcwInfoCallbacks:Ljava/util/ArrayList;
 
-    .line 107
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v2
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mMissedEventCallbacks:Ljava/util/ArrayList;
 
-    .line 108
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v2
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mGoToUnlockScreenCallbacks:Ljava/util/ArrayList;
 
-    .line 113
     iput-boolean v4, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mBootCompleted:Z
 
-    .line 137
     iput-boolean v4, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mHoveringUI:Z
 
-    .line 160
     const/4 v2, 0x0
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
-    .line 238
     iput-object p1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mContext:Landroid/content/Context;
 
-    .line 240
     new-instance v2, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$1;
 
     invoke-direct {v2, p0}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$1;-><init>(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
 
-    .line 302
     iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1520,12 +1515,21 @@
 .method private handleSimStateChange(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs;)V
     .locals 3
     .parameter "simArgs"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
-    .line 631
+    iget-boolean v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSkipSimStateChange:Z
+
+    if-eqz v2, :cond_1
+
+    :cond_0
+    return-void
+
+    :cond_1
     iget-object v1, p1, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs;->simState:Lcom/android/internal/telephony/IccCard$State;
 
-    .line 638
     .local v1, state:Lcom/android/internal/telephony/IccCard$State;
     sget-object v2, Lcom/android/internal/telephony/IccCard$State;->UNKNOWN:Lcom/android/internal/telephony/IccCard$State;
 
@@ -1562,15 +1566,9 @@
 
     invoke-interface {v2, v1}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimStateCallback;->onSimStateChanged(Lcom/android/internal/telephony/IccCard$State;)V
 
-    .line 641
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
-
-    .line 645
-    .end local v0           #i:I
-    :cond_0
-    return-void
 .end method
 
 .method private handleTimeUpdate()V
@@ -2801,6 +2799,19 @@
     iput-object p1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mPreviousContextMode:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
 
     .line 1102
+    return-void
+.end method
+
+.method public setSkipSimStateChange(Z)V
+    .locals 0
+    .parameter "skip"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iput-boolean p1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSkipSimStateChange:Z
+
     return-void
 .end method
 

@@ -1,0 +1,19 @@
+diff a/android.policy.jar.out/smali/com/android/internal/policy/impl/LockPatternKeyguardView.smali b/android.policy.jar.out/smali/com/android/internal/policy/impl/LockPatternKeyguardView.smali	(rejected hunks)
+@@ -4786,7 +4786,7 @@
+ 
+     if-ne p1, v3, :cond_2
+ 
+-    new-instance v1, Lcom/android/internal/policy/impl/SimPukUnlockScreen;
++    new-instance v1, Lcom/android/internal/policy/impl/MiuiSimPUKUnlockScreen;
+ 
+     .end local v1           #unlockView:Landroid/view/View;
+     iget-object v2, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mContext:Landroid/content/Context;
+@@ -4809,7 +4809,7 @@
+ 
+     if-ne p1, v3, :cond_3
+ 
+-    new-instance v1, Lcom/android/internal/policy/impl/SimUnlockScreen;
++    new-instance v1, Lcom/android/internal/policy/impl/MiuiSimPINUnlockScreen;
+ 
+     .end local v1           #unlockView:Landroid/view/View;
+     iget-object v2, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mContext:Landroid/content/Context;

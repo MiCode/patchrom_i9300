@@ -378,16 +378,13 @@
     .parameter "pm"
 
     .prologue
-    .line 143
     const/4 v0, 0x0
 
-    .line 145
     .local v0, dr:Landroid/graphics/drawable/Drawable;
-    iget v1, p0, Landroid/content/pm/PackageItemInfo;->icon:I
+    #iget v1, p0, Landroid/content/pm/PackageItemInfo;->icon:I
 
-    if-eqz v1, :cond_2
+    #if-eqz v1, :cond_2
 
-    .line 146
     iget-object v1, p0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     if-eqz v1, :cond_0

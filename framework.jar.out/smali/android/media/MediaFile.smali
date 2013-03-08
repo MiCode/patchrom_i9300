@@ -4,6 +4,10 @@
 
 
 # annotations
+.annotation build Landroid/annotation/MiuiHook;
+    value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/media/MediaFile$MediaFileType;,
@@ -994,43 +998,40 @@
 
     invoke-static {v0, v1, v2}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 371
     const-string v0, "MPG"
 
     const/16 v1, 0xc8
 
-    const-string/jumbo v2, "video/mp2p"
+    const-string v2, "video/mp2p"
 
     invoke-static {v0, v1, v2}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 372
+    invoke-static {}, Landroid/media/MediaFile$Injector;->addFLV()V
+
     const-string v0, "MPEG"
 
     const/16 v1, 0xc8
 
-    const-string/jumbo v2, "video/mp2p"
+    const-string v2, "video/mp2p"
 
     invoke-static {v0, v1, v2}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 374
     const-string v0, "DIVX"
 
     const/16 v1, 0xca
 
-    const-string/jumbo v2, "video/divx"
+    const-string v2, "video/divx"
 
     invoke-static {v0, v1, v2}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 375
     const-string v0, "FLV"
 
     const/16 v1, 0xcc
 
-    const-string/jumbo v2, "video/flv"
+    const-string v2, "video/flv"
 
     invoke-static {v0, v1, v2}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 376
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v0

@@ -3130,6 +3130,20 @@
     throw v1
 .end method
 
+.method getTheme()Landroid/content/res/Resources$Theme;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    new-instance v0, Landroid/content/res/Resources$Theme;
+
+    invoke-direct {v0, p0}, Landroid/content/res/Resources$Theme;-><init>(Landroid/content/res/Resources;)V
+
+    return-object v0
+.end method
+
 .method public getValue(ILandroid/util/TypedValue;Z)V
     .locals 4
     .parameter "id"
@@ -4760,17 +4774,16 @@
     throw v7
 .end method
 
-.method public newTheme()Landroid/content/res/Resources$Theme;
+.method public final newTheme()Landroid/content/res/Resources$Theme;
     .locals 1
     .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_ACCESS:Landroid/annotation/MiuiHook$MiuiHookType;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
     .end annotation
 
     .prologue
-    .line 1376
-    new-instance v0, Landroid/content/res/Resources$Theme;
+    invoke-virtual {p0}, Landroid/content/res/Resources;->getTheme()Landroid/content/res/Resources$Theme;
 
-    invoke-direct {v0, p0}, Landroid/content/res/Resources$Theme;-><init>(Landroid/content/res/Resources;)V
+    move-result-object v0
 
     return-object v0
 .end method
@@ -4808,14 +4821,15 @@
 
     invoke-virtual {v3, v4, p2, v5, v6}, Landroid/content/res/AssetManager;->retrieveAttributes(I[I[I[I)Z
 
-    .line 1403
     iput-object p2, v0, Landroid/content/res/TypedArray;->mRsrcs:[I
 
-    .line 1404
     iput-object v2, v0, Landroid/content/res/TypedArray;->mXml:Landroid/content/res/XmlBlock$Parser;
 
-    .line 1406
-    return-object v0
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->loadOverlayTypedArray(Landroid/content/res/TypedArray;)Landroid/content/res/TypedArray;
+
+    move-result-object v3
+
+    return-object v3
 .end method
 
 .method public obtainTypedArray(I)Landroid/content/res/TypedArray;
@@ -4888,13 +4902,15 @@
 
     iput v2, v0, Landroid/content/res/TypedArray;->mLength:I
 
-    .line 509
     iget-object v2, v0, Landroid/content/res/TypedArray;->mIndices:[I
 
     aput v4, v2, v4
 
-    .line 511
-    return-object v0
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->loadOverlayTypedArray(Landroid/content/res/TypedArray;)Landroid/content/res/TypedArray;
+
+    move-result-object v2
+
+    return-object v2
 .end method
 
 .method public openRawResource(I)Ljava/io/InputStream;

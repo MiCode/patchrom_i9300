@@ -1,0 +1,19 @@
+diff a/android.policy.jar.out/smali/com/android/internal/policy/impl/KeyguardViewMediator.smali b/android.policy.jar.out/smali/com/android/internal/policy/impl/KeyguardViewMediator.smali	(rejected hunks)
+@@ -4595,3 +4598,17 @@
+ 
+     return-void
+ .end method
++
++.method suppressNextLockSound()V
++    .locals 1
++    .annotation build Landroid/annotation/MiuiHook;
++        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
++    .end annotation
++
++    .prologue
++    const/4 v0, 0x1
++
++    iput-boolean v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mSuppressNextLockSound:Z
++
++    return-void
++.end method

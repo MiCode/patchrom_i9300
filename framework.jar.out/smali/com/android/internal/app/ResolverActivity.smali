@@ -420,6 +420,10 @@
     .parameter "initialIntents"
     .parameter
     .parameter "alwaysUseOption"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1831,6 +1835,19 @@
     invoke-virtual {v1, v2}, Landroid/widget/GridView;->setNumColumns(I)V
 
     .line 228
+    return-void
+.end method
+
+.method setAlwaysUseOption(Z)V
+    .locals 0
+    .parameter "alwaysUseOption"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iput-boolean p1, p0, Lcom/android/internal/app/ResolverActivity;->mAlwaysUseOption:Z
+
     return-void
 .end method
 
