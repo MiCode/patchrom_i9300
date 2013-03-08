@@ -442,7 +442,7 @@
     .prologue
     .line 127
     .local p5, rList:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    const v1, 0x103031a
+    const v1, 0x60d003e
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/ResolverActivity;->setTheme(I)V
 
@@ -481,13 +481,7 @@
     iput-boolean v0, p0, Lcom/android/internal/app/ResolverActivity;->mAlwaysUseOption:Z
 
     .line 137
-    invoke-virtual {p0}, Lcom/android/internal/app/ResolverActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x10e0034
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/app/ResolverActivity$Injector;->getMaxColumns(Lcom/android/internal/app/ResolverActivity;)I
 
     move-result v1
 
@@ -547,7 +541,7 @@
     if-lt v1, v2, :cond_3
 
     .line 149
-    const v1, 0x103031a
+    const v1, 0x60d003e
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/ResolverActivity;->setTheme(I)V
 
@@ -648,6 +642,10 @@
     .line 223
     :cond_1
     :goto_3
+    move-object/from16 v0, p0
+    move/from16 v2, p6
+    invoke-static {v0, v2}, Lcom/android/internal/app/ResolverActivity$Injector;->initialize(Lcom/android/internal/app/ResolverActivity;Z)V
+
     return-void
 
     .line 132
@@ -678,7 +676,7 @@
 
     .line 151
     :cond_3
-    const v1, 0x1030319
+    const v1, 0x60d003e
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/ResolverActivity;->setTheme(I)V
 
@@ -801,6 +799,10 @@
 
     .line 208
     if-eqz p6, :cond_1
+
+    invoke-static/range {p0 .. p0}, Lmiui/util/UiUtils;->isV5Ui(Landroid/content/Context;)Z
+    move-result v1
+    if-nez v1, :cond_1
 
     .line 209
     const v1, 0x1020294
