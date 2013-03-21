@@ -632,6 +632,8 @@
     .prologue
     .line 146
     :try_start_0
+    invoke-direct {p0, p1}, Landroid/content/ClipboardManager;->addClipDataExtra(Landroid/content/ClipData;)V
+
     invoke-static {}, Landroid/content/ClipboardManager;->getService()Landroid/content/IClipboard;
 
     move-result-object v4
