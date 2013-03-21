@@ -32,6 +32,7 @@ private-phone-apps := ApplicationsProvider \
 					  Preconfig \
 					  PreloadInstaller \
 					  SamsungTTS \
+					  SamsungIME \
 					  SecMediaProvider \
 					  SecHTMLViewer \
 					  SecLiveWallpapersPicker \
