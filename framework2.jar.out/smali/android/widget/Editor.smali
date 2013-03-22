@@ -298,7 +298,7 @@
 
     invoke-direct {v1, p0, v2}, Landroid/widget/Editor$1;-><init>(Landroid/widget/Editor;Landroid/content/Context;)V
 
-    iput-object v1, p0, Landroid/widget/Editor;->mOrientationListener:Landroid/view/OrientationEventListener;
+    #iput-object v1, p0, Landroid/widget/Editor;->mOrientationListener:Landroid/view/OrientationEventListener;
 
     .line 272
     return-void

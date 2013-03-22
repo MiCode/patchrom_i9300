@@ -277,7 +277,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    #if-eqz v0, :cond_0
 
     .line 650
     iget v0, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->debugFlags:I
