@@ -7569,17 +7569,14 @@
     :goto_0
     iget-object v9, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBar:Landroid/view/WindowManagerPolicy$WindowState;
 
-    if-eqz v9, :cond_miui_0
+    if-eqz v9, :cond_0
 
     .line 4381
     iget-boolean v9, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mForceStatusBar:Z
 
     if-eqz v9, :cond_8
 
-    .line 4383
-    iget-object v9, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBar:Landroid/view/WindowManagerPolicy$WindowState;
-
-    invoke-interface {v9, v8}, Landroid/view/WindowManagerPolicy$WindowState;->showLw(Z)Z
+    invoke-static {p0, v8}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->statusBarShowingOrHideing(Lcom/android/internal/policy/impl/PhoneWindowManager;Z)Z
 
     move-result v9
 
@@ -7589,14 +7586,9 @@
 
     .line 4445
     :cond_0
-    :goto_miui_0
-    invoke-virtual {p0, v8}, Lcom/android/internal/policy/impl/PhoneWindowManager;->notifyStatusBarShowingOrHiding(Z)V
-    
-    :cond_miui_1
     :goto_1
     invoke-static {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->checkStatusBarVisibility(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
 
-    :cond_miui_0
     iput-boolean v5, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mTopIsFullscreen:Z
 
     .line 4449
@@ -7797,10 +7789,7 @@
 
     if-eqz v9, :cond_d
 
-    .line 4405
-    iget-object v9, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBar:Landroid/view/WindowManagerPolicy$WindowState;
-
-    invoke-interface {v9, v8}, Landroid/view/WindowManagerPolicy$WindowState;->showLw(Z)Z
+    invoke-static {p0, v8}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->statusBarShowingOrHideing(Lcom/android/internal/policy/impl/PhoneWindowManager;Z)Z
 
     move-result v9
 
@@ -7808,7 +7797,7 @@
 
     or-int/lit8 v0, v0, 0x1
 
-    goto/16 :goto_miui_0
+    goto/16 :goto_1
 
     :cond_b
     move v5, v7
@@ -7824,13 +7813,11 @@
 
     .line 4409
     :cond_d
-    iget-object v9, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBar:Landroid/view/WindowManagerPolicy$WindowState;
-
-    invoke-interface {v9, v8}, Landroid/view/WindowManagerPolicy$WindowState;->hideLw(Z)Z
+    invoke-static {p0, v7}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->statusBarShowingOrHideing(Lcom/android/internal/policy/impl/PhoneWindowManager;Z)Z
 
     move-result v9
 
-    if-eqz v9, :cond_miui_1
+    if-eqz v9, :cond_0
 
     .line 4410
     or-int/lit8 v0, v0, 0x1
@@ -7855,18 +7842,13 @@
 
     invoke-virtual {v9, v10}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    invoke-virtual {p0, v7}, Lcom/android/internal/policy/impl/PhoneWindowManager;->notifyStatusBarShowingOrHiding(Z)V
-
     goto/16 :goto_1
 
     .line 4438
     :cond_f
     iput-boolean v7, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBarOpen:Z
 
-    .line 4440
-    iget-object v9, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBar:Landroid/view/WindowManagerPolicy$WindowState;
-
-    invoke-interface {v9, v8}, Landroid/view/WindowManagerPolicy$WindowState;->showLw(Z)Z
+    invoke-static {p0, v8}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->statusBarShowingOrHideing(Lcom/android/internal/policy/impl/PhoneWindowManager;Z)Z
 
     move-result v9
 
@@ -7874,7 +7856,7 @@
 
     or-int/lit8 v0, v0, 0x1
 
-    goto/16 :goto_miui_0
+    goto/16 :goto_1
 
     .line 4464
     :cond_10
@@ -12285,7 +12267,7 @@
 
     invoke-direct/range {v41 .. v41}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v42, "Dropping shortcut key combination because the activity to which it is registered was not found: SEARCH"
+    const-string v42, "Dropping shortcut key combination because the activity to which it is registered was not found: SEARCH+"
 
     invoke-virtual/range {v41 .. v42}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -12320,7 +12302,7 @@
 
     invoke-direct/range {v41 .. v41}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v42, "Dropping unregistered shortcut key combination: SEARCH"
+    const-string v42, "Dropping unregistered shortcut key combination: SEARCH+"
 
     invoke-virtual/range {v41 .. v42}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -12441,7 +12423,7 @@
 
     invoke-direct/range {v41 .. v41}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v42, "Dropping shortcut key combination because the activity to which it is registered was not found: META"
+    const-string v42, "Dropping shortcut key combination because the activity to which it is registered was not found: META+"
 
     invoke-virtual/range {v41 .. v42}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -22245,7 +22227,12 @@
     :cond_0
     sparse-switch p1, :sswitch_data_0
 
-    .line 2332
+    invoke-static {p1, v0}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->getMiuiViewLayer(II)I
+
+    move-result v0
+
+    goto :goto_0
+
     const-string v1, "WindowManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -22267,10 +22254,6 @@
     move-result-object v2
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {p1, v0}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->getMiuiViewLayer(II)I
-
-    move-result v0
 
     goto :goto_0
 
@@ -22526,53 +22509,4 @@
     move-exception v1
 
     goto :goto_0
-.end method
-
-.method notifyStatusBarShowingOrHiding(Z)V
-    .locals 5
-    .parameter "showing"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-
-    .prologue
-    :try_start_0
-    invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->getStatusBarService()Lcom/android/internal/statusbar/IStatusBarService;
-
-    move-result-object v1
-
-    .local v1, statusbar:Lcom/android/internal/statusbar/IStatusBarService;
-    if-eqz p1, :cond_0
-
-    const/4 v2, 0x0
-
-    :goto_0
-    iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBarDisableToken:Landroid/os/IBinder;
-
-    const-string v4, "system"
-
-    invoke-interface {v1, v2, v3, v4}, Lcom/android/internal/statusbar/IStatusBarService;->disable(ILandroid/os/IBinder;Ljava/lang/String;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .end local v1           #statusbar:Lcom/android/internal/statusbar/IStatusBarService;
-    :goto_1
-    return-void
-
-    .restart local v1       #statusbar:Lcom/android/internal/statusbar/IStatusBarService;
-    :cond_0
-    const/high16 v2, 0x400
-
-    goto :goto_0
-
-    .end local v1           #statusbar:Lcom/android/internal/statusbar/IStatusBarService;
-    :catch_0
-    move-exception v0
-
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v2, 0x0
-
-    iput-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBarService:Lcom/android/internal/statusbar/IStatusBarService;
-
-    goto :goto_1
 .end method
