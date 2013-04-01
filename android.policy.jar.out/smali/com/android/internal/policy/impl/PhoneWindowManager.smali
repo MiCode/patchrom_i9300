@@ -661,7 +661,9 @@
 
 .field mUserRotationMode:I
 
-.field mVibrator:Landroid/os/SystemVibrator;
+.field mVibrator:Landroid/os/Vibrator;
+
+.field mSystemVibrator:Landroid/os/SystemVibrator;
 
 .field mVirtualKeyVibePattern:[J
 
@@ -9634,9 +9636,13 @@
 
     move-result-object v7
 
+    check-cast v7, Landroid/os/Vibrator;
+
+    iput-object v7, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVibrator:Landroid/os/Vibrator;
+
     check-cast v7, Landroid/os/SystemVibrator;
 
-    iput-object v7, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVibrator:Landroid/os/SystemVibrator;
+    iput-object v7, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mSystemVibrator:Landroid/os/SystemVibrator;
 
     .line 1768
     iget-object v7, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
@@ -17623,9 +17629,9 @@
     .line 4599
     :cond_0
     :goto_1
-    iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVibrator:Landroid/os/SystemVibrator;
+    iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mSystemVibrator:Landroid/os/SystemVibrator;
 
-    iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVibrator:Landroid/os/SystemVibrator;
+    iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mSystemVibrator:Landroid/os/SystemVibrator;
 
     invoke-virtual {v5}, Landroid/os/SystemVibrator;->getMaxMagnitude()I
 
@@ -17756,9 +17762,9 @@
     .line 4613
     :cond_3
     :goto_4
-    iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVibrator:Landroid/os/SystemVibrator;
+    iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mSystemVibrator:Landroid/os/SystemVibrator;
 
-    iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVibrator:Landroid/os/SystemVibrator;
+    iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mSystemVibrator:Landroid/os/SystemVibrator;
 
     invoke-virtual {v5}, Landroid/os/SystemVibrator;->getMaxMagnitude()I
 
@@ -17966,48 +17972,40 @@
     :cond_2
     move v2, v4
 
-    .line 6425
     goto :goto_0
 
     .restart local v2       #hapticsDisabled:Z
     :cond_3
     move v0, v4
 
-    .line 6426
     goto :goto_1
 
     .restart local v0       #PowerSavingModeEnabled:Z
     :cond_4
     move v1, v4
 
-    .line 6427
     goto :goto_2
 
-    .line 6465
     .restart local v1       #TurnOffHapticFeedbackEnabled:Z
     :cond_5
     sparse-switch p2, :sswitch_data_0
 
-    .line 6475
     if-lt p2, v7, :cond_1
 
     const/16 v5, 0x18
 
     if-gt p2, v5, :cond_1
 
-    .line 6477
-    iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVibrator:Landroid/os/SystemVibrator;
+    iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mSystemVibrator:Landroid/os/SystemVibrator;
 
     invoke-virtual {v4, p2}, Landroid/os/SystemVibrator;->vibrateImmVibe(I)V
 
     move v4, v3
 
-    .line 6478
     goto :goto_3
 
-    .line 6471
     :sswitch_0
-    iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVibrator:Landroid/os/SystemVibrator;
+    iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mSystemVibrator:Landroid/os/SystemVibrator;
 
     invoke-virtual {v4, v7}, Landroid/os/SystemVibrator;->vibrateImmVibe(I)V
 
