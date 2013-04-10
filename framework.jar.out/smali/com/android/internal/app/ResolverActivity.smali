@@ -642,7 +642,7 @@
     .line 223
     :cond_1
     :goto_3
-    iget-object v0, v10, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
+    iget-object v0, v9, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
     if-eqz v0, :cond_miui_00
 
