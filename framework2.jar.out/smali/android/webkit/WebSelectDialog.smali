@@ -466,9 +466,9 @@
 
     .line 202
     .local v2, lp:Landroid/view/WindowManager$LayoutParams;
-    const/16 v4, 0xbb6
+    #const/16 v4, 0xbb6
 
-    iput v4, v2, Landroid/view/WindowManager$LayoutParams;->type:I
+    #iput v4, v2, Landroid/view/WindowManager$LayoutParams;->type:I
 
     .line 204
     iput-object v0, p0, Landroid/webkit/WebSelectDialog;->mNextButton:Landroid/view/View;
