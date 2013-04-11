@@ -137,6 +137,8 @@
 
 .field mAdapterHasStableIds:Z
 
+.field mBottomLineDrawable:Landroid/graphics/drawable/Drawable;
+
 .field private mCacheColorHint:I
 
 .field mCachingActive:Z
@@ -345,7 +347,6 @@
 .field private mSmoothScrollbarEnabled:Z
 
 .field mSpringOverScrollEnable:Z
-
 
 .field mStackFromBottom:Z
 
