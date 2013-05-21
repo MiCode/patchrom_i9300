@@ -1764,11 +1764,6 @@
     .line 220
     .local v6, resourceId:I
     :goto_2
-
-    invoke-static {v6}, Lcom/android/server/pm/ShutdownThread$Injector;->getResourceId(I)I
-
-    move-result v6
-
     const-string v8, "ShutdownThread"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -1815,10 +1810,6 @@
     const v9, 0x1010355
 
     invoke-virtual {v8, v9}, Landroid/app/AlertDialog$Builder;->setIconAttribute(I)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v6}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v8
 
@@ -1898,13 +1889,13 @@
 
     invoke-virtual {v8, v9}, Landroid/view/Window;->setType(I)V
 
-    .line 251
     :goto_4
     invoke-virtual {v2}, Landroid/app/AlertDialog;->show()V
 
+    invoke-static {v2}, Lcom/android/server/pm/ShutdownThread$Injector;->setDialogPositiveButtonText(Landroid/app/AlertDialog;)V
+
     goto/16 :goto_0
 
-    .line 200
     .end local v0           #closer:Lcom/android/server/pm/ShutdownThread$CloseDialogReceiver;
     .end local v1           #context:Landroid/content/Context;
     .end local v2           #dialog:Landroid/app/AlertDialog;
